@@ -45,10 +45,11 @@
   <div class="mt-8">
     <h2>这本手册怎么用</h2>
     <div class="card">
-      <p>每个模式由三部分组成：<strong>什么时候用</strong>、<strong>模板</strong>（深色代码块，方括号处替换成你的内容）、<strong>为什么有效</strong>。遇到对应场景时翻到那一页，把模板复制进 ChatGPT / Claude / 豆包，替换方括号即可。</p>
+      <p>每个模式由三部分组成：<strong>什么时候用</strong>、<strong>模板</strong>（深色代码块，方括号替换成你的内容）、<strong>为什么有效</strong>。复制进 ChatGPT / Claude / 豆包就能用。</p>
+      <p class="mt-2">这 12 个模式背后是同一个官方框架 —— 一条好 prompt 由四个要素组合（匠人 Prompt Master 公开课口径）：<strong>Instruction</strong>（让它干什么，动词开头）、<strong>Context</strong>（背景：角色 / 业务 / 约束）、<strong>Input Data</strong>（要处理的内容，用 """ 或标签包住）、<strong>Output Indicator</strong>（输出长什么样：格式 / 字段 / 长度）。每个模式其实就是这四件的不同组合。</p>
     </div>
     <div class="callout mt-4">
-      <strong>一个总原则：</strong>AI 输出的质量上限由你提供的上下文决定。两个实测数字先记住：给 3 个好例子比给 10 个烂例子效果好；加一句"只基于我给的资料回答"，瞎编率能降六成以上（匠人公开课实测）。12 个模式本质上都在做同一件事 —— 把你脑子里"显而易见"但 AI 不知道的信息（受众、目的、约束、现状）显式写出来。
+      <strong>一个总原则：</strong>AI 输出的质量上限由你提供的上下文决定。两个实测数字先记住：Few-shot 给 3 个好例子比给 10 个烂例子效果好；加一句"只基于我给的资料回答"（grounding），瞎编率能降六成以上（匠人公开课实测）。12 个模式本质上都在做同一件事 —— 把你脑子里"显而易见"但 AI 不知道的信息（受众、目的、约束、现状）显式写出来。
     </div>
   </div>
   <div class="page-footer">
@@ -72,21 +73,21 @@
   </div>
 
   <div class="card">
-    <div class="card-title"><span class="num">2</span><h3>先要大纲，再要正文</h3></div>
+    <div class="card-title"><span class="num">2</span><h3>先要大纲，再要正文（Prompt Chaining）</h3></div>
     <p class="caption">用于：超过 500 字的任何内容</p>
     <pre>我要写[一篇讲澳洲 IT 转行的公众号文章]。先不要写正文，
 先给我 3 个不同切入角度的大纲，每个大纲列出小标题和每段要点。
 我选一个之后你再展开。</pre>
-    <p class="mt-2"><strong>为什么有效：</strong>直接要正文，AI 会一次性赌一个方向，错了就全部重来。先选大纲，把最贵的决策（结构）放在最便宜的阶段（要点列表）完成。</p>
+    <p class="mt-2"><strong>为什么有效：</strong>直接要正文，AI 会一次性赌一个方向，错了就全部重来。先选大纲，把最贵的决策（结构）放在最便宜的阶段完成 —— 这是官方教程里 Prompt Chaining（链式提问）的最简用法。</p>
   </div>
 
   <div class="card">
-    <div class="card-title"><span class="num">3</span><h3>给样本，让它模仿</h3></div>
+    <div class="card-title"><span class="num">3</span><h3>Few-shot：给样本，让它模仿</h3></div>
     <p class="caption">用于：需要保持你个人风格的内容</p>
     <pre>下面是我过去写的两段文字：[粘贴样本 A]、[粘贴样本 B]。
 总结我的写作风格（句长、用词、语气），然后用这个风格
 写[新内容的主题]。不要用我样本里没出现过的感叹号和成语。</pre>
-    <p class="mt-2"><strong>为什么有效：</strong>"写得自然点"是无效指令，AI 不知道你的"自然"长什么样。给 2 段真实样本比 20 条风格形容词都准。</p>
+    <p class="mt-2"><strong>为什么有效：</strong>"写得自然点"是无效指令，AI 不知道你的"自然"长什么样。给 2 段真实样本比 20 条风格形容词都准 —— 这招叫 Few-shot，是 prompt 工程里最有性价比的一招。</p>
   </div>
 
   <div class="page-footer">
@@ -184,7 +185,7 @@
   <h2>进阶 3 式</h2>
 
   <div class="card">
-    <div class="card-title"><span class="num">10</span><h3>结构化输出：让它吐表格能直接用</h3></div>
+    <div class="card-title"><span class="num">10</span><h3>Structured Output：吐 JSON 直接进表格</h3></div>
     <p class="caption">用于：结果要进 Excel、程序、数据库的场景</p>
     <pre>从下面内容里提取[公司名、金额、日期]，按这个 JSON 格式返回，
 不要输出任何其他文字：
@@ -195,7 +196,7 @@
   </div>
 
   <div class="card">
-    <div class="card-title"><span class="num">11</span><h3>喂资料 + 防瞎编</h3></div>
+    <div class="card-title"><span class="num">11</span><h3>Grounding：喂资料 + 防瞎编</h3></div>
     <p class="caption">用于：问政策、合同、报告 —— 任何"答错有代价"的事</p>
     <pre>下面是资料：
 &lt;资料&gt;[粘贴文档/网页内容]&lt;/资料&gt;
@@ -206,13 +207,13 @@
   </div>
 
   <div class="card">
-    <div class="card-title"><span class="num">12</span><h3>让它当项目经理：先计划后动手</h3></div>
+    <div class="card-title"><span class="num">12</span><h3>Plan-then-Execute：先计划后动手</h3></div>
     <p class="caption">用于：任何超过一步的大活（策划案、行程、学习计划、报告）</p>
     <pre>我要完成[目标：比如给新产品写一份发布策划]。
 先别动手。列出：① 你打算分几步做 ② 每步产出什么
 ③ 需要我提供什么信息。
 我确认计划后，我们从第 1 步开始，一步一步来。</pre>
-    <p class="mt-2"><strong>为什么有效：</strong>大任务一把梭，错了全重来。先要计划，错误在"计划"这个最便宜的阶段被发现 —— 这其实就是 AI Agent 工作流的雏形，你在手动当它的调度器。</p>
+    <p class="mt-2"><strong>为什么有效：</strong>大任务一把梭，错了全重来。先要计划，错误在"计划"这个最便宜的阶段被发现 —— 这其实就是 AI Agent 工作流（plan-then-execute pattern）的雏形，你在手动当它的调度器。</p>
   </div>
 
   <div class="page-footer">
@@ -237,7 +238,8 @@
     <tr><td>一个对话聊到天荒地老，越聊越歪</td><td>上下文堆太长它会记混 —— 总结有效结论，开个新对话带过去</td></tr>
   </table>
 
-  <div class="callout mt-4"><strong>一个自查习惯：</strong>发送之前看一眼你的问题 —— 如果把它发给一个不了解你情况的新同事，对方能直接干活吗？不能的话，AI 也不能。缺什么补什么，就这么简单。</div>
+  <div class="callout mt-4"><strong>两个官方心法收尾：</strong>① 自查习惯 —— 发送前想一下：把这条发给不了解你情况的新同事，对方能直接干活吗？不能的话 AI 也不能。② Do vs Don't —— 少说"不要做什么"，多说"应该做什么"（"不要问个人信息" ❌ → "无法推荐时直接回复 Sorry, I can't..." ✅），给模型的指令越正向越稳。</div>
+  <p class="caption mt-4">想系统学？匠人 Prompt Master 公开课（jiangren.com.au/learn/prompt-master）：四要素框架、17 个 techniques（Zero-shot / Few-shot / CoT / Self-Consistency / ToT / ReAct / Prompt Chaining / RAG…）、prompt library 按场景查、各家 system prompt 逐家分析，全部免费。</p>
 
   <div class="contact-bar" style="margin-top: 10mm;">
     <img class="qr" src="assets/contact/qr-xiaohua.png" alt="匠人学院小助手微信" />
