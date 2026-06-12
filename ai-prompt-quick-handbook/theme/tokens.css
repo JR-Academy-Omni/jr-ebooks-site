@@ -1,0 +1,167 @@
+/* =====================================================
+   JR Academy / 匠人学院 — Design Tokens (Master Brand · v4)
+   Tagline: 学 AI 来匠人 / STUDY AI AT JR ACADEMY
+   Sub: 一起成为 AI 时代的匠人
+   Mascot: 牛小匠 · 红 JR 连帽衫 + 墨镜
+   Grid: 4pt · 中文 思源黑体 · 英文 Inter
+   Source of truth: tokens.json + assets/spec-sheet-v4.png
+   ===================================================== */
+
+:root {
+  /* —— Brand · Primary （主黑 v4：更深 #0D0F12）—— */
+  --jr-black:    #0D0F12;  /* 主色 Dark — 主 CTA / Logo / 主标识 */
+
+  /* —— Brand · Accent (4 档 · v4 去掉了 Blue)—— */
+  --jr-red:      #FF4D4F;  /* 强调色 Red — Danger / 强调 */
+  --jr-red-aa:   #D92D20;  /* 可访问红底 — 白色小字 AA */
+  --jr-red-text: #B42318;  /* 可访问红字 — 浅红/暖白底 AA */
+  --jr-purple:   #7B61FF;  /* 紫色 Purple — AI / 学习进度 */
+  --jr-yellow:   #FFC84D;  /* 黄色 Yellow — 警告 / 成就 */
+  --jr-green:    #22C55E;  /* 绿色 Green — Success / 完成 */
+
+  /* —— Legacy alias（让旧代码不炸）—— */
+  --jr-coral:    var(--jr-red);
+  --jr-coral-deep: #E63946;
+  --jr-ink:      var(--jr-black);
+  --jr-mint:     var(--jr-green);
+  --jr-blue:     var(--jr-purple);   /* 蓝色 v4 去掉，旧代码 fallback 到紫 */
+
+  /* —— Neutral (v4 · 5 档命名)—— */
+  --jr-neutral-900: #1F2937;  /* 中性 900 — 主文字 */
+  --jr-neutral-600: #6B7280;  /* 中性 600 — 次正文 */
+  --jr-neutral-300: #D1D5DB;  /* 中性 300 — 边框 */
+  --jr-neutral-100: #F3F4F6;  /* 中性 100 — 浅灰 bg */
+  --jr-neutral-50:  #FAFAFA;  /* 中性 50  — 页面 bg */
+
+  /* —— Surface (Brand Board v4.1 · AI 必须使用) —— */
+  --jr-surface-canvas: #FFFCF6; /* 页面暖白底 */
+  --jr-surface-panel:  #FFFDF8; /* 卡片 / 面板暖白 */
+  --jr-surface-panel-alt: #FFFBF1;
+  --jr-border-warm:   #F3D8B5; /* 浅橙细边 */
+  --jr-border-warm-strong: #EFC98F;
+  --jr-divider-warm:  #F0E2CF;
+
+  /* —— Legacy alias（保留旧 var name） —— */
+  --jr-ink-1:    var(--jr-neutral-900);
+  --jr-ink-2:    var(--jr-neutral-600);
+  --jr-slate:    var(--jr-neutral-600);
+  --jr-mist:     var(--jr-neutral-300);
+  --jr-fog:      var(--jr-neutral-300);
+  --jr-canvas:   var(--jr-neutral-50);
+  --jr-canvas-2: var(--jr-neutral-100);
+  --jr-white:    #FFFFFF;
+
+  /* —— Wash （浅色背景，chip / alert）—— */
+  --jr-wash-red:    #FEE2E2;
+  --jr-wash-purple: #E0E7FF;
+  --jr-wash-yellow: #FEF3C7;
+  --jr-wash-green:  #D1FAE5;
+  --jr-wash-blue:   #DBEAFE;
+  --jr-wash-gray:   #F3F4F6;
+  --jr-wash-coral:  var(--jr-wash-red);  /* legacy alias */
+  --jr-wash-mint:   var(--jr-wash-green); /* legacy alias */
+
+  /* —— Semantic —— */
+  --jr-success: var(--jr-green);
+  --jr-warning: var(--jr-yellow);
+  --jr-danger:  var(--jr-red);
+  --jr-info:    var(--jr-blue);
+
+  /* —— Radius (9 档) —— */
+  --jr-radius-0:    0;
+  --jr-radius-xs:   4px;
+  --jr-radius-sm:   8px;     /* Button / Input / Product Card 默认 */
+  --jr-radius-md:   12px;    /* 少量大输入框 / 紧凑面板 */
+  --jr-radius-lg:   16px;    /* Brand Board 大面板默认 */
+  --jr-radius-xl:   20px;
+  --jr-radius-2xl:  24px;    /* Hero / Modal */
+  --jr-radius-3xl:  32px;
+  --jr-radius-4xl:  40px;
+  --jr-radius-full: 9999px;
+
+  /* —— Spacing (4pt · 13 档) —— */
+  --jr-space-1:  4px;
+  --jr-space-2:  8px;
+  --jr-space-3:  12px;
+  --jr-space-4:  16px;
+  --jr-space-6:  24px;
+  --jr-space-8:  32px;
+  --jr-space-10: 40px;
+  --jr-space-12: 48px;
+  --jr-space-14: 56px;
+  --jr-space-16: 64px;
+  --jr-space-20: 80px;
+  --jr-space-24: 96px;
+  --jr-space-32: 128px;
+
+  /* —— Layout 容器宽度 —— */
+  --jr-w-mobile:  375px;
+  --jr-w-tablet:  768px;
+  --jr-w-desktop: 1200px;
+  --jr-w-wide:    1440px;
+
+  /* —— Shadow —— */
+  --jr-shadow-sm:     0 1px 2px rgba(17,17,17,0.04);
+  --jr-shadow-md:     0 4px 12px rgba(17,17,17,0.08);
+  --jr-shadow-lg:     0 12px 28px rgba(17,17,17,0.12);
+  --jr-shadow-panel:  0 10px 28px rgba(13,15,18,0.06);
+  --jr-glow-black:    0 8px 20px rgba(17,17,17,0.32);
+  --jr-glow-red:      0 8px 20px rgba(239,68,68,0.28);
+  --jr-glow-purple:   0 8px 20px rgba(99,102,241,0.30);
+
+  /* —— Component shortcuts (Brand Board v4.1) —— */
+  --jr-button-primary-bg: var(--jr-black);
+  --jr-button-primary-text: #FFFFFF;
+  --jr-button-primary-hover: #24272D;
+  --jr-chip-ai-bg: #F1EEFF;
+  --jr-chip-ai-border: #D6CEFF;
+  --jr-chip-ai-text: #3F2BA8;
+  --jr-focus-ring: rgba(123,97,255,0.22);
+
+  /* —— Icon system (Brand Board v4.2) —— */
+  --jr-icon-size:    24px;            /* lucide 默认 viewBox 0 0 24 24 */
+  --jr-icon-size-sm: 18px;            /* 小尺寸 — 用于 pill/tag */
+  --jr-icon-size-lg: 32px;            /* 大尺寸 — 用于 hero/feature */
+  --jr-icon-stroke:  2;               /* SVG stroke-width 单位 */
+  --jr-icon-color:   currentColor;    /* 继承父级文字色 */
+  --jr-icon-radius:  4px;             /* 方形 icon 内圆角 */
+
+  /* —— Typography（v4：思源黑体 + Inter）—— */
+  --jr-font-sans: 'Inter', 'Source Han Sans SC', '思源黑体',
+                  'PingFang SC', 'Microsoft YaHei',
+                  system-ui, -apple-system, sans-serif;
+  --jr-font-mono: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace;
+
+  --jr-fs-h1:      32px;   /* 标题 1 — H1 32px Bold（v4：36→32） */
+  --jr-fs-h2:      24px;   /* 标题 2 — H2 24px Bold */
+  --jr-fs-h3:      18px;   /* 标题 3 — H3 18px Semibold（v4：20→18） */
+  --jr-fs-body-1:  14px;   /* 正文 — v4 默认（16→14） */
+  --jr-fs-body-2:  14px;   /* alias */
+  --jr-fs-caption: 12px;   /* 辅助 */
+  --jr-fs-btn-lg:  16px;
+  --jr-fs-btn-md:  14px;
+  --jr-fs-btn-text:14px;
+
+  --jr-fw-regular:  400;
+  --jr-fw-medium:   500;
+  --jr-fw-semibold: 600;
+  --jr-fw-bold:     700;
+
+  --jr-lh-heading: 1.3;
+  --jr-lh-body:    1.6;
+
+  /* —— Motion —— */
+  --jr-dur-fast: 120ms;
+  --jr-dur-base: 200ms;
+  --jr-dur-slow: 320ms;
+  --jr-ease-standard: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --jr-ease-spring:   cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* —— Type presets —— */
+.jr-h1    { font: var(--jr-fw-bold)     var(--jr-fs-h1)/var(--jr-lh-heading) var(--jr-font-sans); color: var(--jr-ink); }
+.jr-h2    { font: var(--jr-fw-bold)     var(--jr-fs-h2)/var(--jr-lh-heading) var(--jr-font-sans); color: var(--jr-ink); }
+.jr-h3    { font: var(--jr-fw-semibold) var(--jr-fs-h3)/var(--jr-lh-heading) var(--jr-font-sans); color: var(--jr-ink); }
+.jr-body-1{ font: var(--jr-fw-regular)  var(--jr-fs-body-1)/var(--jr-lh-body) var(--jr-font-sans); color: var(--jr-ink-2); }
+.jr-body-2{ font: var(--jr-fw-regular)  var(--jr-fs-body-2)/var(--jr-lh-body) var(--jr-font-sans); color: var(--jr-slate); }
+.jr-caption{font: var(--jr-fw-medium)   var(--jr-fs-caption)/var(--jr-lh-body) var(--jr-font-sans); color: var(--jr-slate); }
