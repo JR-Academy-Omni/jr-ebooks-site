@@ -1,0 +1,29 @@
+{
+  "slug": "become-ai-engineer",
+  "title": "怎么变成 AI Engineer",
+  "subtitle": "全球行情、技术全栈、AI 工作流、上岸路线 —— 读完这本就通透",
+  "audience": "全球华人转行/转岗 AI Engineer（中国大陆/北美/澳新/新加坡/欧洲）",
+  "goal": "lead-magnet",
+  "track": "T2",
+  "design": "jr-brand",
+  "style": "guide + report/checklist 组件",
+  "channel": [
+    "班主任/课程顾问私发",
+    "社群",
+    "咨询引导",
+    "打印发放"
+  ],
+  "contact": {
+    "qr": "qr-xiaohua.png",
+    "label": "匠人学院小助手",
+    "salesCard": "amelia.jpg"
+  },
+  "sources": [
+    "jr-wiki/src/content/wiki/ai-engineer/ 全 8 章（全文吸收）",
+    "jr-academy-web-zh learn/ai-engineer 公开课 40 章（38 章映射吸收，见 PRD v2）",
+    "DATA-GLOBAL.md 四市场查证数据（2026-06-12）",
+    "curriculum/ai-engineer-bootcamp outline + AI_ENGINEER_VIP_SERVICE_PRD（D0 章付费参数）"
+  ],
+  "pages": "web 版 19 章（PRD v2 架构）；A4 待终审后 flow 重排",
+  "status": "review"
+}
