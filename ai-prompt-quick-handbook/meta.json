@@ -1,7 +1,7 @@
 {
   "slug": "ai-prompt-quick-handbook",
   "title": "AI 提问速查手册",
-  "subtitle": "12 个拿来即用的 Prompt 模式 + 6 个反模式",
+  "subtitle": "Prompt Master 公开课精华本：四要素、核心 techniques、风险防护",
   "audience": "AI 入门用户 / 对 Prompt 写作没有方法论的职场人",
   "goal": "lead-magnet",
   "track": "T1",
@@ -11,6 +11,9 @@
     "小红书引流",
     "公众号文末资料包"
   ],
-  "pages": 8,
-  "status": "draft"
+  "pages": 9,
+  "status": "draft",
+  "sources": [
+    "jr-academy-web-zh learn/prompt-master（introduction/techniques/risks 原文内容）"
+  ]
 }
