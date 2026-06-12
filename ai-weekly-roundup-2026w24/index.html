@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<title>AI 一周大事盘点 2026.6.5-6.11 — JR Academy</title>
+<link rel="stylesheet" href="theme/ebook.css" />
+<link rel="stylesheet" href="theme/styles/roundup.css" />
+</head>
+<body>
+
+<!-- P1 封面 -->
+<section class="page cover">
+  <div class="logo-row"><img src="assets/logo/logo-zh-full.svg" alt="匠人学院" /></div>
+  <div class="cover-body">
+    <div class="accent-bar"></div>
+    <h1>AI 一周大事盘点</h1>
+    <p class="subtitle">2026.6.5 – 6.11 ｜ 两大实验室同月冲刺 IPO、Claude Fable 5 发布、DeepSeek 拿到国家队 500 亿、苹果把 Siri 交给 Gemini —— 18 条本周必知，每条 30 秒读完。</p>
+    <div class="cover-meta">
+      <span class="chip">资本市场</span>
+      <span class="chip">新模型</span>
+      <span class="chip">平台生态</span>
+      <span class="chip">安全与监管</span>
+    </div>
+  </div>
+  <div class="cover-footer">jiangren.com.au · 学 AI 来匠人 · 每天 5 条 AI 日报持续更新</div>
+</section>
+
+<!-- P2 目录 + 本周速览 + 联系横条 -->
+<section class="page">
+  <h2>目录</h2>
+  <div class="toc-item"><span class="num">01</span><span>资本市场：AI 行业集体敲门公开市场</span><span class="dots"></span><span class="pg">3</span></div>
+  <div class="toc-item"><span class="num">02</span><span>新模型：一周 6 款，价格战和参数战同时开打</span><span class="dots"></span><span class="pg">4</span></div>
+  <div class="toc-item"><span class="num">03</span><span>平台与生态：入口在重新洗牌</span><span class="dots"></span><span class="pg">5</span></div>
+  <div class="toc-item"><span class="num">04</span><span>安全与监管：自我进化的警告 + 联邦立法</span><span class="dots"></span><span class="pg">6</span></div>
+  <div class="toc-item"><span class="num">05</span><span>这周对你意味着什么（按人群 + 行动项）</span><span class="dots"></span><span class="pg">7</span></div>
+
+  <h2 class="mt-6">30 秒速览本周</h2>
+  <div class="week-glance">
+    <div class="g-row"><span class="g-label">最大的事</span><span>OpenAI 与 Anthropic 同月秘密递交 IPO 申请，估值 $852B / $965B</span></div>
+    <div class="g-row"><span class="g-label">新模型</span><span>Claude Fable 5（首个公开 Mythos 级）、Gemini Omni、Grok V9 1.5T 预训练完成</span></div>
+    <div class="g-row"><span class="g-label">中国 AI</span><span>DeepSeek 首轮外部融资约 ¥500 亿（$7.4B），承诺继续开源</span></div>
+    <div class="g-row"><span class="g-label">最意外</span><span>WWDC 2026：Apple Intelligence 底层切换为 Google Gemini</span></div>
+    <div class="g-row"><span class="g-label">最该警惕</span><span>Claude 已自主编写自身 80% 以上代码，Anthropic 罕见公开失控警告</span></div>
+  </div>
+
+  <div class="contact-bar mt-6">
+    <img class="qr" src="assets/contact/qr-xiaohua.png" alt="匠人学院小助手微信" />
+    <div class="cb-body">
+      <div class="cb-title">每周这份盘点，扫码进群直接收</div>
+      <div class="cb-desc">加匠人学院小助手，进 AI 学习社群：一周大事盘点 + 27 本 AI 工具实战手册 + 学习路线答疑。</div>
+    </div>
+    <div class="cb-brand"><img src="assets/logo/jr-box.svg" alt="JR" /><span class="cb-url">jiangren.com.au</span></div>
+  </div>
+
+  <div class="page-footer">
+    <span class="brand"><img src="assets/logo/jr-box.svg" alt="JR" />jiangren.com.au</span>
+    <span class="page-num">2</span>
+  </div>
+</section>
+
+<!-- P3 资本市场 -->
+<section class="page">
+  <div class="theme-head"><span class="t-num">01</span><h2>资本市场：AI 行业集体敲门公开市场</h2><span class="t-count">3 条</span></div>
+
+  <div class="news-item">
+    <div class="n-head"><h3>Anthropic 秘密递交 S-1，估值 $965B</h3><span class="n-tag hot">本周最大</span></div>
+    <p class="n-summary">6 月 1 日向 SEC 秘密提交 IPO 申请，估值 9650 亿美元，年化营收约 470 亿美元，市场预期最快 10 月挂牌、破万亿可期。</p>
+    <p class="n-impact"><strong>意味着</strong>：头部模型公司从"烧钱竞赛"进入"被财报检验"阶段，API 定价和路线图会更可预期。</p>
+  </div>
+
+  <div class="news-item">
+    <div class="n-head"><h3>OpenAI 两周后跟进，估值 $852B</h3></div>
+    <p class="n-summary">同样走 SEC 保密递交流程，成为同月第二家冲刺上市的顶级实验室。Sam Altman 表示正式上市仍需数月准备。</p>
+    <p class="n-impact"><strong>意味着</strong>：两强同时 IPO 不是巧合 —— 数据中心扩张需要公开市场的钱，AI 的资本叙事进入下半场。</p>
+  </div>
+
+  <div class="news-item">
+    <div class="n-head"><h3>DeepSeek 首轮外部融资约 ¥500 亿</h3><span class="n-tag hot">中国 AI</span></div>
+    <p class="n-summary">此前完全自筹资金，本轮约 74 亿美元，腾讯、宁德时代与国家基金等参与，创始人梁文锋承诺继续开源、冲刺 AGI，融资主要用于算力与员工股权。</p>
+    <p class="n-impact"><strong>意味着</strong>：DeepSeek 从"民营研究机构"变成国家战略级基础设施，V4 之后的迭代会明显提速。</p>
+  </div>
+
+  <div class="callout mt-4"><strong>三件事连起来看：</strong>美国两强用 IPO 换数据中心的钱，中国头部用国家资本换算力 —— 两条路线殊途同归，都指向同一个判断：下一阶段的竞争是算力资本战，模型本身只是入场券。对用户的直接影响是 API 价格战会更凶（本期 02 章 Qwen 定价就是例子）。</div>
+
+  <p class="roundup-source">本页来源：匠人学院 AI 日报 6.6 / 6.8 / 6.10 / 6.11，每条附原始报道链接（TechCrunch、Bloomberg 等），jiangren.com.au 可查</p>
+
+  <div class="page-footer">
+    <span class="brand"><img src="assets/logo/jr-box.svg" alt="JR" />jiangren.com.au</span>
+    <span class="page-num">3</span>
+  </div>
+</section>
+
+<!-- P4 新模型 -->
+<section class="page">
+  <div class="theme-head"><span class="t-num">02</span><h2>新模型：一周 6 款，价格战和参数战同时开打</h2><span class="t-count">6 条</span></div>
+
+  <div class="news-item">
+    <div class="n-head"><h3>Claude Fable 5：首个公开的 Mythos 级模型</h3><span class="n-tag hot">6.9 发布</span></div>
+    <p class="n-summary">能自主完成复杂长任务，内置安全分类器（高风险请求自动转 Opus 4.8 处理），定价约 Opus 两倍；Managed Agents 定时任务同步开放公测。</p>
+  </div>
+
+  <div class="news-item">
+    <div class="n-head"><h3>Google 双发：Gemini Omni + 3.5 Flash 转正</h3></div>
+    <p class="n-summary">Omni 支持图/音/视频全模态输出；3.5 Flash 进入 GA，200 万 token 上下文，旧预览版 6 月 25 日下线。Gemini app 月活已超 9 亿。</p>
+  </div>
+
+  <div class="news-item">
+    <div class="n-head"><h3>Grok V9-Medium：1.5 万亿参数预训练完成</h3></div>
+    <p class="n-summary">规模是现行 V8-Small 的 3 倍，预计 6 月中旬发布；Grok Voice 语音对话同步公测。</p>
+  </div>
+
+  <div class="news-item">
+    <div class="n-head"><h3>微软 Build 2026 甩出 7 款自研 MAI 模型</h3></div>
+    <p class="n-summary">推理旗舰 MAI-Thinking-1（35B 激活参数 / 256K 上下文）+ 编程模型 MAI-Code-1-Flash 已进驻 GitHub Copilot，全部用商业授权数据训练。</p>
+  </div>
+
+  <div class="news-item">
+    <div class="n-head"><h3>Qwen 3.7 Max：用 1/6 的价格打 Agent 基准</h3><span class="n-tag">价格战</span></div>
+    <p class="n-summary">Terminal-Bench、SWE-Bench Pro 等 Agent 基准超过 Claude Opus 4.6 Max，1M 上下文，定价 $1.25/$3.75 per 1M tokens，约为 Opus 4.7 成本的 1/6。</p>
+  </div>
+
+  <div class="news-item">
+    <div class="n-head"><h3>MiniMax M3 开源：百万上下文 + 前沿编码</h3></div>
+    <p class="n-summary">自研 MSA 稀疏注意力实现 100 万 token 上下文，SWE-Bench Pro 59%，是首个同时具备前沿编码、超长上下文、原生多模态的开源模型。</p>
+  </div>
+
+  <p class="roundup-source">本页来源：匠人学院 AI 日报 6.5 / 6.6 / 6.7 / 6.8 / 6.11</p>
+
+  <div class="page-footer">
+    <span class="brand"><img src="assets/logo/jr-box.svg" alt="JR" />jiangren.com.au</span>
+    <span class="page-num">4</span>
+  </div>
+</section>
+
+<!-- P5 平台生态 -->
+<section class="page">
+  <div class="theme-head"><span class="t-num">03</span><h2>平台与生态：入口在重新洗牌</h2><span class="t-count">5 条</span></div>
+
+  <div class="news-item">
+    <div class="n-head"><h3>WWDC 2026：Apple Intelligence 底层切换 Gemini</h3><span class="n-tag hot">最意外</span></div>
+    <p class="n-summary">Tim Cook 退休前最后一届主旨演讲，宣布苹果 AI 战略大转型 —— 自研路线让位，Siri 等核心体验底层改由 Google Gemini 驱动。</p>
+    <p class="n-impact"><strong>意味着</strong>：移动端 AI 入口之争基本定型为 Google vs OpenAI 两极，苹果选择了"做壳"。</p>
+  </div>
+
+  <div class="news-item">
+    <div class="n-head"><h3>GPT-5.5 / GPT-5.4 / Codex 正式入驻 Amazon Bedrock</h3></div>
+    <p class="n-summary">开发者可在 AWS 原生环境调用 OpenAI 旗舰模型，继承 AWS 全套身份认证、安全控制和计费。</p>
+  </div>
+
+  <div class="news-item">
+    <div class="n-head"><h3>Meta One：Agent 直接进 WhatsApp / IG 卖货</h3></div>
+    <p class="n-summary">企业订阅服务，内置 Agent 跨 WhatsApp、Messenger、Instagram 自动回复、推荐商品、预约日历、完成销售 —— Meta 迄今最直接的 AI 变现。</p>
+  </div>
+
+  <div class="news-item">
+    <div class="n-head"><h3>NVIDIA Cosmos 3：首个开源物理 AI 全模态模型</h3></div>
+    <p class="n-summary">GTC Taipei 发布，Nano（8B+8B）和 Super（32B+32B）两版已上 Hugging Face，机器人/自动驾驶方向的开源底座。</p>
+  </div>
+
+  <div class="news-item">
+    <div class="n-head"><h3>Anthropic 包下 SpaceX Colossus 1：22 万块 GPU</h3></div>
+    <p class="n-summary">租用全部产能（超 300 兆瓦），月内投入运营；Claude Code 各计划五小时用量上限即刻翻倍、高峰限流取消。</p>
+  </div>
+
+  <p class="roundup-source">本页来源：匠人学院 AI 日报 6.5 / 6.6 / 6.7 / 6.9</p>
+
+  <div class="page-footer">
+    <span class="brand"><img src="assets/logo/jr-box.svg" alt="JR" />jiangren.com.au</span>
+    <span class="page-num">5</span>
+  </div>
+</section>
+
+<!-- P6 安全与监管 -->
+<section class="page">
+  <div class="theme-head"><span class="t-num">04</span><h2>安全与监管：自我进化的警告 + 联邦立法</h2><span class="t-count">4 条</span></div>
+
+  <div class="news-item">
+    <div class="n-head"><h3>Claude 已自写 80% 自身代码，Anthropic 公开失控警告</h3><span class="n-tag hot">必读</span></div>
+    <p class="n-summary">「When AI builds itself」报告：2026 年 5 月超 80% 合并代码由 Claude 自主编写（去年 2 月不足 10%），工程师人均产出增长 8 倍；Anthropic 罕见警告"AI 或将完全自主设计其继任者"，呼吁建立可验证的全球协调机制。</p>
+    <p class="n-impact"><strong>意味着</strong>：「会写代码」本身在贬值，「会指挥 AI 写代码」在升值 —— 这是对每个技术从业者的直接信号。</p>
+  </div>
+
+  <div class="news-item">
+    <div class="n-head"><h3>美国 AI 监管双线推进：联邦法案 + 白宫行政令</h3></div>
+    <p class="n-summary">两党联署首部联邦 AI 法案草案；白宫 6 月 2 日行政令削减开发者合规障碍、推动联邦统一框架取代各州法律拼盘 —— 2026 下半年是全球 AI 合规最密集窗口期。</p>
+  </div>
+
+  <div class="news-item">
+    <div class="n-head"><h3>ChatGPT 上线 Lockdown Mode</h3></div>
+    <p class="n-summary">开启后禁用全部联网功能（浏览、Deep Research、Agent Mode、文件下载），并以「Elevated Risk」标签标注高风险提示词，面向个人与商业用户。</p>
+  </div>
+
+  <div class="news-item">
+    <div class="n-head"><h3>Project Glasswing：累计发现超 1 万个高危零日漏洞</h3></div>
+    <p class="n-summary">Anthropic 把该计划扩至约 150 个组织、15+ 国家，首次覆盖电力、水务、医疗、通信等关键行业；同周 xAI 拿下美国联邦机构的大规模 AI 服务合同。</p>
+  </div>
+
+  <p class="roundup-source">本页来源：匠人学院 AI 日报 6.5 / 6.7 / 6.9 / 6.10 / 6.11</p>
+
+  <div class="page-footer">
+    <span class="brand"><img src="assets/logo/jr-box.svg" alt="JR" />jiangren.com.au</span>
+    <span class="page-num">6</span>
+  </div>
+</section>
+
+<!-- P7 对你意味着什么 -->
+<section class="page">
+  <div class="theme-head"><span class="t-num">05</span><h2>这周对你意味着什么</h2><span class="t-count">3 类人群</span></div>
+
+  <div class="card">
+    <div class="card-title"><span class="num">A</span><h3>你在写代码</h3></div>
+    <ul>
+      <li><strong>两个迁移 deadline 别错过</strong>：Gemini 3.5 Flash 旧预览版 6 月 25 日下线；DeepSeek 7 月 24 日停用 deepseek-chat / deepseek-reasoner 旧模型名（对应迁到 v4-flash 的两种模式）。</li>
+      <li>模型选型窗口期：Qwen 3.7 Max 用 1/6 价格打 Agent 基准、MiniMax M3 开源百万上下文 —— 重 Agent 负载值得重新跑一轮对比。</li>
+      <li>Claude Code 用量上限翻倍（SpaceX 算力到位），重度用户本周起体感会明显变好。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="num">B</span><h3>你在转行 / 学 AI</h3></div>
+    <ul>
+      <li>「Claude 自写 80% 代码、工程师产出 8 倍」是本周最值得记住的数字：岗位要求正在从"会写语法"转向"会编排 AI 干活"。</li>
+      <li>本周提到的工具（Claude Code / Gemini / Copilot…）匠人学院 wiki 都有中文实战手册，27 本免费读：jiangren.com.au/wiki。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="num">C</span><h3>你在做生意 / 做运营</h3></div>
+    <ul>
+      <li>Meta One 把"AI 客服 + 卖货"直接装进 WhatsApp / Instagram —— 做出海或华人本地生意的，先去试商业版。</li>
+      <li>苹果入口切 Gemini + 美国联邦合规窗口开启：投放和数据合规策略下半年都值得重看一遍。</li>
+    </ul>
+  </div>
+
+  <div class="mt-4" style="width: 82%; margin-left: auto; margin-right: auto;">
+    <p class="sales-card-lead">看完 B 条想认真聊聊自己的转码 / 求职路线？扫名片上的码，免费简历诊断：</p>
+    <div class="sales-card"><img src="assets/contact/sales-cards/rain.jpg" alt="Rain · Senior IT Career Consultant · 匠人学院" /></div>
+  </div>
+
+  <div class="page-footer">
+    <span class="brand"><img src="assets/logo/jr-box.svg" alt="JR" />jiangren.com.au</span>
+    <span class="page-num">7</span>
+  </div>
+</section>
+
+<!-- P8 封底 + 大号联系横条 -->
+<section class="page back-cover">
+  <div class="logo"><img src="assets/logo/logo-zh-white.png" alt="匠人学院" /></div>
+  <h2>AI 每周都在变，跟上它不需要每天刷新闻</h2>
+  <p style="max-width: 78%;">匠人学院每天发 5 条经过核源的 AI 日报，每周浓缩成这份 30 分钟读完的盘点。从看懂行业，到用 27 本工具实战手册上手，再到系统学习 —— 都从下面这个二维码开始。</p>
+
+  <div class="contact-bar lg" style="width: 100%;">
+    <img class="qr" src="assets/contact/qr-xiaohua.png" alt="匠人学院小助手微信" />
+    <div class="cb-body">
+      <div class="cb-title">扫码加小助手，进 AI 学习社群</div>
+      <div class="cb-desc">每周收下一期盘点 ｜ 27 本 AI 工具中文实战手册 ｜ 学习路线与课程一对一答疑。把这份 PDF 转给需要的朋友，他们扫这个码就能找到我们。</div>
+    </div>
+    <div class="cb-brand"><img src="assets/logo/jr-box.svg" alt="JR" /><span class="cb-url">jiangren.com.au</span></div>
+  </div>
+
+  <p class="caption" style="color: rgba(255,255,255,0.5);">© JR Academy · 学 AI 来匠人 · 欢迎转发分享，转载请保留本页</p>
+</section>
+
+<script defer src="theme/reader.js"></script>
+<a href="AI%20%E4%B8%80%E5%91%A8%E5%A4%A7%E4%BA%8B%E7%9B%98%E7%82%B9%20-%20%E5%8C%A0%E4%BA%BA%E5%AD%A6%E9%99%A2.pdf" download style="position:fixed;right:22px;bottom:22px;z-index:1200;display:flex;align-items:center;gap:8px;background:#0D0F12;color:#fff;font-weight:700;font-size:14.5px;padding:13px 22px;border-radius:999px;box-shadow:0 12px 28px rgba(13,15,18,.35);text-decoration:none;font-family:Inter,'PingFang SC',sans-serif;">⬇️ 下载 PDF 版</a>
+</body>
+</html>

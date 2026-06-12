@@ -1,0 +1,14 @@
+{
+  "slug": "ai-weekly-roundup-2026w24",
+  "title": "AI 一周大事盘点",
+  "subtitle": "2026.6.5 - 6.11 ｜ 18 条本周必知",
+  "audience": "关注 AI 动态的华人职场人 / 开发者 / 创业者",
+  "goal": "lead-magnet",
+  "track": "T1",
+  "style": "roundup",
+  "channel": ["微信群", "小红书评论区领取", "线下打印发放"],
+  "contact": { "qr": "qr-xiaohua.png", "label": "匠人学院小助手", "salesCard": "rain.jpg" },
+  "sources": ["jr-wiki ai-daily 2026-06-05 ~ 2026-06-11"],
+  "pages": 8,
+  "status": "draft"
+}
