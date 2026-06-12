@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<title>Claude Code 中文上手手册 — JR Academy</title>
+<link rel="stylesheet" href="theme/ebook.css" />
+<link rel="stylesheet" href="theme/flow-a4.css" />
+</head>
+<body>
+
+<!-- P1 封面 v2 黑底大字报 -->
+<section class="page cover2">
+  <div class="cv2-ghost">CC</div>
+  <div class="cv2-head">
+    <img src="assets/logo/logo-zh-white.png" alt="匠人学院" />
+    <span class="cv2-sticker">⚡ 2026 实操版</span>
+  </div>
+  <div class="cv2-body">
+    <div class="cv2-kicker">终端里的 AI 结对程序员</div>
+    <div class="cv2-title"><em>CLAUDE</em> CODE<br/>中文上手手册</div>
+    <div class="cv2-bar"></div>
+    <p class="cv2-sub">从装好到真正会用：多文件重构、Git 工作流自动化、Hooks 质量门控、MCP 接数据库和浏览器、Worktree 并行开发。8 章全是可复制的命令和真实 diff，照着敲就能跑。</p>
+    <div class="cv2-chips">
+      <span class="chip">🚀 5 分钟装好跑通</span>
+      <span class="chip">🛠️ 一句话改 10 个文件</span>
+      <span class="chip">🧵 多个 Claude 并行干活</span>
+    </div>
+    <div class="cv2-diecut">手动半小时的活，它 2 分钟搞定</div>
+  </div>
+  <span class="cv2-holo">⌨️</span>
+  <img class="cv2-mascot" src="assets/illustrations/niuxiaojiang-working-laptop.png" alt="牛小匠" />
+  <div class="cv2-domain">jiangren.com.au · 在线版随官网更新 /wiki/claude-code-guide</div>
+  <div class="cv2-strip"><span>学 AI 来匠人 <i>✦</i> CLAUDE CODE <i>✦</i> JIANGREN.COM.AU <i>✦</i> 终端里的 AI 程序员 <i>✦</i> 学 AI 来匠人 <i>✦</i> CLAUDE CODE <i>✦</i></span></div>
+</section>
+
+<main class="flow">
+<div class="book-toc">
+  <div class="ch-num">CONTENTS</div>
+  <h2>目录（8 章）</h2>
+    <a href="#ch1"><span class="num">01</span>🚀 安装与第一个命令</a>
+    <a href="#ch2"><span class="num">02</span>🛠️ 多文件编辑：Claude Code 的杀手锏</a>
+    <a href="#ch3"><span class="num">03</span>🌿 Git 工作流自动化</a>
+    <a href="#ch4"><span class="num">04</span>🪝 Hooks 自动化：在对的时机干对的事</a>
+    <a href="#ch5"><span class="num">05</span>🔌 MCP 服务器：装上超能力插件</a>
+    <a href="#ch6"><span class="num">06</span>🐛 调试技巧：让它帮你定位 Bug</a>
+    <a href="#ch7"><span class="num">07</span>📋 CLAUDE.md：让 AI 理解你的项目规范</a>
+    <a href="#ch8"><span class="num">08</span>🧵 并行开发：Worktree 让多个 Claude 同时干活</a>
+</div>
+
+<section class="ch" id="how">
+  <div class="wrap">
+    <h2>📖 这本书怎么读</h2>
+    <div class="card">
+      <p>这本书和官网 wiki《Claude Code 完全指南》同源（jiangren.com.au/wiki/claude-code-guide，免费、不用注册，官网那份会持续更新）。还没装的，第 1 章 5 分钟搞定；已经在用但只会"问问题"的，第 2、3 章是它和 ChatGPT 拉开差距的地方；想让它自动守住代码质量，看第 4 章 Hooks；想让它查数据库、开浏览器、操作 GitHub，看第 5 章 MCP；最后第 8 章 Worktree 是进阶玩法 —— 同时开几个 Claude 各干各的活。每章的命令和配置都能直接复制。</p>
+    </div>
+    <div class="contact-bar">
+      <img class="qr" src="assets/contact/qr-xiaohua.png" alt="匠人学院小助手微信" />
+      <div><div class="t">💬 装的时候卡住了？扫码来问</div><div class="d">小助手会拉你进群，群里每周还有 AI 工具实操分享。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="ch" id="ch1">
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 01</div>
+        <h2>🚀 安装与第一个命令</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-hero.png" alt="" />
+    </div>
+<h3>安装</h3>
+<p>三种安装方式，选一个就行：</p>
+<pre># macOS / Linux（推荐，自动更新）
+curl -fsSL https://claude.ai/install.sh | bash
+
+# Homebrew（不自动更新，需手动 brew upgrade）
+brew install --cask claude-code
+
+# Windows PowerShell（需要管理员权限打开终端）
+irm https://claude.ai/install.ps1 | iex</pre>
+<p><strong>系统要求</strong>：Node.js 18+（macOS/Linux 安装脚本会自动检测；Windows 需提前手动安装 Node）。</p>
+<p>Windows 用户还需要先装 <a href="https://git-scm.com/downloads/win">Git for Windows</a>，否则启动时报 <code>requires git-bash</code> 错误。装完之后确认 <code>git</code> 在 PATH 里：</p>
+<pre>git --version   # 应输出 git version 2.x.x
+claude --version  # 应输出 claude 1.x.x</pre>
+<p>Linux 上如果 <code>curl</code> 脚本因权限报错，可以加 <code>sudo</code>，或者用 npm 全局安装：</p>
+<pre>npm install -g @anthropic-ai/claude-code</pre>
+<h3>登录</h3>
+<p>第一次启动会弹浏览器让你登录。支持这些账号：</p>
+<table><tr><th>账号类型</th><th>适用场景</th></tr><tr><td>Claude Pro / Max / Team</td><td>个人或团队日常开发</td></tr><tr><td>Claude Console（API）</td><td>按量付费，适合 CI/CD</td></tr><tr><td>Amazon Bedrock / Google Vertex / Azure Foundry</td><td>企业级云部署</td></tr></table>
+<p>登录后凭证缓存在本地，不用每次重新登录。想切换账号用 <code>/login</code>。</p>
+<p>在无 GUI 的服务器（SSH 远程）上，启动时选 "print auth URL"，把 URL 复制到本地浏览器完成授权，授权码回填到终端即可。</p>
+<h3>第一个任务</h3>
+<p>进入项目目录启动：</p>
+<pre>cd my-project
+claude</pre>
+<p><strong>看懂陌生项目</strong>：第一次进陌生代码库，先让它给你定向：</p>
+<pre>&gt; 这个项目是做什么的？用了哪些技术栈？主要目录结构是怎样的？</pre>
+<p>Claude Code 会自动读 <code>package.json</code>、<code>README</code>、源码目录，给出清晰的全局概览，比自己翻文件快得多。</p>
+<p><strong>代码分析</strong>：</p>
+<pre>&gt; 帮我找一下所有没有错误处理的 async 函数，列出文件路径和行号</pre>
+<p>它会用 Grep 搜索代码、逐文件读取、分析控制流，汇报哪些函数缺少 try/catch 或 <code>.catch()</code>，同时说明为什么认为有风险。</p>
+<p><strong>修改代码</strong>：</p>
+<pre>&gt; 把 src/utils/format.ts 里的 formatDate 函数改成支持传入 timezone 参数，默认 'Australia/Sydney'</pre>
+<p>改完直接写回文件，终端显示 diff。可以继续让它跑测试验证：</p>
+<pre>&gt; 运行相关测试，看有没有因为这个改动挂掉</pre>
+<p><strong>Git 工作流</strong>：</p>
+<pre>&gt; 帮我写一个 commit message，描述刚才所有的改动
+&gt; 然后 commit，branch 名叫 feat/format-timezone</pre>
+<p>整个流程——读代码、改代码、跑测试、提交——全在终端里完成，不需要切窗口复制粘贴。</p>
+<h3>常用 Keybinding 速查</h3>
+<table><tr><th>快捷键</th><th>作用</th></tr><tr><td><code>Esc</code></td><td>中断当前 AI 响应（不中断已在跑的 shell 命令）</td></tr><tr><td><code>Ctrl+C</code></td><td>强制退出（包括终止正在执行的命令）</td></tr><tr><td><code>Ctrl+L</code></td><td>清屏（保留上下文历史，不影响对话）</td></tr><tr><td><code>↑ / ↓</code></td><td>翻历史输入</td></tr><tr><td><code>Shift+Enter</code></td><td>多行输入（不提交，继续写下一行）</td></tr><tr><td><code>/help</code></td><td>查所有 slash 命令列表</td></tr><tr><td><code>/clear</code></td><td>清除当前会话上下文（重新开始）</td></tr><tr><td><code>/compact</code></td><td>压缩对话历史（上下文快满时用）</td></tr><tr><td><code>/model</code></td><td>切换模型（Opus 4 / Sonnet 4 / Haiku 4）</td></tr><tr><td><code>/login</code></td><td>切换账号或重新授权</td></tr></table>
+<p>VS Code 插件里额外多两个常用快捷键：<code>Cmd+Shift+P</code> → "Claude Code: Focus" 快速聚焦聊天窗口；<code>Cmd+I</code>（macOS）/ <code>Ctrl+I</code>（Windows/Linux）打开 inline edit 面板，可以直接针对选中代码下指令。</p>
+<h3>和 ChatGPT / Cursor 的区别</h3>
+<table><tr><th>工具</th><th>工作方式</th><th>上下文范围</th><th>适合场景</th></tr><tr><td>ChatGPT</td><td>对话框粘贴代码</td><td>单次对话</td><td>问答、学习概念</td></tr><tr><td>Cursor</td><td>IDE 内 AI 辅助</td><td>当前文件 + 少量上下文</td><td>写新代码、补全</td></tr><tr><td>Claude Code</td><td>终端直接操作文件系统</td><td>整个项目</td><td>重构、多文件修改、调试、Git 操作</td></tr></table>
+<p>核心差异：Claude Code 直接在你的文件系统上操作。它能一次读几十个文件，理解跨文件依赖关系，执行终端命令验证结果——这是单文件 IDE 辅助做不到的。</p>
+<h3>多种使用方式</h3>
+<p>除了终端 CLI，Claude Code 还能在这些地方用：</p>
+<pre># VS Code 扩展（支持 inline diff 和 @-mention 文件）
+code --install-extension anthropic.claude-code
+
+# 桌面应用（macOS / Windows，图形化界面）
+# 从 https://claude.com/download 下载
+
+# 网页版（不用安装任何东西）
+# 直接打开 https://claude.ai/code</pre>
+<p>VS Code 里按 <code>Cmd+Shift+P</code> 搜索 "Claude Code" 就能打开侧边栏。JetBrains 系列也有插件，IntelliJ / PyCharm / WebStorm 均支持，安装方式和 VS Code 类似，在 Marketplace 里搜 "Claude Code" 即可。</p>
+  </div>
+</section>
+
+<section class="ch" id="ch2">
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 02</div>
+        <h2>🛠️ 多文件编辑：Claude Code 的杀手锏</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-working-laptop.png" alt="" />
+    </div>
+<h3>为什么多文件编辑重要</h3>
+<p>改一个接口名，可能涉及 controller、service、DTO、测试、前端调用 5+ 个文件。手动改容易漏，Claude Code 一次搞定。</p>
+<h3>实战：重命名一个 API</h3>
+<pre>&gt; 把 getUserList 改名为 fetchUsers，所有引用的地方都改掉</pre>
+<p>Claude Code 的执行步骤：</p>
+<ol><li>用 Grep 搜索所有包含 <code>getUserList</code> 的文件</li><li>分析每处引用的上下文（是函数定义、import、还是调用）</li><li>逐个文件用 Edit 工具替换</li><li>检查 import 路径、类型定义是否需要联动调整</li><li>展示所有修改的 diff，等你确认</li></ol>
+<p>你可以按 <code>y</code> 逐个确认，也可以切换到 auto-accept 模式（<code>Shift+Tab</code> 两次）一次性应用。</p>
+<h3>实战：批量加错误处理</h3>
+<pre>&gt; 检查 src/services/ 下所有 fetch 调用，没有 try-catch 的都加上，
+&gt; 错误统一用 toast.error() 提示用户</pre>
+<p>这类跨文件的模式化修改是 Claude Code 的强项。它能识别每个 fetch 调用的上下文，根据已有的错误处理模式生成一致的代码。</p>
+<p>手动做要半小时的事情，Claude Code 通常 2 分钟搞定。</p>
+<h3>实战：类型重构</h3>
+<p>TypeScript 项目中类型变更是最头疼的多文件修改之一：</p>
+<pre>&gt; User 类型里的 name 字段拆成 firstName 和 lastName，
+&gt; 所有用到 user.name 的地方都改成 `${user.firstName} ${user.lastName}`</pre>
+<p>Claude Code 会处理：</p>
+<ul><li>类型定义文件（<code>types.ts</code>）</li><li>API 响应解析（<code>services/user.ts</code>）</li><li>组件 props 传递（<code>components/UserCard.tsx</code>）</li><li>测试文件里的 mock 数据（<code>__tests__/user.test.ts</code>）</li></ul>
+<h3>实战：React 组件改名（5 文件联动）</h3>
+<p>这是最典型的 React 多文件重构场景：把 <code>UserCard</code> 组件改名为 <code>MemberCard</code>。看起来简单，但涉及的文件比你想象的多：</p>
+<ol><li><code>src/components/UserCard.tsx</code> — 组件文件本身（含 interface 名）</li><li><code>src/components/index.ts</code> — barrel export（重命名后 export 路径变了）</li><li><code>src/pages/Dashboard.tsx</code> — 引用处 1</li><li><code>src/pages/Profile.tsx</code> — 引用处 2</li><li><code>src/__tests__/UserCard.test.tsx</code> — 测试文件（文件名 + 内部引用都要改）</li></ol>
+<p>给 Claude Code 一句话：</p>
+<pre>&gt; 把 UserCard 组件改名为 MemberCard，文件也一起重命名，所有 import 和测试都联动改</pre>
+<p>Claude Code 实际执行的每步 diff：</p>
+<p><strong>① 组件文件 → 重命名 + 内部 interface</strong></p>
+<pre>// src/components/UserCard.tsx → src/components/MemberCard.tsx
+
+-interface UserCardProps {
++interface MemberCardProps {
+   user: User
+   onEdit?: () =&gt; void
+ }
+
+-export function UserCard({ user, onEdit }: UserCardProps) {
++export function MemberCard({ user, onEdit }: MemberCardProps) {
+   return (
+-    &lt;div data-testid="user-card" className={styles.userCard}&gt;
++    &lt;div data-testid="member-card" className={styles.memberCard}&gt;
+       ...
+     &lt;/div&gt;
+   )
+ }</pre>
+<p><strong>② barrel export</strong></p>
+<pre>// src/components/index.ts
+
+-export { UserCard } from './UserCard'
++export { MemberCard } from './MemberCard'
+ export { Avatar } from './Avatar'
+ export { Badge } from './Badge'</pre>
+<p><strong>③ 调用方（Dashboard + Profile）</strong></p>
+<pre>// src/pages/Dashboard.tsx
+
+-import { UserCard } from '@/components'
++import { MemberCard } from '@/components'
+
+-&lt;UserCard user={currentUser} onEdit={handleEdit} /&gt;
++&lt;MemberCard user={currentUser} onEdit={handleEdit} /&gt;</pre>
+<p><strong>④ 测试文件 → 文件名 + 内部引用 + testid</strong></p>
+<pre>// src/__tests__/UserCard.test.tsx → src/__tests__/MemberCard.test.tsx
+
+-import { UserCard } from '@/components'
++import { MemberCard } from '@/components'
+
+ describe('MemberCard', () =&gt; {
+   it('renders user info', () =&gt; {
+-    render(&lt;UserCard user={mockUser} /&gt;)
++    render(&lt;MemberCard user={mockUser} /&gt;)
+
+-    expect(screen.getByTestId('user-card')).toBeVisible()
++    expect(screen.getByTestId('member-card')).toBeVisible()
+   })
+ })</pre>
+<p>注意最后一行：<code>data-testid</code> 的值也被识别出来需要改。这不是简单的字符串 find-replace，Claude Code 理解了组件和测试之间的语义绑定关系，知道 <code>"user-card"</code> 这个 testid 属于这个组件，需要一起重命名。</p>
+<p>改完之后在 terminal 跑：</p>
+<pre>npx tsc --noEmit &amp;&amp; npx vitest run</pre>
+<p>5 个文件，0 TypeScript 编译错误，测试全绿。手动改大概要 10-15 分钟，而且几乎肯定会漏掉 testid 这种细节；Claude Code 大概 90 秒，不漏。</p>
+<h3>用 @ 快速引用文件</h3>
+<p>在提问时用 <code>@</code> 引用文件，Claude Code 直接读取内容，不用你手动打开：</p>
+<pre>&gt; @src/types/user.ts 和 @src/services/api.ts 之间的类型定义有没有不一致的地方？</pre>
+<p>引用目录也行：</p>
+<pre>&gt; @src/components 这个目录里有没有没用到的组件？</pre>
+<h3>用 CLAUDE.md 控制编辑行为</h3>
+<p>在项目根目录放一个 <code>CLAUDE.md</code>，写上你团队的编码规范：</p>
+<pre># CLAUDE.md
+- 错误处理统一用 try-catch + toast.error()
+- API 调用统一放 services/ 目录
+- React 组件用 TypeScript + CSS Modules
+- 测试用 Vitest + React Testing Library
+- import 排序: 第三方库 &gt; 内部模块 &gt; 相对路径</pre>
+<p>Claude Code 每次启动都会读这个文件，在做多文件编辑时自动遵守这些规范。团队成员把 <code>CLAUDE.md</code> 提交到 git 里，所有人共享同一套规则。</p>
+<h3>控制修改范围</h3>
+<p>有时候你只想改一部分文件，可以明确指定范围：</p>
+<pre>&gt; 只改 src/api/ 目录下的文件，把所有 axios 调用换成 fetch
+&gt; 不要动测试文件</pre>
+<p>Claude Code 会严格遵守你给的范围限制。如果操作涉及范围外的文件（比如 import 需要调整），它会告诉你而不是直接改。</p>
+<p>也可以反过来，排除特定目录：</p>
+<pre>&gt; 全局把 moment.js 换成 dayjs，但 src/legacy/ 目录先别动</pre>
+<p>这种精细化控制在大型 monorepo 里特别有用——你可以逐模块推进重构，而不是一次改动几百个文件让 PR review 成噩梦。</p>
+  </div>
+</section>
+
+<section class="ch" id="ch3">
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 03</div>
+        <h2>🌿 Git 工作流自动化</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-pen-book.png" alt="" />
+    </div>
+<h3>自动提交</h3>
+<p>改完代码直接说：</p>
+<pre>&gt; 提交这些修改</pre>
+<p>Claude Code 会：</p>
+<ol><li><code>git diff</code> 查看所有改动</li><li>分析改动内容，生成语义化的 commit message</li><li>只 stage 相关文件（自动跳过 <code>.env</code>、<code>node_modules</code> 等敏感文件）</li><li>展示 commit 预览，等你确认后执行</li></ol>
+<p>生成的 commit message 格式规范，比如：</p>
+<pre>feat: add input validation to user registration form
+
+- Add email format check with regex
+- Add password strength requirements  
+- Show inline error messages on invalid input</pre>
+<h3>创建 PR：从命令到上线</h3>
+<h4>基本用法</h4>
+<pre>&gt; 创建一个 PR，目标分支 main，描述这次改了什么</pre>
+<p>Claude Code 会自动生成 PR title 和 description，包括：</p>
+<ul><li>改动摘要（从 diff 提炼）</li><li>影响范围</li><li>测试说明</li><li>关联的 issue（如果 commit message 里有 <code>#123</code> 引用）</li></ul>
+<h4>接 GitHub MCP Server 之后</h4>
+<p>配置好 GitHub MCP Server（见第 5 章），PR 创建变成真正的一步操作：</p>
+<pre>&gt; 我这个功能分支做完了，帮我推到 remote，然后对 main 开 PR，
+  标题写「feat: 用户个人资料页改版」，reviewer 加上 @alice @bob</pre>
+<p>Claude Code 完成的步骤：</p>
+<ol><li><code>git push -u origin feature/user-profile</code></li><li>调用 GitHub API 创建 PR，填写 title 和 body</li><li>通过 API 添加 reviewer</li><li>返回 PR 链接</li></ol>
+<p>整个过程不需要离开终端，也不用在浏览器里填表单。</p>
+<h4>用模板生成 PR Description</h4>
+<p>如果项目里有 <code>.github/pull_request_template.md</code>，直接告诉 Claude Code 按模板填：</p>
+<pre>&gt; 按 PR 模板创建，测试这块写「单元测试 + 手动测试 iOS Safari 14」，
+  风险评估写「涉及登录逻辑，建议先部署到 staging 验证」</pre>
+<p>它会把你说的内容映射到模板对应字段，其余字段从代码改动里自动提取。</p>
+<h4>PR 创建后的跟踪</h4>
+<p>有了 GitHub MCP，这些查询直接走 API，不用去浏览器刷页面：</p>
+<pre>&gt; 我的 PR #234 CI 跑了多久？测试有没有过？
+&gt; PR #234 有什么 review 意见还没处理？
+&gt; PR #234 被 approve 了吗？帮我 merge 掉</pre>
+<h3>分支管理</h3>
+<pre># 创建功能分支
+&gt; 从 main 创建一个新分支 feature/user-profile，然后切过去
+
+# 查看分支状态
+&gt; 当前分支和 main 差了几个 commit？有没有冲突？
+
+# 合并前检查
+&gt; 帮我 rebase 到最新的 main，如果有冲突就告诉我</pre>
+<h3>实战场景：hotfix</h3>
+<p>线上出 bug 时，Claude Code 能帮你从排查到修复到提 PR 全流程搞定：</p>
+<pre>&gt; 线上 /api/users 接口返回 500，这是错误日志：
+&gt; [粘贴日志]
+&gt; 帮我找到原因，修复，然后创建 hotfix PR</pre>
+<p>Claude Code 的执行流程：</p>
+<ol><li>分析错误日志，定位到具体的代码文件和行号</li><li>读取相关代码，理解上下文</li><li>找到 root cause 并修复</li><li>跑测试确认修复有效</li><li>创建 hotfix 分支、提交、推送、创建 PR</li></ol>
+<p>从发现 bug 到 PR ready，通常 5 分钟内完成。</p>
+<h3>解决 Merge Conflict</h3>
+<h4>快速解决</h4>
+<pre>&gt; 帮我解决当前的 merge conflict</pre>
+<p>Claude Code 会读取冲突文件，理解两边的改动意图，选择合理的合并策略。对于复杂冲突，它会解释每处冲突的取舍理由，让你做最终决定。</p>
+<h4>详细工作流</h4>
+<p>实际的 merge conflict 处理分三步走：</p>
+<p><strong>第一步：搞清楚冲突来源</strong></p>
+<pre>&gt; git status 看一下，哪些文件有冲突？每个冲突大概是什么类型的改动？</pre>
+<p>Claude Code 会逐一分析冲突标记（<code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code> / <code>=======</code> / <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>），判断是：</p>
+<ul><li>同一行被两边都改了（真冲突，需要人工决策）</li><li>两边改了不同函数（可以安全合并）</li><li>一边删文件、另一边修改了同一文件（最复杂，需要理解业务意图）</li></ul>
+<p><strong>第二步：解决每个冲突</strong></p>
+<p>对于简单情况，让它直接解决：</p>
+<pre>&gt; src/components/Header.tsx 那个冲突，用 main 分支的版本
+&gt; src/utils/api.ts 那里两边的修改都要保留，帮我合并</pre>
+<p>对于复杂冲突，让它解释后你来决定：</p>
+<pre>&gt; UserService.java 有三处冲突，帮我逐一分析，告诉我每处用哪边更合理，
+  但别直接改，等我确认</pre>
+<p><strong>第三步：验证合并结果</strong></p>
+<pre>&gt; 冲突都解决了，帮我跑一下测试，看看有没有引入新问题</pre>
+<h4>常见陷阱</h4>
+<p><strong>package-lock.json / yarn.lock 冲突</strong>：这类文件手工合并必出错。正确做法：</p>
+<pre>&gt; package-lock.json 有冲突，帮我选一个版本 checkout，然后重新 npm install 生成</pre>
+<p>Claude Code 会 checkout 某一边的版本，再跑 <code>npm install</code> 重新生成 lockfile，结果一定是正确的。</p>
+<p><strong>Rebase 中途冲突</strong>：rebase 过程中遇到冲突会停下来，可以这样接着处理：</p>
+<pre># rebase 停在某个 commit，告诉 Claude Code
+&gt; rebase 暂停了，当前冲突是什么情况？帮我解决，然后 git rebase --continue</pre>
+<h3>Git Worktree 配合 Claude Code</h3>
+<h4>为什么需要 worktree</h4>
+<p>开发时常见场景：你在 <code>feature/checkout-v2</code> 上改了一半，突然要去修一个生产 bug。常规做法是 <code>git stash</code>，切分支，改完再切回来、<code>git stash pop</code>。如果两个任务都需要 Claude Code 介入，两个 session 会互相干扰，stash/unstash 也容易出错。</p>
+<p><code>git worktree</code> 让你在同一个仓库里有两个独立的工作目录，各自对应不同分支，互不干扰。</p>
+<h4>基本用法</h4>
+<pre># 给 hotfix 任务开一个独立工作目录
+git worktree add ../my-project-hotfix hotfix/payment-bug
+
+# 在新工作目录里启动 Claude Code
+cd ../my-project-hotfix
+claude</pre>
+<p>两个终端窗口，两个 Claude Code session，分别处理不同任务，git 状态完全隔离。</p>
+<h4>让 Claude Code 帮你管理 worktree</h4>
+<pre>&gt; 用 git worktree 给我创建一个新工作目录处理 hotfix，
+  分支名 hotfix/fix-cart-total，目录放在 ../jr-shop-hotfix</pre>
+<p>Claude Code 执行：</p>
+<pre>git worktree add -b hotfix/fix-cart-total ../jr-shop-hotfix main</pre>
+<p>任务完成后清理：</p>
+<pre>&gt; worktree 任务搞完了，帮我合并回 main 然后删掉那个 worktree</pre>
+<p>Claude Code 依次执行：</p>
+<pre># 提交 worktree 里的改动
+git -C ../jr-shop-hotfix add .
+git -C ../jr-shop-hotfix commit -m "fix: correct cart total calculation"
+
+# 回到主目录合并
+git checkout main
+git merge hotfix/fix-cart-total
+
+# 清理
+git worktree remove ../jr-shop-hotfix
+git branch -d hotfix/fix-cart-total</pre>
+<h4>多 agent 并行任务</h4>
+<p>Claude Code 的 Agent SDK 里，<code>isolation: "worktree"</code> 选项会自动为每个子 agent 创建独立 worktree，任务结束后自动清理。这是在 CI / 自动化流水线里跑多个并发 agent 的推荐方式——每个 agent 有自己的文件系统视图，不会踩脚：</p>
+<pre>// 两个 agent 同时工作，互不干扰
+const [refactorResult, testResult] = await Promise.all([
+  claude.run("重构 UserService", { isolation: "worktree" }),
+  claude.run("补充单元测试", { isolation: "worktree" }),
+]);</pre>
+<p>详见第 8 章 Agent SDK 的隔离模式。</p>
+<h3>代码审查</h3>
+<p>让 Claude Code 在提交前帮你检查代码质量：</p>
+<pre>&gt; review 一下我这次改的所有文件，看有没有问题</pre>
+<p>它会检查：</p>
+<ul><li>逻辑错误和边界情况</li><li>类型安全问题</li><li>潜在的性能问题</li><li>不符合项目规范的写法</li></ul>
+<h3>安全机制</h3>
+<p>Claude Code 对 Git 操作的默认行为很保守：</p>
+<ul><li>不会自动 push，修改都先到本地</li><li>不会 force push 或 <code>reset --hard</code></li><li>不会跳过 pre-commit hook（<code>--no-verify</code>）</li><li>敏感文件（<code>.env</code>、credentials）不会被 stage</li></ul>
+<p>这些限制确保你不会因为 AI 的一次操作搞坏远程仓库。如果某个操作确实需要 force push，你需要明确告诉它。</p>
+  </div>
+</section>
+
+<section class="ch" id="ch4">
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 04</div>
+        <h2>🪝 Hooks 自动化：让 Claude Code 在对的时机干对的事</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-chart.png" alt="" />
+    </div>
+<h3>什么是 Hooks</h3>
+<p>Hooks 是 2026 年初发布的功能，让你在 Claude Code 执行特定动作<strong>前后</strong>自动触发自定义脚本。</p>
+<p>Claude Code 改了文件？自动跑 lint。<br/> Claude Code 要写某个敏感文件？先问你要不要允许。</p>
+<p>配置在 <code>~/.claude/settings.json</code>（全局）或 <code>.claude/settings.json</code>（项目级）：</p>
+<pre>{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "npx prettier --write $CLAUDE_TOOL_INPUT_FILE_PATH"
+          }
+        ]
+      }
+    ]
+  }
+}</pre>
+<h3>两种 Hook 时机</h3>
+<table><tr><th>时机</th><th>触发点</th><th>能否阻止操作</th><th>典型用途</th></tr><tr><td><strong>PreToolUse</strong></td><td>Claude <strong>要执行</strong>某操作之前</td><td>✅ 可以</td><td>安全门控、保护文件、强制审批</td></tr><tr><td><strong>PostToolUse</strong></td><td>Claude <strong>执行完</strong>某操作之后</td><td>❌ 不能（已完成）</td><td>格式化、跑测试、发通知</td></tr></table>
+<h3>实战 1：改完代码自动格式化</h3>
+<p>每次 Claude Code 写文件，自动跑 Prettier：</p>
+<pre>{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "npx prettier --write $CLAUDE_TOOL_INPUT_FILE_PATH 2&gt;/dev/null || true"
+          }
+        ]
+      }
+    ]
+  }
+}</pre>
+<p><code>$CLAUDE_TOOL_INPUT_FILE_PATH</code> 是 Claude Code 自动注入的环境变量，值是本次操作的文件路径。</p>
+<h3>实战 2：提交前自动跑测试</h3>
+<p>PreToolUse 拦截 Bash 命令，凡是含 <code>git commit</code> 的先跑测试：</p>
+<pre>{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash ~/.claude/hooks/pre-commit-check.sh"
+          }
+        ]
+      }
+    ]
+  }
+}</pre>
+<p><code>~/.claude/hooks/pre-commit-check.sh</code>：</p>
+<pre>#!/bin/bash
+# 读取 Claude Code 传入的 JSON，判断是否是 git commit 命令
+input=$(cat)
+command=$(echo "$input" | python3 -c "import json,sys; d=json.load(sys.stdin); print(d.get('command',''))")
+
+if echo "$command" | grep -q "git commit"; then
+  echo "检测到 git commit，先跑测试..."
+  npm test
+  if [ $? -ne 0 ]; then
+    echo "测试失败，阻止提交" &gt;&amp;2
+    exit 1  # 非零退出码 = 阻止 Claude Code 继续执行
+  fi
+fi</pre>
+<p>退出码非零 → PreToolUse Hook 阻止 Claude Code 执行后续操作。这是唯一能"拦截"的时机。</p>
+<h3>实战 3：保护 .env 文件不被改动</h3>
+<pre>{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 -c \"\nimport json, sys\nd = json.load(sys.stdin)\npath = d.get('file_path', '')\nif '.env' in path and '.env.' not in path:\n    print(f'拒绝修改敏感文件: {path}', file=sys.stderr)\n    sys.exit(1)\n\""
+          }
+        ]
+      }
+    ]
+  }
+}</pre>
+<h3>Hook 脚本收到的 JSON 格式</h3>
+<p>Claude Code 通过 stdin 传入上下文，你可以读取：</p>
+<pre>import json, sys
+
+data = json.load(sys.stdin)
+print(data.keys())
+# 常见字段:
+# - tool_name: "Write" / "Edit" / "Bash" / ...
+# - file_path: 操作的文件路径
+# - command: Bash 执行的命令
+# - session_id: 当前会话 ID</pre>
+<h3>常见坑</h3>
+<p><strong>坑 1：PostToolUse 里用了退出码 1 试图阻止操作</strong><br/> → 不行。PostToolUse 已经执行完，退出码只影响 Claude Code 是否报错，不能撤销操作。</p>
+<p><strong>坑 2：Hook 脚本没有可执行权限</strong><br/></p>
+<pre>chmod +x ~/.claude/hooks/your-hook.sh</pre>
+<p><strong>坑 3：matcher 写错，Hook 没触发</strong><br/> matcher 是正则表达式，工具名包括：<code>Write</code>、<code>Edit</code>、<code>Bash</code>、<code>Read</code>、<code>Glob</code>、<code>Grep</code>、<code>Agent</code>。<br/> 用 <code>"matcher": "Write|Edit"</code> 匹配写操作，<code>"matcher": ".*"</code> 匹配所有工具。</p>
+<h3>推荐的项目级配置</h3>
+<p>在项目 <code>.claude/settings.json</code> 放这个，团队所有人共享：</p>
+<pre>{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          { "type": "command", "command": "npx prettier --write $CLAUDE_TOOL_INPUT_FILE_PATH 2&gt;/dev/null || true" },
+          { "type": "command", "command": "npx eslint --fix $CLAUDE_TOOL_INPUT_FILE_PATH 2&gt;/dev/null || true" }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          { "type": "command", "command": "node .claude/hooks/protect-sensitive-files.js" }
+        ]
+      }
+    ]
+  }
+}</pre>
+<p>一旦配置好，Claude Code 做任何修改都会自动走你团队的质量门控，不需要每次提醒它。</p>
+  </div>
+</section>
+
+<section class="ch" id="ch5">
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 05</div>
+        <h2>🔌 MCP 服务器：给 Claude Code 装上超能力插件</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-data.png" alt="" />
+    </div>
+<h3>MCP 是什么</h3>
+<p>Model Context Protocol（MCP）是 Anthropic 在 2024 年 11 月发布的开源标准，让 AI 能连接外部工具和数据源。</p>
+<p>没有 MCP 之前：Claude Code 只能操作本地文件和运行终端命令。<br/> 有了 MCP 之后：Claude Code 能直接查数据库、操作 GitHub、搜索 Slack、控制浏览器。</p>
+<pre>Claude Code ←→ MCP Server ←→ 外部系统
+                               (GitHub / PostgreSQL / Slack / 浏览器 / ...)</pre>
+<h3>添加第一个 MCP 服务器</h3>
+<p>以官方的文件系统 MCP 为例（允许 Claude 访问指定目录）：</p>
+<pre>claude mcp add filesystem npx @modelcontextprotocol/server-filesystem /Users/yourname/projects</pre>
+<p>或者手动编辑配置文件 <code>.claude/mcp.json</code>：</p>
+<pre>{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "@modelcontextprotocol/server-filesystem",
+        "/Users/yourname/projects"
+      ]
+    }
+  }
+}</pre>
+<p>启动 Claude Code 后直接说：</p>
+<pre>&gt; 帮我看看 /Users/yourname/projects 下有哪些 package.json</pre>
+<h3>高价值 MCP 服务器推荐</h3>
+<h4>GitHub MCP — 直接操作仓库</h4>
+<pre>{
+  "mcpServers": {
+    "github": {
+      "command": "npx",
+      "args": ["@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "ghp_xxxx"
+      }
+    }
+  }
+}</pre>
+<p>接入后可以说：</p>
+<pre>&gt; 帮我看一下 anthropics/claude-code 最近 5 个 issue，有没有和 hooks 相关的
+&gt; 给 #123 issue 加个评论，说我在本地复现了这个 bug
+&gt; 帮我创建一个 PR，从 feature/xxx 到 main</pre>
+<h4>PostgreSQL MCP — 自然语言查数据库</h4>
+<pre>{
+  "mcpServers": {
+    "postgres": {
+      "command": "npx",
+      "args": ["@modelcontextprotocol/server-postgres",
+               "postgresql://localhost/mydb"]
+    }
+  }
+}</pre>
+<pre>&gt; 帮我查一下过去 7 天注册的用户数，按天分组
+&gt; users 表里有没有重复的 email？</pre>
+<p>Claude Code 自动生成 SQL、执行、解释结果，不用你写一行查询。</p>
+<h4>Playwright MCP — 控制浏览器</h4>
+<pre>{
+  "mcpServers": {
+    "playwright": {
+      "command": "npx",
+      "args": ["@playwright/mcp@latest"]
+    }
+  }
+}</pre>
+<pre>&gt; 打开我们的测试环境 http://localhost:3000，登录后截图看看首页是否正常
+&gt; 帮我测试一下注册流程，看看有没有报错</pre>
+<p>适合自动化 E2E 测试和 UI 调试。</p>
+<h3>项目级 vs 全局配置</h3>
+<table><tr><th>配置文件</th><th>作用范围</th><th>适合场景</th></tr><tr><td><code>.claude/mcp.json</code></td><td>当前项目</td><td>项目专用工具（特定 DB、内部 API）</td></tr><tr><td><code>~/.claude/mcp.json</code></td><td>全局所有项目</td><td>常用工具（GitHub、Slack）</td></tr></table>
+<p>项目级配置可以提交到 git，让团队成员共享相同的工具集。</p>
+<h3>实战：连接内部 API</h3>
+<p>很多公司有自己的内部 API（查员工信息、调度系统等）。用 MCP 可以快速接入：</p>
+<pre>// 用 MCP SDK 写一个简单的内部 API server
+import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
+
+const server = new McpServer({ name: "internal-api", version: "1.0.0" });
+
+server.tool("get_employee", { id: { type: "string" } }, async ({ id }) =&gt; {
+  const res = await fetch(`https://hr.internal/api/employees/${id}`);
+  const data = await res.json();
+  return { content: [{ type: "text", text: JSON.stringify(data) }] };
+});
+
+const transport = new StdioServerTransport();
+await server.connect(transport);</pre>
+<p>配置：</p>
+<pre>{
+  "mcpServers": {
+    "internal-api": {
+      "command": "node",
+      "args": ["./mcp-servers/internal-api.js"]
+    }
+  }
+}</pre>
+<p>现在 Claude Code 可以直接说：</p>
+<pre>&gt; 帮我查一下员工 ID 为 E12345 的人的信息</pre>
+<h3>常见坑</h3>
+<p><strong>坑 1：MCP 服务器启动失败，但 Claude Code 没有明显报错</strong><br/> 检查方法：运行 <code>claude mcp list</code> 看服务器状态，或单独运行服务器命令看报错：</p>
+<pre>npx @modelcontextprotocol/server-github</pre>
+<p><strong>坑 2：工具太多导致上下文膨胀</strong><br/> MCP 工具定义会占用 context window。Claude Code 采用"延迟加载"——只有 Claude 决定用某个工具时才加载其完整定义，所以多装几个 MCP 服务器影响不大。</p>
+<p><strong>坑 3：数据库 MCP 返回了敏感数据</strong><br/> 用只读账号连接，或在 MCP server 层做权限过滤，不要把生产数据库的写权限给 Claude。</p>
+<h3>查找更多 MCP 服务器</h3>
+<p>社区已经有数千个 MCP 服务器：</p>
+<ul><li><a href="https://github.com/modelcontextprotocol/servers">modelcontextprotocol/servers</a> — 官方维护的参考实现</li><li><a href="https://mcp.so">mcp.so</a> — 社区 MCP 索引</li><li>搜索 <code>npm search mcp-server-xxx</code></li></ul>
+<p>主流平台基本都有现成的 MCP server：AWS、Slack、Notion、Linear、Jira、Figma……装上就能用，不需要自己写。</p>
+  </div>
+</section>
+
+<section class="ch" id="ch6">
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 06</div>
+        <h2>🐛 调试技巧：让 Claude Code 帮你定位 Bug</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-thinking.png" alt="" />
+    </div>
+<h3>给 Claude Code 错误信息</h3>
+<p>最有效的调试方式：把错误日志直接丢进去。</p>
+<pre># 方式一：直接在对话里粘贴
+&gt; 我跑 npm run build 报了这个错：
+&gt; TypeError: Cannot read properties of undefined (reading 'map')
+&gt; at UserList (src/components/UserList.tsx:23:18)
+
+# 方式二：管道输入（适合长日志）
+npm run build 2&gt;&amp;1 | claude -p "分析这个构建错误的原因，给出修复方案"
+
+# 方式三：从日志文件读取
+&gt; 帮我看一下 @logs/error.log 最近的报错，找到根因</pre>
+<p>Claude Code 拿到错误信息后会自动定位到源文件，分析调用链，找到 root cause。</p>
+<h3>实战：排查运行时错误</h3>
+<pre>&gt; 用户反馈说点击"提交订单"按钮没反应，帮我查一下 OrderForm 组件</pre>
+<p>Claude Code 的排查路径：</p>
+<ol><li>读取 <code>OrderForm.tsx</code>，找到 submit handler</li><li>追踪整个调用链：组件 → service → API endpoint</li><li>检查每一层的错误处理是否有遗漏</li><li>定位问题（比如 <code>await</code> 缺失导致 Promise 未处理）</li><li>修复并验证</li></ol>
+<h3>用 Extended Thinking 处理复杂 Bug</h3>
+<p>碰到逻辑复杂、涉及多个模块的 bug，开启 extended thinking 让 Claude 深度分析：</p>
+<pre># 在 Claude Code 里按 Option+T (macOS) 或 Alt+T 开启 thinking mode
+# 或者启动时指定
+claude --permission-mode plan</pre>
+<p>在 thinking mode 下，Claude 会先做完整的代码分析，画出依赖关系，然后再给出修复方案。按 <code>Ctrl+O</code> 能看到它的推理过程。</p>
+<p>适合用 thinking mode 的场景：</p>
+<ul><li>竞态条件（race condition）</li><li>内存泄漏</li><li>跨服务的数据不一致</li><li>性能瓶颈定位</li></ul>
+<h3>把 Claude Code 集成到测试流程</h3>
+<p>用管道把测试输出直接给 Claude 分析：</p>
+<pre># 跑测试，失败的话自动分析原因
+npm test 2&gt;&amp;1 | claude -p "分析失败的测试，找到 root cause 并修复"
+
+# 只看特定测试文件的失败
+npx vitest run src/services/auth.test.ts 2&gt;&amp;1 | claude -p "这个测试为什么失败了？"</pre>
+<p>更自动化的做法——写个脚本循环修复：</p>
+<pre>#!/bin/bash
+MAX_ATTEMPTS=3
+for i in $(seq 1 $MAX_ATTEMPTS); do
+  npm test &amp;&amp; echo "测试通过" &amp;&amp; exit 0
+  npm test 2&gt;&amp;1 | claude -p "测试失败了，读取相关源码，修复 bug。只改源码，不改测试。"
+done
+echo "修复 $MAX_ATTEMPTS 次仍然失败，需要人工介入"</pre>
+<h3>调试 API 接口</h3>
+<p>后端接口出问题时，可以结合 MCP 工具一起调试：</p>
+<pre>&gt; 帮我查一下 /api/orders 接口为什么返回 500
+&gt; 用 PostgreSQL MCP 看一下 orders 表最近 10 条记录的状态
+&gt; 再对比一下代码里的查询逻辑</pre>
+<p>如果接了数据库 MCP Server，Claude Code 能直接执行 SQL 验证数据，比手动切换终端、数据库客户端效率高得多。</p>
+<h3>常见调试模式</h3>
+<table><tr><th>场景</th><th>推荐方式</th></tr><tr><td>构建报错</td><td>管道输入 build 输出，让 Claude 分析</td></tr><tr><td>运行时错误</td><td>粘贴错误日志 + 堆栈信息</td></tr><tr><td>测试失败</td><td>管道输入测试结果，自动定位修复</td></tr><tr><td>性能问题</td><td>用 thinking mode 分析代码路径</td></tr><tr><td>UI 问题</td><td>截图粘贴（<code>Ctrl+V</code>），让 Claude 看界面</td></tr><tr><td>数据问题</td><td>接 PostgreSQL MCP，直接查数据库</td></tr></table>
+  </div>
+</section>
+
+<section class="ch" id="ch7">
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 07</div>
+        <h2>📋 CLAUDE.md：让 AI 理解你的项目规范</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-pen-book.png" alt="" />
+    </div>
+<h3>CLAUDE.md 是什么</h3>
+<p><code>CLAUDE.md</code> 是放在项目根目录的 Markdown 文件，Claude Code 每次启动时自动读取。它就像给 AI 的 onboarding 文档——告诉它这个项目的技术栈、编码规范、常用命令、架构约束。</p>
+<p>写了 <code>CLAUDE.md</code> 之后，你不用每次对话都重复"我们用 TypeScript"、"测试用 Vitest"、"错误处理用 toast"这些话。</p>
+<h3>一个实际的 CLAUDE.md 例子</h3>
+<pre># CLAUDE.md
+
+## 项目概述
+这是一个 Next.js 14 全栈应用，前端用 React + TypeScript，后端用 Route Handlers。
+
+## 技术栈
+- 框架: Next.js 14 (App Router)
+- 语言: TypeScript (strict mode)
+- 样式: Tailwind CSS
+- 数据库: PostgreSQL + Prisma ORM
+- 测试: Vitest + React Testing Library
+- 包管理: pnpm
+
+## 常用命令
+- pnpm dev          # 启动开发服务器
+- pnpm test         # 跑全部测试
+- pnpm test:watch   # watch 模式
+- pnpm lint         # ESLint 检查
+- pnpm db:migrate   # 数据库迁移
+- pnpm db:seed      # 填充测试数据
+
+## 编码规范
+- 组件文件用 PascalCase: UserProfile.tsx
+- 工具函数用 camelCase: formatDate.ts
+- API route 放 app/api/ 目录
+- 共享类型定义放 types/ 目录
+- 所有 API 调用必须有 try-catch + 用户友好的错误提示
+- 不要用 any，必要时用 unknown 然后做类型守卫
+
+## 架构约定
+- 数据获取统一走 services/ 层，组件不直接调 fetch
+- 全局状态用 Zustand，表单状态用 React Hook Form
+- 环境变量统一在 env.ts 里用 zod 校验</pre>
+<h3>配置层级</h3>
+<p>CLAUDE.md 支持三个层级，优先级从高到低：</p>
+<table><tr><th>层级</th><th>文件位置</th><th>适用场景</th></tr><tr><td>项目级</td><td>项目根目录 <code>CLAUDE.md</code></td><td>项目特有的规范，提交到 git</td></tr><tr><td>用户级</td><td><code>~/.claude/CLAUDE.md</code></td><td>个人偏好（比如中文回复）</td></tr><tr><td>子目录级</td><td><code>src/api/CLAUDE.md</code></td><td>特定模块的约束</td></tr></table>
+<p>当你用 <code>@src/api/route.ts</code> 引用文件时，Claude Code 会自动加载该文件所在目录及父目录的 <code>CLAUDE.md</code>。</p>
+<h3>Auto Memory</h3>
+<p>Claude Code 有自动记忆功能——在工作中它会自己学习项目的构建命令、调试方法等知识，保存到 <code>~/.claude/memory.json</code>。</p>
+<p>你也可以手动触发记忆：</p>
+<pre>&gt; 记住：这个项目的 lint 命令是 pnpm lint --fix
+&gt; 记住：数据库连接字符串在 .env.local 里，不要用 .env</pre>
+<p>这些记忆在下次会话里自动生效，不需要重新写 CLAUDE.md。</p>
+<h3>实用模板片段</h3>
+<p><strong>前端项目必备：</strong></p>
+<pre>## 测试规范
+- 每个组件都要有对应的 .test.tsx
+- Mock 外部依赖，不 mock 内部模块
+- 用 screen.getByRole 而不是 getByTestId</pre>
+<p><strong>后端项目必备：</strong></p>
+<pre>## API 规范  
+- RESTful 路由命名: GET /api/users, POST /api/users
+- 返回格式: { data: T, error?: string }
+- 认证用 JWT，中间件在 middleware.ts
+- 所有数据库操作包 transaction</pre>
+<p><strong>Monorepo 项目：</strong></p>
+<pre>## Monorepo 结构
+- packages/ui: 共享 UI 组件库
+- packages/api: API client SDK
+- apps/web: 前端应用
+- apps/server: 后端服务
+- 改了 packages/ 下的代码需要跑 pnpm build --filter=@scope/package</pre>
+<h3>避免写什么</h3>
+<p>CLAUDE.md 不是文档站，写多了反而干扰 AI 判断。避免：</p>
+<ul><li>冗长的项目历史介绍</li><li>大段的 API 文档（这些应该放代码注释里）</li><li>频繁变化的内容（用 auto memory 代替）</li><li>显而易见的规则（比如"不要删除 node_modules"）</li></ul>
+<p>保持简洁。200-500 行以内最合适。</p>
+  </div>
+</section>
+
+<section class="ch" id="ch8">
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 08</div>
+        <h2>🧵 并行开发：Worktree 让多个 Claude 同时干活</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-coffee-pointing.png" alt="" />
+    </div>
+<h3>为什么需要并行开发</h3>
+<p>一个 Claude Code session 在改文件时会占用当前工作目录。如果你想同时修一个 bug 和做一个新功能，两个 session 操作同一份代码会冲突。</p>
+<p>Git Worktree 解决这个问题：给每个 session 一份独立的代码副本，共享同一个 git 仓库历史。</p>
+<h3>快速上手</h3>
+<pre># 创建一个叫 feature-auth 的 worktree 并启动 Claude Code
+claude --worktree feature-auth
+
+# 同时开另一个终端，创建 bugfix worktree
+claude --worktree bugfix-login
+
+# 不想起名？自动生成一个随机名
+claude --worktree</pre>
+<p><code>--worktree</code> (简写 <code>-w</code>) 做了三件事：</p>
+<ol><li>在 <code>.claude/worktrees/feature-auth/</code> 创建一份代码副本</li><li>自动创建并切换到 <code>worktree-feature-auth</code> 分支</li><li>在这个隔离环境里启动 Claude Code</li></ol>
+<p>两个 session 各自改代码、跑测试，互不影响。</p>
+<h3>实战：同时修 Bug + 做功能</h3>
+<p>终端 1：</p>
+<pre>claude --worktree bugfix-user-api
+&gt; /api/users 接口在用户没有 avatar 时返回 null 导致前端崩溃
+&gt; 修复这个 bug 然后创建 PR</pre>
+<p>终端 2：</p>
+<pre>claude --worktree feature-dark-mode
+&gt; 给应用加一个 dark mode 功能
+&gt; 用 Tailwind CSS 的 dark: 前缀实现
+&gt; 在 header 加一个切换按钮</pre>
+<p>两个任务并行推进，完成后各自 push 到远程仓库，互不干扰。</p>
+<h3>Worktree 的清理</h3>
+<p>退出 session 时 Claude Code 自动处理清理：</p>
+<table><tr><th>场景</th><th>行为</th></tr><tr><td>没有任何改动</td><td>自动删除 worktree 和分支</td></tr><tr><td>有 commit 但没 push</td><td>问你要不要保留</td></tr><tr><td>已经 push 到远程</td><td>问你要不要保留本地 worktree</td></tr></table>
+<p>手动清理也很简单：</p>
+<pre># 查看所有 worktree
+git worktree list
+
+# 删除指定 worktree
+git worktree remove .claude/worktrees/feature-auth</pre>
+<p>建议在 <code>.gitignore</code> 里加上 <code>.claude/worktrees/</code>，防止 worktree 内容被主仓库追踪。</p>
+<h3>Subagent 也能用 Worktree</h3>
+<p>Claude Code 支持在一个 session 里启动多个 subagent，每个 subagent 各自用独立的 worktree：</p>
+<pre>&gt; 帮我同时做这三件事（每件事用独立的 worktree）：
+&gt; 1. 给 auth 模块写单元测试
+&gt; 2. 把 utils/ 下的 CommonJS 改成 ES Module
+&gt; 3. 更新 README 的 API 文档</pre>
+<p>Claude Code 会给每个子任务分配独立的 worktree，三个 subagent 并行工作。主 agent 协调进度，合并结果。</p>
+<p>也可以在自定义 subagent 配置里固定启用 worktree：</p>
+<pre># .claude/agents/test-writer.md
+---
+description: 自动写测试的 agent
+isolation: worktree
+tools:
+  - Read
+  - Write
+  - Edit
+  - Bash
+---
+读取指定模块的源码，生成对应的单元测试文件。</pre>
+<h3>处理 .env 文件</h3>
+<p>Worktree 是全新的 checkout，不会复制 <code>.env</code> 等 gitignore 文件。在项目根目录创建 <code>.worktreeinclude</code>：</p>
+<pre>.env
+.env.local
+config/secrets.json</pre>
+<p>Claude Code 创建 worktree 时会自动把这些文件拷贝过去。</p>
+<h3>最佳实践</h3>
+<ul><li>给 worktree 起语义化名字（<code>bugfix-login</code>、<code>feature-dark-mode</code>），方便识别</li><li>完成任务后及时清理不需要的 worktree，避免磁盘空间浪费</li><li>长期任务用 <code>claude --resume</code> 恢复 session，不用重新创建 worktree</li><li>团队协作时，每人用自己的 worktree 前缀（<code>alice-feature-xxx</code>）</li></ul>
+  </div>
+</section>
+
+
+</main>
+
+<section class="page back-cover">
+  <div class="logo"><img src="assets/logo/logo-zh-white.png" alt="匠人学院" /></div>
+  <h2>工具会用了，接下来用它做什么？</h2>
+  <p style="max-width: 78%;">这本手册的在线版在 jiangren.com.au/wiki/claude-code-guide，随官网每周更新 —— 收藏网页比收藏 PDF 更不容易过期。匠人学院还有 26 本同款工具指南（N8N、Cursor、Prompt Engineering…）和 AI Engineer 方向的项目制课程，想知道 Claude Code 在真实工程里怎么用到极限，来聊聊。</p>
+
+  <div class="contact-bar" style="width: 88%;">
+    <img class="qr" src="assets/contact/qr-xiaohua.png" alt="匠人学院小助手微信" />
+    <div class="cb-body">
+      <div class="cb-title">扫码进社群，AI 工具实操答疑</div>
+      <div class="cb-desc">把这本 PDF 转给还在复制粘贴代码进 ChatGPT 的朋友。</div>
+    </div>
+    <div class="cb-brand"><img src="assets/logo/jr-box.svg" alt="JR" /><span class="cb-url">jiangren.com.au</span></div>
+  </div>
+
+  <p class="caption" style="color: rgba(255,255,255,0.5);">© JR Academy · 学 AI 来匠人 · 内容源自 jiangren.com.au/wiki《Claude Code 完全指南》· 欢迎转发</p>
+</section>
+
+<script defer src="theme/reader.js"></script>
+<a href="Claude%20Code%20%E4%B8%AD%E6%96%87%E4%B8%8A%E6%89%8B%E6%89%8B%E5%86%8C%20-%20%E5%8C%A0%E4%BA%BA%E5%AD%A6%E9%99%A2.pdf" download style="position:fixed;right:22px;bottom:22px;z-index:1200;display:flex;align-items:center;gap:8px;background:#0D0F12;color:#fff;font-weight:700;font-size:14.5px;padding:13px 22px;border-radius:999px;box-shadow:0 12px 28px rgba(13,15,18,.35);text-decoration:none;font-family:Inter,'PingFang SC',sans-serif;">⬇️ 下载 PDF 版</a>
+</body>
+</html>

@@ -1,0 +1,25 @@
+{
+  "slug": "claude-code-handbook",
+  "title": "Claude Code 中文上手手册",
+  "subtitle": "从安装到多文件重构、Hooks、MCP、Worktree 并行开发 — 8 章全可复制",
+  "audience": "开发者 / 想用 AI 写代码的转行者",
+  "goal": "lead-magnet",
+  "track": "T1",
+  "style": "handbook",
+  "mode": "flow",
+  "channel": [
+    "微信群分享",
+    "小红书引流",
+    "公众号文末资料包"
+  ],
+  "pages": "flow 自动分页",
+  "status": "draft",
+  "tags": [
+    "ai-tools",
+    "coding",
+    "claude-code"
+  ],
+  "sources": [
+    "jr-wiki src/content/wiki/claude-code-guide/ 8 章原文（source of truth，转换不改写）"
+  ]
+}
