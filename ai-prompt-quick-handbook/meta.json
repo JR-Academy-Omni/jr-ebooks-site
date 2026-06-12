@@ -1,12 +1,16 @@
 {
   "slug": "ai-prompt-quick-handbook",
   "title": "AI 提问速查手册",
-  "subtitle": "9 个拿来即用的 Prompt 模式",
+  "subtitle": "12 个拿来即用的 Prompt 模式 + 6 个反模式",
   "audience": "AI 入门用户 / 对 Prompt 写作没有方法论的职场人",
   "goal": "lead-magnet",
   "track": "T1",
   "style": "handbook",
-  "channel": ["微信群分享", "小红书引流", "公众号文末资料包"],
-  "pages": 6,
+  "channel": [
+    "微信群分享",
+    "小红书引流",
+    "公众号文末资料包"
+  ],
+  "pages": 8,
   "status": "draft"
 }
