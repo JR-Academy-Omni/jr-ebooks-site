@@ -1,11 +1,16 @@
 // jr-ebooks 左右翻页阅读器 — 所有 A4 书（index.html）公用
-// 行为：一屏一页缩放至清晰大小；← → / 点按钮 / 触屏滑动翻页；#p3 深链；可切回滚动模式
+// 画布书：一屏一页缩放至清晰大小翻页。flow 书：一个 chapter = 一个页面翻页（章内可纵向滚动）。
+// ← → / 点按钮 / 触屏滑动翻页；#p3 深链；可切回滚动模式。
 // 渲染安全：playwright（navigator.webdriver=true）下不启用，render.mjs 的 overflow 检测和 PDF 打印不受影响
 (() => {
   if (navigator.webdriver) return;
-  if (document.querySelector('main.flow')) return; // flow 书：浏览器滚动读，翻页看 PDF
-  const pages = [...document.querySelectorAll('.page')];
+  const flowMain = document.querySelector('main.flow');
+  // 翻页单元：画布书 = 每个 .page；flow 书 = 封面 + 目录 + 每个 chapter + 封底
+  const pages = flowMain
+    ? [...document.querySelectorAll('body > .page, main.flow > .book-toc, main.flow > section.ch')]
+    : [...document.querySelectorAll('.page')];
   if (pages.length < 2) return;
+  const modeClass = flowMain ? 'reader-flow' : 'reader-mode';
 
   let cur = 0;
   let flip = true;
@@ -24,7 +29,7 @@
   const toggleBtn = bar.querySelector('.rd-toggle');
 
   function fit() {
-    if (!flip) return;
+    if (!flip || flowMain) return; // flow 单元高度不定，不做缩放
     const p = pages[cur];
     const s = Math.min((innerWidth - 48) / p.offsetWidth, (innerHeight - 110) / p.offsetHeight, 1.5);
     document.documentElement.style.setProperty('--reader-scale', s);
@@ -35,12 +40,13 @@
     pages.forEach((p, k) => p.classList.toggle('current', k === cur));
     counter.textContent = `${cur + 1} / ${pages.length}`;
     history.replaceState(null, '', '#p' + (cur + 1));
+    if (flowMain) scrollTo({ top: 0, behavior: 'instant' }); // 翻到新章回顶部
     fit();
   }
 
   function setMode(toFlip) {
     flip = toFlip;
-    document.body.classList.toggle('reader-mode', flip);
+    document.body.classList.toggle(modeClass, flip);
     toggleBtn.textContent = flip ? '滚动' : '翻页';
     if (flip) { show(cur); }
     else { pages[cur] && pages[cur].scrollIntoView({ block: 'start' }); }
@@ -52,8 +58,10 @@
 
   addEventListener('keydown', (e) => {
     if (!flip) return;
-    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); show(cur + 1); }
+    if (e.key === 'ArrowRight' || e.key === 'PageDown') { e.preventDefault(); show(cur + 1); }
     if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); show(cur - 1); }
+    // 空格在 flow 章节里保留给纵向滚动；画布书仍当翻页键
+    if (e.key === ' ' && !flowMain) { e.preventDefault(); show(cur + 1); }
   });
 
   let tx = null;
@@ -68,6 +76,6 @@
   addEventListener('resize', fit);
 
   const m = location.hash.match(/^#p(\d+)$/);
-  document.body.classList.add('reader-mode');
+  document.body.classList.add(modeClass);
   show(m ? parseInt(m[1], 10) - 1 : 0);
 })();
