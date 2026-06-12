@@ -6,13 +6,17 @@
    类名与 draft.html（web-zine 词汇）兼容，内容可直接搬。
    ===================================================== */
 
-@page flowpg { margin: 16mm 15mm 18mm; }
+/* 左右 margin 归 0：@page 边距区 Chrome 打印不上色（永远白色），横向留白改由
+   main.flow 自己的 padding 承担，奶黄底才能涂满整页宽。上下边距留给 render.mjs 的
+   header/footer 模板（同色背景补上下两条），整张 A4 才是一致的暖白底。 */
+@page flowpg { margin: 16mm 0 18mm; }
 
 main.flow {
   page: flowpg;
   font-family: var(--jr-font-sans);
   color: var(--jr-neutral-900);
   background: var(--jr-surface-canvas);
+  padding: 0 15mm; /* print：替代原 @page 左右 15mm */
 }
 @media screen {
   main.flow { width: 210mm; margin: 0 auto 24px; padding: 16mm 15mm; box-shadow: var(--jr-shadow-lg); }

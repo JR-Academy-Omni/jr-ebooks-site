@@ -316,3 +316,35 @@
 }
 .zine-holo.square { border-radius: 12px; }
 .zine-holo.sm { width: 64px; height: 64px; font-size: 30px; }
+
+/* —— 自家广告位（inject-promos.mjs 注入）—— */
+.promo {
+  position: relative; max-width: 880px; margin: 36px auto; padding: 24px 28px;
+  display: flex; align-items: center; gap: 24px;
+  background: #fff; border: 1.5px dashed var(--jr-border-warm-strong); border-radius: 18px;
+  box-shadow: var(--jr-shadow-panel);
+}
+.promo-tag {
+  position: absolute; top: -11px; left: 22px;
+  font-family: 'Anton', var(--jr-font-sans); font-size: 11px; letter-spacing: .12em;
+  background: var(--jr-yellow); color: var(--jr-black);
+  padding: 3px 12px; border-radius: var(--jr-radius-full); transform: rotate(-2deg);
+}
+.promo-body { flex: 1; }
+.promo-body h4 { font-size: 17px; font-weight: var(--jr-fw-bold); color: var(--jr-black); margin-bottom: 6px; }
+.promo-body p { font-size: 14px; color: var(--jr-neutral-600); line-height: 1.65; }
+.promo-cta {
+  flex: none; background: var(--jr-black); color: #fff; text-decoration: none;
+  font-weight: var(--jr-fw-bold); font-size: 14px; padding: 11px 20px;
+  border-radius: var(--jr-radius-full); transition: transform .2s;
+}
+.promo-cta:hover { transform: translateY(-2px); }
+.promo-line {
+  display: block; margin: 18px 0 0; padding: 12px 18px;
+  background: var(--jr-wash-yellow); border-radius: 12px;
+  font-size: 14px; font-weight: var(--jr-fw-medium); color: var(--jr-neutral-900);
+  text-decoration: none;
+}
+.promo-line span { color: var(--jr-red); font-weight: 700; }
+.promo-line:hover { background: #ffeebf; }
+@media (max-width: 640px) { .promo { flex-direction: column; align-items: flex-start; margin: 28px 16px; } }
