@@ -1,0 +1,35 @@
+{
+  "slug": "ai-jobs-salary-atlas",
+  "title": "AI 岗位与薪资图鉴 2026",
+  "subtitle": "78 职业 AI 冲击地图 + 23 个 AI 新岗位薪资 / 地区 / 技能 / 转型路径，每个数字标来源",
+  "audience": "考虑转 AI / 看市场机会的职场人 + 高意向 EOI",
+  "goal": "lead-magnet",
+  "track": "T5",
+  "style": "report",
+  "mode": "flow",
+  "channel": [
+    "微信群分享",
+    "公众号文末资料包",
+    "EOI 跟进附件",
+    "小红书引流"
+  ],
+  "pages": "flow 自动分页",
+  "status": "draft",
+  "tags": [
+    "ai-jobs",
+    "salary",
+    "career",
+    "data-report"
+  ],
+  "contact": {
+    "qr": "qr-xiaohua.png",
+    "salesCards": [
+      "amelia.jpg"
+    ]
+  },
+  "sources": [
+    "jr-academy-web-zh src/config/aiNewJobs/index.ts（23 岗位结构化数据 + 课程映射）",
+    "careerImpactMap/careers.ts（78 职业风险/转型评估）",
+    "薪资二次核实：Levels.fyi / Robert Half 2026 / Glassdoor / Indeed / LinkedIn / Hays AU（WebSearch，截至 2026-06）"
+  ]
+}
