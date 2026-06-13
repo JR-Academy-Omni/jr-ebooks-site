@@ -127,8 +127,7 @@ code --install-extension anthropic.claude-code
 # 直接打开 https://claude.ai/code</pre>
 <p>VS Code 里按 <code>Cmd+Shift+P</code> 搜索 "Claude Code" 就能打开侧边栏。JetBrains 系列也有插件，IntelliJ / PyCharm / WebStorm 均支持，安装方式和 VS Code 类似，在 Marketplace 里搜 "Claude Code" 即可。</p>
   </div>
-
-<a class="promo-line" href="https://jiangren.com.au/blog" target="_blank" rel="noopener">📰 跟上行业节奏：匠人每天 5 条经过核源的 AI 日报，每周一份大事盘点 <span>→</span></a></section>
+</section>
 
 <section class="ch" id="ch2">
   <div class="wrap">
@@ -238,7 +237,8 @@ code --install-extension anthropic.claude-code
 <pre>&gt; 全局把 moment.js 换成 dayjs，但 src/legacy/ 目录先别动</pre>
 <p>这种精细化控制在大型 monorepo 里特别有用——你可以逐模块推进重构，而不是一次改动几百个文件让 PR review 成噩梦。</p>
   </div>
-</section>
+
+<a class="promo-line" href="https://jiangren.com.au/blog" target="_blank" rel="noopener">📰 跟上行业节奏：匠人每天 5 条经过核源的 AI 日报，每周一份大事盘点 <span>→</span></a></section>
 
 <section class="ch" id="ch3">
   <div class="wrap">
@@ -373,9 +373,19 @@ const [refactorResult, testResult] = await Promise.all([
 <p>Claude Code 对 Git 操作的默认行为很保守：</p>
 <ul><li>不会自动 push，修改都先到本地</li><li>不会 force push 或 <code>reset --hard</code></li><li>不会跳过 pre-commit hook（<code>--no-verify</code>）</li><li>敏感文件（<code>.env</code>、credentials）不会被 stage</li></ul>
 <p>这些限制确保你不会因为 AI 的一次操作搞坏远程仓库。如果某个操作确实需要 force push，你需要明确告诉它。</p>
-  </div>
 
-<a class="promo-line" href="https://jiangren.com.au/learn/prompt-master" target="_blank" rel="noopener">🧑‍💻 光看不动手没用：Prompt Master / LLM Lab / Vibe Coding 三个浏览器内实验室，边读边跑 <span>→</span></a></section>
+    <p class="sales-card-lead">💼 用 Claude Code 改完简历项目，想知道离 AI Engineer 岗位还差几步？Amelia 帮你按真实岗位池对一遍：</p>
+    <div class="sales-card"><img src="assets/contact/sales-cards/amelia.jpg" alt="Amelia · IT Career Consultant · 匠人学院" /></div>
+  </div>
+</section>
+<aside class="promo">
+  <span class="promo-tag">AD · 自家的</span>
+  <div class="promo-body">
+    <h4>📚 27 本 AI 工具实战手册，免费</h4>
+    <p>Cursor、Claude Code、Dify、n8n、CrewAI…每个工具一本中文实战手册，5-10 章带代码，不用注册不要钱。本书提到的工具基本都有对应深读。</p>
+  </div>
+  <a class="promo-cta" href="https://jiangren.com.au/wiki" target="_blank" rel="noopener">去翻手册 →</a>
+</aside>
 
 <section class="ch" id="ch4">
   <div class="wrap">
@@ -515,14 +525,6 @@ print(data.keys())
 <p>一旦配置好，Claude Code 做任何修改都会自动走你团队的质量门控，不需要每次提醒它。</p>
   </div>
 </section>
-<aside class="promo">
-  <span class="promo-tag">AD · 自家的</span>
-  <div class="promo-body">
-    <h4>📚 27 本 AI 工具实战手册，免费</h4>
-    <p>Cursor、Claude Code、Dify、n8n、CrewAI…每个工具一本中文实战手册，5-10 章带代码，不用注册不要钱。本书提到的工具基本都有对应深读。</p>
-  </div>
-  <a class="promo-cta" href="https://jiangren.com.au/wiki" target="_blank" rel="noopener">去翻手册 →</a>
-</aside>
 
 <section class="ch" id="ch5">
   <div class="wrap">
@@ -637,7 +639,8 @@ await server.connect(transport);</pre>
 <ul><li><a href="https://github.com/modelcontextprotocol/servers">modelcontextprotocol/servers</a> — 官方维护的参考实现</li><li><a href="https://mcp.so">mcp.so</a> — 社区 MCP 索引</li><li>搜索 <code>npm search mcp-server-xxx</code></li></ul>
 <p>主流平台基本都有现成的 MCP server：AWS、Slack、Notion、Linear、Jira、Figma……装上就能用，不需要自己写。</p>
   </div>
-</section>
+
+<a class="promo-line" href="https://jiangren.com.au/learn/prompt-master" target="_blank" rel="noopener">🧑‍💻 光看不动手没用：Prompt Master / LLM Lab / Vibe Coding 三个浏览器内实验室，边读边跑 <span>→</span></a></section>
 
 <section class="ch" id="ch6">
   <div class="wrap">
@@ -696,15 +699,20 @@ echo "修复 $MAX_ATTEMPTS 次仍然失败，需要人工介入"</pre>
 <p>如果接了数据库 MCP Server，Claude Code 能直接执行 SQL 验证数据，比手动切换终端、数据库客户端效率高得多。</p>
 <h3>常见调试模式</h3>
 <table><tr><th>场景</th><th>推荐方式</th></tr><tr><td>构建报错</td><td>管道输入 build 输出，让 Claude 分析</td></tr><tr><td>运行时错误</td><td>粘贴错误日志 + 堆栈信息</td></tr><tr><td>测试失败</td><td>管道输入测试结果，自动定位修复</td></tr><tr><td>性能问题</td><td>用 thinking mode 分析代码路径</td></tr><tr><td>UI 问题</td><td>截图粘贴（<code>Ctrl+V</code>），让 Claude 看界面</td></tr><tr><td>数据问题</td><td>接 PostgreSQL MCP，直接查数据库</td></tr></table>
+
+    <div class="contact-bar">
+      <img class="qr" src="assets/contact/qr-xiaohua.png" alt="匠人学院小助手微信" />
+      <div><div class="t">🐛 有个 bug 让 Claude Code 修不动？扫码进群贴出来</div><div class="d">群里每周有人分享自己的调试 prompt，比一个人闷头试快。</div></div>
+    </div>
   </div>
 </section>
 <aside class="promo">
   <span class="promo-tag">AD · 自家的</span>
   <div class="promo-body">
-    <h4>🎬 还没准备好 cohort？先上入门自学课</h4>
-    <p>AI Engineer 入门（RAG 方向）：4 周 52 小时视频 + 25 个浏览器内 Lab + AI Tutor 即时答疑，自己掌握节奏，是 Bootcamp 的官方前置课。</p>
+    <h4>🧪 10 分钟测出你的 AI Engineer 缺口</h4>
+    <p>官网的 77 项能力自测（五大支柱逐项点选），已有 2,300+ 人做过。测完直接看出你该补哪根柱子，免费不用注册。</p>
   </div>
-  <a class="promo-cta" href="https://jiangren.com.au/program-course/ai-engineer-rag" target="_blank" rel="noopener">看课程介绍 →</a>
+  <a class="promo-cta" href="https://jiangren.com.au/learn/ai-engineer" target="_blank" rel="noopener">去做测试 →</a>
 </aside>
 
 <section class="ch" id="ch7">
@@ -788,6 +796,14 @@ echo "修复 $MAX_ATTEMPTS 次仍然失败，需要人工介入"</pre>
 <p>保持简洁。200-500 行以内最合适。</p>
   </div>
 </section>
+<aside class="promo">
+  <span class="promo-tag">AD · 自家的</span>
+  <div class="promo-body">
+    <h4>🎬 还没准备好 cohort？先上入门自学课</h4>
+    <p>AI Engineer 入门（RAG 方向）：4 周 52 小时视频 + 25 个浏览器内 Lab + AI Tutor 即时答疑，自己掌握节奏，是 Bootcamp 的官方前置课。</p>
+  </div>
+  <a class="promo-cta" href="https://jiangren.com.au/program-course/ai-engineer-rag" target="_blank" rel="noopener">看课程介绍 →</a>
+</aside>
 
 <section class="ch" id="ch8">
   <div class="wrap">
@@ -861,9 +877,11 @@ config/secrets.json</pre>
 <p>Claude Code 创建 worktree 时会自动把这些文件拷贝过去。</p>
 <h3>最佳实践</h3>
 <ul><li>给 worktree 起语义化名字（<code>bugfix-login</code>、<code>feature-dark-mode</code>），方便识别</li><li>完成任务后及时清理不需要的 worktree，避免磁盘空间浪费</li><li>长期任务用 <code>claude --resume</code> 恢复 session，不用重新创建 worktree</li><li>团队协作时，每人用自己的 worktree 前缀（<code>alice-feature-xxx</code>）</li></ul>
+
+    <p class="sales-card-lead">🎯 能玩到 Worktree 并行开发，说明你已经不是入门玩家了。想把 Claude Code 用进真实工程项目、攒出能写上简历的作品？Rain 聊聊你的方向：</p>
+    <div class="sales-card"><img src="assets/contact/sales-cards/rain.jpg" alt="Rain · Senior IT Career Consultant · 匠人学院" /></div>
   </div>
 </section>
-
 
 </main>
 
@@ -871,6 +889,8 @@ config/secrets.json</pre>
   <div class="logo"><img src="assets/logo/logo-zh-white.png" alt="匠人学院" /></div>
   <h2>工具会用了，接下来用它做什么？</h2>
   <p style="max-width: 78%;">这本手册的在线版在 jiangren.com.au/wiki/claude-code-guide，随官网每周更新 —— 收藏网页比收藏 PDF 更不容易过期。匠人学院还有 26 本同款工具指南（N8N、Cursor、Prompt Engineering…）和 AI Engineer 方向的项目制课程，想知道 Claude Code 在真实工程里怎么用到极限，来聊聊。</p>
+
+  <div class="sales-card" style="width: 88%;"><img src="assets/contact/sales-cards/angela.jpg" alt="Angela · IT Career Consultant · 匠人学院" /></div>
 
   <div class="contact-bar" style="width: 88%;">
     <img class="qr" src="assets/contact/qr-xiaohua.png" alt="匠人学院小助手微信" />
