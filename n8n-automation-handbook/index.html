@@ -9,7 +9,6 @@
 <body>
 <img class="jr-wm" src="assets/logo/jr-box.svg" alt="" />
 
-<!-- P1 封面 -->
 <section class="page cover2">
   <div class="cv2-ghost">n8n</div>
   <div class="cv2-head">
@@ -20,7 +19,7 @@
     <div class="cv2-kicker">能自动化的活，别再手动干</div>
     <div class="cv2-title"><em>n8n</em> 自动化<br/>中文手册</div>
     <div class="cv2-bar"></div>
-    <p class="cv2-sub">开源、自托管、免费跑无限次。从 5 分钟跑通第一个工作流，到搭 AI Agent、对接任意 API、Git 版本控制、生产监控告警。8 章全是可复制的命令、docker-compose 和真实工作流。</p>
+    <p class="cv2-sub">开源、自托管、免费跑无限次。从 5 分钟跑通第一个工作流，到搭 AI Agent、对接任意 API、Git 版本控制、生产监控告警。8 章配官方界面截图，命令和 docker-compose 全可复制。</p>
     <div class="cv2-chips">
       <span class="chip">🆓 自托管真·免费无限跑</span>
       <span class="chip">🤖 原生 AI Agent 工作流</span>
@@ -52,7 +51,7 @@
   <div class="wrap">
     <h2>📖 这本手册怎么读</h2>
     <div class="card">
-      <p>这本书和官网 wiki《n8n 工作流自动化》同源（jiangren.com.au/wiki/n8n-workflow-automation，免费、不用注册，官网那份持续更新）。完全没碰过 n8n 的，第 1、2 章搞清楚它值不值得用、5 分钟跑通；想做 AI 自动化的，第 4 章是重点——接 OpenAI / Claude 搭 Agent 不用写框架代码；已经在用想上生产的，第 5 到 8 章讲 Code Node、错误处理、Git 版本控制、监控告警，全是踩过坑的配置。每段命令和 docker-compose 都能直接复制。</p>
+      <p>这本书和官网 wiki《n8n 工作流自动化》同源（jiangren.com.au/wiki/n8n-workflow-automation，免费、不用注册，官网那份持续更新）。完全没碰过 n8n 的，第 1、2 章搞清楚它值不值得用、5 分钟跑通；想做 AI 自动化的，第 4 章是重点——接 OpenAI / Claude 搭 Agent 不用写框架代码；已经在用想上生产的，第 5 到 8 章讲 Code Node、错误处理、Git 版本控制、监控告警，全是踩过坑的配置。书里的界面图来自 n8n 官方文档，命令和 docker-compose 都能直接复制。</p>
     </div>
     <div class="contact-bar">
       <img class="qr" src="assets/contact/qr-xiaohua.png" alt="匠人学院小助手微信" />
@@ -71,6 +70,7 @@
       <img class="ch-illo" src="assets/illustrations/niuxiaojiang-thinking.png" alt="" />
     </div>
 <p>n8n 是一个开源的工作流自动化平台，让你用可视化节点连接各种应用，自动完成重复性任务——不管是发邮件、同步数据库、还是调用 AI，都能在一个界面里搞定。</p>
+
 <h3>n8n 解决的核心问题</h3>
 <p>每个开发者和职场人都有一堆"我应该自动化但一直没做"的任务：</p>
 <ul><li>客户填了表单 → 手动复制到 CRM → 手动发欢迎邮件</li><li>代码 push 成功 → 手动去 Slack 发通知</li><li>每天早上手动汇总几个渠道的数据到 Excel</li></ul>
@@ -212,6 +212,7 @@ volumes:
 <p>点击画布中央的 <strong>+</strong>，搜索 <code>Webhook</code>，选择 <strong>Webhook</strong> 节点。</p>
 <p>配置：</p>
 <ul><li><strong>HTTP Method</strong>：POST</li><li><strong>Path</strong>：<code>/my-first-webhook</code>（自定义路径）</li><li>点击 <strong>Test URL</strong> 复制测试地址</li></ul>
+
 <h4>Step 3：添加 Slack 节点</h4>
 <p>点击 Webhook 节点右侧的 <strong>+</strong>，搜索 <code>Slack</code>，选择 <strong>Send a message</strong> 操作。</p>
 <p>配置：</p>
@@ -242,6 +243,7 @@ volumes:
       </div>
       <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-chart.png" alt="" />
     </div>
+<figure class="figure"><img src="editor_ui.png" alt="n8n 编辑器界面：节点与数据流" /><div class="figcap">n8n 编辑器界面：节点与数据流</div></figure>
 <p>n8n 的核心是<strong>节点（Node）之间的数据流动</strong>。每个节点接收上游数据、处理后输出给下游。理解这一点，你就能设计任意复杂的工作流。</p>
 <h3>节点的三大类型</h3>
 <h4>1. Trigger 节点（触发器）</h4>
@@ -360,6 +362,7 @@ return $input.all().filter(item =&gt; item.json.status === 'active');</pre>
       </div>
       <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-data.png" alt="" />
     </div>
+<figure class="figure"><img src="ai-workflow-builder.png" alt="n8n AI Workflow Builder 界面" /><div class="figcap">n8n AI Workflow Builder 界面</div></figure>
 <p>n8n 2.0 内置了 LangChain 集成，提供 70+ AI 专属节点。你可以在不写任何框架代码的情况下，构建有记忆、能调用工具、会推理决策的 AI Agent。</p>
 <h3>AI Agent 节点的架构</h3>
 <p>n8n 的 AI Agent 工作流由四个角色组成：</p>
@@ -465,6 +468,7 @@ Session Key: {{ $json.chatId }}  // 用 chatId 区分不同用户的会话</pre>
       </div>
       <img class="ch-illo" src="assets/illustrations/niuxiaojiang-working-laptop.png" alt="" />
     </div>
+<figure class="figure"><img src="admin_panel.png" alt="n8n 管理面板" /><div class="figcap">n8n 管理面板</div></figure>
 <p>掌握了基础节点之后，这些技巧能让你的工作流更健壮、更高效。</p>
 <h3>Code Node：写真实代码</h3>
 <p>n8n 的 Code Node 是它区别于 Zapier 最大的武器。支持完整的 JavaScript（Node.js 18）和 Python，能 <code>require</code> npm 包。</p>
@@ -626,6 +630,7 @@ docker cp n8n:/tmp/workflows.json ./backups/</pre>
       </div>
       <img class="ch-illo" src="assets/illustrations/niuxiaojiang-pen-book.png" alt="" />
     </div>
+<figure class="figure"><img src="n8n-screenshot.png" alt="n8n 工作流编辑器" /><div class="figcap">n8n 工作流编辑器</div></figure>
 <p>HTTP Request 是 n8n 里最通用的节点——任何提供 REST API 的服务都能接。官方没有内置集成的服务（比如国内的飞书、企业微信），HTTP Request 就是你的万能接口。</p>
 <h3>四种认证方式</h3>
 <table><tr><th>方式</th><th>适用场景</th><th>配置</th></tr><tr><td><strong>Header Auth</strong></td><td>API Key 放 Header</td><td><code>Authorization: Bearer sk-xxx</code></td></tr><tr><td><strong>Query Auth</strong></td><td>API Key 放 URL 参数</td><td><code>?api_key=xxx</code></td></tr><tr><td><strong>OAuth2</strong></td><td>第三方登录授权</td><td>Client ID + Secret + Redirect</td></tr><tr><td><strong>Basic Auth</strong></td><td>用户名密码</td><td><code>username:password</code> Base64</td></tr></table>
@@ -690,6 +695,7 @@ docker cp n8n:/tmp/workflows.json ./backups/</pre>
       </div>
       <img class="ch-illo" src="assets/illustrations/niuxiaojiang-coffee-pointing.png" alt="" />
     </div>
+<figure class="figure"><img src="vc-multi-multi.png" alt="n8n Source Control 多环境架构" /><div class="figcap">n8n Source Control 多环境架构</div></figure>
 <p>工作流越写越多之后，你会发现几个问题：改坏了没法回滚、测试环境和生产环境混在一起、多人编辑互相覆盖。n8n 内置的 <strong>Source Control</strong> 功能（Git 集成）就是解决这些的。</p>
 <h3>启用 Source Control</h3>
 <p>Settings → Source Control，需要三样东西：</p>
@@ -756,6 +762,7 @@ n8n import:workflow --input=./workflows/
       </div>
       <img class="ch-illo" src="assets/illustrations/niuxiaojiang-thinking.png" alt="" />
     </div>
+<figure class="figure"><img src="ai-intro-logs.png" alt="n8n 执行日志界面" /><div class="figcap">n8n 执行日志界面</div></figure>
 <p>工作流上了生产，最怕的不是报错——是悄悄失败没人知道。这章讲怎么建一套监控体系，让问题第一时间暴露。</p>
 <h3>执行历史与日志</h3>
 <p>n8n 默认保存所有执行记录，包括每个节点的输入输出。但时间长了数据库会膨胀，生产环境要做取舍：</p>
@@ -851,7 +858,7 @@ echo "[$DATE] n8n backup done: $(ls $BACKUP_DIR | wc -l) files"</pre>
     <div class="cb-brand"><img src="assets/logo/jr-box.svg" alt="JR" /><span class="cb-url">jiangren.com.au</span></div>
   </div>
 
-  <p class="caption" style="color: rgba(255,255,255,0.5);">© JR Academy · 学 AI 来匠人 · 内容源自 jiangren.com.au/wiki《n8n 工作流自动化》· 欢迎转发</p>
+  <p class="caption" style="color: rgba(255,255,255,0.5);">© JR Academy · 学 AI 来匠人 · 内容源自 jiangren.com.au/wiki《n8n 工作流自动化》· 界面图来自 n8n 官方文档 · 欢迎转发</p>
 </section>
 
 <script defer src="theme/reader.js"></script>
