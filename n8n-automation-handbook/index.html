@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<title>n8n 自动化中文手册 — JR Academy</title>
+<link rel="stylesheet" href="theme/ebook.css" />
+<link rel="stylesheet" href="theme/flow-a4.css" />
+</head>
+<body>
+<img class="jr-wm" src="assets/logo/jr-box.svg" alt="" />
+
+<!-- P1 封面 -->
+<section class="page cover2">
+  <div class="cv2-ghost">n8n</div>
+  <div class="cv2-head">
+    <img src="assets/logo/logo-zh-white.png" alt="匠人学院" />
+    <span class="cv2-sticker">⚙️ 2026 实操版</span>
+  </div>
+  <div class="cv2-body">
+    <div class="cv2-kicker">能自动化的活，别再手动干</div>
+    <div class="cv2-title"><em>n8n</em> 自动化<br/>中文手册</div>
+    <div class="cv2-bar"></div>
+    <p class="cv2-sub">开源、自托管、免费跑无限次。从 5 分钟跑通第一个工作流，到搭 AI Agent、对接任意 API、Git 版本控制、生产监控告警。8 章全是可复制的命令、docker-compose 和真实工作流。</p>
+    <div class="cv2-chips">
+      <span class="chip">🆓 自托管真·免费无限跑</span>
+      <span class="chip">🤖 原生 AI Agent 工作流</span>
+      <span class="chip">🔌 HTTP 接任意 API</span>
+    </div>
+    <div class="cv2-diecut">比 Zapier 省钱，比代码省事</div>
+  </div>
+  <span class="cv2-holo">⚙️</span>
+  <img class="cv2-mascot" src="assets/illustrations/niuxiaojiang-working-laptop.png" alt="牛小匠" />
+  <div class="cv2-domain">jiangren.com.au · 在线版随官网更新 /wiki/n8n-workflow-automation</div>
+  <div class="cv2-strip"><span>学 AI 来匠人 <i>✦</i> n8n 自动化手册 <i>✦</i> JIANGREN.COM.AU <i>✦</i> 能自动化的活别手动干 <i>✦</i> 学 AI 来匠人 <i>✦</i></span></div>
+</section>
+
+<main class="flow">
+<div class="book-toc">
+  <div class="ch-num">CONTENTS</div>
+  <h2>目录（8 章）</h2>
+  <a href="#ch1"><span class="num">01</span>📊 n8n 是什么：vs Zapier / Make 完整对比</a>
+  <a href="#ch2"><span class="num">02</span>🚀 安装与快速上手：5 分钟跑通第一个</a>
+  <a href="#ch3"><span class="num">03</span>🧩 核心功能：节点、触发器与 5 个实战工作流</a>
+  <a href="#ch4"><span class="num">04</span>🤖 AI Agent 实战：接 OpenAI 和 Claude</a>
+  <a href="#ch5"><span class="num">05</span>🔧 进阶技巧：Code Node、错误处理、安全</a>
+  <a href="#ch6"><span class="num">06</span>🔌 HTTP Request：对接任意 API</a>
+  <a href="#ch7"><span class="num">07</span>🌿 版本控制与团队协作（Git 集成）</a>
+  <a href="#ch8"><span class="num">08</span>📡 监控告警与生产运维</a>
+</div>
+
+<section class="ch" id="how">
+  <div class="wrap">
+    <h2>📖 这本手册怎么读</h2>
+    <div class="card">
+      <p>这本书和官网 wiki《n8n 工作流自动化》同源（jiangren.com.au/wiki/n8n-workflow-automation，免费、不用注册，官网那份持续更新）。完全没碰过 n8n 的，第 1、2 章搞清楚它值不值得用、5 分钟跑通；想做 AI 自动化的，第 4 章是重点——接 OpenAI / Claude 搭 Agent 不用写框架代码；已经在用想上生产的，第 5 到 8 章讲 Code Node、错误处理、Git 版本控制、监控告警，全是踩过坑的配置。每段命令和 docker-compose 都能直接复制。</p>
+    </div>
+    <div class="contact-bar">
+      <img class="qr" src="assets/contact/qr-xiaohua.png" alt="匠人学院小助手微信" />
+      <div><div class="t">💬 装的时候卡住了？扫码进群问</div><div class="d">群里每周分享真实的 n8n 工作流模板和 AI 自动化玩法。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="ch" id="ch1">
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 01</div>
+        <h2>📊 n8n 是什么：自动化工具的新选择</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-thinking.png" alt="" />
+    </div>
+<p>n8n 是一个开源的工作流自动化平台，让你用可视化节点连接各种应用，自动完成重复性任务——不管是发邮件、同步数据库、还是调用 AI，都能在一个界面里搞定。</p>
+<h3>n8n 解决的核心问题</h3>
+<p>每个开发者和职场人都有一堆"我应该自动化但一直没做"的任务：</p>
+<ul><li>客户填了表单 → 手动复制到 CRM → 手动发欢迎邮件</li><li>代码 push 成功 → 手动去 Slack 发通知</li><li>每天早上手动汇总几个渠道的数据到 Excel</li></ul>
+<p>n8n 让你用节点（Node）把这些步骤连起来，触发一次，全程自动。</p>
+<h3>n8n vs Zapier vs Make：完整对比（2026）</h3>
+<table><tr><th>维度</th><th>n8n（自托管）</th><th>n8n Cloud</th><th>Zapier</th><th>Make</th></tr><tr><td><strong>入门价格</strong></td><td><strong>免费</strong>（服务器 $5–20/月）</td><td>€24/月（Starter）</td><td>$19.99/月</td><td>$10.59/月（Core）</td></tr><tr><td><strong>免费配额</strong></td><td>无限执行</td><td>无免费计划（14天试用）</td><td>100 tasks/月</td><td>1,000 ops/月</td></tr><tr><td><strong>计费单位</strong></td><td>—</td><td>每次 workflow 执行</td><td>每个步骤（task）</td><td>每个模块（operation）</td></tr><tr><td><strong>10步骤跑 1,000 次/月</strong></td><td><strong>免费</strong></td><td>消耗 1,000 executions（Starter 够用）</td><td>消耗 10,000 tasks（需 $49+/月套餐）</td><td>消耗 10,000 ops（Core $10.59/月）</td></tr><tr><td><strong>集成数量</strong></td><td>1,000+ 原生 + 无限 HTTP</td><td>同左</td><td>6,000+</td><td>1,500+</td></tr><tr><td><strong>AI Agent</strong></td><td>原生 LangChain，70+ AI 节点</td><td>同左</td><td>Zapier Agents（受限）</td><td>Maia（受限）</td></tr><tr><td><strong>代码能力</strong></td><td><strong>JS / Python，支持 npm</strong></td><td>同左</td><td>极简 JS 片段</td><td>受限</td></tr><tr><td><strong>数据主权</strong></td><td><strong>完全自控</strong></td><td>数据在 n8n 欧洲服务器</td><td>数据在 Zapier 美国服务器</td><td>数据在 Make 服务器</td></tr><tr><td><strong>学习曲线</strong></td><td>中（开发者友好）</td><td>同左</td><td>低</td><td>中低</td></tr><tr><td><strong>适合人群</strong></td><td>开发者 / 技术团队</td><td>技术团队 + 不想运维</td><td>非技术人员</td><td>中间层</td></tr></table>
+<h4>计费模型：最容易踩坑的差异</h4>
+<p>三个平台的计费逻辑完全不同，用相同的使用量算出来的费用天差地别。</p>
+<p><strong>Zapier 按 task 收费</strong>：工作流里每个步骤都算一个 task。一个 10 步骤的 Zap 跑一次 = 10 tasks。每月跑 1,000 次 = 消耗 10,000 tasks，Professional 计划 750 tasks 根本不够，需要升级到更贵的套餐。</p>
+<p><strong>Make 按 operation 收费</strong>：和 Zapier 类似，每个模块算一个 operation。1,000 次运行 × 10 步骤 = 10,000 operations，Core 计划（$10.59/月）刚好够——但复杂场景步骤数多，很快超限。</p>
+<p><strong>n8n 按执行次数收费（云端）或完全免费（自托管）</strong>：整个 workflow 不管几个节点，跑一次只算一次执行。同样是 10 步骤跑 1,000 次，只消耗 1,000 executions，Starter（€24/月，2,500 executions）完全够用。自托管版本没有任何执行次数限制。</p>
+<p><strong>结论</strong>：步骤越多、运行越频繁，Zapier 的账单涨得越快。n8n 的计费模型对工程师友好得多。</p>
+<h3>自托管 vs 云端：决策树</h3>
+<p>这是很多人对 n8n 最大的疑问。按以下条件决策：</p>
+<pre>你需要 n8n，那就问自己：
+
+1. 是否有 VPS / Docker 使用经验？
+   ├── 没有 → 用 n8n Cloud（Starter €24/月，省去运维麻烦）
+   └── 有 → 继续往下
+
+2. 数据是否有合规要求（GDPR / 不能出服务器）？
+   ├── 是 → 必须自托管
+   └── 否 → 继续往下
+
+3. 每月执行量大概多少？
+   ├── &lt; 2,500 次 → n8n Cloud Starter 够用（€24/月）
+   ├── 2,500–10,000 次 → n8n Cloud Pro（€60/月）或自托管（$10/月 VPS）
+   └── &gt; 10,000 次 → 自托管，省钱省限制
+
+4. 需要深度定制（自定义节点 / 私有 npm 包）？
+   └── 是 → 自托管</pre>
+<h4>自托管的实际成本</h4>
+<p>用 Docker 跑 n8n，最简单的启动命令：</p>
+<pre>docker run -it --rm \
+  --name n8n \
+  -p 5678:5678 \
+  -v ~/.n8n:/home/node/.n8n \
+  n8nio/n8n</pre>
+<p>本地测试用这个就够了。生产环境需要持久化 + 重启策略 + 反向代理，推荐 docker-compose：</p>
+<pre># docker-compose.yml（最小生产可用配置）
+version: '3.8'
+services:
+  n8n:
+    image: n8nio/n8n
+    restart: unless-stopped
+    ports:
+      - "5678:5678"
+    environment:
+      - N8N_HOST=yourdomain.com
+      - N8N_PROTOCOL=https
+      - WEBHOOK_URL=https://yourdomain.com/
+      - N8N_BASIC_AUTH_ACTIVE=true
+      - N8N_BASIC_AUTH_USER=admin
+      - N8N_BASIC_AUTH_PASSWORD=changeme
+    volumes:
+      - n8n_data:/home/node/.n8n
+
+volumes:
+  n8n_data:</pre>
+<p>一台 2 核 2GB RAM 的 VPS（Hetzner 最低档 €4.5/月，Digital Ocean $12/月）完全够跑几十个中等复杂度的工作流。对比 n8n Cloud Pro 的 €60/月，一年能省下 €660 以上。</p>
+<h4>自托管的注意事项</h4>
+<ul><li><strong>Webhook 需要公网域名</strong>：Webhook 触发型工作流（GitHub push 触发、表单提交触发）需要 n8n 实例能被外部访问，必须配域名 + SSL（用 Nginx + Certbot 即可）。</li><li><strong>版本更新需手动维护</strong>：云端自动更新，自托管需要定期执行 <code>docker pull n8nio/n8n:latest &amp;&amp; docker-compose up -d</code>，大版本升级前一定看 changelog。</li><li><strong>单点故障</strong>：社区版不支持多实例水平扩展，实例挂了 webhook 失效。高可用场景考虑加外部队列（Redis）或直接用 n8n Cloud。</li></ul>
+<h3>n8n 最大的差异化优势</h3>
+<p><strong>1. 自托管免费，真·无限制</strong></p>
+<p>社区版跑在你自己的服务器上，任务数、workflow 数、用户数全无限制。Zapier 750 tasks/月要 $19.99，n8n 你可以跑几百万次都是免费的——成本只是 VPS 费。</p>
+<p><strong>2. 真实代码能力</strong></p>
+<p>n8n 的 Code Node 支持完整的 JavaScript 和 Python，还能直接 <code>require()</code> npm 包。Zapier 的 Code 步骤只支持极简的 JS 片段，碰到稍微复杂的逻辑就得想别的办法。</p>
+<p><strong>3. AI Agent 原生集成</strong></p>
+<p>n8n 2.0 内置 LangChain，有 70+ AI 专属节点，构建 AI Agent 不需要写一行代码。接 OpenAI、Claude、Mistral、Ollama（本地模型）都原生支持，不需要中间层。</p>
+<p><strong>4. HTTP Node 连接任何 API</strong></p>
+<p>没有内置集成的服务怎么办？n8n 的 HTTP Request 节点能调用任何 REST API，支持 OAuth、Bearer Token、Basic Auth，配置完全可视化。这意味着 n8n 的"1,000+ 集成"在实际使用中是无上限的。</p>
+<h3>什么时候选 n8n？</h3>
+<p><strong>选 n8n 的场景：</strong></p>
+<ul><li>你或团队有基本的技术能力（会看 JSON、会写简单 JS）</li><li>工作流需要处理数据逻辑、条件分支、循环迭代</li><li>需要接入自建 API 或内部数据库</li><li>想做 AI Agent 工作流（接 OpenAI、Claude、本地模型）</li><li>不想让数据经过第三方服务器（GDPR、隐私合规）</li><li>使用量大，Zapier 账单让你肉疼</li></ul>
+<p><strong>选 Zapier 的场景：</strong></p>
+<ul><li>完全非技术人员，不想碰任何代码</li><li>需要连接很冷门的 SaaS 工具（Zapier 6,000+ 集成确实更广）</li><li>快速验证想法，不在乎成本</li></ul>
+<p><strong>选 Make 的场景：</strong></p>
+<ul><li>介于两者之间：比 Zapier 便宜，比 n8n 上手容易</li><li>场景复杂度中等，但不需要写代码</li></ul>
+<h3>n8n 的"公平代码"许可</h3>
+<p>n8n 使用 <a href="https://github.com/n8n-io/n8n/blob/master/LICENSE.md">Sustainable Use License</a>——不是 MIT，但也不是商业闭源：</p>
+<ul><li>个人和团队内部使用：<strong>完全免费</strong></li><li>给客户提供 n8n 托管服务（managed service 形式）：需要商业许可</li><li>查看源码、修改代码：允许</li></ul>
+<p>对 99% 的使用场景来说，把它当免费开源软件用即可。唯一需要注意的是：如果你的商业模式是"帮客户搭建并托管 n8n"，才需要付商业许可费。自己团队内部用，不受这个限制。</p>
+  </div>
+</section>
+
+<section class="ch" id="ch2">
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 02</div>
+        <h2>🚀 安装与快速上手：5 分钟跑起第一个工作流</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-hero.png" alt="" />
+    </div>
+<p>n8n 有三种安装方式，选最适合你的场景即可。</p>
+<h3>方式一：npx 快速体验（推荐新手）</h3>
+<p>只需要 Node.js 18+，无需任何配置：</p>
+<pre>npx n8n</pre>
+<p>运行后打开浏览器访问 <code>http://localhost:5678</code>，就能看到 n8n 编辑器。</p>
+<div class="callout">注意：npx 方式每次关闭终端数据会丢失（存在临时目录）。正式使用建议 Docker 方式。</div>
+<h3>方式二：Docker 自托管（推荐生产）</h3>
+<p>官方 Docker 镜像，数据持久化：</p>
+<pre># 创建持久化数据卷
+docker volume create n8n_data
+
+# 运行 n8n
+docker run -it --rm \
+  --name n8n \
+  -p 5678:5678 \
+  -v n8n_data:/home/node/.n8n \
+  docker.n8n.io/n8nio/n8n</pre>
+<p>访问 <code>http://localhost:5678</code> 即可。</p>
+<p><strong>docker-compose 方式</strong>（推荐，方便管理）：</p>
+<pre>version: "3"
+services:
+  n8n:
+    image: docker.n8n.io/n8nio/n8n
+    restart: always
+    ports:
+      - "5678:5678"
+    environment:
+      - N8N_BASIC_AUTH_ACTIVE=true
+      - N8N_BASIC_AUTH_USER=admin
+      - N8N_BASIC_AUTH_PASSWORD=your_password
+      - WEBHOOK_URL=https://your-domain.com/
+    volumes:
+      - n8n_data:/home/node/.n8n
+
+volumes:
+  n8n_data:</pre>
+<pre>docker-compose up -d</pre>
+<h3>方式三：n8n Cloud（无需服务器）</h3>
+<p>直接访问 <a href="https://n8n.io/cloud">n8n.io/cloud</a> 注册，有免费试用。不需要维护服务器，适合快速验证想法。</p>
+<h3>5 分钟创建第一个工作流</h3>
+<p>用一个真实场景入门：<strong>当 Webhook 收到请求时，自动发 Slack 消息</strong>。</p>
+<h4>Step 1：打开编辑器，新建 Workflow</h4>
+<p>访问 <code>http://localhost:5678</code>，点击右上角 <strong>New workflow</strong>。</p>
+<h4>Step 2：添加 Webhook Trigger 节点</h4>
+<p>点击画布中央的 <strong>+</strong>，搜索 <code>Webhook</code>，选择 <strong>Webhook</strong> 节点。</p>
+<p>配置：</p>
+<ul><li><strong>HTTP Method</strong>：POST</li><li><strong>Path</strong>：<code>/my-first-webhook</code>（自定义路径）</li><li>点击 <strong>Test URL</strong> 复制测试地址</li></ul>
+<h4>Step 3：添加 Slack 节点</h4>
+<p>点击 Webhook 节点右侧的 <strong>+</strong>，搜索 <code>Slack</code>，选择 <strong>Send a message</strong> 操作。</p>
+<p>配置：</p>
+<ul><li><strong>Credential</strong>：点击 Add，输入 Slack Bot Token（从 Slack App 管理页获取）</li><li><strong>Channel</strong>：<code>#general</code>（或你的频道 ID）</li><li><strong>Message</strong>：<code>收到新请求: {{ $json.body.message }}</code>（用表达式引用传入的数据）</li></ul>
+<h4>Step 4：测试运行</h4>
+<ol><li>点击 Webhook 节点，点击 <strong>Listen for test event</strong></li><li>用 curl 发送测试请求：</li></ol>
+<pre>curl -X POST http://localhost:5678/webhook-test/my-first-webhook \
+  -H "Content-Type: application/json" \
+  -d '{"message": "Hello from n8n!"}'</pre>
+<ol><li>看到 n8n 编辑器里节点变绿，Slack 收到消息 — 工作流跑通了。</li></ol>
+<h4>Step 5：激活 Workflow</h4>
+<p>点击右上角 <strong>Inactive</strong> 切换为 <strong>Active</strong>，工作流就正式运行了。之后所有发到该 Webhook 的请求都会自动触发。</p>
+<h3>核心概念速览</h3>
+<table><tr><th>概念</th><th>说明</th></tr><tr><td><strong>Workflow</strong></td><td>一个自动化流程，由多个节点组成</td></tr><tr><td><strong>Node</strong></td><td>单个功能单元，可以是触发器、操作、或数据处理</td></tr><tr><td><strong>Trigger</strong></td><td>工作流的起点，比如 Webhook、定时任务、邮件到达</td></tr><tr><td><strong>Credential</strong></td><td>API Key 等认证信息，加密存储，可在多个 workflow 复用</td></tr><tr><td><strong>Execution</strong></td><td>工作流每次运行的记录，可查看输入/输出和错误</td></tr><tr><td><strong>Expression</strong></td><td><code>{{ }}</code> 语法，动态引用其他节点的数据</td></tr></table>
+<p>表达式示例：</p>
+<pre>{{ $json.body.email }}         // 引用当前节点的输入数据
+{{ $node["HTTP Request"].json.data }}  // 引用指定节点的输出
+{{ $now.format('YYYY-MM-DD') }}  // 当前日期格式化</pre>
+  </div>
+</section>
+
+<section class="ch" id="ch3">
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 03</div>
+        <h2>🧩 核心功能详解：节点、触发器与数据流</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-chart.png" alt="" />
+    </div>
+<p>n8n 的核心是<strong>节点（Node）之间的数据流动</strong>。每个节点接收上游数据、处理后输出给下游。理解这一点，你就能设计任意复杂的工作流。</p>
+<h3>节点的三大类型</h3>
+<h4>1. Trigger 节点（触发器）</h4>
+<p>工作流的起点，决定什么时候运行。</p>
+<table><tr><th>触发器</th><th>说明</th><th>典型用法</th></tr><tr><td><strong>Webhook</strong></td><td>接收 HTTP 请求时触发</td><td>接收表单提交、API 回调</td></tr><tr><td><strong>Schedule</strong></td><td>定时触发（Cron 表达式）</td><td>每天早上 8 点跑数据报告</td></tr><tr><td><strong>Email Trigger</strong></td><td>收到邮件时触发</td><td>自动处理客户邮件</td></tr><tr><td><strong>File System</strong></td><td>文件变化时触发</td><td>新文件上传自动处理</td></tr><tr><td><strong>Manual</strong></td><td>手动点击触发</td><td>测试或一次性任务</td></tr></table>
+<p>Schedule 节点的 Cron 表达式：</p>
+<pre>0 8 * * 1-5    // 周一到周五早上 8:00
+0 */2 * * *    // 每 2 小时
+0 9 * * 1      // 每周一早上 9:00</pre>
+<h4>2. Action 节点（操作）</h4>
+<p>对各类服务执行操作的节点，n8n 有 1,000+ 内置集成。</p>
+<p><strong>常用集成：</strong></p>
+<pre>通讯: Slack、Gmail、Telegram、Notion
+数据: PostgreSQL、MySQL、MongoDB、Google Sheets
+代码: HTTP Request、GraphQL、Execute Command
+云服务: AWS S3、Google Drive、Airtable
+AI: OpenAI、Anthropic Claude、Hugging Face</pre>
+<h4>3. Logic 节点（逻辑控制）</h4>
+<table><tr><th>节点</th><th>功能</th></tr><tr><td><strong>IF</strong></td><td>条件分支，根据数据走不同路径</td></tr><tr><td><strong>Switch</strong></td><td>多条件分支</td></tr><tr><td><strong>Merge</strong></td><td>合并多个分支的数据</td></tr><tr><td><strong>Loop Over Items</strong></td><td>遍历数组中的每一项</td></tr><tr><td><strong>Wait</strong></td><td>暂停工作流，等待指定时间或外部事件</td></tr><tr><td><strong>Set</strong></td><td>设置/修改数据字段</td></tr><tr><td><strong>Code</strong></td><td>执行自定义 JavaScript 或 Python</td></tr></table>
+<h3>5 个实战工作流</h3>
+<h4>工作流 1：GitHub PR 自动通知 Slack</h4>
+<p><strong>场景</strong>：有人提交 PR，自动发 Slack 提醒代码 reviewer。</p>
+<p><strong>节点链：</strong> Webhook → IF（判断是否为 PR 事件）→ Slack</p>
+<pre>Webhook 配置: POST /github-webhook
+IF 条件: {{ $json.body.action }} === "opened" AND {{ $json.body.pull_request }} 存在
+Slack 消息: 
+  "🔔 新 PR: {{ $json.body.pull_request.title }}
+   作者: {{ $json.body.pull_request.user.login }}
+   链接: {{ $json.body.pull_request.html_url }}"</pre>
+<p>在 GitHub 仓库 Settings → Webhooks 填入 n8n 的 Webhook URL，事件选 <strong>Pull requests</strong>。</p>
+<h4>工作流 2：每日数据汇总邮件</h4>
+<p><strong>场景</strong>：每天早上 8 点从数据库查询前一天数据，发邮件给管理层。</p>
+<p><strong>节点链：</strong> Schedule → PostgreSQL → Code（格式化）→ Gmail</p>
+<pre>// Code 节点：把数据库查询结果格式化为 HTML 表格
+const items = $input.all();
+const rows = items.map(item =&gt; 
+  `&lt;tr&gt;&lt;td&gt;${item.json.date}&lt;/td&gt;&lt;td&gt;${item.json.orders}&lt;/td&gt;&lt;td&gt;${item.json.revenue}&lt;/td&gt;&lt;/tr&gt;`
+).join('');
+
+return [{
+  json: {
+    html: `&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;日期&lt;/th&gt;&lt;th&gt;订单数&lt;/th&gt;&lt;th&gt;收入&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+           &lt;tbody&gt;${rows}&lt;/tbody&gt;&lt;/table&gt;`,
+    subject: `每日数据报告 - ${new Date().toLocaleDateString('zh-CN')}`
+  }
+}];</pre>
+<h4>工作流 3：表单提交自动入 CRM + 发欢迎邮件</h4>
+<p><strong>场景</strong>：网站表单提交 → 自动创建 HubSpot 联系人 → 发个性化欢迎邮件。</p>
+<p><strong>节点链：</strong> Webhook → HubSpot（Create Contact）→ Gmail（Send Email）</p>
+<pre>Webhook 接收: { name, email, company, role }
+
+HubSpot 节点:
+  - firstname: {{ $json.body.name.split(' ')[0] }}
+  - email: {{ $json.body.email }}
+  - company: {{ $json.body.company }}
+
+Gmail 节点:
+  - To: {{ $json.body.email }}
+  - Subject: 欢迎加入，{{ $json.body.name.split(' ')[0] }}！
+  - Body: （HTML 模板）</pre>
+<h4>工作流 4：文件上传自动处理</h4>
+<p><strong>场景</strong>：用户上传 CSV 文件 → 解析数据 → 批量写入数据库。</p>
+<p><strong>节点链：</strong> Webhook（接收文件）→ Spreadsheet File（解析 CSV）→ Loop Over Items → PostgreSQL（Insert）</p>
+<p>关键配置：Webhook 节点设置 <strong>Binary Data</strong> 接收文件，Spreadsheet File 节点解析 CSV 内容为 JSON 数组，Loop Over Items 遍历每行，PostgreSQL 节点批量插入。</p>
+<h4>工作流 5：Telegram Bot 查询数据库</h4>
+<p><strong>场景</strong>：给 Telegram Bot 发消息，自动查询数据库返回结果。</p>
+<p><strong>节点链：</strong> Telegram Trigger → Code（解析命令）→ PostgreSQL → Telegram（回复）</p>
+<pre>// Code 节点：解析用户命令
+const text = $json.message.text;
+const chatId = $json.message.chat.id;
+
+// 支持命令: /stats, /order &lt;id&gt;
+const command = text.split(' ')[0];
+const arg = text.split(' ')[1];
+
+return [{ json: { command, arg, chatId } }];</pre>
+<h3>数据流动：理解 $json 和 $node</h3>
+<p>n8n 里每个节点的输出格式是 <code>[{ json: {...} }, { json: {...} }, ...]</code>——一个 items 数组。</p>
+<p><strong>在 Expression 里引用数据：</strong></p>
+<pre>{{ $json.fieldName }}          // 当前节点输入的字段
+{{ $json.nested.deep.value }}  // 嵌套字段
+{{ $items()[0].json.name }}    // 当前节点第一个 item
+{{ $node["节点名"].json.id }}  // 引用指定节点的输出
+{{ $workflow.id }}             // 当前 workflow 的 ID</pre>
+<p><strong>在 Code 节点里处理多条数据：</strong></p>
+<pre>// 处理所有 items
+const results = $input.all().map(item =&gt; ({
+  json: {
+    ...item.json,
+    processed: true,
+    timestamp: new Date().toISOString()
+  }
+}));
+return results;
+
+// 只返回满足条件的 items（相当于 filter）
+return $input.all().filter(item =&gt; item.json.status === 'active');</pre>
+  </div>
+
+<a class="promo-line" href="https://jiangren.com.au/blog" target="_blank" rel="noopener">📰 跟上行业节奏：匠人每天 5 条经过核源的 AI 日报，每周一份大事盘点 <span>→</span></a></section>
+<aside class="promo">
+  <span class="promo-tag">AD · 自家的</span>
+  <div class="promo-body">
+    <h4>🧪 10 分钟测出你的 AI Engineer 缺口</h4>
+    <p>官网的 77 项能力自测（五大支柱逐项点选），已有 2,300+ 人做过。测完直接看出你该补哪根柱子，免费不用注册。</p>
+  </div>
+  <a class="promo-cta" href="https://jiangren.com.au/learn/ai-engineer" target="_blank" rel="noopener">去做测试 →</a>
+</aside>
+
+<section class="ch" id="ch4">
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 04</div>
+        <h2>🤖 AI Agent 实战：用 n8n 构建智能工作流</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-data.png" alt="" />
+    </div>
+<p>n8n 2.0 内置了 LangChain 集成，提供 70+ AI 专属节点。你可以在不写任何框架代码的情况下，构建有记忆、能调用工具、会推理决策的 AI Agent。</p>
+<h3>AI Agent 节点的架构</h3>
+<p>n8n 的 AI Agent 工作流由四个角色组成：</p>
+<pre>[Trigger] → [AI Agent 节点]
+                 ├── Language Model（大脑）: OpenAI GPT-4o / Claude / Gemini
+                 ├── Memory（记忆）: Window Buffer / PostgreSQL / Redis
+                 └── Tools（工具）: Workflow Tool / HTTP Request / Calculator / ...</pre>
+<p><strong>AI Agent 节点本身不固定模型</strong>，它是一个推理引擎框架——你可以随时换底层模型，而工作流逻辑不变。</p>
+<h3>接入 OpenAI</h3>
+<h4>Step 1：添加 OpenAI Credential</h4>
+<ol><li>左侧菜单 → <strong>Credentials</strong> → <strong>Add Credential</strong></li><li>搜索 <code>OpenAI</code>，填入你的 API Key</li><li>保存，命名为 <code>OpenAI - Production</code></li></ol>
+<h4>Step 2：创建 AI Agent 工作流</h4>
+<p><strong>节点链：</strong> Chat Trigger → AI Agent → （可选）Slack/Gmail 回复</p>
+<p><strong>AI Agent 节点配置：</strong></p>
+<table><tr><th>字段</th><th>值</th></tr><tr><td><strong>Agent</strong></td><td>Tools Agent（推荐，支持工具调用）</td></tr><tr><td><strong>Language Model</strong></td><td>选择 OpenAI Chat Model</td></tr><tr><td><strong>Model</strong></td><td>gpt-4o 或 gpt-4o-mini</td></tr><tr><td><strong>System Message</strong></td><td>你是 JR Academy 的客服助手，只回答课程相关问题...</td></tr><tr><td><strong>Memory</strong></td><td>Window Buffer Memory（保留最近 10 轮对话）</td></tr></table>
+<p><strong>System Message 示例：</strong></p>
+<pre>你是一个专业的技术助手，负责帮助开发团队解答问题。
+规则：
+1. 只回答技术问题，不讨论政治和个人话题
+2. 如果不确定，明确说"我不确定，建议查阅官方文档"
+3. 回答时优先给出代码示例
+4. 始终用中文回复</pre>
+<h3>接入 Claude（Anthropic）</h3>
+<p>Claude 在长文本处理和代码理解方面表现出色，适合文档处理类 Agent。</p>
+<h4>配置步骤</h4>
+<ol><li>Credentials → Add Credential → 搜索 <code>Anthropic</code></li><li>填入 Anthropic API Key（从 console.anthropic.com 获取）</li><li>在 AI Agent 节点的 Language Model 中选择 <strong>Anthropic Chat Model</strong></li><li>选择模型：<code>claude-sonnet-4-6</code>（性价比最高）或 <code>claude-opus-4-6</code>（最强）</li></ol>
+<h3>实战案例 1：能查数据库的客服 Bot</h3>
+<p><strong>场景</strong>：用户通过 Telegram 问订单状态，Agent 自动查数据库返回结果。</p>
+<pre>Telegram Trigger
+    ↓
+AI Agent
+  ├── LLM: GPT-4o
+  ├── Memory: Window Buffer（10 轮）
+  ├── Tool: PostgreSQL 查询（自定义 Workflow Tool）
+  └── Tool: 获取当前时间（内置）
+    ↓
+Telegram 回复</pre>
+<p><strong>关键：Workflow Tool 配置</strong></p>
+<p>在 AI Agent 的 Tools 里添加 <strong>n8n Workflow Tool</strong>，指向另一个专门查数据库的子工作流：</p>
+<p>子工作流（<code>查询订单</code>）：</p>
+<pre>Execute Workflow Trigger（接收 order_id 参数）
+    ↓
+PostgreSQL: SELECT * FROM orders WHERE id = {{ $json.order_id }}
+    ↓
+返回查询结果</pre>
+<p>Agent 会在需要查询时自动调用这个工具，把 <code>order_id</code> 传进去，拿到结果后再组织成自然语言回复给用户。</p>
+<h3>实战案例 2：自动化内容生成 Pipeline</h3>
+<p><strong>场景</strong>：每天从 RSS 抓取科技新闻 → AI 总结 → 自动发 Notion 和邮件。</p>
+<pre>Schedule Trigger（每天 7:00）
+    ↓
+HTTP Request（抓取 RSS: techcrunch.com/feed/）
+    ↓
+Code（解析 XML，提取 5 条最新文章）
+    ↓
+Loop Over Items
+    ↓（每篇文章）
+    OpenAI Chat Model（总结文章，输出中文摘要）
+    ↓
+Merge（合并所有摘要）
+    ↓
+Notion（创建每日简报页面）
+    ↓
+Gmail（发送简报邮件给订阅者）</pre>
+<p><strong>OpenAI 节点 Prompt：</strong></p>
+<pre>请用 3-5 句话总结以下英文文章，输出中文，突出对开发者最有价值的信息：
+
+标题：{{ $json.title }}
+内容：{{ $json.content }}
+
+输出格式：
+【核心观点】...
+【对开发者的影响】...
+【关键数据】...（如有）</pre>
+<h3>记忆（Memory）节点对比</h3>
+<table><tr><th>记忆类型</th><th>适用场景</th><th>配置复杂度</th></tr><tr><td><strong>Window Buffer Memory</strong></td><td>多轮对话，保留最近 N 轮</td><td>低（默认推荐）</td></tr><tr><td><strong>Postgres Chat Memory</strong></td><td>持久化对话历史，多用户</td><td>中（需要 PG 数据库）</td></tr><tr><td><strong>Redis Chat Memory</strong></td><td>高并发场景，快速读写</td><td>中（需要 Redis）</td></tr><tr><td><strong>Zep</strong></td><td>长期记忆 + 向量检索</td><td>高（需要 Zep 服务）</td></tr></table>
+<p><strong>Window Buffer Memory 配置：</strong></p>
+<pre>Context Window Length: 10  // 保留最近 10 条消息
+Session Key: {{ $json.chatId }}  // 用 chatId 区分不同用户的会话</pre>
+<h3>AI Agent 调试技巧</h3>
+<p><strong>1. 查看 Agent 的推理过程</strong></p>
+<p>在 n8n 执行记录里，AI Agent 节点会输出完整的 <code>intermediateSteps</code>，包含每次工具调用的输入/输出。这是调试 Agent 行为最直接的方式。</p>
+<p><strong>2. 限制工具调用次数</strong></p>
+<p>防止 Agent 陷入循环：</p>
+<pre>Max Iterations: 10  // AI Agent 节点设置，超过后强制停止</pre>
+<p><strong>3. 用 System Message 约束行为</strong></p>
+<p>不要期望 LLM 自己"猜到"你的意图，把规则写进 System Message：</p>
+<pre>重要约束：
+- 你只能使用提供的工具，不能自行编造数据
+- 如果工具返回空结果，回复"未找到相关信息"
+- 每次回复不超过 200 字</pre>
+
+    <p class="sales-card-lead">🤖 用 n8n 搭出第一个 AI Agent 工作流，想把这套自动化能力变成职场硬通货？Amelia 帮你看看离 AI 工程岗位还差什么：</p>
+    <div class="sales-card"><img src="assets/contact/sales-cards/amelia.jpg" alt="Amelia · IT Career Consultant · 匠人学院" /></div>
+  </div>
+</section>
+
+<section class="ch" id="ch5">
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 05</div>
+        <h2>🔧 进阶技巧与常见问题</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-working-laptop.png" alt="" />
+    </div>
+<p>掌握了基础节点之后，这些技巧能让你的工作流更健壮、更高效。</p>
+<h3>Code Node：写真实代码</h3>
+<p>n8n 的 Code Node 是它区别于 Zapier 最大的武器。支持完整的 JavaScript（Node.js 18）和 Python，能 <code>require</code> npm 包。</p>
+<h4>处理复杂数据转换</h4>
+<pre>// 场景：把嵌套的 API 响应铺平为二维表格
+const input = $input.first().json;
+const users = input.data.users;
+
+return users.flatMap(user =&gt; 
+  user.orders.map(order =&gt; ({
+    json: {
+      userId: user.id,
+      userName: user.name,
+      orderId: order.id,
+      amount: order.amount,
+      date: new Date(order.createdAt).toLocaleDateString('zh-CN')
+    }
+  }))
+);</pre>
+<h4>使用 npm 包</h4>
+<p>在 Code Node 里可以直接 require 已安装的包（n8n 内置了常用库）：</p>
+<pre>// 日期处理
+const { DateTime } = require('luxon');
+const formatted = DateTime.now().setZone('Asia/Shanghai').toFormat('yyyy-MM-dd HH:mm');
+
+// 加密
+const crypto = require('crypto');
+const hash = crypto.createHmac('sha256', 'secret').update($json.data).digest('hex');
+
+// JSON Schema 校验
+const Ajv = require('ajv');
+const ajv = new Ajv();
+const valid = ajv.validate({ type: 'object', required: ['email'] }, $json);</pre>
+<h4>Python Code Node</h4>
+<pre># n8n 也支持 Python（需要服务器安装 Python）
+import json
+from datetime import datetime
+
+items = _input.all()
+results = []
+
+for item in items:
+    data = item.json
+    results.append({
+        'json': {
+            'processed_at': datetime.now().isoformat(),
+            'original': data,
+            'word_count': len(data.get('content', '').split())
+        }
+    })
+
+return results</pre>
+<h3>错误处理</h3>
+<h4>方式一：Error Trigger 工作流</h4>
+<p>创建一个独立的"错误处理工作流"，所有工作流的报错都汇集到这里：</p>
+<ol><li>新建 workflow，添加 <strong>Error Trigger</strong> 节点（而不是普通 trigger）</li><li>连接 Slack 节点，发送报警通知</li><li>在每个生产工作流的 Settings 里，设置 <strong>Error Workflow</strong> 指向这个工作流</li></ol>
+<pre>Error Trigger
+    ↓
+Slack: "⚠️ 工作流 {{ $json.workflow.name }} 报错
+        错误: {{ $json.execution.error.message }}
+        时间: {{ $now.format('YYYY-MM-DD HH:mm') }}
+        执行ID: {{ $json.execution.id }}"</pre>
+<h4>方式二：节点级别的 Try/Catch</h4>
+<p>在 Settings 里开启每个节点的 <strong>Continue on Fail</strong>，然后用 IF 节点检查是否有错误：</p>
+<pre>HTTP Request（Continue on Fail: ON）
+    ↓
+IF: {{ $json.error }} 存在
+  ├── True → 记录错误到数据库
+  └── False → 继续正常流程</pre>
+<h4>方式三：Code Node 里 try-catch</h4>
+<pre>try {
+  const response = await fetch($json.url);
+  const data = await response.json();
+  return [{ json: { success: true, data } }];
+} catch (error) {
+  return [{ json: { success: false, error: error.message } }];
+}</pre>
+<h3>Webhook 安全配置</h3>
+<p>生产环境的 Webhook 要做鉴权，防止被随意调用。</p>
+<p><strong>方式一：Header 鉴权</strong></p>
+<p>在 Webhook 节点开启 <strong>Header Auth</strong>：</p>
+<pre>Authentication: Header Auth
+Name: X-Webhook-Secret
+Value: your-secret-token-here</pre>
+<p>调用方需要在请求 Header 里加 <code>X-Webhook-Secret: your-secret-token-here</code>，否则 403。</p>
+<p><strong>方式二：验证 GitHub/Stripe 的签名</strong></p>
+<pre>// Code 节点：验证 GitHub Webhook 签名
+const crypto = require('crypto');
+const signature = $json.headers['x-hub-signature-256'];
+const payload = JSON.stringify($json.body);
+const secret = 'your-github-webhook-secret';
+
+const expected = 'sha256=' + crypto
+  .createHmac('sha256', secret)
+  .update(payload)
+  .digest('hex');
+
+if (signature !== expected) {
+  throw new Error('Invalid signature — 请求被拒绝');
+}
+
+return $input.all(); // 验证通过，继续流程</pre>
+<h3>生产部署要点</h3>
+<h4>环境变量管理</h4>
+<p>敏感配置通过环境变量注入，不要硬编码在工作流里：</p>
+<pre># docker-compose.yml 的 environment 部分
+- N8N_ENCRYPTION_KEY=your-32-char-encryption-key  # 必须设置
+- DB_TYPE=postgresdb                               # 使用 PG 存储工作流
+- DB_POSTGRESDB_HOST=postgres
+- DB_POSTGRESDB_DATABASE=n8n
+- DB_POSTGRESDB_USER=n8n_user
+- DB_POSTGRESDB_PASSWORD=secure_password
+- WEBHOOK_URL=https://n8n.yourcompany.com</pre>
+<p>在工作流里引用环境变量：</p>
+<pre>{{ $env.MY_API_KEY }}</pre>
+<h4>定期备份</h4>
+<pre># 备份 n8n 数据（包含所有工作流、credentials、执行历史）
+docker exec n8n n8n export:workflow --all --output=/tmp/workflows.json
+docker exec n8n n8n export:credentials --all --output=/tmp/credentials.json
+docker cp n8n:/tmp/workflows.json ./backups/</pre>
+<h4>性能优化</h4>
+<ul><li><strong>执行历史保留天数</strong>：<code>EXECUTIONS_DATA_MAX_AGE=30</code>（默认保留所有，数据库会很大）</li><li><strong>并发执行数</strong>：<code>N8N_CONCURRENCY_PRODUCTION_LIMIT=20</code></li><li><strong>Queue Mode</strong>：高并发场景用 Redis Queue 模式，支持多 worker 水平扩展</li></ul>
+<h3>常见问题（FAQ）</h3>
+<p><strong>Q: n8n 支持多少并发执行？</strong></p>
+<p>默认单进程模式没有硬限制，取决于服务器性能。生产推荐用 Queue Mode（Redis + 多 worker），可以无限水平扩展。</p>
+<p><strong>Q: Webhook 在本地跑，外部服务怎么访问？</strong></p>
+<p>用 ngrok 或 Cloudflare Tunnel 把本地端口暴露到公网：</p>
+<pre>ngrok http 5678
+# 得到类似 https://abc123.ngrok.io 的地址
+# 在 n8n 里设置 WEBHOOK_URL=https://abc123.ngrok.io</pre>
+<p><strong>Q: Credential 怎么在多个 workflow 里共享？</strong></p>
+<p>Credential 是全局的，创建一次后所有 workflow 都能选择使用，不需要重复填写。Credential 数据加密存储（用 <code>N8N_ENCRYPTION_KEY</code> 加密）。</p>
+<p><strong>Q: 工作流的版本控制怎么做？</strong></p>
+<p>用 n8n 内置的 <strong>Source Control</strong> 功能（Git 集成），Settings → Source Control → 连接 Git 仓库，可以把工作流定义 push 到 Git，实现版本控制和团队协作。</p>
+<p><strong>Q: 如何调试 Expression 表达式？</strong></p>
+<p>在节点配置面板，Expression 输入框旁边有一个小眼睛图标，点击可以实时预览该表达式在当前数据下的计算结果，不需要跑整个工作流。</p>
+<p><strong>Q: n8n 能替代自建微服务吗？</strong></p>
+<p>对于<strong>内部工具</strong>和<strong>轻量级集成</strong>完全可以。生产级的高吞吐量场景（每秒数千请求）还是需要专用的微服务，n8n 更适合运营自动化、数据同步、通知推送这类场景。</p>
+<h3>学习资源</h3>
+<table><tr><th>资源</th><th>链接</th></tr><tr><td>官方文档</td><td><a href="https://docs.n8n.io">docs.n8n.io</a></td></tr><tr><td>工作流模板库（900+）</td><td><a href="https://n8n.io/workflows">n8n.io/workflows</a></td></tr><tr><td>社区论坛</td><td><a href="https://community.n8n.io">community.n8n.io</a></td></tr><tr><td>AI 工作流专区</td><td><a href="https://n8n.io/workflows/categories/ai">n8n.io/workflows/categories/ai</a></td></tr><tr><td>Level 1 官方课程</td><td><a href="https://docs.n8n.io/courses/level-one/">docs.n8n.io/courses/level-one</a></td></tr></table>
+  </div>
+
+<a class="promo-line" href="https://jiangren.com.au/learn/prompt-master" target="_blank" rel="noopener">🧑‍💻 光看不动手没用：Prompt Master / LLM Lab / Vibe Coding 三个浏览器内实验室，边读边跑 <span>→</span></a></section>
+<aside class="promo">
+  <span class="promo-tag">AD · 自家的</span>
+  <div class="promo-body">
+    <h4>🎬 还没准备好 cohort？先上入门自学课</h4>
+    <p>AI Engineer 入门（RAG 方向）：4 周 52 小时视频 + 25 个浏览器内 Lab + AI Tutor 即时答疑，自己掌握节奏，是 Bootcamp 的官方前置课。</p>
+  </div>
+  <a class="promo-cta" href="https://jiangren.com.au/program-course/ai-engineer-rag" target="_blank" rel="noopener">看课程介绍 →</a>
+</aside>
+
+<section class="ch" id="ch6">
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 06</div>
+        <h2>🔌 HTTP Request 节点与 API 集成实战</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-pen-book.png" alt="" />
+    </div>
+<p>HTTP Request 是 n8n 里最通用的节点——任何提供 REST API 的服务都能接。官方没有内置集成的服务（比如国内的飞书、企业微信），HTTP Request 就是你的万能接口。</p>
+<h3>四种认证方式</h3>
+<table><tr><th>方式</th><th>适用场景</th><th>配置</th></tr><tr><td><strong>Header Auth</strong></td><td>API Key 放 Header</td><td><code>Authorization: Bearer sk-xxx</code></td></tr><tr><td><strong>Query Auth</strong></td><td>API Key 放 URL 参数</td><td><code>?api_key=xxx</code></td></tr><tr><td><strong>OAuth2</strong></td><td>第三方登录授权</td><td>Client ID + Secret + Redirect</td></tr><tr><td><strong>Basic Auth</strong></td><td>用户名密码</td><td><code>username:password</code> Base64</td></tr></table>
+<p>实际使用中 Header Auth 最常见。在 Credentials 里创建一个 <strong>Header Auth</strong> 类型，填好 Name 和 Value，所有节点都能复用。</p>
+<h3>分页处理：拉取全量数据</h3>
+<p>大部分 API 单次最多返回 100 条，拿全量数据需要翻页。n8n 的 HTTP Request 节点内置了 <strong>Pagination</strong> 支持：</p>
+<pre>Pagination 配置:
+  Type: Offset-Based
+  Complete When: Response Is Empty
+  Page Size: 100
+  Offset Parameter: offset
+  Limit Parameter: limit</pre>
+<p>如果 API 用 cursor 分页（比如 Slack API），选 <strong>Response Contains Next URL</strong>：</p>
+<pre>Pagination 配置:
+  Type: Response Contains Next URL
+  Next URL: {{ $response.body.response_metadata.next_cursor }}
+  Complete When: {{ !$response.body.response_metadata.next_cursor }}</pre>
+<p>n8n 会自动循环请求直到拉完所有页。</p>
+<h3>重试与超时</h3>
+<p>生产环境调外部 API 一定要配重试，防止网络抖动导致整个工作流失败：</p>
+<pre>HTTP Request 节点 Settings:
+  Timeout: 30000          # 30 秒超时
+  Retry On Fail: true
+  Max Retries: 3
+  Wait Between Retries: 1000  # 毫秒
+  Continue On Fail: true  # 失败不阻断后续节点</pre>
+<h3>实战：对接飞书 Webhook 发消息</h3>
+<p>飞书机器人用 Webhook 推消息，只需一个 POST 请求：</p>
+<pre>// HTTP Request 节点配置
+// Method: POST
+// URL: https://open.feishu.cn/open-apis/bot/v2/hook/你的token
+
+// Body (JSON):
+{
+  "msg_type": "interactive",
+  "card": {
+    "header": {
+      "title": { "content": "{{ $json.title }}", "tag": "plain_text" },
+      "template": "blue"
+    },
+    "elements": [{
+      "tag": "markdown",
+      "content": "{{ $json.content }}"
+    }]
+  }
+}</pre>
+<p>飞书机器人不需要 OAuth，Webhook URL 本身就是鉴权。适合报警通知、日报推送这类单向场景。</p>
+<h3>调试技巧</h3>
+<p>调 API 遇到问题时，打开 HTTP Request 节点的 <strong>Options → Full Response</strong>，n8n 会返回完整的 status code、headers 和 body，而不是只返回 body。排查 401/403 鉴权问题时特别有用。</p>
+<p>Expression 里可以直接引用环境变量存放 API Key，避免硬编码：</p>
+<pre>{{ $env.FEISHU_WEBHOOK_URL }}
+{{ $env.THIRD_PARTY_API_KEY }}</pre>
+  </div>
+</section>
+
+<section class="ch" id="ch7">
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 07</div>
+        <h2>🌿 版本控制与团队协作</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-coffee-pointing.png" alt="" />
+    </div>
+<p>工作流越写越多之后，你会发现几个问题：改坏了没法回滚、测试环境和生产环境混在一起、多人编辑互相覆盖。n8n 内置的 <strong>Source Control</strong> 功能（Git 集成）就是解决这些的。</p>
+<h3>启用 Source Control</h3>
+<p>Settings → Source Control，需要三样东西：</p>
+<table><tr><th>配置项</th><th>值</th></tr><tr><td><strong>Repository URL</strong></td><td>你的 Git 仓库地址（SSH 格式）</td></tr><tr><td><strong>Branch</strong></td><td>要同步的分支，比如 <code>main</code></td></tr><tr><td><strong>SSH Key</strong></td><td>n8n 自动生成，把 public key 加到 Git 仓库的 Deploy Keys</td></tr></table>
+<pre># 1. 在 GitHub 创建一个专门存工作流的私有仓库
+gh repo create my-org/n8n-workflows --private
+
+# 2. n8n 会生成 SSH key，复制 public key
+# Settings → Source Control → 复制 SSH Public Key
+
+# 3. 加到 GitHub 仓库的 Deploy Keys（允许 Write access）
+# GitHub → 仓库 Settings → Deploy keys → Add deploy key</pre>
+<p>配好之后，编辑器顶部会出现 Push/Pull 按钮。</p>
+<h3>Push 和 Pull 的逻辑</h3>
+<p><strong>Push</strong>：把本地 n8n 实例的工作流导出成 JSON，commit 到 Git 仓库。每次 push n8n 会生成一个包含所有工作流定义的 commit。</p>
+<p><strong>Pull</strong>：从 Git 仓库拉取工作流定义，覆盖本地实例。<strong>注意：Pull 会覆盖本地修改</strong>，所以养成先 Push 再 Pull 的习惯。</p>
+<p>n8n push 出去的文件结构：</p>
+<pre>n8n-workflows/
+├── workflows/
+│   ├── daily-report.json
+│   ├── github-pr-notifier.json
+│   └── ai-customer-service.json
+├── credential_stubs/
+│   ├── openai-prod.json        # 只有元数据，不含真实密钥
+│   └── slack-workspace.json
+└── variable_stubs/
+    └── variables.json</pre>
+<p>Credential 只导出元数据（名称、类型），真实密钥不会进 Git。每个环境需要单独配置 Credential 的值。</p>
+<h3>多环境部署</h3>
+<p>推荐的架构：两个 n8n 实例各连一个 Git 分支。</p>
+<table><tr><th>环境</th><th>n8n 实例</th><th>Git 分支</th><th>用途</th></tr><tr><td><strong>Development</strong></td><td>n8n-dev.internal</td><td><code>dev</code></td><td>开发测试，随便改</td></tr><tr><td><strong>Production</strong></td><td>n8n.yourcompany.com</td><td><code>main</code></td><td>线上运行</td></tr></table>
+<p>工作流程：</p>
+<ol><li>在 Dev 实例开发、测试工作流</li><li>Dev 实例 Push 到 <code>dev</code> 分支</li><li>在 GitHub 创建 PR：<code>dev</code> → <code>main</code>，团队 review</li><li>Merge 后，Production 实例 Pull 最新的 <code>main</code></li></ol>
+<pre># 也可以用 n8n CLI 做自动化部署
+n8n export:workflow --all --output=./workflows/
+n8n import:workflow --input=./workflows/
+
+# 配合 CI/CD pipeline，merge 到 main 后自动触发 import</pre>
+<h3>团队协作注意事项</h3>
+<p><strong>工作流命名规范</strong>——n8n 的 Source Control 按工作流 ID 追踪，不是按名字。但好的命名能让 Git diff 更可读：</p>
+<pre>[团队] 功能描述 - 版本
+例如: [运营] 每日数据报告 - v2
+     [开发] GitHub PR 通知 Slack
+     [AI] 客服 Bot - GPT4o</pre>
+<p><strong>避免冲突</strong>：两人同时编辑同一个工作流会冲突。约定每个工作流有一个 owner，改之前在 Slack 喊一声。</p>
+<p><strong>Variables 管理环境差异</strong>：Dev 和 Prod 的 API endpoint 不同？用 n8n Variables（Settings → Variables）存，工作流里用 <code>{{ $vars.API_BASE_URL }}</code> 引用，Push/Pull 不会覆盖 Variable 的值。</p>
+  </div>
+</section>
+<aside class="promo">
+  <span class="promo-tag">AD · 自家的</span>
+  <div class="promo-body">
+    <h4>📚 27 本 AI 工具实战手册，免费</h4>
+    <p>Cursor、Claude Code、Dify、n8n、CrewAI…每个工具一本中文实战手册，5-10 章带代码，不用注册不要钱。本书提到的工具基本都有对应深读。</p>
+  </div>
+  <a class="promo-cta" href="https://jiangren.com.au/wiki" target="_blank" rel="noopener">去翻手册 →</a>
+</aside>
+
+<section class="ch" id="ch8">
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 08</div>
+        <h2>📡 监控告警与生产运维</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-thinking.png" alt="" />
+    </div>
+<p>工作流上了生产，最怕的不是报错——是悄悄失败没人知道。这章讲怎么建一套监控体系，让问题第一时间暴露。</p>
+<h3>执行历史与日志</h3>
+<p>n8n 默认保存所有执行记录，包括每个节点的输入输出。但时间长了数据库会膨胀，生产环境要做取舍：</p>
+<pre># docker-compose.yml 环境变量
+EXECUTIONS_DATA_MAX_AGE=168           # 只保留 7 天（单位：小时）
+EXECUTIONS_DATA_PRUNE=true            # 自动清理过期记录
+EXECUTIONS_DATA_SAVE_ON_ERROR=all     # 失败的全部保存
+EXECUTIONS_DATA_SAVE_ON_SUCCESS=none  # 成功的不保存（省空间）
+EXECUTIONS_DATA_SAVE_MANUAL_EXECUTIONS=true  # 手动测试的保存</pre>
+<p>这套配置适合大多数场景：成功的不存（反正跑得好不需要看），失败的全存方便排查。</p>
+<h3>告警工作流</h3>
+<p>创建一个专门的 <strong>Error Workflow</strong>，所有生产工作流的 Settings → Error Workflow 都指向它：</p>
+<pre>// Error Workflow 的 Code 节点：格式化报警内容
+const error = $json;
+const timestamp = new Date().toLocaleString('zh-CN', { timeZone: 'Australia/Sydney' });
+
+const alert = {
+  title: `⚠️ 工作流失败: ${error.workflow.name}`,
+  content: [
+    `**时间**: ${timestamp}`,
+    `**错误**: ${error.execution.error.message}`,
+    `**节点**: ${error.execution.lastNodeExecuted}`,
+    `**执行ID**: ${error.execution.id}`,
+    `**链接**: ${error.execution.url}`
+  ].join('\n')
+};
+
+return [{ json: alert }];</pre>
+<p>后面接 Slack 或飞书 Webhook 节点把 alert 推出去。报警内容包含执行链接，点开就能看到完整的节点级别调试信息。</p>
+<h3>健康检查</h3>
+<p>n8n 本身暴露了 <code>/healthz</code> 端点，返回 <code>{ status: "ok" }</code>。配合外部监控：</p>
+<pre># 用 uptime-kuma 或任何 HTTP 监控工具
+curl -s https://n8n.yourcompany.com/healthz | jq .status
+# 输出: "ok"
+
+# 或者用 Docker 自带的 healthcheck
+healthcheck:
+  test: ["CMD", "wget", "--spider", "-q", "http://localhost:5678/healthz"]
+  interval: 30s
+  timeout: 10s
+  retries: 3
+  start_period: 30s</pre>
+<p><code>/healthz</code> 只检测 n8n 进程是否存活，不检测数据库连接。如果需要更深层的检查，写一个定时工作流去 ping 数据库，失败就报警。</p>
+<h3>常见生产问题排查</h3>
+<p><strong>问题：Webhook 触发不了</strong></p>
+<p>90% 是 <code>WEBHOOK_URL</code> 没配对。n8n 在容器里跑时，Webhook 的对外地址不是 <code>localhost:5678</code>，要设成实际域名：</p>
+<pre>WEBHOOK_URL=https://n8n.yourcompany.com</pre>
+<p>检查方法：打开任意 Webhook 节点，看底部显示的 URL 是不是你期望的域名。</p>
+<p><strong>问题：工作流跑着跑着内存爆了</strong></p>
+<p>通常是 Loop Over Items 处理了几万条数据，全部 items 堆在内存里。解决方案：</p>
+<ol><li>在 Loop 前用 Code 节点做分批（batch），每批 500 条</li><li>开启 <code>N8N_DEFAULT_BINARY_DATA_MODE=filesystem</code>，让大文件写磁盘不占内存</li><li>给容器设内存上限 <code>mem_limit: 2g</code>，OOM 比卡死好排查</li></ol>
+<p><strong>问题：定时工作流漏跑</strong></p>
+<p>Schedule Trigger 依赖 n8n 进程在线。如果在 Cron 触发时 n8n 正在重启，这次执行就丢了。应对：</p>
+<ol><li>用 Queue Mode（Redis），任务持久化不丢</li><li>或者用外部 Cron（系统 crontab / GitHub Actions）通过 Webhook 触发，比 n8n 内置的 Schedule 更可靠</li></ol>
+<h3>备份策略</h3>
+<pre>#!/bin/bash
+# 每天凌晨 2 点跑，crontab: 0 2 * * * /opt/scripts/backup-n8n.sh
+DATE=$(TZ='Australia/Sydney' date +%Y-%m-%d)
+BACKUP_DIR="/backups/n8n/${DATE}"
+mkdir -p "$BACKUP_DIR"
+
+docker exec n8n n8n export:workflow --all --output=/tmp/workflows.json
+docker exec n8n n8n export:credentials --all --output=/tmp/credentials.json
+docker cp n8n:/tmp/workflows.json "$BACKUP_DIR/"
+docker cp n8n:/tmp/credentials.json "$BACKUP_DIR/"
+
+# 只保留最近 30 天
+find /backups/n8n -maxdepth 1 -mtime +30 -exec rm -rf {} +
+
+echo "[$DATE] n8n backup done: $(ls $BACKUP_DIR | wc -l) files"</pre>
+<p>Credential 的导出文件包含加密后的密钥，恢复时需要同一个 <code>N8N_ENCRYPTION_KEY</code>。换机器部署前先把这个 key 备份好。</p>
+
+    <p class="sales-card-lead">🎯 能把 n8n 跑到生产监控这一步，你已经具备真实工程能力。想把自动化 + AI 做成能写进简历的项目？Rain 聊聊你的方向：</p>
+    <div class="sales-card"><img src="assets/contact/sales-cards/rain.jpg" alt="Rain · Senior IT Career Consultant · 匠人学院" /></div>
+  </div>
+</section>
+
+</main>
+
+<section class="page back-cover">
+  <div class="logo"><img src="assets/logo/logo-zh-white.png" alt="匠人学院" /></div>
+  <h2>会自动化了，接下来用它做什么？</h2>
+  <p style="max-width: 78%;">这本手册的在线版在 jiangren.com.au/wiki/n8n-workflow-automation，随官网更新。匠人学院还有 20+ 本同款 AI 工具指南（Claude Code、Cursor、Dify、CrewAI…）和 AI Engineer 方向的项目制课程——想知道 n8n + AI Agent 怎么用进真实业务、做成能找工作的作品，来聊聊。</p>
+
+  <div class="sales-card" style="width: 88%;"><img src="assets/contact/sales-cards/angela.jpg" alt="Angela · IT Career Consultant · 匠人学院" /></div>
+
+  <div class="contact-bar" style="width: 88%;">
+    <img class="qr" src="assets/contact/qr-xiaohua.png" alt="匠人学院小助手微信" />
+    <div class="cb-body">
+      <div class="cb-title">扫码进社群，AI 自动化实操答疑</div>
+      <div class="cb-desc">把这本 PDF 转给还在手动复制粘贴干重复活的同事。</div>
+    </div>
+    <div class="cb-brand"><img src="assets/logo/jr-box.svg" alt="JR" /><span class="cb-url">jiangren.com.au</span></div>
+  </div>
+
+  <p class="caption" style="color: rgba(255,255,255,0.5);">© JR Academy · 学 AI 来匠人 · 内容源自 jiangren.com.au/wiki《n8n 工作流自动化》· 欢迎转发</p>
+</section>
+
+<script defer src="theme/reader.js"></script>
+<a href="n8n%20%E8%87%AA%E5%8A%A8%E5%8C%96%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C%20-%20%E5%8C%A0%E4%BA%BA%E5%AD%A6%E9%99%A2.pdf" download style="position:fixed;right:22px;bottom:22px;z-index:1200;display:flex;align-items:center;gap:8px;background:#0D0F12;color:#fff;font-weight:700;font-size:14.5px;padding:13px 22px;border-radius:999px;box-shadow:0 12px 28px rgba(13,15,18,.35);text-decoration:none;font-family:Inter,'PingFang SC',sans-serif;">⬇️ 下载 PDF 版</a>
+</body>
+</html>

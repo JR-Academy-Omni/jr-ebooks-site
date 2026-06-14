@@ -1,0 +1,34 @@
+{
+  "slug": "n8n-automation-handbook",
+  "title": "n8n 自动化中文手册",
+  "subtitle": "开源自托管工作流自动化：从第一个 workflow 到 AI Agent、API 集成、Git 版控、生产监控 — 8 章全可复制",
+  "audience": "想自动化重复工作的职场人 / 开发者 / 想做 AI 自动化的转行者",
+  "goal": "lead-magnet",
+  "track": "T1",
+  "style": "handbook",
+  "mode": "flow",
+  "channel": [
+    "微信群分享",
+    "小红书引流",
+    "公众号文末资料包"
+  ],
+  "pages": "flow 自动分页",
+  "status": "draft",
+  "tags": [
+    "ai-tools",
+    "automation",
+    "n8n",
+    "ai-agent"
+  ],
+  "contact": {
+    "qr": "qr-xiaohua.png",
+    "salesCards": [
+      "amelia.jpg",
+      "rain.jpg",
+      "angela.jpg"
+    ]
+  },
+  "sources": [
+    "jr-wiki src/content/wiki/n8n-workflow-automation/ 8 章原文（source of truth，md2flow 直转不改写）"
+  ]
+}
