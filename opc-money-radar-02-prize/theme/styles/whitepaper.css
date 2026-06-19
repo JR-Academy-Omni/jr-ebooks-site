@@ -8,7 +8,7 @@
 
 :root {
   --wp-paper:    #fffdf9;
-  --wp-grid:     #e7e3da;
+  --wp-grid:     #d7d2c6;
   --wp-ink:      #14233f;          /* 深藏蓝大标题 */
   --wp-tan:      #f5e8d2;          /* 米色卡头底 */
   --wp-tan-line: #c79a52;          /* 棕色描边 */
@@ -21,52 +21,55 @@
 .page.wp::before, .page.cover-wp::before {
   content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 0;
   background-image:
-    linear-gradient(var(--wp-grid) 0.2mm, transparent 0.2mm),
-    linear-gradient(90deg, var(--wp-grid) 0.2mm, transparent 0.2mm);
+    linear-gradient(var(--wp-grid) 0.26mm, transparent 0.26mm),
+    linear-gradient(90deg, var(--wp-grid) 0.26mm, transparent 0.26mm);
   background-size: 33mm 33mm;
 }
+.page.cover-wp::before { background-size: 26mm 26mm; }   /* 封面网格更密 */
 .page.wp > *, .page.cover-wp > * { position: relative; z-index: 1; }
 
 /* —— 几何装饰件（绝对定位，封面/内页点缀）—— */
 .wp-ring { position: absolute; border-radius: 50%; z-index: 1; }
-.wp-ring.b { border: 3mm solid var(--wp-blue); }
-.wp-ring.o { border: 3mm solid var(--wp-orange); }
+.wp-ring.b { border: 2.6mm solid var(--wp-blue); }
+.wp-ring.o { border: 2.6mm solid var(--wp-orange); }
 .wp-dot { position: absolute; border-radius: 50%; z-index: 1; }
 .wp-diag { position: absolute; height: 0; border-top: 0.7mm solid var(--wp-ink); transform-origin: left center; z-index: 1; }
 .wp-diag.o { border-top-color: var(--wp-orange); }
-.wp-bulb { position: absolute; font-size: 16mm; line-height: 1; z-index: 2; filter: drop-shadow(0 1mm 1.5mm rgba(0,0,0,.18)); }
+.wp-diag.b { border-top-color: var(--wp-blue); }
+.wp-bulb { position: absolute; font-size: 22mm; line-height: 1; z-index: 5; filter: drop-shadow(0 1.2mm 1.8mm rgba(0,0,0,.2)); }
 
 /* —— 封面 cover-wp —— */
-.page.cover-wp { padding: 20mm 18mm; justify-content: center; align-items: stretch; }
+.page.cover-wp { padding: 16mm 18mm; justify-content: center; align-items: stretch; }
 .wp-corner {
-  position: absolute; font-family: var(--jr-font-mono); font-size: 12pt;
+  position: absolute; font-family: var(--jr-font-mono); font-size: 12.5pt; font-weight: 500;
   color: var(--wp-ink); letter-spacing: .02em; z-index: 2;
 }
-.wp-corner.tl { top: 16mm; left: 18mm; }
-.wp-corner.bl { bottom: 16mm; left: 18mm; }
-.wp-corner.br { bottom: 40mm; right: 18mm; color: var(--jr-neutral-600); }
+.wp-corner.tl { top: 15mm; left: 38mm; }
+.wp-corner.bl { bottom: 14mm; left: 18mm; }
+.wp-corner.br { bottom: 44mm; right: 18mm; color: var(--jr-neutral-600); }
 
 .wp-logo-box {
-  align-self: center; background: #fff; border: 0.6mm solid var(--wp-ink);
-  box-shadow: 3mm 3mm 0 var(--wp-tan); padding: 6mm 14mm; margin-bottom: 12mm; z-index: 2;
+  align-self: center; background: #fff; border: 0.7mm solid var(--wp-ink);
+  box-shadow: 3.2mm 3.2mm 0 var(--wp-tan); padding: 7mm 22mm; margin-bottom: 9mm; z-index: 2;
 }
-.wp-logo-box img { height: 16mm; display: block; }
+.wp-logo-box img { height: 18mm; display: block; }
 
 .wp-cover-card {
-  align-self: center; background: #fff; border: 0.6mm solid var(--wp-ink);
-  box-shadow: 5mm 5mm 0 var(--wp-tan), 5mm 5mm 0 0.5mm var(--wp-tan-line);
-  padding: 24mm 14mm; width: 168mm; max-width: 168mm; z-index: 2;
+  align-self: center; background: #fff; border: 0.7mm solid var(--wp-ink);
+  box-shadow: 5mm 5mm 0 #f6ead4, 10mm 10mm 0 #f2c89c;
+  width: 168mm; max-width: 168mm; min-height: 140mm; z-index: 2;
+  display: flex; align-items: center; justify-content: center; padding: 14mm;
 }
 .wp-cover-title {
-  font-size: 76pt; font-weight: var(--jr-fw-bold); line-height: 1.08;
+  font-size: 86pt; font-weight: var(--jr-fw-bold); line-height: 1.08;
   color: var(--wp-ink); text-align: center; letter-spacing: .01em;
 }
 
 .wp-search {
   align-self: center; display: inline-flex; align-items: center; gap: 3mm;
   border: 0.5mm solid var(--wp-ink); border-radius: var(--jr-radius-full);
-  padding: 3mm 8mm; margin-top: 14mm; z-index: 2;
-  font-family: var(--jr-font-mono); font-size: 12pt; color: var(--wp-ink); background: var(--wp-paper);
+  padding: 3.2mm 9mm; margin-top: 11mm; z-index: 2;
+  font-family: var(--jr-font-mono); font-size: 12.5pt; color: var(--wp-ink); background: var(--wp-paper);
 }
 
 /* 封面定位元素：强制 absolute（盖过 .page.cover-wp > * 的 relative 提权）*/
@@ -75,6 +78,8 @@
 .page.cover-wp .wp-ring,
 .page.cover-wp .wp-dot,
 .page.cover-wp .wp-diag { position: absolute; }
+.page.cover-wp .wp-bulb { z-index: 6; }       /* 灯泡叠在标题卡之上 */
+.page.cover-wp .wp-corner { z-index: 6; }     /* 角标始终可见 */
 
 /* —— 内页大标题 —— */
 .page.wp .wp-h {
