@@ -1,0 +1,16 @@
+{
+  "slug": "opc-money-radar-01-hackathon",
+  "title": "打比赛赚钱·AI 黑客松篇",
+  "subtitle": "OPC 搞钱雷达 #01 ｜ 2026.6.13 快照 ｜ 5 个 solo 能打的 AI 黑客松",
+  "audience": "想用 AI 做一人公司 / 找钱搞钱的创业者、独立开发者、OPC 创业营学员",
+  "goal": "lead-magnet",
+  "track": "T1",
+  "style": "roundup",
+  "series": "OPC 搞钱雷达",
+  "seriesIndex": 1,
+  "channel": ["微信群", "小红书评论区领取", "OPC 创业营社群", "线下打印发放"],
+  "contact": { "qr": "qr-xiaohua.png", "label": "匠人学院小助手 · OPC 创业营" },
+  "sources": ["omni-report/hackathon-radar/2026-06-13.md"],
+  "pages": 6,
+  "status": "draft"
+}
