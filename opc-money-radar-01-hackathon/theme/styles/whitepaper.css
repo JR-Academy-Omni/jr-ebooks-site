@@ -56,13 +56,18 @@
 
 .wp-cover-card {
   align-self: center; background: #fff; border: 0.7mm solid var(--wp-ink);
-  box-shadow: 5mm 5mm 0 #f6ead4, 10mm 10mm 0 #f2c89c;
-  width: 168mm; max-width: 168mm; min-height: 140mm; z-index: 2;
-  display: flex; align-items: center; justify-content: center; padding: 14mm;
+  box-shadow: 5mm 5mm 0 #f7ecd8, 9mm 9mm 0 #f6dcb8;
+  width: 168mm; max-width: 168mm; min-height: 122mm; z-index: 2;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 7mm; padding: 18mm 14mm;
 }
 .wp-cover-title {
-  font-size: 86pt; font-weight: var(--jr-fw-bold); line-height: 1.08;
+  font-size: 84pt; font-weight: var(--jr-fw-bold); line-height: 1.06;
   color: var(--wp-ink); text-align: center; letter-spacing: .01em;
+}
+.wp-cover-sub {
+  font-family: var(--jr-font-mono); font-size: 12.5pt; color: var(--jr-neutral-600);
+  text-align: center; letter-spacing: .03em; line-height: 1.5;
+  border-top: 0.4mm solid var(--wp-tan-line); padding-top: 5mm; max-width: 120mm;
 }
 
 .wp-search {
