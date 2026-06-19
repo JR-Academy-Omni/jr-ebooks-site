@@ -4,171 +4,180 @@
 <meta charset="UTF-8" />
 <title>打比赛赚钱·AI 黑客松篇 — OPC 搞钱雷达 #01 — JR Academy</title>
 <link rel="stylesheet" href="theme/ebook.css" />
-<link rel="stylesheet" href="theme/styles/roundup.css" />
+<link rel="stylesheet" href="theme/styles/whitepaper.css" />
 </head>
 <body>
 <img class="jr-wm" src="assets/logo/jr-box.svg" alt="" />
 
-<!-- P1 封面 -->
-<section class="page cover2">
-  <div class="cv2-ghost">$</div>
-  <div class="cv2-head">
-    <img src="assets/logo/logo-zh-white.png" alt="匠人学院" />
-    <span class="cv2-sticker">🏆 搞钱雷达 #01 · 2026.6.13</span>
+<!-- P1 封面（白皮书风）-->
+<section class="page cover-wp">
+  <span class="wp-corner tl">&lt;JR Academy&gt;</span>
+  <span class="wp-corner bl">&lt;OPC Money Radar&gt;</span>
+  <span class="wp-corner br">&lt;Hackathon&gt;</span>
+
+  <span class="wp-bulb" style="top: 30mm; left: 22mm;">💡</span>
+  <span class="wp-ring b" style="width: 16mm; height: 16mm; top: 18mm; left: 16mm;"></span>
+  <span class="wp-ring o" style="width: 14mm; height: 14mm; bottom: 24mm; right: 20mm;"></span>
+  <span class="wp-dot" style="width: 9mm; height: 9mm; background: var(--wp-blue); top: 20mm; left: 20mm;"></span>
+  <span class="wp-diag" style="width: 34mm; top: 26mm; right: 14mm; transform: rotate(34deg);"></span>
+  <span class="wp-diag o" style="width: 26mm; bottom: 40mm; left: 14mm; transform: rotate(38deg);"></span>
+
+  <div class="wp-logo-box"><img src="assets/logo/logo-zh-full.svg" alt="匠人学院" /></div>
+
+  <div class="wp-cover-card">
+    <div class="wp-cover-title">打比赛<br/>赚钱</div>
   </div>
-  <div class="cv2-body">
-    <div class="cv2-kicker">OPC 一人公司搞钱雷达 · 黑客松篇</div>
-    <div class="cv2-title"><em>打比赛</em> 赚钱</div>
-    <div class="cv2-bar"></div>
-    <p class="cv2-sub">5 个全程线上、一个人就能打的 AI 黑客松。奖金从 $10K 到 $2M，现有 agent 代码半天能改去交一版 —— 既能拿现金，也能给简历和产品镀金。</p>
-    <div class="cv2-chips">
-      <span class="chip">🏆 5 个比赛</span>
-      <span class="chip">💵 $10K–$2M</span>
-      <span class="chip">🌏 全程线上 · solo 可打</span>
-    </div>
-    <div class="cv2-diecut">本期最推荐：AMD Developer Hackathon，$10K 现金，7/11 截止</div>
-  </div>
-  <img class="cv2-mascot" src="assets/illustrations/niuxiaojiang-working-laptop.png" alt="牛小匠" />
-  <div class="cv2-domain">jiangren.com.au · OPC 一人公司创业营 · 每 2 天更新搞钱雷达</div>
-  <div class="cv2-strip"><span>学 AI 来匠人 <i>✦</i> OPC 搞钱雷达 <i>✦</i> 一个人也能搞钱 <i>✦</i> JIANGREN.COM.AU <i>✦</i> 学 AI 来匠人 <i>✦</i></span></div>
+
+  <div class="wp-search">🔍 &nbsp;@ 匠人 OPC 创业营 · 搞钱雷达 #01</div>
 </section>
 
-<!-- P2 目录 + 速览 + 联系横条 -->
-<section class="page">
-  <h2>这一册有什么</h2>
-  <div class="toc-item"><span class="num">01</span><span>先看这页：哪个比赛最该打、怎么排时间</span><span class="dots"></span><span class="pg">2</span></div>
-  <div class="toc-item"><span class="num">02</span><span>本期重点 ×2：Turing Test 大奖池 + AMD 现金赛</span><span class="dots"></span><span class="pg">3</span></div>
-  <div class="toc-item"><span class="num">03</span><span>还能上车 ×3：自动化赛 / Band of Agents / Gemini XPRIZE</span><span class="dots"></span><span class="pg">4</span></div>
-  <div class="toc-item"><span class="num">04</span><span>一个产品打多个比赛 + 你的第一步</span><span class="dots"></span><span class="pg">5</span></div>
+<!-- P2 导读：stat 网格 + 图标卡 -->
+<section class="page wp">
+  <h2 class="wp-h">打比赛：拿现金，也给产品和简历镀金</h2>
+  <p style="font-size:10pt;color:var(--jr-neutral-600);line-height:1.6;margin-bottom:6mm;max-width:155mm;">这一册收 5 个全程线上、一个人就能打的 AI 黑客松。它们的内核都是"一个能跑的 AI agent / 工具"，现有代码改一版就能投——既能拿奖金，也能给简历和融资材料添一条硬背书。数据取自 OPC 比赛雷达 2026-06-13，奖金 / 截止以各赛官网为准。</p>
 
-  <h2 class="mt-6">30 秒先搞清楚</h2>
-  <div class="week-glance">
-    <div class="g-row"><span class="g-label">最该打</span><span>AMD Developer Hackathon ACT II — $10K 现金，全程线上，7/11 截止，竞争烈度中等</span></div>
-    <div class="g-row"><span class="g-label">奖池最大</span><span>Build with Gemini XPRIZE — $2M 总奖池、大奖 $500K，适合已有真实用户的产品</span></div>
-    <div class="g-row"><span class="g-label">差异化机会</span><span>Turing Test Hackathon — Web3+AI 交叉赛道人少，$120K 总奖池（有链上基础再上）</span></div>
-    <div class="g-row"><span class="g-label">怎么省力</span><span>这 5 个全是线上 + 接受个人参加；现有 agent 产品改一版就能投，别每个都从零做</span></div>
-    <div class="g-row"><span class="g-label">读这册的人</span><span>手里已经在练一个 AI agent / 工具产品，想给它找个变现和曝光出口</span></div>
+  <div class="wp-stats mb-6">
+    <div class="wp-stat"><div class="num">5 个</div><div class="lbl">solo 能打的 AI 黑客松</div></div>
+    <div class="wp-stat"><div class="num">$10K–$2M</div><div class="lbl">奖金区间</div></div>
+    <div class="wp-stat"><div class="num">100%</div><div class="lbl">线上 · 不用飞</div></div>
+  </div>
+
+  <div class="wp-grid">
+    <div class="wp-icard">
+      <span class="wp-icard-ico orange">🥇</span>
+      <h3>本期最该打</h3>
+      <p><span class="lead">AMD Developer Hackathon</span> — $10K 现金，全程线上，7/11 截止，竞争烈度中等，现有 agent 半天能移植。</p>
+    </div>
+    <div class="wp-icard">
+      <span class="wp-icard-ico blue">💰</span>
+      <h3>奖池最大</h3>
+      <p><span class="lead">Build with Gemini XPRIZE</span> — $2M 总奖池、大奖 $500K，适合已有 MVP + 真实用户和收入的产品。</p>
+    </div>
+    <div class="wp-icard">
+      <span class="wp-icard-ico purple">⚡</span>
+      <h3>差异化机会</h3>
+      <p><span class="lead">Turing Test Hackathon</span> — Web3+AI 交叉赛道人少，$120K 总奖池，有链上基础的性价比高。</p>
+    </div>
+    <div class="wp-icard">
+      <span class="wp-icard-ico pink">👤</span>
+      <h3>读这册的人</h3>
+      <p>手里已经在练一个 AI agent / 工具产品，想给它找个变现和曝光的出口。</p>
+    </div>
+  </div>
+
+  <div class="wp-footer"><span class="wp-pageno">02</span><span class="wp-booktitle">OPC 搞钱雷达 · 黑客松篇</span></div>
+</section>
+
+<!-- P3 本期重点 -->
+<section class="page wp">
+  <h2 class="wp-h">本期重点：奖池大 + 现金到手</h2>
+
+  <div class="wp-grid one">
+    <div class="wp-card">
+      <div class="wp-card-head">AMD Developer Hackathon ACT II · 本期最推荐</div>
+      <div class="wp-card-body">
+        <p class="wp-kv"><b>主办</b> AMD × lablab.ai ｜ <b>奖励</b> $10,000 现金 + 每人 $100 AMD Cloud Credits + 1 个月 DeepLearning.AI Pro ｜ <b>截止</b> 2026-07-11 ｜ <b>形式</b> 全程线上 / 全球 ｜ 单人或团队都能参加</p>
+        <p><span class="lead">为什么是你：</span>主题就是 AI agents / workflow 自动化，正好是一人公司在练的产品形态；lablab.ai 社区竞争烈度中等；AMD API 兼容 OpenAI 格式，现有 agent 代码通常半天能移植。第一步：今晚去 lablab.ai 注册，把手里的 agent 产品改成调 AMD Cloud 的版本。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="wp-grid one mt-4">
+    <div class="wp-card">
+      <div class="wp-card-head">Turing Test Hackathon 2026 · $120K 奖池</div>
+      <div class="wp-card-body">
+        <p class="wp-kv"><b>主办</b> Mantle + DoraHacks + Tencent Cloud ｜ <b>奖池</b> $120,000 总（Phase 1 $20K + Phase 2 $100K）｜ <b>截止</b> 2026-06-15（本册为 6-13 快照，以官网为准）｜ <b>形式</b> 全程线上 / 全球 ｜ 个人可参加</p>
+        <p><span class="lead">为什么是你：</span>Web3+AI 交叉方向的竞争者远少于纯 AI 赛道，Phase 2 的 $100K 不需要你在 Phase 1 就拿奖。门槛是要能在 Mantle 上部署一个 AI agent demo——手里有链上数据、DeFi 接口或智能合约交互的，这条性价比很高；没有 Web3 基础就直接看下一页。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="wp-footer"><span class="wp-pageno">03</span><span class="wp-booktitle">OPC 搞钱雷达 · 黑客松篇</span></div>
+</section>
+
+<!-- P4 还能上车 -->
+<section class="page wp">
+  <h2 class="wp-h">还能上车：从练手到大奖池</h2>
+
+  <div class="wp-grid">
+    <div class="wp-card">
+      <div class="wp-card-head">Automation Innovation Hackathon</div>
+      <div class="wp-card-body">
+        <p class="wp-kv"><b>主办</b> Devpost 社区 ｜ <b>奖金</b> $22,500（1st $15K · 2nd $6K · 3rd $1.5K）｜ <b>截止</b> 见官网 ｜ 全程线上 · 个人可参加</p>
+        <p>评审重"执行落地"不重 demo 炫技，手里已经有能跑的流程自动化 / AI workflow 产品的人有优势。报名：automation-innovation.devpost.com</p>
+      </div>
+    </div>
+    <div class="wp-card">
+      <div class="wp-card-head">Band of Agents Hackathon</div>
+      <div class="wp-card-body">
+        <p class="wp-kv"><b>主办</b> lablab.ai ｜ <b>奖金</b> $10,000+ ｜ <b>截止</b> 2026-06-19（6-13 快照，以官网为准）｜ 全程线上 · solo 可参加</p>
+        <p>有现成 Claude / GPT agent 代码的，改成多个 agent 协调的版本就能交，工作量不大。报名：lablab.ai/ai-hackathons/band-of-agents-hackathon</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="wp-grid one mt-4">
+    <div class="wp-card">
+      <div class="wp-card-head">Build with Gemini XPRIZE · $2M 奖池</div>
+      <div class="wp-card-body">
+        <p class="wp-kv"><b>主办</b> XPRIZE + Google ｜ <b>奖池</b> $2,000,000 总、大奖 $500,000 ｜ <b>截止</b> 2026-08-17 ｜ 线上 / 全球 · 25 人以内团队可参加</p>
+        <p>不是练手赛，适合已经有 MVP + 真实用户 + 真实收入的产品；要求接入至少一款 Google Cloud 产品。手里产品成熟的，这是 8 月前最值得认真打的一个。报名：xprize.devpost.com</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="wp-footer"><span class="wp-pageno">04</span><span class="wp-booktitle">OPC 搞钱雷达 · 黑客松篇</span></div>
+</section>
+
+<!-- P5 方法论 + 行动 -->
+<section class="page wp">
+  <h2 class="wp-h">一个产品，打多个比赛</h2>
+
+  <div class="wp-grid one">
+    <div class="wp-card">
+      <div class="wp-card-body">
+        <p class="lead">别为每个比赛从零做。</p>
+        <p>这 5 个比赛的内核都是"一个能跑的 AI agent / 工具"。聪明的做法是手里养一个主产品，按每个比赛的要求换壳——AMD 赛把模型调用换成 AMD Cloud，Gemini XPRIZE 接一个 Google Cloud 服务，Band of Agents 把单 agent 拆成多 agent 协调。同一套核心逻辑，投三四个比赛，命中率自然高。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="wp-grid mt-4">
+    <div class="wp-icard">
+      <span class="wp-icard-ico blue">🚀</span>
+      <h3>这周就能做的三步</h3>
+      <p>① 选一个主赛（还在练 → AMD；有用户有收入 → Gemini XPRIZE）。② 今晚免费注册占位，拿到评审标准倒推还差什么。③ 用现有代码改一版，先交一版能跑的再迭代，别新开项目。</p>
+    </div>
+    <div class="wp-icard">
+      <span class="wp-icard-ico orange">🎯</span>
+      <h3>打比赛在 OPC 里是什么位置</h3>
+      <p>有 deadline 的外部压力，逼你把"在做的"收成"能交的"（对应 MVP 模块）；获奖 / 入围是简历和融资里的硬信号。但奖金只是第一桶启动钱，主线永远是把它做成有人付钱的产品。</p>
+    </div>
   </div>
 
   <div class="contact-bar mt-6">
     <img class="qr" src="assets/contact/qr-rain.png" alt="加 Rain 微信进匠人OPC创业者交流群" />
     <div class="cb-body">
-      <div class="cb-title">加入「匠人 OPC 创业者交流群」，搞钱雷达每 2 天群里更新</div>
-      <div class="cb-desc">扫码加 Rain，拉你进群 —— 一群正在用 AI 做一人公司的人：最新黑客松 / 加速器 / Grant 机会 + 打比赛组队 + 选题答疑。</div>
+      <div class="cb-title">想打比赛但缺队友 / 不知道选哪个？进「匠人 OPC 创业者交流群」</div>
+      <div class="cb-desc">扫码加 Rain，拉你进群——群里有正在打这些比赛的人，可以组队、互相 review demo，搞钱雷达每 2 天群里更新。</div>
     </div>
     <div class="cb-brand"><img src="assets/logo/jr-box.svg" alt="JR" /><span class="cb-url">jiangren.com.au</span></div>
   </div>
 
-  <div class="page-footer">
-    <span class="brand"><img src="assets/logo/jr-box.svg" alt="JR" />jiangren.com.au</span>
-    <span class="page-num">2</span>
-  </div>
-</section>
-
-<!-- P3 本期重点 -->
-<section class="page">
-  <div class="theme-head"><span class="t-num">01</span><h2>本期重点：奖池大 + 现金到手</h2><span class="t-count">2 条</span></div>
-
-  <div class="news-item">
-    <div class="n-head"><h3>AMD Developer Hackathon ACT II</h3><span class="n-tag hot">本期最推荐</span></div>
-    <p class="n-summary">主办：AMD × lablab.ai ｜ 奖励：$10,000 现金 + 每人 $100 AMD Cloud Credits + 1 个月 DeepLearning.AI Pro ｜ 截止：2026-07-11 ｜ 形式：全程线上 / 全球 ｜ 单人或团队都能参加。</p>
-    <p class="n-impact"><strong>为什么是你</strong>：主题就是 AI agents / workflow 自动化，正好是一人公司在练的产品形态；lablab.ai 社区竞争烈度中等；AMD API 兼容 OpenAI 格式，现有 agent 代码通常半天能移植过去。第一步：今晚去 lablab.ai 注册，把手里的 agent 产品改成调 AMD Cloud 的版本。</p>
-  </div>
-
-  <div class="news-item">
-    <div class="n-head"><h3>Turing Test Hackathon 2026</h3><span class="n-tag">$120K 奖池</span></div>
-    <p class="n-summary">主办：Mantle + DoraHacks + Tencent Cloud ｜ 奖池：$120,000 总（Phase 1 $20K + Phase 2 $100K）｜ 截止：2026-06-15（本册为 6-13 快照，以官网为准）｜ 形式：全程线上 / 全球 ｜ 个人可参加。</p>
-    <p class="n-impact"><strong>为什么是你</strong>：Web3+AI 交叉方向的竞争者远少于纯 AI 赛道，Phase 2 的 $100K 不需要你在 Phase 1 就拿奖。门槛是要能在 Mantle 上部署一个 AI agent demo —— 手里有链上数据、DeFi 接口或智能合约交互的，这条性价比很高；没有 Web3 基础就直接看下一页。</p>
-  </div>
-
-  <p class="roundup-source">本页来源：OPC 比赛雷达 2026-06-13（omni-report/hackathon-radar），每条附主办方官方报名链接，截止日以官网为准</p>
-
-  <div class="page-footer">
-    <span class="brand"><img src="assets/logo/jr-box.svg" alt="JR" />jiangren.com.au</span>
-    <span class="page-num">3</span>
-  </div>
-</section>
-
-<!-- P4 还能上车 -->
-<section class="page">
-  <div class="theme-head"><span class="t-num">02</span><h2>还能上车：从练手到大奖池</h2><span class="t-count">3 条</span></div>
-
-  <div class="news-item">
-    <div class="n-head"><h3>Automation Innovation Hackathon 2026</h3></div>
-    <p class="n-summary">主办：Devpost 社区 ｜ 奖金：$22,500 总（1st $15K · 2nd $6K · 3rd $1.5K）｜ 截止：见官网（日期待确认）｜ 全程线上 / 全球 ｜ 个人可参加。</p>
-    <p class="n-impact"><strong>怎么打</strong>：评审重"执行落地"不重 demo 炫技，手里已经有一个能跑的流程自动化 / AI workflow 产品的人有优势 —— 把真实在用的东西包装提交，比临时赶 demo 更划算。报名：automation-innovation.devpost.com</p>
-  </div>
-
-  <div class="news-item">
-    <div class="n-head"><h3>Band of Agents Hackathon</h3><span class="n-tag">multi-agent</span></div>
-    <p class="n-summary">主办：lablab.ai ｜ 奖金：$10,000+ ｜ 截止：2026-06-19（本册为 6-13 快照，以官网为准）｜ 全程线上 ｜ solo 可参加。</p>
-    <p class="n-impact"><strong>怎么打</strong>：有现成 Claude / GPT agent 代码的，把它改成多个 agent 协调的版本就能交，工作量不大。报名：lablab.ai/ai-hackathons/band-of-agents-hackathon</p>
-  </div>
-
-  <div class="news-item">
-    <div class="n-head"><h3>Build with Gemini XPRIZE</h3><span class="n-tag hot">$2M 奖池</span></div>
-    <p class="n-summary">主办：XPRIZE + Google ｜ 奖池：$2,000,000 总、大奖 $500,000 ｜ 截止：2026-08-17 ｜ 线上 / 全球 ｜ 25 人以内团队可参加。</p>
-    <p class="n-impact"><strong>怎么打</strong>：这个不是练手赛，适合已经有 MVP + 真实用户 + 真实收入的产品；要求接入至少一款 Google Cloud 产品。手里产品成熟的，这是 8 月前最值得认真打的一个。报名：xprize.devpost.com</p>
-  </div>
-
-  <p class="roundup-source">本页来源：OPC 比赛雷达 2026-06-13，奖金 / 截止 / 形式均取自主办方官网信息</p>
-
-  <div class="page-footer">
-    <span class="brand"><img src="assets/logo/jr-box.svg" alt="JR" />jiangren.com.au</span>
-    <span class="page-num">4</span>
-  </div>
-</section>
-
-<!-- P5 方法论 + 行动 -->
-<section class="page">
-  <div class="theme-head"><span class="t-num">03</span><h2>一个产品，打多个比赛</h2><span class="t-count">怎么排</span></div>
-
-  <div class="callout"><strong>别为每个比赛从零做。</strong>这 5 个比赛的内核都是"一个能跑的 AI agent / 工具"。聪明的做法是：手里养一个主产品，按每个比赛的要求换壳 —— AMD 赛就把模型调用换成 AMD Cloud，Gemini XPRIZE 就接一个 Google Cloud 服务，Band of Agents 就把单 agent 拆成多 agent 协调。同一套核心逻辑，投三四个比赛，命中率自然高。</div>
-
-  <div class="card">
-    <div class="card-title"><span class="num">1</span><h3>这周就能做的三步</h3></div>
-    <ul>
-      <li><strong>选一个主赛</strong>：手里产品还在练 → 选 AMD（现金、竞争中等、半天能改）；已经有真实用户和收入 → 直接备 Gemini XPRIZE。</li>
-      <li><strong>今晚注册占位</strong>：报名免费，先注册拿到提交入口和评审标准，按标准倒推还差什么。</li>
-      <li><strong>用现有代码改一版</strong>：不要新开项目。把你正在做的 agent 改成符合该赛要求的版本，先交一版能跑的，再迭代。</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <div class="card-title"><span class="num">2</span><h3>打比赛在 OPC 里是什么位置</h3></div>
-    <ul>
-      <li><strong>验证</strong>：比赛是一个有 deadline 的外部压力，逼你把"在做的东西"收成"能交的东西" —— 对应 OPC 的 MVP 模块。</li>
-      <li><strong>曝光与背书</strong>：获奖 / 入围本身是简历和融资材料里的硬信号，比自说自话有用。</li>
-      <li><strong>不是终点</strong>：奖金是第一桶启动钱，真正的盘是把比赛产品接着做成有付费用户的产品 —— 这才是一人公司的主线。</li>
-    </ul>
-  </div>
-
-  <div class="contact-bar mt-4">
-    <img class="qr" src="assets/contact/qr-rain.png" alt="加 Rain 微信进匠人OPC创业者交流群" />
-    <div class="cb-body">
-      <div class="cb-title">想打比赛但缺队友 / 不知道选哪个？进「匠人 OPC 创业者交流群」聊</div>
-      <div class="cb-desc">群里有正在打这些比赛的人，可以组队、互相 review demo。扫码加 Rain 拉你进群，报上你的方向。</div>
-    </div>
-    <div class="cb-brand"><img src="assets/logo/jr-box.svg" alt="JR" /><span class="cb-url">jiangren.com.au</span></div>
-  </div>
-
-  <div class="page-footer">
-    <span class="brand"><img src="assets/logo/jr-box.svg" alt="JR" />jiangren.com.au</span>
-    <span class="page-num">5</span>
-  </div>
+  <div class="wp-footer"><span class="wp-pageno">05</span><span class="wp-booktitle">OPC 搞钱雷达 · 黑客松篇</span></div>
 </section>
 
 <!-- P6 封底 -->
 <section class="page back-cover">
   <div class="logo"><img src="assets/logo/logo-zh-white.png" alt="匠人学院" /></div>
   <h2>一个人也能搞钱，只是得知道钱在哪</h2>
-  <p style="max-width: 80%;">这是 OPC 搞钱雷达系列的第 01 册（黑客松篇）。接下来还有奖金赛篇、加速器与 Grant 篇、一人公司真案例篇。每 2 天更新的最新机会、组队和选题答疑，都从下面这个码开始。</p>
+  <p style="max-width: 80%;">这是 OPC 搞钱雷达系列第 01 册（黑客松篇）。系列还有 #02 奖金赛篇、加速器与 Grant 篇、一人公司真案例篇。每 2 天更新的最新机会、组队和选题答疑，都从下面这个码开始。</p>
 
   <div class="contact-bar lg" style="width: 100%;">
     <img class="qr" src="assets/contact/qr-rain.png" alt="加 Rain 微信进匠人OPC创业者交流群" />
     <div class="cb-body">
       <div class="cb-title">扫码加 Rain，进「匠人 OPC 创业者交流群」</div>
-      <div class="cb-desc">搞钱雷达每 2 天更新 ｜ 黑客松 / 加速器 / Grant 一手机会 ｜ 组队 + 选题 + 报名答疑。把这份 PDF 转给在搞 AI 产品的朋友，他们扫这个码加 Rain 就能进群。</div>
+      <div class="cb-desc">搞钱雷达每 2 天更新 ｜ 黑客松 / 奖金赛 / 加速器 / Grant 一手机会 ｜ 组队 + 选题 + 报名答疑。把这份 PDF 转给在搞 AI 产品的朋友，他们扫这个码加 Rain 就能进群。</div>
     </div>
     <div class="cb-brand"><img src="assets/logo/jr-box.svg" alt="JR" /><span class="cb-url">jiangren.com.au</span></div>
   </div>
