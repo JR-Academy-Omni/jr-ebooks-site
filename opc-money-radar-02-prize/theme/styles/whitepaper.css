@@ -112,6 +112,74 @@
   font-size: 9pt; padding: 1.8mm 4mm;
 }
 
+/* —— 居中描边标题带（V2 章节大标题，页 9「社交网络的利用」）—— */
+.wp-band {
+  border: 0.5mm solid var(--wp-ink); background: #fff;
+  box-shadow: 3mm 3mm 0 var(--wp-tan);
+  padding: 3.5mm 5mm; text-align: center; margin-bottom: 7mm;
+  font-size: 15pt; font-weight: var(--jr-fw-bold); color: var(--wp-ink);
+}
+
+/* —— Stat 网格（大号珊瑚红数字 + 标签，V2 页 2「关于」）—— */
+.wp-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8mm 5mm; }
+.wp-stat .num {
+  font-size: 27pt; font-weight: var(--jr-fw-bold); color: var(--jr-red);
+  line-height: 1; font-variant-numeric: tabular-nums; letter-spacing: -.01em;
+}
+.wp-stat .lbl { font-size: 10pt; color: var(--jr-neutral-600); margin-top: 2.2mm; }
+
+/* —— 软圆角卡 + 彩色圆形图标（V2 页 3「提供什么」）—— */
+.wp-icard {
+  position: relative; background: #fff; border-radius: 5mm;
+  box-shadow: 0 1.5mm 5mm rgba(20,35,63,.08); padding: 6mm 7mm; padding-right: 24mm;
+}
+.wp-icard + .wp-icard { margin-top: 5mm; }
+.wp-icard h3 { color: var(--wp-ink); font-size: 12.5pt; margin-bottom: 2.5mm; }
+.wp-icard p, .wp-icard li { font-size: 9.5pt; line-height: 1.6; }
+.wp-icard-ico {
+  position: absolute; top: 5.5mm; right: 6mm;
+  width: 15mm; height: 15mm; border-radius: 50%;
+  display: grid; place-items: center; font-size: 8mm; line-height: 1;
+  box-shadow: 0 1.5mm 4mm rgba(20,35,63,.18);
+}
+.wp-icard-ico.blue   { background: #2f6db0; }
+.wp-icard-ico.pink   { background: #ef5a8c; }
+.wp-icard-ico.purple { background: #8b5cf6; }
+.wp-icard-ico.orange { background: var(--wp-orange); }
+
+/* —— 浏览器窗口卡 / 章节分隔（V2 页 4 + 网站推荐页 6/8）—— */
+.wp-browser {
+  background: #fff; border: 0.5mm solid var(--wp-ink);
+  box-shadow: 4mm 4mm 0 var(--wp-tan);
+}
+.wp-browser-bar {
+  background: var(--wp-ink); display: flex; align-items: center; gap: 2.4mm;
+  padding: 2.6mm 4mm;
+}
+.wp-browser-bar i { width: 2.4mm; height: 2.4mm; border-radius: 50%; background: rgba(255,255,255,.6); }
+.wp-browser-body { padding: 7mm 8mm; }
+.wp-browser-body h2 { font-size: 20pt; color: var(--wp-ink); line-height: 1.2; }
+.wp-browser-body p { font-size: 10pt; color: var(--jr-neutral-600); margin-top: 3mm; }
+
+/* —— 网站推荐卡（logo 片 + 标题条 + 内嵌窗口 + URL 药丸，V2 页 6/8）—— */
+.wp-site { border: 0.4mm solid var(--wp-tan-line); background: #fff; display: flex; flex-direction: column; }
+.wp-site-head {
+  display: flex; align-items: center; gap: 3mm; padding: 2.8mm 3.5mm;
+  border-bottom: 1.2mm solid var(--wp-tan-line);
+  font-size: 11pt; font-weight: var(--jr-fw-bold); color: var(--wp-ink);
+}
+.wp-site-head .lg { width: 10mm; height: 10mm; flex: none; border-radius: 1.5mm; object-fit: contain; background: #fff; }
+.wp-win { margin: 3.5mm; border: 0.4mm solid var(--wp-tan-line); }
+.wp-win-bar { background: var(--wp-tan); text-align: right; padding: 1mm 2.5mm; font-size: 7pt; color: var(--jr-neutral-600); letter-spacing: .15em; }
+.wp-win-body { padding: 3.5mm 4mm; }
+.wp-win-body p { font-size: 9pt; line-height: 1.55; }
+.wp-url {
+  display: inline-block; margin: 0 4mm 4mm;
+  border: 0.4mm solid var(--wp-tan-line); background: #faf2e2;
+  padding: 1.4mm 3.5mm; border-radius: 1mm;
+  font-family: var(--jr-font-mono); font-size: 8pt; color: var(--wp-ink);
+}
+
 /* —— whitepaper 版联系横条：跟白底网格调和（米色描边 + offset 阴影）—— */
 .page.wp .contact-bar, .page.cover-wp .contact-bar {
   background: #fff; border: 0.5mm solid var(--wp-ink);
