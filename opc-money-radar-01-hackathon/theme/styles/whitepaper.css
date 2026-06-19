@@ -112,6 +112,29 @@
   font-size: 9pt; padding: 1.8mm 4mm;
 }
 
+/* —— 内页背景装饰层（垫在内容下方，填满空白，V2 散落方框/圆环/纸张/色块）—— */
+.page.wp .wp-bg { position: absolute; z-index: 0; pointer-events: none; }
+.wp-bg.blob { border-radius: 50%; opacity: .55; }
+.wp-bg.sq   { border: 0.7mm solid var(--wp-ink); }
+.wp-bg.sq.o { border-color: var(--wp-orange); }
+.wp-bg.sq.fill { background: var(--wp-tan); border: none; }
+.wp-bg.ring { border-radius: 50%; border-style: solid; }
+.wp-bg.ring.b { border-color: var(--wp-blue); }
+.wp-bg.ring.o { border-color: var(--wp-orange); }
+.wp-bg.diag { height: 0; border-top: 0.7mm solid var(--wp-ink); transform-origin: left center; }
+.wp-bg.diag.o { border-top-color: var(--wp-orange); }
+/* 纸张/文件图标（描边小卡 + 折角 + 内部横线）*/
+.wp-bg.doc {
+  width: 17mm; height: 22mm; background: #fff; border: 0.5mm solid var(--wp-ink);
+  background-image: linear-gradient(var(--wp-ink) 0.2mm, transparent 0.2mm);
+  background-size: 100% 3mm; background-origin: content-box; background-clip: content-box;
+  padding: 6mm 3mm 4mm; background-repeat: repeat-y;
+}
+.wp-bg.doc::after {
+  content: ''; position: absolute; top: 0; right: 0;
+  border-width: 0 0 3mm 3mm; border-style: solid; border-color: transparent transparent var(--wp-tan) var(--wp-tan);
+}
+
 /* —— 居中描边标题带（V2 章节大标题，页 9「社交网络的利用」）—— */
 .wp-band {
   border: 0.5mm solid var(--wp-ink); background: #fff;
