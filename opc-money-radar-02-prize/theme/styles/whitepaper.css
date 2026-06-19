@@ -1,0 +1,120 @@
+/* =====================================================
+   Style: whitepaper — 白皮书 / 报告版
+   适合：行业白皮书、求职/就业指南、结构化盘点、政策解读
+   特征：浅色网格底 + 几何装饰（圆环/斜线/像素灯泡）+ 描边卡（米色标题条）+ 双栏 + 盒装页脚
+   参考：匠人学院《澳洲就业求职白皮书》
+   依赖：ebook.css
+   ===================================================== */
+
+:root {
+  --wp-paper:    #fffdf9;
+  --wp-grid:     #e7e3da;
+  --wp-ink:      #14233f;          /* 深藏蓝大标题 */
+  --wp-tan:      #f5e8d2;          /* 米色卡头底 */
+  --wp-tan-line: #c79a52;          /* 棕色描边 */
+  --wp-blue:     #2f6db0;
+  --wp-orange:   #e8983c;
+}
+
+/* —— 白底网格（封面 + 内页共用）—— */
+.page.wp, .page.cover-wp { background: var(--wp-paper); }
+.page.wp::before, .page.cover-wp::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 0;
+  background-image:
+    linear-gradient(var(--wp-grid) 0.2mm, transparent 0.2mm),
+    linear-gradient(90deg, var(--wp-grid) 0.2mm, transparent 0.2mm);
+  background-size: 33mm 33mm;
+}
+.page.wp > *, .page.cover-wp > * { position: relative; z-index: 1; }
+
+/* —— 几何装饰件（绝对定位，封面/内页点缀）—— */
+.wp-ring { position: absolute; border-radius: 50%; z-index: 1; }
+.wp-ring.b { border: 3mm solid var(--wp-blue); }
+.wp-ring.o { border: 3mm solid var(--wp-orange); }
+.wp-dot { position: absolute; border-radius: 50%; z-index: 1; }
+.wp-diag { position: absolute; height: 0; border-top: 0.7mm solid var(--wp-ink); transform-origin: left center; z-index: 1; }
+.wp-diag.o { border-top-color: var(--wp-orange); }
+.wp-bulb { position: absolute; font-size: 16mm; line-height: 1; z-index: 2; filter: drop-shadow(0 1mm 1.5mm rgba(0,0,0,.18)); }
+
+/* —— 封面 cover-wp —— */
+.page.cover-wp { padding: 20mm 18mm; justify-content: center; align-items: stretch; }
+.wp-corner {
+  position: absolute; font-family: var(--jr-font-mono); font-size: 12pt;
+  color: var(--wp-ink); letter-spacing: .02em; z-index: 2;
+}
+.wp-corner.tl { top: 16mm; left: 18mm; }
+.wp-corner.bl { bottom: 16mm; left: 18mm; }
+.wp-corner.br { bottom: 40mm; right: 18mm; color: var(--jr-neutral-600); }
+
+.wp-logo-box {
+  align-self: center; background: #fff; border: 0.5mm solid var(--wp-ink);
+  box-shadow: 2.4mm 2.4mm 0 var(--wp-tan); padding: 4mm 9mm; margin-bottom: 14mm; z-index: 2;
+}
+.wp-logo-box img { height: 11mm; display: block; }
+
+.wp-cover-card {
+  align-self: center; background: #fff; border: 0.5mm solid var(--wp-ink);
+  box-shadow: 4mm 4mm 0 var(--wp-tan), 4mm 4mm 0 0.4mm var(--wp-tan-line);
+  padding: 16mm 14mm; max-width: 130mm; z-index: 2;
+}
+.wp-cover-title {
+  font-size: 48pt; font-weight: var(--jr-fw-bold); line-height: 1.14;
+  color: var(--wp-ink); text-align: center; letter-spacing: .02em;
+}
+
+.wp-search {
+  align-self: center; display: inline-flex; align-items: center; gap: 3mm;
+  border: 0.45mm solid var(--wp-ink); border-radius: var(--jr-radius-full);
+  padding: 2.6mm 7mm; margin-top: 16mm; z-index: 2;
+  font-family: var(--jr-font-mono); font-size: 11.5pt; color: var(--wp-ink); background: var(--wp-paper);
+}
+
+/* —— 内页大标题 —— */
+.page.wp .wp-h {
+  font-size: 18pt; font-weight: var(--jr-fw-bold); color: var(--wp-ink);
+  margin-bottom: 6mm; padding-bottom: 0;
+}
+
+/* —— 双栏 —— */
+.wp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; align-content: start; }
+.wp-grid.one { grid-template-columns: 1fr; }
+
+/* —— 描边卡（米色标题条 + 正文）—— */
+.wp-card {
+  border: 0.4mm solid var(--wp-tan-line);
+  background: #fff;
+  display: flex; flex-direction: column;
+}
+.wp-card-head {
+  background: var(--wp-tan); border-top: 1.2mm solid var(--wp-tan-line);
+  border-bottom: 0.4mm solid var(--wp-tan-line);
+  padding: 2.6mm 4mm; text-align: center;
+  font-size: 11.5pt; font-weight: var(--jr-fw-bold); color: var(--wp-ink);
+}
+.wp-card-body { padding: 4mm 4.5mm; }
+.wp-card-body p { font-size: 9.5pt; line-height: 1.62; }
+.wp-card-body p + p { margin-top: 2.5mm; }
+.wp-card-body .lead { font-weight: var(--jr-fw-semibold); color: var(--wp-ink); }
+.wp-kv { font-size: 9pt; color: var(--jr-neutral-600); margin-top: 1.5mm; }
+.wp-kv b { color: var(--wp-ink); font-weight: var(--jr-fw-semibold); }
+
+/* —— 盒装页脚（页码实心盒 + 书名描边盒）—— */
+.page.wp .wp-footer {
+  position: absolute; left: 16mm; right: 16mm; bottom: 12mm; z-index: 4;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.wp-pageno {
+  background: var(--wp-ink); color: #fff; font-weight: var(--jr-fw-bold);
+  font-size: 10pt; padding: 1.8mm 4mm; font-variant-numeric: tabular-nums;
+}
+.wp-booktitle {
+  border: 0.4mm solid var(--wp-ink); color: var(--wp-ink);
+  font-size: 9pt; padding: 1.8mm 4mm;
+}
+
+/* —— whitepaper 版联系横条：跟白底网格调和（米色描边 + offset 阴影）—— */
+.page.wp .contact-bar, .page.cover-wp .contact-bar {
+  background: #fff; border: 0.5mm solid var(--wp-ink);
+  box-shadow: 2.4mm 2.4mm 0 var(--wp-tan); border-radius: 0;
+}
+.page.wp .contact-bar .cb-title { color: var(--wp-ink); }

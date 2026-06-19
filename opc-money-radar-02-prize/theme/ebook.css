@@ -1,0 +1,373 @@
+/* =====================================================
+   JR Academy eBook Theme — A4 print layout (v1)
+   依赖: tokens.css（从 jr-academy-brand v4.2 同步的副本）
+   规则: 每个 .page = 一张 A4（210×297mm），手工分页。
+        内容必须装得下一页 — render.mjs 会检测 overflow 并报警。
+   ===================================================== */
+
+@import url('./tokens.css');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Caveat:wght@600&display=swap');
+
+/* —— Page geometry —— */
+@page {
+  size: A4;
+  margin: 0;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  font-family: var(--jr-font-sans);
+  color: var(--jr-neutral-900);
+  background: #e8e4dc; /* 屏幕预览时页面间的衬底，打印不可见 */
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.page {
+  width: 210mm;
+  height: 297mm;
+  background: var(--jr-surface-canvas);
+  position: relative;
+  overflow: hidden;
+  page-break-after: always;
+  break-after: page;
+  display: flex;
+  flex-direction: column;
+  padding: 18mm 16mm 22mm;
+}
+
+.page:last-child { page-break-after: auto; break-after: auto; }
+
+/* 屏幕预览时页与页之间留缝隙 */
+@media screen {
+  body { padding: 24px 0; }
+  .page { margin: 0 auto 24px; box-shadow: var(--jr-shadow-lg); }
+
+  /* —— 左右翻页阅读模式（theme/reader.js）—— */
+  body.reader-mode { padding: 0; height: 100vh; overflow: hidden; }
+  body.reader-mode .page {
+    display: none;
+    position: fixed; top: 50%; left: 50%; margin: 0;
+    transform: translate(-50%, -50%) scale(var(--reader-scale, 1));
+    transform-origin: center center;
+    box-shadow: 0 24px 64px rgba(13, 15, 18, .22);
+  }
+  body.reader-mode .page.current { display: flex; animation: reader-in .22s ease-out; }
+  @keyframes reader-in { from { opacity: 0 } }
+
+  .reader-bar {
+    position: fixed; bottom: 18px; left: 50%; transform: translateX(-50%);
+    display: flex; gap: 4px; align-items: center; z-index: 1000;
+    background: var(--jr-black); color: #fff;
+    border-radius: var(--jr-radius-full); padding: 7px 12px;
+    box-shadow: var(--jr-shadow-lg);
+    font-family: var(--jr-font-sans);
+  }
+  .reader-bar button {
+    background: none; border: none; color: #fff; cursor: pointer;
+    width: 34px; height: 34px; border-radius: 50%; font-size: 20px; line-height: 1;
+  }
+  .reader-bar button:hover { background: rgba(255, 255, 255, .16); }
+  .reader-bar .rd-toggle { width: auto; font-size: 12.5px; padding: 0 12px; border-radius: var(--jr-radius-full); border: 1px solid rgba(255,255,255,.3); height: 28px; }
+  .reader-counter { font-size: 13px; min-width: 58px; text-align: center; font-variant-numeric: tabular-nums; }
+  .rd-sep { width: 1px; height: 18px; background: rgba(255,255,255,.25); margin: 0 6px; }
+
+  /* —— flow 书章节翻页模式（reader.js：一个 chapter = 一个页面，章内纵向滚动）—— */
+  body.reader-flow { padding: 0; }
+  body.reader-flow > .page,
+  body.reader-flow main.flow > .book-toc,
+  body.reader-flow main.flow > section.ch { display: none; }
+  body.reader-flow > .page.current { display: flex; margin: 24px auto; animation: reader-in .22s ease-out; }
+  body.reader-flow main.flow > .book-toc.current,
+  body.reader-flow main.flow > section.ch.current { display: block; animation: reader-in .22s ease-out; }
+  body.reader-flow main.flow { padding-bottom: 80px; /* 给底部控制条留空 */ }
+  body.reader-flow main.flow:not(:has(.current)) { display: none; } /* 当前页是封面/封底时藏掉空壳 */
+}
+@media print { .reader-bar { display: none !important; } }
+
+/* —— JR box 页面背景水印（屏幕 + 打印每页都出，Chromium print 对 fixed 元素逐页重绘）—— */
+.jr-wm {
+  position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  width: 110mm; opacity: .045; filter: grayscale(1) brightness(.4);
+  pointer-events: none; z-index: 3;
+}
+
+/* —— Page footer（每页底部品牌条 + 页码）—— */
+.page-footer {
+  position: absolute;
+  left: 16mm;
+  right: 16mm;
+  bottom: 9mm;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 9pt;
+  color: var(--jr-neutral-600);
+  border-top: 1px solid var(--jr-divider-warm);
+  padding-top: 3mm;
+}
+.page-footer .brand { display: flex; align-items: center; gap: 6px; font-weight: var(--jr-fw-medium); }
+.page-footer .brand img { height: 14px; }
+.page-footer .page-num { font-variant-numeric: tabular-nums; }
+
+/* —— Typography（print 用 pt，比 web token 大半档保证可读）—— */
+h1 { font-size: 26pt; font-weight: var(--jr-fw-bold); line-height: 1.25; color: var(--jr-black); }
+h2 { font-size: 16pt; font-weight: var(--jr-fw-bold); line-height: 1.3; color: var(--jr-black); margin-bottom: 5mm; }
+h3 { font-size: 12pt; font-weight: var(--jr-fw-semibold); line-height: 1.3; color: var(--jr-black); }
+p, li { font-size: 10.5pt; line-height: 1.65; color: var(--jr-neutral-900); }
+.muted { color: var(--jr-neutral-600); }
+small, .caption { font-size: 8.5pt; color: var(--jr-neutral-600); }
+strong { font-weight: var(--jr-fw-semibold); }
+ul, ol { padding-left: 5mm; }
+li + li { margin-top: 1.5mm; }
+
+code, pre {
+  font-family: var(--jr-font-mono);
+  font-size: 9pt;
+}
+code {
+  background: var(--jr-wash-gray);
+  border-radius: 4px;
+  padding: 1px 5px;
+}
+pre {
+  background: #16181D;
+  color: #E8EAED;
+  border-radius: var(--jr-radius-sm);
+  padding: 4mm 5mm;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+pre code { background: none; padding: 0; color: inherit; }
+
+/* —— 章节编号（红色只做编号/强调，绝不做大面积底色）—— */
+.chapter-num {
+  font-size: 11pt;
+  font-weight: var(--jr-fw-bold);
+  color: var(--jr-red-text);
+  letter-spacing: 0.08em;
+  margin-bottom: 2mm;
+}
+
+/* —— 卡片 —— */
+.card {
+  background: var(--jr-surface-panel);
+  border: 1px solid var(--jr-border-warm);
+  border-radius: var(--jr-radius-lg);
+  padding: 5mm 6mm;
+}
+.card + .card { margin-top: 4mm; }
+.card-title { display: flex; align-items: baseline; gap: 3mm; margin-bottom: 2.5mm; }
+.card-title .num {
+  font-weight: var(--jr-fw-bold);
+  color: var(--jr-red-text);
+  font-size: 11pt;
+  font-variant-numeric: tabular-nums;
+}
+
+/* —— Callout / Tip —— */
+.callout {
+  border-left: 3px solid var(--jr-purple);
+  background: #F6F4FF;
+  border-radius: 0 var(--jr-radius-sm) var(--jr-radius-sm) 0;
+  padding: 3.5mm 5mm;
+  font-size: 9.5pt;
+}
+.callout.warn { border-left-color: var(--jr-yellow); background: var(--jr-wash-yellow); }
+
+/* —— Tag / Chip —— */
+.chip {
+  display: inline-block;
+  font-size: 8pt;
+  font-weight: var(--jr-fw-medium);
+  padding: 1mm 3mm;
+  border-radius: var(--jr-radius-full);
+  background: var(--jr-chip-ai-bg);
+  border: 1px solid var(--jr-chip-ai-border);
+  color: var(--jr-chip-ai-text);
+}
+
+/* —— 封面页 —— */
+.page.cover { padding: 22mm 18mm; }
+.cover .logo-row img { height: 11mm; }
+.cover .cover-body { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 8mm; }
+.cover h1 { font-size: 34pt; }
+.cover .subtitle { font-size: 13pt; color: var(--jr-neutral-600); line-height: 1.6; max-width: 80%; }
+.cover .cover-meta { display: flex; gap: 3mm; flex-wrap: wrap; }
+.cover .cover-footer { font-size: 9.5pt; color: var(--jr-neutral-600); }
+.cover .accent-bar { width: 18mm; height: 2.5mm; background: var(--jr-red); border-radius: 2px; }
+
+
+/* —— 封面 v2 · 震撼版（黑底大字报）—— */
+.page.cover2 {
+  background: var(--jr-black);
+  color: #fff;
+  padding: 15mm 14mm 0;
+}
+.cover2::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background-image: radial-gradient(rgba(255,255,255,.075) 0.45mm, transparent 0.45mm);
+  background-size: 7mm 7mm;
+}
+.cover2 .cv2-ghost {
+  position: absolute; right: -4mm; top: 30mm; z-index: 0;
+  font-family: 'Anton', var(--jr-font-sans); font-size: 96mm; line-height: .8;
+  color: transparent; -webkit-text-stroke: 0.8mm rgba(255,255,255,.07);
+}
+.cv2-head { display: flex; justify-content: space-between; align-items: flex-start; position: relative; z-index: 2; }
+.cv2-head img { height: 10mm; }
+.cv2-sticker {
+  font-size: 10.5pt; font-weight: var(--jr-fw-bold);
+  background: var(--jr-red); color: #fff; border-radius: var(--jr-radius-full);
+  padding: 2mm 5mm; transform: rotate(4deg); box-shadow: 0 3mm 6mm rgba(0,0,0,.4);
+}
+.cv2-body { position: relative; z-index: 2; margin-top: 30mm; }
+.cv2-kicker { font-size: 21pt; font-weight: var(--jr-fw-bold); letter-spacing: .12em; color: rgba(255,255,255,.92); }
+.cv2-title { font-family: 'Anton', var(--jr-font-sans); font-size: 66pt; line-height: 1.02; letter-spacing: .01em; color: #fff; margin-top: 3mm; }
+.cv2-title em { font-style: normal; color: var(--jr-red); }
+.cv2-bar { width: 26mm; height: 3mm; background: var(--jr-red); border-radius: 1mm; margin: 7mm 0 6mm; }
+.cv2-sub { font-size: 11.5pt; line-height: 1.75; color: rgba(255,255,255,.72); max-width: 112mm; }
+.cv2-chips { display: flex; gap: 3mm; flex-wrap: wrap; margin-top: 7mm; }
+.cv2-chips .chip { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.3); color: rgba(255,255,255,.9); font-size: 9pt; padding: 1.4mm 4mm; }
+.cv2-chips .chip:nth-child(1) { transform: rotate(-1.5deg); }
+.cv2-chips .chip:nth-child(3) { transform: rotate(1.2deg); }
+.cv2-diecut {
+  display: inline-block; margin-top: 10mm;
+  font-size: 14.5pt; font-weight: var(--jr-fw-bold); color: var(--jr-black);
+  transform: rotate(-2.5deg);
+  text-shadow:
+    -1.6mm -1.6mm 0 #fff, 1.6mm -1.6mm 0 #fff, -1.6mm 1.6mm 0 #fff, 1.6mm 1.6mm 0 #fff,
+    -2.2mm 0 0 #fff, 2.2mm 0 0 #fff, 0 -2.2mm 0 #fff, 0 2.2mm 0 #fff,
+    -2mm 1.1mm 0 #fff, 2mm -1.1mm 0 #fff, -1.1mm 2mm 0 #fff, 1.1mm -2mm 0 #fff;
+  filter: drop-shadow(0 1.5mm 2mm rgba(0,0,0,.5));
+}
+.cv2-mascot {
+  position: absolute; right: 10mm; bottom: 30mm; z-index: 1;
+  width: 64mm; transform: rotate(4deg);
+  filter: drop-shadow(0 6mm 9mm rgba(0,0,0,.55));
+}
+.cv2-holo {
+  position: absolute; right: 66mm; bottom: 84mm; z-index: 2;
+  display: grid; place-items: center;
+  width: 22mm; height: 22mm; border-radius: 50%; font-size: 11mm; line-height: 1;
+  background: conic-gradient(from 220deg, #f6c5db, #c5e2f6, #f6eec2, #cdf0d4, #dccff4, #f6c5db);
+  box-shadow: 0 2mm 5mm rgba(0,0,0,.4), inset 0 0 5mm rgba(255,255,255,.55);
+  transform: rotate(-8deg);
+}
+.cv2-holo::after {
+  content: ''; position: absolute; inset: 0; border-radius: inherit;
+  background: linear-gradient(115deg, transparent 28%, rgba(255,255,255,.8) 40%, transparent 52%, rgba(255,255,255,.45) 66%, transparent 78%);
+  mix-blend-mode: screen;
+}
+.cv2-strip {
+  position: absolute; left: -5mm; right: -5mm; bottom: 9mm; z-index: 3;
+  background: var(--jr-red); color: #fff;
+  transform: rotate(-1.4deg);
+  padding: 2.6mm 0; overflow: hidden; white-space: nowrap;
+  font-family: 'Anton', var(--jr-font-sans); font-size: 12.5pt; letter-spacing: .14em;
+  box-shadow: 0 -2mm 8mm rgba(0,0,0,.35);
+}
+.cv2-strip i { font-style: normal; color: var(--jr-black); padding: 0 4mm; }
+.cv2-domain { position: absolute; left: 14mm; bottom: 22mm; z-index: 2; font-size: 9pt; color: rgba(255,255,255,.5); }
+
+/* —— 目录页 —— */
+.toc-item {
+  display: flex;
+  align-items: baseline;
+  gap: 4mm;
+  padding: 3.5mm 0;
+  border-bottom: 1px solid var(--jr-divider-warm);
+  font-size: 11pt;
+}
+.toc-item .num { font-weight: var(--jr-fw-bold); color: var(--jr-red-text); min-width: 8mm; }
+.toc-item .dots { flex: 1; border-bottom: 1px dotted var(--jr-neutral-300); transform: translateY(-2px); }
+.toc-item .pg { color: var(--jr-neutral-600); font-variant-numeric: tabular-nums; }
+
+/* —— 封底 CTA 页（黑底，用白色 logo）—— */
+.page.back-cover {
+  background: var(--jr-black);
+  color: #fff;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 8mm;
+  padding: 24mm 20mm;
+}
+.back-cover h2, .back-cover h3 { color: #fff; }
+.back-cover p { color: rgba(255, 255, 255, 0.78); }
+.back-cover .logo img { height: 12mm; }
+.back-cover .cta-url {
+  font-size: 15pt;
+  font-weight: var(--jr-fw-bold);
+  color: #fff;
+  border: 1.5px solid rgba(255, 255, 255, 0.45);
+  border-radius: var(--jr-radius-sm);
+  padding: 3.5mm 7mm;
+}
+
+/* —— Sales 联系横条（电子书的传播核心件：PDF 被转发 = 二维码被转发）—— */
+.contact-bar {
+  display: flex;
+  align-items: center;
+  gap: 6mm;
+  background: var(--jr-surface-panel);
+  border: 1px solid var(--jr-border-warm-strong);
+  border-radius: var(--jr-radius-lg);
+  padding: 4mm 6mm;
+}
+.contact-bar .qr {
+  width: 22mm;
+  height: 22mm;
+  flex: none;
+  border-radius: var(--jr-radius-xs);
+  border: 1px solid var(--jr-border-warm);
+  background: #fff;
+}
+.contact-bar .cb-body { flex: 1; }
+.contact-bar .cb-title { font-size: 12pt; font-weight: var(--jr-fw-bold); color: var(--jr-black); }
+.contact-bar .cb-desc { font-size: 9pt; color: var(--jr-neutral-600); line-height: 1.55; margin-top: 1.2mm; }
+.contact-bar .cb-brand { flex: none; text-align: right; }
+.contact-bar .cb-brand img { height: 9mm; }
+.contact-bar .cb-brand .cb-url { display: block; font-size: 8.5pt; color: var(--jr-neutral-600); margin-top: 1.5mm; }
+
+/* 大号版（封底用）*/
+.contact-bar.lg { padding: 6mm 7mm; gap: 7mm; }
+.contact-bar.lg .qr { width: 30mm; height: 30mm; }
+.contact-bar.lg .cb-title { font-size: 14pt; }
+.contact-bar.lg .cb-desc { font-size: 10pt; }
+
+/* 黑底页变体（back-cover / .page.dark）*/
+.back-cover .contact-bar, .page.dark .contact-bar {
+  background: #16181D;
+  border-color: rgba(255, 255, 255, 0.16);
+}
+.back-cover .contact-bar .cb-title, .page.dark .contact-bar .cb-title { color: #fff; }
+.back-cover .contact-bar .cb-desc, .page.dark .contact-bar .cb-desc,
+.back-cover .contact-bar .cb-url, .page.dark .contact-bar .cb-url { color: rgba(255, 255, 255, 0.6); }
+.back-cover .contact-bar .qr, .page.dark .contact-bar .qr { border-color: rgba(255, 255, 255, 0.2); }
+
+/* —— Sales 整幅横版名片（顾问人格化触点，assets/contact/sales-cards/）—— */
+.sales-card {
+  border-radius: var(--jr-radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--jr-border-warm);
+  box-shadow: var(--jr-shadow-md);
+}
+.sales-card img { display: block; width: 100%; }
+.sales-card-lead {
+  font-size: 10pt;
+  font-weight: var(--jr-fw-medium);
+  color: var(--jr-neutral-900);
+  margin-bottom: 2.5mm;
+}
+.page.dark .sales-card, .back-cover .sales-card { border-color: rgba(255, 255, 255, 0.18); }
+
+/* —— 工具类 —— */
+.flex { display: flex; }
+.col { display: flex; flex-direction: column; }
+.grow { flex: 1; }
+.gap-2 { gap: 2mm; } .gap-4 { gap: 4mm; } .gap-6 { gap: 6mm; }
+.mt-2 { margin-top: 2mm; } .mt-4 { margin-top: 4mm; } .mt-6 { margin-top: 6mm; } .mt-8 { margin-top: 8mm; }
+.mb-2 { margin-bottom: 2mm; } .mb-4 { margin-bottom: 4mm; } .mb-6 { margin-bottom: 6mm; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; }

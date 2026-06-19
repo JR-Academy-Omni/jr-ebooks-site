@@ -1,0 +1,60 @@
+/* =====================================================
+   Design Language: landiq — LandIQ 机构地产投资风
+   权威 spec: ~/Documents/sites/LandIQ/land-iq/rules/design.md
+   （style reference: Orens Capital institutional aesthetic）
+   气质: Professional / Trustworthy / Clean —
+        深绿主色 + 沙色面 + 金色数据点缀 + 衬线 display
+   用法: <body class="design-landiq">
+   适用: LandIQ 合作物料、地产/投资类报告书
+   ===================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&display=swap');
+
+.design-landiq {
+  /* 槽位覆盖：纸感浅沙底 + 深绿做"黑" */
+  --jr-black: #134A32;            /* primary-800 — 标题/CTA/封底 */
+  --jr-surface-canvas: #F2F2EE;   /* 比 web 版 #E9EAE5 略提亮，适印 */
+  --jr-surface-panel: #ffffff;
+  --jr-surface-panel-alt: #E9EAE5;
+  --jr-border-warm: #D5CFC5;      /* sand */
+  --jr-border-warm-strong: #C2BBAE;
+  --jr-divider-warm: #DDD9D0;
+
+  /* 强调槽：红 → 金（数据/编号）；紫 → 绿 600；danger 保留砖红 */
+  --jr-red: #C4952A;
+  --jr-red-aa: #A37A1E;
+  --jr-red-text: #8F6B1A;
+  --jr-purple: #2D7A5A;
+  --jr-green: #2D8A4E;
+  --jr-yellow: #D4A62A;
+
+  --jr-neutral-900: #20282D;      /* charcoal */
+  --jr-neutral-600: #85979B;
+  --jr-neutral-300: #C5D9CD;
+  --jr-neutral-100: #E9EAE5;
+
+  --jr-wash-red: #F3E8D0;
+  --jr-wash-purple: #E8F0EC;
+  --jr-wash-yellow: #F3ECD2;
+  --jr-wash-green: #E8F0EC;
+  --jr-wash-gray: #E9EAE5;
+
+  --jr-chip-ai-bg: #E8F0EC;
+  --jr-chip-ai-border: #C5D9CD;
+  --jr-chip-ai-text: #134A32;
+
+  --jr-button-primary-bg: #134A32;
+}
+
+/* 衬线 display：大标题/大数字用 Playfair，正文保持无衬线 */
+.design-landiq h1, .design-landiq h2,
+.design-landiq .stat .stat-value, .design-landiq .chapter-opener .big-num,
+.design-landiq .cover h1 {
+  font-family: 'Playfair Display', 'Songti SC', Georgia, serif;
+}
+
+/* 金色只做数据/编号点缀，分隔与结构靠绿 */
+.design-landiq .theme-head { border-bottom-color: #134A32; }
+.design-landiq .accent-bar { background: #C4952A; }
+.design-landiq pre { background: #0D3423; color: #E9EAE5; }
+.design-landiq .callout { background: #E8F0EC; border-left-color: #2D7A5A; }
