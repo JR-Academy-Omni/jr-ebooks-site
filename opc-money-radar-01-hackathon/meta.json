@@ -9,7 +9,7 @@
   "series": "OPC 搞钱雷达",
   "seriesIndex": 1,
   "channel": ["微信群", "小红书评论区领取", "OPC 创业营社群", "线下打印发放"],
-  "contact": { "qr": "qr-xiaohua.png", "label": "匠人学院小助手 · OPC 创业营" },
+  "contact": { "qr": "qr-rain.png", "label": "Rain · 匠人OPC创业者交流群", "group": "匠人OPC创业者交流群" },
   "sources": ["omni-report/hackathon-radar/2026-06-13.md"],
   "pages": 6,
   "status": "draft"
