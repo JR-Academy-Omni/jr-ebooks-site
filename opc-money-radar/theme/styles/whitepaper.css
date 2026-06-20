@@ -220,6 +220,38 @@
   font-family: var(--jr-font-mono); font-size: 8pt; color: var(--wp-ink);
 }
 
+/* —— 长文叙述版式（深度解读型电子书）—— */
+.wp-prose p { font-size: 10.5pt; line-height: 1.78; color: var(--jr-neutral-900); margin-bottom: 3.5mm; }
+.wp-prose p:last-child { margin-bottom: 0; }
+.wp-prose .lead-para {
+  font-size: 12pt; line-height: 1.7; color: var(--wp-ink); font-weight: var(--jr-fw-medium);
+  border-left: 1mm solid var(--wp-orange); padding-left: 5mm; margin-bottom: 6mm;
+}
+.wp-prose strong, .wp-prose b { color: var(--wp-ink); font-weight: var(--jr-fw-semibold); }
+.wp-h3 {
+  font-size: 12.5pt; font-weight: var(--jr-fw-bold); color: var(--wp-ink);
+  margin: 6mm 0 3mm; padding-left: 3mm; border-left: 1.2mm solid var(--jr-red);
+}
+.wp-h3:first-child { margin-top: 0; }
+/* 章节眉（页眉小标：第 N 章 + 章名）*/
+.wp-kicker {
+  font-family: var(--jr-font-mono); font-size: 9pt; letter-spacing: .08em;
+  color: var(--jr-red-text); margin-bottom: 1.5mm;
+}
+/* 要点盒：如何准备 / 需要什么 —— 用米色描边卡变体，带小标签 */
+.wp-prep {
+  border: 0.4mm solid var(--wp-tan-line); background: #fffaf0; border-radius: 0;
+  padding: 4mm 5mm; margin-top: 4mm;
+}
+.wp-prep .tag {
+  display: inline-block; background: var(--wp-ink); color: #fff;
+  font-size: 8.5pt; font-weight: var(--jr-fw-bold); padding: 1mm 3mm; margin-bottom: 2.5mm;
+}
+.wp-prep ul { padding-left: 5mm; margin: 0; }
+.wp-prep li { font-size: 9.5pt; line-height: 1.6; margin-bottom: 1.5mm; }
+.wp-prep li:last-child { margin-bottom: 0; }
+.wp-prep li b { color: var(--wp-ink); }
+
 /* —— 紧凑清单表格（机会盘点，一页 9-10 行）—— */
 .wp-table { width: 100%; border-collapse: collapse; font-size: 8.3pt; line-height: 1.4; }
 .wp-table th {
