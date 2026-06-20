@@ -220,6 +220,23 @@
   font-family: var(--jr-font-mono); font-size: 8pt; color: var(--wp-ink);
 }
 
+/* —— 紧凑清单表格（机会盘点，一页 9-10 行）—— */
+.wp-table { width: 100%; border-collapse: collapse; font-size: 8.3pt; line-height: 1.4; }
+.wp-table th {
+  background: var(--wp-tan); border: 0.3mm solid var(--wp-tan-line);
+  padding: 2mm 2.4mm; text-align: left; color: var(--wp-ink);
+  font-weight: var(--jr-fw-bold); font-size: 8.5pt;
+}
+.wp-table td {
+  border: 0.3mm solid var(--wp-tan-line); padding: 2.2mm 2.4mm;
+  vertical-align: top; color: var(--jr-neutral-900);
+}
+.wp-table tr:nth-child(even) td { background: #fffaf0; }
+.wp-table .nm { font-weight: var(--jr-fw-semibold); color: var(--wp-ink); }
+.wp-table .org { display: block; color: var(--jr-neutral-600); font-size: 7.3pt; margin-top: .6mm; }
+.wp-table .pz { color: var(--jr-red-text); font-weight: var(--jr-fw-semibold); }
+.wp-table .dl { white-space: nowrap; font-variant-numeric: tabular-nums; }
+
 /* —— whitepaper 版联系横条：跟白底网格调和（米色描边 + offset 阴影）—— */
 .page.wp .contact-bar, .page.cover-wp .contact-bar {
   background: #fff; border: 0.5mm solid var(--wp-ink);
