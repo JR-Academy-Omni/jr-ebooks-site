@@ -1,0 +1,15 @@
+{
+  "slug": "opc-money-radar",
+  "title": "OPC 搞钱机会大全",
+  "subtitle": "2026.6 快照 ｜ 一个人用 AI 搞钱的 48 个真实机会 + 怎么打怎么申",
+  "audience": "想用 AI 做一人公司 / 找现金奖金 / 启动资金 / 免费算力的创业者、独立开发者、OPC 创业营学员",
+  "goal": "lead-magnet",
+  "track": "T1",
+  "style": "whitepaper",
+  "series": "OPC 搞钱雷达",
+  "channel": ["微信群", "小红书评论区领取", "匠人OPC创业者交流群", "线下打印发放"],
+  "contact": { "qr": "qr-rain.png", "label": "Rain · 匠人OPC创业者交流群", "group": "匠人OPC创业者交流群" },
+  "sources": ["omni-report/hackathon-radar/2026-06-13.md", "WebSearch 查证 2026-06-19（62 条真实机会，标注可靠性）"],
+  "pages": 14,
+  "status": "draft"
+}
