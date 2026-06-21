@@ -275,3 +275,46 @@
   box-shadow: 2.4mm 2.4mm 0 var(--wp-tan); border-radius: 0;
 }
 .page.wp .contact-bar .cb-title { color: var(--wp-ink); }
+
+/* —— 🔒 创业营内部专享锁：免费版给框架，操作层（链接/模板/活更新）锁起来引导加群 —— */
+.wp-lock {
+  position: relative; border: 0.7mm solid var(--wp-ink); border-radius: 0;
+  background: #fff; box-shadow: 4mm 4mm 0 #f6dcb8;
+  padding: 5mm 5.5mm; margin-top: 5mm; overflow: hidden;
+}
+.wp-lock::after {
+  content: "🔒"; position: absolute; right: 4mm; top: 3mm;
+  font-size: 16pt; opacity: .18;
+}
+.wp-lock-badge {
+  display: inline-flex; align-items: center; gap: 1.4mm;
+  background: var(--wp-ink); color: #fff; font-family: var(--jr-font-mono);
+  font-size: 8pt; font-weight: var(--jr-fw-bold); letter-spacing: .04em;
+  padding: 1mm 3mm; margin-bottom: 3mm;
+}
+.wp-lock-title {
+  font-family: var(--jr-font-heading); font-size: 13pt; font-weight: 800;
+  color: var(--wp-ink); margin: 0 0 1.5mm;
+}
+.wp-lock-sub { font-size: 9pt; color: var(--jr-neutral-600); margin: 0 0 3mm; line-height: 1.6; }
+.wp-lock-list { list-style: none; margin: 0; padding: 0; }
+.wp-lock-list li {
+  position: relative; padding-left: 6.5mm; font-size: 9.5pt; line-height: 1.65;
+  color: #2a2a2a; margin-bottom: 1.8mm;
+}
+.wp-lock-list li:last-child { margin-bottom: 0; }
+.wp-lock-list li::before {
+  content: "🔒"; position: absolute; left: 0; top: .2mm; font-size: 8pt; opacity: .85;
+}
+.wp-lock-list li b { color: var(--wp-ink); }
+.wp-lock-cta {
+  margin-top: 4mm; padding-top: 3mm; border-top: 0.3mm dashed var(--wp-tan-line);
+  font-size: 9.5pt; font-weight: var(--jr-fw-bold); color: var(--wp-orange);
+}
+.wp-lock-cta b { color: var(--wp-ink); }
+/* 行内"内部专享"小角标，给附录表/正文用 */
+.wp-inq {
+  display: inline-block; background: var(--wp-ink); color: #fff;
+  font-family: var(--jr-font-mono); font-size: 7pt; font-weight: var(--jr-fw-bold);
+  padding: .3mm 1.6mm; vertical-align: middle; letter-spacing: .03em;
+}

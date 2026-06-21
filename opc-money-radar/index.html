@@ -172,7 +172,7 @@
     <p class="lead-para">这三样经常被混在一起说"融资渠道"，其实代价完全不同。搞错了，你可能为了几万块算力把早期股权贱卖了。</p>
     <p><b>加速器（YC / Antler / Techstars）= 用股权换钱 + 网络 + 背书。</b>它给你一笔投资（$15 万到 $50 万不等），但要走你 5%~12% 的股权。值不值，看你缺的是不是"钱之外的东西"——SF 的人脉、投资人对接、品牌背书。如果你只缺启动资金，为了"进个名营"把股权给出去，不划算。</p>
     <p><b>政府 / 机构 Grant（CSIRO / SBIR / EIC）= 给钱，不要股权。</b>但天下没白拿的钱：它们要求当地注册、有时要你出等额配套现金、而且大多是给你"解一个有技术不确定性的研究问题"，不是给你做产品。申请周期长、材料硬，但拿到了一分股权不稀释。</p>
-    <p><b>免费 API credits（Anthropic / Google / AWS 等）= 不是钱，是省钱，但启动期最实用。</b>几乎都常年可申、不要股权、门槛低。一个周末能把主流几家全申一遍，省下的算力钱够你跑好几个月模型。这是一个人最该先薅的一类。</p>
+    <p><b>免费 API credits（云厂 + 模型厂）= 不是钱，是省钱，但启动期最实用。</b>有几家常年可申、不要股权、门槛低（Microsoft Founders Hub、AWS Activate、Hugging Face 这类），省下的算力钱够你跑好几个月。但要小心：网上把所有大厂 credits 都说成"随便申"，实际 OpenAI、Anthropic 的 credits 都卡 VC / 加速器背书，纯自筹申不到——下一页给你分清哪些真能薅、哪些是坑。</p>
   </div>
 
   <div class="wp-prep">
@@ -200,21 +200,55 @@
   </div>
 
   <div class="wp-prep">
-    <span class="tag">免费 credits 速领 · 一个周末薅一圈（都不要股权）</span>
+    <span class="tag">实测下来，一个人能自助申到、不换股权的就这几个</span>
     <ul>
-      <li><b>Anthropic / Claude for Startups</b>：$25K+ credits（按阶段最高 $100K+），成立 &lt;4 年。</li>
-      <li><b>Google for Startups Cloud</b>：最高 $200K（AI-first 最高 $350K）。</li>
-      <li><b>Microsoft Founders Hub</b>：即时 $1K，验证后最高 $5K，基础档不要股权不要融资。</li>
-      <li><b>AWS Activate</b>：Founders 档 $1K，经加速器最高 $100K+。</li>
-      <li><b>NVIDIA Inception</b>：GPU/SDK + 合作云 credits，任意阶段免费加入。</li>
-      <li><b>OpenAI / Mistral / ElevenLabs / Hugging Face</b>：各家都有 startup credits 或免费 GPU，按你用的栈申。</li>
+      <li><b>Hugging Face ZeroGPU</b>：注册免费账号就送每日免费 GPU 额度，门槛全场最低，跑 Gradio demo 直接用。</li>
+      <li><b>Microsoft for Startups Founders Hub</b>：三大云里对一人公司最友好。自助申、不要投资人、不换股权，按用量渐进解锁，最高 $150K Azure（含 OpenAI 访问）。</li>
+      <li><b>AWS Activate（Founders 档）</b>：自筹也能直接申，$1K–$5K，不要加速器、不换股权。</li>
+      <li><b>Google Cloud（Start 档）</b>：自助可申 $2K，无需投资人。</li>
+      <li><b>ElevenLabs Grants</b>：员工 &lt;25 人即可，3300 万字符 / 12 个月，代价是网站底部挂它 logo。</li>
+      <li><b>NVIDIA Inception</b>：免费加入、不换股权，但价值是硬件折扣 + 合作云通道，不是白送现金，别冲着免费 GPU 去。</li>
     </ul>
   </div>
 
   <div class="wp-footer"><span class="wp-pageno">08</span><span class="wp-booktitle">OPC 搞钱机会大全</span></div>
 </section>
 
-<!-- P9 第4章 在一人公司里怎么用 -->
+<!-- P9 内部专享：先讲坑（诚实），再锁操作层 -->
+<section class="page wp">
+  <span class="wp-bg blob" style="width:100mm;height:100mm;background:#dce9f6;opacity:.4;left:-36mm;bottom:6mm;"></span>
+  <div class="wp-kicker">第 3 章 · 不打比赛也能拿钱</div>
+  <h2 class="wp-h">这几个别白费力 · 完整操作包在创业营里</h2>
+  <div class="wp-prose">
+    <p class="lead-para">这本册子敢把"哪些其实申不到"也写出来，是因为画饼最害人——你照网上的攻略熬两周写材料，最后发现压根不符合资格。先说实话，再说哪里能拿。</p>
+  </div>
+
+  <div class="wp-prep" style="border-color:var(--wp-orange);background:#fff6ed;">
+    <span class="tag" style="background:var(--wp-orange);">网上传得火、一个人其实申不到的（实测）</span>
+    <ul>
+      <li><b>OpenAI for Startups</b>：没有给无背书 indie 的自助通道，必须 VC / 加速器背书——最大的坑。</li>
+      <li><b>Anthropic Claude credits</b>：官方不公布金额（网传 $25K/$100K 是第三方瞎传），且硬卡"拿过机构股权融资"，纯自筹拿不到。</li>
+      <li><b>Google $350K / AWS $200K 大额档、CSIRO（要澳洲注册+自掏配套现金）、EIC（须在欧洲设立）、美国 SBIR（要≥51% 美籍持股）</b>：门槛都在那，海外一人公司基本无缘。</li>
+    </ul>
+  </div>
+
+  <div class="wp-lock">
+    <span class="wp-lock-badge">🔒 OPC 创业营 · 内部专享</span>
+    <div class="wp-lock-title">这本只给了"该够哪个"，"怎么够"在营里</div>
+    <p class="wp-lock-sub">机会信息天天在变，链接、金额、资格随时改版。把会过期的操作细节做成静态 PDF 没意义——所以它们都放在持续维护的创业营内部：</p>
+    <ul class="wp-lock-list">
+      <li><b>每个项目的直达申请链接 + 资格自检清单</b>：点开就申，不用自己满网找入口、踩过期链接。</li>
+      <li><b>申请话术 & grant proposal 模板</b>：Founders Hub / Activate 怎么填、CSIRO 提案"研究问题"怎么写，给你能改就用的范本。</li>
+      <li><b>每 2 天更新的活机会库</b>：新开的黑客松 / 奖金赛 / credits 改版，第一时间推，不用蹲 6 个平台。</li>
+      <li><b>一对一资格答疑</b>：把你的情况发群里，直接告诉你"这个你能申、那个别浪费时间"。</li>
+    </ul>
+    <div class="wp-lock-cta">扫封底的码加 Rain 进群 → <b>免费领这套操作包</b>，这本 PDF 是地图，营里是带 GPS 的车。</div>
+  </div>
+
+  <div class="wp-footer"><span class="wp-pageno">09</span><span class="wp-booktitle">OPC 搞钱机会大全</span></div>
+</section>
+
+<!-- P10 第4章 在一人公司里怎么用 -->
 <section class="page wp">
   <span class="wp-bg blob" style="width:100mm;height:100mm;background:#dce9f6;opacity:.4;left:-36mm;bottom:6mm;"></span>
   <div class="wp-kicker">第 4 章 · 这些钱在一人公司里怎么用</div>
@@ -247,10 +281,10 @@
     </div>
   </div>
 
-  <div class="wp-footer"><span class="wp-pageno">09</span><span class="wp-booktitle">OPC 搞钱机会大全</span></div>
+  <div class="wp-footer"><span class="wp-pageno">10</span><span class="wp-booktitle">OPC 搞钱机会大全</span></div>
 </section>
 
-<!-- P10 附录① 速览表 -->
+<!-- P11 附录① 速览表 -->
 <section class="page wp">
   <span class="wp-bg blob" style="width:96mm;height:96mm;background:#fbe6c9;opacity:.3;right:-34mm;bottom:6mm;"></span>
   <div class="wp-kicker">附录 · 机会速览（点链接复核）</div>
@@ -272,10 +306,10 @@
     </tbody>
   </table>
   <p style="font-size:8.5pt;color:var(--jr-neutral-600);margin-top:3mm;">长期蹲守平台：lablab.ai · Devpost · MLH · DoraHacks · HackerEarth · Kaggle —— 按「线上 + open」筛，每周都有新赛。</p>
-  <div class="wp-footer"><span class="wp-pageno">10</span><span class="wp-booktitle">OPC 搞钱机会大全</span></div>
+  <div class="wp-footer"><span class="wp-pageno">11</span><span class="wp-booktitle">OPC 搞钱机会大全</span></div>
 </section>
 
-<!-- P11 附录② 速览表 -->
+<!-- P12 附录② 速览表 -->
 <section class="page wp">
   <span class="wp-bg blob" style="width:96mm;height:96mm;background:#dce9f6;opacity:.35;left:-36mm;bottom:6mm;"></span>
   <div class="wp-kicker">附录 · 机会速览（点链接复核）</div>
@@ -286,15 +320,17 @@
       <tr><td><span class="nm">Y Combinator</span><span class="org">YC</span></td><td class="pz">$500K deal</td><td class="dl">是 ~7%</td></tr>
       <tr><td><span class="nm">Antler</span><span class="org">Antler</span></td><td class="pz">pre-seed + 帮找 co-founder</td><td class="dl">是 ~10%</td></tr>
       <tr><td><span class="nm">Techstars / 500 Global</span><span class="org">Techstars / 500</span></td><td class="pz">$150–220K + 导师</td><td class="dl">是 5–6%</td></tr>
-      <tr><td><span class="nm">CSIRO Kick-Start</span><span class="org">CSIRO（澳洲）</span></td><td class="pz">$10–50K 配套券 ×2</td><td class="dl">否（要配套现金）</td></tr>
-      <tr><td><span class="nm">SBIR / STTR</span><span class="org">美国联邦</span></td><td class="pz">Phase I ~$50–300K</td><td class="dl">否</td></tr>
-      <tr><td><span class="nm">EIC Accelerator</span><span class="org">European Innovation Council</span></td><td class="pz">grant 最高 €2.5M</td><td class="dl">否（可选股权投资）</td></tr>
-      <tr><td><span class="nm">Anthropic / Google / Microsoft / AWS</span><span class="org">各家 AI / 云厂</span></td><td class="pz">$5K–$350K API / 云 credits</td><td class="dl">否</td></tr>
-      <tr><td><span class="nm">NVIDIA Inception / HF / OpenAI / Mistral</span><span class="org">各家</span></td><td class="pz">GPU + credits + 对接</td><td class="dl">否</td></tr>
+      <tr><td><span class="nm">Microsoft Founders Hub</span><span class="org">微软 · 自助可申</span></td><td class="pz">最高 $150K Azure（渐进）</td><td class="dl">否 · 一人可申</td></tr>
+      <tr><td><span class="nm">AWS Activate（Founders）</span><span class="org">AWS · 自助可申</span></td><td class="pz">$1K–$5K</td><td class="dl">否 · 一人可申</td></tr>
+      <tr><td><span class="nm">Google Cloud（Start）</span><span class="org">Google · 自助可申</span></td><td class="pz">$2K（大额档需加速器）</td><td class="dl">否 · 一人可申</td></tr>
+      <tr><td><span class="nm">Hugging Face ZeroGPU</span><span class="org">HF · 注册即得</span></td><td class="pz">每日免费 GPU 额度</td><td class="dl">否 · 门槛最低</td></tr>
+      <tr><td><span class="nm">ElevenLabs Grants</span><span class="org">ElevenLabs · &lt;25 人</span></td><td class="pz">3300 万字符 / 12 个月</td><td class="dl">否 · 须挂 logo</td></tr>
+      <tr><td><span class="nm">NVIDIA Inception</span><span class="org">NVIDIA · 免费加入</span></td><td class="pz">折扣 + 合作云通道</td><td class="dl">否 · 非现金</td></tr>
+      <tr><td><span class="nm">CSIRO Kick-Start</span><span class="org">CSIRO（澳洲）</span></td><td class="pz">$10–50K 配套券 ×2</td><td class="dl">否 · 限澳洲+配套现金</td></tr>
     </tbody>
   </table>
-  <p style="font-size:8.5pt;color:var(--jr-neutral-600);margin-top:3mm;">credits 类几乎都常年可申、不要股权，一个周末能全申一遍——一个人启动期最该先薅这一类。</p>
-  <div class="wp-footer"><span class="wp-pageno">11</span><span class="wp-booktitle">OPC 搞钱机会大全</span></div>
+  <p style="font-size:8.5pt;color:var(--jr-neutral-600);margin-top:3mm;">表内为一个人能自助申到、不换股权的几家（2026-06 核实）。<span class="wp-inq">内部专享</span> 每家的<b>直达申请链接 + 资格自检 + 申请话术模板</b>在创业营里，避免踩过期链接、写半天发现不符合资格。</p>
+  <div class="wp-footer"><span class="wp-pageno">12</span><span class="wp-booktitle">OPC 搞钱机会大全</span></div>
 </section>
 
 <!-- P12 封底 -->
