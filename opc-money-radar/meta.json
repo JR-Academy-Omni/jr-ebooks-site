@@ -10,6 +10,6 @@
   "channel": ["微信群", "小红书评论区领取", "匠人OPC创业者交流群", "线下打印发放"],
   "contact": { "qr": "qr-rain.png", "label": "Rain · 匠人OPC创业者交流群", "group": "匠人OPC创业者交流群" },
   "sources": ["omni-report/hackathon-radar/2026-06-13.md", "WebSearch 查证 2026-06-19（62 条真实机会，标注可靠性）", "WebSearch 逐家核实 credits/grant 官方页 2026-06-21"],
-  "pages": 14,
+  "pages": 13,
   "status": "draft"
 }
