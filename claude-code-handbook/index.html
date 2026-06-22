@@ -55,8 +55,8 @@
       <p>这本书和官网 wiki《Claude Code 完全指南》同源（jiangren.com.au/wiki/claude-code-guide，免费、不用注册，官网那份会持续更新）。还没装的，第 1 章 5 分钟搞定；已经在用但只会"问问题"的，第 2、3 章是它和 ChatGPT 拉开差距的地方；想让它自动守住代码质量，看第 4 章 Hooks；想让它查数据库、开浏览器、操作 GitHub，看第 5 章 MCP；最后第 8 章 Worktree 是进阶玩法 —— 同时开几个 Claude 各干各的活。每章的命令和配置都能直接复制。</p>
     </div>
     <div class="contact-bar">
-      <img class="qr" src="assets/contact/qr-xiaohua.png" alt="匠人学院小助手微信" />
-      <div><div class="t">💬 装的时候卡住了？扫码来问</div><div class="d">小助手会拉你进群，群里每周还有 AI 工具实操分享。</div></div>
+      <img class="qr" src="assets/contact/qr-amelia.png" alt="Amelia · 匠人学院 IT 顾问微信" />
+      <div><div class="t">💬 装的时候卡住了？扫码来问</div><div class="d">Amelia 会拉你进群，群里每周还有 AI 工具实操分享。</div></div>
     </div>
   </div>
 </section>
@@ -378,14 +378,6 @@ const [refactorResult, testResult] = await Promise.all([
     <div class="sales-card"><img src="assets/contact/sales-cards/amelia.jpg" alt="Amelia · IT Career Consultant · 匠人学院" /></div>
   </div>
 </section>
-<aside class="promo">
-  <span class="promo-tag">AD · 自家的</span>
-  <div class="promo-body">
-    <h4>📚 27 本 AI 工具实战手册，免费</h4>
-    <p>Cursor、Claude Code、Dify、n8n、CrewAI…每个工具一本中文实战手册，5-10 章带代码，不用注册不要钱。本书提到的工具基本都有对应深读。</p>
-  </div>
-  <a class="promo-cta" href="https://jiangren.com.au/wiki" target="_blank" rel="noopener">去翻手册 →</a>
-</aside>
 
 <section class="ch" id="ch4">
   <div class="wrap">
@@ -525,6 +517,14 @@ print(data.keys())
 <p>一旦配置好，Claude Code 做任何修改都会自动走你团队的质量门控，不需要每次提醒它。</p>
   </div>
 </section>
+<aside class="promo">
+  <span class="promo-tag">AD · 自家的</span>
+  <div class="promo-body">
+    <h4>📚 27 本 AI 工具实战手册，免费</h4>
+    <p>Cursor、Claude Code、Dify、n8n、CrewAI…每个工具一本中文实战手册，5-10 章带代码，不用注册不要钱。本书提到的工具基本都有对应深读。</p>
+  </div>
+  <a class="promo-cta" href="https://jiangren.com.au/wiki" target="_blank" rel="noopener">去翻手册 →</a>
+</aside>
 
 <section class="ch" id="ch5">
   <div class="wrap">
@@ -639,8 +639,7 @@ await server.connect(transport);</pre>
 <ul><li><a href="https://github.com/modelcontextprotocol/servers">modelcontextprotocol/servers</a> — 官方维护的参考实现</li><li><a href="https://mcp.so">mcp.so</a> — 社区 MCP 索引</li><li>搜索 <code>npm search mcp-server-xxx</code></li></ul>
 <p>主流平台基本都有现成的 MCP server：AWS、Slack、Notion、Linear、Jira、Figma……装上就能用，不需要自己写。</p>
   </div>
-
-<a class="promo-line" href="https://jiangren.com.au/learn/prompt-master" target="_blank" rel="noopener">🧑‍💻 光看不动手没用：Prompt Master / LLM Lab / Vibe Coding 三个浏览器内实验室，边读边跑 <span>→</span></a></section>
+</section>
 
 <section class="ch" id="ch6">
   <div class="wrap">
@@ -701,18 +700,19 @@ echo "修复 $MAX_ATTEMPTS 次仍然失败，需要人工介入"</pre>
 <table><tr><th>场景</th><th>推荐方式</th></tr><tr><td>构建报错</td><td>管道输入 build 输出，让 Claude 分析</td></tr><tr><td>运行时错误</td><td>粘贴错误日志 + 堆栈信息</td></tr><tr><td>测试失败</td><td>管道输入测试结果，自动定位修复</td></tr><tr><td>性能问题</td><td>用 thinking mode 分析代码路径</td></tr><tr><td>UI 问题</td><td>截图粘贴（<code>Ctrl+V</code>），让 Claude 看界面</td></tr><tr><td>数据问题</td><td>接 PostgreSQL MCP，直接查数据库</td></tr></table>
 
     <div class="contact-bar">
-      <img class="qr" src="assets/contact/qr-xiaohua.png" alt="匠人学院小助手微信" />
+      <img class="qr" src="assets/contact/qr-amelia.png" alt="Amelia · 匠人学院 IT 顾问微信" />
       <div><div class="t">🐛 有个 bug 让 Claude Code 修不动？扫码进群贴出来</div><div class="d">群里每周有人分享自己的调试 prompt，比一个人闷头试快。</div></div>
     </div>
   </div>
-</section>
+
+<a class="promo-line" href="https://jiangren.com.au/learn/prompt-master" target="_blank" rel="noopener">🧑‍💻 光看不动手没用：Prompt Master / LLM Lab / Vibe Coding 三个浏览器内实验室，边读边跑 <span>→</span></a></section>
 <aside class="promo">
   <span class="promo-tag">AD · 自家的</span>
   <div class="promo-body">
-    <h4>🧪 10 分钟测出你的 AI Engineer 缺口</h4>
-    <p>官网的 77 项能力自测（五大支柱逐项点选），已有 2,300+ 人做过。测完直接看出你该补哪根柱子，免费不用注册。</p>
+    <h4>🎬 还没准备好 cohort？先上入门自学课</h4>
+    <p>AI Engineer 入门（RAG 方向）：4 周 52 小时视频 + 25 个浏览器内 Lab + AI Tutor 即时答疑，自己掌握节奏，是 Bootcamp 的官方前置课。</p>
   </div>
-  <a class="promo-cta" href="https://jiangren.com.au/learn/ai-engineer" target="_blank" rel="noopener">去做测试 →</a>
+  <a class="promo-cta" href="https://jiangren.com.au/program-course/ai-engineer-rag" target="_blank" rel="noopener">看课程介绍 →</a>
 </aside>
 
 <section class="ch" id="ch7">
@@ -799,10 +799,10 @@ echo "修复 $MAX_ATTEMPTS 次仍然失败，需要人工介入"</pre>
 <aside class="promo">
   <span class="promo-tag">AD · 自家的</span>
   <div class="promo-body">
-    <h4>🎬 还没准备好 cohort？先上入门自学课</h4>
-    <p>AI Engineer 入门（RAG 方向）：4 周 52 小时视频 + 25 个浏览器内 Lab + AI Tutor 即时答疑，自己掌握节奏，是 Bootcamp 的官方前置课。</p>
+    <h4>🧪 10 分钟测出你的 AI Engineer 缺口</h4>
+    <p>官网的 77 项能力自测（五大支柱逐项点选），已有 2,300+ 人做过。测完直接看出你该补哪根柱子，免费不用注册。</p>
   </div>
-  <a class="promo-cta" href="https://jiangren.com.au/program-course/ai-engineer-rag" target="_blank" rel="noopener">看课程介绍 →</a>
+  <a class="promo-cta" href="https://jiangren.com.au/learn/ai-engineer" target="_blank" rel="noopener">去做测试 →</a>
 </aside>
 
 <section class="ch" id="ch8">
@@ -893,7 +893,7 @@ config/secrets.json</pre>
   <div class="sales-card" style="width: 88%;"><img src="assets/contact/sales-cards/angela.jpg" alt="Angela · IT Career Consultant · 匠人学院" /></div>
 
   <div class="contact-bar" style="width: 88%;">
-    <img class="qr" src="assets/contact/qr-xiaohua.png" alt="匠人学院小助手微信" />
+    <img class="qr" src="assets/contact/qr-amelia.png" alt="Amelia · 匠人学院 IT 顾问微信" />
     <div class="cb-body">
       <div class="cb-title">扫码进社群，AI 工具实操答疑</div>
       <div class="cb-desc">把这本 PDF 转给还在复制粘贴代码进 ChatGPT 的朋友。</div>
