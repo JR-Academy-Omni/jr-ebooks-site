@@ -11,13 +11,15 @@
 
 | 文件 | 是什么 |
 |------|--------|
-| `qr-xiaohua.png` | 官方小助手微信码（contact-bar 默认），源：web-zh GetInTouch 同款 |
-| `qr-amelia.png` / `qr-angela.png` / `qr-beta.png` / `qr-rain.png` | 顾问个人微信码（contact-bar 定向引流用） |
+| `qr-amelia.png` / `qr-angela.png` / `qr-rain.png` | **三位顾问个人微信码 —— `.contact-bar` 二维码只能用这三个之一**。按书的 `salesCards` 第一位选对应的人。 |
+| `qr-beta.png` | Beta 个人微信码（备用，当前书目未启用）。 |
+
+> 🚨 **`.contact-bar` 二维码禁止用「小助手」码（原 `qr-xiaohua.png` 已删除）**。小助手 `u.wechat.com` 个人分享短链会过期 / 扫不到，且要求微信码统一来自三位顾问（Amelia / Angela / Rain）。新书一律从上面三个里选。
 | `sales-cards/amelia.jpg` | Amelia · IT Career Consultant 横版名片（含个人码） |
 | `sales-cards/angela.jpg` | Angela · IT Career Consultant 横版名片（含个人码） |
 | `sales-cards/rain.jpg` | Rain · Senior IT Career Consultant 横版名片（含个人码） |
 
-每本书在 `meta.json` 的 `contact` 字段登记用了谁：`{ "qr": "qr-xiaohua.png", "salesCard": "rain.jpg" }`。
+每本书在 `meta.json` 的 `contact` 字段登记用了谁：`{ "qr": "qr-rain.png", "salesCard": "rain.jpg" }`（`qr` 三选一：amelia / angela / rain）。
 
 ## 用法
 
