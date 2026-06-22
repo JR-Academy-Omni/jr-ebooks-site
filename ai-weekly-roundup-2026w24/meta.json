@@ -7,7 +7,7 @@
   "track": "T1",
   "style": "roundup",
   "channel": ["微信群", "小红书评论区领取", "线下打印发放"],
-  "contact": { "qr": "qr-xiaohua.png", "label": "匠人学院小助手", "salesCard": "rain.jpg" },
+  "contact": { "qr": "qr-rain.png", "label": "Rain · 匠人学院 IT 顾问", "salesCard": "rain.jpg" },
   "sources": ["jr-wiki ai-daily 2026-06-05 ~ 2026-06-11"],
   "pages": 8,
   "status": "draft"

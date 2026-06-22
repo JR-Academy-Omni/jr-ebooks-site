@@ -72,8 +72,26 @@ html, body {
   .reader-bar .rd-toggle { width: auto; font-size: 12.5px; padding: 0 12px; border-radius: var(--jr-radius-full); border: 1px solid rgba(255,255,255,.3); height: 28px; }
   .reader-counter { font-size: 13px; min-width: 58px; text-align: center; font-variant-numeric: tabular-nums; }
   .rd-sep { width: 1px; height: 18px; background: rgba(255,255,255,.25); margin: 0 6px; }
+
+  /* —— flow 书章节翻页模式（reader.js：一个 chapter = 一个页面，章内纵向滚动）—— */
+  body.reader-flow { padding: 0; }
+  body.reader-flow > .page,
+  body.reader-flow main.flow > .book-toc,
+  body.reader-flow main.flow > section.ch { display: none; }
+  body.reader-flow > .page.current { display: flex; margin: 24px auto; animation: reader-in .22s ease-out; }
+  body.reader-flow main.flow > .book-toc.current,
+  body.reader-flow main.flow > section.ch.current { display: block; animation: reader-in .22s ease-out; }
+  body.reader-flow main.flow { padding-bottom: 80px; /* 给底部控制条留空 */ }
+  body.reader-flow main.flow:not(:has(.current)) { display: none; } /* 当前页是封面/封底时藏掉空壳 */
 }
 @media print { .reader-bar { display: none !important; } }
+
+/* —— JR box 页面背景水印（屏幕 + 打印每页都出，Chromium print 对 fixed 元素逐页重绘）—— */
+.jr-wm {
+  position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  width: 110mm; opacity: .045; filter: grayscale(1) brightness(.4);
+  pointer-events: none; z-index: 3;
+}
 
 /* —— Page footer（每页底部品牌条 + 页码）—— */
 .page-footer {

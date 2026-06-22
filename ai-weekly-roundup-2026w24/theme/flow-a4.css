@@ -35,6 +35,7 @@ main.flow {
 }
 .flow h2 { font-size: 17pt; font-weight: var(--jr-fw-bold); color: var(--jr-black); margin: 0 0 4mm; line-height: 1.3; }
 .flow h3 { font-size: 12pt; font-weight: var(--jr-fw-bold); color: var(--jr-black); margin: 6mm 0 2.5mm; break-after: avoid; }
+.flow h4 { font-size: 10.5pt; font-weight: var(--jr-fw-bold); color: var(--jr-black); margin: 4.5mm 0 2mm; break-after: avoid; }
 .flow p, .flow li { font-size: 9.5pt; line-height: 1.7; }
 .flow p + p { margin-top: 2.5mm; }
 .flow .lead { font-size: 10.5pt; }
@@ -177,3 +178,45 @@ main.flow {
 .flow .book-toc { break-after: page; }
 .flow .book-toc a { display: flex; gap: 4mm; align-items: baseline; padding: 2.4mm 0; border-bottom: 1px dashed var(--jr-border-warm-strong); text-decoration: none; color: var(--jr-neutral-900); font-size: 10pt; font-weight: var(--jr-fw-medium); }
 .flow .book-toc a .num { font-family: 'Anton', var(--jr-font-sans); font-size: 11pt; color: var(--jr-red); min-width: 9mm; }
+
+/* —— 岗位图鉴卡（ai-jobs-salary-atlas）—— */
+.flow .jobcard { background: #fff; border: 1px solid var(--jr-border-warm); border-radius: 4mm; padding: 4.5mm 5mm 4mm; margin-top: 4mm; break-inside: avoid; }
+.flow .jobcard .jc-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 3mm; }
+.flow .jobcard .jc-name { font-size: 11.5pt; font-weight: var(--jr-fw-bold); color: var(--jr-black); line-height: 1.2; }
+.flow .jobcard .jc-en { font-size: 7pt; color: var(--jr-neutral-600); letter-spacing: .03em; margin-top: 0.5mm; }
+.flow .jobcard .jc-badges { display: flex; gap: 1.5mm; flex: none; }
+.flow .jobcard .jc-badge { font-size: 6.3pt; font-weight: var(--jr-fw-semibold); padding: 0.6mm 2.2mm; border-radius: var(--jr-radius-full); white-space: nowrap; }
+.flow .jobcard .jc-badge.born { background: var(--jr-wash-gray); color: var(--jr-neutral-600); }
+.flow .jobcard .jc-badge.explosive { background: var(--jr-wash-red); color: var(--jr-red-text); }
+.flow .jobcard .jc-badge.fast { background: var(--jr-wash-yellow); color: #8a6116; }
+.flow .jobcard .jc-badge.steady { background: #dbeafe; color: #1d4ed8; }
+.flow .jobcard .jc-badge.emerging { background: #cffafe; color: #0e7490; }
+.flow .jobcard .jc-salary { font-family: 'Anton', var(--jr-font-sans); font-size: 18pt; color: var(--jr-black); line-height: 1; margin-top: 3mm; }
+.flow .jobcard .jc-salnote { font-size: 6.8pt; color: var(--jr-neutral-600); margin-top: 1.2mm; line-height: 1.45; }
+.flow .jobcard .jc-blurb { font-size: 8pt; color: var(--jr-neutral-900); line-height: 1.55; margin-top: 2.5mm; }
+.flow .jobcard .jc-rows { margin-top: 2.5mm; display: flex; flex-direction: column; gap: 1.2mm; }
+.flow .jobcard .jc-row { font-size: 7.5pt; color: var(--jr-neutral-900); line-height: 1.4; }
+.flow .jobcard .jc-row .lab { color: var(--jr-neutral-600); }
+.flow .jobcard .chips { display: inline-flex; flex-wrap: wrap; gap: 1.3mm; }
+.flow .jobcard .chip-sk { font-size: 6.6pt; padding: 0.4mm 2mm; border-radius: var(--jr-radius-full); background: var(--jr-chip-ai-bg); color: var(--jr-chip-ai-text); }
+.flow .jobcard .jc-foot { margin-top: 2.8mm; padding-top: 2.5mm; border-top: 1px dashed var(--jr-divider-warm); display: flex; justify-content: space-between; align-items: baseline; gap: 3mm; }
+.flow .jobcard .jc-course { font-size: 7.3pt; color: var(--jr-neutral-900); }
+.flow .jobcard .jc-course b { color: var(--jr-red); }
+.flow .jobcard .jc-src { font-size: 6.3pt; color: var(--jr-neutral-600); text-align: right; flex: none; max-width: 42%; line-height: 1.4; }
+
+/* —— AI 职业冲击地图 —— */
+.flow .risk-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3.5mm; margin-top: 4mm; break-inside: avoid; }
+.flow .risk-col { border-radius: 4mm; padding: 4mm 4.5mm; }
+.flow .risk-col.high { background: var(--jr-wash-red); }
+.flow .risk-col.mid { background: var(--jr-wash-yellow); }
+.flow .risk-col.low { background: var(--jr-wash-green); }
+.flow .risk-col .rc-n { font-family: 'Anton', var(--jr-font-sans); font-size: 24pt; line-height: 1; color: var(--jr-black); }
+.flow .risk-col .rc-l { font-size: 8.5pt; font-weight: var(--jr-fw-bold); margin-top: 1mm; }
+.flow .risk-col .rc-d { font-size: 7pt; color: var(--jr-neutral-900); margin-top: 1.5mm; line-height: 1.5; }
+.flow .trans-table { margin-top: 4mm; break-inside: avoid; }
+.flow .trans-row { display: flex; align-items: center; gap: 3mm; padding: 2.2mm 0; border-bottom: 1px dashed var(--jr-divider-warm); font-size: 8.5pt; }
+.flow .trans-row.head { border-bottom: 1.5px solid var(--jr-black); padding-bottom: 1.5mm; }
+.flow .trans-row.head span { font-size: 7pt; font-weight: var(--jr-fw-bold); color: var(--jr-neutral-600); letter-spacing: .04em; }
+.flow .trans-row .from { flex: 1; }
+.flow .trans-row .arr { color: var(--jr-red); font-weight: var(--jr-fw-bold); flex: none; }
+.flow .trans-row .to { flex: 1; font-weight: var(--jr-fw-semibold); color: var(--jr-black); }
