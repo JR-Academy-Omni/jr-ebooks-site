@@ -54,7 +54,7 @@
       <p>这本书和官网 wiki《n8n 工作流自动化》同源（jiangren.com.au/wiki/n8n-workflow-automation，免费、不用注册，官网那份持续更新）。完全没碰过 n8n 的，第 1、2 章搞清楚它值不值得用、5 分钟跑通；想做 AI 自动化的，第 4 章是重点——接 OpenAI / Claude 搭 Agent 不用写框架代码；已经在用想上生产的，第 5 到 8 章讲 Code Node、错误处理、Git 版本控制、监控告警，全是踩过坑的配置。书里的界面图来自 n8n 官方文档，命令和 docker-compose 都能直接复制。</p>
     </div>
     <div class="contact-bar">
-      <img class="qr" src="assets/contact/qr-xiaohua.png" alt="匠人学院小助手微信" />
+      <img class="qr" src="assets/contact/qr-amelia.png" alt="Amelia · 匠人学院 IT 顾问微信" />
       <div><div class="t">💬 装的时候卡住了？扫码进群问</div><div class="d">群里每周分享真实的 n8n 工作流模板和 AI 自动化玩法。</div></div>
     </div>
   </div>
@@ -232,7 +232,8 @@ volumes:
 {{ $node["HTTP Request"].json.data }}  // 引用指定节点的输出
 {{ $now.format('YYYY-MM-DD') }}  // 当前日期格式化</pre>
   </div>
-</section>
+
+<a class="promo-line" href="https://jiangren.com.au/blog" target="_blank" rel="noopener">📰 跟上行业节奏：匠人每天 5 条经过核源的 AI 日报，每周一份大事盘点 <span>→</span></a></section>
 
 <section class="ch" id="ch3">
   <div class="wrap">
@@ -342,16 +343,7 @@ return results;
 // 只返回满足条件的 items（相当于 filter）
 return $input.all().filter(item =&gt; item.json.status === 'active');</pre>
   </div>
-
-<a class="promo-line" href="https://jiangren.com.au/blog" target="_blank" rel="noopener">📰 跟上行业节奏：匠人每天 5 条经过核源的 AI 日报，每周一份大事盘点 <span>→</span></a></section>
-<aside class="promo">
-  <span class="promo-tag">AD · 自家的</span>
-  <div class="promo-body">
-    <h4>🧪 10 分钟测出你的 AI Engineer 缺口</h4>
-    <p>官网的 77 项能力自测（五大支柱逐项点选），已有 2,300+ 人做过。测完直接看出你该补哪根柱子，免费不用注册。</p>
-  </div>
-  <a class="promo-cta" href="https://jiangren.com.au/learn/ai-engineer" target="_blank" rel="noopener">去做测试 →</a>
-</aside>
+</section>
 
 <section class="ch" id="ch4">
   <div class="wrap">
@@ -458,6 +450,14 @@ Session Key: {{ $json.chatId }}  // 用 chatId 区分不同用户的会话</pre>
     <div class="sales-card"><img src="assets/contact/sales-cards/amelia.jpg" alt="Amelia · IT Career Consultant · 匠人学院" /></div>
   </div>
 </section>
+<aside class="promo">
+  <span class="promo-tag">AD · 自家的</span>
+  <div class="promo-body">
+    <h4>📚 27 本 AI 工具实战手册，免费</h4>
+    <p>Cursor、Claude Code、Dify、n8n、CrewAI…每个工具一本中文实战手册，5-10 章带代码，不用注册不要钱。本书提到的工具基本都有对应深读。</p>
+  </div>
+  <a class="promo-cta" href="https://jiangren.com.au/wiki" target="_blank" rel="noopener">去翻手册 →</a>
+</aside>
 
 <section class="ch" id="ch5">
   <div class="wrap">
@@ -610,16 +610,7 @@ docker cp n8n:/tmp/workflows.json ./backups/</pre>
 <h3>学习资源</h3>
 <table><tr><th>资源</th><th>链接</th></tr><tr><td>官方文档</td><td><a href="https://docs.n8n.io">docs.n8n.io</a></td></tr><tr><td>工作流模板库（900+）</td><td><a href="https://n8n.io/workflows">n8n.io/workflows</a></td></tr><tr><td>社区论坛</td><td><a href="https://community.n8n.io">community.n8n.io</a></td></tr><tr><td>AI 工作流专区</td><td><a href="https://n8n.io/workflows/categories/ai">n8n.io/workflows/categories/ai</a></td></tr><tr><td>Level 1 官方课程</td><td><a href="https://docs.n8n.io/courses/level-one/">docs.n8n.io/courses/level-one</a></td></tr></table>
   </div>
-
-<a class="promo-line" href="https://jiangren.com.au/learn/prompt-master" target="_blank" rel="noopener">🧑‍💻 光看不动手没用：Prompt Master / LLM Lab / Vibe Coding 三个浏览器内实验室，边读边跑 <span>→</span></a></section>
-<aside class="promo">
-  <span class="promo-tag">AD · 自家的</span>
-  <div class="promo-body">
-    <h4>🎬 还没准备好 cohort？先上入门自学课</h4>
-    <p>AI Engineer 入门（RAG 方向）：4 周 52 小时视频 + 25 个浏览器内 Lab + AI Tutor 即时答疑，自己掌握节奏，是 Bootcamp 的官方前置课。</p>
-  </div>
-  <a class="promo-cta" href="https://jiangren.com.au/program-course/ai-engineer-rag" target="_blank" rel="noopener">看课程介绍 →</a>
-</aside>
+</section>
 
 <section class="ch" id="ch6">
   <div class="wrap">
@@ -684,7 +675,16 @@ docker cp n8n:/tmp/workflows.json ./backups/</pre>
 <pre>{{ $env.FEISHU_WEBHOOK_URL }}
 {{ $env.THIRD_PARTY_API_KEY }}</pre>
   </div>
-</section>
+
+<a class="promo-line" href="https://jiangren.com.au/learn/prompt-master" target="_blank" rel="noopener">🧑‍💻 光看不动手没用：Prompt Master / LLM Lab / Vibe Coding 三个浏览器内实验室，边读边跑 <span>→</span></a></section>
+<aside class="promo">
+  <span class="promo-tag">AD · 自家的</span>
+  <div class="promo-body">
+    <h4>🎬 还没准备好 cohort？先上入门自学课</h4>
+    <p>AI Engineer 入门（RAG 方向）：4 周 52 小时视频 + 25 个浏览器内 Lab + AI Tutor 即时答疑，自己掌握节奏，是 Bootcamp 的官方前置课。</p>
+  </div>
+  <a class="promo-cta" href="https://jiangren.com.au/program-course/ai-engineer-rag" target="_blank" rel="noopener">看课程介绍 →</a>
+</aside>
 
 <section class="ch" id="ch7">
   <div class="wrap">
@@ -747,10 +747,10 @@ n8n import:workflow --input=./workflows/
 <aside class="promo">
   <span class="promo-tag">AD · 自家的</span>
   <div class="promo-body">
-    <h4>📚 27 本 AI 工具实战手册，免费</h4>
-    <p>Cursor、Claude Code、Dify、n8n、CrewAI…每个工具一本中文实战手册，5-10 章带代码，不用注册不要钱。本书提到的工具基本都有对应深读。</p>
+    <h4>🧪 10 分钟测出你的 AI Engineer 缺口</h4>
+    <p>官网的 77 项能力自测（五大支柱逐项点选），已有 2,300+ 人做过。测完直接看出你该补哪根柱子，免费不用注册。</p>
   </div>
-  <a class="promo-cta" href="https://jiangren.com.au/wiki" target="_blank" rel="noopener">去翻手册 →</a>
+  <a class="promo-cta" href="https://jiangren.com.au/learn/ai-engineer" target="_blank" rel="noopener">去做测试 →</a>
 </aside>
 
 <section class="ch" id="ch8">
@@ -850,7 +850,7 @@ echo "[$DATE] n8n backup done: $(ls $BACKUP_DIR | wc -l) files"</pre>
   <div class="sales-card" style="width: 88%;"><img src="assets/contact/sales-cards/angela.jpg" alt="Angela · IT Career Consultant · 匠人学院" /></div>
 
   <div class="contact-bar" style="width: 88%;">
-    <img class="qr" src="assets/contact/qr-xiaohua.png" alt="匠人学院小助手微信" />
+    <img class="qr" src="assets/contact/qr-amelia.png" alt="Amelia · 匠人学院 IT 顾问微信" />
     <div class="cb-body">
       <div class="cb-title">扫码进社群，AI 自动化实操答疑</div>
       <div class="cb-desc">把这本 PDF 转给还在手动复制粘贴干重复活的同事。</div>

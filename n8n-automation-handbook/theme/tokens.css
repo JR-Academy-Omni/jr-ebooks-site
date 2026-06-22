@@ -26,12 +26,12 @@
   --jr-mint:     var(--jr-green);
   --jr-blue:     var(--jr-purple);   /* 蓝色 v4 去掉，旧代码 fallback 到紫 */
 
-  /* —— Neutral (v4 · 5 档命名)—— */
-  --jr-neutral-900: #1F2937;  /* 中性 900 — 主文字 */
-  --jr-neutral-600: #6B7280;  /* 中性 600 — 次正文 */
-  --jr-neutral-300: #D1D5DB;  /* 中性 300 — 边框 */
-  --jr-neutral-100: #F3F4F6;  /* 中性 100 — 浅灰 bg */
-  --jr-neutral-50:  #FAFAFA;  /* 中性 50  — 页面 bg */
+  /* —— Neutral (v4.3 · 暖中性：配暖白底色相统一，去"脏"感)—— */
+  --jr-neutral-900: #2A2622;  /* 中性 900 — 主文字（暖墨）*/
+  --jr-neutral-600: #6B6358;  /* 中性 600 — 次正文（暖灰，替冷蓝灰 #6B7280）*/
+  --jr-neutral-300: #CFC6B8;  /* 中性 300 — 边框（暖）*/
+  --jr-neutral-100: #F1ECE3;  /* 中性 100 — 浅暖 bg */
+  --jr-neutral-50:  #FAF7F1;  /* 中性 50  — 页面暖 bg */
 
   /* —— Surface (Brand Board v4.1 · AI 必须使用) —— */
   --jr-surface-canvas: #FFFCF6; /* 页面暖白底 */
@@ -101,10 +101,10 @@
   --jr-w-wide:    1440px;
 
   /* —— Shadow —— */
-  --jr-shadow-sm:     0 1px 2px rgba(17,17,17,0.04);
-  --jr-shadow-md:     0 4px 12px rgba(17,17,17,0.08);
-  --jr-shadow-lg:     0 12px 28px rgba(17,17,17,0.12);
-  --jr-shadow-panel:  0 10px 28px rgba(13,15,18,0.06);
+  --jr-shadow-sm:     0 1px 2px rgba(42,38,34,0.05);
+  --jr-shadow-md:     0 1px 3px rgba(42,38,34,0.04), 0 8px 24px rgba(42,38,34,0.07);  /* v4.3 多层柔阴影 */
+  --jr-shadow-lg:     0 2px 4px rgba(42,38,34,0.05), 0 18px 48px rgba(42,38,34,0.10);
+  --jr-shadow-panel:  0 2px 4px rgba(42,38,34,0.04), 0 14px 36px rgba(42,38,34,0.06);
   --jr-glow-black:    0 8px 20px rgba(17,17,17,0.32);
   --jr-glow-red:      0 8px 20px rgba(239,68,68,0.28);
   --jr-glow-purple:   0 8px 20px rgba(99,102,241,0.30);
@@ -127,12 +127,15 @@
   --jr-icon-radius:  4px;             /* 方形 icon 内圆角 */
 
   /* —— Typography（v4：思源黑体 + Inter）—— */
-  --jr-font-sans: 'Inter', 'Source Han Sans SC', '思源黑体',
+  /* 唯一字体真相（v4.3 统一）：英文 Inter + 中文思源黑体（Noto Sans SC = 思源黑体 webfont 名，
+     网页引 Google Fonts 即可靠渲染）。⚠️ DESIGN.md 旧写 Plus Jakarta Sans 是历史不一致，已废，以此为准。 */
+  --jr-font-sans: 'Inter', 'Noto Sans SC', 'Source Han Sans SC', '思源黑体',
                   'PingFang SC', 'Microsoft YaHei',
                   system-ui, -apple-system, sans-serif;
   --jr-font-mono: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace;
 
-  --jr-fs-h1:      32px;   /* 标题 1 — H1 32px Bold（v4：36→32） */
+  --jr-fs-display: clamp(40px, 6vw, 68px);  /* Display — Hero 大字（v4.3 新增，补 H1↔正文断层）*/
+  --jr-fs-h1:      32px;   /* 标题 1 — H1 32px Bold */
   --jr-fs-h2:      24px;   /* 标题 2 — H2 24px Bold */
   --jr-fs-h3:      18px;   /* 标题 3 — H3 18px Semibold（v4：20→18） */
   --jr-fs-body-1:  14px;   /* 正文 — v4 默认（16→14） */
