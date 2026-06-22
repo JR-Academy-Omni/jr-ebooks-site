@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<title>AWS 全球认证考证大全 — JR Academy</title>
+<link rel="stylesheet" href="theme/ebook.css" />
+<link rel="stylesheet" href="theme/flow-a4.css" />
+</head>
+<body>
+<img class="jr-wm" src="assets/logo/jr-box.svg" alt="" />
+
+<section class="page cover2">
+  <div class="cv2-ghost">AWS</div>
+  <div class="cv2-head">
+    <img src="assets/logo/logo-zh-white.png" alt="匠人学院" />
+    <span class="cv2-sticker">☁️ 2026 官方源版</span>
+  </div>
+  <div class="cv2-body">
+    <div class="cv2-kicker">全球认证 · Pearson VUE 国际版 · 适配大陆考生</div>
+    <div class="cv2-title"><em>AWS</em> 全球认证<br/>考证大全</div>
+    <div class="cv2-bar"></div>
+    <p class="cv2-sub">入门→助理→专业→专项 4 级、10 张证书全解析。定价 / 大纲 / 报考 / 续证全程引 AWS 官方 + Pearson VUE，无官方薪资不编造。退役证书全标注。</p>
+    <div class="cv2-chips">
+      <span class="chip">🪜 4 级 10 证</span>
+      <span class="chip">📑 全程官方源</span>
+      <span class="chip">🇨🇳 大陆适配</span>
+    </div>
+    <div class="cv2-diecut">考证不踩坑，官方源说了算</div>
+  </div>
+  <span class="cv2-holo">☁️</span>
+  <img class="cv2-mascot" src="assets/illustrations/niuxiaojiang-hero.png" alt="牛小匠" />
+  <div class="cv2-domain">jiangren.com.au · 数据核对时点 2026-06，考费随汇率以官网为准</div>
+  <div class="cv2-strip"><span>学 AI 来匠人 <i>✦</i> AWS 全球考证大全 <i>✦</i> JIANGREN.COM.AU <i>✦</i> 4 级 10 证全程官方源 <i>✦</i> 学 AI 来匠人 <i>✦</i></span></div>
+</section>
+
+<main class="flow">
+<div class="book-toc">
+  <div class="ch-num">CONTENTS</div>
+  <h2>目录（12 章）</h2>
+  <a href="#ch1"><span class="num">01</span>🗺️ AWS 认证体系总览与进阶路线</a>
+  <a href="#ch2"><span class="num">02</span>🟢 CLF-C02 云从业者（入门级）</a>
+  <a href="#ch3"><span class="num">03</span>🏛️ SAA-C03 解决方案架构师助理</a>
+  <a href="#ch4"><span class="num">04</span>💻 DVA-C02 开发者助理</a>
+  <a href="#ch5"><span class="num">05</span>⚙️ SOA-C02→C03 运维助理（CloudOps）</a>
+  <a href="#ch6"><span class="num">06</span>🏗️ SAP-C02 架构师专业级</a>
+  <a href="#ch7"><span class="num">07</span>🔧 DOP-C02 DevOps 工程师专业级</a>
+  <a href="#ch8"><span class="num">08</span>🔐 SCS-C02→C03 安全专项</a>
+  <a href="#ch9"><span class="num">09</span>🌐 ANS-C01 高级网络专项（即将停考）</a>
+  <a href="#ch10"><span class="num">10</span>📊 DAS-C01→DEA 数据分析专项（已退役）</a>
+  <a href="#ch11"><span class="num">11</span>🤖 MLS-C01→MLA 机器学习专项（已退役）</a>
+  <a href="#ch12"><span class="num">12</span>🇨🇳 附录：AWS 全球认证 vs 中国区差异</a>
+</div>
+
+<section class="ch" id="how">
+  <div class="wrap">
+    <h2>📖 这本手册怎么读</h2>
+    <div class="card">
+      <p>这是一套讲透 AWS 全球认证（Pearson VUE 国际版）的考证手册。第 1 章先看体系总览和三条职业路线，搞清楚自己该走哪条；想入门就看第 2 章 CLF；走架构、开发、运维分别看对应的助理级和专业级章节；专项级（安全 / 网络 / 数据 / ML）按需取用——其中好几张已退役或即将停考，章里都标了官方替代方案，别白准备。最后一章是中外认证体系差异和大陆报考注意，考前务必扫一眼。全书每个数字都带 AWS 官方或 Pearson VUE 来源；AWS 不发布薪资数据，含金量一律如实说明、不引用第三方。</p>
+    </div>
+    <div class="contact-bar">
+      <img class="qr" src="assets/contact/qr-xiaohua.png" alt="匠人学院小助手微信" />
+      <div class="cb-body"><div class="cb-title">💬 考证路线拿不准？扫码进群问</div><div class="cb-desc">群里有走过 AWS 认证的同学和顾问，按你的背景聊该先考哪张、怎么排备考。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="ch" id="ch1">
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 01</div>
+        <h2>🗺️ AWS 认证体系总览与进阶路线</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-chart.png" alt="" />
+    </div>
+<div class="callout">一套讲透 AWS 全球认证体系（Pearson VUE 国际版）的考证手册，覆盖入门 → 助理 → 专业 → 专项四级。 <strong>铁律</strong>：全篇只采信 AWS 官方（aws.amazon.com / docs.aws.amazon.com）与 Pearson VUE 官方信息，每个关键数字带官方来源；AWS 不发布薪资数据，凡含金量一律如实说明、不引用第三方、不编造。 数据核对时点：2026 年 6 月。考费随汇率每年至少 5 月调整，报名前以官网实时为准。</div>
+<h3>🧭 AWS 认证体系怎么走（进阶路线）</h3>
+<p>AWS 全球认证是一座四级金字塔。<strong>没有强制前置</strong>——理论上可直接报任意一级，但官方推荐按经验循序渐进：</p>
+<pre>入门 Foundational          先建立云通识，零基础起点
+        │
+        ▼
+助理 Associate             选一个职能方向（架构 / 开发 / 运维）打底
+        │
+        ▼
+专业 Professional          同方向深耕，资深能力背书（难度顶层）
+        │
+        ▼
+专项 Specialty             垂直领域（安全 / 网络…）的专家认证</pre>
+<p><strong>三条主流职业路线（建议路径）</strong>：</p>
+<table><tr><th>想做的方向</th><th>建议顺序</th></tr><tr><td>🏛️ 解决方案架构师</td><td>CLF → <strong>SAA</strong>（架构助理）→ <strong>SAP</strong>（架构专业）→ 安全/网络专项</td></tr><tr><td>💻 开发 / DevOps</td><td>CLF → <strong>DVA</strong>（开发助理）→ <strong>DOP</strong>（DevOps 专业）</td></tr><tr><td>⚙️ 运维 / 云运维</td><td>CLF → <strong>SOA-C03 CloudOps</strong>（运维助理）→ <strong>DOP</strong>（DevOps 专业）</td></tr></table>
+<div class="callout">💡 续证小技巧：通过<strong>更高级别</strong>的角色认证，可顺带续展你持有的较低级别角色认证（如考过 SAP 自动续 SAA）。但<strong>专项级（Specialty）不享此豁免</strong>，只能靠重考现行版续证。</div>
+<h3>📚 全书目录</h3>
+<h4>🟢 01 · 入门级 Foundational（考费 $100 / ¥704）</h4>
+<table><tr><th>证书</th><th>状态</th><th>一句话</th></tr><tr><td><strong>CLF-C02 Cloud Practitioner</strong></td><td>✅ 现行</td><td>云通识入门，不限岗位，整个体系的起点</td></tr></table>
+<h4>🔵 02 · 助理级 Associate（考费 $150 / ¥1,057）</h4>
+<table><tr><th>证书</th><th>状态</th><th>一句话</th></tr><tr><td><strong>SAA-C03 Solutions Architect Associate</strong></td><td>✅ 现行</td><td>最热门，云架构设计敲门砖</td></tr><tr><td><strong>DVA-C02 Developer Associate</strong></td><td>✅ 现行</td><td>开发者方向，Lambda + DynamoDB 是命根</td></tr><tr><td><strong>SOA-C02 SysOps Administrator Associate</strong></td><td>⚠️ 已退役→<strong>SOA-C03 CloudOps</strong></td><td>运维方向，现版无 lab 题</td></tr></table>
+<h4>🟣 03 · 专业级 Professional（考费 $300 / ¥2,113）</h4>
+<table><tr><th>证书</th><th>状态</th><th>一句话</th></tr><tr><td><strong>SAP-C02 Solutions Architect Professional</strong></td><td>✅ 现行</td><td>架构师顶层，组织级复杂度与跨账户治理</td></tr><tr><td><strong>DOP-C02 DevOps Engineer Professional</strong></td><td>✅ 现行</td><td>DevOps 顶层，CI/CD + IaC + 自动化</td></tr></table>
+<h4>🟠 04 · 专项级 Specialty（考费 $300 / ¥2,113）</h4>
+<table><tr><th>证书</th><th>状态</th><th>一句话</th></tr><tr><td><strong>SCS-C02 Security Specialty</strong></td><td>⚠️ 已退役→<strong>SCS-C03</strong></td><td>安全方向最高阶，认证仍在售（版本升级）</td></tr><tr><td><strong>ANS-C01 Advanced Networking Specialty</strong></td><td>🚨 现行，<strong>2026-08-25 停考</strong></td><td>网络方向，想考从速，无接替版本</td></tr><tr><td><strong>DAS-C01 Data Analytics Specialty</strong></td><td>🛑 已退役→<strong>DEA-C01</strong></td><td>数据方向，转向 Data Engineer 助理级</td></tr><tr><td><strong>MLS-C01 Machine Learning Specialty</strong></td><td>🛑 已退役→<strong>MLA-C01 / AIF-C01</strong></td><td>ML 方向，转向 ML Engineer 助理级</td></tr></table>
+<h3>⏱️ 全体系速查表</h3>
+<table><tr><th>级别</th><th>考费(USD/CNY)</th><th>时长</th><th>题量</th><th>及格线</th><th>有效期</th></tr><tr><td>入门 Foundational</td><td>$100 / ¥704</td><td>90 分钟</td><td>65 题</td><td><strong>700</strong></td><td>3 年</td></tr><tr><td>助理 Associate</td><td>$150 / ¥1,057</td><td>130 分钟</td><td>65 题</td><td><strong>720</strong></td><td>3 年</td></tr><tr><td>专业 Professional</td><td>$300 / ¥2,113</td><td>180 分钟</td><td>75 题</td><td><strong>750</strong></td><td>3 年</td></tr><tr><td>专项 Specialty</td><td>$300 / ¥2,113</td><td>170 分钟*</td><td>65 题*</td><td><strong>750</strong>（ANS-C01 为 700）</td><td>3 年</td></tr></table>
+<div class="callout">*专项级时长/题量按现行 SCS-C03、ANS-C01 列；及格线以各证官方考试指南为准。题量含 15 题不计分（DOP/SAP 为 75 题，其中专业级不计分题数见各文）。</div>
+<p><strong>全体系共通规则</strong>（各文均详述）：</p>
+<ul><li>报考：AWS Certification Account（AWS Builder ID）→ Schedule with Pearson VUE → 线下考点 或 OnVUE 居家在线监考</li><li>改期：考前 24 小时前，最多 2 次｜取消：考前至少 24 小时否则考费作废</li><li>重考：未通过等满 14 个自然日，次数无上限，每次全额付费，通过后同门 2 年内不可重考</li><li>数字徽章：Credly 发放与查验｜及格线均为 scaled score 100–1,000 的补偿性评分</li><li>学习：AWS Skill Builder 免费（20 题官方练习集 + 备考课）+ 订阅（约 $29/月，全真模拟 + 动手实验）</li></ul>
+<h3>🇨🇳 大陆考生看这里</h3>
+<ul><li><strong>语言</strong>：所有现行考试均<strong>支持简体中文</strong>应考（入门级 CLF 还支持繁体中文）。</li><li><strong>币种</strong>：AWS 官方定价表含人民币 CNY（入门 ¥704 / 助理 ¥1,057 / 专业·专项 ¥2,113，每年 5 月随汇率调）。</li><li><strong>考试方式</strong>：OnVUE 居家在线监考有中国大陆中文（Mandarin）监考时段（周一至五 8:00–17:00），或就近 Pearson VUE 线下考点。</li><li><strong>中外体系差异 + 大陆报考注意</strong>：见 <strong>附录：AWS 全球认证 vs 中国区差异</strong></li></ul>
+<h3>⚠️ 全书统一声明</h3>
+<ol><li><strong>无官方薪资数据</strong>：AWS 不发布持证人薪资/就业统计，全书不引用第三方薪资数字、不编造。</li><li><strong>考费随汇率变</strong>：所列 CNY 为 2026 年 6 月核对值，每年至少 5 月调整，报名前以<a href="https://aws.amazon.com/certification/policies/before-testing/">官方考前政策页</a>实时核对。</li><li><strong>版本状态</strong>：SAA-C03 / DVA-C02 / CLF-C02 / SAP-C02 / DOP-C02 现行；SOA-C02→C03、SCS-C02→C03 已版本升级；DAS-C01、MLS-C01 已退役；ANS-C01 将于 2026-08-25 停考。各文均有详细版本说明。</li><li><strong>网传新版本</strong>：任何未在 AWS 官方考试指南合集页出现的"新版本代号"（如传闻的 SAA-C04 等）均非官方，不予采信。</li></ol>
+<p>*匠人学院 · AWS 全球考证指南系列 · 总目录* *本系列只做事实整理与备考规划，不承诺考试结果或就业结果。更多课程见 jiangren.com.au*</p>
+  </div>
+
+<a class="promo-line" href="https://jiangren.com.au/certifications" target="_blank" rel="noopener">📜 简历要客观信号？AWS AI Practitioner / ML 认证备考资料在这 <span>→</span></a></section>
+
+<section class="ch" id="ch2">
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 02</div>
+        <h2>🟢 CLF-C02 云从业者（入门级）</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-pen-book.png" alt="" />
+    </div>
+<div class="callout">AWS 云从业者 · 入门级 Foundational · 现行版本 CLF-C02 全篇只采信 AWS 官方（aws.amazon.com / docs.aws.amazon.com）与 Pearson VUE 官方信息，每个关键数字都带官方来源。培训机构软文、第三方题库站、个人博客一律不采信。 数据核对时点：2026 年 6 月。考费随汇率每年至少调一次，报名前请以官网实时为准。</div>
+<h3>📌 先说一句：版本与定位</h3>
+<p><strong>CLF-C02 是现行唯一在考的版本。</strong> 它于 2023 年 9 月 19 日上线，取代旧版 CLF-C01（C01 最后可考日为 2023 年 9 月 18 日）。网上若有 CLF-C01 旧题库，或"CLF-C03 新版"的说法——前者已退役、后者无官方依据，都别用。</p>
+<div class="callout">来源：<a href="https://aws.amazon.com/blogs/training-and-certification/coming-soon-updates-to-aws-certified-cloud-practitioner-exam/">Coming soon: updates to AWS Certified Cloud Practitioner exam</a> · <a href="https://aws.amazon.com/certification/certified-cloud-practitioner/">产品页</a></div>
+<p><strong>这张证在 AWS 全球认证体系里的位置</strong>：四级金字塔（入门 Foundational → 助理 Associate → 专业 Professional → 专项 Specialty）的最底层入口。它是<strong>整个体系的起点</strong>，不绑定具体岗位。</p>
+<h3>一、证书定位、适配人群、客观含金量</h3>
+<h4>定位</h4>
+<p>官方原话：面向<strong>能够整体展示 AWS 云知识、不限定具体岗位角色（independent of a specific job role）</strong>的人。它考的是云的<strong>通识认知</strong>，不是动手能力——明确<strong>超纲</strong>的有：写代码、设计云架构、排障、实施、压测。</p>
+<div class="callout">来源：<a href="https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02.html">CLF-C02 官方考试指南</a></div>
+<h4>适配人群</h4>
+<ul><li>官方推荐经验：<strong>最多约 6 个月 AWS 接触经验</strong>（up to 6 months of exposure），且非强制。</li><li>官方点名适合<strong>非技术岗</strong>：销售、市场、产品/项目经理，以及任何想建立 AWS 云认知的新人。</li><li><strong>零基础也能考</strong>——这是四级体系里门槛最低的一张，常作为后续考 Associate 的起点。</li></ul>
+<div class="callout">来源：<a href="https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02.html">CLF-C02 官方考试指南 — Target Candidate</a></div>
+<h4>含金量，说实话 ⚠️</h4>
+<p><strong>AWS 不发布任何官方薪资/就业数字。</strong> 市面上"持证涨薪 XX"的数据全是第三方调研，本指南不引用、不编造。能确定的是：CLF-C02 是业内公认的 <strong>AWS 入门门槛证</strong>，价值在于"证明你懂云的基本盘"，适合作为求职简历的起步项或转云方向的第一步，<strong>不是工程岗的能力背书</strong>（那要看 Associate 及以上）。</p>
+<h3>二、考试参数：钱、时间、题、分数、语言</h3>
+<table><tr><th>项目</th><th>内容</th></tr><tr><td><strong>基础考费</strong></td><td><strong>100 USD</strong> / <strong>人民币 ¥704</strong>（另可能含增值税 VAT）</td></tr><tr><td><strong>时长</strong></td><td><strong>90 分钟</strong></td></tr><tr><td><strong>题量</strong></td><td><strong>65 题</strong>（50 计分 + 15 不计分 unscored）</td></tr><tr><td><strong>题型</strong></td><td>单选 multiple choice / 多选 multiple response；未答按错算，猜测无惩罚</td></tr><tr><td><strong>分数区间</strong></td><td>scaled score <strong>100–1,000</strong></td></tr><tr><td><strong>及格线</strong></td><td><strong>700</strong>（入门级；补偿性评分，只看总分）</td></tr><tr><td><strong>有效期</strong></td><td><strong>3 年</strong></td></tr></table>
+<div class="callout">来源：<a href="https://aws.amazon.com/certification/policies/before-testing/">考前政策与定价</a> · <a href="https://aws.amazon.com/certification/certified-cloud-practitioner/">产品页</a> · <a href="https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02.html">官方考试指南</a></div>
+<h4>各币种考费</h4>
+<table><tr><th>货币</th><th>价格</th></tr><tr><td>美元 USD</td><td>$100</td></tr><tr><td><strong>人民币 CNY</strong></td><td><strong>¥704</strong></td></tr><tr><td>欧元 EUR</td><td>€85</td></tr><tr><td>澳元 AUD</td><td>$150</td></tr><tr><td>日元 JPY</td><td>¥15,000</td></tr><tr><td>韩元 KRW</td><td>₩131,525</td></tr></table>
+<div class="callout">⚠️ 每年至少 5 月按汇率更新（可能更频繁，提前 30 天通知）。报名前以<a href="https://aws.amazon.com/certification/policies/before-testing/">考前政策页</a>实时核对。</div>
+<h4>可选语种</h4>
+<p>CLF-C02 是语种覆盖最广的一张，<strong>含简体中文（Simplified Chinese）和繁体中文</strong>：English、French (France)、German、Indonesian、Italian、Japanese、Korean、Portuguese (Brazil)、<strong>Simplified Chinese</strong>、<strong>Traditional Chinese</strong>、Spanish (Latin America)、Spanish (Spain)，2025 年 8 月起新增 Arabic。<strong>大陆考生可直接用简体中文应考。</strong></p>
+<div class="callout">来源：<a href="https://aws.amazon.com/blogs/training-and-certification/coming-soon-updates-to-aws-certified-cloud-practitioner-exam/">Coming soon blog</a></div>
+<h3>三、考试大纲：四大域 + 权重</h3>
+<table><tr><th>域</th><th>名称</th><th>权重</th></tr><tr><td><strong>Domain 1</strong></td><td>云概念 <strong>Cloud Concepts</strong></td><td>24%</td></tr><tr><td><strong>Domain 2</strong></td><td>安全与合规 <strong>Security and Compliance</strong></td><td>30%</td></tr><tr><td><strong>Domain 3</strong></td><td>云技术与服务 <strong>Cloud Technology and Services</strong></td><td><strong>34%</strong> 🥇</td></tr><tr><td><strong>Domain 4</strong></td><td>账单、定价与支持 <strong>Billing, Pricing, and Support</strong></td><td>12%</td></tr></table>
+<div class="callout">来源：<a href="https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02.html">官方考试指南 — Content Outline</a></div>
+<h4>重难点拆解</h4>
+<ul><li><strong>Domain 3（34%，最大头）</strong>：核心 AWS 服务定位——计算 / 网络 / 数据库 / 存储四大类服务分别干什么、典型场景怎么选。分值最大，优先吃透。</li><li><strong>Domain 2（30%）</strong>：<strong>共担责任模型（Shared Responsibility Model）</strong> 是必考核心，外加 IAM、安全最佳实践、合规概念。</li><li><strong>Domain 1（24%）</strong>：云的价值主张、Well-Architected Framework、云经济性。</li><li><strong>Domain 4（12%，最轻）</strong>：计费、定价模型、支持计划。</li></ul>
+<div class="callout">入门考试以"概念识别"为主，不要求动手。重点是把核心服务的"用途"和共担责任模型背熟。</div>
+<h3>四、报考流程 + OnVUE 线上 / 线下 + 改期重考规则</h3>
+<h4>报名步骤</h4>
+<ol><li>在 <strong>aws.training/Certification</strong> 用 <strong>AWS Builder ID</strong> 创建/登录 <strong>AWS Certification Account</strong>。</li><li>选 <strong>Schedule New Exam</strong> → <strong>Schedule with Pearson VUE</strong>。</li><li>选<strong>考点 / 日期 / 时间</strong>（线下）或 <strong>OnVUE 在线监考</strong>（居家）。</li><li>付款（Visa / Amex / Mastercard / JCB / voucher）。</li></ol>
+<div class="callout">来源：<a href="https://aws.amazon.com/certification/policies/before-testing/">考前政策页</a></div>
+<h4>OnVUE 居家 vs 线下</h4>
+<table><tr><th></th><th>线下考点</th><th>OnVUE 居家在线监考</th></tr><tr><td>设备</td><td>考场提供</td><td>自备电脑 + 摄像头 + 麦克风 + 扬声器（<strong>禁耳机</strong>）</td></tr><tr><td>环境</td><td>标准考场</td><td>安静私密房间（<strong>不可卫生间/公共场所</strong>），桌面清空</td></tr><tr><td>签到</td><td>现场核验</td><td>考前 30 分钟 check-in：设备测试 + 证件拍照 + <strong>360° 房间扫描</strong></td></tr><tr><td>过程</td><td>—</td><td><strong>全程不得离开摄像头视野</strong></td></tr></table>
+<div class="callout">来源：<a href="https://www.pearsonvue.com/us/en/aws/onvue.html">Pearson VUE OnVUE</a> · <a href="https://aws.amazon.com/certification/policies/during-testing/">考试中政策</a></div>
+<h4>改期 / 取消 / 重考</h4>
+<table><tr><th>情况</th><th>规则</th></tr><tr><td>改期</td><td>考前 24 小时前，最多改 2 次</td></tr><tr><td>取消</td><td>考前至少 24 小时，否则考费作废；病/急事凭证明可免费改期</td></tr><tr><td>重考</td><td>未通过等满 <strong>14 个自然日</strong>；次数无上限，每次全额付费</td></tr><tr><td>通过后</td><td>同一门 <strong>2 年内不可重考</strong></td></tr></table>
+<div class="callout">来源：<a href="https://aws.amazon.com/certification/policies/before-testing/">考前政策页</a> · <a href="https://aws.amazon.com/certification/policies/after-testing/">考后政策页</a></div>
+<h3>五、证书领取、Credly 查验、有效期与续证</h3>
+<ul><li><strong>数字徽章</strong>：由 <strong>Credly</strong> 发放。收到 Credly 邮件按指引领取，或登录 AWS Certification Account 的 <strong>Digital Badges</strong> 标签领。把徽章<strong>直链</strong>发给对方即可验证，也可建公开 profile 集中展示。</li><li><strong>有效期</strong>：<strong>3 年</strong>。</li><li><strong>续证（CLF-C02 特有的免费路径）</strong>： 1. <strong>免费</strong>：完成 <strong>AWS Cloud Quest: Recertify Cloud Practitioner</strong>（游戏化、无需考试、免费），到期前 6 个月内可做，完成后延 3 年；或 2. 重考最新版 Cloud Practitioner；或 3. 通过<strong>任一 Associate 级</strong>考试；或 4. 通过<strong>任一 Professional 级</strong>考试。</li></ul>
+<div class="callout">来源：<a href="https://aws.amazon.com/certification/certification-digital-badges/">数字徽章页</a> · <a href="https://aws.amazon.com/certification/recertification/">续证政策</a></div>
+<h3>六、官方学习资源 + 备考周期规划</h3>
+<h4>走 AWS Skill Builder（官方平台）</h4>
+<p><strong>🆓 免费</strong>：</p>
+<ul><li><strong>AWS Cloud Practitioner Essentials</strong>（约 6 小时核心课，覆盖云概念/核心服务/安全/架构/定价/支持）</li><li><strong>Official Practice Question Set</strong>（官方 20 题练习集，带反馈）</li><li><strong>Exam Prep Course</strong>（免费约 2 小时）+ AWS Cloud Quest</li></ul>
+<p><strong>💳 订阅（约 $29/月起）</strong>：Official Practice Exam（全真模拟）、Enhanced Exam Prep Course（6–8 小时含动手实验）。</p>
+<div class="callout">来源：<a href="https://aws.amazon.com/certification/certification-prep/">官方备考页</a> · <a href="https://aws.amazon.com/training/learn-about/cloud-practitioner/">Cloud Practitioner 学习页</a></div>
+<p><strong>诚实提醒</strong>：入门级免费资源完全够用——Essentials + 免费练习题 + 官方考试指南，零预算也能过。</p>
+<h4>备考周期参考（非官方承诺，按经验推算）</h4>
+<table><tr><th>底子</th><th>周期</th><th>重点</th></tr><tr><td>完全零基础</td><td><strong>2–4 周</strong>，每周 5–8 小时</td><td>先过 Essentials 建立全局，再按权重刷 Domain 3 / 2</td></tr><tr><td>有些 IT 基础</td><td><strong>1–2 周</strong></td><td>直接对照考纲查漏 + 做免费练习题</td></tr></table>
+<p><strong>节奏</strong>：Domain 3（34%）+ Domain 2（30%）合占 64%，精力优先给这两块；最后做免费 Official Practice Question Set 校准，稳定 700+ 即可预约。</p>
+<h3>🇨🇳 大陆考生专项说明</h3>
+<ul><li><strong>语言</strong>：✅ 支持<strong>简体中文</strong>应考，报名时在 Pearson VUE 选择即可。</li><li><strong>币种</strong>：官方人民币定价 <strong>¥704</strong>（入门级，每年 5 月随汇率调整，可能含 VAT）。</li><li><strong>考试方式</strong>：可选 OnVUE 居家在线监考（需政府证件、独立安静房间、摄像头、360° 房扫，注意网络稳定）或就近 Pearson VUE 线下考点。</li><li><strong>规则一致</strong>：改期/取消（24 小时）、重考（等 14 天、不限次、全额付费、通过后 2 年不可重考）、3 年有效期，全球统一。</li><li><strong>AWS 中国区注意</strong>：本指南针对<strong>全球 Pearson VUE 体系</strong>。AWS 中国区（宁夏/北京，由光环新网/西云数据运营）部分页面单列，如走中国区渠道报考，以中国区官方页面实际显示为准。</li></ul>
+<h3>📎 信源清单（全部官方一手）</h3>
+<ul><li>产品页：https://aws.amazon.com/certification/certified-cloud-practitioner/</li><li>官方考试指南（HTML）：https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02.html</li><li>官方考试指南（PDF）：https://docs.aws.amazon.com/pdfs/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02.pdf</li><li>版本更新公告：https://aws.amazon.com/blogs/training-and-certification/coming-soon-updates-to-aws-certified-cloud-practitioner-exam/</li><li>考前政策与定价：https://aws.amazon.com/certification/policies/before-testing/</li><li>考后政策（重考/出分）：https://aws.amazon.com/certification/policies/after-testing/</li><li>续证政策：https://aws.amazon.com/certification/recertification/</li><li>数字徽章：https://aws.amazon.com/certification/certification-digital-badges/</li><li>官方备考资源：https://aws.amazon.com/certification/certification-prep/</li><li>Pearson VUE OnVUE：https://www.pearsonvue.com/us/en/aws/onvue.html</li></ul>
+<h3>⚠️ 用前必读</h3>
+<ol><li><strong>考费随汇率变</strong>：CNY ¥704 为 2026 年 6 月核对值，每年至少 5 月调整，报名前实时核对。</li><li><strong>无官方薪资数据</strong>：AWS 不发布持证人薪资/就业统计，本指南不引用第三方数字。</li><li><strong>版本</strong>：CLF-C02 为现行唯一版本（2026-06 确认）；旧版 CLF-C01 已退役。</li><li><strong>逐条 task 细目</strong>：四域的细分任务陈述见官方 PDF。</li></ol>
+<p>*匠人学院 · AWS 全球考证指南系列 · 入门级 Foundational* *本文只做事实整理与备考规划，不承诺考试结果或就业结果。更多课程见 jiangren.com.au*</p>
+  </div>
+</section>
+
+<section class="ch" id="ch3">
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 03</div>
+        <h2>🏛️ SAA-C03 解决方案架构师助理</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-thinking.png" alt="" />
+    </div>
+<div class="callout">AWS 解决方案架构师助理级 · 现行版本 SAA-C03 全篇只采信 AWS 官方（aws.amazon.com / docs.aws.amazon.com）与 Pearson VUE 官方信息，每个关键数字都带官方来源。培训机构软文、第三方题库站、个人博客一律没用。 数据核对时点：2026 年 6 月。考费随汇率每年至少调一次，报名前请以官网实时为准。</div>
+<h3>📌 先说一句：版本别买错</h3>
+<p><strong>SAA-C03 是现在唯一在考的版本。</strong> 截至 2026 年 6 月，AWS 官方考试指南合集页里这门课只列了 SAA-C03，没有 SAA-C04。</p>
+<p>网上你会看到一些"SAA-C04 要来了 / 已经发布"的说法——那些全部来自培训机构和博客，不是 AWS 官方口径，本指南已经剔除。<strong>你现在要准备的、要报的，就是 SAA-C03。</strong> 等哪天真换版，AWS 会在官方考试指南合集页提前挂出来，到时候再看。</p>
+<div class="callout">来源：<a href="https://docs.aws.amazon.com/aws-certification/latest/examguides/aws-certification-exam-guides.html">AWS Certification 官方考试指南合集</a> · <a href="https://aws.amazon.com/certification/certified-solutions-architect-associate/">SAA 产品页</a></div>
+<h3>一、这张证是干什么的，适合谁考</h3>
+<h4>它验证什么</h4>
+<p>官方原话：这门考试面向<strong>担任 solutions architect（解决方案架构师）角色</strong>的人，验证你<strong>基于 AWS Well-Architected Framework 设计解决方案</strong>的能力，核心是<strong>在 AWS 上设计分布式系统（distributed systems）</strong>。</p>
+<p>说白了，它不是考你会不会点控制台开一台机器，而是考你<strong>面对一个业务场景，能不能选对服务、把架构搭得又安全、又抗造、又快、又省钱</strong>——这正好对应它的四个考试域（安全 / 弹性 / 性能 / 成本，后面细讲）。</p>
+<div class="callout">来源：<a href="https://docs.aws.amazon.com/aws-certification/latest/examguides/aws-certification-exam-guides.html">AWS Certification 官方考试指南合集</a></div>
+<h4>适合谁 / 要多少经验</h4>
+<p>AWS 产品页给的<strong>推荐经验（recommended，不是硬门槛）</strong>：</p>
+<ul><li><strong>至少 1 年</strong>动手设计 AWS 云上方案的经验（hands-on experience designing cloud solutions that use AWS services）</li><li>有 <strong>1–3 年 IT 经验</strong>的人适合备考这张证</li><li><strong>完全没有 IT 工作经验</strong>的，建议先去考 <strong>AWS Certified Cloud Practitioner（云从业者，入门级）</strong>打底，再回来考这张</li></ul>
+<p>注意：这是"推荐"不是"准入"。AWS 没有强制工作年限门槛，报名不需要审你的简历。但经验确实是省备考时间的关键——零基础硬啃也能过，只是周期会拉长。</p>
+<div class="callout">来源：<a href="https://aws.amazon.com/certification/certified-solutions-architect-associate/">SAA 产品页</a></div>
+<h4>关于"含金量"，我得跟你说实话 ⚠️</h4>
+<p>你最想知道的大概是"考了它在美国/中国/澳洲能涨多少薪、好不好找工作"。</p>
+<p><strong>这块没有 AWS 官方数字。</strong> AWS 不发布持证人的薪资统计、就业率、含金量排名——一条都没有。市面上那些"AWS 架构师平均年薪 XX 万"的数字，全部来自第三方招聘平台、培训机构、调研公司，正好是本指南的信源铁律要剔除的东西。我不编、也不借第三方数字来撑场面。</p>
+<p>能确定的、不掺水的事实是：</p>
+<ul><li>SAA 是 AWS 认证体系里<strong>报考人数最多、岗位需求里出现频率最高的 Associate 级证书之一</strong>，定位是云架构通识能力的"敲门砖"。</li><li>它的价值在于<strong>官方背书的能力证明</strong>：招聘方看到它，知道你懂 Well-Architected 那套设计取舍，不用从零考你。</li><li>真实的薪资/就业含金量，<strong>和地区、你的实际项目经验、整体技术栈强相关</strong>，证书是加分项不是保票。</li></ul>
+<p>想要靠谱的市场行情数字，去看你目标地区的招聘平台实时 JD（美国 Levels.fyi/LinkedIn、中国 拉勾/脉脉、澳洲 Seek/Hays），那是活数据，比任何"平均年薪"都准。</p>
+<h3>二、考试参数：钱、时间、题、分数、语言</h3>
+<h4>一张表看全</h4>
+<table><tr><th>项目</th><th>内容</th></tr><tr><td><strong>基础考费</strong></td><td><strong>150 USD</strong>（美元基准价）</td></tr><tr><td><strong>时长</strong></td><td><strong>130 分钟</strong></td></tr><tr><td><strong>题量</strong></td><td><strong>65 题</strong>（其中 <strong>50 题计分</strong> + <strong>15 题不计分</strong> unscored）</td></tr><tr><td><strong>题型</strong></td><td>单选 multiple choice（1 正确 + 3 干扰）/ 多选 multiple response（5+ 选项里选 2+ 个）</td></tr><tr><td><strong>分数区间</strong></td><td>scaled score <strong>100–1,000</strong>（换算分，不是答对题数）</td></tr><tr><td><strong>及格线</strong></td><td><strong>720</strong></td></tr><tr><td><strong>评分方式</strong></td><td>补偿性评分 compensatory scoring（只看总分过没过，<strong>不要求每个域单独达标</strong>）</td></tr><tr><td><strong>未作答</strong></td><td>按错误计分；<strong>猜测无惩罚</strong>（不会做也一定要选一个）</td></tr><tr><td><strong>有效期</strong></td><td><strong>3 年</strong></td></tr><tr><td><strong>考试方式</strong></td><td>Pearson VUE 线下考点 / OnVUE 线上监考</td></tr></table>
+<div class="callout">来源：<a href="https://aws.amazon.com/certification/certified-solutions-architect-associate/">SAA 产品页</a> · <a href="https://docs.aws.amazon.com/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.html">SAA-C03 官方考试指南</a> · <a href="https://aws.amazon.com/certification/policies/after-testing/">评分政策</a> · <a href="https://aws.amazon.com/blogs/training-and-certification/demystifying-your-aws-certification-exam-score/">评分机制官方博客</a></div>
+<h4>15 道不计分题是什么意思</h4>
+<p>65 题里有 15 题是 AWS 拿来"试题"的——它们<strong>不算你的分</strong>，但你考试时<strong>看不出来哪些是</strong>。所以策略很简单：<strong>每一题都当真题做</strong>，别纠结"这题是不是送分/废题"。</p>
+<h4>720 分别误解</h4>
+<p>scaled score 是<strong>换算分</strong>，不是"答对几题"。AWS 用换算分是为了让不同套卷（forms）难度可比——你拿到难一点的卷，及格线背后要求的正确率会相应调整。所以<strong>别去算"720 分等于答对多少题"</strong>，没有固定换算公式。</p>
+<p>补充一个体系内的对照（来自官方政策页）：Foundational 级及格 700，<strong>Associate 级（含本考试）720</strong>，Professional 和 Specialty 级 750。</p>
+<div class="callout">来源：<a href="https://aws.amazon.com/certification/policies/after-testing/">评分政策</a> · <a href="https://aws.amazon.com/blogs/training-and-certification/demystifying-your-aws-certification-exam-score/">评分机制官方博客</a></div>
+<h4>各地区考费（按货币）</h4>
+<p>AWS 按地区货币定价，<strong>每年至少 5 月按汇率更新一次</strong>（可能更频繁，调价提前约 30 天通知）。本轮采信时点的数字：</p>
+<table><tr><th>货币</th><th>价格</th></tr><tr><td>美元 USD</td><td><strong>$150</strong></td></tr><tr><td>欧元 EUR</td><td>€128</td></tr><tr><td>澳元 AUD</td><td><strong>$224</strong></td></tr><tr><td>日元 JPY</td><td>¥20,000</td></tr><tr><td>韩元 KRW</td><td>₩197,287</td></tr><tr><td>人民币 CNY</td><td><strong>¥1,057</strong></td></tr></table>
+<div class="callout">⚠️ 这是核对时点的值，报名前务必用官网实时价核对：<a href="https://aws.amazon.com/certification/policies/before-testing/">考前政策与定价页</a></div>
+<h4>可选考试语种（10 种）</h4>
+<p>官方支持以下语言考 SAA-C03：</p>
+<div class="callout"><strong>English · French (France) · Italian · Japanese · Korean · Portuguese (Brazil) · Spanish (Latin America) · Spanish (Spain) · Simplified Chinese（简体中文）· Traditional Chinese（繁体中文）</strong></div>
+<p>简体中文在内。母语不是英语的话，预约时还可以申请 <strong>ESL +30 分钟</strong>的延时（针对英文卷考生，具体见考前政策页）。</p>
+<div class="callout">来源：<a href="https://aws.amazon.com/certification/certified-solutions-architect-associate/">SAA 产品页</a></div>
+<h3>三、官方考试大纲：四大域 + 权重</h3>
+<p>SAA-C03 计分内容分<strong>四个域（domain）</strong>，权重如下（合计 100%）：</p>
+<table><tr><th>域</th><th>名称</th><th>权重</th></tr><tr><td><strong>Domain 1</strong></td><td>设计安全架构 <strong>Design Secure Architectures</strong></td><td><strong>30%</strong> 🥇</td></tr><tr><td><strong>Domain 2</strong></td><td>设计弹性架构 <strong>Design Resilient Architectures</strong></td><td><strong>26%</strong></td></tr><tr><td><strong>Domain 3</strong></td><td>设计高性能架构 <strong>Design High-Performing Architectures</strong></td><td><strong>24%</strong></td></tr><tr><td><strong>Domain 4</strong></td><td>设计成本优化架构 <strong>Design Cost-Optimized Architectures</strong></td><td><strong>20%</strong></td></tr></table>
+<div class="callout">来源：<a href="https://docs.aws.amazon.com/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.html">SAA-C03 官方考试指南</a> · <a href="https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf">指南 PDF</a></div>
+<h4>重难点拆解</h4>
+<p><strong>Domain 1 安全（30%）—— 权重最高，先啃这个。</strong> 官方下分三个 Task：</p>
+<ul><li><strong>1.1 设计对 AWS 资源的安全访问</strong>（Design secure access to AWS resources）—— IAM 用户/角色/策略、最小权限、跨账号访问、联合身份。</li><li><strong>1.2 设计安全的工作负载与应用</strong>（Design secure workloads and applications）—— VPC 网络隔离、安全组/NACL、Security Groups、私有子网。</li><li><strong>1.3 确定适当的数据安全控制</strong>（Determine appropriate data security controls）—— 加密（KMS）、传输/静态加密、数据分类。</li></ul>
+<div class="callout">安全占 30%，是四个域里最重的，几乎每道场景题都绕不开 IAM 和加密。<strong>这块投入产出比最高，优先级拉满。</strong> 来源：<a href="https://docs.aws.amazon.com/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03-domain1.html">Domain 1 官方专页</a></div>
+<p><strong>Domain 2 弹性（26%）—— 考"挂了怎么办"。</strong> 高可用（Multi-AZ）、容灾、解耦（SQS/SNS）、自动伸缩、跨区复制、备份恢复（RTO/RPO 取舍）。SAA 大量场景题就是给你一个"要求 99.99% 可用"或"某 AZ 故障也不能停"，让你选架构。</p>
+<p><strong>Domain 3 高性能（24%）—— 考"怎么更快/更能扛"。</strong> 选对计算/存储/数据库类型、缓存（ElastiCache、CloudFront）、读写分离、合适的存储分层、网络优化。</p>
+<p><strong>Domain 4 成本优化（20%）—— 考"同样的事怎么更省"。</strong> 按需 vs 预留 vs Spot、存储分层（S3 各级别/生命周期）、合理选型避免过度配置。</p>
+<h4>备考心态：这是"选最优解"的考试</h4>
+<p>SAA 的题很多是<strong>四个选项都能跑通，但只有一个"最符合要求"</strong>。题干会给你约束条件（最省钱 / 最高可用 / 运维最少 / 改动最小），你要按约束挑。<strong>读题时先圈出关键约束词</strong>，比背服务参数更重要。</p>
+<h3>四、报考流程 + OnVUE 线上 / 线下 + 改期重考规则</h3>
+<h4>报名怎么走（官方步骤）</h4>
+<ol><li>在 <strong>aws.training/Certification</strong> 用 <strong>AWS Builder ID</strong> 创建/登录 <strong>AWS Certification Account</strong>。</li><li>选 <strong>Schedule New Exam（预约新考试）</strong>。</li><li>选 <strong>Schedule with Pearson VUE</strong>，跳转到 Pearson VUE。</li><li>选<strong>考点 / 日期 / 时间</strong>（线下考点）或选 <strong>OnVUE 在线监考</strong>。</li><li>付款：支持 <strong>Visa、American Express、Mastercard、JCB</strong>，以及 <strong>voucher（代金券）</strong>。</li></ol>
+<div class="callout">来源：<a href="https://aws.amazon.com/certification/policies/before-testing/">考前政策页</a></div>
+<h4>两种考法对比</h4>
+<table><tr><th></th><th><strong>线下考点（Test Center）</strong></th><th><strong>线上监考（OnVUE）</strong></th></tr><tr><td>地点</td><td>Pearson VUE 实体考场</td><td>你自己的安静私密房间</td></tr><tr><td>设备</td><td>考场提供</td><td>自备电脑 + 摄像头 + 麦克风 + 扬声器</td></tr><tr><td>灵活度</td><td>要去现场</td><td>在家就能考，时段更灵活</td></tr><tr><td>适合</td><td>家里环境不达标 / 想要标准化考场</td><td>环境可控、设备达标、想省通勤</td></tr></table>
+<h4>OnVUE 线上监考的硬性环境/设备要求</h4>
+<p>打算在家考，<strong>先确认能不能满足这些</strong>，否则当天会被拦：</p>
+<p><strong>设备 / 系统：</strong></p>
+<ul><li>系统 <strong>Windows 10/11</strong> 或 <strong>macOS 14 及以上</strong></li><li><strong>可用的摄像头、麦克风、扬声器</strong> —— <strong>不允许用耳机/耳麦（headphones）</strong></li><li><strong>单显示器</strong>（禁止多屏 multiple monitors）</li><li>网络 <strong>至少 6 Mbps 下行 / 2 Mbps 上行</strong></li><li><strong>禁止虚拟机（virtual machine）、手机、智能手表、VPN/代理</strong>；企业网络/公司电脑常因防火墙不通过，AWS 专页明确不建议用</li></ul>
+<p><strong>考试环境：</strong></p>
+<ul><li>房间<strong>安静、私密</strong>——<strong>不能在卫生间，不能在公共场所</strong></li><li>桌面<strong>清空</strong>，除了电脑、获批物品、和一杯<strong>无标签的饮料</strong>，其他全部移走</li><li>所有<strong>书、笔记、电子设备、个人物品</strong>都得拿开</li></ul>
+<div class="callout">来源：<a href="https://www.pearsonvue.com/us/en/aws/onvue.html">Pearson VUE OnVUE 页</a> · <a href="https://www.pearsonvue.com/content/dam/VUE/vue/en/documents/tech-specs/online-proctored/onvue-technical-requirements.pdf">OnVUE 技术要求 PDF</a> · <a href="https://aws.amazon.com/certification/policies/during-testing/">考试中政策</a> 注：技术规格会随 Pearson VUE 更新（如系统版本要求），考前以上面 PDF 实时为准。</div>
+<h4>改期 / 取消 / 重考规则（重点记牢）</h4>
+<table><tr><th>情况</th><th>规则</th></tr><tr><td><strong>改期（reschedule）</strong></td><td>每次预约<strong>最多改 2 次</strong>，且须在<strong>考前 24 小时前</strong>操作</td></tr><tr><td><strong>取消（cancel）</strong></td><td>须<strong>考前至少 24 小时</strong>取消，否则<strong>考费作废</strong>（forfeit）</td></tr><tr><td><strong>生病 / 突发事件</strong></td><td>凭证明可<strong>免费改期</strong>（AWS 会 waive 费用）</td></tr><tr><td><strong>没通过要重考</strong></td><td>必须<strong>等满 14 个自然日</strong>才有资格重考</td></tr><tr><td><strong>重考次数</strong></td><td><strong>无上限</strong>，但<strong>每次都要付全额考费</strong>（没有重考折扣）</td></tr></table>
+<div class="callout">来源：<a href="https://aws.amazon.com/certification/policies/before-testing/">考前政策页</a> · <a href="https://aws.amazon.com/certification/policies/after-testing/">考后政策页</a></div>
+<h3>五、出分、领证、查验、有效期与续证</h3>
+<h4>出分</h4>
+<p>考完通常很快在 <strong>AWS Certification Account</strong> 看到通过/未通过，正式 scaled score 报告随后在账号里出。记住：报的是<strong>换算分</strong>，不是答对题数。</p>
+<h4>数字徽章（digital badge）怎么领、怎么给人查</h4>
+<p>AWS 的认证<strong>数字徽章由 Credly 平台提供</strong>。</p>
+<ul><li><strong>怎么领</strong>：你会收到一封 <strong>Credly 平台发来的邮件</strong>，里面有领取（claim）说明；或者直接登录 <strong>AWS Certification Account</strong>，找 <strong>Digital Badges 标签页</strong>领。</li><li><strong>怎么给别人验证</strong>：把你徽章的<strong>直链（direct link）发给对方</strong>，就能证明你是 AWS Certified；还能建一个<strong>公开 profile</strong>，把你拿到的所有 AWS 认证徽章集中展示。</li><li><strong>徽章会显示</strong>你的认证<strong>当前是否有效（active）</strong>，方便雇主随时核到最新状态。</li></ul>
+<div class="callout">来源：<a href="https://aws.amazon.com/certification/certification-digital-badges/">AWS Certification 数字徽章官方页</a> 说明：徽章宿主在 Credly，公开查验走 Credly 出具的徽章直链/公开 profile；本轮未单独固定某条 credly.com 查验 URL，以你领取后徽章本身生成的直链为准。</div>
+<h4>有效期 3 年 + 续证（recertification）</h4>
+<p>证书<strong>自获得日起有效 3 年</strong>。到期前续证有<strong>两条路</strong>：</p>
+<ol><li><strong>重考这门考试的最新版本</strong>（pass the latest version of this exam）；或</li><li><strong>考取 AWS Certified Solutions Architect – Professional（专业级）</strong>——拿到专业级会<strong>自动续展</strong>你这张助理级认证。</li></ol>
+<div class="callout">来源：<a href="https://aws.amazon.com/certification/certified-solutions-architect-associate/">SAA 产品页</a> · <a href="https://aws.amazon.com/certification/policies/recertification/">续证政策</a></div>
+<h3>六、官方学习资源 + 备考周期规划</h3>
+<h4>全部走 AWS Skill Builder（官方平台）</h4>
+<p>AWS 官方备考资源都在 <strong>AWS Skill Builder</strong>，分免费和订阅两档。<strong>别先急着掏钱，免费的够搭起骨架。</strong></p>
+<p><strong>🆓 免费（Free）：</strong></p>
+<ul><li><strong>Official Practice Question Set（官方练习题集）</strong> —— 免费 <strong>20 题</strong>一组，是"AWS 官方出题风格"的样子，带详细反馈。<strong>最值得先做的免费资源</strong>，用来校准你和真题的差距。</li><li><strong>Exam Prep Course（备考课程）</strong> —— 免费、约 <strong>2 小时</strong>的数字课程，过一遍考试各主题域 + 样题。</li><li><strong>AWS Cloud Quest</strong> —— 免费的角色扮演式游戏，边玩边学云概念。</li></ul>
+<p><strong>💳 订阅（AWS Skill Builder Individual，约 $29/月起）：</strong></p>
+<ul><li><strong>Official Practice Exam（官方全真模拟考）</strong> —— 完整长度、带换算分式评分和反馈，<strong>临考前测就绪度用它</strong>。</li><li><strong>Enhanced Exam Prep Course（增强版备考课）</strong> —— 约 <strong>6–8 小时</strong>，含视频、动手实验（hands-on labs）、更多练习题、并含官方模拟考。</li><li><strong>更多 Cloud Quest 角色</strong>（Solutions Architect 等）。</li></ul>
+<div class="callout">来源：<a href="https://aws.amazon.com/certification/certification-prep/">AWS 官方备考页</a> · <a href="https://aws.amazon.com/certification/certified-solutions-architect-associate/">SAA 产品页</a> 上手入口：Skill Builder 的 SAA-C03 备考专区（exam prep / solutions-architect-associate）。</div>
+<p><strong>诚实提醒</strong>：免费档（练习题集 + 备考课 + Cloud Quest）足够建立框架和自测；要不要上 $29/月订阅，看你<strong>缺不缺全真模拟和动手实验</strong>。预算紧就免费档 + 官方考试指南 + AWS 文档自己啃，一样能过。</p>
+<h4>官方四步备考思路</h4>
+<p>AWS 的备考路径就一句话能概括：<strong>自定进度学 → 动手做 → 自测 → 上官方模拟考</strong>。对应到资源：</p>
+<ol><li><strong>学</strong>：Exam Prep Course（免费 2h）过框架 → 啃官方<a href="https://docs.aws.amazon.com/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.html">考试指南</a> + 各服务的 AWS 文档。</li><li><strong>动手</strong>：Cloud Quest / Builder Labs（订阅）实操，架构题靠手感不靠背。</li><li><strong>自测</strong>：免费 Official Practice Question Set（20 题）校准。</li><li><strong>就绪测</strong>：临考前上 Official Practice Exam（订阅）打全真模拟。</li></ol>
+<h4>备考周期参考（按经验分）</h4>
+<div class="callout">这是基于官方"推荐 1 年 AWS 经验 + 1–3 年 IT 经验"的合理推算，不是 AWS 官方时长承诺——每个人节奏不同。</div>
+<table><tr><th>你的底子</th><th>大致周期</th><th>重点</th></tr><tr><td><strong>有 1+ 年 AWS 实操</strong></td><td><strong>3–5 周</strong>，每周 8–10 小时</td><td>主攻四域刷题 + 模拟考查漏补缺</td></tr><tr><td><strong>有 IT 基础但 AWS 少</strong></td><td><strong>6–8 周</strong>，每周 8–10 小时</td><td>先过核心服务（VPC/IAM/EC2/S3/RDS）再做题</td></tr><tr><td><strong>零基础</strong></td><td><strong>建议先考 Cloud Practitioner</strong>，再花 <strong>8–12 周</strong></td><td>别跳级，地基不稳架构题会很痛苦</td></tr></table>
+<p><strong>节奏建议</strong>：按域权重分配时间——<strong>安全（30%）和弹性（26%）合占 56%，至少给一半以上精力</strong>。最后 1–2 周务必做<strong>官方模拟考</strong>，按真实 130 分钟掐表，练读题抓约束词的速度。</p>
+<h3>📎 本指南信源清单（全部官方一手）</h3>
+<p><strong>AWS 官方：</strong></p>
+<ul><li>SAA 产品页：https://aws.amazon.com/certification/certified-solutions-architect-associate/</li><li>SAA-C03 官方考试指南（HTML）：https://docs.aws.amazon.com/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.html</li><li>SAA-C03 官方考试指南（PDF）：https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf</li><li>Domain 1 专页：https://docs.aws.amazon.com/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03-domain1.html</li><li>考试指南合集：https://docs.aws.amazon.com/aws-certification/latest/examguides/aws-certification-exam-guides.html</li><li>考前政策与定价：https://aws.amazon.com/certification/policies/before-testing/</li><li>考后政策（重考/出分）：https://aws.amazon.com/certification/policies/after-testing/</li><li>考试中政策：https://aws.amazon.com/certification/policies/during-testing/</li><li>续证政策：https://aws.amazon.com/certification/policies/recertification/</li><li>数字徽章：https://aws.amazon.com/certification/certification-digital-badges/</li><li>官方备考资源：https://aws.amazon.com/certification/certification-prep/</li><li>评分机制官方博客：https://aws.amazon.com/blogs/training-and-certification/demystifying-your-aws-certification-exam-score/</li></ul>
+<p><strong>Pearson VUE 官方：</strong></p>
+<ul><li>OnVUE 在线监考页：https://www.pearsonvue.com/us/en/aws/onvue.html</li><li>OnVUE 技术要求 PDF：https://www.pearsonvue.com/content/dam/VUE/vue/en/documents/tech-specs/online-proctored/onvue-technical-requirements.pdf</li></ul>
+<h3>⚠️ 用前必读：哪些会变 / 哪些没官方数据</h3>
+<ol><li><strong>考费随汇率变</strong>：所列地区货币价为 2026 年 6 月核对值，AWS 每年至少 5 月调一次。报名前用<a href="https://aws.amazon.com/certification/policies/before-testing/">考前政策页</a>实时核对。</li><li><strong>就业含金量/薪资无官方数字</strong>：AWS 不发布持证人薪资或就业统计，本指南不引用第三方数字。想要行情看你目标地区招聘平台实时 JD。</li><li><strong>OnVUE 技术规格会更新</strong>：系统/网络要求以 Pearson VUE 最新 PDF 为准，考前再核一遍。</li><li><strong>版本</strong>：SAA-C03 为现行唯一版本（2026-06 多源官方确认），未来若出新版，引用前复核官方考试指南合集页。</li></ol>
+<p>*匠人学院 · AWS 考证指南系列 · 助理级 Associate* *本文只做事实整理与备考规划，不承诺考试结果或就业结果。更多课程见 jiangren.com.au*</p>
+  </div>
+</section>
+<aside class="promo">
+  <span class="promo-tag">AD · 自家的</span>
+  <div class="promo-body">
+    <h4>🎯 已经有基础，只差 offer：VIP 1-on-1</h4>
+    <p>导师一对一的高薪 Offer 计划：评估 → 简历深度优化 → 内推匹配 → 面试全程陪跑。同时只带 10-15 人，12 个月没拿到 Offer 退一半 —— 条款白纸黑字。</p>
+  </div>
+  <a class="promo-cta" href="https://jiangren.com.au/ai-engineer-vip" target="_blank" rel="noopener">了解 VIP 计划 →</a>
+</aside>
+
+<section class="ch" id="ch4">
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 04</div>
+        <h2>💻 DVA-C02 开发者助理</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-working-laptop.png" alt="" />
+    </div>
+<div class="callout">AWS 开发者助理级 · 现行版本 DVA-C02 全篇只采信 AWS 官方（aws.amazon.com / docs.aws.amazon.com）与 Pearson VUE 官方信息，每个关键数字都带官方来源。培训机构软文、第三方题库站、个人博客一律不采信。 数据核对时点：2026 年 6 月。考费随汇率每年至少调一次，报名前请以官网实时为准。</div>
+<h3>📌 版本与定位</h3>
+<p><strong>DVA-C02 是现行唯一在考的版本。</strong> 官方现行考试指南即 C02，无更新版本。任何 DVA-C01 旧题库或"DVA-C03"说法都别用。</p>
+<div class="callout">来源：<a href="https://docs.aws.amazon.com/aws-certification/latest/developer-associate-02/developer-associate-02.html">官方考试指南</a> · <a href="https://aws.amazon.com/certification/certified-developer-associate/">产品页</a></div>
+<p><strong>体系位置</strong>：助理级（Associate）三大主力之一（与 SAA 架构师、SOA 运维并列），面向<strong>开发者岗位</strong>。</p>
+<h3>一、证书定位、适配人群、客观含金量</h3>
+<h4>定位</h4>
+<p>面向<strong>开发者角色</strong>，验证在 AWS 上<strong>开发、测试、部署、调试（develop, test, deploy, debug）</strong>应用的能力。核心能力：开发与优化应用、用 CI/CD 打包部署、保护代码与数据、定位与解决应用问题。</p>
+<div class="callout">来源：<a href="https://docs.aws.amazon.com/aws-certification/latest/developer-associate-02/developer-associate-02.html">官方考试指南</a></div>
+<h4>适配人群</h4>
+<ul><li>官方推荐经验：<strong>1 年以上</strong>用 AWS 服务开发与维护应用的实操经验。</li><li>应至少精通一门高级编程语言、理解应用生命周期、会用开发工具。</li><li><strong>超纲</strong>（不要求）：设计架构、搭 CI/CD 流水线本身、管 IAM 用户组、管服务器/OS、设计 VPC 网络。</li><li>零 IT 经验者建议先考 Cloud Practitioner 打底。</li></ul>
+<div class="callout">来源：<a href="https://docs.aws.amazon.com/aws-certification/latest/developer-associate-02/developer-associate-02.html">官方考试指南</a></div>
+<h4>含金量 ⚠️</h4>
+<p><strong>AWS 不发布官方薪资数据</strong>，本指南不引用第三方数字、不编造。客观事实：DVA 是 AWS 体系里"开发者职能"的官方能力背书，适合云上应用开发岗求职/转岗。持证权益（官方）：下一门考试 50% 折扣券、Credly 数字徽章、re:Invent/Summit 的 Certification Lounge 准入等。</p>
+<h3>二、考试参数</h3>
+<table><tr><th>项目</th><th>内容</th></tr><tr><td><strong>基础考费</strong></td><td><strong>150 USD</strong> / <strong>人民币 ¥1,057</strong></td></tr><tr><td><strong>时长</strong></td><td><strong>130 分钟</strong></td></tr><tr><td><strong>题量</strong></td><td><strong>65 题</strong>（50 计分 + 15 不计分）</td></tr><tr><td><strong>题型</strong></td><td>单选 / 多选；未答按错算，猜测无惩罚</td></tr><tr><td><strong>及格线</strong></td><td><strong>720</strong>（scaled score 100–1,000；补偿性评分）</td></tr><tr><td><strong>有效期</strong></td><td><strong>3 年</strong></td></tr></table>
+<div class="callout">来源：<a href="https://aws.amazon.com/certification/certified-developer-associate/">产品页</a> · <a href="https://docs.aws.amazon.com/aws-certification/latest/developer-associate-02/developer-associate-02.html">官方考试指南</a></div>
+<h4>各币种考费（助理级）</h4>
+<table><tr><th>USD</th><th>CNY</th><th>EUR</th><th>AUD</th><th>JPY</th><th>KRW</th></tr><tr><td>$150</td><td><strong>¥1,057</strong></td><td>€128</td><td>$224</td><td>¥20,000</td><td>₩197,287</td></tr></table>
+<div class="callout">每年至少 5 月按汇率更新。来源：<a href="https://aws.amazon.com/certification/policies/before-testing/">考前政策页</a></div>
+<h4>可选语种</h4>
+<p><strong>English、Japanese、Korean、Portuguese (Brazil)、Simplified Chinese（简体中文）、Spanish (Latin America)</strong>。✅ 含简体中文。</p>
+<div class="callout">来源：<a href="https://aws.amazon.com/certification/certified-developer-associate/">产品页</a></div>
+<h3>三、考试大纲：四大域 + 权重</h3>
+<table><tr><th>域</th><th>名称</th><th>权重</th></tr><tr><td><strong>Domain 1</strong></td><td>用 AWS 服务开发 <strong>Development with AWS Services</strong></td><td><strong>32%</strong> 🥇</td></tr><tr><td><strong>Domain 2</strong></td><td>安全 <strong>Security</strong></td><td>26%</td></tr><tr><td><strong>Domain 3</strong></td><td>部署 <strong>Deployment</strong></td><td>24%</td></tr><tr><td><strong>Domain 4</strong></td><td>排障与优化 <strong>Troubleshooting and Optimization</strong></td><td>18%</td></tr></table>
+<div class="callout">来源：<a href="https://docs.aws.amazon.com/aws-certification/latest/developer-associate-02/developer-associate-02.html">官方考试指南</a></div>
+<h4>重难点拆解</h4>
+<ul><li><strong>Domain 1（32%，最大头）</strong>：核心高频服务 <strong>Lambda、DynamoDB、API Gateway、EventBridge、SQS/SNS、AWS SAM</strong>。考点包括：架构模式（事件驱动 event-driven / 微服务 / 同步异步 / 松紧耦合）、Lambda 配置与错误处理（死信队列 dead-letter queue）、DynamoDB 键设计与一致性模型（强一致/最终一致）、query vs scan。新版还纳入 <strong>Amazon Q Developer</strong>（AI 编码助手）。</li><li><strong>Domain 2（26%）</strong>：认证授权、加密、IAM 在应用层的用法、敏感数据保护。</li><li><strong>Domain 3（24%）</strong>：CI/CD 部署、AWS SAM、容器与无服务器部署。</li><li><strong>Domain 4（18%）</strong>：日志监控、根因定位、性能优化。</li></ul>
+<div class="callout">DVA 比 SAA 更"动手"——重点不是选架构，是知道服务参数怎么配、代码怎么调 API。Lambda + DynamoDB 是命根子。</div>
+<h3>四、报考流程 + OnVUE / 线下 + 改期重考</h3>
+<h4>报名步骤</h4>
+<p>AWS Certification Account（AWS Builder ID）→ Schedule New Exam → Schedule with Pearson VUE → 选考点/居家 + 日期时间 → 付款。</p>
+<div class="callout">来源：<a href="https://aws.amazon.com/certification/policies/before-testing/">考前政策页</a></div>
+<h4>OnVUE 居家 vs 线下</h4>
+<ul><li><strong>OnVUE</strong>：自备电脑 + 摄像头/麦克风/扬声器（禁耳机）、单显示器、安静私密房间、考前 30 分钟 check-in + 360° 房扫、全程不离开镜头。英语监考 24/7；<strong>中国大陆中文（Mandarin）监考时段为周一至五 8:00–17:00 CST</strong>。</li><li><strong>线下</strong>：就近 Pearson VUE 考点。</li></ul>
+<div class="callout">来源：<a href="https://home.pearsonvue.com/Clients/Amazon-Web-Services/Online-Proctored.aspx">Pearson VUE OnVUE</a> · <a href="https://aws.amazon.com/certification/policies/before-testing/">考前政策页</a></div>
+<h4>改期 / 取消 / 重考</h4>
+<table><tr><th>情况</th><th>规则</th></tr><tr><td>改期</td><td>考前 24 小时前，最多改 2 次</td></tr><tr><td>取消</td><td>考前至少 24 小时，否则考费作废；病/急事可免</td></tr><tr><td>重考</td><td>未通过等满 <strong>14 个自然日</strong>；次数无上限，每次全额付费</td></tr><tr><td>通过后</td><td>同一门 <strong>2 年内不可重考</strong></td></tr></table>
+<div class="callout">来源：<a href="https://aws.amazon.com/certification/policies/before-testing/">考前政策页</a> · <a href="https://aws.amazon.com/certification/policies/after-testing/">考后政策页</a></div>
+<h3>五、证书领取、Credly 查验、有效期与续证</h3>
+<ul><li><strong>出分</strong>：考后约 <strong>5 个工作日</strong>内进 AWS Certification Account（Exam History 可下载 PDF 成绩报告）。</li><li><strong>数字徽章</strong>：由 <strong>Credly</strong> 发放，Credly 邮件或 AWS Cert Account 的 Digital Badges 标签领取；直链分享给雇主验证，徽章与证书同效 3 年。</li><li><strong>有效期 3 年 + 续证</strong>：① 重考最新版 DVA；或 ② 通过更高阶的 <strong>DevOps Engineer – Professional（DOP）</strong>。两者均可用账户里的 <strong>50% 折扣券</strong>。⚠️ 续证只对<strong>未过期</strong>证书有效，过期须重考。</li></ul>
+<div class="callout">来源：<a href="https://aws.amazon.com/certification/policies/after-testing/">考后政策页</a> · <a href="https://aws.amazon.com/certification/certification-digital-badges/">数字徽章页</a> · <a href="https://aws.amazon.com/certification/recertification/">续证政策</a></div>
+<h3>六、官方学习资源 + 备考周期规划</h3>
+<p><strong>🆓 免费（Skill Builder）</strong>：DVA-C02 Exam Prep Plan、900+ 免费数字课、Introduction to AWS Cloud Builder Labs（含 10 个基础实验）、Official Practice Question Set（20 题）。 <strong>💳 订阅（约 $29/月、$299–449/年，以官网实时价为准）</strong>：Official Practice Exam（全真模拟）、Builder Labs 动手实验、Cloud Quest。</p>
+<div class="callout">来源：<a href="https://aws.amazon.com/certification/certification-prep/">官方备考页</a> · <a href="https://aws.amazon.com/training/digital/">Skill Builder</a></div>
+<h4>备考周期参考（非官方承诺）</h4>
+<table><tr><th>底子</th><th>周期</th><th>重点</th></tr><tr><td>有 1+ 年 AWS 开发经验</td><td><strong>4–6 周</strong>，每周 8–10 小时</td><td>攻 Domain 1（Lambda/DynamoDB/API GW/EventBridge/SAM）+ 动手</td></tr><tr><td>会编程但 AWS 少</td><td><strong>6–8 周</strong></td><td>先过核心服务再刷题，务必上手写 Lambda</td></tr></table>
+<p><strong>节奏</strong>：Domain 1（32%）独占近三分之一，Lambda + DynamoDB 是重中之重；用 Builder Labs 实操，不要纯背。最后做官方 Practice Exam 查漏，稳定 720+ 预约。</p>
+<h3>🇨🇳 大陆考生专项说明</h3>
+<ul><li><strong>语言</strong>：✅ 可用<strong>简体中文</strong>应考；OnVUE 中文（Mandarin）监考周一至五 8:00–17:00 CST，英文场 24/7 更灵活。</li><li><strong>币种</strong>：官方人民币定价 <strong>¥1,057</strong>（助理级，每年 5 月调）。</li><li><strong>规则一致</strong>：14 天重考间隔、通过后 2 年不可重考同门、改期最多 2 次且提前 24 小时、3 年有效，全球统一。</li></ul>
+<h3>📎 信源清单（全部官方一手）</h3>
+<ul><li>产品页：https://aws.amazon.com/certification/certified-developer-associate/</li><li>官方考试指南：https://docs.aws.amazon.com/aws-certification/latest/developer-associate-02/developer-associate-02.html</li><li>考前政策与定价：https://aws.amazon.com/certification/policies/before-testing/</li><li>考后政策：https://aws.amazon.com/certification/policies/after-testing/</li><li>续证政策：https://aws.amazon.com/certification/recertification/</li><li>数字徽章：https://aws.amazon.com/certification/certification-digital-badges/</li><li>备考资源：https://aws.amazon.com/certification/certification-prep/</li></ul>
+<h3>⚠️ 用前必读</h3>
+<ol><li><strong>考费随汇率变</strong>：CNY ¥1,057 为 2026 年 6 月核对值，每年至少 5 月调整。</li><li><strong>无官方薪资数据</strong>：不引用第三方数字。</li><li><strong>版本</strong>：DVA-C02 为现行唯一版本（2026-06 确认）。</li><li>Skill Builder 订阅价以官网实时为准（含促销价波动）。</li></ol>
+<p>*匠人学院 · AWS 全球考证指南系列 · 助理级 Associate* *本文只做事实整理与备考规划，不承诺考试结果或就业结果。更多课程见 jiangren.com.au*</p>
+  </div>
+</section>
+
+<section class="ch" id="ch5">
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 05</div>
+        <h2>⚙️ SOA-C02→C03 运维助理（CloudOps）</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-coffee-pointing.png" alt="" />
+    </div>
+<div class="callout">AWS 运维管理员助理级 · ⚠️ <strong>SOA-C02 已退役，现行版本为 SOA-C03（已更名 CloudOps Engineer – Associate）</strong> 全篇只采信 AWS 官方（aws.amazon.com / docs.aws.amazon.com）与 Pearson VUE 官方信息，每个关键数字都带官方来源。培训机构软文、第三方题库站、个人博客一律不采信。 数据核对时点：2026 年 6 月。考费随汇率每年至少调一次，报名前请以官网实时为准。</div>
+<h3>🚨 最重要：版本现状（务必先读）</h3>
+<p><strong>SOA-C02 已于 2025 年 9 月 29 日退役，现在报不了。</strong> 它被更名升级为 <strong>AWS Certified CloudOps Engineer – Associate（考试代码 SOA-C03）</strong>，自 2025 年 9 月 30 日起开考。</p>
+<ul><li>"The last day to take the AWS Certified SysOps Administrator – Associate (SOA-C02) will be <strong>September 29, 2025</strong>."</li><li>原 SOA-C02 的官方考纲页现已下线（404），印证退役。</li></ul>
+<p><strong>关于 lab（动手实验题）</strong>：SOA-C02 历史上曾含 exam labs，但官方已于 <strong>2023 年 3 月 28 日起移除且再未恢复</strong>；现行 <strong>SOA-C03 明确只有单选 + 多选两种题型，无任何 lab</strong>。</p>
+<div class="callout"><strong>结论：今天要考这条线，报的是 SOA-C03。</strong> 下文以现行 SOA-C03 为主体，保留 SOA-C02 文件名仅为延续目录编号。 来源：<a href="https://aws.amazon.com/blogs/training-and-certification/exam-update-and-new-name-for-operations-certification/">运维认证更名/退役公告</a> · <a href="https://aws.amazon.com/blogs/training-and-certification/new-courses-and-updates-from-aws-training-and-certification-in-march-2023/">lab 移除公告</a> · <a href="https://docs.aws.amazon.com/pdfs/aws-certification/latest/sysops-administrator-associate-03/sysops-administrator-associate-03.pdf">SOA-C03 官方考纲 PDF</a></div>
+<p><strong>体系位置</strong>：助理级三大主力之一（与 SAA 架构师、DVA 开发者并列），面向<strong>运维 / 系统管理员</strong>岗位，是通往 DevOps Engineer – Professional 的重要前置。</p>
+<h3>一、证书定位、适配人群、客观含金量</h3>
+<h4>定位（SOA-C03）</h4>
+<p>验证在 AWS 上<strong>部署、管理、运维（deploy, manage, operate）</strong>工作负载的技术能力，按 Well-Architected Framework 维护负载、用 Console 与 CLI 操作、监控排障、实现合规安全控制。</p>
+<h4>适配人群（官方推荐经验）</h4>
+<ul><li><strong>1 年</strong> AWS 部署/管理/排障/网络/安全经验；</li><li><strong>至少 1 年</strong>系统管理员等相关运维岗经验。</li><li>SOA-C03 相比旧版<strong>新增 containers（容器）</strong>进入考纲。</li></ul>
+<div class="callout">来源：<a href="https://docs.aws.amazon.com/pdfs/aws-certification/latest/sysops-administrator-associate-03/sysops-administrator-associate-03.pdf">SOA-C03 官方考纲 PDF</a></div>
+<h4>含金量 ⚠️</h4>
+<p><strong>AWS 不发布官方薪资数据</strong>，本指南不引用第三方数字、不编造。客观事实：这是运维/SysOps/CloudOps 岗位的官方能力背书，三大助理级之一。</p>
+<h3>二、考试参数（SOA-C03 现行）</h3>
+<table><tr><th>项目</th><th>内容</th></tr><tr><td><strong>考试代码</strong></td><td><strong>SOA-C03</strong>（SOA-C02 已退役）</td></tr><tr><td><strong>基础考费</strong></td><td><strong>150 USD</strong> / <strong>人民币 ¥1,057</strong></td></tr><tr><td><strong>时长</strong></td><td><strong>130 分钟</strong></td></tr><tr><td><strong>题量</strong></td><td><strong>65 题</strong>（50 计分 + 15 不计分）；<strong>无 lab</strong></td></tr><tr><td><strong>题型</strong></td><td>仅单选 + 多选</td></tr><tr><td><strong>及格线</strong></td><td><strong>720</strong>（scaled score 100–1,000；补偿性评分）</td></tr><tr><td><strong>有效期</strong></td><td><strong>3 年</strong></td></tr></table>
+<div class="callout">来源：<a href="https://docs.aws.amazon.com/pdfs/aws-certification/latest/sysops-administrator-associate-03/sysops-administrator-associate-03.pdf">SOA-C03 官方考纲 PDF</a> · <a href="https://aws.amazon.com/certification/certified-cloudops-engineer-associate/">CloudOps 产品页</a></div>
+<h4>各币种考费（助理级）</h4>
+<table><tr><th>USD</th><th>CNY</th><th>EUR</th><th>AUD</th><th>JPY</th><th>KRW</th></tr><tr><td>$150</td><td><strong>¥1,057</strong></td><td>€128</td><td>$224</td><td>¥20,000</td><td>₩197,287</td></tr></table>
+<div class="callout">每年至少 5 月按汇率更新。来源：<a href="https://aws.amazon.com/certification/policies/before-testing/">考前政策页</a></div>
+<h4>可选语种</h4>
+<p><strong>English、Japanese、Korean、Simplified Chinese（简体中文）</strong>。✅ 含简体中文。</p>
+<div class="callout">来源：<a href="https://aws.amazon.com/certification/certified-cloudops-engineer-associate/">CloudOps 产品页</a></div>
+<h3>三、考试大纲：五大域 + 权重（SOA-C03）</h3>
+<table><tr><th>域</th><th>名称</th><th>权重</th></tr><tr><td>Domain 1</td><td>监控、日志、分析、修复与性能优化 <strong>Monitoring, Logging, Analysis, Remediation, and Performance Optimization</strong></td><td>22%</td></tr><tr><td>Domain 2</td><td>可靠性与业务连续性 <strong>Reliability and Business Continuity</strong></td><td>22%</td></tr><tr><td>Domain 3</td><td>部署、置备与自动化 <strong>Deployment, Provisioning, and Automation</strong></td><td>22%</td></tr><tr><td>Domain 4</td><td>安全与合规 <strong>Security and Compliance</strong></td><td>16%</td></tr><tr><td>Domain 5</td><td>网络与内容分发 <strong>Networking and Content Delivery</strong></td><td>18%</td></tr></table>
+<div class="callout">来源：<a href="https://docs.aws.amazon.com/pdfs/aws-certification/latest/sysops-administrator-associate-03/sysops-administrator-associate-03.pdf">SOA-C03 官方考纲 PDF</a></div>
+<h4>重难点拆解</h4>
+<ul><li><strong>Domain 1/2/3（各 22%，合占 66%）是绝对重心</strong>：CloudWatch 指标/告警/日志、可用性排障、性能优化（D1）；弹性伸缩、跨 AZ 高可用、备份恢复 RTO/RPO（D2）；IaC、Systems Manager、自动化运维（D3）。</li><li><strong>Domain 5（18%）</strong>：DNS/Route 53、内容分发、网络连通性排障。</li><li><strong>Domain 4（16%）</strong>：安全合规工具、数据与基础设施保护。</li></ul>
+<div class="callout">SOA 高度实操化——虽然现行版已无 lab 题，但题目大量考"运维场景下选哪个工具/怎么配"，建议在真实 AWS 环境演练。</div>
+<h3>四、报考流程 + OnVUE / 线下 + 改期重考</h3>
+<h4>报名 + 两种考法</h4>
+<p>AWS Certification Account（AWS Builder ID）→ Schedule with Pearson VUE → 选线下考点或 OnVUE 居家。OnVUE：自备设备 + 摄像头、安静独立房间、考前系统测试 + 360° 房扫、全程不离镜头。</p>
+<h4>改期 / 取消 / 重考</h4>
+<table><tr><th>情况</th><th>规则</th></tr><tr><td>改期</td><td>考前 24 小时前，最多改 2 次</td></tr><tr><td>取消</td><td>考前至少 24 小时，否则考费作废</td></tr><tr><td>重考</td><td>未通过等满 <strong>14 个自然日</strong>；次数无上限，每次全额付费</td></tr><tr><td>通过后</td><td>同一门 <strong>2 年内不可重考</strong></td></tr></table>
+<div class="callout">来源：<a href="https://aws.amazon.com/certification/policies/before-testing/">考前政策页</a> · <a href="https://aws.amazon.com/certification/policies/after-testing/">考后政策页</a></div>
+<h3>五、证书领取、Credly 查验、有效期与续证</h3>
+<ul><li><strong>数字徽章</strong>：由 <strong>Credly</strong> 发放，可在线分享与第三方查验。</li><li><strong>有效期 3 年 + 续证</strong>：到期前重考最新版（现为 CloudOps SOA-C03），或通过更高阶 Professional 续证；可用 50% 折扣券。过期证书不可续，须重考。</li></ul>
+<div class="callout">来源：<a href="https://aws.amazon.com/certification/certification-digital-badges/">数字徽章页</a> · <a href="https://aws.amazon.com/certification/recertification/">续证政策</a></div>
+<h3>六、官方学习资源 + 备考周期规划</h3>
+<p><strong>🆓 免费（Skill Builder）</strong>：4 步 Exam Prep Plan、Official Practice Question Set（20 题）、免费数字课程、官方考纲。 <strong>💳 订阅（约 $29/月起）</strong>：Official Practice Exam、self-paced labs（动手实验，对运维尤其值）、Cloud Quest。</p>
+<div class="callout">来源：<a href="https://aws.amazon.com/certification/certification-prep/">官方备考页</a></div>
+<h4>备考周期参考（非官方承诺）</h4>
+<table><tr><th>底子</th><th>周期</th><th>重点</th></tr><tr><td>有 1 年 AWS 运维经验</td><td><strong>4–6 周</strong>，每周 8–10 小时</td><td>攻 D1/D2/D3（监控/可靠性/自动化），动手练 CloudWatch、Auto Scaling、SSM、备份恢复、VPC/DNS 排障</td></tr><tr><td>运维基础但 AWS 少</td><td><strong>6–8 周</strong></td><td>先补核心服务再刷题</td></tr></table>
+<p><strong>节奏</strong>：D1+D2+D3 合占 66%，精力主投；强烈建议用订阅版 labs 或自建环境实操（运维题极重手感）。最后补 D4 安全（16%）、D5 网络（18%）。</p>
+<h3>🇨🇳 大陆考生专项说明</h3>
+<ul><li><strong>只报 SOA-C03</strong>（SOA-C02 已退役）。</li><li><strong>语言</strong>：✅ 可用<strong>简体中文</strong>应考（官方四语之一）。</li><li><strong>币种</strong>：官方人民币定价 <strong>¥1,057</strong>（助理级，每年 5 月调）。</li><li><strong>规则一致</strong>：改期≤2 次、24 小时前免费取消、未过等 14 天重考、通过后 2 年不可重考同门、3 年有效，全球统一。</li></ul>
+<h3>📎 信源清单（全部官方一手）</h3>
+<ul><li>更名/退役公告：https://aws.amazon.com/blogs/training-and-certification/exam-update-and-new-name-for-operations-certification/</li><li>lab 移除公告（2023-03）：https://aws.amazon.com/blogs/training-and-certification/new-courses-and-updates-from-aws-training-and-certification-in-march-2023/</li><li>SOA-C03 官方考纲 PDF：https://docs.aws.amazon.com/pdfs/aws-certification/latest/sysops-administrator-associate-03/sysops-administrator-associate-03.pdf</li><li>CloudOps 产品页：https://aws.amazon.com/certification/certified-cloudops-engineer-associate/</li><li>考前政策与定价：https://aws.amazon.com/certification/policies/before-testing/</li><li>考后政策：https://aws.amazon.com/certification/policies/after-testing/</li><li>续证政策：https://aws.amazon.com/certification/recertification/</li><li>备考资源：https://aws.amazon.com/certification/certification-prep/</li></ul>
+<h3>⚠️ 用前必读</h3>
+<ol><li><strong>版本</strong>：SOA-C02 已于 2025-09-29 退役；现行为 <strong>SOA-C03（CloudOps Engineer – Associate）</strong>，无 lab 题。本文以 SOA-C03 为准。</li><li><strong>考费随汇率变</strong>：CNY ¥1,057 为 2026 年 6 月核对值。</li><li><strong>无官方薪资数据</strong>：不引用第三方数字。</li></ol>
+<p>*匠人学院 · AWS 全球考证指南系列 · 助理级 Associate* *本文只做事实整理与备考规划，不承诺考试结果或就业结果。更多课程见 jiangren.com.au*</p>
+  </div>
+
+<a class="promo-line" href="https://jiangren.com.au/blog" target="_blank" rel="noopener">📰 跟上行业节奏：匠人每天 5 条经过核源的 AI 日报，每周一份大事盘点 <span>→</span></a></section>
+
+<section class="ch" id="ch6">
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 06</div>
+        <h2>🏗️ SAP-C02 架构师专业级</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-data.png" alt="" />
+    </div>
+<div class="callout">AWS 解决方案架构师专业级 · 现行版本 SAP-C02 全篇只采信 AWS 官方（aws.amazon.com / docs.aws.amazon.com）与 Pearson VUE 官方信息，每个关键数字都带官方来源。培训机构软文、第三方题库站、个人博客一律不采信。 数据核对时点：2026 年 6 月。考费随汇率每年至少调一次，报名前请以官网实时为准。</div>
+<h3>📌 版本与定位</h3>
+<p><strong>SAP-C02 是现行唯一在考的版本，无更新版本。</strong> <strong>无强制前置认证</strong>——不要求先持有助理级 SAA。但官方建议有 2 年以上 AWS 设计实施经验，不建议零基础直接冲。</p>
+<div class="callout">来源：<a href="https://aws.amazon.com/certification/certified-solutions-architect-professional/">产品页</a> · <a href="https://docs.aws.amazon.com/aws-certification/latest/solutions-architect-professional-02/solutions-architect-professional-02.html">官方考试指南</a></div>
+<p><strong>体系位置</strong>：专业级（Professional）——AWS 角色认证的最高梯队，难度与认可度顶层。是 SAA（助理架构师）的进阶。</p>
+<h3>一、证书定位、适配人群、客观含金量</h3>
+<h4>定位</h4>
+<p>面向解决方案架构师角色，验证在 AWS 上<strong>设计、部署、评估复杂分布式系统</strong>的高级能力——覆盖组织级复杂度、跨账户/混合架构治理、迁移现代化。</p>
+<h4>适配人群（官方推荐经验）</h4>
+<ul><li><strong>2 年以上</strong>用 AWS 服务设计与实施云解决方案的经验。</li><li>无强制前置证书，但专业级深度远高于助理级。</li></ul>
+<div class="callout">来源：<a href="https://aws.amazon.com/certification/certified-solutions-architect-professional/">产品页</a></div>
+<h4>含金量 ⚠️</h4>
+<p><strong>AWS 不发布官方薪资数据</strong>，本指南不引用第三方数字、不编造。客观事实：专业级是 AWS 角色认证最高层之一，覆盖组织级复杂度与跨账户治理，是资深架构师的官方能力背书。</p>
+<h3>二、考试参数</h3>
+<table><tr><th>项目</th><th>内容</th></tr><tr><td><strong>基础考费</strong></td><td><strong>300 USD</strong> / <strong>人民币 ¥2,113</strong></td></tr><tr><td><strong>时长</strong></td><td><strong>180 分钟</strong>（3 小时）</td></tr><tr><td><strong>题量</strong></td><td><strong>75 题</strong>（单选 / 多选）</td></tr><tr><td><strong>及格线</strong></td><td><strong>750</strong>（scaled score 100–1,000；补偿性评分）</td></tr><tr><td><strong>有效期</strong></td><td><strong>3 年</strong></td></tr></table>
+<div class="callout">来源：<a href="https://aws.amazon.com/certification/certified-solutions-architect-professional/">产品页</a> · <a href="https://docs.aws.amazon.com/aws-certification/latest/solutions-architect-professional-02/solutions-architect-professional-02.html">官方考试指南</a> · <a href="https://aws.amazon.com/certification/policies/before-testing/">考前政策页</a></div>
+<h4>各币种考费（专业级）</h4>
+<table><tr><th>USD</th><th>CNY</th><th>EUR</th><th>AUD</th><th>JPY</th><th>KRW</th></tr><tr><td>$300</td><td><strong>¥2,113</strong></td><td>€256</td><td>$449</td><td>¥40,000</td><td>₩394,575</td></tr></table>
+<div class="callout">专业级价格是助理级的两倍，与专项级同价。每年至少 5 月按汇率更新。来源：<a href="https://aws.amazon.com/certification/policies/before-testing/">考前政策页</a></div>
+<h4>可选语种</h4>
+<p><strong>English、Japanese、Korean、Portuguese (Brazil)、Simplified Chinese（简体中文）、Spanish (Latin America)</strong>。✅ 含简体中文。</p>
+<div class="callout">来源：<a href="https://aws.amazon.com/certification/certified-solutions-architect-professional/">产品页</a></div>
+<h3>三、考试大纲：四大域 + 权重</h3>
+<table><tr><th>域</th><th>名称</th><th>权重</th></tr><tr><td>Domain 1</td><td>为组织级复杂度设计方案 <strong>Design Solutions for Organizational Complexity</strong></td><td>26%</td></tr><tr><td>Domain 2</td><td>为新方案设计 <strong>Design for New Solutions</strong></td><td><strong>29%</strong> 🥇</td></tr><tr><td>Domain 3</td><td>持续改进现有方案 <strong>Continuous Improvement for Existing Solutions</strong></td><td>25%</td></tr><tr><td>Domain 4</td><td>加速迁移与现代化 <strong>Accelerate Workload Migration and Modernization</strong></td><td>20%</td></tr></table>
+<div class="callout">来源：<a href="https://docs.aws.amazon.com/aws-certification/latest/solutions-architect-professional-02/solutions-architect-professional-02.html">官方考试指南</a></div>
+<h4>重难点拆解</h4>
+<ul><li><strong>Domain 2（29%，最大头）</strong>：新方案设计——多账户/Organizations 架构、网络连接策略、安全控制、可靠性与高可用、成本与性能权衡。</li><li><strong>Domain 1（26%）</strong>：跨账户治理、AWS Organizations、SCP、混合/多账户网络与身份联合（federation）。</li><li><strong>Domain 3（25%）</strong>：运营卓越、监控告警、成本/性能/可靠性的持续优化。</li><li><strong>Domain 4（20%）</strong>：迁移策略（6R/7R）、现代化、数据库/应用迁移工具选型。</li></ul>
+<div class="callout">专业级题干又长又绕，常是"多约束权衡"——读题先圈关键约束（成本/合规/运维最少/改动最小）。<strong>Well-Architected Framework 是核心读物。</strong></div>
+<h3>四、报考流程 + OnVUE / 线下 + 改期重考</h3>
+<h4>报名 + 两种考法</h4>
+<p>AWS Certification Account（AWS Builder ID）→ Schedule with Pearson VUE → 线下考点或 OnVUE 居家在线监考（所有 AWS 认证均可在线监考）。OnVUE：自备设备 + 摄像头、安静独立房间、考前系统测试 + 360° 房扫、全程不离镜头。</p>
+<div class="callout">来源：<a href="https://aws.amazon.com/certification/policies/before-testing/">考前政策页</a> · <a href="https://home.pearsonvue.com/aws/onvue">Pearson VUE OnVUE</a></div>
+<h4>改期 / 取消 / 重考</h4>
+<table><tr><th>情况</th><th>规则</th></tr><tr><td>改期</td><td>考前 24 小时前，最多改 2 次</td></tr><tr><td>取消</td><td>考前至少 24 小时，否则考费作废；病/急事凭证明可免</td></tr><tr><td>重考</td><td>未通过等满 <strong>14 个自然日</strong>；次数无上限，每次全额付费（专业级 $300/次，慎重）</td></tr><tr><td>通过后</td><td>同一门 <strong>2 年内不可重考</strong></td></tr></table>
+<div class="callout">来源：<a href="https://aws.amazon.com/certification/policies/before-testing/">考前政策页</a> · <a href="https://aws.amazon.com/certification/policies/after-testing/">考后政策页</a></div>
+<h3>五、证书领取、Credly 查验、有效期与续证</h3>
+<ul><li><strong>出分</strong>：考后约 5 个工作日内进 AWS Certification Account。</li><li><strong>数字徽章</strong>：由 <strong>Credly</strong> 发放，直链可供第三方查验。</li><li><strong>有效期 3 年 + 续证</strong>：到期前重考最新版本即可续。⭐ <strong>专业级的红利</strong>：通过/续过更高级别（即本专业级）的角色认证，<strong>可顺带续展你持有的较低级别角色认证（如 SAA 助理级）</strong>。可用 50% 折扣券。过期证书不可续。</li></ul>
+<div class="callout">来源：<a href="https://aws.amazon.com/certification/policies/recertification/">续证政策</a> · <a href="https://aws.amazon.com/certification/certification-digital-badges/">数字徽章页</a></div>
+<h3>六、官方学习资源 + 备考周期规划</h3>
+<p><strong>🆓 免费（Skill Builder）</strong>：900+ 免费数字课、官方 Exam Guide、官方样题、Official Practice Question Set、Well-Architected Framework 白皮书（专业级核心读物）。 <strong>💳 订阅（约 $29/月、$449/年）</strong>：Official Practice Exam（全真模拟）、动手实验、Digital Classrooms（年付含专家授课）。</p>
+<div class="callout">来源：<a href="https://aws.amazon.com/certification/certification-prep/">官方备考页</a> · <a href="https://aws.amazon.com/training/digital/">Skill Builder</a></div>
+<h4>备考周期参考（非官方承诺）</h4>
+<table><tr><th>底子</th><th>周期</th><th>重点</th></tr><tr><td>已持 SAA + 2 年经验</td><td><strong>6–8 周</strong>，每周 10 小时</td><td>攻 D2（新方案）+ D1（组织级/Organizations/多账户网络）</td></tr><tr><td>直接冲专业级</td><td><strong>8–12 周</strong></td><td>先夯实 Well-Architected 五/六支柱，再按权重攻</td></tr></table>
+<p><strong>节奏</strong>：D2(29%)+D1(26%) 合占 55%，主投；精读 Well-Architected Framework；D3 持续改进、D4 迁移现代化（6R/7R）补齐。考前上官方 Practice Exam，稳定 750 等效水平再约考。</p>
+<h3>🇨🇳 大陆考生专项说明</h3>
+<ul><li><strong>语言</strong>：✅ 可用<strong>简体中文</strong>应考。</li><li><strong>币种</strong>：官方人民币定价 <strong>¥2,113</strong>（专业级，每年 5 月调）；失败重考须再付全额，慎重。</li><li><strong>规则一致</strong>：14 天重考、通过后 2 年不可重考同门、改期最多 2 次且提前 24 小时、3 年有效，全球统一。</li><li><strong>考试方式</strong>：OnVUE 居家对网络与独立环境要求严格，建议考前实测网络；或选线下考点。</li></ul>
+<h3>📎 信源清单（全部官方一手）</h3>
+<ul><li>产品页：https://aws.amazon.com/certification/certified-solutions-architect-professional/</li><li>官方考试指南：https://docs.aws.amazon.com/aws-certification/latest/solutions-architect-professional-02/solutions-architect-professional-02.html</li><li>考前政策与定价（含 CNY）：https://aws.amazon.com/certification/policies/before-testing/</li><li>考后政策：https://aws.amazon.com/certification/policies/after-testing/</li><li>续证政策：https://aws.amazon.com/certification/policies/recertification/</li><li>数字徽章：https://aws.amazon.com/certification/certification-digital-badges/</li><li>备考资源：https://aws.amazon.com/certification/certification-prep/</li></ul>
+<h3>⚠️ 用前必读</h3>
+<ol><li><strong>考费随汇率变</strong>：CNY ¥2,113 为 2026 年 6 月核对值，每年至少 5 月调整。</li><li><strong>无官方薪资数据</strong>：不引用第三方数字。</li><li><strong>版本</strong>：SAP-C02 为现行唯一版本（2026-06 确认）；无强制前置认证。</li><li>计分/不计分题确切拆分以官方考试指南 PDF 为准（产品页确认总题 75）。</li></ol>
+<p>*匠人学院 · AWS 全球考证指南系列 · 专业级 Professional* *本文只做事实整理与备考规划，不承诺考试结果或就业结果。更多课程见 jiangren.com.au*</p>
+  </div>
+</section>
+<aside class="promo">
+  <span class="promo-tag">AD · 自家的</span>
+  <div class="promo-body">
+    <h4>🎬 还没准备好 cohort？先上入门自学课</h4>
+    <p>AI Engineer 入门（RAG 方向）：4 周 52 小时视频 + 25 个浏览器内 Lab + AI Tutor 即时答疑，自己掌握节奏，是 Bootcamp 的官方前置课。</p>
+  </div>
+  <a class="promo-cta" href="https://jiangren.com.au/program-course/ai-engineer-rag" target="_blank" rel="noopener">看课程介绍 →</a>
+</aside>
+
+<section class="ch" id="ch7">
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 07</div>
+        <h2>🔧 DOP-C02 DevOps 工程师专业级</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-working-laptop.png" alt="" />
+    </div>
+<div class="callout">AWS DevOps 工程师专业级 · 现行版本 DOP-C02 全篇只采信 AWS 官方（aws.amazon.com / docs.aws.amazon.com）与 Pearson VUE 官方信息，每个关键数字都带官方来源。培训机构软文、第三方题库站、个人博客一律不采信。 数据核对时点：2026 年 6 月。考费随汇率每年至少调一次，报名前请以官网实时为准。</div>
+<h3>📌 版本与定位</h3>
+<p><strong>DOP-C02 是现行唯一在考的版本。</strong> 旧版 DOP-C01 已于 2023 年 3 月 6 日停考，DOP-C02 自 2023 年 3 月 7 日起沿用至今。<strong>无强制前置认证。</strong></p>
+<div class="callout">来源：<a href="https://aws.amazon.com/blogs/training-and-certification/updated-aws-certified-devops-engineer-professional-registration-now-open/">DOP-C02 上线公告</a> · <a href="https://aws.amazon.com/certification/certified-devops-engineer-professional/">产品页</a></div>
+<p><strong>体系位置</strong>：专业级（Professional），与 SA Professional 同档，是 AWS 认证体系难度顶层。常作为 DVA（开发者）或 SOA（运维）的进阶方向。</p>
+<h3>一、证书定位、适配人群、客观含金量</h3>
+<h4>定位</h4>
+<p>面向 DevOps/SRE/平台工程师，验证在 AWS 上做 <strong>CI/CD 流水线、IaC、监控告警、事件响应、安全合规自动化</strong>的高级能力。</p>
+<h4>适配人群（官方推荐经验）</h4>
+<ul><li><strong>2 年以上</strong> 置备、运维、管理 AWS 环境的经验；</li><li>具备软件开发生命周期与编程/脚本（programming/scripting）背景。</li><li>无强制前置证书，但官方不建议零基础直冲。</li></ul>
+<div class="callout">来源：<a href="https://aws.amazon.com/certification/certified-devops-engineer-professional/">产品页</a></div>
+<h4>含金量 ⚠️</h4>
+<p><strong>AWS 不发布官方薪资数据</strong>，本指南不引用第三方数字、不编造。客观事实：DOP 是 AWS 最高梯队 Professional 级，DevOps/平台工程方向的官方能力背书。</p>
+<h3>二、考试参数</h3>
+<table><tr><th>项目</th><th>内容</th></tr><tr><td><strong>基础考费</strong></td><td><strong>300 USD</strong> / <strong>人民币 ¥2,113</strong></td></tr><tr><td><strong>时长</strong></td><td><strong>180 分钟</strong>（3 小时）</td></tr><tr><td><strong>题量</strong></td><td><strong>75 题</strong>（65 计分 + 10 不计分）</td></tr><tr><td><strong>题型</strong></td><td>单选 / 多选；未答按错算，猜测无惩罚</td></tr><tr><td><strong>及格线</strong></td><td><strong>750</strong>（scaled score 100–1,000；补偿性评分）</td></tr><tr><td><strong>有效期</strong></td><td><strong>3 年</strong></td></tr></table>
+<div class="callout">来源：<a href="https://aws.amazon.com/certification/certified-devops-engineer-professional/">产品页</a> · <a href="https://docs.aws.amazon.com/aws-certification/latest/devops-engineer-professional-02/devops-engineer-professional-02.html">官方考试指南</a> · <a href="https://aws.amazon.com/blogs/training-and-certification/demystifying-your-aws-certification-exam-score/">评分机制博客</a></div>
+<h4>各币种考费（专业级）</h4>
+<table><tr><th>USD</th><th>CNY</th><th>EUR</th><th>AUD</th><th>JPY</th><th>KRW</th></tr><tr><td>$300</td><td><strong>¥2,113</strong></td><td>€256</td><td>$449</td><td>¥40,000</td><td>₩394,575</td></tr></table>
+<div class="callout">每年至少 5 月按汇率更新。来源：<a href="https://aws.amazon.com/certification/policies/before-testing/">考前政策页</a></div>
+<h4>可选语种</h4>
+<p><strong>English、Japanese、Korean、Simplified Chinese（简体中文）</strong>。✅ 含简体中文。</p>
+<div class="callout">来源：<a href="https://aws.amazon.com/certification/certified-devops-engineer-professional/">产品页</a></div>
+<h3>三、考试大纲：六大域 + 权重</h3>
+<table><tr><th>域</th><th>名称</th><th>权重</th></tr><tr><td>Domain 1</td><td>SDLC 自动化 <strong>SDLC Automation</strong></td><td><strong>22%</strong> 🥇</td></tr><tr><td>Domain 2</td><td>配置管理与 IaC <strong>Configuration Management and IaC</strong></td><td>17%</td></tr><tr><td>Domain 3</td><td>弹性云方案 <strong>Resilient Cloud Solutions</strong></td><td>15%</td></tr><tr><td>Domain 4</td><td>监控与日志 <strong>Monitoring and Logging</strong></td><td>15%</td></tr><tr><td>Domain 5</td><td>事件与告警响应 <strong>Incident and Event Response</strong></td><td>14%</td></tr><tr><td>Domain 6</td><td>安全与合规 <strong>Security and Compliance</strong></td><td>17%</td></tr></table>
+<div class="callout">来源：<a href="https://docs.aws.amazon.com/aws-certification/latest/devops-engineer-professional-02/devops-engineer-professional-02.html">官方考试指南</a></div>
+<h4>重难点拆解</h4>
+<ul><li><strong>Domain 1（22%，最大头）</strong>：CI/CD 流水线——CodePipeline / CodeBuild / CodeDeploy（含蓝绿、金丝雀部署 canary）、制品管理、测试自动化集成。</li><li><strong>Domain 2 / 6（各 17%）</strong>：CloudFormation / CDK、Systems Manager、配置漂移、多账号 IaC（D2）；IAM 最小权限、密钥轮换、合规自动化 Config/Security Hub/GuardDuty（D6）。</li><li><strong>Domain 3/4/5</strong>：自愈架构、Auto Scaling、CloudWatch/X-Ray 可观测性、EventBridge 驱动的自动化事件响应。</li></ul>
+<div class="callout">DOP 极重"自动化 + 落地"，几乎每题都问"怎么用代码/流水线把运维自动化"。CodePipeline 全家桶 + CloudFormation 是核心。</div>
+<h3>四、报考流程 + OnVUE / 线下 + 改期重考</h3>
+<h4>报名 + 两种考法</h4>
+<p>AWS Certification Account（AWS Builder ID）→ Schedule with Pearson VUE → 线下考点或 OnVUE 居家。OnVUE：自备设备 + 摄像头、安静独立房间、考前系统测试 + 360° 房扫、全程不离镜头。英语监考 24/7；<strong>中国大陆中文（Mandarin）监考周一至五 8:00–17:00 当地时间</strong>。</p>
+<div class="callout">来源：<a href="https://aws.amazon.com/certification/policies/before-testing/">考前政策页</a> · <a href="https://aws.amazon.com/certification/certification-prep/testing/">排考/OnVUE</a></div>
+<h4>改期 / 取消 / 重考</h4>
+<table><tr><th>情况</th><th>规则</th></tr><tr><td>改期</td><td>考前 24 小时前，最多改 2 次</td></tr><tr><td>取消</td><td>考前至少 24 小时，否则考费作废</td></tr><tr><td>重考</td><td>未通过等满 <strong>14 个自然日</strong>；次数无上限，每次全额付费（$300/次）</td></tr><tr><td>通过后</td><td>同一门 <strong>2 年内不可重考</strong></td></tr></table>
+<div class="callout">来源：<a href="https://aws.amazon.com/certification/policies/before-testing/">考前政策页</a> · <a href="https://aws.amazon.com/certification/policies/after-testing/">考后政策页</a></div>
+<h3>五、证书领取、Credly 查验、有效期与续证</h3>
+<ul><li><strong>出分</strong>：考后约 5 个工作日内进 AWS Certification Account（Exam History 可下载）。</li><li><strong>数字徽章</strong>：由 <strong>Credly</strong> 发放，直链可供第三方查验。</li><li><strong>有效期 3 年 + 续证</strong>：到期前通过最新版同名 Professional 考试即可续；可用 50% 折扣券。过期证书不可续，须重考。</li></ul>
+<div class="callout">来源：<a href="https://aws.amazon.com/certification/recertification/">续证政策</a> · <a href="https://aws.amazon.com/certification/certification-digital-badges/">数字徽章页</a></div>
+<h3>六、官方学习资源 + 备考周期规划</h3>
+<p><strong>🆓 免费（Skill Builder）</strong>：DOP-C02 Exam Prep Plan、官方数字课、官方 Exam Guide、Exam Readiness 课程。 <strong>💳 订阅（约 $29/月起）</strong>：Official Practice Exam / Official Practice Question Set、动手实验。</p>
+<div class="callout">来源：<a href="https://aws.amazon.com/certification/certification-prep/">官方备考页</a> · <a href="https://aws.amazon.com/training/classroom/exam-readiness-aws-certified-devops-engineer-professional/">Exam Readiness 课程</a></div>
+<h4>备考周期参考（非官方承诺）</h4>
+<table><tr><th>底子</th><th>周期</th><th>重点</th></tr><tr><td>已持 DVA/SOA + 2 年经验</td><td><strong>6–8 周</strong>，每周 10 小时</td><td>攻 D1（CI/CD 全家桶）+ D2/D6（IaC、安全合规自动化）</td></tr><tr><td>直接冲专业级</td><td><strong>8–12 周</strong></td><td>先夯实 CodePipeline/CloudFormation/CloudWatch/IAM 实操</td></tr></table>
+<p><strong>节奏</strong>：按权重排序刷课 + 动手（CodePipeline/CloudFormation/CloudWatch/IAM 优先）；考前上官方 Practice Exam，目标 750 等效；大陆考生注意中文监考仅工作日 8:00–17:00，英文场 24/7 更灵活。</p>
+<h3>🇨🇳 大陆考生专项说明</h3>
+<ul><li><strong>语言</strong>：✅ 可用<strong>简体中文</strong>应考；OnVUE 中文监考周一至五 8:00–17:00，英文场 24/7。</li><li><strong>币种</strong>：官方人民币定价 <strong>¥2,113</strong>（专业级，每年 5 月调）。</li><li><strong>规则一致</strong>：14 天重考、通过后 2 年不可重考同门、改期最多 2 次且提前 24 小时、3 年有效，全球统一。</li></ul>
+<h3>📎 信源清单（全部官方一手）</h3>
+<ul><li>产品页：https://aws.amazon.com/certification/certified-devops-engineer-professional/</li><li>官方考试指南：https://docs.aws.amazon.com/aws-certification/latest/devops-engineer-professional-02/devops-engineer-professional-02.html</li><li>版本上线公告：https://aws.amazon.com/blogs/training-and-certification/updated-aws-certified-devops-engineer-professional-registration-now-open/</li><li>考前政策与定价：https://aws.amazon.com/certification/policies/before-testing/</li><li>考后政策：https://aws.amazon.com/certification/policies/after-testing/</li><li>续证政策：https://aws.amazon.com/certification/recertification/</li><li>评分机制博客：https://aws.amazon.com/blogs/training-and-certification/demystifying-your-aws-certification-exam-score/</li><li>备考资源：https://aws.amazon.com/certification/certification-prep/</li></ul>
+<h3>⚠️ 用前必读</h3>
+<ol><li><strong>考费随汇率变</strong>：CNY ¥2,113 为 2026 年 6 月核对值，每年至少 5 月调整。</li><li><strong>无官方薪资数据</strong>：不引用第三方数字。</li><li><strong>版本</strong>：DOP-C02 为现行唯一版本（2026-06 确认）。</li></ol>
+<p>*匠人学院 · AWS 全球考证指南系列 · 专业级 Professional* *本文只做事实整理与备考规划，不承诺考试结果或就业结果。更多课程见 jiangren.com.au*</p>
+  </div>
+
+<a class="promo-line" href="https://jiangren.com.au/job-interview/process" target="_blank" rel="noopener">🎤 面试前刷一遍：各公司真实面经与题库（按轮次整理） <span>→</span></a></section>
+<aside class="promo">
+  <span class="promo-tag">AD · 自家的</span>
+  <div class="promo-body">
+    <h4>💼 简历投不出响？用求职匠过一遍</h4>
+    <p>求职匠 Job Hunter：简历优化 + JD 匹配度分析 + AI 面试模拟。把第 18 章的高信号写法落到你自己的简历上。</p>
+  </div>
+  <a class="promo-cta" href="https://jiangren.com.au/tools/job-hunter" target="_blank" rel="noopener">打开求职匠 →</a>
+</aside>
+
+<section class="ch" id="ch8">
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 08</div>
+        <h2>🔐 SCS-C02→C03 安全专项</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-thinking.png" alt="" />
+    </div>
+<div class="callout">AWS 安全专项级 · ⚠️ <strong>SCS-C02 已退役，现行版本为 SCS-C03</strong>（认证本身仍在售，只是版本迭代） 全篇只采信 AWS 官方（aws.amazon.com / docs.aws.amazon.com）与 Pearson VUE 官方信息，每个关键数字都带官方来源。培训机构软文、第三方题库站、个人博客一律不采信。 数据核对时点：2026 年 6 月。考费随汇率每年至少调一次，报名前请以官网实时为准。</div>
+<h3>🚨 最重要：版本现状（务必先读）</h3>
+<p><strong>SCS-C02 已于 2025 年 12 月 1 日退役，现在报不了。现行版本是 SCS-C03</strong>（2025 年 12 月 2 日起开考）。注意：这次不是整个认证退役，而是<strong>版本升级</strong>——Security – Specialty 认证本身仍在售、仍受官方支持。</p>
+<p>C02 → C03 有实质变化：</p>
+<ul><li><strong>题型扩展</strong>：C03 新增 <strong>Ordering（排序题）</strong> 和 <strong>Matching（匹配题）</strong>（C02 只有单选/多选）。</li><li><strong>域结构重组</strong>（详见模块三）。</li><li><strong>新增考点</strong>：生成式 AI 安全（GenAI OWASP Top 10 for LLM）、OCSF 数据格式、KMS 跨 Region 等。</li></ul>
+<div class="callout"><strong>结论：今天要考报的是 SCS-C03。</strong> 下文以 SCS-C03 为主体，保留 SCS-C02 文件名仅为延续目录编号。 来源：<a href="https://docs.aws.amazon.com/aws-certification/latest/security-specialty-03/security-specialty-03-appendix-b.html">SCS-C03 考纲 附录B（C02/C03 对照）</a> · <a href="https://docs.aws.amazon.com/aws-certification/latest/security-specialty-03/security-specialty-03.html">SCS-C03 官方考试指南</a></div>
+<p><strong>体系位置</strong>：专项级（Specialty），AWS 安全方向最高级别官方认证，面向资深安全/DevSecOps 人员。</p>
+<h3>一、证书定位、适配人群、客观含金量</h3>
+<h4>定位（SCS-C03）</h4>
+<p>面向<strong>有责任保护云解决方案（responsibility to secure cloud solutions）</strong>的人，验证保护 AWS 产品与服务的能力。</p>
+<h4>适配人群（官方推荐经验）</h4>
+<ul><li><strong>相当于 3–5 年保护云解决方案的经验</strong>；</li><li>产品页另表述为：5 年 IT 安全经验 + 2 年以上 AWS 工作负载安全实操。</li><li>要求掌握：共担责任模型、规模化身份管理、多账户治理、软件供应链风险、漏洞管理、3–7 层防火墙规则、事件根因分析、日志监控策略、静态/传输加密、灾备。</li></ul>
+<div class="callout">来源：<a href="https://docs.aws.amazon.com/aws-certification/latest/security-specialty-03/security-specialty-03.html">SCS-C03 官方考试指南</a></div>
+<h4>含金量 ⚠️</h4>
+<p><strong>AWS 不发布官方薪资数据</strong>，本指南不引用第三方数字、不编造。客观事实：这是 AWS 安全方向最高阶专项认证，定位资深安全/云架构人员的官方能力背书。</p>
+<h3>二、考试参数（SCS-C03 现行）</h3>
+<table><tr><th>项目</th><th>内容</th></tr><tr><td><strong>考试代码</strong></td><td><strong>SCS-C03</strong>（SCS-C02 已退役）</td></tr><tr><td><strong>基础考费</strong></td><td><strong>300 USD</strong> / <strong>人民币 ¥2,113</strong></td></tr><tr><td><strong>时长</strong></td><td><strong>170 分钟</strong></td></tr><tr><td><strong>题量</strong></td><td><strong>65 题</strong>（50 计分 + 15 不计分）</td></tr><tr><td><strong>题型</strong></td><td>单选 / 多选 / <strong>排序 Ordering</strong> / <strong>匹配 Matching</strong>（C03 新增后两种）</td></tr><tr><td><strong>及格线</strong></td><td><strong>750</strong>（scaled score 100–1,000；补偿性评分）</td></tr><tr><td><strong>有效期</strong></td><td><strong>3 年</strong></td></tr></table>
+<div class="callout">来源：<a href="https://docs.aws.amazon.com/aws-certification/latest/security-specialty-03/security-specialty-03.html">SCS-C03 官方考试指南</a> · <a href="https://aws.amazon.com/certification/certified-security-specialty/">产品页</a></div>
+<h4>各币种考费（专项级）</h4>
+<table><tr><th>USD</th><th>CNY</th><th>EUR</th><th>AUD</th><th>JPY</th><th>KRW</th></tr><tr><td>$300</td><td><strong>¥2,113</strong></td><td>€256</td><td>$449</td><td>¥40,000</td><td>₩394,575</td></tr></table>
+<div class="callout">每年至少 5 月按汇率更新。来源：<a href="https://aws.amazon.com/certification/policies/before-testing/">考前政策页</a></div>
+<h4>可选语种</h4>
+<p><strong>English、Japanese、Korean、Portuguese (Brazil)、Simplified Chinese（简体中文）、Spanish (Latin America)</strong>。✅ 含简体中文。</p>
+<div class="callout">来源：<a href="https://aws.amazon.com/certification/certified-security-specialty/">产品页</a></div>
+<h3>三、考试大纲：六大域 + 权重（SCS-C03）</h3>
+<table><tr><th>域</th><th>名称</th><th>权重</th></tr><tr><td>Domain 1</td><td>检测 <strong>Detection</strong></td><td>16%</td></tr><tr><td>Domain 2</td><td>事件响应 <strong>Incident Response</strong></td><td>14%</td></tr><tr><td>Domain 3</td><td>基础设施安全 <strong>Infrastructure Security</strong></td><td>18%</td></tr><tr><td>Domain 4</td><td>身份与访问管理 <strong>Identity and Access Management</strong></td><td><strong>20%</strong> 🥇</td></tr><tr><td>Domain 5</td><td>数据保护 <strong>Data Protection</strong></td><td>18%</td></tr><tr><td>Domain 6</td><td>安全基础与治理 <strong>Security Foundations and Governance</strong></td><td>14%</td></tr></table>
+<div class="callout">来源：<a href="https://docs.aws.amazon.com/aws-certification/latest/security-specialty-03/security-specialty-03.html">SCS-C03 官方考试指南</a></div>
+<h4>重难点拆解</h4>
+<ul><li><strong>核心三高权重 = IAM(20%) + 基础设施安全(18%) + 数据保护(18%)，合占 56%</strong>，是复习重心：IAM 策略与最小权限、网络隔离与防火墙、KMS 加密。</li><li><strong>C03 新增重难点</strong>：生成式 AI 应用防护（GenAI OWASP Top 10 for LLM）、OCSF 格式数据摄取与第三方 WAF、EMR/EKS/SageMaker/Nitro 节点间加密、CloudWatch Logs / SNS 数据脱敏、KMS 跨 Region CMK 与 Private CA。</li><li>适应 C03 新题型（排序 / 匹配）。</li></ul>
+<h3>四、报考流程 + OnVUE / 线下 + 改期重考</h3>
+<h4>报名 + 两种考法</h4>
+<p>AWS Certification Account（AWS Builder ID）→ Schedule with Pearson VUE → 线下考点或 OnVUE 居家（所有 AWS 认证均可在线监考）。OnVUE：考前系统测试、提前 30 分钟 check-in，迟到超 15 分钟或系统测试不过则无法开考；全程不得离开摄像头视野（含上厕所）。</p>
+<div class="callout">来源：<a href="https://aws.amazon.com/certification/policies/before-testing/">考前政策页</a> · <a href="https://aws.amazon.com/certification/policies/during-testing/">考试中政策</a> · <a href="https://home.pearsonvue.com/aws/onvue">Pearson VUE OnVUE</a></div>
+<h4>改期 / 取消 / 重考</h4>
+<table><tr><th>情况</th><th>规则</th></tr><tr><td>改期</td><td>考前 24 小时前，最多改 2 次</td></tr><tr><td>取消</td><td>考前至少 24 小时，否则考费作废</td></tr><tr><td>重考</td><td>未通过等满 <strong>14 个自然日</strong>；次数无上限，每次全额付费（$300/次）</td></tr><tr><td>通过后</td><td>同一版本 <strong>2 年内不可重考</strong>（若已出新版/新代码则可考新版）</td></tr><tr><td>ESL 加时</td><td>非英语母语者用英语考可申请 <strong>+30 分钟</strong>（用简体中文考则不需要）</td></tr></table>
+<div class="callout">来源：<a href="https://aws.amazon.com/certification/policies/before-testing/">考前政策页</a> · <a href="https://aws.amazon.com/certification/policies/retaking-exams/">重考政策</a></div>
+<h3>五、证书领取、Credly 查验、有效期与续证</h3>
+<ul><li><strong>数字徽章</strong>：由 <strong>Credly</strong> 发放与查验（领取入口现整合在 AWS Certification Account 与 Credly）。</li><li><strong>有效期 3 年 + 续证</strong>：<strong>必须在到期前重考该认证对应的现行版本考试</strong>（现为 SCS-C03）。⚠️ <strong>专项级不能靠考更高级别证书续证</strong>（该豁免只给 Foundational/Associate）；也<strong>不接受继续教育学分</strong>续证。可用 50% 折扣券。</li></ul>
+<div class="callout">来源：<a href="https://aws.amazon.com/certification/policies/recertification/">续证政策</a></div>
+<h3>六、官方学习资源 + 备考周期规划</h3>
+<p><strong>🆓 免费（Skill Builder）</strong>：Official Practice Question Set（20 题）、Exam Prep Course（约 2 小时）、4 步 Exam Prep Plan、Cloud Quest。 <strong>💳 订阅（约 $29/月起）</strong>：Official Practice Exam（全真模拟）、Enhanced Exam Prep Course（6–8 小时含动手实验）。</p>
+<div class="callout">来源：<a href="https://aws.amazon.com/certification/certification-prep/">官方备考页</a> · <a href="https://aws.amazon.com/certification/certified-security-specialty/">产品页</a></div>
+<h4>备考周期参考（非官方承诺）</h4>
+<table><tr><th>底子</th><th>周期</th><th>重点</th></tr><tr><td>有 3–5 年安全经验</td><td><strong>6–8 周</strong>，每周 10 小时</td><td>攻 IAM(20%)+基础设施(18%)+数据保护(18%)，动手 KMS/IAM/GuardDuty/Security Hub/WAF</td></tr><tr><td>安全经验偏少</td><td><strong>8–12 周</strong></td><td>先补共担责任模型 + 网络安全基础</td></tr></table>
+<p><strong>节奏</strong>：先做免费 20 题摸底 + 读考纲附录B 了解 C03 新增（GenAI/OCSF/KMS 跨域）；按权重攻三高权重域；专门练排序/匹配新题型；考前上官方 Practice Exam，稳定 750+。</p>
+<h3>🇨🇳 大陆考生专项说明</h3>
+<ul><li><strong>只报 SCS-C03</strong>（C02 已于 2025-12-01 退役）。</li><li><strong>语言</strong>：✅ 可用<strong>简体中文</strong>应考。</li><li><strong>币种</strong>：官方人民币定价 <strong>¥2,113</strong>（专项级，每年 5 月调）；CNY 也出现在官方代金券汇率条款中。</li><li><strong>规则一致</strong>：14 天重考、通过后 2 年不可重考同版本、改期最多 2 次且提前 24 小时、3 年有效，全球统一。</li><li><strong>考试方式</strong>：OnVUE 全程无休息且对网络/独立房间要求高，大陆考生建议优先评估网络稳定性或选线下考点。</li></ul>
+<h3>📎 信源清单（全部官方一手）</h3>
+<ul><li>产品页：https://aws.amazon.com/certification/certified-security-specialty/</li><li>SCS-C03 官方考试指南：https://docs.aws.amazon.com/aws-certification/latest/security-specialty-03/security-specialty-03.html</li><li>C02/C03 对照 附录B：https://docs.aws.amazon.com/aws-certification/latest/security-specialty-03/security-specialty-03-appendix-b.html</li><li>考前政策与定价：https://aws.amazon.com/certification/policies/before-testing/</li><li>考试中政策：https://aws.amazon.com/certification/policies/during-testing/</li><li>重考政策：https://aws.amazon.com/certification/policies/retaking-exams/</li><li>续证政策：https://aws.amazon.com/certification/policies/recertification/</li><li>备考资源：https://aws.amazon.com/certification/certification-prep/</li></ul>
+<h3>⚠️ 用前必读</h3>
+<ol><li><strong>版本</strong>：SCS-C02 已于 2025-12-01 退役；现行为 <strong>SCS-C03</strong>（新增排序/匹配题型 + GenAI 等新考点）。本文以 SCS-C03 为准。</li><li><strong>考费随汇率变</strong>：CNY ¥2,113 为 2026 年 6 月核对值。</li><li><strong>无官方薪资数据</strong>：不引用第三方数字。</li><li><strong>续证</strong>：专项级只能靠重考现行版续，不能用更高级别证书或继续教育学分。</li></ol>
+<p>*匠人学院 · AWS 全球考证指南系列 · 专项级 Specialty* *本文只做事实整理与备考规划，不承诺考试结果或就业结果。更多课程见 jiangren.com.au*</p>
+  </div>
+</section>
+
+<section class="ch" id="ch9">
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 09</div>
+        <h2>🌐 ANS-C01 高级网络专项（即将停考）</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-chart.png" alt="" />
+    </div>
+<div class="callout">AWS 高级网络专项级 · ⚠️ <strong>现行但即将退役：最后可考日 2026 年 8 月 25 日</strong> 全篇只采信 AWS 官方（aws.amazon.com / docs.aws.amazon.com）与 Pearson VUE 官方信息，每个关键数字都带官方来源。培训机构软文、第三方题库站、个人博客一律不采信。 数据核对时点：2026 年 6 月。考费随汇率每年至少调一次，报名前请以官网实时为准。</div>
+<h3>🚨 最重要：即将停考（务必先读）</h3>
+<p><strong>ANS-C01 仍是现行版本，但 AWS 已官宣退役：最后可考日 2026 年 8 月 25 日。</strong> 距今（2026-06）仅约 2 个月。</p>
+<ul><li>官方原文："The last day to take the exam is <strong>August 25, 2026</strong>."</li><li>"Certifications earned prior to the retirement... will remain active for the standard three-year period."（退役前已取得的证书 3 年内继续有效）</li><li>"New... certifications will not be issued after the retirement."（退役后不再签发新证书）</li><li><strong>目前没有官方公布的 ANS-C02 接替版本。</strong></li></ul>
+<div class="callout"><strong>想考必须在 2026-08-25 前完成首考，并预留至少 14 天缓冲以防重考。</strong> 来源：<a href="https://aws.amazon.com/certification/certified-advanced-networking-specialty/">产品页</a></div>
+<p><strong>体系位置</strong>：专项级（Specialty），AWS 网络方向最高阶认证。这是"专项级退役潮"的一部分（Data Analytics、Database、SAP on AWS、Machine Learning 等已先后退役）。</p>
+<h3>一、证书定位、适配人群、客观含金量</h3>
+<h4>定位</h4>
+<p>验证在<strong>规模化场景下设计、实施、管理、保护 AWS 及混合网络架构</strong>的能力。</p>
+<h4>适配人群（官方推荐经验）</h4>
+<ul><li><strong>5 年以上网络经验</strong>，含 <strong>2 年以上云与混合网络经验</strong>。</li><li>应熟悉 AWS 网络细节、安全最佳实践、计算/存储选项及一致性模型。</li></ul>
+<div class="callout">来源：<a href="https://docs.aws.amazon.com/aws-certification/latest/advanced-networking-specialty-01/advanced-networking-specialty-01.html">官方考试指南</a></div>
+<h4>含金量 ⚠️</h4>
+<p><strong>AWS 不发布官方薪资数据</strong>，本指南不引用第三方数字、不编造。客观事实：这是 AWS 难度最高级别之一，覆盖 IP VPN、MPLS、路由协议、多区域方案、WAF/IDS/IPS/DDoS 防护等复杂网络任务。⚠️ <strong>但因已定 2026-08-25 退役、且无接替版本，新考生投入的边际价值需谨慎评估</strong>（见模块五续证不确定性）。</p>
+<h3>二、考试参数</h3>
+<table><tr><th>项目</th><th>内容</th></tr><tr><td><strong>基础考费</strong></td><td><strong>300 USD</strong> / <strong>人民币 ¥2,113</strong></td></tr><tr><td><strong>时长</strong></td><td><strong>170 分钟</strong></td></tr><tr><td><strong>题量</strong></td><td><strong>65 题</strong>（50 计分 + 15 不计分）</td></tr><tr><td><strong>题型</strong></td><td>多选 multiple response / <strong>匹配 Matching</strong>（3–7 个 prompt 配对）</td></tr><tr><td><strong>及格线</strong></td><td><strong>700</strong>（见下方说明；scaled score 100–1,000；补偿性评分）</td></tr><tr><td><strong>有效期</strong></td><td><strong>3 年</strong></td></tr></table>
+<div class="callout">来源：<a href="https://aws.amazon.com/certification/certified-advanced-networking-specialty/">产品页</a> · <a href="https://docs.aws.amazon.com/aws-certification/latest/advanced-networking-specialty-01/advanced-networking-specialty-01.html">官方考试指南</a></div>
+<h4>⚠️ 及格线口径并列（官方两处不一致）</h4>
+<ul><li><strong>ANS-C01 专属考试指南明确写 700</strong>："The minimum passing score is <strong>700</strong>."</li><li>AWS 通用政策页写专项级 <strong>750</strong>。</li><li>两者均为官方。<strong>专属考试指南是该考试的权威一手信源，应以 700 为准</strong>（通用政策页可能未及时同步该专项的具体值）。</li></ul>
+<div class="callout">来源：<a href="https://docs.aws.amazon.com/aws-certification/latest/advanced-networking-specialty-01/advanced-networking-specialty-01.html">官方考试指南（700）</a> · <a href="https://aws.amazon.com/certification/policies/after-testing/">考后政策页（750）</a></div>
+<h4>各币种考费（专项级）</h4>
+<table><tr><th>USD</th><th>CNY</th><th>EUR</th><th>AUD</th><th>JPY</th><th>KRW</th></tr><tr><td>$300</td><td><strong>¥2,113</strong></td><td>€256</td><td>$449</td><td>¥40,000</td><td>₩394,575</td></tr></table>
+<div class="callout">每年至少 5 月按汇率更新。来源：<a href="https://aws.amazon.com/certification/policies/before-testing/">考前政策页</a></div>
+<h4>可选语种</h4>
+<p><strong>English、Japanese、Korean、Simplified Chinese（简体中文）</strong>。✅ 含简体中文。</p>
+<div class="callout">来源：<a href="https://aws.amazon.com/certification/certified-advanced-networking-specialty/">产品页</a></div>
+<h3>三、考试大纲：四大域 + 权重</h3>
+<table><tr><th>域</th><th>名称</th><th>权重</th></tr><tr><td>Domain 1</td><td>网络设计 <strong>Network Design</strong></td><td><strong>30%</strong> 🥇</td></tr><tr><td>Domain 2</td><td>网络实施 <strong>Network Implementation</strong></td><td>26%</td></tr><tr><td>Domain 3</td><td>网络管理与运维 <strong>Network Management and Operation</strong></td><td>20%</td></tr><tr><td>Domain 4</td><td>网络安全、合规与治理 <strong>Network Security, Compliance, and Governance</strong></td><td>24%</td></tr></table>
+<div class="callout">来源：<a href="https://docs.aws.amazon.com/aws-certification/latest/advanced-networking-specialty-01/advanced-networking-specialty-01.html">官方考试指南</a></div>
+<h4>重难点拆解</h4>
+<ul><li><strong>Domain 1+2（合占 56%）是重心</strong>：混合与云网络方案设计——Direct Connect、VPN、Transit Gateway、多区域互联、VPC、路由、DNS/Route 53，以及按最佳实践实施与自动化部署（IaC）。</li><li><strong>Domain 4（24%）</strong>：网络安全构件——AWS WAF、IDS/IPS、DDoS（Shield）防护、IP VPN、MPLS、路由协议。</li><li><strong>Domain 3（20%）</strong>：网络监控运维与连通性排障。</li></ul>
+<h3>四、报考流程 + OnVUE / 线下 + 改期重考</h3>
+<h4>报名 + 两种考法</h4>
+<p>AWS Certification Account（AWS Builder ID）→ Schedule New Exam → Schedule with Pearson VUE → 选线下考点或 OnVUE 居家。OnVUE：自备设备 + 摄像头、安静独立房间、系统测试 + 房扫、全程不离镜头。英语监考 24/7；<strong>中国大陆中文（Mandarin）监考周一至五 8:00–17:00</strong>。</p>
+<div class="callout">来源：<a href="https://aws.amazon.com/certification/policies/before-testing/">考前政策页</a></div>
+<h4>改期 / 取消 / 重考</h4>
+<table><tr><th>情况</th><th>规则</th></tr><tr><td>改期</td><td>考前 24 小时前，最多改 2 次</td></tr><tr><td>取消</td><td>考前至少 24 小时，否则考费作废</td></tr><tr><td>重考</td><td>未通过等满 <strong>14 个自然日</strong>；次数无上限，每次全额付费（$300/次）</td></tr><tr><td>通过后</td><td>同一门 <strong>2 年内不可重考</strong></td></tr></table>
+<div class="callout">⚠️ 因 2026-08-25 停考，<strong>重考窗口有限</strong>：若临近截止首考失败，可能没有 14 天后再考的机会。请尽早首考。 来源：<a href="https://aws.amazon.com/certification/policies/before-testing/">考前政策页</a> · <a href="https://aws.amazon.com/certification/policies/after-testing/">考后政策页</a></div>
+<h3>五、证书领取、Credly 查验、有效期与续证</h3>
+<ul><li><strong>出分</strong>：考后约 5 个工作日内进 AWS Certification Account。</li><li><strong>数字徽章</strong>：AWS 数字徽章经由 Credly 平台发放与查验（本认证产品页未单独展开徽章发放细节，但为 AWS 通用机制）。</li><li><strong>有效期 3 年</strong>。</li><li>⚠️ <strong>续证不确定性（本证最大风险）</strong>：因 ANS-C01 于 2026-08-25 停考且<strong>无已公布接替版本</strong>，到期后<strong>可能无法通过"重考同名考试"续证</strong>。需关注 AWS 是否推出新网络专项或改走其他认证路径。</li></ul>
+<div class="callout">来源：<a href="https://aws.amazon.com/certification/recertification/">续证政策</a> · <a href="https://aws.amazon.com/certification/certified-advanced-networking-specialty/">产品页</a></div>
+<h3>六、官方学习资源 + 备考周期规划</h3>
+<p><strong>官方资源（Skill Builder）</strong>：</p>
+<ul><li><strong>🆓 免费</strong>：官方 Exam Guide、<strong>Official Practice Question Set: ANS-C01</strong>（20 题，AWS 自研、带反馈，可乱序重练）、部分数字课程、Exam Prep Plan（3 步计划）。</li><li><strong>💳 订阅</strong>：Builder Labs 动手实验、完整 Exam Prep 增强版、Cloud Quest/Jam 高级内容。</li></ul>
+<div class="callout">来源：<a href="https://aws.amazon.com/certification/certification-prep/">官方备考页</a> · <a href="https://skillbuilder.aws/category/exam-prep/advanced-networking-specialty-ANS-C01">Skill Builder ANS-C01 备考专区</a></div>
+<h4>备考周期规划（倒推 2026-08-25 截止）</h4>
+<ol><li><strong>第 1–2 周（基线）</strong>：精读官方 Exam Guide（4 域 + 任务陈述 + in/out-of-scope 服务清单），做免费 20 题摸底。</li><li><strong>第 3–5 周（攻 D1+D2，占 56%）</strong>：VPC / Transit Gateway / Direct Connect / VPN / Route 53 设计与实施，配合 Builder Labs 动手。</li><li><strong>第 6–7 周（D3+D4，占 44%）</strong>：网络监控运维 + 安全合规（WAF/Shield/IDS-IPS/NACL/SG/防火墙）。</li><li><strong>考前 1 周</strong>：flashcards 复盘 + 重做练习题 + 预约 OnVUE（简体中文卷面 + 普通话监考时段）。</li><li><strong>务必在 2026-08-25 前完成首考</strong>，预留至少 14 天缓冲。</li></ol>
+<h3>🇨🇳 大陆考生专项说明</h3>
+<ul><li><strong>如要考，须在 2026-08-25 前完成</strong>（之后停考，无接替版本）。</li><li><strong>语言</strong>：✅ 可用<strong>简体中文</strong>卷面 + 普通话居家监考（周一至五 8:00–17:00）。</li><li><strong>币种</strong>：官方人民币定价 <strong>¥2,113</strong>（专项级，每年 5 月调）。</li><li><strong>规则一致</strong>：14 天重考、通过后 2 年不可重考同门、改期最多 2 次且提前 24 小时、3 年有效，全球统一。</li><li><strong>理性建议</strong>：鉴于停考 + 续证不确定，若非近期网络岗位刚需，可评估是否转向其他现行认证。</li></ul>
+<h3>📎 信源清单（全部官方一手）</h3>
+<ul><li>产品页（含退役公告）：https://aws.amazon.com/certification/certified-advanced-networking-specialty/</li><li>官方考试指南：https://docs.aws.amazon.com/aws-certification/latest/advanced-networking-specialty-01/advanced-networking-specialty-01.html</li><li>考前政策与定价：https://aws.amazon.com/certification/policies/before-testing/</li><li>考后政策：https://aws.amazon.com/certification/policies/after-testing/</li><li>续证政策：https://aws.amazon.com/certification/recertification/</li><li>Skill Builder 备考专区：https://skillbuilder.aws/category/exam-prep/advanced-networking-specialty-ANS-C01</li></ul>
+<h3>⚠️ 用前必读</h3>
+<ol><li><strong>即将停考</strong>：ANS-C01 最后可考日 <strong>2026-08-25</strong>，无接替版本；想考从速。</li><li><strong>及格线 700 vs 750</strong>：以专属考试指南的 <strong>700</strong> 为准（官方两处口径不一，已并列说明）。</li><li><strong>续证有不确定性</strong>：停考后续证路径未定，投入需谨慎。</li><li><strong>无官方薪资数据</strong>：不引用第三方数字。</li></ol>
+<p>*匠人学院 · AWS 全球考证指南系列 · 专项级 Specialty（即将退役）* *本文只做事实整理与备考规划，不承诺考试结果或就业结果。更多课程见 jiangren.com.au*</p>
+  </div>
+</section>
+
+<section class="ch" id="ch10">
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 10</div>
+        <h2>📊 DAS-C01→DEA 数据分析专项（已退役）</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-data.png" alt="" />
+    </div>
+<div class="callout">AWS 数据分析专项级 · 🛑 <strong>DAS-C01 已彻底退役，无法再报考</strong> 官方替代认证：<strong>AWS Certified Data Engineer – Associate（DEA-C01，助理级）</strong> 全篇只采信 AWS 官方（aws.amazon.com / docs.aws.amazon.com）信息，每个关键数字都带官方来源。培训机构软文、第三方题库站、个人博客一律不采信。 数据核对时点：2026 年 6 月。</div>
+<h3>🛑 最重要：这张证已经停考了</h3>
+<p><strong>DAS-C01 已于 2024 年 4 月 8 日退役，现在报不了名、考不了、也无法续证。</strong></p>
+<table><tr><th>项目</th><th>官方确认</th></tr><tr><td>是否退役</td><td><strong>是，已退役</strong></td></tr><tr><td>最后可考日</td><td><strong>2024 年 4 月 8 日</strong></td></tr><tr><td>Skill Builder 备考资料</td><td>同日下架（练习题集 / 模拟考 / Exam Prep 课程）</td></tr><tr><td>已持证者</td><td>退役前已获证者，<strong>自获证起 3 年内仍有效</strong>，可继续展示 Credly 徽章</td></tr><tr><td>退役后能否续证</td><td><strong>不能</strong>（AWS 不再提供此考试）</td></tr></table>
+<div class="callout">同批退役的还有 Database – Specialty 和 SAP on AWS – Specialty。 来源：<a href="https://aws.amazon.com/blogs/training-and-certification/aws-certification-retirements-and-launches/">AWS 认证退役与上线公告</a></div>
+<h4>官方指定的替代方向：DEA-C01</h4>
+<p>AWS 把数据方向从"专项级 Data Analytics"重组为"<strong>助理级 Data Engineer（DEA-C01）</strong>"，自 <strong>2024 年 3 月 12 日</strong>起可报考。<strong>想走数据方向的大陆考生应直接转向 DEA-C01。</strong></p>
+<div class="callout">替代认证产品页：https://aws.amazon.com/certification/certified-data-engineer-associate/</div>
+<h3>DAS-C01 退役前信息说明（诚实声明）</h3>
+<p>⚠️ DAS-C01 的官方认证页与考纲已随退役<strong>下架</strong>，价格/题量/域权重等参数在 AWS 官方现存页面已<strong>不再可查</strong>。按本指南信源铁律（不引用第三方/题库站补全），这些项一律标注 <strong>"无官方现存信息"</strong>，不编造：</p>
+<ol><li>定位 / 适配人群 —— 无官方现存信息</li><li>价格 / 时长 / 题量 / 及格线 / 语种 —— 无官方现存信息</li><li>域权重 / 重难点 —— 无官方现存信息</li><li>报考与重考规则 —— 仅存：最后可考日 2024-04-08，退役后不可报考、不可续证</li><li>证书领取 / 续证 —— 仅存：已持证者 3 年有效；退役后无法续证</li><li>官方学习资源 —— 已于 2024-04-08 下架</li></ol>
+<div class="callout">来源：<a href="https://aws.amazon.com/blogs/training-and-certification/aws-certification-retirements-and-launches/">AWS 认证退役与上线公告</a></div>
+<h3>替代认证完整指南：AWS Certified Data Engineer – Associate（DEA-C01）</h3>
+<p>下文按 6 模块给出 DEA-C01 的官方信息，供大陆考生转向参考。</p>
+<h3>一、证书定位、适配人群、客观含金量</h3>
+<ul><li><strong>定位</strong>：助理级（Associate）数据工程认证，验证在 AWS 上做数据摄取、转换、存储、运维与治理的能力。</li><li><strong>适配人群</strong>（官方推荐经验）：相当于 <strong>2–3 年数据工程经验</strong> + <strong>1–2 年 AWS 服务实操经验</strong>。</li><li><strong>含金量</strong>：<strong>AWS 不发布官方薪资数据</strong>，不引用第三方、不编造。客观事实：它是 AWS 数据方向当前的官方助理级能力背书，取代了已退役的 DAS-C01。</li></ul>
+<div class="callout">来源：<a href="https://aws.amazon.com/certification/certified-data-engineer-associate/">DEA-C01 产品页</a> · <a href="https://docs.aws.amazon.com/aws-certification/latest/data-engineer-associate-01/data-engineer-associate-01.html">DEA-C01 官方文档</a></div>
+<h3>二、考试参数</h3>
+<table><tr><th>项目</th><th>内容</th></tr><tr><td><strong>考试代码</strong></td><td><strong>DEA-C01</strong></td></tr><tr><td><strong>基础考费</strong></td><td><strong>150 USD</strong> / <strong>人民币 ¥1,057</strong>（助理级）</td></tr><tr><td><strong>时长</strong></td><td><strong>130 分钟</strong></td></tr><tr><td><strong>题量</strong></td><td><strong>65 题</strong>（50 计分 + 15 不计分）</td></tr><tr><td><strong>题型</strong></td><td>单选 / 多选</td></tr><tr><td><strong>及格线</strong></td><td><strong>720</strong>（scaled score 100–1,000；补偿性评分）</td></tr><tr><td><strong>有效期</strong></td><td><strong>3 年</strong></td></tr></table>
+<div class="callout">来源：<a href="https://docs.aws.amazon.com/aws-certification/latest/data-engineer-associate-01/data-engineer-associate-01.html">DEA-C01 官方文档</a> · <a href="https://aws.amazon.com/certification/policies/before-testing/">考前政策页</a> 说明：及格线官方文档检索返回 720（助理级标准值）；一处官方搜索摘要曾出现 750，以 <a href="https://docs.aws.amazon.com/pdfs/aws-certification/latest/data-engineer-associate-01/data-engineer-associate-01.pdf">DEA-C01 官方考试指南 PDF</a> 的 Scoring 章节原文为最终准绳。 语种：官方确认提供多语种本地化版本，但本轮未抓到完整语种清单原文，<strong>不列举全集以免编造</strong>——以产品页报名环节为准。</div>
+<h3>三、考试大纲：四大域 + 权重</h3>
+<table><tr><th>域</th><th>名称</th><th>权重</th></tr><tr><td>Domain 1</td><td>数据摄取与转换 <strong>Data Ingestion and Transformation</strong></td><td><strong>34%</strong> 🥇</td></tr><tr><td>Domain 2</td><td>数据存储管理 <strong>Data Store Management</strong></td><td>26%</td></tr><tr><td>Domain 3</td><td>数据运维与支持 <strong>Data Operations and Support</strong></td><td>22%</td></tr><tr><td>Domain 4</td><td>数据安全与治理 <strong>Data Security and Governance</strong></td><td>18%</td></tr></table>
+<div class="callout">来源：<a href="https://docs.aws.amazon.com/aws-certification/latest/examguides/data-engineer-associate-01.html">DEA-C01 官方考试指南</a> · <a href="https://docs.aws.amazon.com/pdfs/aws-certification/latest/data-engineer-associate-01/data-engineer-associate-01.pdf">PDF</a></div>
+<p><strong>重点</strong>：D1（34%）数据摄取转换——Glue、Kinesis、Lambda、EMR 等管道；D2 数据存储选型；D3 编排监控；D4 加密治理。</p>
+<h3>四、报考 / 五、领证续证 / 六、学习资源</h3>
+<p>DEA-C01 作为标准助理级认证，<strong>报考流程、OnVUE 居家/线下、改期取消重考规则、Credly 徽章、3 年有效期与续证、Skill Builder 免费/订阅资源</strong>均与其他助理级一致：</p>
+<ul><li>报考：AWS Certification Account（AWS Builder ID）→ Schedule with Pearson VUE → 线下或 OnVUE。</li><li>改期：考前 24 小时前、最多 2 次；取消：考前至少 24 小时否则作废；重考：等 14 天、不限次、每次全额、通过后 2 年不可重考同门。</li><li>续证：3 年，重考最新版或考更高级别。</li><li>学习：Skill Builder 免费（Exam Prep Plan + 20 题练习集 + 免费课）+ 订阅（全真模拟 + 实验）。</li></ul>
+<div class="callout">详细规则与其他助理级文档（如 DVA-C02）完全相同，参见 <a href="https://aws.amazon.com/certification/policies/before-testing/">考前政策页</a>、<a href="https://aws.amazon.com/certification/recertification/">续证政策</a>、<a href="https://aws.amazon.com/certification/certification-prep/">备考页</a>。</div>
+<h3>🇨🇳 大陆考生专项说明</h3>
+<ul><li><strong>DAS-C01 别再准备了</strong>（已停考），直接备考 <strong>DEA-C01</strong>。</li><li><strong>币种</strong>：DEA-C01 官方人民币定价 <strong>¥1,057</strong>（助理级）。</li><li><strong>语言</strong>：DEA-C01 提供多语种本地化（含中文应以报名页确认为准）。</li><li><strong>规则</strong>：与全球助理级一致。</li></ul>
+<h3>📎 信源清单（全部官方一手）</h3>
+<ul><li>认证退役与上线公告（DAS-C01 退役权威信源）：https://aws.amazon.com/blogs/training-and-certification/aws-certification-retirements-and-launches/</li><li>DAS-C01 原认证页（已退役）：https://aws.amazon.com/certification/certified-data-analytics-specialty/</li><li>替代认证 DEA-C01 产品页：https://aws.amazon.com/certification/certified-data-engineer-associate/</li><li>DEA-C01 官方文档：https://docs.aws.amazon.com/aws-certification/latest/data-engineer-associate-01/data-engineer-associate-01.html</li><li>DEA-C01 官方考试指南 PDF：https://docs.aws.amazon.com/pdfs/aws-certification/latest/data-engineer-associate-01/data-engineer-associate-01.pdf</li></ul>
+<h3>⚠️ 用前必读</h3>
+<ol><li><strong>DAS-C01 已于 2024-04-08 退役</strong>，不可报考、不可续证。本文主体为官方替代认证 <strong>DEA-C01</strong>。</li><li><strong>DAS-C01 退役前细节</strong>大量标注"无官方现存信息"——因官方页面已下架，且本指南禁止用第三方补全。</li><li><strong>无官方薪资数据</strong>：不引用第三方数字。</li><li>DEA-C01 及格线（720 vs 750）与完整语种清单以官方 PDF / 产品页报名页为最终准绳。</li></ol>
+<p>*匠人学院 · AWS 全球考证指南系列 · 专项级 Specialty（已退役，转向 Data Engineer Associate）* *本文只做事实整理与备考规划，不承诺考试结果或就业结果。更多课程见 jiangren.com.au*</p>
+  </div>
+</section>
+<aside class="promo">
+  <span class="promo-tag">AD · 自家的</span>
+  <div class="promo-body">
+    <h4>🧪 10 分钟测出你的 AI Engineer 缺口</h4>
+    <p>官网的 77 项能力自测（五大支柱逐项点选），已有 2,300+ 人做过。测完直接看出你该补哪根柱子，免费不用注册。</p>
+  </div>
+  <a class="promo-cta" href="https://jiangren.com.au/learn/ai-engineer" target="_blank" rel="noopener">去做测试 →</a>
+</aside>
+
+<section class="ch" id="ch11">
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 11</div>
+        <h2>🤖 MLS-C01→MLA 机器学习专项（已退役）</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-pen-book.png" alt="" />
+    </div>
+<div class="callout">AWS 机器学习专项级 · 🛑 <strong>MLS-C01 已退役，无法再报考</strong> 官方替代认证：<strong>AWS Certified Machine Learning Engineer – Associate（MLA-C01）</strong> 为主，<strong>AWS Certified AI Practitioner（AIF-C01）</strong> 为入门 全篇只采信 AWS 官方（aws.amazon.com / docs.aws.amazon.com）信息，每个关键数字都带官方来源。培训机构软文、第三方题库站、个人博客一律不采信。 数据核对时点：2026 年 6 月。</div>
+<h3>🛑 最重要：这张证已经停考了</h3>
+<p><strong>MLS-C01 已于 2026 年 3 月 31 日退役（最后可考日），现在报不了名。</strong></p>
+<ul><li>官方原文："The last date to take this exam will be <strong>March 31, 2026</strong>."</li><li>已持证者："certification will remain active through the original expiration date."（按原 3 年有效期继续有效）</li></ul>
+<div class="callout">来源：<a href="https://aws.amazon.com/blogs/training-and-certification/big-news-aws-expands-ai-certification-portfolio-and-updates-security-certification/">AWS 扩展 AI 认证体系 + 安全认证更新公告</a></div>
+<h4>官方指定的转向方向</h4>
+<p>AWS 把 AI/ML 方向重组为新认证体系，官方列出的迁移路径：</p>
+<table><tr><th>替代认证</th><th>级别</th><th>说明</th></tr><tr><td><strong>AWS Certified Machine Learning Engineer – Associate（MLA-C01）</strong></td><td>助理级</td><td><strong>最直接的接棒者</strong>，ML 工程方向</td></tr><tr><td><strong>AWS Certified AI Practitioner（AIF-C01）</strong></td><td>入门级</td><td>AI/ML 通识，门槛最低，语种覆盖最广</td></tr><tr><td>AWS Certified Data Engineer – Associate（DEA-C01）</td><td>助理级</td><td>数据工程方向</td></tr></table>
+<div class="callout"><strong>想走 ML 方向的大陆考生应直接转向 MLA-C01。</strong> 来源：<a href="https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/">MLA-C01 产品页</a> · <a href="https://aws.amazon.com/certification/certified-ai-practitioner/">AIF-C01 产品页</a></div>
+<h3>MLS-C01 退役前信息（历史参考）</h3>
+<p>MLS-C01 官方产品页已随退役下架。以下为退役前的官方考纲参数（来自官方 <a href="https://docs.aws.amazon.com/pdfs/aws-certification/latest/machine-learning-specialty-01/machine-learning-specialty-01.pdf">MLS-C01 Exam Guide PDF</a> 与 <a href="https://aws.amazon.com/certification/policies/before-testing/">考前政策页</a>），仅供了解，<strong>不可再报考</strong>：</p>
+<ul><li><strong>价格</strong>：300 USD / ¥2,113 CNY（专项级）；<strong>时长</strong> 180 分钟；<strong>题量</strong> 65 题；<strong>及格线</strong> scaled 750；<strong>语种</strong>含简体中文。</li><li><strong>域权重</strong>：数据工程 Data Engineering 20% / 探索性数据分析 EDA 24% / <strong>建模 Modeling 36%（最大头）</strong> / ML 落地与运维 20%。</li><li>推荐经验：1–2 年在 AWS 上开发/架构/运行 ML 工作负载。</li></ul>
+<h3>替代认证完整指南</h3>
+<h3>首选接棒者：AWS Certified Machine Learning Engineer – Associate（MLA-C01）</h3>
+<h4>一、定位与适配人群</h4>
+<ul><li>助理级 ML 工程认证。官方推荐经验：<strong>至少 1 年使用 Amazon SageMaker 及其他 ML 工程 AWS 服务的经验</strong>。</li><li><strong>含金量</strong>：AWS 不发布官方薪资数据，不引用第三方、不编造。客观事实：它是 AWS 当前 ML 工程方向的官方助理级背书，直接接替退役的 MLS-C01。</li></ul>
+<h4>二、考试参数</h4>
+<table><tr><th>项目</th><th>内容</th></tr><tr><td><strong>考试代码</strong></td><td><strong>MLA-C01</strong></td></tr><tr><td><strong>基础考费</strong></td><td><strong>150 USD</strong> / <strong>人民币 ¥1,057</strong>（助理级）</td></tr><tr><td><strong>时长</strong></td><td><strong>130 分钟</strong></td></tr><tr><td><strong>题量</strong></td><td><strong>65 题</strong></td></tr><tr><td><strong>及格线</strong></td><td><strong>720</strong>（scaled score 100–1,000；补偿性评分）</td></tr><tr><td><strong>语种</strong></td><td>含 <strong>简体中文</strong>、英、日、韩</td></tr><tr><td><strong>有效期</strong></td><td><strong>3 年</strong></td></tr></table>
+<div class="callout">来源：<a href="https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/">MLA-C01 产品页</a> · <a href="https://docs.aws.amazon.com/aws-certification/latest/examguides/machine-learning-engineer-associate-01.html">MLA-C01 官方考试指南</a></div>
+<h4>三、考试大纲：四大域 + 权重</h4>
+<table><tr><th>域</th><th>名称</th><th>权重</th></tr><tr><td>Domain 1</td><td>数据准备 <strong>Data Preparation</strong></td><td><strong>28%</strong> 🥇</td></tr><tr><td>Domain 2</td><td>ML 模型开发 <strong>ML Model Development</strong></td><td>26%</td></tr><tr><td>Domain 3</td><td>部署与编排 <strong>Deployment and Orchestration</strong></td><td>22%</td></tr><tr><td>Domain 4</td><td>监控、维护与安全 <strong>Monitoring, Maintenance, and Security</strong></td><td>24%</td></tr></table>
+<div class="callout">来源：<a href="https://docs.aws.amazon.com/aws-certification/latest/examguides/machine-learning-engineer-associate-01.html">MLA-C01 官方考试指南</a></div>
+<p><strong>重点</strong>：D1（28%）数据准备 + D2 模型开发是核心；SageMaker 全家桶贯穿全程。</p>
+<h4>四 / 五 / 六：报考、领证、学习</h4>
+<p>MLA-C01 作为标准助理级认证，报考流程、OnVUE 居家/线下、改期取消重考（考前 24 小时改期最多 2 次 / 等 14 天重考不限次全额 / 通过后 2 年不可重考同门）、Credly 徽章、3 年有效期与续证、Skill Builder 免费（Exam Prep Plan + 20 题练习集）/订阅（全真模拟 + 实验）资源，均与其他助理级一致。</p>
+<div class="callout">详见 <a href="https://aws.amazon.com/certification/policies/before-testing/">考前政策页</a>、<a href="https://aws.amazon.com/certification/recertification/">续证政策</a>、<a href="https://aws.amazon.com/certification/certification-prep/">备考页</a>。</div>
+<p><strong>备考路径建议（走 ML 方向）</strong>：① 可选先考 AIF-C01 打基础 → ② 积累 SageMaker 实操 ≥1 年 → ③ Skill Builder 免费课 + 官方考纲 → ④ 官方全真模拟 → ⑤ Pearson VUE 预约 MLA-C01。</p>
+<h3>入门补充：AWS Certified AI Practitioner（AIF-C01）</h3>
+<ul><li><strong>入门级</strong>，价格 <strong>100 USD / ¥704 CNY</strong>；时长 <strong>90 分钟</strong>；65 题；<strong>语种含简体中文 + 繁体中文</strong>（覆盖最广）。</li><li>面向不一定亲手开发、但需理解 AI/ML 的业务/产品/IT 角色，门槛低，适合作为 ML 方向的起点。</li></ul>
+<div class="callout">来源：<a href="https://aws.amazon.com/certification/certified-ai-practitioner/">AIF-C01 产品页</a></div>
+<h3>🇨🇳 大陆考生专项说明</h3>
+<ul><li><strong>MLS-C01 别再准备了</strong>（已于 2026-03-31 停考），走 ML 方向直接备考 <strong>MLA-C01</strong>（¥1,057，及格 720，含简体中文）。</li><li>想低门槛入门 AI/ML，先考 <strong>AIF-C01</strong>（¥704，含简体中文/繁体中文）。</li><li>报考币种/语言/规则与全球助理级、入门级一致。</li></ul>
+<h3>📎 信源清单（全部官方一手）</h3>
+<ul><li>退役公告 + 替代路径：https://aws.amazon.com/blogs/training-and-certification/big-news-aws-expands-ai-certification-portfolio-and-updates-security-certification/</li><li>价格/改期/取消政策（USD + CNY 表）：https://aws.amazon.com/certification/policies/before-testing/</li><li>MLS-C01 退役前考纲 PDF：https://docs.aws.amazon.com/pdfs/aws-certification/latest/machine-learning-specialty-01/machine-learning-specialty-01.pdf</li><li>MLA-C01 产品页：https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/</li><li>MLA-C01 官方考试指南：https://docs.aws.amazon.com/aws-certification/latest/examguides/machine-learning-engineer-associate-01.html</li><li>AIF-C01 产品页：https://aws.amazon.com/certification/certified-ai-practitioner/</li><li>续证政策：https://aws.amazon.com/certification/recertification/</li></ul>
+<h3>⚠️ 用前必读</h3>
+<ol><li><strong>MLS-C01 已于 2026-03-31 退役</strong>，不可报考。本文主体为官方替代认证 <strong>MLA-C01</strong>（+ 入门 AIF-C01）。</li><li><strong>MLS-C01 退役前参数</strong>仅供历史参考。</li><li><strong>无官方薪资数据</strong>：不引用第三方数字。</li></ol>
+<p>*匠人学院 · AWS 全球考证指南系列 · 专项级 Specialty（已退役，转向 ML Engineer Associate / AI Practitioner）* *本文只做事实整理与备考规划，不承诺考试结果或就业结果。更多课程见 jiangren.com.au*</p>
+  </div>
+</section>
+
+<section class="ch" id="ch12">
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 12</div>
+        <h2>🇨🇳 附录：AWS 全球认证 vs 中国区差异</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-coffee-pointing.png" alt="" />
+    </div>
+<div class="callout">补充附录，配合本系列各证书指南阅读。 本系列正文讲的全是 <strong>AWS 全球认证（Pearson VUE 国际版）</strong>。这篇说清楚：考的是全球体系，但你用的 AWS 服务环境可能是中国区——两者不是一回事。 数据核对时点：2026 年 6 月。涉及 AWS 中国区的运营细节以 AWS 中国区官网实际显示为准。</div>
+<h3>一、先分清两个"AWS"</h3>
+<table><tr><th></th><th><strong>AWS 全球（Global）</strong></th><th><strong>AWS 中国区（China）</strong></th></tr><tr><td>运营方</td><td>Amazon Web Services, Inc.</td><td><strong>北京区域：光环新网（Sinnet）</strong>；<strong>宁夏区域：西云数据（NWCD）</strong>（持牌本地运营商）</td></tr><tr><td>账号</td><td>全球账号</td><td><strong>独立账号</strong>，与全球账号不互通</td></tr><tr><td>控制台</td><td>console.aws.amazon.com</td><td>单独的中国区控制台域名</td></tr><tr><td>计费</td><td>USD 等国际货币</td><td>人民币，由本地运营商开票</td></tr><tr><td>备案</td><td>无需</td><td>面向公网的网站/应用<strong>需 ICP 备案</strong></td></tr><tr><td>服务范围</td><td>全部服务、最新特性最先上线</td><td><strong>部分服务未上线或延后</strong>，少数特性不可用</td></tr></table>
+<div class="callout">⚠️ 上表中国区运营细节为行业通行事实，<strong>具体服务可用性与价格以 <a href="https://www.amazonaws.cn/">AWS 中国区官网</a> 实际显示为准</strong>——本附录不逐项编造服务清单。</div>
+<h3>二、关键认知：考试是"全球统一"的</h3>
+<p><strong>这是最容易误解的点：AWS 认证考试本身是全球统一的，不分"中国区版"。</strong></p>
+<ul><li>你报的认证（CLF / SAA / DVA…）走的是 <strong>Pearson VUE 全球考试系统</strong>，考纲基于<strong>全球 AWS 服务</strong>。</li><li>也就是说，<strong>考试里出现的服务和特性，可能在 AWS 中国区还没上线</strong>。如果你日常只用中国区，备考时要特别注意补齐"全球有、中国区暂无"的那部分服务知识。</li><li>证书是<strong>全球通用</strong>的同一张，不存在"只在中国认的 AWS 证"。数字徽章统一走 Credly 查验。</li></ul>
+<div class="callout">结论：<strong>用中国区做项目的同学，备考不能只盯着自己手上的控制台</strong>——以官方考纲（docs.aws.amazon.com）的全球服务范围为准。</div>
+<h3>三、大陆考生报考注意事项</h3>
+<h4>1. 语言</h4>
+<p>所有现行考试均<strong>支持简体中文应考</strong>（入门级 CLF-C02 还支持繁体中文）。报名时在 Pearson VUE 选 exam language 即可。用简体中文考则无需申请 ESL 加时。</p>
+<h4>2. 币种与支付</h4>
+<ul><li>AWS 官方定价表含<strong>人民币 CNY</strong>：入门 <strong>¥704</strong> / 助理 <strong>¥1,057</strong> / 专业·专项 <strong>¥2,113</strong>（每年至少 5 月按汇率更新，可能含增值税 VAT）。</li><li>支付支持 Visa / American Express / Mastercard / JCB，以及 voucher（代金券）。</li><li>实际扣费币种与金额以 Pearson VUE 报名结算页为准。</li><li>来源：<a href="https://aws.amazon.com/certification/policies/before-testing/">AWS 考前政策与定价页</a></li></ul>
+<h4>3. 两种考试方式</h4>
+<table><tr><th></th><th>线下考点</th><th>OnVUE 居家在线监考</th></tr><tr><td>适合</td><td>家里环境/网络不稳</td><td>想省通勤、环境可控</td></tr><tr><td>中文监考</td><td>—</td><td>中国大陆中文（Mandarin）监考时段：<strong>周一至五 8:00–17:00</strong>（英文监考 24/7）</td></tr><tr><td>注意</td><td>就近选 Pearson VUE 授权考点</td><td><strong>禁用 VPN/代理</strong>、禁虚拟机、需独立安静房间 + 摄像头 + 360° 房扫 + 政府证件</td></tr></table>
+<div class="callout">⚠️ <strong>OnVUE 明确禁止 VPN/代理</strong>，企业网络也常因防火墙不通过。大陆考生选 OnVUE 务必提前跑系统测试、确认网络稳定（家庭宽带通常优于公司网络）；不确定就选线下考点更稳妥。 来源：<a href="https://www.pearsonvue.com/us/en/aws/onvue.html">Pearson VUE OnVUE</a> · <a href="https://aws.amazon.com/certification/policies/during-testing/">考试中政策</a></div>
+<h4>4. 通用规则（与全球一致）</h4>
+<ul><li>改期：考前 24 小时前，最多 2 次｜取消：考前至少 24 小时否则考费作废</li><li>重考：未通过等满 14 个自然日，次数无上限，每次全额付费，通过后同门 2 年内不可重考</li><li>有效期 3 年，续证靠重考现行版（专业级可顺带续较低级别角色认证；专项级只能重考现行版续）</li></ul>
+<h3>四、如果要走 AWS 中国区渠道报考</h3>
+<p>部分页面 AWS 会针对中国区单列。如果你选择通过<strong>中国区渠道</strong>报考或培训：</p>
+<ul><li>以 <a href="https://www.amazonaws.cn/">AWS 中国区官网</a> 与其认证/培训页面的实际显示为准（报名入口、支付方式、可能的本地考点安排）。</li><li>本系列正文的所有参数（考费表、政策、考纲）均基于<strong>全球 Pearson VUE 体系</strong>；中国区渠道若有差异，以中国区官方页面为准，<strong>不要拿本系列数字硬套</strong>。</li></ul>
+<h3>📎 信源</h3>
+<ul><li>AWS 中国区官网：https://www.amazonaws.cn/</li><li>AWS 全球认证总览：https://aws.amazon.com/certification/</li><li>考前政策与定价（含 CNY）：https://aws.amazon.com/certification/policies/before-testing/</li><li>考试中政策（OnVUE 要求）：https://aws.amazon.com/certification/policies/during-testing/</li><li>Pearson VUE OnVUE：https://www.pearsonvue.com/us/en/aws/onvue.html</li></ul>
+<h3>⚠️ 用前必读</h3>
+<ol><li><strong>考试全球统一</strong>：AWS 认证不分中国区版，考纲基于全球服务；只用中国区的同学要补齐"全球有、中国区暂无"的服务知识。</li><li><strong>中国区服务/价格</strong>：本附录不逐项编造，以 AWS 中国区官网实际为准。</li><li><strong>考费随汇率变</strong>：CNY 数字为 2026 年 6 月核对值，报名前实时核对。</li></ol>
+<p>*匠人学院 · AWS 全球考证指南系列 · 附录* *本文只做事实整理，不承诺考试结果或就业结果。更多课程见 jiangren.com.au*</p>
+  </div>
+</section>
+
+</main>
+
+<section class="page back-cover">
+  <div class="logo"><img src="assets/logo/logo-zh-white.png" alt="匠人学院" /></div>
+  <h2>证考下来，只是起点</h2>
+  <p style="max-width: 80%;">这套手册把 AWS 全球认证 4 级 10 证讲透了——但真正值钱的是你能不能用 AWS 把系统搭得又稳又省。想把云技能变成求职竞争力，匠人学院的 IT / 云方向有完整项目制课程，先聊聊你的背景适不适合再说。在线版随官网更新：jiangren.com.au</p>
+
+  <div class="sales-card" style="width: 80%;"><img src="assets/contact/sales-cards/rain.jpg" alt="Rain · IT Career Consultant · 匠人学院" /></div>
+
+  <div class="contact-bar" style="width: 80%;">
+    <img class="qr" src="assets/contact/qr-xiaohua.png" alt="匠人学院小助手微信" />
+    <div class="cb-body">
+      <div class="cb-title">考证路线拿不准？扫码进社群</div>
+      <div class="cb-desc">按你的背景聊该先考哪张、怎么排备考 + 每周 AI 大事盘点。把这本 PDF 转给同样在备考的朋友。</div>
+    </div>
+    <div class="cb-brand"><img src="assets/logo/jr-box.svg" alt="JR" /><span class="cb-url">jiangren.com.au</span></div>
+  </div>
+
+  <p class="caption" style="color: rgba(255,255,255,0.5);">© JR Academy · 学 AI 来匠人 · 数据全程引 AWS 官方 + Pearson VUE · 欢迎转发</p>
+</section>
+
+<script defer src="theme/reader.js"></script>
+<a href="AWS%20%E5%85%A8%E7%90%83%E8%AE%A4%E8%AF%81%E8%80%83%E8%AF%81%E5%A4%A7%E5%85%A8%20-%20%E5%8C%A0%E4%BA%BA%E5%AD%A6%E9%99%A2.pdf" download style="position:fixed;right:22px;bottom:22px;z-index:1200;display:flex;align-items:center;gap:8px;background:#0D0F12;color:#fff;font-weight:700;font-size:14.5px;padding:13px 22px;border-radius:999px;box-shadow:0 12px 28px rgba(13,15,18,.35);text-decoration:none;font-family:Inter,'PingFang SC',sans-serif;">⬇️ 下载 PDF 版</a>
+</body>
+</html>

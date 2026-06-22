@@ -1,0 +1,36 @@
+{
+  "slug": "aws-global-cert-guide",
+  "title": "AWS 全球认证考证大全",
+  "subtitle": "AWS 全球认证（Pearson VUE 国际版）4 级 10 证全解析：定价/大纲/报考/续证全程官方源，适配大陆考生，退役证书全标注",
+  "audience": "想考 AWS 认证的开发者 / 运维 / 架构师 / 转行求职者，尤其大陆考生",
+  "goal": "lead-magnet",
+  "track": "T2",
+  "style": "guide",
+  "mode": "flow",
+  "channel": [
+    "微信群分享",
+    "小红书引流",
+    "公众号文末资料包",
+    "EOI 跟进"
+  ],
+  "pages": "flow 自动分页",
+  "status": "draft",
+  "tags": [
+    "aws",
+    "certification",
+    "cloud",
+    "career",
+    "exam-prep"
+  ],
+  "contact": {
+    "qr": "qr-xiaohua.png",
+    "salesCards": [
+      "rain.jpg"
+    ]
+  },
+  "sources": [
+    "AWS 官方 (aws.amazon.com/certification, docs.aws.amazon.com) + Pearson VUE 官方页（deep-research 多源对抗式验证）",
+    "正文 12 份 md（source of truth）在本目录，build.mjs 组装为 flow"
+  ],
+  "note": "内容已生成；本地跑 node ebooks/aws-global-cert-guide/build.mjs 重建 index.html，再 npm run render -- --slug aws-global-cert-guide + deploy-pages.sh aws-global-cert-guide"
+}
