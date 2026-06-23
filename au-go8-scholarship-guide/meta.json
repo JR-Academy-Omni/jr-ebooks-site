@@ -1,0 +1,35 @@
+{
+  "slug": "au-go8-scholarship-guide",
+  "title": "澳洲八大奖学金申请规则全解析",
+  "subtitle": "给中国留学生和家长：墨尔本/悉尼/ANU/UNSW/Monash/昆士兰/西澳/阿德莱德八校授课型本科+硕士奖学金，金额/资格/截止全核对官方源，专挑中介常说但中国学生拿不到的坑",
+  "audience": "准备申请澳洲八大的中国留学生及家长（授课型本科 + 授课型硕士）",
+  "goal": "lead-magnet",
+  "track": "T4",
+  "style": "guide",
+  "mode": "flow",
+  "channel": [
+    "公众号文末资料包",
+    "微信群分享",
+    "小红书引流"
+  ],
+  "pages": "flow 自动分页",
+  "status": "draft",
+  "tags": [
+    "study-abroad",
+    "australia",
+    "scholarship",
+    "go8",
+    "university"
+  ],
+  "contact": {
+    "qr": "qr-xiaohua.png",
+    "salesCards": [
+      "amelia.jpg"
+    ]
+  },
+  "sources": [
+    "各校官方奖学金页（unimelb / sydney / anu / unsw / monash / uq / uwa / adelaide）+ 联邦政府 education.gov.au / dfat.gov.au / studyaustralia.gov.au，9 个 agent 并行逐校查证，核对日期 2026-06",
+    "查证原始数据在 research/ 目录（00-common-rules + 01~08 八校）"
+  ],
+  "note": "draft.html 已完成（web 审稿版）。注意：墨尔本/Monash 官网有 Cloudflare 反爬，金额来自官方页快照交叉核对，发布前建议人工浏览器复核。下一步：用户审稿改定 → 排 A4 index.html（flow 模式）→ npm run render → deploy-pages.sh"
+}
