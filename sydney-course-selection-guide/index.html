@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>悉尼大学选课指南 — web 版初稿 · JR Academy</title>
+<link rel="stylesheet" href="theme/tokens.css" />
+<link rel="stylesheet" href="theme/web-zine.css" />
+<style>
+  .hero h1 .t-main { margin-top: 64px; }
+  .hero h1 .t-sticker { top: -44px; right: -12px; transform: rotate(5deg); }
+  .source-list a { color: var(--jr-red); text-decoration: none; font-weight: 700; }
+  .mini-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 16px; }
+  .mini { background: #fff; border: 1px solid var(--jr-border-warm); border-radius: 16px; padding: 16px; box-shadow: var(--jr-shadow-panel); }
+  .mini b { display: block; color: var(--jr-black); margin-bottom: 6px; }
+  .steps { counter-reset: st; display: grid; gap: 12px; margin-top: 16px; }
+  .step { counter-increment: st; display: grid; grid-template-columns: 44px 1fr; gap: 12px; background: #fff; border: 1px solid var(--jr-border-warm); border-radius: 16px; padding: 16px; }
+  .step::before { content: counter(st); width: 34px; height: 34px; border-radius: 999px; background: var(--jr-black); color: #fff; display: grid; place-items: center; font-family: Anton, var(--jr-font-sans); }
+  .step h3 { margin: 0 0 4px; }
+  .src a { color: inherit; }
+  .qgrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 16px; }
+  @media (max-width: 760px) {
+    .hero h1 .t-main { margin-top: 52px; }
+    .hero h1 .t-sticker { top: -35px; right: 4px; font-size: 12px; }
+    .mini-grid, .qgrid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <img class="logo" src="assets/logo/logo-zh-full.svg" alt="匠人学院" />
+    <div class="hero-flex">
+      <div>
+        <div class="bar"></div>
+        <h1><span class="t-top">悉尼大学</span><br /><span class="t-main">选课指南<span class="t-sticker">Tables + Unit rules</span></span></h1>
+        <p class="sub">给 USYD 新生和在读同学：怎么读 Handbook tables、unit rules、sample degree plan，把 major/minor 和学分排明白。<span class="hl">看完你应该能自己判断：这门课能不能选、什么时候选、退了会怎样。</span></p>
+        <div class="chips"><span class="chip">2026 Handbooks</span><span class="chip">Unit rules</span><span class="chip">Credit points</span></div>
+        <div style="margin-top: 26px;"><span class="zine-diecut" style="font-size: 24px;">悉大选课，先读 table，再看 unit rules。</span></div>
+      </div>
+      <div class="mascot-wrap"><span class="tape"></span><img class="hero-mascot" src="assets/illustrations/niuxiaojiang-hero.png" alt="牛小匠" /></div>
+    </div>
+  </div>
+</header>
+
+<div class="marquee"><div class="mq-track"><span>澳洲八大选课指南<i>✦</i>悉尼大学<i>✦</i>真实官网源<i>✦</i>JIANGREN.COM.AU<i>✦</i>先读规则再选课<i>✦</i></span><span>澳洲八大选课指南<i>✦</i>悉尼大学<i>✦</i>真实官网源<i>✦</i>JIANGREN.COM.AU<i>✦</i>先读规则再选课<i>✦</i></span></div></div>
+
+<nav class="toc">
+  <div class="wrap">
+    <a href="#ch1"><span class="num">01</span>先把词典对齐</a>
+    <a href="#ch2"><span class="num">02</span>Handbook / catalogue 怎么读</a>
+    <a href="#ch3"><span class="num">03</span>Core / elective / major 怎么拆</a>
+    <a href="#ch4"><span class="num">04</span>Prerequisite 和 availability</a>
+    <a href="#ch5"><span class="num">05</span>Enrolment 真正怎么走</a>
+    <a href="#ch6"><span class="num">06</span>Timetable：计划和拿到位置</a>
+    <a href="#ch7"><span class="num">07</span>Census / withdraw / study load</a>
+    <a href="#ch8"><span class="num">08</span>FAQ：最常见的坑</a>
+  </div>
+</nav>
+
+<section class="ch" id="how">
+  <div class="wrap">
+    <h2>这本书怎么用</h2>
+    <div class="card">
+      <p>先从第 1 章把学校自己的词弄清楚，再去第 2 到第 4 章学会读官方规则。真正动手选课时，按第 5、6 章走；想退课、少读、多读，先看第 7 章。第 8 章是常见坑，开学前再扫一遍。</p>
+      <p>这本不是“水课推荐”。水不水每年会变，老师、assessment、campus、你的基础都会影响体验。我们只写可核实的规则和操作路径。</p>
+    </div>
+    <div class="contact-bar">
+    <img class="qr" src="assets/contact/qr-rain.png" alt="Rain · 匠人学院资深 IT 顾问微信" />
+    <div><div class="t">看完还是不确定，扫码来问</div><div class="d">把你的学校、degree、想读方向和当前选课表发来。我们先帮你看规则有没有明显冲突。</div></div>
+  </div>
+  </div>
+</section>
+
+<section class="ch" id="ch1">
+  <div class="ghost">01</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 01</div>
+        <h2>先把词典对齐</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-pen-book.png" alt="" />
+    </div>
+    <p class="lead">同样叫“选课”，每所学校的词不一样。先把词对齐，不然你会把 degree、program、course、unit、subject 混着用，最后连自己到底选了什么都说不清。</p>
+      <table><tr><th>词</th><th>这所学校里大概怎么理解</th></tr><tr><td><strong>unit of study</strong></td><td>单门课。多数 unit 是 2、3 或 6 credit points，也有例外。</td></tr><tr><td><strong>course component</strong></td><td>组成 degree 的模块，比如 major、minor、degree core、elective space。</td></tr><tr><td><strong>table</strong></td><td>Handbook 里放 unit 和 major/minor 的清单。选课时要看自己能用哪张 table。</td></tr><tr><td><strong>study load</strong></td><td>一个 semester 内已 enrol units 的 credit points 总和。</td></tr></table>
+      <div class="callout"><strong>先别急着问“哪门课简单”。</strong>更重要的是：这门课能不能算进你的 degree、有没有前置、什么时候开、退课会不会影响学费和签证。</div>
+      <div class="src source-list">官方源：<a href="https://www.sydney.edu.au/handbooks/" target="_blank" rel="noreferrer">2026 Handbooks</a> ｜ <a href="https://www.sydney.edu.au/students/course-planning.html" target="_blank" rel="noreferrer">Planning your course</a> ｜ <a href="https://www.sydney.edu.au/students/course-planning/choosing-units.html" target="_blank" rel="noreferrer">Choose your units of study</a> ｜核对 2026-06-25</div>
+  </div>
+</section>
+<section class="ch" id="ch2">
+  <div class="ghost">02</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 02</div>
+        <h2>Handbook / catalogue 先看哪几处</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-working-laptop.png" alt="" />
+    </div>
+    <p class="lead">Handbook 不是给学校 staff 看的摆设。你每学期少踩的坑，基本都藏在这里。</p>
+      <div class="mini-grid"><div class="mini"><b>先看结构</b>Handbook 里有 course resolutions、course component requirements、units of study 和 enrolment rules。</div><div class="mini"><b>再看单课</b>先看自己的 course requirements，再看 major/minor 在哪张 table 里。</div><div class="mini"><b>最后做计划</b>Sample degree plan 可以参考，但不要照抄。你的 major/minor、credit、commencing year 都可能不一样。</div></div>
+      <div class="card"><div class="title-row"><span class="n">✓</span><h3>一个真实动作</h3></div><p>现在就打开本校官方入口，先搜自己的 degree/program/course，再搜一门你想读的课。把 requirement、availability、requisites 三个词圈出来。你能解释这三个词，才算开始会选课。</p></div>
+      <div class="src source-list">官方源：<a href="https://www.sydney.edu.au/handbooks/" target="_blank" rel="noreferrer">2026 Handbooks</a> ｜ <a href="https://www.sydney.edu.au/students/course-planning.html" target="_blank" rel="noreferrer">Planning your course</a> ｜ <a href="https://www.sydney.edu.au/students/course-planning/choosing-units.html" target="_blank" rel="noreferrer">Choose your units of study</a> ｜核对 2026-06-25</div>
+  </div>
+</section>
+<section class="ch" id="ch3">
+  <div class="ghost">03</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 03</div>
+        <h2>Core、elective、major/minor 怎么拆</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-chart.png" alt="" />
+    </div>
+    <p class="lead">选课不是把喜欢的课塞满一学期。先把毕业要求拆开，再决定每学期放什么。</p>
+      <table><tr><th>你要拆的东西</th><th>怎么做</th></tr><tr><td><strong>毕业结构</strong></td><td>Tables 是悉大选课的核心。先确认你应该从哪张 table 选 unit。</td></tr><tr><td><strong>选择空间</strong></td><td>unit code 可以粗略看 subject area 和 level，比如一眼知道是不是高年级 unit。</td></tr><tr><td><strong>顺序约束</strong></td><td>elective 不是无限自由，仍然要在 course rules 允许范围内。</td></tr></table>
+      <div class="callout"><strong>实操模板：</strong>开一个表格，四列就够：必修 / 主修或方向 / 可选空间 / 不能忘的日期。每门课先放进其中一列，再去排 timetable。</div>
+      <div class="src source-list">官方源：<a href="https://www.sydney.edu.au/handbooks/" target="_blank" rel="noreferrer">2026 Handbooks</a> ｜ <a href="https://www.sydney.edu.au/students/course-planning.html" target="_blank" rel="noreferrer">Planning your course</a> ｜ <a href="https://www.sydney.edu.au/students/course-planning/choosing-units.html" target="_blank" rel="noreferrer">Choose your units of study</a> ｜核对 2026-06-25</div>
+  </div>
+</section>
+<section class="ch" id="ch4">
+  <div class="ghost">04</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 04</div>
+        <h2>Prerequisite 和 availability，别开学才看</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-data.png" alt="" />
+    </div>
+    <p class="lead">很多选课事故不是系统坏了，是你没看 prerequisites、prohibitions 或开课学期。到 enrolment 那天才发现，已经晚了。</p>
+      <div class="card"><div class="title-row"><span class="n">1</span><h3>规则 1</h3></div><p>Prerequisite 是必须先完成的 unit 或 credit point 数。</p></div><div class="card"><div class="title-row"><span class="n">2</span><h3>规则 2</h3></div><p>Corequisite 是要同时读的 unit。Prohibition 是内容重叠，读过其中一门就不能再拿另一门。</p></div><div class="card"><div class="title-row"><span class="n">3</span><h3>规则 3</h3></div><p>Assumed knowledge 通常不挡 enrol，但学校会建议别硬上。数学、统计、编程课尤其要认真看。</p></div>
+      <pre>选课前自查：
+1. 这门课有没有 prerequisite？
+2. 我是否已经满足，还是正在读？
+3. 它这个 semester / term 开不开？
+4. 有没有 prohibition / incompatible / non-allowed subject？
+5. 它能不能算进我的 degree requirements？</pre>
+      <div class="src source-list">官方源：<a href="https://www.sydney.edu.au/handbooks/" target="_blank" rel="noreferrer">2026 Handbooks</a> ｜ <a href="https://www.sydney.edu.au/students/course-planning.html" target="_blank" rel="noreferrer">Planning your course</a> ｜ <a href="https://www.sydney.edu.au/students/course-planning/choosing-units.html" target="_blank" rel="noreferrer">Choose your units of study</a> ｜核对 2026-06-25</div>
+  </div>
+</section>
+<section class="ch" id="ch5">
+  <div class="ghost">05</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 05</div>
+        <h2>Enrolment 真正怎么走</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-thinking.png" alt="" />
+    </div>
+    <p class="lead">计划写得再漂亮，不等于已经 enrol。下面这几步要按学校系统走，别拿别的学校经验硬套。</p>
+      <div class="steps"><div class="step"><div><h3>拆 degree</h3><p>把 core、major/minor、elective space 写出来。比如 Bachelor of Commerce 先确定主修，再看对应 table。</p></div></div><div class="step"><div><h3>挑 unit</h3><p>每门 unit 打开 rules，看 prerequisite、corequisite、prohibition、assumed knowledge。</p></div></div><div class="step"><div><h3>核 credit points</h3><p>把每个 semester 的 credit points 加起来，确认 study load 合理，不要只数门数。</p></div></div></div>
+      <div class="contact-bar">
+    <img class="qr" src="assets/contact/qr-rain.png" alt="Rain · 匠人学院资深 IT 顾问微信" />
+    <div><div class="t">选课系统看晕了，可以拿你的 plan 来问</div><div class="d">扫码找 Rain，把学校、degree、想读的方向和你排好的课发来，我们帮你先看有没有明显坑。</div></div>
+  </div>
+  </div>
+</section>
+<section class="ch" id="ch6">
+  <div class="ghost">06</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 06</div>
+        <h2>Timetable：计划和拿到位置是两件事</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-pen-book.png" alt="" />
+    </div>
+    <p class="lead">很多同学以为“我排了课表”就等于“我拿到课”。不是。planner、preference、class registration、allocation，每个词的状态都不一样。</p>
+      <table><tr><th>提醒</th><th>为什么重要</th></tr><tr><td><strong>先看状态</strong></td><td>先保证 unit 选择合法，再排 timetable。</td></tr><tr><td><strong>再看冲突</strong></td><td>如果两个必修 unit 冲突，不要自己随便换成看起来相近的课，先找 academic advice。</td></tr><tr><td><strong>最后确认</strong></td><td>unit outline 和 timetable 变化要在当期系统里看，Handbook 负责规则，不负责你个人课表。</td></tr></table>
+      <div class="callout"><strong>小动作：</strong>课表出来后，不只看周几几点。还要看 campus、online/offline、tutorial/lab 是否必须到场、assessment deadline 会不会扎堆。</div>
+      <div class="src source-list">官方源：<a href="https://www.sydney.edu.au/handbooks/" target="_blank" rel="noreferrer">2026 Handbooks</a> ｜ <a href="https://www.sydney.edu.au/students/course-planning.html" target="_blank" rel="noreferrer">Planning your course</a> ｜ <a href="https://www.sydney.edu.au/students/course-planning/choosing-units.html" target="_blank" rel="noreferrer">Choose your units of study</a> ｜核对 2026-06-25</div>
+  </div>
+</section>
+<section class="ch" id="ch7">
+  <div class="ghost">07</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 07</div>
+        <h2>Census、withdraw、study load：钱和签证都在这里</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-working-laptop.png" alt="" />
+    </div>
+    <p class="lead">选错课还能改，错过日期就麻烦了。census date 不是行政术语，它关系到学费、成绩记录和学生签证。</p>
+      <div class="callout"><strong>日期提醒：</strong>add/drop/census 要查 USYD 当期 key dates。日期每年变，不在书里写死。</div><div class="callout warn"><strong>操作提醒：</strong>国际学生 underload 或 late discontinuation 可能影响 visa / CoE，要先找 Student Centre 或 faculty advice。</div>
+      <div class="check-group">
+        <div class="head"><span class="stage">每学期固定检查</span><h3>开学前 30 分钟做完</h3></div>
+        <div class="check-item"><span class="box"></span><div><div class="t">把 academic calendar / important dates 存到浏览器收藏</div><div class="n">只信官网日期，不信群里截图。</div></div><span class="badge must">必做</span></div>
+        <div class="check-item"><span class="box"></span><div><div class="t">把 add、drop、census、withdraw deadline 写进日历</div><div class="n">设置提前 7 天提醒。</div></div><span class="badge must">必做</span></div>
+        <div class="check-item"><span class="box"></span><div><div class="t">如果要 underload / reduced load，先问学校</div><div class="n">尤其是 student visa 同学，别先退课再补救。</div></div><span class="badge must">必做</span></div>
+      </div>
+      <div class="src source-list">官方源：<a href="https://www.sydney.edu.au/handbooks/" target="_blank" rel="noreferrer">2026 Handbooks</a> ｜ <a href="https://www.sydney.edu.au/students/course-planning.html" target="_blank" rel="noreferrer">Planning your course</a> ｜ <a href="https://www.sydney.edu.au/students/course-planning/choosing-units.html" target="_blank" rel="noreferrer">Choose your units of study</a> ｜核对 2026-06-25</div>
+  </div>
+</section>
+<section class="ch" id="ch8">
+  <div class="ghost">08</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 08</div>
+        <h2>FAQ：最常见的 4 个坑</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-chart.png" alt="" />
+    </div>
+    <p class="lead">这些问题每年都会有人问。你提前知道，至少不会在开学第一周边哭边改课。</p>
+      <div class="qgrid"><div class="card"><div class="title-row"><span class="n">Q</span><h3>Table A 是不是所有人都能随便选？</h3></div><p>不是。你要看自己的 degree/course rules 允许哪些 table，尤其是专业学位和 double degree。</p></div><div class="card"><div class="title-row"><span class="n">A</span><h3>Assumed knowledge 没有，会不会被系统拦？</h3></div><p>通常不拦，但不代表没风险。比如没有高中数学背景去上定量课，可能第一周就跟不上。</p></div><div class="card"><div class="title-row"><span class="n">Q</span><h3>Sample degree plan 能不能照着排？</h3></div><p>可以当模板，不要当答案。换 major、拿 credit、mid-year start 都会改变你的顺序。</p></div><div class="card"><div class="title-row"><span class="n">A</span><h3>Prohibition 是什么意思？</h3></div><p>内容重叠。你不能靠读两门高度相似的课重复拿学分。</p></div></div>
+      <div class="callout"><strong>最后一句：</strong>选课不是一次做完的动作，是每学期都要复核的流程。先看官方规则，再问人；别反过来。</div>
+      <div class="src source-list">官方源：<a href="https://www.sydney.edu.au/handbooks/" target="_blank" rel="noreferrer">2026 Handbooks</a> ｜ <a href="https://www.sydney.edu.au/students/course-planning.html" target="_blank" rel="noreferrer">Planning your course</a> ｜ <a href="https://www.sydney.edu.au/students/course-planning/choosing-units.html" target="_blank" rel="noreferrer">Choose your units of study</a> ｜核对 2026-06-25</div>
+  </div>
+</section>
+
+<footer class="outro">
+  <div class="wrap">
+    <img class="logo" src="assets/logo/logo-zh-white.png" alt="匠人学院" />
+    <h2>选课先别靠感觉，先把规则看明白</h2>
+    <p>悉尼大学选课指南 是澳洲八大选课指南系列的一本。适合拿到 offer、准备入学、或者下学期要换课/换专业方向的同学。真正 enrol 前，请再点开学校官网核对当期日期和系统提示。</p>
+    <div class="sales-card"><img src="assets/contact/sales-cards/rain.jpg" alt="Rain · 匠人学院资深 IT 顾问 · 匠人学院" /></div>
+    <div class="contact-bar">
+    <img class="qr" src="assets/contact/qr-rain.png" alt="Rain · 匠人学院资深 IT 顾问微信" />
+    <div><div class="t">想找人帮你过一遍选课表？</div><div class="d">扫码找 Rain。我们可以先帮你看 degree requirements、study load、时间节点这些容易出事的地方。</div></div>
+  </div>
+    <p class="fine">© JR Academy · jiangren.com.au · 资料核对 2026-06-25 · 以学校官网最新信息为准</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const io = new IntersectionObserver((es) => {
+    es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.card, .chart, .duo-path, .pipeline, .yes-no, .roadmap, .ladder, .check-group, .callout, .figure, .pullquote, .stat-grid, .contact-bar, .sales-card, table')
+    .forEach(el => { el.classList.add('reveal'); io.observe(el); });
+})();
+</script>
+<a href="%E6%82%89%E5%B0%BC%E5%A4%A7%E5%AD%A6%E9%80%89%E8%AF%BE%E6%8C%87%E5%8D%97%20-%20%E5%8C%A0%E4%BA%BA%E5%AD%A6%E9%99%A2.pdf" download style="position:fixed;right:22px;bottom:22px;z-index:1200;display:flex;align-items:center;gap:8px;background:#0D0F12;color:#fff;font-weight:700;font-size:14.5px;padding:13px 22px;border-radius:999px;box-shadow:0 12px 28px rgba(13,15,18,.35);text-decoration:none;font-family:Inter,'PingFang SC',sans-serif;">⬇️ 下载 PDF 版</a>
+</body>
+</html>

@@ -1,0 +1,86 @@
+/* =====================================================
+   Style: guide — 深读教程版
+   适合：备考路线 / 系统教程 / 长文阅读型内容
+   特征：章节开篇大编号页、首段 lead、引文、图注块
+   依赖：ebook.css（基础几何 + 组件）
+   ===================================================== */
+
+/* —— 章节开篇页（整页或上半页的章节门面）—— */
+.chapter-opener {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+  gap: 6mm;
+}
+.chapter-opener .big-num {
+  font-size: 72pt;
+  font-weight: var(--jr-fw-bold);
+  line-height: 1;
+  color: var(--jr-red);
+  font-variant-numeric: tabular-nums;
+}
+.chapter-opener h2 { font-size: 24pt; margin-bottom: 0; }
+.chapter-opener .opener-desc {
+  font-size: 11.5pt;
+  color: var(--jr-neutral-600);
+  max-width: 75%;
+  line-height: 1.7;
+}
+
+/* —— 正文排版 —— */
+.lead {
+  font-size: 12pt;
+  line-height: 1.75;
+  color: var(--jr-neutral-900);
+  border-bottom: 1px solid var(--jr-divider-warm);
+  padding-bottom: 5mm;
+  margin-bottom: 5mm;
+}
+.prose p + p { margin-top: 3.5mm; }
+.prose h3 {
+  margin-top: 6mm;
+  margin-bottom: 2.5mm;
+  padding-left: 3mm;
+  border-left: 3px solid var(--jr-black);
+}
+
+/* —— 引文 —— */
+.pullquote {
+  margin: 5mm 0;
+  padding: 4mm 6mm;
+  font-size: 13pt;
+  line-height: 1.6;
+  font-weight: var(--jr-fw-medium);
+  color: var(--jr-black);
+  border-top: 2px solid var(--jr-black);
+  border-bottom: 1px solid var(--jr-divider-warm);
+}
+.pullquote .source { display: block; margin-top: 2mm; font-size: 9pt; color: var(--jr-neutral-600); font-weight: var(--jr-fw-regular); }
+
+/* —— 图 / 示意块 —— */
+.figure {
+  margin: 4mm 0;
+  border: 1px solid var(--jr-border-warm);
+  border-radius: var(--jr-radius-sm);
+  overflow: hidden;
+}
+.figure img { display: block; width: 100%; }
+.figure .figcaption {
+  padding: 2.5mm 4mm;
+  font-size: 8.5pt;
+  color: var(--jr-neutral-600);
+  background: var(--jr-surface-panel-alt);
+  border-top: 1px solid var(--jr-border-warm);
+}
+
+/* —— 术语 / 旁注 —— */
+.sidenote {
+  background: var(--jr-surface-panel);
+  border: 1px solid var(--jr-border-warm);
+  border-radius: var(--jr-radius-sm);
+  padding: 3mm 4mm;
+  font-size: 9pt;
+  color: var(--jr-neutral-600);
+}
+.sidenote strong { color: var(--jr-neutral-900); }
