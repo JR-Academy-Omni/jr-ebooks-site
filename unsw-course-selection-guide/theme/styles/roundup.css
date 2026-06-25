@@ -1,0 +1,75 @@
+/* =====================================================
+   Style: roundup — 热点盘点版
+   适合：AI 周报盘点 / 月度大事记 / 工具更新合集
+   特征：紧凑新闻条目（一页 4-5 条）、主线分区头、影响标注
+   素材源通常是 jr-wiki ai-daily（每条自带核过的来源）
+   依赖：ebook.css
+   ===================================================== */
+
+/* —— 主线分区头 —— */
+.theme-head {
+  display: flex;
+  align-items: baseline;
+  gap: 4mm;
+  margin-bottom: 4mm;
+  padding-bottom: 2.5mm;
+  border-bottom: 2px solid var(--jr-black);
+}
+.theme-head .t-num {
+  font-size: 18pt;
+  font-weight: var(--jr-fw-bold);
+  color: var(--jr-red-text);
+  font-variant-numeric: tabular-nums;
+}
+.theme-head h2 { margin-bottom: 0; flex: 1; }
+.theme-head .t-count { font-size: 9pt; color: var(--jr-neutral-600); }
+
+/* —— 新闻条目（紧凑，一页 4-5 条）—— */
+.news-item {
+  padding: 3.2mm 0;
+  border-bottom: 1px solid var(--jr-divider-warm);
+}
+.news-item:last-of-type { border-bottom: none; }
+.news-item .n-head { display: flex; align-items: baseline; gap: 2.5mm; }
+.news-item .n-head h3 { font-size: 11pt; flex: 1; }
+.news-item .n-tag {
+  flex: none;
+  font-size: 7.5pt;
+  font-weight: var(--jr-fw-medium);
+  padding: 0.8mm 2.5mm;
+  border-radius: var(--jr-radius-full);
+  background: var(--jr-wash-gray);
+  color: var(--jr-neutral-600);
+}
+.news-item .n-tag.hot { background: var(--jr-wash-red); color: var(--jr-red-text); }
+.news-item .n-summary { font-size: 9.5pt; line-height: 1.6; color: var(--jr-neutral-900); margin-top: 1.5mm; }
+.news-item .n-impact {
+  font-size: 9pt;
+  line-height: 1.55;
+  color: var(--jr-neutral-600);
+  margin-top: 1.5mm;
+  padding-left: 3mm;
+  border-left: 2px solid var(--jr-purple);
+}
+.news-item .n-impact strong { color: var(--jr-chip-ai-text); }
+
+/* —— 本周速览（目录页的一句话总盘）—— */
+.week-glance {
+  background: var(--jr-surface-panel);
+  border: 1px solid var(--jr-border-warm);
+  border-radius: var(--jr-radius-lg);
+  padding: 4mm 5mm;
+}
+.week-glance .g-row { display: flex; gap: 3mm; padding: 1.8mm 0; font-size: 9.5pt; }
+.week-glance .g-row + .g-row { border-top: 1px dashed var(--jr-divider-warm); }
+.week-glance .g-label {
+  flex: none;
+  width: 22mm;
+  font-weight: var(--jr-fw-semibold);
+  color: var(--jr-red-text);
+  font-size: 9pt;
+}
+.week-glance .g-row span:last-child { color: var(--jr-neutral-900); }
+
+/* —— 来源行 —— */
+.roundup-source { font-size: 7.5pt; color: var(--jr-neutral-600); margin-top: 2mm; }
