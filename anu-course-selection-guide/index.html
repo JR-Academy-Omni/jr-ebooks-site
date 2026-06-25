@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ANU 选课指南 — web 版初稿 · JR Academy</title>
+<link rel="stylesheet" href="theme/tokens.css" />
+<link rel="stylesheet" href="theme/web-zine.css" />
+<style>
+  .hero h1 .t-main { margin-top: 64px; }
+  .hero h1 .t-sticker { top: -44px; right: -12px; transform: rotate(5deg); }
+  .source-list a { color: var(--jr-red); text-decoration: none; font-weight: 700; }
+  .mini-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 16px; }
+  .mini { background: #fff; border: 1px solid var(--jr-border-warm); border-radius: 16px; padding: 16px; box-shadow: var(--jr-shadow-panel); }
+  .mini b { display: block; color: var(--jr-black); margin-bottom: 6px; }
+  .steps { counter-reset: st; display: grid; gap: 12px; margin-top: 16px; }
+  .step { counter-increment: st; display: grid; grid-template-columns: 44px 1fr; gap: 12px; background: #fff; border: 1px solid var(--jr-border-warm); border-radius: 16px; padding: 16px; }
+  .step::before { content: counter(st); width: 34px; height: 34px; border-radius: 999px; background: var(--jr-black); color: #fff; display: grid; place-items: center; font-family: Anton, var(--jr-font-sans); }
+  .step h3 { margin: 0 0 4px; }
+  .src a { color: inherit; }
+  .qgrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 16px; }
+  @media (max-width: 760px) {
+    .hero h1 .t-main { margin-top: 52px; }
+    .hero h1 .t-sticker { top: -35px; right: 4px; font-size: 12px; }
+    .mini-grid, .qgrid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <img class="logo" src="assets/logo/logo-zh-full.svg" alt="匠人学院" />
+    <div class="hero-flex">
+      <div>
+        <div class="bar"></div>
+        <h1><span class="t-top">ANU</span><br /><span class="t-main">选课指南<span class="t-sticker">Degree Builder</span></span></h1>
+        <p class="sub">给 ANU 新生和在读同学：怎么用 Programs and Courses、Degree Builder、timetable，把 major/minor 和 course 顺序排好。<span class="hl">看完你应该能自己判断：这门课能不能选、什么时候选、退了会怎样。</span></p>
+        <div class="chips"><span class="chip">Programs & Courses</span><span class="chip">Degree Builder</span><span class="chip">Overload</span></div>
+        <div style="margin-top: 26px;"><span class="zine-diecut" style="font-size: 24px;">ANU 选课，先搭 degree，再放每门 course。</span></div>
+      </div>
+      <div class="mascot-wrap"><span class="tape"></span><img class="hero-mascot" src="assets/illustrations/niuxiaojiang-hero.png" alt="牛小匠" /></div>
+    </div>
+  </div>
+</header>
+
+<div class="marquee"><div class="mq-track"><span>澳洲八大选课指南<i>✦</i>ANU<i>✦</i>真实官网源<i>✦</i>JIANGREN.COM.AU<i>✦</i>先读规则再选课<i>✦</i></span><span>澳洲八大选课指南<i>✦</i>ANU<i>✦</i>真实官网源<i>✦</i>JIANGREN.COM.AU<i>✦</i>先读规则再选课<i>✦</i></span></div></div>
+
+<nav class="toc">
+  <div class="wrap">
+    <a href="#ch1"><span class="num">01</span>先把词典对齐</a>
+    <a href="#ch2"><span class="num">02</span>Handbook / catalogue 怎么读</a>
+    <a href="#ch3"><span class="num">03</span>Core / elective / major 怎么拆</a>
+    <a href="#ch4"><span class="num">04</span>Prerequisite 和 availability</a>
+    <a href="#ch5"><span class="num">05</span>Enrolment 真正怎么走</a>
+    <a href="#ch6"><span class="num">06</span>Timetable：计划和拿到位置</a>
+    <a href="#ch7"><span class="num">07</span>Census / withdraw / study load</a>
+    <a href="#ch8"><span class="num">08</span>FAQ：最常见的坑</a>
+  </div>
+</nav>
+
+<section class="ch" id="how">
+  <div class="wrap">
+    <h2>这本书怎么用</h2>
+    <div class="card">
+      <p>先从第 1 章把学校自己的词弄清楚，再去第 2 到第 4 章学会读官方规则。真正动手选课时，按第 5、6 章走；想退课、少读、多读，先看第 7 章。第 8 章是常见坑，开学前再扫一遍。</p>
+      <p>这本不是“水课推荐”。水不水每年会变，老师、assessment、campus、你的基础都会影响体验。我们只写可核实的规则和操作路径。</p>
+    </div>
+    <div class="contact-bar">
+    <img class="qr" src="assets/contact/qr-rain.png" alt="Rain · 匠人学院资深 IT 顾问微信" />
+    <div><div class="t">看完还是不确定，扫码来问</div><div class="d">把你的学校、degree、想读方向和当前选课表发来。我们先帮你看规则有没有明显冲突。</div></div>
+  </div>
+  </div>
+</section>
+
+<section class="ch" id="ch1">
+  <div class="ghost">01</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 01</div>
+        <h2>先把词典对齐</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-pen-book.png" alt="" />
+    </div>
+    <p class="lead">同样叫“选课”，每所学校的词不一样。先把词对齐，不然你会把 degree、program、course、unit、subject 混着用，最后连自己到底选了什么都说不清。</p>
+      <table><tr><th>词</th><th>这所学校里大概怎么理解</th></tr><tr><td><strong>program</strong></td><td>你的学位或课程。先看 program requirements。</td></tr><tr><td><strong>course</strong></td><td>单门课。每门 course 有 units、availability、rules。</td></tr><tr><td><strong>major / minor</strong></td><td>主修和辅修路径。要看是否能放进你的 program。</td></tr><tr><td><strong>specialisation</strong></td><td>有些 program 下更细的专业方向，不能和 major/minor 混着猜。</td></tr></table>
+      <div class="callout"><strong>先别急着问“哪门课简单”。</strong>更重要的是：这门课能不能算进你的 degree、有没有前置、什么时候开、退课会不会影响学费和签证。</div>
+      <div class="src source-list">官方源：<a href="https://programsandcourses.anu.edu.au/" target="_blank" rel="noreferrer">ANU Programs and Courses</a> ｜ <a href="https://www.anu.edu.au/students/program-administration/enrolment" target="_blank" rel="noreferrer">ANU Enrolment</a> ｜ <a href="https://www.anu.edu.au/students/program-administration/timetabling" target="_blank" rel="noreferrer">ANU Timetabling</a> ｜ <a href="https://www.anu.edu.au/students/program-administration/enrolment/overload-your-enrolment" target="_blank" rel="noreferrer">Overload your enrolment</a> ｜核对 2026-06-25</div>
+  </div>
+</section>
+<section class="ch" id="ch2">
+  <div class="ghost">02</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 02</div>
+        <h2>Handbook / catalogue 先看哪几处</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-working-laptop.png" alt="" />
+    </div>
+    <p class="lead">Handbook 不是给学校 staff 看的摆设。你每学期少踩的坑，基本都藏在这里。</p>
+      <div class="mini-grid"><div class="mini"><b>先看结构</b>Programs and Courses 可以搜 current academic year and beyond 的 programs、majors、minors、courses。</div><div class="mini"><b>再看单课</b>Degree Builder 是 ANU 这本的主线：先搭 degree，再看 major/minor/course 能不能放进去。</div><div class="mini"><b>最后做计划</b>读 course entry 时盯四件事：semester、units、prerequisites、delivery mode。</div></div>
+      <div class="card"><div class="title-row"><span class="n">✓</span><h3>一个真实动作</h3></div><p>现在就打开本校官方入口，先搜自己的 degree/program/course，再搜一门你想读的课。把 requirement、availability、requisites 三个词圈出来。你能解释这三个词，才算开始会选课。</p></div>
+      <div class="src source-list">官方源：<a href="https://programsandcourses.anu.edu.au/" target="_blank" rel="noreferrer">ANU Programs and Courses</a> ｜ <a href="https://www.anu.edu.au/students/program-administration/enrolment" target="_blank" rel="noreferrer">ANU Enrolment</a> ｜ <a href="https://www.anu.edu.au/students/program-administration/timetabling" target="_blank" rel="noreferrer">ANU Timetabling</a> ｜ <a href="https://www.anu.edu.au/students/program-administration/enrolment/overload-your-enrolment" target="_blank" rel="noreferrer">Overload your enrolment</a> ｜核对 2026-06-25</div>
+  </div>
+</section>
+<section class="ch" id="ch3">
+  <div class="ghost">03</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 03</div>
+        <h2>Core、elective、major/minor 怎么拆</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-chart.png" alt="" />
+    </div>
+    <p class="lead">选课不是把喜欢的课塞满一学期。先把毕业要求拆开，再决定每学期放什么。</p>
+      <table><tr><th>你要拆的东西</th><th>怎么做</th></tr><tr><td><strong>毕业结构</strong></td><td>先把 program requirements 写下来，再决定 major/minor。</td></tr><tr><td><strong>选择空间</strong></td><td>double degree 同学尤其要看两个 program 的重叠和顺序，不要只按兴趣塞课。</td></tr><tr><td><strong>顺序约束</strong></td><td>ANU 的选择空间看起来大，但每个 program 对 level 和 units 都有要求。</td></tr></table>
+      <div class="callout"><strong>实操模板：</strong>开一个表格，四列就够：必修 / 主修或方向 / 可选空间 / 不能忘的日期。每门课先放进其中一列，再去排 timetable。</div>
+      <div class="src source-list">官方源：<a href="https://programsandcourses.anu.edu.au/" target="_blank" rel="noreferrer">ANU Programs and Courses</a> ｜ <a href="https://www.anu.edu.au/students/program-administration/enrolment" target="_blank" rel="noreferrer">ANU Enrolment</a> ｜ <a href="https://www.anu.edu.au/students/program-administration/timetabling" target="_blank" rel="noreferrer">ANU Timetabling</a> ｜ <a href="https://www.anu.edu.au/students/program-administration/enrolment/overload-your-enrolment" target="_blank" rel="noreferrer">Overload your enrolment</a> ｜核对 2026-06-25</div>
+  </div>
+</section>
+<section class="ch" id="ch4">
+  <div class="ghost">04</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 04</div>
+        <h2>Prerequisite 和 availability，别开学才看</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-data.png" alt="" />
+    </div>
+    <p class="lead">很多选课事故不是系统坏了，是你没看 prerequisites、prohibitions 或开课学期。到 enrolment 那天才发现，已经晚了。</p>
+      <div class="card"><div class="title-row"><span class="n">1</span><h3>规则 1</h3></div><p>Course prerequisites 要倒推。比如二年级想读某门课，第一年就要把前置课安排进去。</p></div><div class="card"><div class="title-row"><span class="n">2</span><h3>规则 2</h3></div><p>如果 course 不是每学期都开，错过一次可能整条路径顺延半年。</p></div><div class="card"><div class="title-row"><span class="n">3</span><h3>规则 3</h3></div><p>别把同名相近课当替代课，是否能 substitute 要看学校 approval。</p></div>
+      <pre>选课前自查：
+1. 这门课有没有 prerequisite？
+2. 我是否已经满足，还是正在读？
+3. 它这个 semester / term 开不开？
+4. 有没有 prohibition / incompatible / non-allowed subject？
+5. 它能不能算进我的 degree requirements？</pre>
+      <div class="src source-list">官方源：<a href="https://programsandcourses.anu.edu.au/" target="_blank" rel="noreferrer">ANU Programs and Courses</a> ｜ <a href="https://www.anu.edu.au/students/program-administration/enrolment" target="_blank" rel="noreferrer">ANU Enrolment</a> ｜ <a href="https://www.anu.edu.au/students/program-administration/timetabling" target="_blank" rel="noreferrer">ANU Timetabling</a> ｜ <a href="https://www.anu.edu.au/students/program-administration/enrolment/overload-your-enrolment" target="_blank" rel="noreferrer">Overload your enrolment</a> ｜核对 2026-06-25</div>
+  </div>
+</section>
+<section class="ch" id="ch5">
+  <div class="ghost">05</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 05</div>
+        <h2>Enrolment 真正怎么走</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-thinking.png" alt="" />
+    </div>
+    <p class="lead">计划写得再漂亮，不等于已经 enrol。下面这几步要按学校系统走，别拿别的学校经验硬套。</p>
+      <div class="steps"><div class="step"><div><h3>接受 offer 后还要 enrol</h3><p>ANU enrolment 页明确，accepted offer 后仍需要 formally enrol。拿 offer 不是自动入读。</p></div></div><div class="step"><div><h3>用 Degree Builder 做初稿</h3><p>先把 program、major/minor 和 course 放进去，看结构是不是成立。</p></div></div><div class="step"><div><h3>进系统前做一次人工核对</h3><p>确认 prerequisites、semester、units 和 timetable 都能对上，再提交 enrolment。</p></div></div></div>
+      <div class="contact-bar">
+    <img class="qr" src="assets/contact/qr-rain.png" alt="Rain · 匠人学院资深 IT 顾问微信" />
+    <div><div class="t">选课系统看晕了，可以拿你的 plan 来问</div><div class="d">扫码找 Rain，把学校、degree、想读的方向和你排好的课发来，我们帮你先看有没有明显坑。</div></div>
+  </div>
+  </div>
+</section>
+<section class="ch" id="ch6">
+  <div class="ghost">06</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 06</div>
+        <h2>Timetable：计划和拿到位置是两件事</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-pen-book.png" alt="" />
+    </div>
+    <p class="lead">很多同学以为“我排了课表”就等于“我拿到课”。不是。planner、preference、class registration、allocation，每个词的状态都不一样。</p>
+      <table><tr><th>提醒</th><th>为什么重要</th></tr><tr><td><strong>先看状态</strong></td><td>ANU Timetabling 提供 course timetable information 和 room availability。</td></tr><tr><td><strong>再看冲突</strong></td><td>课表冲突时，先看是否有 alternate class，再看是否要调整 course 顺序。</td></tr><tr><td><strong>最后确认</strong></td><td>远程/线下/混合 delivery 要逐门看，不要假设同专业都一样。</td></tr></table>
+      <div class="callout"><strong>小动作：</strong>课表出来后，不只看周几几点。还要看 campus、online/offline、tutorial/lab 是否必须到场、assessment deadline 会不会扎堆。</div>
+      <div class="src source-list">官方源：<a href="https://programsandcourses.anu.edu.au/" target="_blank" rel="noreferrer">ANU Programs and Courses</a> ｜ <a href="https://www.anu.edu.au/students/program-administration/enrolment" target="_blank" rel="noreferrer">ANU Enrolment</a> ｜ <a href="https://www.anu.edu.au/students/program-administration/timetabling" target="_blank" rel="noreferrer">ANU Timetabling</a> ｜ <a href="https://www.anu.edu.au/students/program-administration/enrolment/overload-your-enrolment" target="_blank" rel="noreferrer">Overload your enrolment</a> ｜核对 2026-06-25</div>
+  </div>
+</section>
+<section class="ch" id="ch7">
+  <div class="ghost">07</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 07</div>
+        <h2>Census、withdraw、study load：钱和签证都在这里</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-working-laptop.png" alt="" />
+    </div>
+    <p class="lead">选错课还能改，错过日期就麻烦了。census date 不是行政术语，它关系到学费、成绩记录和学生签证。</p>
+      <div class="callout"><strong>日期提醒：</strong>Overload 是单独流程。想多读一门，不等于系统一定允许。</div><div class="callout warn"><strong>操作提醒：</strong>少读、退课、leave 都可能影响 student visa，要先找学校 advice。</div>
+      <div class="check-group">
+        <div class="head"><span class="stage">每学期固定检查</span><h3>开学前 30 分钟做完</h3></div>
+        <div class="check-item"><span class="box"></span><div><div class="t">把 academic calendar / important dates 存到浏览器收藏</div><div class="n">只信官网日期，不信群里截图。</div></div><span class="badge must">必做</span></div>
+        <div class="check-item"><span class="box"></span><div><div class="t">把 add、drop、census、withdraw deadline 写进日历</div><div class="n">设置提前 7 天提醒。</div></div><span class="badge must">必做</span></div>
+        <div class="check-item"><span class="box"></span><div><div class="t">如果要 underload / reduced load，先问学校</div><div class="n">尤其是 student visa 同学，别先退课再补救。</div></div><span class="badge must">必做</span></div>
+      </div>
+      <div class="src source-list">官方源：<a href="https://programsandcourses.anu.edu.au/" target="_blank" rel="noreferrer">ANU Programs and Courses</a> ｜ <a href="https://www.anu.edu.au/students/program-administration/enrolment" target="_blank" rel="noreferrer">ANU Enrolment</a> ｜ <a href="https://www.anu.edu.au/students/program-administration/timetabling" target="_blank" rel="noreferrer">ANU Timetabling</a> ｜ <a href="https://www.anu.edu.au/students/program-administration/enrolment/overload-your-enrolment" target="_blank" rel="noreferrer">Overload your enrolment</a> ｜核对 2026-06-25</div>
+  </div>
+</section>
+<section class="ch" id="ch8">
+  <div class="ghost">08</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 08</div>
+        <h2>FAQ：最常见的 4 个坑</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-chart.png" alt="" />
+    </div>
+    <p class="lead">这些问题每年都会有人问。你提前知道，至少不会在开学第一周边哭边改课。</p>
+      <div class="qgrid"><div class="card"><div class="title-row"><span class="n">Q</span><h3>Degree Builder 显示能放进去，是不是就一定能 enrol？</h3></div><p>还不够。Degree Builder 帮你看结构，真正 enrol 还要满足 course-level rules 和 timetable。</p></div><div class="card"><div class="title-row"><span class="n">A</span><h3>想一学期多读一门课怎么办？</h3></div><p>先看 Overload your enrolment。不要默认自己能 overload，通常要满足条件和审批。</p></div><div class="card"><div class="title-row"><span class="n">Q</span><h3>Major 以后能换吗？</h3></div><p>通常可以调整，但已经读过的 course 能不能算进去要重新核 program rules。</p></div><div class="card"><div class="title-row"><span class="n">A</span><h3>课程冲突可以找老师开特例吗？</h3></div><p>别先赌特例。先用 timetable 查替代 class 或调整顺序，真无解再找学校 advice。</p></div></div>
+      <div class="callout"><strong>最后一句：</strong>选课不是一次做完的动作，是每学期都要复核的流程。先看官方规则，再问人；别反过来。</div>
+      <div class="src source-list">官方源：<a href="https://programsandcourses.anu.edu.au/" target="_blank" rel="noreferrer">ANU Programs and Courses</a> ｜ <a href="https://www.anu.edu.au/students/program-administration/enrolment" target="_blank" rel="noreferrer">ANU Enrolment</a> ｜ <a href="https://www.anu.edu.au/students/program-administration/timetabling" target="_blank" rel="noreferrer">ANU Timetabling</a> ｜ <a href="https://www.anu.edu.au/students/program-administration/enrolment/overload-your-enrolment" target="_blank" rel="noreferrer">Overload your enrolment</a> ｜核对 2026-06-25</div>
+  </div>
+</section>
+
+<footer class="outro">
+  <div class="wrap">
+    <img class="logo" src="assets/logo/logo-zh-white.png" alt="匠人学院" />
+    <h2>选课先别靠感觉，先把规则看明白</h2>
+    <p>ANU 选课指南 是澳洲八大选课指南系列的一本。适合拿到 offer、准备入学、或者下学期要换课/换专业方向的同学。真正 enrol 前，请再点开学校官网核对当期日期和系统提示。</p>
+    <div class="sales-card"><img src="assets/contact/sales-cards/rain.jpg" alt="Rain · 匠人学院资深 IT 顾问 · 匠人学院" /></div>
+    <div class="contact-bar">
+    <img class="qr" src="assets/contact/qr-rain.png" alt="Rain · 匠人学院资深 IT 顾问微信" />
+    <div><div class="t">想找人帮你过一遍选课表？</div><div class="d">扫码找 Rain。我们可以先帮你看 degree requirements、study load、时间节点这些容易出事的地方。</div></div>
+  </div>
+    <p class="fine">© JR Academy · jiangren.com.au · 资料核对 2026-06-25 · 以学校官网最新信息为准</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const io = new IntersectionObserver((es) => {
+    es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.card, .chart, .duo-path, .pipeline, .yes-no, .roadmap, .ladder, .check-group, .callout, .figure, .pullquote, .stat-grid, .contact-bar, .sales-card, table')
+    .forEach(el => { el.classList.add('reveal'); io.observe(el); });
+})();
+</script>
+<a href="ANU%20%E9%80%89%E8%AF%BE%E6%8C%87%E5%8D%97%20-%20%E5%8C%A0%E4%BA%BA%E5%AD%A6%E9%99%A2.pdf" download style="position:fixed;right:22px;bottom:22px;z-index:1200;display:flex;align-items:center;gap:8px;background:#0D0F12;color:#fff;font-weight:700;font-size:14.5px;padding:13px 22px;border-radius:999px;box-shadow:0 12px 28px rgba(13,15,18,.35);text-decoration:none;font-family:Inter,'PingFang SC',sans-serif;">⬇️ 下载 PDF 版</a>
+</body>
+</html>
