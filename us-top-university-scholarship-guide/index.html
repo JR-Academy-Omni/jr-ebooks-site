@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>美国 Top 大学奖学金与助学金申请全解析 — web 版初稿 · JR Academy</title>
+<link rel="stylesheet" href="theme/tokens.css" />
+<link rel="stylesheet" href="theme/web-zine.css" />
+<style>
+  .scope-note { border: 1px solid var(--jr-border-warm); background: var(--jr-cream); border-radius: 16px; padding: 18px 20px; margin-top: 18px; }
+  .tag-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+  .mini-tag { border: 1px solid var(--jr-border-warm); border-radius: 999px; padding: 6px 10px; font-size: 13px; font-weight: var(--jr-fw-bold); background: var(--jr-white); }
+  .school-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 18px; }
+  .school-card { border: 1px solid var(--jr-border-warm); border-radius: 18px; padding: 18px; background: var(--jr-white); box-shadow: var(--jr-shadow-sm); }
+  .school-card h3 { margin: 0 0 10px; font-size: 24px; }
+  .school-card .rule { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--jr-border-warm); border-radius: 999px; padding: 5px 9px; margin: 0 8px 10px 0; font-size: 12px; font-weight: var(--jr-fw-bold); background: var(--jr-warm); }
+  .school-card ul { padding-left: 20px; margin: 10px 0 0; }
+  .school-card li { margin: 7px 0; }
+  .source-link { font-size: 12px; color: var(--jr-neutral-600); margin-top: 12px; word-break: break-word; }
+  .source-link a { color: inherit; text-decoration: underline; text-decoration-thickness: 1px; }
+  .rank-table td:first-child { font-weight: var(--jr-fw-bold); }
+  .mistake { display: grid; grid-template-columns: 120px 1fr; gap: 14px; align-items: start; border-top: 1px solid var(--jr-border-warm); padding: 15px 0; }
+  .mistake .bad { font-weight: var(--jr-fw-bold); color: var(--jr-red); }
+  .timeline { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 18px; }
+  .step { border: 1px solid var(--jr-border-warm); border-radius: 16px; padding: 16px; background: var(--jr-white); }
+  .step .m { font-size: 13px; font-weight: var(--jr-fw-bold); color: var(--jr-red); text-transform: uppercase; }
+  .step h4 { margin: 7px 0 8px; font-size: 18px; }
+  .source-list { columns: 2; column-gap: 24px; font-size: 13px; line-height: 1.75; }
+  .source-list a { color: var(--jr-neutral-800); text-decoration: underline; text-decoration-thickness: 1px; }
+  .sales-card-lead { margin-top: 22px; font-size: 17px; font-weight: var(--jr-fw-bold); color: var(--jr-black); }
+  .hero h1 .t-main { font-size: 76px; }
+  @media (max-width: 760px) {
+    .school-grid, .timeline { grid-template-columns: 1fr; }
+    .source-list { columns: 1; }
+    .mistake { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 640px) {
+    .hero h1 .t-main { font-size: 40px; }
+    .hero h1 .t-sticker { top: auto; bottom: -30px; right: 8px; transform: rotate(5deg); }
+    .hero p.sub { margin-top: 48px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <img class="logo" src="assets/logo/logo-zh-full.svg" alt="匠人学院" />
+    <div class="hero-flex">
+      <div>
+        <div class="bar"></div>
+        <h1><span class="t-top">美国 Top 大学</span><br /><span class="t-main">奖学金与助学金<span class="t-sticker">2026 官网核对版</span></span></h1>
+        <p class="sub">这本不做“奖学金鸡汤”。它只回答四个问题：<span class="hl">哪些学校国际生也能拿 full need，哪些学校 need-aware，哪些必须申请时就申，公立名校为什么不能照搬私校逻辑</span>。</p>
+        <div class="chips"><span class="chip">本科申请为主</span><span class="chip">官方来源逐校列出</span><span class="chip">Need-based / Merit 分清楚</span></div>
+        <div style="margin-top: 26px;"><span class="zine-diecut" style="font-size: 24px;">先不申 aid，录了再说？好几所学校直接不让你补。</span></div>
+      </div>
+      <div class="mascot-wrap"><span class="tape"></span><img class="hero-mascot" src="assets/illustrations/niuxiaojiang-hero.png" alt="牛小匠" /></div>
+    </div>
+  </div>
+</header>
+
+<div class="marquee"><div class="mq-track"><span>US TOP UNIVERSITY FINANCIAL AID<i>✦</i>NEED-BLIND<i>✦</i>NEED-AWARE<i>✦</i>CSS PROFILE<i>✦</i>JIANGREN.COM.AU<i>✦</i></span><span>US TOP UNIVERSITY FINANCIAL AID<i>✦</i>NEED-BLIND<i>✦</i>NEED-AWARE<i>✦</i>CSS PROFILE<i>✦</i>JIANGREN.COM.AU<i>✦</i></span></div></div>
+
+<nav class="toc">
+  <div class="wrap">
+    <a href="#how"><span class="num">00</span>这本书怎么读</a>
+    <a href="#ch1"><span class="num">01</span>先把四个词讲明白</a>
+    <a href="#ch2"><span class="num">02</span>一张表看学校分层</a>
+    <a href="#ch3"><span class="num">03</span>Need-blind + full need 阵营</a>
+    <a href="#ch4"><span class="num">04</span>Need-aware / 申请时锁定阵营</a>
+    <a href="#ch5"><span class="num">05</span>公立名校别照搬私校规则</a>
+    <a href="#ch6"><span class="num">06</span>材料、截止日和申请动作</a>
+    <a href="#ch7"><span class="num">07</span>高频误区和 FAQ</a>
+    <a href="#sources"><span class="num">08</span>官方来源清单</a>
+  </div>
+</nav>
+
+<section class="ch" id="how">
+  <div class="wrap">
+    <h2>这本书怎么读</h2>
+    <div class="card">
+      <p>先说边界：这本主要讲<strong>美国顶尖大学本科</strong>的奖学金和助学金规则。美国本科申请里，真正影响家庭预算的词通常不是 scholarship，而是 <strong>financial aid</strong>，尤其是 need-based aid。</p>
+      <p>研究生不放进同一张表里。MBA、MS、PhD、LLM、医学、法学，每个学院的钱都不一样。有的靠 fellowship，有的靠 TA/RA，有的项目几乎没钱。把它们和本科 full need 写在一起，读者看完只会更糊涂。</p>
+    </div>
+    <div class="scope-note">
+      <strong>核对日期：2026 年 6 月 26 日。</strong>所有学校规则都来自学校官网或学校财务援助官网。本书可以帮你判断方向，但真正递交前，要打开当年申请页面核对你的入学年份、轮次和材料截止日。
+    </div>
+    <div class="contact-bar">
+      <img class="qr" src="assets/contact/qr-amelia.png" alt="Amelia · 匠人学院顾问微信" />
+      <div><div class="t">想把学校名单和预算一起算？</div><div class="d">扫码找 Amelia。你把目标学校、家庭预算、成绩背景发来，我们帮你先分一遍：哪些值得申 aid，哪些要准备额外资金。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="ch" id="ch1">
+  <div class="ghost">01</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 01</div>
+        <h2>先把四个词讲明白</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-thinking.png" alt="" />
+    </div>
+    <p class="lead">美国顶尖本科的资助逻辑，和很多家长熟悉的“成绩好拿奖学金”不是一回事。尤其是 Ivy+ 私校，很多学校明确写了：<strong>本科资助按家庭支付能力算，不按成绩发 merit 奖。</strong></p>
+
+    <table>
+      <tr><th>词</th><th>说白了</th><th>你要做什么</th></tr>
+      <tr><td>Need-based financial aid</td><td>学校按家庭收入、资产、人数、特殊情况等估算你能付多少，差额由学校补</td><td>准备家庭收入、税务/收入证明、资产证明、CSS Profile/IDOC 或学校自己的表</td></tr>
+      <tr><td>Merit scholarship</td><td>按成绩、活动、领导力、特长等给钱</td><td>先查学校有没有。Harvard、Yale、MIT、Brown 等本科校内基本不发 merit</td></tr>
+      <tr><td>Need-blind</td><td>录取时不看你要不要钱</td><td>放心申 aid，但还要看学校是否 meet full need</td></tr>
+      <tr><td>Need-aware</td><td>录取时可能考虑你需要多少资助</td><td>需要钱仍要如实申，别为了“好录”假装不需要</td></tr>
+      <tr><td>Meet full demonstrated need</td><td>学校用自己的公式算出你需要多少钱，然后覆盖 100%</td><td>别把“我家想少付”当成 demonstrated need。学校会自己算</td></tr>
+    </table>
+
+    <div class="callout warn"><strong>最重要的一句：</strong>如果一个学校规定“申请时没申 aid，录取后不能补”，那你就不能先假装家里能全付，等进去了再说。Stanford、Penn、Cornell、Northwestern、UChicago、Caltech、Duke 都有类似的申请时点要求。</div>
+
+    <div class="yes-no">
+      <div class="yn yes">
+        <h4>可以期待的</h4>
+        <ul>
+          <li>Harvard / Yale / Princeton / MIT 这类学校，国际本科也可能拿到非常高的 need-based aid。</li>
+          <li>UChicago 有面向国际 first-year 的 partial-tuition merit，但官网也提醒不要指望 merit 覆盖全部费用。</li>
+          <li>Northwestern 这类学校虽然 need-aware，但录了并给 aid 后，可以 meet 100% demonstrated need。</li>
+        </ul>
+      </div>
+      <div class="yn no">
+        <h4>别这么理解</h4>
+        <ul>
+          <li>“我成绩好，所以 Ivy 会给我奖学金。”很多 Ivy 根本不发校内 merit。</li>
+          <li>“Need-blind 就是免费。”不是。它只说录取时不看钱。</li>
+          <li>“公立 Top 更便宜，还能给国际生 need-based aid。”很多公立对国际本科非常有限。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ch" id="ch2">
+  <div class="ghost">02</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 02</div>
+        <h2>一张表看学校分层</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-chart.png" alt="" />
+    </div>
+    <p class="lead">先看大图。不是所有“Top 大学”都按同一套规则来，甚至同一所学校对美国学生和国际学生也可能不一样。</p>
+
+    <table class="rank-table">
+      <tr><th>类型</th><th>学校</th><th>对中国本科申请者意味着什么</th></tr>
+      <tr><td>A 档：国际 first-year 也 need-blind + full need</td><td>Harvard、Yale、Princeton、MIT、Brown（Class of 2029 起）、Dartmouth</td><td>需要资助就申。录取时原则上不因申 aid 吃亏，录取后按学校公式覆盖 demonstrated need。</td></tr>
+      <tr><td>B 档：need-aware 或国际 aid 名额有限，但录了可能 full need</td><td>Stanford、Penn、Cornell、Johns Hopkins、Northwestern</td><td>申请 aid 可能影响录取难度，但如果确实需要钱，必须在申请时就申。录后再补风险很高。</td></tr>
+      <tr><td>C 档：申请时锁定很强</td><td>UChicago、Caltech、Duke</td><td>官网明确强调申请时点。没在 admission application 或 admissions process 里申，后面可能不能补。</td></tr>
+      <tr><td>D 档：公立 Top 要另算</td><td>UC Berkeley 作为例子</td><td>官网写国际学生不符合 federal、state 和 need-based university aid。不能把私校 full need 逻辑套到公立。</td></tr>
+      <tr><td>需人工复核</td><td>Columbia</td><td>自动抓取国际学生 aid 细则页时被官网限制。本版只保留已核到的 Columbia College/Engineering grant/no-loan 总体事实，不写申请时点细则。</td></tr>
+    </table>
+
+    <div class="callout"><strong>怎么用这张表：</strong>如果家庭预算够全付，B/C 档也可以不申 aid，录取上少一个变量。但如果家庭确实需要资助，不要为了“显得不缺钱”硬撑。顶尖私校一年总成本很高，四年现金流压力不是靠侥幸解决的。</div>
+  </div>
+</section>
+
+<section class="ch" id="ch3">
+  <div class="ghost">03</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 03</div>
+        <h2>Need-blind + full need 阵营</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-pen-book.png" alt="" />
+    </div>
+    <p class="lead">这几所是很多中国家庭最容易误解、也最值得认真算账的学校。它们不是“看成绩发钱”，而是看家庭支付能力。</p>
+
+    <div class="school-grid">
+      <div class="school-card">
+        <h3>Harvard</h3>
+        <span class="rule">Need-blind</span><span class="rule">Full need</span><span class="rule">No merit</span>
+        <ul>
+          <li>国际学生和美国学生适用同一套 aid 规则。</li>
+          <li>Financial aid application 不影响录取。</li>
+          <li>Harvard 本科资助 100% need-based，不发 merit-based awards。</li>
+        </ul>
+        <div class="source-link">来源：<a href="https://college.harvard.edu/financial-aid/how-aid-works" target="_blank" rel="noopener">Harvard College Financial Aid</a></div>
+      </div>
+
+      <div class="school-card">
+        <h3>Yale</h3>
+        <span class="rule">Need-blind</span><span class="rule">Full need</span><span class="rule">Loan-free package</span>
+        <ul>
+          <li>本科 aid 按 demonstrated need 发。</li>
+          <li>官网写明不论 citizenship 或 immigration status，meet 100% demonstrated need。</li>
+          <li>Yale Scholarship 只按 financial need，Yale 不发校内 merit-based scholarships。</li>
+        </ul>
+        <div class="source-link">来源：<a href="https://finaid.yale.edu/affordability" target="_blank" rel="noopener">Yale Affordability</a> / <a href="https://finaid.yale.edu/typesofaid" target="_blank" rel="noopener">Types of Aid</a></div>
+      </div>
+
+      <div class="school-card">
+        <h3>Princeton</h3>
+        <span class="rule">Need-blind</span><span class="rule">Same policy for internationals</span><span class="rule">PFAA</span>
+        <ul>
+          <li>Princeton admission need-blind，申 aid 不在录取中吃亏。</li>
+          <li>录取后用 grant aid 覆盖 100% demonstrated need。</li>
+          <li>Princeton 用自己的 PFAA，别默认套 CSS Profile。</li>
+        </ul>
+        <div class="source-link">来源：<a href="https://admission.princeton.edu/cost-aid" target="_blank" rel="noopener">Princeton Cost &amp; Aid</a></div>
+      </div>
+
+      <div class="school-card">
+        <h3>MIT</h3>
+        <span class="rule">Need-blind</span><span class="rule">Full need</span><span class="rule">Need-based only</span>
+        <ul>
+          <li>MIT 官网写明 need blind and full need。</li>
+          <li>录取学生只要申请 aid，MIT meets full financial need。</li>
+          <li>Financial aid entirely based on demonstrated need, not merit。</li>
+        </ul>
+        <div class="source-link">来源：<a href="https://mitadmissions.org/afford/cost-aid-basics/" target="_blank" rel="noopener">MIT Admissions Cost &amp; Aid Basics</a></div>
+      </div>
+
+      <div class="school-card">
+        <h3>Brown</h3>
+        <span class="rule">Class of 2029 起国际 first-year need-blind</span><span class="rule">Full need</span>
+        <ul>
+          <li>Brown meets 100% demonstrated financial need。</li>
+          <li>从 Class of 2029 起，国际 first-year applicants 也纳入 need-blind admission。</li>
+          <li>Brown aid 是 need-based，不发 merit awards。Transfer 规则另看。</li>
+        </ul>
+        <div class="source-link">来源：<a href="https://admission.brown.edu/tuition-aid/financial-aid" target="_blank" rel="noopener">Brown Financial Aid</a></div>
+      </div>
+
+      <div class="school-card">
+        <h3>Dartmouth</h3>
+        <span class="rule">Need-blind</span><span class="rule">Full need</span>
+        <ul>
+          <li>Dartmouth 官网首页列出 Need-Blind Admission。</li>
+          <li>官网写明 meet 100% demonstrated need for all admitted students。</li>
+          <li>申请前再打开 international students aid 子页核对材料和入学年份截止日。</li>
+        </ul>
+        <div class="source-link">来源：<a href="https://financialaid.dartmouth.edu/" target="_blank" rel="noopener">Dartmouth Financial Aid</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ch" id="ch4">
+  <div class="ghost">04</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 04</div>
+        <h2>Need-aware / 申请时锁定阵营</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-working-laptop.png" alt="" />
+    </div>
+    <p class="lead">这组学校最怕“策略性不申”。有些学校明确写了，国际生申请时不申 aid，之后几年不能再申请。你要不要钱，最好一开始就想清楚。</p>
+
+    <div class="school-grid">
+      <div class="school-card">
+        <h3>Stanford</h3>
+        <span class="rule">International need-aware</span><span class="rule">CSS Profile / IDOC</span>
+        <ul>
+          <li>国际本科有 need-based aid，但名额有限。</li>
+          <li>国际申请者 request for aid 会作为录取评估因素之一。</li>
+          <li>如果 admission application 里说不申请 aid，前两年不能申请 Stanford aid。</li>
+        </ul>
+        <div class="source-link">来源：<a href="https://financialaid.stanford.edu/undergrad/how/international.html" target="_blank" rel="noopener">Stanford International Students</a></div>
+      </div>
+
+      <div class="school-card">
+        <h3>Penn</h3>
+        <span class="rule">Need-aware for most internationals</span><span class="rule">Grant-based full need</span>
+        <ul>
+          <li>除加拿大和墨西哥外，国际申请者 generally need-aware。</li>
+          <li>符合资格并录取后，Penn 用 grant-based aid meet 100% demonstrated need。</li>
+          <li>国际学生必须在申请 admission 时申请 financial aid，才有资格在本科阶段拿 aid。</li>
+        </ul>
+        <div class="source-link">来源：<a href="https://srfs.upenn.edu/financial-aid/international" target="_blank" rel="noopener">Penn SRFS International Students</a></div>
+      </div>
+
+      <div class="school-card">
+        <h3>Cornell</h3>
+        <span class="rule">Need-aware</span><span class="rule">CSS code 2098</span>
+        <ul>
+          <li>国际录取流程 need-aware。</li>
+          <li>只要你未来任何时候想拿 Cornell grant/scholarship aid，就要申请 admission 时提交 CSS Profile。</li>
+          <li>录取后 meet 100% demonstrated need，但 package 可能包含 grant、work-study、合理学生贷款。</li>
+        </ul>
+        <div class="source-link">来源：<a href="https://finaid.cornell.edu/first-year-and-transfer-students-international" target="_blank" rel="noopener">Cornell International Aid</a></div>
+      </div>
+
+      <div class="school-card">
+        <h3>Johns Hopkins</h3>
+        <span class="rule">International need-aware</span><span class="rule">CSS / IDOC</span>
+        <ul>
+          <li>Domestic first-year 和 transfer 是 need-blind；国际申 aid 是 need-aware。</li>
+          <li>国际申请者必须在 application 里 indicate financial need。</li>
+          <li>若录取，JHU meets 100% demonstrated need。官网 FAQ 提到约 10% 国际学生获得 financial aid。</li>
+        </ul>
+        <div class="source-link">来源：<a href="https://apply.jhu.edu/tuition-aid/" target="_blank" rel="noopener">Johns Hopkins Tuition &amp; Aid</a></div>
+      </div>
+
+      <div class="school-card">
+        <h3>Northwestern</h3>
+        <span class="rule">Need-aware</span><span class="rule">First-year only</span><span class="rule">Loan/work-free</span>
+        <ul>
+          <li>国际学生 request for aid 和申请金额可能影响录取评估。</li>
+          <li>只有 first-year applicants eligible；必须第一年申请并收到 aid，之后才可继续申请。</li>
+          <li>录取给 aid 后，meet 100% demonstrated need，且只用 grants/scholarships，不含贷款和 work-study。</li>
+        </ul>
+        <div class="source-link">来源：<a href="https://admissions.northwestern.edu/tuition-aid/international-student-aid/" target="_blank" rel="noopener">Northwestern International Aid</a></div>
+      </div>
+
+      <div class="school-card">
+        <h3>UChicago</h3>
+        <span class="rule">申请时必须申</span><span class="rule">Loan-free full need</span><span class="rule">有 partial merit</span>
+        <ul>
+          <li>国际学生应在申请 admission 时同时申请 financial aid。</li>
+          <li>如果录取且已申请 funding，UChicago meets 100% demonstrated need with a loan-free package。</li>
+          <li>没在 admissions process 申请 funding，录取后和四年本科期间都不能再申 international financial aid。</li>
+          <li>国际 aid 申请者不要提交 CSS Profile 或 FAFSA，使用 UChicago Account 里的 Student Financial Aid Worksheet。</li>
+        </ul>
+        <div class="source-link">来源：<a href="https://collegeadmissions.uchicago.edu/financial-support/international-financial-aid/" target="_blank" rel="noopener">UChicago International Financial Aid</a></div>
+      </div>
+
+      <div class="school-card">
+        <h3>Caltech</h3>
+        <span class="rule">First-year window</span><span class="rule">No aid for intl transfer</span>
+        <ul>
+          <li>国际学生如需 aid，必须作为 incoming first-year 申请。</li>
+          <li>如果 first-year 没申请，或申请但第一年不符合资格，之后不能再申请。</li>
+          <li>International transfer 和 3/2 applicants 没有 financial aid。</li>
+          <li>需要在 admission application 里披露 plan to apply for aid。</li>
+        </ul>
+        <div class="source-link">来源：<a href="https://finaid.caltech.edu/applying/international-students" target="_blank" rel="noopener">Caltech International Students</a></div>
+      </div>
+
+      <div class="school-card">
+        <h3>Duke</h3>
+        <span class="rule">Financial aid interest checkbox</span><span class="rule">No intl transfer aid</span>
+        <ul>
+          <li>如果 international student 当初没有在 admission application 勾选 financial aid interest，Duke 官网写明本科阶段不能申请 financial aid。</li>
+          <li>International transfer students 没有 need-based 或 merit scholarships。</li>
+          <li>ED/RD 的 aid deadline 要按当年 Apply Aid 页面核对。</li>
+        </ul>
+        <div class="source-link">来源：<a href="https://financialaid.duke.edu/international-students/" target="_blank" rel="noopener">Duke International Students</a></div>
+      </div>
+    </div>
+
+    <div class="contact-bar">
+      <img class="qr" src="assets/contact/qr-amelia.png" alt="Amelia · 匠人学院顾问微信" />
+      <div><div class="t">不确定该不该勾 financial aid？</div><div class="d">这个决定会影响录取策略和四年预算。扫码把家庭预算范围和学校名单发来，先做一次风险判断。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="ch" id="ch5">
+  <div class="ghost">05</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 05</div>
+        <h2>公立名校别照搬私校规则</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-coffee-pointing.png" alt="" />
+    </div>
+    <p class="lead">很多家庭会把“名校”当成一个类别：哈佛有 full need，那 Berkeley、UCLA、Michigan 也差不多吧？不是。美国公立大学对州内纳税人、州外美国学生、国际学生，是三套预算逻辑。</p>
+
+    <div class="card">
+      <div class="title-row"><span class="n">例</span><h3>UC Berkeley 的官方口径</h3></div>
+      <p>Berkeley Financial Aid &amp; Scholarships 官网写得很直接：国际学生不符合 federal、state 和 need-based university financial aid。官网建议国际学生找 private organizations、本国奖学金、研究生 assistantships 等。</p>
+      <div class="src">来源：<a href="https://financialaid.berkeley.edu/apply-now/international-students/" target="_blank" rel="noopener">UC Berkeley International Students</a></div>
+    </div>
+
+    <div class="callout warn"><strong>选校提醒：</strong>如果预算必须靠学校补足，私校 full-need 体系和公立大学不在一个逻辑里。公立 Top 可以申请，但不要把它当成“录了就会自动大额减免”的选项。</div>
+  </div>
+</section>
+
+<section class="ch" id="ch6">
+  <div class="ghost">06</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 06</div>
+        <h2>材料、截止日和申请动作</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-data.png" alt="" />
+    </div>
+    <p class="lead">美国 financial aid 申请不是最后补一个表。真正麻烦的是家庭财务材料：收入、税、资产、翻译、币种换算、非监护父母材料，有的学校还要 IDOC 上传。</p>
+
+    <div class="timeline">
+      <div class="step">
+        <div class="m">Step 1</div>
+        <h4>确定是否申 aid</h4>
+        <p>先按四年总成本算，不要只看第一年。需要学校补差，就在 admission application 里如实选择。</p>
+      </div>
+      <div class="step">
+        <div class="m">Step 2</div>
+        <h4>查学校用什么表</h4>
+        <p>大多数用 CSS Profile / IDOC；Princeton 用 PFAA；UChicago international aid 用 Student Financial Aid Worksheet，不交 CSS/FAFSA。</p>
+      </div>
+      <div class="step">
+        <div class="m">Step 3</div>
+        <h4>准备家庭财务材料</h4>
+        <p>收入证明、纳税材料或本国等效文件、银行流水、资产证明、英文翻译、美元换算。家庭结构复杂的，提前查 noncustodial parent 要求。</p>
+      </div>
+      <div class="step">
+        <div class="m">Step 4</div>
+        <h4>按轮次卡 deadline</h4>
+        <p>REA/ED/RD/Transfer 的 aid deadline 往往不同。不要等 admission 交完才想起财务材料。</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top:34px;">几个官网当前可见的 deadline 例子</h3>
+    <table>
+      <tr><th>学校</th><th>官网当前页显示</th><th>要记住的事</th></tr>
+      <tr><td>Stanford</td><td>REA Nov 15；RD Feb 15；Transfer Mar 15</td><td>国际生 aid 名额有限，且申请时声明很关键。</td></tr>
+      <tr><td>Cornell</td><td>ED Nov 1；RD Jan 2；Transfer Mar 15</td><td>CSS Profile code 2098。国际申请者一般没有 CSS fee waiver。</td></tr>
+      <tr><td>UChicago</td><td>EA/EDI Nov 15；EDII Jan 15；RD Feb 15</td><td>国际 aid 不交 CSS/FAFSA，用 UChicago Account 表格。</td></tr>
+      <tr><td>Northwestern</td><td>ED Dec 1；RD Mar 1</td><td>CSS code 1565；CSS 不可用或 hardship 可看 ISAFA。</td></tr>
+      <tr><td>Duke</td><td>ED/RD 分轮次列 aid deadline</td><td>重点不是日期本身，是 admission application 里的 financial aid interest checkbox。</td></tr>
+    </table>
+    <div class="src">截止日会按申请季更新。这里列的是官网当前页面可见口径，真正提交前按你的入学年份核对。</div>
+
+    <div class="card">
+      <div class="title-row"><span class="n">清</span><h3>提交前自查清单</h3></div>
+      <p><strong>一类是申请表动作：</strong>Common App / Coalition / 学校系统里是否选择了申请 financial aid，是否完成学校自己的补充问题。</p>
+      <p><strong>另一类是财务表：</strong>CSS Profile、IDOC、PFAA、UChicago Worksheet 或 ISAFA 是否按学校要求提交。</p>
+      <p><strong>第三类是证明文件：</strong>父母收入、税务或等效收入证明、资产、银行材料、英文翻译、美元换算是否一致。数字前后打架，是 financial aid office 最容易追问的地方。</p>
+    </div>
+  </div>
+</section>
+
+<section class="ch" id="ch7">
+  <div class="ghost">07</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 07</div>
+        <h2>高频误区和 FAQ</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-thinking.png" alt="" />
+    </div>
+
+    <div class="card">
+      <div class="mistake">
+        <div class="bad">误区 1</div>
+        <div><strong>“Top 大学奖学金靠成绩。”</strong><br />很多顶尖私校本科不是这么发钱。Harvard、Yale、MIT、Brown 等都把本科资助写成 need-based，甚至明确没有校内 merit awards。</div>
+      </div>
+      <div class="mistake">
+        <div class="bad">误区 2</div>
+        <div><strong>“Need-blind 就是我一定不用花钱。”</strong><br />Need-blind 只是录取时不看你要不要 aid。真正给多少钱，要看学校按公式算出的 demonstrated need。</div>
+      </div>
+      <div class="mistake">
+        <div class="bad">误区 3</div>
+        <div><strong>“我先不申 aid，录了再补。”</strong><br />Stanford 前两年限制、UChicago 四年限制、Caltech first-year window、Duke checkbox、Northwestern first-year only，都在提醒你：这个想法很危险。</div>
+      </div>
+      <div class="mistake">
+        <div class="bad">误区 4</div>
+        <div><strong>“公立 Top 更适合低预算家庭。”</strong><br />州内学生便宜，不等于国际学生便宜。UC Berkeley 官网明确写国际学生不符合 need-based university aid。</div>
+      </div>
+      <div class="mistake">
+        <div class="bad">误区 5</div>
+        <div><strong>“研究生照本科 full need 规则。”</strong><br />研究生要按学院和项目查。PhD 常见 funding，授课硕士常常少很多，MBA/LLM 又是另一套。</div>
+      </div>
+    </div>
+
+    <div class="callout"><strong>Columbia 怎么处理？</strong>本次自动抓取 Columbia undergraduate international aid 细则页时遇到官网访问限制。已核到 Columbia College / Engineering 的总体 aid facts 页面，但没有把国际生申请时点规则写进正文。申请 Columbia 的同学，必须用浏览器打开学校官网 international student financial aid 页面复核。</div>
+  </div>
+</section>
+
+<section class="ch" id="sources">
+  <div class="ghost">08</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 08</div>
+        <h2>官方来源清单</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-working-laptop.png" alt="" />
+    </div>
+    <p class="lead">这些链接是这版内容的事实来源。读者真正申请时，建议把目标学校链接逐个打开，按自己的申请季重新核对。</p>
+
+    <div class="card">
+      <div class="source-list">
+        <p><a href="https://college.harvard.edu/financial-aid/how-aid-works" target="_blank" rel="noopener">Harvard College Financial Aid</a></p>
+        <p><a href="https://finaid.yale.edu/affordability" target="_blank" rel="noopener">Yale Affordability</a></p>
+        <p><a href="https://finaid.yale.edu/typesofaid" target="_blank" rel="noopener">Yale Types of Aid</a></p>
+        <p><a href="https://admission.princeton.edu/cost-aid" target="_blank" rel="noopener">Princeton Cost &amp; Aid</a></p>
+        <p><a href="https://finaid.princeton.edu/apply-aid-prospective-students" target="_blank" rel="noopener">Princeton Prospective Aid</a></p>
+        <p><a href="https://mitadmissions.org/afford/cost-aid-basics/" target="_blank" rel="noopener">MIT Cost &amp; Aid Basics</a></p>
+        <p><a href="https://financialaid.stanford.edu/undergrad/how/international.html" target="_blank" rel="noopener">Stanford International Students</a></p>
+        <p><a href="https://srfs.upenn.edu/financial-aid/international" target="_blank" rel="noopener">Penn International Students</a></p>
+        <p><a href="https://admission.brown.edu/tuition-aid/financial-aid" target="_blank" rel="noopener">Brown Financial Aid</a></p>
+        <p><a href="https://admission.brown.edu/tuition-aid/need-blind-admission" target="_blank" rel="noopener">Brown Need-Blind Admission</a></p>
+        <p><a href="https://financialaid.dartmouth.edu/" target="_blank" rel="noopener">Dartmouth Financial Aid</a></p>
+        <p><a href="https://finaid.cornell.edu/first-year-and-transfer-students-international" target="_blank" rel="noopener">Cornell International Aid</a></p>
+        <p><a href="https://collegeadmissions.uchicago.edu/financial-support/international-financial-aid/" target="_blank" rel="noopener">UChicago International Financial Aid</a></p>
+        <p><a href="https://finaid.caltech.edu/applying/international-students" target="_blank" rel="noopener">Caltech International Students</a></p>
+        <p><a href="https://financialaid.duke.edu/international-students/" target="_blank" rel="noopener">Duke International Students</a></p>
+        <p><a href="https://financialaid.duke.edu/apply-aid/" target="_blank" rel="noopener">Duke Apply Aid</a></p>
+        <p><a href="https://apply.jhu.edu/tuition-aid/" target="_blank" rel="noopener">Johns Hopkins Tuition &amp; Aid</a></p>
+        <p><a href="https://admissions.northwestern.edu/tuition-aid/international-student-aid/" target="_blank" rel="noopener">Northwestern International Aid</a></p>
+        <p><a href="https://admissions.northwestern.edu/tuition-aid/international-student-aid/international-aid-application-instructions.html" target="_blank" rel="noopener">Northwestern Application Instructions</a></p>
+        <p><a href="https://financialaid.berkeley.edu/apply-now/international-students/" target="_blank" rel="noopener">UC Berkeley International Students</a></p>
+        <p><a href="https://cc-seas.financialaid.columbia.edu/eligibility/facts" target="_blank" rel="noopener">Columbia CC/SEAS Aid Facts</a></p>
+      </div>
+    </div>
+
+    <p class="sales-card-lead">如果你现在已经有一版美国选校名单，最该先算的不是排名，是四年预算和 aid 风险。</p>
+    <div class="sales-card"><img src="assets/contact/sales-cards/amelia.jpg" alt="Amelia · IT Career Consultant · 匠人学院" /></div>
+    <div class="contact-bar">
+      <img class="qr" src="assets/contact/qr-amelia.png" alt="Amelia · 匠人学院顾问微信" />
+      <div><div class="t">扫码找 Amelia 做一次申请预算拆解</div><div class="d">把目标学校、申请轮次、家庭预算和成绩背景发来。我们先帮你判断：哪些学校值得申 aid，哪些学校需要准备全额资金方案。</div></div>
+    </div>
+  </div>
+</section>
+
+<footer class="outro">
+  <div class="wrap">
+    <img class="logo" src="assets/logo/logo-zh-white.png" alt="匠人学院" />
+    <h2>别让“奖学金”三个字把预算判断带偏</h2>
+    <p>美国 Top 本科最重要的是把 need-based aid、need-blind、need-aware 和申请时锁定规则分清。需要钱就诚实申，预算不够就早点调整名单。</p>
+    <p class="fine">© JR Academy · jiangren.com.au · 本页为 web 审稿初稿，官方规则核对日期 2026-06-26</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const io = new IntersectionObserver((es) => {
+    es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.card, .school-card, .timeline, .step, .yes-no, .callout, .contact-bar, .sales-card, table, .scope-note')
+    .forEach(el => { el.classList.add('reveal'); io.observe(el); });
+})();
+</script>
+<a href="%E7%BE%8E%E5%9B%BD%20Top%20%E5%A4%A7%E5%AD%A6%E5%A5%96%E5%AD%A6%E9%87%91%E4%B8%8E%E5%8A%A9%E5%AD%A6%E9%87%91%E7%94%B3%E8%AF%B7%E5%85%A8%E8%A7%A3%E6%9E%90%20-%20%E5%8C%A0%E4%BA%BA%E5%AD%A6%E9%99%A2.pdf" download style="position:fixed;right:22px;bottom:22px;z-index:1200;display:flex;align-items:center;gap:8px;background:#0D0F12;color:#fff;font-weight:700;font-size:14.5px;padding:13px 22px;border-radius:999px;box-shadow:0 12px 28px rgba(13,15,18,.35);text-decoration:none;font-family:Inter,'PingFang SC',sans-serif;">⬇️ 下载 PDF 版</a>
+</body>
+</html>
