@@ -1,0 +1,47 @@
+{
+  "slug": "us-employment-guide",
+  "title": "美国就业指南：求职、OPT 与 H-1B 路线图",
+  "subtitle": "给准备美国实习和全职申请的中国学生：用 BLS 最新就业数据、USCIS OPT/STEM OPT/H-1B 规则、岗位选择、简历投递和面试准备，搭一条真实可执行的求职路线",
+  "audience": "准备赴美读书、正在美国找 internship/full-time、或处在 F-1 OPT/STEM OPT 阶段的中国学生和早期求职者",
+  "goal": "lead-magnet",
+  "track": "T4",
+  "style": "guide",
+  "mode": "web-draft",
+  "channel": [
+    "公众号文末资料包",
+    "微信群分享",
+    "小红书引流"
+  ],
+  "pages": "web draft + A4 flow",
+  "status": "draft",
+  "tags": [
+    "career",
+    "usa",
+    "job-search",
+    "opt",
+    "h1b",
+    "international-students"
+  ],
+  "contact": {
+    "qr": "qr-angela.png",
+    "salesCard": "angela.jpg",
+    "salesCards": [
+      "angela.jpg"
+    ]
+  },
+  "sources": [
+    "BLS Employment Situation - May 2026: https://www.bls.gov/news.release/empsit.nr0.htm",
+    "BLS OOH Software Developers, Quality Assurance Analysts, and Testers: https://www.bls.gov/ooh/computer-and-information-technology/software-developers.htm",
+    "BLS OOH Data Scientists: https://www.bls.gov/ooh/math/data-scientists.htm",
+    "BLS OOH Information Security Analysts: https://www.bls.gov/ooh/computer-and-information-technology/information-security-analysts.htm",
+    "BLS OOH Management Analysts: https://www.bls.gov/ooh/business-and-financial/management-analysts.htm",
+    "BLS OOH Market Research Analysts: https://www.bls.gov/ooh/business-and-financial/market-research-analysts.htm",
+    "USCIS Students and Employment: https://www.uscis.gov/working-in-the-united-states/students-and-exchange-visitors/students-and-employment",
+    "USCIS Optional Practical Training for F-1 Students: https://www.uscis.gov/working-in-the-united-states/students-and-exchange-visitors/optional-practical-training-opt-for-f-1-students",
+    "USCIS Optional Practical Training Extension for STEM Students: https://www.uscis.gov/working-in-the-united-states/students-and-exchange-visitors/optional-practical-training-extension-for-stem-students-stem-opt",
+    "USCIS Cap-Gap Extension: https://www.uscis.gov/working-in-the-united-states/temporary-workers/h-1b-specialty-occupations/extension-of-post-completion-optional-practical-training-opt-and-f-1-status-for-eligible-students",
+    "USCIS H-1B Specialty Occupations: https://www.uscis.gov/working-in-the-united-states/temporary-workers/h-1b-specialty-occupations",
+    "USCIS STEM Employment Pathways: https://www.uscis.gov/working-in-the-united-states/options-for-alien-stem-professionals-to-work-in-the-united-states"
+  ],
+  "note": "核对日期：2026-06-26。就业数据使用 BLS 2026 年 5 月 Employment Situation 和 BLS OOH 2024-2034；身份规则使用 USCIS 页面。不是法律意见，递交前需以学校 DSO、USCIS 和雇主律师最新口径为准。"
+}

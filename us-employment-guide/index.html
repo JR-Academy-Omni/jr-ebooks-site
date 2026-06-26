@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>美国就业指南 — web 版初稿 · JR Academy</title>
+<link rel="stylesheet" href="theme/tokens.css" />
+<link rel="stylesheet" href="theme/web-zine.css" />
+<style>
+  .hero h1 .t-main { font-size: 72px; }
+  .scope-note { border: 1px solid var(--jr-border-warm); background: var(--jr-cream); border-radius: 16px; padding: 18px 20px; margin-top: 18px; }
+  .metric-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-top: 18px; }
+  .metric { border: 1px solid var(--jr-border-warm); border-radius: 18px; background: var(--jr-white); box-shadow: var(--jr-shadow-sm); padding: 18px; }
+  .metric .num { font-family: Anton, Impact, sans-serif; font-size: 42px; line-height: 1; color: var(--jr-red); }
+  .metric .label { font-weight: var(--jr-fw-bold); margin-top: 8px; }
+  .job-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 18px; }
+  .job-card { border: 1px solid var(--jr-border-warm); border-radius: 18px; padding: 18px; background: var(--jr-white); box-shadow: var(--jr-shadow-sm); }
+  .job-card h3 { margin: 0 0 8px; font-size: 22px; }
+  .job-card .pay { font-family: Anton, Impact, sans-serif; font-size: 34px; color: var(--jr-black); }
+  .job-card .growth { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--jr-border-warm); border-radius: 999px; padding: 5px 9px; margin: 8px 0 10px; font-size: 12px; font-weight: var(--jr-fw-bold); background: var(--jr-warm); }
+  .timeline { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; margin-top: 18px; }
+  .step { border: 1px solid var(--jr-border-warm); border-radius: 16px; padding: 16px; background: var(--jr-white); }
+  .step .m { font-size: 13px; font-weight: var(--jr-fw-bold); color: var(--jr-red); text-transform: uppercase; }
+  .step h4 { margin: 7px 0 8px; font-size: 18px; }
+  .check-row { display: grid; grid-template-columns: 180px 1fr; gap: 14px; align-items: start; border-top: 1px solid var(--jr-border-warm); padding: 15px 0; }
+  .check-row .key { font-weight: var(--jr-fw-bold); color: var(--jr-red); }
+  .source-list { columns: 2; column-gap: 24px; font-size: 13px; line-height: 1.75; }
+  .source-list a { color: var(--jr-neutral-800); text-decoration: underline; text-decoration-thickness: 1px; }
+  .sales-card-lead { margin-top: 22px; font-size: 17px; font-weight: var(--jr-fw-bold); color: var(--jr-black); }
+  @media (max-width: 900px) {
+    .metric-grid, .job-grid, .timeline { grid-template-columns: 1fr 1fr; }
+  }
+  .hero h1 .t-sticker { top: -48px; right: -18px; }
+  @media (max-width: 640px) {
+    .hero h1 .t-main { font-size: 42px; }
+    .hero h1 .t-sticker { top: auto; bottom: -30px; right: 8px; transform: rotate(5deg); }
+    .hero p.sub { margin-top: 48px; }
+    .metric-grid, .job-grid, .timeline, .check-row { grid-template-columns: 1fr; }
+    .source-list { columns: 1; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <img class="logo" src="assets/logo/logo-zh-full.svg" alt="匠人学院" />
+    <div class="hero-flex">
+      <div>
+        <div class="bar"></div>
+        <h1><span class="t-top">美国就业</span><br /><span class="t-main">求职与身份指南<span class="t-sticker">2026 最新核对版</span></span></h1>
+        <p class="sub">给准备去美国读书、正在找 internship / full-time、或者刚拿 OPT 的同学。我们把 <span class="hl">就业大盘、岗位选择、简历投递、面试、OPT/STEM OPT/H-1B 时间线</span> 放在一张路线图里讲清楚。</p>
+        <div class="chips"><span class="chip">BLS 最新就业数据</span><span class="chip">USCIS 规则核对</span><span class="chip">留学生求职路线</span></div>
+        <div style="margin-top: 26px;"><span class="zine-diecut" style="font-size: 24px;">不是“海投 500 封”。先把岗位、身份和证据链对齐。</span></div>
+      </div>
+      <div class="mascot-wrap"><span class="tape"></span><img class="hero-mascot" src="assets/illustrations/niuxiaojiang-working-laptop.png" alt="牛小匠" /></div>
+    </div>
+  </div>
+</header>
+
+<div class="marquee"><div class="mq-track"><span>US JOB SEARCH<i>✦</i>OPT<i>✦</i>STEM OPT<i>✦</i>H-1B<i>✦</i>RESUME<i>✦</i>INTERVIEW<i>✦</i>JIANGREN.COM.AU<i>✦</i></span><span>US JOB SEARCH<i>✦</i>OPT<i>✦</i>STEM OPT<i>✦</i>H-1B<i>✦</i>RESUME<i>✦</i>INTERVIEW<i>✦</i>JIANGREN.COM.AU<i>✦</i></span></div></div>
+
+<nav class="toc">
+  <div class="wrap">
+    <a href="#how"><span class="num">00</span>这本书怎么读</a>
+    <a href="#ch1"><span class="num">01</span>2026 美国就业大盘</a>
+    <a href="#ch2"><span class="num">02</span>先选赛道，别先改简历</a>
+    <a href="#ch3"><span class="num">03</span>从 JD 反推能力证据</a>
+    <a href="#ch4"><span class="num">04</span>简历和 LinkedIn 怎么写</a>
+    <a href="#ch5"><span class="num">05</span>投递、内推和公司筛选</a>
+    <a href="#ch6"><span class="num">06</span>面试别只背题</a>
+    <a href="#ch7"><span class="num">07</span>OPT / STEM OPT 时间线</a>
+    <a href="#ch8"><span class="num">08</span>H-1B 和更长期路径</a>
+    <a href="#sources"><span class="num">09</span>官网来源清单</a>
+  </div>
+</nav>
+
+<section class="ch" id="how">
+  <div class="wrap">
+    <h2>这本书怎么读</h2>
+    <div class="card">
+      <p>先说边界：这本写给想在美国找工作的国际学生和早期求职者，尤其是 F-1、OPT、STEM OPT 路线上的同学。它不是法律意见，也不替代学校 DSO、移民律师或雇主 HR 的判断。</p>
+      <p>但它能帮你少踩几个常见坑：只看岗位薪资，不看身份窗口；只改简历，不补项目证据；只等学校 career fair，不主动做公司清单；只听同学说，不打开 USCIS 官网核对规则。</p>
+    </div>
+    <div class="scope-note">
+      <strong>核对日期：2026 年 6 月 26 日。</strong>就业市场数据用 BLS 2026 年 5 月就业报告和 BLS OOH 2024-2034 职业预测；身份规则用 USCIS 页面核对。政策、费用、抽签和申请窗口会变，递交前要以当年 USCIS、学校 DSO 和雇主律师口径为准。
+    </div>
+    <div class="contact-bar">
+      <img class="qr" src="assets/contact/qr-angela.png" alt="Angela · 匠人学院顾问微信" />
+      <div><div class="t">扫码了解更多美国求职资料</div><div class="d">后续会整理简历模板、面试准备、OPT/STEM OPT 时间线和美国岗位信息更新，适合正在准备美国实习和全职申请的同学。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="ch" id="ch1">
+  <div class="ghost">01</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 01</div>
+        <h2>先看 2026 美国就业大盘</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-data.png" alt="" />
+    </div>
+    <p class="lead">找工作先别只看小红书体感。官方数据会冷一点，也更有用。BLS 2026 年 6 月 5 日发布的 2026 年 5 月就业报告显示，美国非农就业当月增加 139,000，失业率 4.2%。这不是“躺着拿 offer”的市场，也不是完全没机会的市场。</p>
+
+    <div class="metric-grid">
+      <div class="metric"><div class="num">139k</div><div class="label">5 月非农新增就业</div><p>BLS Employment Situation, May 2026。</p></div>
+      <div class="metric"><div class="num">4.2%</div><div class="label">失业率</div><p>失业人数约 7.2 million，整体 little changed。</p></div>
+      <div class="metric"><div class="num">62k</div><div class="label">health care 增长</div><p>医疗健康仍是当月增长主力之一。</p></div>
+      <div class="metric"><div class="num">-59k</div><div class="label">federal government</div><p>联邦政府就业自 2026 年 1 月以来下降。</p></div>
+    </div>
+
+    <div class="callout warn"><strong>怎么理解：</strong>如果你是国际学生，市场好坏只是一层。真正影响你的是三件事：岗位是否愿意看国际身份，雇主是否能处理 H-1B/OPT，岗位能力证据是否足够具体。只说“美国现在好不好找工作”，太粗了。</div>
+  </div>
+</section>
+
+<section class="ch" id="ch2">
+  <div class="ghost">02</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 02</div>
+        <h2>先选赛道，别先改简历</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-chart.png" alt="" />
+    </div>
+    <p class="lead">很多同学一上来就问“简历怎么改”。说白了，简历不是万能胶。你投 software engineer、data analyst、financial analyst、market research、consulting analyst，证据完全不一样。</p>
+
+    <div class="job-grid">
+      <div class="job-card">
+        <h3>Software / QA / Test</h3>
+        <div class="pay">$133,080</div>
+        <span class="growth">2024 median pay · BLS</span>
+        <p>2024-2034 就业增长 15%。适合能拿出代码项目、系统设计意识、测试/上线经验的人。</p>
+      </div>
+      <div class="job-card">
+        <h3>Data Scientist</h3>
+        <div class="pay">$112,590</div>
+        <span class="growth">2024 median pay · BLS</span>
+        <p>2024-2034 就业增长 34%。别只写会 Python，要写数据问题、模型、实验和业务结论。</p>
+      </div>
+      <div class="job-card">
+        <h3>Information Security</h3>
+        <div class="pay">$124,910</div>
+        <span class="growth">2024 median pay · BLS</span>
+        <p>2024-2034 就业增长 29%。适合能讲清日志、风险、云安全、合规或 incident response 的人。</p>
+      </div>
+      <div class="job-card">
+        <h3>Management Analyst</h3>
+        <div class="pay">$101,190</div>
+        <span class="growth">2024 median pay · BLS</span>
+        <p>2024-2034 就业增长 9%。case、数据分析、行业研究和沟通证据都要准备。</p>
+      </div>
+      <div class="job-card">
+        <h3>Market Research</h3>
+        <div class="pay">$76,950</div>
+        <span class="growth">2024 median pay · BLS</span>
+        <p>2024-2034 就业增长 7%。适合商科、传播、数据分析背景，但要能交付调研和洞察。</p>
+      </div>
+      <div class="job-card">
+        <h3>Healthcare / Social</h3>
+        <div class="pay">看执照</div>
+        <span class="growth">5 月 health care +62k</span>
+        <p>需求强，但很多岗位有执照、州规则和身份限制。不要只看“缺人”，要看自己能不能合法入场。</p>
+      </div>
+    </div>
+
+    <div class="callout"><strong>选赛道的简单办法：</strong>拿 30 个目标 JD，数里面反复出现的动词。build、analyze、forecast、audit、coordinate、present、secure、automate。你简历里没有这些动作的证据，就不是“格式问题”，是素材不够。</div>
+  </div>
+</section>
+
+<section class="ch" id="ch3">
+  <div class="ghost">03</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 03</div>
+        <h2>从 JD 反推能力证据</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-thinking.png" alt="" />
+    </div>
+    <p class="lead">美国求职不是把“我很努力”翻译成英文。招聘方要看的是：你会不会做这个岗位每天要做的事，而且能不能少培训一点就上手。</p>
+
+    <table>
+      <tr><th>JD 里常见要求</th><th>简历里要出现的证据</th><th>别这么写</th></tr>
+      <tr><td>Analyze customer behavior</td><td>用 SQL/Python 分析多少条数据，发现哪个行为变化，影响哪个指标</td><td>Responsible for data analysis</td></tr>
+      <tr><td>Build scalable services</td><td>写过什么 API，吞吐/延迟/错误率怎么测，部署在哪里</td><td>Familiar with backend development</td></tr>
+      <tr><td>Collaborate with stakeholders</td><td>和 PM、designer、client、lab team 怎么对齐需求，最后交付什么</td><td>Good communication skills</td></tr>
+      <tr><td>Prepare financial models</td><td>做过 DCF、forecast、variance analysis、scenario model 的具体课题或实习任务</td><td>Passionate about finance</td></tr>
+      <tr><td>Investigate security incidents</td><td>日志来源、告警规则、triage 流程、修复建议和复盘结果</td><td>Interested in cybersecurity</td></tr>
+    </table>
+
+    <div class="yes-no">
+      <div class="yn yes">
+        <h4>可以立刻补的材料</h4>
+        <ul>
+          <li>一个可打开的 GitHub / portfolio / Tableau / Notion 项目页。</li>
+          <li>每个项目写清输入、动作、输出和结果。没有结果就写验证方式。</li>
+          <li>准备 6 个故事：冲突、失败、合作、deadline、技术难点、业务影响。</li>
+        </ul>
+      </div>
+      <div class="yn no">
+        <h4>先别忙着做的事</h4>
+        <ul>
+          <li>把同一份简历投所有岗位。</li>
+          <li>只堆工具名：Python、Excel、SQL、AWS、Power BI。</li>
+          <li>为了显得厉害，把没做过的生产级项目写成实习经验。</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="contact-bar">
+      <img class="qr" src="assets/contact/qr-angela.png" alt="Angela · 匠人学院顾问微信" />
+      <div><div class="t">扫码了解更多美国简历资料</div><div class="d">后续会继续整理英文简历、LinkedIn、项目表达和行为面试素材，方便你按岗位准备。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="ch" id="ch4">
+  <div class="ghost">04</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 04</div>
+        <h2>简历和 LinkedIn 怎么写</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-pen-book.png" alt="" />
+    </div>
+    <p class="lead">美国早期求职简历通常不靠花哨设计赢。它靠四件事：岗位关键词、项目证据、动词够硬、结果说得清楚。LinkedIn 也不是摆设，很多 recruiter 先搜人再看附件。</p>
+
+    <div class="check-row"><div class="key">Headline</div><div>不要只写 Student at XXX。可以写目标方向，比如 MS Analytics candidate | SQL, Python, Experimentation | Seeking 2027 Data Analyst Internship。</div></div>
+    <div class="check-row"><div class="key">Experience</div><div>每条 bullet 用“动作 + 工具/方法 + 对象 + 结果”。结果可以是准确率、节省时间、处理规模、交付给谁，不一定非要写 revenue。</div></div>
+    <div class="check-row"><div class="key">Projects</div><div>项目少的人，Projects 不是凑数区，是证明你能做岗位任务的主战场。每个项目都要能对应 JD 的 2-3 个关键词。</div></div>
+    <div class="check-row"><div class="key">Skills</div><div>技能区只放能被面试追问的东西。写了 AWS，就准备好讲清用过哪些 service、做过什么部署或分析。</div></div>
+    <div class="check-row"><div class="key">LinkedIn</div><div>About 不写长自传。写目标岗位、核心能力、代表项目、正在找什么机会。Featured 区放项目链接，比空着强很多。</div></div>
+
+    <div class="callout warn"><strong>一句实话：</strong>如果一个项目只能写“used machine learning to predict sales”，没有数据来源、特征、baseline、评估指标和业务解释，面试里很容易被问穿。宁愿写小一点，也要写真。</div>
+  </div>
+</section>
+
+<section class="ch" id="ch5">
+  <div class="ghost">05</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 05</div>
+        <h2>投递、内推和公司筛选</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-coffee-pointing.png" alt="" />
+    </div>
+    <p class="lead">海投不是不能投，问题是很多同学海投没有分层。你要知道哪些岗位是“冲一冲”，哪些岗位是“高匹配”，哪些岗位压根没身份空间。</p>
+
+    <div class="timeline">
+      <div class="step"><div class="m">Step 1</div><h4>做 80 家公司池</h4><p>按行业、地点、岗位、是否 sponsor、是否有校友、是否有实习转正机会分组。</p></div>
+      <div class="step"><div class="m">Step 2</div><h4>每周 15-25 个高质量申请</h4><p>不是一天乱投 100 个。高质量申请要改关键词、补 cover note、找人问。</p></div>
+      <div class="step"><div class="m">Step 3</div><h4>内推不等于保送</h4><p>内推更像把简历递到正确入口。简历和岗位不匹配，内推也救不了。</p></div>
+      <div class="step"><div class="m">Step 4</div><h4>记录每次反馈</h4><p>投递日期、岗位、版本、联系人、状态、拒信类型。没有记录，就不知道哪里漏。</p></div>
+      <div class="step"><div class="m">Step 5</div><h4>每两周复盘</h4><p>如果完全没有 screen，先改岗位和简历。不是继续机械投。</p></div>
+    </div>
+
+    <div class="card">
+      <h3>身份筛选要早做</h3>
+      <p>很多岗位申请页面会问：Are you legally authorized to work in the United States? Will you now or in the future require sponsorship? 这两个问题别乱答。OPT 是临时工作授权，H-1B 通常需要雇主 petition。你可以准备一段简洁解释，但不能把需要 sponsor 的事实说没了。</p>
+    </div>
+
+    <p class="sales-card-lead">读到这里，如果你发现自己不知道该投哪些岗位，可以先扫码了解更多美国求职资料更新：</p>
+    <div class="sales-card"><img src="assets/contact/sales-cards/angela.jpg" alt="Angela · IT Career Consultant" /></div>
+  </div>
+</section>
+
+<section class="ch" id="ch6">
+  <div class="ghost">06</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 06</div>
+        <h2>面试别只背题</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-chart.png" alt="" />
+    </div>
+    <p class="lead">美国面试常见三类：recruiter screen、hiring manager / technical / case、behavioral。背题有用，但只背题不够。你要让对方相信你能在他们团队里工作。</p>
+
+    <table>
+      <tr><th>面试类型</th><th>常问什么</th><th>准备重点</th></tr>
+      <tr><td>Recruiter screen</td><td>身份、毕业时间、地点、薪资范围、为什么这个岗位</td><td>准备 45 秒自我介绍，能清楚说明 OPT/STEM OPT 状态和可开始时间。</td></tr>
+      <tr><td>Technical / Case</td><td>代码、SQL、数据题、系统设计、case、建模</td><td>别只给答案。讲思路、假设、边界、trade-off 和怎么验证。</td></tr>
+      <tr><td>Behavioral</td><td>团队冲突、失败、领导力、deadline、ambiguity</td><td>准备真实故事。STAR 可以用，但别像背模板。</td></tr>
+      <tr><td>Final round</td><td>和团队合不合、能不能独立推进</td><td>准备问对方的问题：团队目标、成功标准、onboarding、工具链、合作方式。</td></tr>
+    </table>
+
+    <div class="callout"><strong>一个例子：</strong>面试官问“Tell me about a time you dealt with ambiguity”。不要回答“我适应能力强”。讲一个项目需求不清的时候，你怎么拆问题、找数据、同步 stakeholder、最后交付了什么。美国面试喜欢具体过程。</div>
+  </div>
+</section>
+
+<section class="ch" id="ch7">
+  <div class="ghost">07</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 07</div>
+        <h2>OPT / STEM OPT 时间线</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-thinking.png" alt="" />
+    </div>
+    <p class="lead">身份这部分不要凭同学口口相传。USCIS 写得很清楚：OPT 是和 F-1 主修专业直接相关的临时就业。STEM OPT 是 24 个月 extension，不是所有专业、所有公司都能用。</p>
+
+    <table>
+      <tr><th>节点</th><th>官方规则要点</th><th>你要做什么</th></tr>
+      <tr><td>第一学年</td><td>F-1 学生第一学年一般不能校外工作，可按条件做校内工作</td><td>不要提前接未授权校外 paid/unpaid work。</td></tr>
+      <tr><td>CPT / OPT / STEM OPT</td><td>第一学年后可有 CPT、OPT、STEM OPT 等 off-campus employment 类型</td><td>任何校外 training employment 都要和专业相关，并在开始前授权。</td></tr>
+      <tr><td>Post-completion OPT</td><td>最多 12 个月；需要 DSO 推荐 I-20/SEVIS，并向 USCIS 递交 I-765</td><td>没拿到 EAD 且未到 EAD start date，不要开始工作。</td></tr>
+      <tr><td>申请窗口</td><td>可毕业前 90 天申请，最晚毕业后 60 天；DSO 推荐后 30 天内提交</td><td>把学校 DSO deadline 放到日历里，不要卡最后一天。</td></tr>
+      <tr><td>STEM OPT</td><td>24 个月 extension；需 STEM list 学位、E-Verify 雇主、I-983 training plan</td><td>申请前确认 CIP code、雇主 E-Verify、岗位和学位关系。</td></tr>
+      <tr><td>Unemployment</td><td>Initial OPT 最多 90 天；STEM OPT 额外 60 天，总计 150 天</td><td>每段失业天数自己记账。不要等 SEVIS 出问题才回头算。</td></tr>
+    </table>
+
+    <div class="contact-bar">
+      <img class="qr" src="assets/contact/qr-angela.png" alt="Angela · 匠人学院顾问微信" />
+      <div><div class="t">扫码了解更多 OPT 时间线资料</div><div class="d">后续会整理 OPT/STEM OPT 准备清单、求职时间表和面试资料更新，方便你按毕业时间倒推。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="ch" id="ch8">
+  <div class="ghost">08</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 08</div>
+        <h2>H-1B 和更长期路径</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-pen-book.png" alt="" />
+    </div>
+    <p class="lead">H-1B 不是“毕业后自动有”。USCIS 对 H-1B specialty occupation 的核心要求，是岗位需要高度专业知识，并通常要求相关专业本科或更高学历，或等同资质。对国际学生来说，找工作时要同时考虑岗位匹配和雇主是否愿意走流程。</p>
+
+    <div class="card">
+      <h3>H-1B 几个硬点</h3>
+      <ul>
+        <li>常规 cap 是每财年 65,000 个名额，另有 20,000 个美国硕士及以上豁免名额。</li>
+        <li>高校、相关 nonprofit、nonprofit research organization、government research organization 等可能 cap-exempt。</li>
+        <li>H-1B specialty occupation 需要 LCA，雇主要把 certified Form ETA-9035/9035E 和 Form I-129 一起提交。</li>
+        <li>H-1B 换雇主时，满足 portability 条件的，可以在新雇主 properly files non-frivolous I-129 后或 petition requested start date 后开始工作，取较晚者。</li>
+        <li>如果 H-1B 期间离职、被裁或停止雇佣，USCIS 写的是 may have up to 60 consecutive days 或到授权有效期结束，取较短者，用来找新工作、改身份或离境。</li>
+      </ul>
+    </div>
+
+    <div class="callout warn"><strong>2026 最新提醒：</strong>USCIS H-1B 页面在 2026-06-26 显示 FY 2027 初始注册 selection 已完成，并提示 DHS weighted selection final rule 自 2026-02-27 生效，用于 FY 2027 H-1B cap registration season。页面还提示 2025 年总统公告下，部分 2025-09-21 之后提交的 H-1B petition 可能涉及额外 $100,000 payment。这个变化很大，必须让雇主 HR/律师按当年 USCIS 页面确认，别只听旧经验。</div>
+
+    <table>
+      <tr><th>路径</th><th>适合谁</th><th>注意点</th></tr>
+      <tr><td>F-1 OPT / STEM OPT</td><td>美国毕业后先工作的人</td><td>STEM OPT 最长可到 36 个月，但需要 STEM 学位、E-Verify 雇主和 I-983。</td></tr>
+      <tr><td>H-1B</td><td>雇主愿意 petition 的 specialty occupation</td><td>可能受 cap、抽选/选择规则、费用、雇主流程影响。</td></tr>
+      <tr><td>O-1</td><td>有 extraordinary ability 证据的人</td><td>不是普通早期求职者路线，但科研、创业、艺术、技术成果强的人可以早了解。</td></tr>
+      <tr><td>EB-1A / EB-2 NIW</td><td>成果、影响力或国家利益论证较强的人</td><td>可能 self-petition，但证据要求高，通常需要专业律师评估。</td></tr>
+    </table>
+  </div>
+</section>
+
+<section class="ch" id="sources">
+  <div class="ghost">09</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 09</div>
+        <h2>官网来源清单</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-data.png" alt="" />
+    </div>
+    <p class="lead">这本书的数字和身份规则不靠二手传言。下面这些入口建议收藏，尤其是 OPT、STEM OPT、H-1B，每年都要重新打开官网核对。</p>
+
+    <div class="source-list">
+      <p><a href="https://www.bls.gov/news.release/empsit.nr0.htm" target="_blank" rel="noopener">BLS Employment Situation - May 2026</a></p>
+      <p><a href="https://www.bls.gov/ooh/computer-and-information-technology/software-developers.htm" target="_blank" rel="noopener">BLS OOH: Software Developers, QA Analysts, and Testers</a></p>
+      <p><a href="https://www.bls.gov/ooh/math/data-scientists.htm" target="_blank" rel="noopener">BLS OOH: Data Scientists</a></p>
+      <p><a href="https://www.bls.gov/ooh/computer-and-information-technology/information-security-analysts.htm" target="_blank" rel="noopener">BLS OOH: Information Security Analysts</a></p>
+      <p><a href="https://www.bls.gov/ooh/business-and-financial/management-analysts.htm" target="_blank" rel="noopener">BLS OOH: Management Analysts</a></p>
+      <p><a href="https://www.bls.gov/ooh/business-and-financial/market-research-analysts.htm" target="_blank" rel="noopener">BLS OOH: Market Research Analysts</a></p>
+      <p><a href="https://www.uscis.gov/working-in-the-united-states/students-and-exchange-visitors/students-and-employment" target="_blank" rel="noopener">USCIS: Students and Employment</a></p>
+      <p><a href="https://www.uscis.gov/working-in-the-united-states/students-and-exchange-visitors/optional-practical-training-opt-for-f-1-students" target="_blank" rel="noopener">USCIS: Optional Practical Training for F-1 Students</a></p>
+      <p><a href="https://www.uscis.gov/working-in-the-united-states/students-and-exchange-visitors/optional-practical-training-extension-for-stem-students-stem-opt" target="_blank" rel="noopener">USCIS: STEM OPT Extension</a></p>
+      <p><a href="https://www.uscis.gov/working-in-the-united-states/temporary-workers/h-1b-specialty-occupations/extension-of-post-completion-optional-practical-training-opt-and-f-1-status-for-eligible-students" target="_blank" rel="noopener">USCIS: Cap-Gap Extension</a></p>
+      <p><a href="https://www.uscis.gov/working-in-the-united-states/temporary-workers/h-1b-specialty-occupations" target="_blank" rel="noopener">USCIS: H-1B Specialty Occupations</a></p>
+      <p><a href="https://www.uscis.gov/working-in-the-united-states/options-for-alien-stem-professionals-to-work-in-the-united-states" target="_blank" rel="noopener">USCIS: STEM Employment Pathways</a></p>
+    </div>
+
+    <p class="sales-card-lead">想继续拿美国求职、简历和 OPT 时间线资料，可以扫 Angela 的二维码关注后续更新：</p>
+    <div class="contact-bar">
+      <img class="qr" src="assets/contact/qr-angela.png" alt="Angela · 匠人学院顾问微信" />
+      <div><div class="t">扫码了解更多美国就业资料</div><div class="d">后续会继续整理岗位清单、简历面试材料、OPT/STEM OPT 时间线和美国招聘季信息更新。</div></div>
+    </div>
+  </div>
+</section>
+
+<footer class="back">
+  <div class="wrap">
+    <img class="back-logo" src="assets/logo/logo-zh-white.png" alt="匠人学院" />
+    <h2>美国就业这件事，别只靠体感。</h2>
+    <p>先看数据，再选岗位。先补证据，再投简历。先核对身份时间线，再安排实习和全职申请。</p>
+    <div class="contact-bar dark">
+      <img class="qr" src="assets/contact/qr-angela.png" alt="Angela · 匠人学院顾问微信" />
+      <div><div class="t">扫码了解更多美国求职资料</div><div class="d">后续会整理简历、面试、OPT/STEM OPT、H-1B 规则更新和招聘季资料，适合准备美国实习和全职申请的同学。</div></div>
+    </div>
+    <div class="domain">jiangren.com.au</div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.ch, .toc, .back').forEach((el) => {
+    el.classList.add('reveal');
+  });
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) entry.target.classList.add('is-visible');
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+</script>
+<a href="%E7%BE%8E%E5%9B%BD%E5%B0%B1%E4%B8%9A%E6%8C%87%E5%8D%97%EF%BC%9A%E6%B1%82%E8%81%8C%E3%80%81OPT%20%E4%B8%8E%20H-1B%20%E8%B7%AF%E7%BA%BF%E5%9B%BE%20-%20%E5%8C%A0%E4%BA%BA%E5%AD%A6%E9%99%A2.pdf" download style="position:fixed;right:22px;bottom:22px;z-index:1200;display:flex;align-items:center;gap:8px;background:#0D0F12;color:#fff;font-weight:700;font-size:14.5px;padding:13px 22px;border-radius:999px;box-shadow:0 12px 28px rgba(13,15,18,.35);text-decoration:none;font-family:Inter,'PingFang SC',sans-serif;">⬇️ 下载 PDF 版</a>
+</body>
+</html>
