@@ -1,0 +1,44 @@
+{
+  "title": "UNSW 新生指南",
+  "slug": "unsw-new-student-guide",
+  "description": "UNSW Sydney 新生入学、enrolment、课表、Orientation、第一月 checklist。",
+  "style": "guide",
+  "mode": "flow",
+  "language": "zh-CN",
+  "tags": [
+    "go8",
+    "australia",
+    "new-student",
+    "orientation",
+    "悉尼"
+  ],
+  "status": "draft",
+  "checkedAt": "2026-06-29",
+  "contact": {
+    "owner": "Rain",
+    "qr": "qr-rain.png",
+    "salesCard": "rain.jpg"
+  },
+  "sources": [
+    {
+      "label": "New student checklist",
+      "url": "https://www.unsw.edu.au/student/getting-started/first-year-checklist"
+    },
+    {
+      "label": "UNSW Enrolment",
+      "url": "https://www.unsw.edu.au/student/managing-your-studies/essentials/enrolment"
+    },
+    {
+      "label": "UNSW Class Registration",
+      "url": "https://www.student.unsw.edu.au/timetable"
+    },
+    {
+      "label": "UNSW Academic Calendar",
+      "url": "https://www.student.unsw.edu.au/calendar"
+    },
+    {
+      "label": "UNSW Handbook",
+      "url": "https://www.handbook.unsw.edu.au/"
+    }
+  ]
+}
