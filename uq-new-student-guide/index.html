@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>昆士兰大学新生指南 — JR Academy</title>
+<link rel="stylesheet" href="theme/ebook.css" />
+<link rel="stylesheet" href="theme/web-zine.css" />
+<style>
+  .hero h1 .t-main { margin-top: 58px; }
+  .hero h1 .t-sticker { top: -42px; right: 4px; transform: rotate(5deg); }
+  .mini-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 16px; }
+  .mini { background: #fff; border: 1px solid var(--jr-border-warm); border-radius: 16px; padding: 16px; box-shadow: var(--jr-shadow-panel); }
+  .mini b { display: block; color: var(--jr-black); margin-bottom: 6px; }
+  .source-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 16px; }
+  .source-card a { color: var(--jr-red); font-weight: 800; text-decoration: none; overflow-wrap: anywhere; }
+  .sales-card-lead { margin-top: 24px; font-size: 17px; font-weight: var(--jr-fw-bold); color: var(--jr-black); }
+  .steps { counter-reset: st; display: grid; gap: 12px; margin-top: 16px; }
+  .step { counter-increment: st; display: grid; grid-template-columns: 42px 1fr; gap: 12px; background: #fff; border: 1px solid var(--jr-border-warm); border-radius: 16px; padding: 16px; }
+  .step::before { content: counter(st); width: 34px; height: 34px; border-radius: 999px; background: var(--jr-black); color: #fff; display: grid; place-items: center; font-family: Anton, var(--jr-font-sans); }
+  .step h3 { margin: 0 0 4px; }
+  @media (max-width: 760px) {
+    .hero h1 .t-main { margin-top: 48px; font-size: 64px; }
+    .hero h1 .t-sticker { top: -34px; right: 6px; font-size: 12px; }
+    .mini-grid, .source-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <img class="logo" src="assets/logo/logo-zh-full.svg" alt="匠人学院" />
+    <div class="hero-flex">
+      <div>
+        <div class="bar"></div>
+        <h1><span class="t-top">昆士兰大学</span><br/><span class="t-main">新生指南<span class="t-sticker">SI-net + My Timetable</span></span></h1>
+        <p class="sub">给 UQ 新生：admitted 和 enrolled 的区别、SI-net、My Timetable、ECP、academic calendar 怎么用。</p>
+        <div class="chips"><span class="chip">SI-net</span><span class="chip">my.UQ</span><span class="chip">ECP</span></div>
+      </div>
+      <div class="mascot-wrap"><div class="tape"></div><img class="hero-mascot" src="assets/illustrations/niuxiaojiang-hero.png" alt="牛小匠" /></div>
+    </div>
+  </div>
+  <div class="marquee"><div class="mq-track"><span>The University of Queensland <i>✦</i> New Student Guide <i>✦</i> 2026-06-29 official-source checked <i>✦</i> Angela QR <i>✦</i></span><span>The University of Queensland <i>✦</i> New Student Guide <i>✦</i> 2026-06-29 official-source checked <i>✦</i> Angela QR <i>✦</i></span></div></div>
+</header>
+
+<nav class="toc wrap">
+  <a href="#how"><span class="num">00</span>这本书怎么用</a>
+  <a href="#ch1"><span class="num">01</span>Offer 之后先做哪几件事</a>
+  <a href="#ch2"><span class="num">02</span>账号、邮箱、学生证和系统入口</a>
+  <a href="#ch3"><span class="num">03</span>Enrolment：拿 offer 不等于已经入读</a>
+  <a href="#ch4"><span class="num">04</span>选课、课表和 Orientation 分开看</a>
+  <a href="#ch5"><span class="num">05</span>国际学生到校后别漏这些</a>
+  <a href="#ch6"><span class="num">06</span>第一个月怎么不掉队</a>
+  <a href="#ch7"><span class="num">07</span>FAQ</a>
+  <a href="#ch8"><span class="num">08</span>官方来源清单</a>
+</nav>
+
+<section class="ch" id="how">
+  <div class="wrap">
+    <h2>这本书怎么用</h2>
+    <div class="card"><div class="title-row"><span class="n">00</span><h3>先把新生任务拆开</h3></div><p>UQ 新生最重要的一句话：admitted 不等于 enrolled。</p><p>这本不替学校官网做承诺，也不写听来的日期。你会看到每一步都落到官方入口：账号、enrolment、课程规则、课表、orientation、support、census。</p></div>
+    <div class="mini-grid"><div class="mini"><b>适合谁</b>拿到 offer、准备入学、刚到澳洲或第一学期还没稳住的同学。</div><div class="mini"><b>不写什么</b>不写“万能水课”、不写未经核实的 deadline、不承诺学校审批结果。</div><div class="mini"><b>怎么用</b>先读流程，再按学校系统逐项打勾；最后到来源页点官网复核。</div></div>
+    <div class="contact-bar">
+    <img class="qr" src="assets/contact/qr-angela.png" alt="Angela · 匠人学院 IT 顾问微信" />
+    <div><div class="t">扫码了解更多布里斯班新生资料</div><div class="d">找 Angela，可以关注后续入学、选课、课表和新生资料更新。</div></div>
+  </div>
+  </div>
+</section>
+<section class="ch" id="ch1">
+  <div class="ghost">01</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 01</div>
+        <h2>Offer 之后先做哪几件事</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-pen-book.png" alt="" />
+    </div>
+    <p class="lead">刚拿 offer 的阶段，最怕只盯签证和机票，忘了学校系统里的入学任务。先按这个顺序做。</p><div class="steps"><div class="step"><div><h3>先看 offer 后续任务</h3><p>接受 offer 后，记录会进 SI-net，但你还必须每 semester enrol in courses。</p></div></div><div class="step"><div><h3>再进 my.UQ</h3><p>my.UQ 是当前学生入口，footer 明确列了 Programs and courses、Academic calendar、Student support、IT support。</p></div></div><div class="step"><div><h3>最后排 My Timetable</h3><p>My Timetable planner 只是计划工具，不保证 class spot。</p></div></div></div><div class="card"><div class="title-row"><span class="n">NOW</span><h3>一个今天就能做的动作</h3></div><p>把学校发来的邮件里所有链接分成三类：学生账号、enrolment、orientation。每类只保留官方域名，不从微信群里的短链进系统。</p></div><div class="src">官方源：<a href="https://my.uq.edu.au/" target="_blank" rel="noreferrer">my.UQ</a> ｜ <a href="https://my.uq.edu.au/information-and-services/manage-my-program/classes-timetables-and-coursework/enrolment-and-class-allocation" target="_blank" rel="noreferrer">Enrolment and class allocation</a> ｜ <a href="https://my.uq.edu.au/information-and-services/manage-my-program/classes-timetables-and-coursework/choosing-your-courses" target="_blank" rel="noreferrer">Choosing your courses</a> ｜ <a href="https://my.uq.edu.au/information-and-services/manage-my-program/classes-timetables-and-coursework/about-your-timetable" target="_blank" rel="noreferrer">About your timetable</a> ｜ <a href="https://about.uq.edu.au/academic-calendar" target="_blank" rel="noreferrer">Academic calendar</a> ｜ <a href="https://my.uq.edu.au/information-and-services/information-technology/student-staff-it-support" target="_blank" rel="noreferrer">IT support</a> ｜核对 2026-06-29</div>
+  </div>
+</section>
+<section class="ch" id="ch2">
+  <div class="ghost">02</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 02</div>
+        <h2>账号、邮箱、学生证和系统入口</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-working-laptop.png" alt="" />
+    </div>
+    <p class="lead">新生不是只注册一个账号。学校邮箱、学习平台、学生系统、课表入口，各管各的。</p><table><tr><th>入口</th><th>用来干什么</th><th>新生要注意</th></tr><tr><td>SI-net</td><td>enrolment 系统</td><td>UQ enrolment and class allocation 页面提到接受 offer 后记录进入 SI-net。</td></tr><tr><td>my.UQ</td><td>当前学生入口</td><td>查学生服务、课程、支持和 IT 入口。</td></tr><tr><td>Programs and courses</td><td>官方课程库</td><td>查 program requirements、course list、units。</td></tr><tr><td>My Timetable</td><td>课表系统</td><td>规划、preferencing、allocation 要分清。</td></tr></table><div class="callout warn"><strong>别把私人邮箱当主邮箱。</strong>学校 deadline、class registration、fee、support 信息经常先进 student email。第一周每天看。</div><div class="src">官方源：<a href="https://my.uq.edu.au/" target="_blank" rel="noreferrer">my.UQ</a> ｜ <a href="https://my.uq.edu.au/information-and-services/manage-my-program/classes-timetables-and-coursework/enrolment-and-class-allocation" target="_blank" rel="noreferrer">Enrolment and class allocation</a> ｜ <a href="https://my.uq.edu.au/information-and-services/manage-my-program/classes-timetables-and-coursework/choosing-your-courses" target="_blank" rel="noreferrer">Choosing your courses</a> ｜ <a href="https://my.uq.edu.au/information-and-services/manage-my-program/classes-timetables-and-coursework/about-your-timetable" target="_blank" rel="noreferrer">About your timetable</a> ｜ <a href="https://about.uq.edu.au/academic-calendar" target="_blank" rel="noreferrer">Academic calendar</a> ｜ <a href="https://my.uq.edu.au/information-and-services/information-technology/student-staff-it-support" target="_blank" rel="noreferrer">IT support</a> ｜核对 2026-06-29</div>
+  </div>
+</section>
+<section class="ch" id="ch3">
+  <div class="ghost">03</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 03</div>
+        <h2>Enrolment：拿 offer 不等于已经入读</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-chart.png" alt="" />
+    </div>
+    <p class="lead">enrolment 是正式进入课程的动作。很多事故不是不会学习，是这里没做完。</p><div class="steps"><div class="step"><div><h3>admitted 不等于 enrolled</h3><p>UQ 官方页面明确，accepted offer 后仍必须每 semester enrol in courses。</p></div></div><div class="step"><div><h3>按 due date 至少 enrol 一门</h3><p>UQ 页面写必须在 due date 前 at least enrol in one course，及时 enrol 有助于学校安排教室、班级和资源。</p></div></div><div class="step"><div><h3>先读 ECP</h3><p>每门 course 的 Electronic Course Profile 里有 topics、assessment、textbooks，别开学后才看。</p></div></div></div><div class="card"><div class="title-row"><span class="n">QA</span><h3>自查句</h3></div><p>你应该能清楚说出：我在哪个系统 enrol、选了哪些 course/unit/subject、每门算多少 credit/units、课表有没有最后确认。</p></div><div class="src">官方源：<a href="https://my.uq.edu.au/" target="_blank" rel="noreferrer">my.UQ</a> ｜ <a href="https://my.uq.edu.au/information-and-services/manage-my-program/classes-timetables-and-coursework/enrolment-and-class-allocation" target="_blank" rel="noreferrer">Enrolment and class allocation</a> ｜ <a href="https://my.uq.edu.au/information-and-services/manage-my-program/classes-timetables-and-coursework/choosing-your-courses" target="_blank" rel="noreferrer">Choosing your courses</a> ｜ <a href="https://my.uq.edu.au/information-and-services/manage-my-program/classes-timetables-and-coursework/about-your-timetable" target="_blank" rel="noreferrer">About your timetable</a> ｜ <a href="https://about.uq.edu.au/academic-calendar" target="_blank" rel="noreferrer">Academic calendar</a> ｜ <a href="https://my.uq.edu.au/information-and-services/information-technology/student-staff-it-support" target="_blank" rel="noreferrer">IT support</a> ｜核对 2026-06-29</div>
+  </div>
+</section>
+<section class="ch" id="ch4">
+  <div class="ghost">04</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 04</div>
+        <h2>选课、课表和 Orientation 分开看</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-data.png" alt="" />
+    </div>
+    <p class="lead">选课看规则，课表看时间，Orientation 帮你知道学校怎么运转。三个都重要，但不是一件事。</p><div class="mini-grid"><div class="mini"><b>My Timetable</b>planner 不等于 spot。要完成 preferencing / allocation。</div><div class="mini"><b>Academic calendar</b>UQ official academic calendar 是查年度日期的入口，2026-06-29 抓取显示 modified Wed, 06/03/2026。</div><div class="mini"><b>IT support</b>账号、MFA、Wi-Fi、软件问题先走 UQ IT support。</div></div><div class="contact-bar">
+    <img class="qr" src="assets/contact/qr-angela.png" alt="Angela · 匠人学院 IT 顾问微信" />
+    <div><div class="t">课表和入学资料看乱了，扫码了解更多</div><div class="d">把学校、degree、当前 plan 发来，Angela 这边可以给你后续资料更新入口。</div></div>
+  </div><div class="src">官方源：<a href="https://my.uq.edu.au/" target="_blank" rel="noreferrer">my.UQ</a> ｜ <a href="https://my.uq.edu.au/information-and-services/manage-my-program/classes-timetables-and-coursework/enrolment-and-class-allocation" target="_blank" rel="noreferrer">Enrolment and class allocation</a> ｜ <a href="https://my.uq.edu.au/information-and-services/manage-my-program/classes-timetables-and-coursework/choosing-your-courses" target="_blank" rel="noreferrer">Choosing your courses</a> ｜ <a href="https://my.uq.edu.au/information-and-services/manage-my-program/classes-timetables-and-coursework/about-your-timetable" target="_blank" rel="noreferrer">About your timetable</a> ｜ <a href="https://about.uq.edu.au/academic-calendar" target="_blank" rel="noreferrer">Academic calendar</a> ｜ <a href="https://my.uq.edu.au/information-and-services/information-technology/student-staff-it-support" target="_blank" rel="noreferrer">IT support</a> ｜核对 2026-06-29</div>
+  </div>
+</section>
+<section class="ch" id="ch5">
+  <div class="ghost">05</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 05</div>
+        <h2>国际学生到校后别漏这些</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-thinking.png" alt="" />
+    </div>
+    <p class="lead">这章不替移民、税务或医疗机构给建议。这里只讲新生最容易忘的学校侧动作。</p><div class="check-group">
+    <div class="head"><span class="stage">CHECK</span><h3>到校后 7 天内</h3></div>
+    <div class="check-item"><span class="box"></span><div><div class="t">student visa 同学 withdraw、underload、program change 先找官方 advice。</div><div class="n">先做这个，后面会轻松很多。</div></div><span class="badge must">必做</span></div><div class="check-item"><span class="box"></span><div><div class="t">到布里斯班后处理住址、电话、Go Card、银行卡、OSHC 和紧急联系人。</div><div class="n">用学校官网或学生系统复核，不靠截图传话。</div></div><span class="badge must">必做</span></div><div class="check-item"><span class="box"></span><div><div class="t">如果 class allocation 不理想，先看是否有 swap/adjust 机会，再找学校支持。</div><div class="n">用学校官网或学生系统复核，不靠截图传话。</div></div><span class="badge">建议</span></div>
+  </div><div class="callout"><strong>说白了：</strong>签证、CoE、study load、withdraw 这些事，别靠朋友经验。每个人的 course、visa 和日期都可能不一样。</div>
+  </div>
+</section>
+<section class="ch" id="ch6">
+  <div class="ghost">06</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 06</div>
+        <h2>第一个月怎么不掉队</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-pen-book.png" alt="" />
+    </div>
+    <p class="lead">大学第一月不是拼熬夜，是把信息源整理好。少漏一个入口，后面少补一个坑。</p><div class="check-group">
+    <div class="head"><span class="stage">CHECK</span><h3>第一月固定复盘</h3></div>
+    <div class="check-item"><span class="box"></span><div><div class="t">第一周看 ECP，把每门课 assessment、hurdle、textbook 写进计划。</div><div class="n">先做这个，后面会轻松很多。</div></div><span class="badge must">必做</span></div><div class="check-item"><span class="box"></span><div><div class="t">确认每门 course 的 units 值。UQ standard full-time study load 是 8 units per semester。</div><div class="n">用学校官网或学生系统复核，不靠截图传话。</div></div><span class="badge must">必做</span></div><div class="check-item"><span class="box"></span><div><div class="t">把 census / teaching period calendar 加入日历，特别是非标准 teaching period。</div><div class="n">用学校官网或学生系统复核，不靠截图传话。</div></div><span class="badge">建议</span></div>
+  </div><p class="sales-card-lead">如果你想继续拿布里斯班新生、选课和课程资料更新，可以扫下面的顾问码：</p><div class="sales-card"><img src="assets/contact/sales-cards/angela.jpg" alt="Angela · 匠人学院 IT 顾问" /></div>
+  </div>
+</section>
+<section class="ch" id="ch7">
+  <div class="ghost">07</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 07</div>
+        <h2>FAQ：每年都会问的 4 个问题</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-working-laptop.png" alt="" />
+    </div>
+    <p class="lead">这些不是小白问题，是真的容易踩坑。提前知道就好。</p><div class="card"><div class="title-row"><span class="n">Q</span><h3>My Timetable 保存了是不是就抢到课？</h3></div><p>不是。UQ 官网说 planner 不保证 class spot，要完成 preferencing/allocation。</p></div><div class="card"><div class="title-row"><span class="n">A</span><h3>8 units 是几门？</h3></div><p>看每门 course 的 units 值。常见 2-unit course 四门，但要以你的 course list 为准。</p></div><div class="card"><div class="title-row"><span class="n">Q</span><h3>starting-uq 页面还能用吗？</h3></div><p>2026-06-29 抓取 `starting-uq` 路径疑似进入导航 404，所以这本不用它做正文依据。</p></div><div class="card"><div class="title-row"><span class="n">A</span><h3>withdraw 前先看什么？</h3></div><p>先看日期。UQ 页面提醒 financial liability、academic penalty 和 visa consequences 都会被日期影响。</p></div>
+  </div>
+</section>
+<section class="ch" id="ch8">
+  <div class="ghost">08</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 08</div>
+        <h2>官方来源清单</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-chart.png" alt="" />
+    </div>
+    <p class="lead">下面这些是本书引用和核对的官方入口。发给学生前，建议再点一遍学校页面，尤其是日期类信息。</p><div class="source-grid"><div class="card source-card"><h3>my.UQ</h3><p><a href="https://my.uq.edu.au/" target="_blank" rel="noreferrer">https://my.uq.edu.au/</a></p></div><div class="card source-card"><h3>Enrolment and class allocation</h3><p><a href="https://my.uq.edu.au/information-and-services/manage-my-program/classes-timetables-and-coursework/enrolment-and-class-allocation" target="_blank" rel="noreferrer">https://my.uq.edu.au/information-and-services/manage-my-program/classes-timetables-and-coursework/enrolment-and-class-allocation</a></p></div><div class="card source-card"><h3>Choosing your courses</h3><p><a href="https://my.uq.edu.au/information-and-services/manage-my-program/classes-timetables-and-coursework/choosing-your-courses" target="_blank" rel="noreferrer">https://my.uq.edu.au/information-and-services/manage-my-program/classes-timetables-and-coursework/choosing-your-courses</a></p></div><div class="card source-card"><h3>About your timetable</h3><p><a href="https://my.uq.edu.au/information-and-services/manage-my-program/classes-timetables-and-coursework/about-your-timetable" target="_blank" rel="noreferrer">https://my.uq.edu.au/information-and-services/manage-my-program/classes-timetables-and-coursework/about-your-timetable</a></p></div><div class="card source-card"><h3>Academic calendar</h3><p><a href="https://about.uq.edu.au/academic-calendar" target="_blank" rel="noreferrer">https://about.uq.edu.au/academic-calendar</a></p></div><div class="card source-card"><h3>IT support</h3><p><a href="https://my.uq.edu.au/information-and-services/information-technology/student-staff-it-support" target="_blank" rel="noreferrer">https://my.uq.edu.au/information-and-services/information-technology/student-staff-it-support</a></p></div></div><div class="callout"><strong>核对说明：</strong>UQ `starting-uq` 路径 2026-06-29 抓取疑似进入 404 导航页，正文改用 my.UQ、enrolment/class allocation、choosing courses、timetable、academic calendar、IT support 官方入口。</div>
+  </div>
+</section>
+
+<section class="ch">
+  <div class="wrap">
+    <h2>最后提醒</h2>
+    <div class="contact-bar">
+    <img class="qr" src="assets/contact/qr-angela.png" alt="Angela · 匠人学院 IT 顾问微信" />
+    <div><div class="t">扫码了解更多布里斯班新生资料</div><div class="d">二维码为 Angela。这本书不承诺申请或学校审批结果，只做入学、选课和新生信息的资料入口。</div></div>
+  </div>
+  </div>
+</section>
+<script>
+(() => {
+  const io = new IntersectionObserver((es) => {
+    es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.ch, .toc, .card, .mini, .source-card, .check-group, .contact-bar, .sales-card, table')
+    .forEach(el => { el.classList.add('reveal'); io.observe(el); });
+})();
+</script>
+<a href="%E6%98%86%E5%A3%AB%E5%85%B0%E5%A4%A7%E5%AD%A6%E6%96%B0%E7%94%9F%E6%8C%87%E5%8D%97%20-%20%E5%8C%A0%E4%BA%BA%E5%AD%A6%E9%99%A2.pdf" download style="position:fixed;right:22px;bottom:22px;z-index:1200;display:flex;align-items:center;gap:8px;background:#0D0F12;color:#fff;font-weight:700;font-size:14.5px;padding:13px 22px;border-radius:999px;box-shadow:0 12px 28px rgba(13,15,18,.35);text-decoration:none;font-family:Inter,'PingFang SC',sans-serif;">⬇️ 下载 PDF 版</a>
+</body>
+</html>

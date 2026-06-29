@@ -1,0 +1,48 @@
+{
+  "title": "昆士兰大学新生指南",
+  "slug": "uq-new-student-guide",
+  "description": "The University of Queensland 新生入学、enrolment、课表、Orientation、第一月 checklist。",
+  "style": "guide",
+  "mode": "flow",
+  "language": "zh-CN",
+  "tags": [
+    "go8",
+    "australia",
+    "new-student",
+    "orientation",
+    "布里斯班"
+  ],
+  "status": "draft",
+  "checkedAt": "2026-06-29",
+  "contact": {
+    "owner": "Angela",
+    "qr": "qr-angela.png",
+    "salesCard": "angela.jpg"
+  },
+  "sources": [
+    {
+      "label": "my.UQ",
+      "url": "https://my.uq.edu.au/"
+    },
+    {
+      "label": "Enrolment and class allocation",
+      "url": "https://my.uq.edu.au/information-and-services/manage-my-program/classes-timetables-and-coursework/enrolment-and-class-allocation"
+    },
+    {
+      "label": "Choosing your courses",
+      "url": "https://my.uq.edu.au/information-and-services/manage-my-program/classes-timetables-and-coursework/choosing-your-courses"
+    },
+    {
+      "label": "About your timetable",
+      "url": "https://my.uq.edu.au/information-and-services/manage-my-program/classes-timetables-and-coursework/about-your-timetable"
+    },
+    {
+      "label": "Academic calendar",
+      "url": "https://about.uq.edu.au/academic-calendar"
+    },
+    {
+      "label": "IT support",
+      "url": "https://my.uq.edu.au/information-and-services/information-technology/student-staff-it-support"
+    }
+  ]
+}
