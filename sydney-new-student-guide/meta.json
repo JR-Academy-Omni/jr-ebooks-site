@@ -1,0 +1,44 @@
+{
+  "title": "悉尼大学新生指南",
+  "slug": "sydney-new-student-guide",
+  "description": "The University of Sydney 新生入学、enrolment、课表、Orientation、第一月 checklist。",
+  "style": "guide",
+  "mode": "flow",
+  "language": "zh-CN",
+  "tags": [
+    "go8",
+    "australia",
+    "new-student",
+    "orientation",
+    "悉尼"
+  ],
+  "status": "draft",
+  "checkedAt": "2026-06-29",
+  "contact": {
+    "owner": "Rain",
+    "qr": "qr-rain.png",
+    "salesCard": "rain.jpg"
+  },
+  "sources": [
+    {
+      "label": "Current students",
+      "url": "https://www.sydney.edu.au/students/home.html"
+    },
+    {
+      "label": "2026 Handbooks",
+      "url": "https://www.sydney.edu.au/handbooks/"
+    },
+    {
+      "label": "Planning your course",
+      "url": "https://www.sydney.edu.au/students/course-planning.html"
+    },
+    {
+      "label": "Choose your units of study",
+      "url": "https://www.sydney.edu.au/students/course-planning/choosing-units.html"
+    },
+    {
+      "label": "Unique Student Identifier",
+      "url": "https://www.sydney.edu.au/students/usi.html"
+    }
+  ]
+}

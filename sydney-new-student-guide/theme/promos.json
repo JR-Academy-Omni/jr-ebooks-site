@@ -1,0 +1,97 @@
+{
+  "_doc": "电子书广告池。type: section=独立广告卡（章节之间）/ inline=一行链接条（章节末尾）。tags 匹配书的 track/主题；文案纪律：人话 + 给读者一个现在就点的理由，全部真实产品真实链接，禁编数字。",
+  "promos": [
+    {
+      "id": "capability-test",
+      "type": "section",
+      "tags": ["ai-engineer", "T1", "T2", "all"],
+      "emoji": "🧪",
+      "title": "10 分钟测出你的 AI Engineer 缺口",
+      "copy": "官网的 77 项能力自测（五大支柱逐项点选），已有 2,300+ 人做过。测完直接看出你该补哪根柱子，免费不用注册。",
+      "cta": "去做测试",
+      "href": "https://jiangren.com.au/learn/ai-engineer"
+    },
+    {
+      "id": "bootcamp",
+      "type": "section",
+      "tags": ["ai-engineer", "T2"],
+      "emoji": "🚀",
+      "title": "想要节奏和反馈：AI Engineer Bootcamp",
+      "copy": "12 周 cohort，16 个 Quest 串成你自己的项目 ISA —— 从第一个 RAG 到发布 MCP server、QLoRA 微调、上生产毕业，7 个 production-ready 项目进作品集。第 1 周不满意全额退款。",
+      "cta": "看课程大纲",
+      "href": "https://jiangren.com.au/program-course/ai-engineer-bootcamp"
+    },
+    {
+      "id": "rag-course",
+      "type": "section",
+      "tags": ["ai-engineer", "T1", "T2"],
+      "emoji": "🎬",
+      "title": "还没准备好 cohort？先上入门自学课",
+      "copy": "AI Engineer 入门（RAG 方向）：4 周 52 小时视频 + 25 个浏览器内 Lab + AI Tutor 即时答疑，自己掌握节奏，是 Bootcamp 的官方前置课。",
+      "cta": "看课程介绍",
+      "href": "https://jiangren.com.au/program-course/ai-engineer-rag"
+    },
+    {
+      "id": "vip",
+      "type": "section",
+      "tags": ["T2"],
+      "emoji": "🎯",
+      "title": "已经有基础，只差 offer：VIP 1-on-1",
+      "copy": "导师一对一的高薪 Offer 计划：评估 → 简历深度优化 → 内推匹配 → 面试全程陪跑。同时只带 10-15 人，12 个月没拿到 Offer 退一半 —— 条款白纸黑字。",
+      "cta": "了解 VIP 计划",
+      "href": "https://jiangren.com.au/ai-engineer-vip"
+    },
+    {
+      "id": "wiki-tools",
+      "type": "section",
+      "tags": ["all", "T1"],
+      "emoji": "📚",
+      "title": "27 本 AI 工具实战手册，免费",
+      "copy": "Cursor、Claude Code、Dify、n8n、CrewAI…每个工具一本中文实战手册，5-10 章带代码，不用注册不要钱。本书提到的工具基本都有对应深读。",
+      "cta": "去翻手册",
+      "href": "https://jiangren.com.au/wiki"
+    },
+    {
+      "id": "job-hunter",
+      "type": "section",
+      "tags": ["T2"],
+      "emoji": "💼",
+      "title": "简历投不出响？用求职匠过一遍",
+      "copy": "求职匠 Job Hunter：简历优化 + JD 匹配度分析 + AI 面试模拟。把第 18 章的高信号写法落到你自己的简历上。",
+      "cta": "打开求职匠",
+      "href": "https://jiangren.com.au/tools/job-hunter"
+    },
+    {
+      "id": "daily",
+      "type": "inline",
+      "tags": ["all"],
+      "emoji": "📰",
+      "text": "跟上行业节奏：匠人每天 5 条经过核源的 AI 日报，每周一份大事盘点",
+      "href": "https://jiangren.com.au/blog"
+    },
+    {
+      "id": "interview-bank",
+      "type": "inline",
+      "tags": ["T2", "ai-engineer"],
+      "emoji": "🎤",
+      "text": "面试前刷一遍：各公司真实面经与题库（按轮次整理）",
+      "href": "https://jiangren.com.au/job-interview/process"
+    },
+    {
+      "id": "labs",
+      "type": "inline",
+      "tags": ["ai-engineer", "T1"],
+      "emoji": "🧑‍💻",
+      "text": "光看不动手没用：Prompt Master / LLM Lab / Vibe Coding 三个浏览器内实验室，边读边跑",
+      "href": "https://jiangren.com.au/learn/prompt-master"
+    },
+    {
+      "id": "certs",
+      "type": "inline",
+      "tags": ["T2"],
+      "emoji": "📜",
+      "text": "简历要客观信号？AWS AI Practitioner / ML 认证备考资料在这",
+      "href": "https://jiangren.com.au/certifications"
+    }
+  ]
+}
