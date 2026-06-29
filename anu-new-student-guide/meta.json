@@ -1,0 +1,44 @@
+{
+  "title": "ANU 新生指南",
+  "slug": "anu-new-student-guide",
+  "description": "Australian National University 新生入学、enrolment、课表、Orientation、第一月 checklist。",
+  "style": "guide",
+  "mode": "flow",
+  "language": "zh-CN",
+  "tags": [
+    "go8",
+    "australia",
+    "new-student",
+    "orientation",
+    "堪培拉"
+  ],
+  "status": "draft",
+  "checkedAt": "2026-06-29",
+  "contact": {
+    "owner": "Angela",
+    "qr": "qr-angela.png",
+    "salesCard": "angela.jpg"
+  },
+  "sources": [
+    {
+      "label": "New students",
+      "url": "https://www.anu.edu.au/students/information-for/new-students"
+    },
+    {
+      "label": "ANU Enrolment",
+      "url": "https://www.anu.edu.au/students/program-administration/enrolment"
+    },
+    {
+      "label": "ANU Timetabling",
+      "url": "https://www.anu.edu.au/students/program-administration/timetabling"
+    },
+    {
+      "label": "ANU Programs and Courses",
+      "url": "https://programsandcourses.anu.edu.au/"
+    },
+    {
+      "label": "Overload your enrolment",
+      "url": "https://www.anu.edu.au/students/program-administration/enrolment/overload-your-enrolment"
+    }
+  ]
+}
