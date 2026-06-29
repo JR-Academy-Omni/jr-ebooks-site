@@ -1,0 +1,44 @@
+{
+  "title": "Monash 新生指南",
+  "slug": "monash-new-student-guide",
+  "description": "Monash University 新生入学、enrolment、课表、Orientation、第一月 checklist。",
+  "style": "guide",
+  "mode": "flow",
+  "language": "zh-CN",
+  "tags": [
+    "go8",
+    "australia",
+    "new-student",
+    "orientation",
+    "墨尔本"
+  ],
+  "status": "draft",
+  "checkedAt": "2026-06-29",
+  "contact": {
+    "owner": "Amelia",
+    "qr": "qr-amelia.png",
+    "salesCard": "amelia.jpg"
+  },
+  "sources": [
+    {
+      "label": "Monash Get started",
+      "url": "https://www.monash.edu/get-started"
+    },
+    {
+      "label": "Monash enrolments",
+      "url": "https://www.monash.edu/students/admin/enrolments"
+    },
+    {
+      "label": "Monash enrolment dates",
+      "url": "https://www.monash.edu/students/admin/enrolments/dates"
+    },
+    {
+      "label": "Allocate+",
+      "url": "https://www.monash.edu/students/admin/timetables/allocate"
+    },
+    {
+      "label": "Monash Handbook",
+      "url": "https://handbook.monash.edu/"
+    }
+  ]
+}
