@@ -1,0 +1,40 @@
+{
+  "title": "墨尔本大学新生指南",
+  "slug": "unimelb-new-student-guide",
+  "description": "University of Melbourne 新生入学、enrolment、课表、Orientation、第一月 checklist。",
+  "style": "guide",
+  "mode": "flow",
+  "language": "zh-CN",
+  "tags": [
+    "go8",
+    "australia",
+    "new-student",
+    "orientation",
+    "墨尔本"
+  ],
+  "status": "draft",
+  "checkedAt": "2026-06-29",
+  "contact": {
+    "owner": "Amelia",
+    "qr": "qr-amelia.png",
+    "salesCard": "amelia.jpg"
+  },
+  "sources": [
+    {
+      "label": "Get started",
+      "url": "https://students.unimelb.edu.au/new-students/get-started"
+    },
+    {
+      "label": "Planning your course and subjects",
+      "url": "https://students.unimelb.edu.au/course-admin/planning-your-course-and-subjects"
+    },
+    {
+      "label": "University of Melbourne Handbook",
+      "url": "https://handbook.unimelb.edu.au/"
+    },
+    {
+      "label": "Class timetable",
+      "url": "https://students.unimelb.edu.au/course-admin/class-timetable"
+    }
+  ]
+}
