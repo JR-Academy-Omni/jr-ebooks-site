@@ -1,0 +1,49 @@
+{
+  "slug": "free-ai-courses-guide",
+  "title": "AI 免费课资源地图",
+  "subtitle": "给想学 AI 但不想先花钱的人：把机器学习、Prompt、LLM、Agents、PyTorch、MIT/Stanford 公开课分成能真的开始的路线",
+  "audience": "想零成本入门 AI、准备转 AI 应用开发、或想整理免费学习资源的学生和职场人",
+  "goal": "lead-magnet",
+  "track": "T4",
+  "style": "guide",
+  "mode": "web-draft",
+  "channel": [
+    "公众号文末资料包",
+    "微信群分享",
+    "小红书引流"
+  ],
+  "pages": "web draft + A4 flow",
+  "status": "draft",
+  "tags": [
+    "ai",
+    "free-courses",
+    "learning-path",
+    "prompt",
+    "llm",
+    "agents",
+    "machine-learning"
+  ],
+  "contact": {
+    "qr": "qr-rain.png",
+    "salesCard": "rain.jpg",
+    "salesCards": [
+      "rain.jpg"
+    ]
+  },
+  "sources": [
+    "Microsoft AI for Beginners: https://github.com/microsoft/AI-For-Beginners",
+    "Microsoft Generative AI for Beginners: https://github.com/microsoft/generative-ai-for-beginners",
+    "Google Machine Learning Crash Course: https://developers.google.com/machine-learning/crash-course",
+    "Hugging Face LLM Course: https://huggingface.co/learn/llm-course/chapter1/1",
+    "Hugging Face Agents Course: https://huggingface.co/learn/agents-course/unit0/introduction",
+    "fast.ai Practical Deep Learning for Coders: https://course.fast.ai/",
+    "MIT 6.S191 Introduction to Deep Learning: https://introtodeeplearning.com/",
+    "Stanford CS224N: https://web.stanford.edu/class/cs224n/",
+    "Learn PyTorch for Deep Learning: https://www.learnpytorch.io/",
+    "OpenAI Cookbook: https://cookbook.openai.com/",
+    "OpenAI Prompt engineering guide: https://platform.openai.com/docs/guides/prompt-engineering",
+    "Anthropic Prompt engineering overview: https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview",
+    "Google Gemini API Docs: https://ai.google.dev/gemini-api/docs"
+  ],
+  "note": "核对日期：2026-06-29。只收录官方课程页、官方 GitHub 仓库、官方文档和公开课页面。免费口径指学习内容可免费访问；证书、学分、云资源、GPU、API 调用和会员权益以各平台官网最新说明为准。"
+}

@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>AI 免费课资源地图 — web 版初稿 · JR Academy</title>
+<link rel="stylesheet" href="theme/tokens.css" />
+<link rel="stylesheet" href="theme/web-zine.css" />
+<style>
+  .hero h1 .t-main { font-size: 76px; }
+  .hero h1 .t-sticker { top: -48px; right: -22px; }
+  .resource-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: 22px; }
+  .resource-card { border: 1px solid var(--jr-border-warm); border-radius: 18px; background: var(--jr-white); box-shadow: var(--jr-shadow-sm); padding: 18px; }
+  .resource-card h3 { margin: 10px 0 8px; font-size: 22px; line-height: 1.25; }
+  .resource-card p { margin: 8px 0 0; }
+  .resource-card a { display: block; margin-top: 10px; color: var(--jr-red); word-break: break-word; font-size: 13px; }
+  .rc-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+  .rc-num { font-family: Anton, Impact, sans-serif; color: var(--jr-red); font-size: 30px; line-height: 1; }
+  .rc-org { font-size: 12px; font-weight: var(--jr-fw-bold); color: var(--jr-neutral-600); text-transform: uppercase; letter-spacing: .04em; }
+  .rc-meta { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+  .rc-meta span { border: 1px solid var(--jr-border-warm); border-radius: var(--jr-radius-full); background: var(--jr-warm); padding: 5px 9px; font-size: 12px; font-weight: var(--jr-fw-bold); }
+  .route-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 18px; }
+  .muted { color: var(--jr-neutral-600); }
+  .source-list { columns: 2; column-gap: 24px; line-height: 1.8; font-size: 13px; }
+  .source-list a { color: var(--jr-neutral-800); text-decoration: underline; }
+  .sales-card-lead { margin-top: 24px; font-size: 18px; font-weight: var(--jr-fw-bold); color: var(--jr-black); }
+  .flow .resource-grid { grid-template-columns: 1fr; gap: 3.5mm; margin-top: 4mm; }
+  .flow .resource-card { border-radius: 4mm; padding: 4mm 5mm; break-inside: avoid; box-shadow: none; }
+  .flow .resource-card h3 { font-size: 11.5pt; margin: 2mm 0 1.5mm; }
+  .flow .resource-card p { font-size: 8pt; line-height: 1.55; margin-top: 1.2mm; }
+  .flow .resource-card a { font-size: 7pt; margin-top: 1.5mm; }
+  .flow .rc-num { font-size: 16pt; }
+  .flow .rc-org { font-size: 6.5pt; }
+  .flow .rc-meta { gap: 1.5mm; margin: 1.8mm 0; }
+  .flow .rc-meta span { font-size: 6.5pt; padding: .6mm 2mm; }
+  .flow .route-grid { grid-template-columns: 1fr 1fr; gap: 3.5mm; }
+  .flow .source-list { columns: 1; font-size: 8pt; line-height: 1.6; }
+  .cover2 .cover-logo { position: absolute; top: 15mm; left: 15mm; height: 12mm; width: auto; z-index: 3; }
+  .cover2 .cv2-copy { position: relative; z-index: 3; margin-top: 38mm; max-width: 126mm; }
+  .cover2 .cv2-copy h1 { font-family: Anton, Impact, sans-serif; font-size: 61pt; line-height: 1.02; color: var(--jr-white); margin: 4mm 0 6mm; letter-spacing: 0; }
+  .cover2 .cv2-copy h1 em { color: var(--jr-red); font-style: normal; }
+  .cover2 .cv2-copy p { color: rgba(255,255,255,.72); font-size: 11pt; line-height: 1.7; max-width: 104mm; }
+  .cover2 .cv2-tags { display: flex; gap: 3mm; flex-wrap: wrap; margin-top: 7mm; }
+  .cover2 .cv2-tags span { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.3); color: rgba(255,255,255,.9); border-radius: var(--jr-radius-full); font-size: 8.5pt; font-weight: var(--jr-fw-bold); padding: 1.3mm 3.5mm; }
+  .page.back-cover.ai-free-back { gap: 5mm; padding: 18mm 20mm; }
+  .ai-free-back .back-logo { height: 12mm; width: auto; }
+  .ai-free-back h2 { font-size: 25pt; line-height: 1.12; margin: 0; }
+  .ai-free-back p { font-size: 10pt; line-height: 1.5; margin: 0; }
+  .ai-free-back .sales-card { width: 72% !important; box-shadow: none; }
+  .ai-free-back .contact-bar { width: 72% !important; padding: 3mm 4mm; gap: 4mm; }
+  .ai-free-back .contact-bar .qr { width: 18mm; height: 18mm; }
+  .ai-free-back .contact-bar .cb-title { font-size: 10.5pt; }
+  .ai-free-back .contact-bar .cb-desc { font-size: 8pt; line-height: 1.45; }
+  .ai-free-back .caption { font-size: 7.2pt; }
+  @media (max-width: 900px) {
+    .resource-grid, .route-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 640px) {
+    .hero h1 .t-main { font-size: 42px; }
+    .hero h1 .t-sticker { top: auto; bottom: -34px; right: 8px; transform: rotate(5deg); }
+    .hero p.sub { margin-top: 50px; }
+    .source-list { columns: 1; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <img class="logo" src="assets/logo/logo-zh-full.svg" alt="匠人学院" />
+    <div class="hero-flex">
+      <div>
+        <div class="bar"></div>
+        <h1><span class="t-top">AI 免费课</span><br /><span class="t-main">资源地图<span class="t-sticker">2026-06-29 官网核对</span></span></h1>
+        <p class="sub">给想学 AI 但不想先花钱的人：把 <span class="hl">机器学习、Prompt、LLM、Agents、PyTorch、MIT/Stanford 公开课</span> 分成能真的开始的路线。</p>
+        <div class="chips"><span class="chip">官方来源</span><span class="chip">免费内容优先</span><span class="chip">Rain QR</span></div>
+        <div style="margin-top: 26px;"><span class="zine-diecut" style="font-size: 24px;">别先收藏 100 个链接。先跑出一个小项目。</span></div>
+      </div>
+      <div class="mascot-wrap"><span class="tape"></span><img class="hero-mascot" src="assets/illustrations/niuxiaojiang-working-laptop.png" alt="牛小匠" /></div>
+    </div>
+  </div>
+</header>
+
+<div class="marquee"><div class="mq-track"><span>FREE AI COURSES<i>✦</i>ML<i>✦</i>LLM<i>✦</i>AGENTS<i>✦</i>PYTORCH<i>✦</i>PROMPT<i>✦</i>JIANGREN.COM.AU<i>✦</i></span><span>FREE AI COURSES<i>✦</i>ML<i>✦</i>LLM<i>✦</i>AGENTS<i>✦</i>PYTORCH<i>✦</i>PROMPT<i>✦</i>JIANGREN.COM.AU<i>✦</i></span></div></div>
+
+<nav class="toc">
+  <div class="wrap">
+    <a href="#how"><span class="num">00</span>这本书怎么用</a>
+    <a href="#ch1"><span class="num">01</span>免费课的坑</a>
+    <a href="#ch2"><span class="num">02</span>12 个资源入口</a>
+    <a href="#ch3"><span class="num">03</span>四条学习路线</a>
+    <a href="#ch4"><span class="num">04</span>零基础路线</a>
+    <a href="#ch5"><span class="num">05</span>Python 路线</a>
+    <a href="#ch6"><span class="num">06</span>LLM 应用路线</a>
+    <a href="#ch7"><span class="num">07</span>进阶路线</a>
+    <a href="#ch8"><span class="num">08</span>30 天计划</a>
+    <a href="#sources"><span class="num">09</span>来源清单</a>
+  </div>
+</nav>
+
+
+<section class="ch" id="how">
+  <div class="wrap">
+    <h2>这本书怎么用</h2>
+    <div class="card">
+      <p>这不是“全网 AI 课大合集”。太多链接没用，最后只会收藏吃灰。</p>
+      <p>这本只收录我在 2026-06-29 核对过的官方课程、公开课、官方文档和开源课程。每个资源都写清楚适合谁、先做哪一步、哪里可能收费。说白了，你不用从 100 个链接里抽签，先按自己的背景走一条线。</p>
+    </div>
+    <div class="stat-grid">
+      <div class="stat accent"><div class="v">12</div><div class="l">个官方/开源学习入口</div></div>
+      <div class="stat"><div class="v">4</div><div class="l">条学习路线</div></div>
+      <div class="stat"><div class="v">30</div><div class="l">天先跑出一个作品</div></div>
+    </div>
+    <div class="contact-bar">
+      <img class="qr" src="assets/contact/qr-rain.png" alt="Rain · 匠人学院资深 IT 顾问微信二维码" />
+      <div><div class="t">扫码了解更多 AI 学习资料</div><div class="d">后续会继续整理免费课、AI 工具、项目练习和学习路线。你把自己的基础和目标发来，先判断该从哪条线开始。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="ch" id="ch1">
+  <div class="ghost">01</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 01</div><h2>先分清：免费课不是免费一切</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-thinking.png" alt="" />
+    </div>
+    <p class="lead">很多同学搜“AI 免费课”，踩的坑不是课程太少，是把四件事混在一起：内容免费、证书免费、算力免费、API 免费。它们不是一回事。</p>
+    <table>
+      <thead><tr><th>容易误会的地方</th><th>真实口径</th></tr></thead>
+      <tbody>
+        <tr><td>证书</td><td>很多平台内容免费，但证书、学分、professional program 可能收费。先把内容学完，再决定要不要证书。</td></tr>
+        <tr><td>云资源</td><td>GPU、云实验室、部署平台可能有免费额度，也可能过期或超额。跑训练前先看额度。</td></tr>
+        <tr><td>API 调用</td><td>OpenAI、Claude、Gemini 等文档免费，真正跑 API 往往要绑定 key、看 pricing 和 rate limits。</td></tr>
+        <tr><td>课程版本</td><td>大学课公开视频可能是前一年的，最新学期课件另更。学概念没问题，做作业要看当年说明。</td></tr>
+      </tbody>
+    </table>
+    <div class="callout warn"><strong>判断方法：</strong>看到一个课程，先问三句：不付费能不能看完整内容？练习是否必须花云资源或 API 钱？证书是不是另收费？三句问完，就不容易被“免费试听”带偏。</div>
+  </div>
+</section>
+
+<section class="ch" id="ch2">
+  <div class="ghost">02</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 02</div><h2>资源地图：先收藏这 12 个</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-data.png" alt="" />
+    </div>
+    <p class="lead">下面这 12 个不是同一类资源。Microsoft / Google 更像体系课，Hugging Face / fast.ai 更适合动手，MIT / Stanford 适合进阶，OpenAI / Anthropic / Gemini 是做应用时查的官方手册。</p>
+    <div class="resource-grid">
+      <article class="resource-card">
+        <div class="rc-top"><span class="rc-num">01</span><span class="rc-org">Microsoft</span></div>
+        <h3>Microsoft AI for Beginners</h3>
+        <div class="rc-meta"><span>零基础到入门</span><span>公开 GitHub 课程</span><span>12 周 / 24 课</span></div>
+        <p><strong>适合：</strong>想系统理解 AI、神经网络、CV/NLP、伦理，但还没准备直接做 LLM app 的同学。</p>
+        <p><strong>先做：</strong>先读 Introduction and History of AI，再做一个 Hello AI World 或 Simple Neural Network。</p>
+        <p class="muted"><strong>注意：</strong>仓库有 50+ 翻译，克隆时可以按官方提示 sparse checkout；中文翻译可读，但术语要对照英文。</p>
+        <a href="https://github.com/microsoft/AI-For-Beginners">https://github.com/microsoft/AI-For-Beginners</a>
+      </article>
+      <article class="resource-card">
+        <div class="rc-top"><span class="rc-num">02</span><span class="rc-org">Microsoft</span></div>
+        <h3>Microsoft Generative AI for Beginners</h3>
+        <div class="rc-meta"><span>GenAI 应用入门</span><span>公开 GitHub 课程</span><span>21 课</span></div>
+        <p><strong>适合：</strong>想从 LLM、Prompt、RAG、Function Calling、AI Agents、AI 安全一路做到应用的人。</p>
+        <p><strong>先做：</strong>先看 01 Introduction to Generative AI and LLMs，再做 04 Prompt Engineering Fundamentals。</p>
+        <p class="muted"><strong>注意：</strong>代码练习可能用 Azure OpenAI、OpenAI API 或 GitHub Models；课程免费，模型调用费用另看各平台。</p>
+        <a href="https://github.com/microsoft/generative-ai-for-beginners">https://github.com/microsoft/generative-ai-for-beginners</a>
+      </article>
+      <article class="resource-card">
+        <div class="rc-top"><span class="rc-num">03</span><span class="rc-org">Google for Developers</span></div>
+        <h3>Google Machine Learning Crash Course</h3>
+        <div class="rc-meta"><span>机器学习基础</span><span>公开开发者课程</span><span>按模块自学</span></div>
+        <p><strong>适合：</strong>想补 regression、classification、data、neural networks、embeddings、production ML 的同学。</p>
+        <p><strong>先做：</strong>Linear Regression → Logistic Regression → Classification，不要一上来跳到 neural networks。</p>
+        <p class="muted"><strong>注意：</strong>课程有中文简体页面；但术语建议保留英文，比如 embeddings、overfitting、fairness。</p>
+        <a href="https://developers.google.com/machine-learning/crash-course">https://developers.google.com/machine-learning/crash-course</a>
+      </article>
+      <article class="resource-card">
+        <div class="rc-top"><span class="rc-num">04</span><span class="rc-org">Hugging Face</span></div>
+        <h3>Hugging Face LLM Course</h3>
+        <div class="rc-meta"><span>LLM / NLP 实战</span><span>完全免费，无广告</span><span>12 章，每章约 1 周</span></div>
+        <p><strong>适合：</strong>已经会 Python，想学 Transformers、Datasets、Tokenizers、fine-tuning、reasoning models 的同学。</p>
+        <p><strong>先做：</strong>先跑 pipeline()，再学 Transformer architecture；不要先 fine-tune。</p>
+        <p class="muted"><strong>注意：</strong>官方建议有 Python 基础，最好先学过一门入门深度学习课。</p>
+        <a href="https://huggingface.co/learn/llm-course/chapter1/1">https://huggingface.co/learn/llm-course/chapter1/1</a>
+      </article>
+      <article class="resource-card">
+        <div class="rc-top"><span class="rc-num">05</span><span class="rc-org">Hugging Face</span></div>
+        <h3>Hugging Face Agents Course</h3>
+        <div class="rc-meta"><span>AI Agents</span><span>课程免费，证书流程也免费</span><span>建议每章 1 周</span></div>
+        <p><strong>适合：</strong>想学 tool use、Thought/Action/Observation、smolagents、LlamaIndex、LangGraph、Agentic RAG 的同学。</p>
+        <p><strong>先做：</strong>先完成 Unit 1 Agent Fundamentals，再选一个框架做小 agent。</p>
+        <p class="muted"><strong>注意：</strong>需要基础 Python 和 LLM 概念；如果 LLM Course 没学过，先补前置。</p>
+        <a href="https://huggingface.co/learn/agents-course/unit0/introduction">https://huggingface.co/learn/agents-course/unit0/introduction</a>
+      </article>
+      <article class="resource-card">
+        <div class="rc-top"><span class="rc-num">06</span><span class="rc-org">fast.ai</span></div>
+        <h3>fast.ai Practical Deep Learning for Coders</h3>
+        <div class="rc-meta"><span>代码型深度学习</span><span>免费课程</span><span>Part 1 九课 + Part 2 深入课</span></div>
+        <p><strong>适合：</strong>有一点 Python，想从案例直接上手 CV、NLP、tabular、deployment 的同学。</p>
+        <p><strong>先做：</strong>从 Lesson 1 开始跟着跑，不要先补一堆数学。fast.ai 的路数是先做出东西，再补原理。</p>
+        <p class="muted"><strong>注意：</strong>只适合愿意写代码的人；完全零编程同学先学 Python。</p>
+        <a href="https://course.fast.ai/">https://course.fast.ai/</a>
+      </article>
+      <article class="resource-card">
+        <div class="rc-top"><span class="rc-num">07</span><span class="rc-org">MIT</span></div>
+        <h3>MIT 6.S191 Introduction to Deep Learning</h3>
+        <div class="rc-meta"><span>深度学习进阶</span><span>材料免费开源</span><span>2026 在线版周更</span></div>
+        <p><strong>适合：</strong>想听 MIT 级别深度学习 bootcamp，主题覆盖 vision、NLP、generative AI、RL、AI for Science 的同学。</p>
+        <p><strong>先做：</strong>先看 Lecture 1 Intro to Deep Learning，再做第一个 software lab。</p>
+        <p class="muted"><strong>注意：</strong>官网写需要初等线代和微积分，Python 熟悉会更顺。</p>
+        <a href="https://introtodeeplearning.com/">https://introtodeeplearning.com/</a>
+      </article>
+      <article class="resource-card">
+        <div class="rc-top"><span class="rc-num">08</span><span class="rc-org">Stanford</span></div>
+        <h3>Stanford CS224N</h3>
+        <div class="rc-meta"><span>NLP / LLM 高阶</span><span>公开视频和课件免费，正式证书/学分收费</span><span>Winter 2026 课件</span></div>
+        <p><strong>适合：</strong>想深入 NLP、Transformers、LLM benchmarking/evaluation，并能承受数学和代码强度的人。</p>
+        <p><strong>先做：</strong>先看 2024 YouTube playlist，再跟 2026 课件读 slides / notes。</p>
+        <p class="muted"><strong>注意：</strong>官网说 enrolled-student videos 不对外；公开免费视频是 2024 playlist。不要把付费 Stanford Online 和免费资源混为一谈。</p>
+        <a href="https://web.stanford.edu/class/cs224n/">https://web.stanford.edu/class/cs224n/</a>
+      </article>
+      <article class="resource-card">
+        <div class="rc-top"><span class="rc-num">09</span><span class="rc-org">Zero to Mastery / Daniel Bourke</span></div>
+        <h3>Learn PyTorch for Deep Learning</h3>
+        <div class="rc-meta"><span>PyTorch 实战</span><span>在线书免费</span><span>00-09 章 + 额外资源</span></div>
+        <p><strong>适合：</strong>想把 PyTorch 从 tensor、workflow、classification、CV、custom dataset、transfer learning、deployment 跑一遍的人。</p>
+        <p><strong>先做：</strong>从 00 PyTorch Fundamentals 开始，在 Google Colab 里跑。</p>
+        <p class="muted"><strong>注意：</strong>官方建议 3-6 个月 Python；完全不会 Python 会吃力。</p>
+        <a href="https://www.learnpytorch.io/">https://www.learnpytorch.io/</a>
+      </article>
+      <article class="resource-card">
+        <div class="rc-top"><span class="rc-num">10</span><span class="rc-org">OpenAI</span></div>
+        <h3>OpenAI Docs &amp; Cookbook</h3>
+        <div class="rc-meta"><span>Prompt / API / Agents 示例</span><span>文档和示例免费，API 调用另算</span><span>按主题查</span></div>
+        <p><strong>适合：</strong>想看官方 prompt engineering、structured outputs、RAG、agents、evals 示例的人。</p>
+        <p><strong>先做：</strong>先读 Prompt engineering guide，再看 Cookbook 里的 RAG / Evals / Agents 示例。</p>
+        <p class="muted"><strong>注意：</strong>文档免费，不代表 API 免费；跑代码前先看 pricing 和 rate limits。</p>
+        <a href="https://cookbook.openai.com/">https://cookbook.openai.com/</a>
+      </article>
+      <article class="resource-card">
+        <div class="rc-top"><span class="rc-num">11</span><span class="rc-org">Anthropic</span></div>
+        <h3>Anthropic Prompt Engineering Docs</h3>
+        <div class="rc-meta"><span>Prompt / Eval</span><span>文档免费，Claude API/Console 另算</span><span>按章节查</span></div>
+        <p><strong>适合：</strong>想学怎么先定义 success criteria、做 eval，再调 prompt 的人。</p>
+        <p><strong>先做：</strong>先照 docs 写清 success criteria 和 eval，再看 prompting best practices。</p>
+        <p class="muted"><strong>注意：</strong>不要只抄提示词模板。Anthropic 文档强调先有可测试标准，再做 prompt engineering。</p>
+        <a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview">https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview</a>
+      </article>
+      <article class="resource-card">
+        <div class="rc-top"><span class="rc-num">12</span><span class="rc-org">Google AI for Developers</span></div>
+        <h3>Google Gemini API Docs</h3>
+        <div class="rc-meta"><span>Gemini 应用开发</span><span>文档免费，API 使用看 pricing</span><span>按 quickstart / guide 查</span></div>
+        <p><strong>适合：</strong>想用 Gemini 做 text、image、video、long context、function calling、tools、agents 的同学。</p>
+        <p><strong>先做：</strong>先跑 Get started，再看 Prompt engineering、Structured outputs、Function calling。</p>
+        <p class="muted"><strong>注意：</strong>页面有 Pricing、Billing info、Rate limits；练习前先设预算，不要默认 API 免费。</p>
+        <a href="https://ai.google.dev/gemini-api/docs">https://ai.google.dev/gemini-api/docs</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="ch" id="ch3">
+  <div class="ghost">03</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 03</div><h2>按人群选路线，别把课全报一遍</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-chart.png" alt="" />
+    </div>
+    <p class="lead">最省时间的学法不是“把所有免费课都看完”。你只要先选一条线，学到能做出第一个小项目，再补下一层。</p>
+    <div class="route-grid">
+      <article class="card route-card">
+        <div class="title-row"><span class="n">1</span><h3>完全零基础</h3></div>
+        <p><strong>目标：</strong>知道 AI 是什么，会用工具，不急着写代码</p>
+        <ol><li>Microsoft AI for Beginners 的前 4 课</li><li>Google MLCC 的 Introduction to ML</li><li>OpenAI / Anthropic Prompt docs 选读</li></ol>
+        <p class="muted"><strong>交付物：</strong>做一份自己的 AI 学习笔记：10 个概念 + 5 个能马上用的 prompt。</p>
+      </article>
+      <article class="card route-card">
+        <div class="title-row"><span class="n">2</span><h3>会一点 Python</h3></div>
+        <p><strong>目标：</strong>补机器学习和深度学习，能跑 notebook</p>
+        <ol><li>Google MLCC</li><li>Learn PyTorch 00-03</li><li>fast.ai Lesson 1-2</li></ol>
+        <p class="muted"><strong>交付物：</strong>跑通一个图像分类或表格预测小项目，写清数据、模型、结果。</p>
+      </article>
+      <article class="card route-card">
+        <div class="title-row"><span class="n">3</span><h3>想做 LLM 应用</h3></div>
+        <p><strong>目标：</strong>Prompt、RAG、Function Calling、Agents</p>
+        <ol><li>Microsoft Generative AI for Beginners 01-08</li><li>Hugging Face LLM Course 1-4</li><li>OpenAI / Gemini Cookbook 选一个 API 跑通</li></ol>
+        <p class="muted"><strong>交付物：</strong>做一个带检索的小助手，不追求复杂，先做到可复现。</p>
+      </article>
+      <article class="card route-card">
+        <div class="title-row"><span class="n">4</span><h3>想冲 AI Engineer</h3></div>
+        <p><strong>目标：</strong>工程化、评估、部署、Agent、作品集</p>
+        <ol><li>fast.ai 或 MIT 6.S191</li><li>Hugging Face Agents Course</li><li>Stanford CS224N 选 NLP/LLM 部分深读</li></ol>
+        <p class="muted"><strong>交付物：</strong>做一个能部署、能评估、有 README 的项目，比刷十门课更有用。</p>
+      </article>
+    </div>
+    <p class="sales-card-lead">看完还是不知道自己该走哪条线？扫 Rain 的码，把你的专业、会不会 Python、目标岗位发来，先帮你判断该从哪一类资源开始。</p>
+    <div class="sales-card"><img src="assets/contact/sales-cards/rain.jpg" alt="Rain · 匠人学院资深 IT 顾问" /></div>
+  </div>
+</section>
+
+<section class="ch" id="ch4">
+  <div class="ghost">04</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 04</div><h2>零基础：先学概念和提示词，不急着训练模型</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-pen-book.png" alt="" />
+    </div>
+    <p class="lead">如果你连 Python 都没写过，别一上来就看 Stanford 或 MIT。不是你不行，是顺序错了。先把 AI、ML、GenAI、LLM、prompt、embedding 这些词搞清楚，再动代码。</p>
+    <div class="check-group">
+      <div class="head"><span class="stage">STARTER</span><strong>第一周只做三件事</strong></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">读 Microsoft AI for Beginners 的 Introduction 部分</div><div class="n">知道 symbolic AI、neural networks、CV、NLP、AI ethics 在讲什么。</div></div><span class="badge must">必做</span></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">看 Google MLCC 的 Introduction to ML</div><div class="n">先理解 model、feature、label、training、loss 这些词。</div></div><span class="badge must">必做</span></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">用 OpenAI 或 Anthropic prompt docs 写 5 个工作场景 prompt</div><div class="n">比如总结会议、改简历、整理课程笔记、生成邮件、检查代码解释。</div></div><span class="badge">练手</span></div>
+    </div>
+    <div class="callout"><strong>别做：</strong>别急着买证书，别急着训练模型，别急着上云。零基础第一个目标是能听懂别人说什么，并能把 AI 用到自己的学习或工作里。</div>
+  </div>
+</section>
+
+<section class="ch" id="ch5">
+  <div class="ghost">05</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 05</div><h2>会 Python：先跑项目，再补数学</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-working-laptop.png" alt="" />
+    </div>
+    <p class="lead">有 Python 基础的人最容易在数学课里迷路。不是数学不重要，是你先需要一个能运行的反馈回路。代码跑起来，loss 降下来，模型部署出来，抽象概念才有地方落地。</p>
+    <div class="pipeline">
+      <div class="pnode"><div class="pico">1</div><h4>Google MLCC</h4><p>regression、classification、overfitting、fairness。</p><span class="ptag">基础</span></div>
+      <div class="plink">→</div>
+      <div class="pnode"><div class="pico">2</div><h4>Learn PyTorch</h4><p>tensor、workflow、CV、custom dataset、deployment。</p><span class="ptag">代码</span></div>
+      <div class="plink">→</div>
+      <div class="pnode"><div class="pico">3</div><h4>fast.ai</h4><p>从真实问题做起，第二课就能做部署。</p><span class="ptag">项目</span></div>
+    </div>
+    <div class="callout warn"><strong>作品集建议：</strong>第一个项目别做“猫狗识别”就结束。换成一个跟你目标有关的问题，比如校园二手物品分类、课程评价情感分析、简历 JD 匹配器。项目小一点，但要写清楚输入、输出、失败案例。</div>
+    <div class="contact-bar">
+      <img class="qr" src="assets/contact/qr-rain.png" alt="Rain · 匠人学院资深 IT 顾问微信二维码" />
+      <div><div class="t">想要 AI 项目练习清单？</div><div class="d">扫码找 Rain。我们会继续整理适合零基础、Python 入门、LLM 应用和 AI Engineer 的项目练习。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="ch" id="ch6">
+  <div class="ghost">06</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 06</div><h2>想做 LLM 应用：Prompt 只是第一层</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-data.png" alt="" />
+    </div>
+    <p class="lead">现在很多“AI 课程”只教几个 prompt 模板。能用，但不够。真要做应用，你至少要知道 RAG、structured output、function calling、eval、成本和安全。</p>
+    <div class="yes-no">
+      <div class="yn yes"><h4>该学的</h4><ul><li>Microsoft GenAI for Beginners 的 Learn + Build 课</li><li>Hugging Face LLM Course 的 Transformers / Datasets / demos</li><li>OpenAI、Gemini、Anthropic 官方 docs 里的 prompt、tool use、eval</li></ul></div>
+      <div class="yn no"><h4>先别沉迷的</h4><ul><li>只背“万能 prompt”</li><li>没 eval 就说效果好</li><li>没预算控制就直接接 API</li><li>没隐私边界就上传真实文件</li></ul></div>
+    </div>
+    <pre><code>一个合格的小项目 README 至少写：
+1. 解决什么问题
+2. 用了哪个模型 / 哪个 API
+3. 输入输出长什么样
+4. 成本怎么估算
+5. 错误回答怎么发现
+6. 哪些数据不能上传</code></pre>
+  </div>
+</section>
+
+<section class="ch" id="ch7">
+  <div class="ghost">07</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 07</div><h2>进阶：MIT、Stanford、Hugging Face Agents 怎么接</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-chart.png" alt="" />
+    </div>
+    <p class="lead">如果你已经能写 Python，也跑过 LLM demo，可以开始补硬课。进阶课不是用来“收藏显得厉害”的，是用来把你做项目时卡住的地方讲透。</p>
+    <table>
+      <thead><tr><th>卡点</th><th>去哪里补</th><th>补完要做什么</th></tr></thead>
+      <tbody>
+        <tr><td>看不懂 neural network 怎么训练</td><td>MIT 6.S191 + fast.ai Part 1</td><td>自己解释一次 forward / loss / backprop。</td></tr>
+        <tr><td>LLM 只会调用，不懂 Transformers</td><td>Hugging Face LLM Course + Stanford CS224N</td><td>跑一个 tokenizer / transformer demo。</td></tr>
+        <tr><td>Agent 只会写玩具 demo</td><td>Hugging Face Agents Course</td><td>用 smolagents / LangGraph 做一个可评估的小 agent。</td></tr>
+        <tr><td>模型能跑，但没法展示</td><td>fast.ai deployment + Learn PyTorch deployment</td><td>部署一个 demo，并写清楚限制。</td></tr>
+      </tbody>
+    </table>
+    <p class="sales-card-lead">读到这里的人，多半不是缺链接，而是缺路线和反馈。扫 Rain 的码，把你已经学过的课和项目发来，先帮你把下一步排出来。</p>
+    <div class="sales-card"><img src="assets/contact/sales-cards/rain.jpg" alt="Rain · 匠人学院资深 IT 顾问" /></div>
+  </div>
+</section>
+
+<section class="ch" id="ch8">
+  <div class="ghost">08</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 08</div><h2>30 天先跑一遍，不要收藏一年</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-thinking.png" alt="" />
+    </div>
+    <p class="lead">免费资源最大的敌人不是质量差，是没有 deadline。你不需要先规划半年。先用 30 天跑出一个最小作品，后面的路线自然会清楚。</p>
+    <div class="check-group">
+      <div class="head"><span class="stage">30 DAYS</span><strong>别贪多，先学完一条线</strong></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">Day 1-3 · 定路线</div><div class="n">选上面四条路线之一。不要今天学 prompt，明天学 PyTorch，后天学 agent。</div></div><span class="badge">做完再换</span></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">Day 4-7 · 跑第一个 demo</div><div class="n">零基础做 prompt 笔记；Python 同学跑 Colab；LLM 应用同学跑一个 API quickstart。</div></div><span class="badge">做完再换</span></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">Day 8-14 · 补核心概念</div><div class="n">MLCC / Microsoft / HF 课程里挑一条主线读完，不懂的术语先记，不要卡死。</div></div><span class="badge">做完再换</span></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">Day 15-21 · 做小项目</div><div class="n">项目要小到一周能交付：分类器、RAG demo、agent todo bot 都行。</div></div><span class="badge">做完再换</span></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">Day 22-30 · 整理作品</div><div class="n">写 README：你解决什么问题、用了什么资料、怎么运行、哪里会失败。</div></div><span class="badge">做完再换</span></div>
+    </div>
+    <div class="callout"><strong>30 天交付标准：</strong>不是“我看完了几门课”，而是你有一个链接、一个 README、一个能解释给别人听的小项目。哪怕很粗糙，也比收藏夹里 50 门课有用。</div>
+  </div>
+</section>
+
+<section class="ch" id="sources">
+  <div class="ghost">09</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 09</div><h2>官网来源清单</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-pen-book.png" alt="" />
+    </div>
+    <p class="lead">核对日期：2026-06-29。这本只写我能在官方页面或官方 GitHub 仓库核到的内容。页面、费用、证书规则和 API 额度都会变，真正开始学之前再点进官网确认一次。</p>
+    <ul class="source-list">
+      <li><a href="https://github.com/microsoft/AI-For-Beginners">Microsoft AI for Beginners</a></li>
+      <li><a href="https://github.com/microsoft/generative-ai-for-beginners">Microsoft Generative AI for Beginners</a></li>
+      <li><a href="https://developers.google.com/machine-learning/crash-course">Google Machine Learning Crash Course</a></li>
+      <li><a href="https://huggingface.co/learn/llm-course/chapter1/1">Hugging Face LLM Course</a></li>
+      <li><a href="https://huggingface.co/learn/agents-course/unit0/introduction">Hugging Face Agents Course</a></li>
+      <li><a href="https://course.fast.ai/">fast.ai Practical Deep Learning for Coders</a></li>
+      <li><a href="https://introtodeeplearning.com/">MIT 6.S191 Introduction to Deep Learning</a></li>
+      <li><a href="https://web.stanford.edu/class/cs224n/">Stanford CS224N</a></li>
+      <li><a href="https://www.learnpytorch.io/">Learn PyTorch for Deep Learning</a></li>
+      <li><a href="https://cookbook.openai.com/">OpenAI Cookbook</a></li>
+      <li><a href="https://platform.openai.com/docs/guides/prompt-engineering">OpenAI Prompt engineering guide</a></li>
+      <li><a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview">Anthropic Prompt engineering overview</a></li>
+      <li><a href="https://ai.google.dev/gemini-api/docs">Google Gemini API Docs</a></li>
+    </ul>
+    <div class="contact-bar">
+      <img class="qr" src="assets/contact/qr-rain.png" alt="Rain · 匠人学院资深 IT 顾问微信二维码" />
+      <div><div class="t">扫码了解更多 AI 免费资料更新</div><div class="d">后续如果这些课程改版、下架、收费或新增中文版本，会继续整理更新。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="outro">
+  <div class="wrap">
+    <h2>免费资源够多了，下一步是选路线</h2>
+    <p>这本书不是让你把所有课都看完。先选一条线，30 天做出一个能展示的小项目。卡住了，把你的背景和目标发给 Rain，先判断该补课、补项目，还是补求职材料。</p>
+    <div class="sales-card"><img src="assets/contact/sales-cards/rain.jpg" alt="Rain · 匠人学院资深 IT 顾问" /></div>
+    <div class="contact-bar dark">
+      <img class="qr" src="assets/contact/qr-rain.png" alt="Rain · 匠人学院资深 IT 顾问微信二维码" />
+      <div><div class="t">扫码了解更多 AI 学习路线</div><div class="d">免费资料更新、学习路线判断、项目练习建议。适合想从 AI 工具使用走到 AI 应用开发的同学.</div></div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.card, .resource-card, .route-card, .check-group, .pipeline, .yes-no, .contact-bar, .sales-card, table, pre').forEach(el => io.observe(el));
+</script>
+<a href="AI%20%E5%85%8D%E8%B4%B9%E8%AF%BE%E8%B5%84%E6%BA%90%E5%9C%B0%E5%9B%BE%20-%20%E5%8C%A0%E4%BA%BA%E5%AD%A6%E9%99%A2.pdf" download style="position:fixed;right:22px;bottom:22px;z-index:1200;display:flex;align-items:center;gap:8px;background:#0D0F12;color:#fff;font-weight:700;font-size:14.5px;padding:13px 22px;border-radius:999px;box-shadow:0 12px 28px rgba(13,15,18,.35);text-decoration:none;font-family:Inter,'PingFang SC',sans-serif;">⬇️ 下载 PDF 版</a>
+</body>
+</html>
