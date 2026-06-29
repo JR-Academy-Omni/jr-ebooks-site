@@ -1,0 +1,44 @@
+{
+  "title": "阿德莱德大学新生指南",
+  "slug": "adelaide-new-student-guide",
+  "description": "Adelaide University 新生入学、enrolment、课表、Orientation、第一月 checklist。",
+  "style": "guide",
+  "mode": "flow",
+  "language": "zh-CN",
+  "tags": [
+    "go8",
+    "australia",
+    "new-student",
+    "orientation",
+    "阿德莱德"
+  ],
+  "status": "draft",
+  "checkedAt": "2026-06-29",
+  "contact": {
+    "owner": "Amelia",
+    "qr": "qr-amelia.png",
+    "salesCard": "amelia.jpg"
+  },
+  "sources": [
+    {
+      "label": "Enrolling at Adelaide University",
+      "url": "https://adelaide.edu.au/students/manage-study/enrolment/"
+    },
+    {
+      "label": "Academic calendar",
+      "url": "https://adelaide.edu.au/students/manage-study/academic-calendar/"
+    },
+    {
+      "label": "Degree search",
+      "url": "https://adelaide.edu.au/students/manage-study/enrolment/Degree-search/"
+    },
+    {
+      "label": "Changing your enrolments",
+      "url": "https://adelaide.edu.au/students/student-services/international-student/changing-your-enrolments/"
+    },
+    {
+      "label": "Study at Adelaide University",
+      "url": "https://adelaide.edu.au/study/"
+    }
+  ]
+}
