@@ -1,0 +1,40 @@
+{
+  "title": "西澳大学新生指南",
+  "slug": "uwa-new-student-guide",
+  "description": "The University of Western Australia 新生入学、enrolment、课表、Orientation、第一月 checklist。",
+  "style": "guide",
+  "mode": "flow",
+  "language": "zh-CN",
+  "tags": [
+    "go8",
+    "australia",
+    "new-student",
+    "orientation",
+    "珀斯"
+  ],
+  "status": "draft",
+  "checkedAt": "2026-06-29",
+  "contact": {
+    "owner": "Rain",
+    "qr": "qr-rain.png",
+    "salesCard": "rain.jpg"
+  },
+  "sources": [
+    {
+      "label": "UWA New Students",
+      "url": "https://www.uwa.edu.au/students/new-students"
+    },
+    {
+      "label": "UWA Enrolment",
+      "url": "https://www.uwa.edu.au/students/your-studies/enrolment"
+    },
+    {
+      "label": "UWA Handbook 2026",
+      "url": "https://www.handbooks.uwa.edu.au/"
+    },
+    {
+      "label": "UniStart Orientation",
+      "url": "https://www.uwa.edu.au/UniStart/Home/Orientation"
+    }
+  ]
+}
