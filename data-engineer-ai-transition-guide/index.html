@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>AI 时代，Data Engineer 该何去何从 — web 版初稿 · JR Academy</title>
+<link rel="stylesheet" href="theme/tokens.css" />
+<link rel="stylesheet" href="theme/web-zine.css" />
+<style>
+  .hero h1 .t-main { font-size: 68px; }
+  .hero h1 .t-sticker { top: -44px; right: -22px; }
+  .route-grid, .skill-grid, .project-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 18px; }
+  .route-card, .skill-card, .project-card { border: 1px solid var(--jr-border-warm); border-radius: 18px; background: var(--jr-white); box-shadow: var(--jr-shadow-sm); padding: 18px; }
+  .route-card .tag, .skill-card .tag, .project-card .tag { display: inline-flex; border-radius: 999px; background: var(--jr-red); color: #fff; padding: 5px 10px; font-size: 12px; font-weight: 800; }
+  .route-card h3, .skill-card h3, .project-card h3 { margin: 12px 0 8px; font-size: 22px; line-height: 1.25; }
+  .project-card .resume { margin-top: 10px; padding: 10px 12px; border-left: 4px solid var(--jr-red); background: var(--jr-surface-panel-alt); font-size: 13px; line-height: 1.6; }
+  .mini-table { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 18px; }
+  .bad, .good { border-radius: 18px; padding: 18px; border: 1px solid var(--jr-border-warm); }
+  .bad { background: var(--jr-wash-red); }
+  .good { background: var(--jr-wash-green); }
+  .source-list { columns: 2; column-gap: 24px; line-height: 1.8; font-size: 13px; }
+  .source-list a { color: var(--jr-neutral-800); text-decoration: underline; }
+  .sales-card-lead { margin-top: 24px; font-size: 18px; font-weight: var(--jr-fw-bold); color: var(--jr-black); }
+  .flow .route-grid, .flow .skill-grid, .flow .project-grid { grid-template-columns: 1fr 1fr; gap: 3.5mm; }
+  .flow .route-card, .flow .skill-card, .flow .project-card { border-radius: 4mm; padding: 4mm; box-shadow: none; break-inside: avoid; }
+  .flow .route-card h3, .flow .skill-card h3, .flow .project-card h3 { font-size: 10.5pt; margin: 2mm 0 1mm; }
+  .flow .route-card p, .flow .skill-card p, .flow .project-card p { font-size: 8pt; line-height: 1.5; }
+  .flow .route-card .tag, .flow .skill-card .tag, .flow .project-card .tag { font-size: 6.5pt; padding: .6mm 2mm; }
+  .flow .project-card .resume { font-size: 7pt; line-height: 1.45; padding: 2mm 2.5mm; margin-top: 2mm; border-left-width: .8mm; }
+  .flow .mini-table { grid-template-columns: 1fr 1fr; gap: 3.5mm; }
+  .flow .bad, .flow .good { border-radius: 4mm; padding: 4mm; break-inside: avoid; }
+  .flow .source-list { columns: 1; font-size: 8pt; line-height: 1.55; }
+  @media print { body { background: var(--jr-surface-canvas); } }
+  .cover2 .cover-logo { position: absolute; top: 15mm; left: 15mm; height: 12mm; width: auto; z-index: 3; }
+  .cover2 .cv2-copy { position: relative; z-index: 3; margin-top: 34mm; max-width: 134mm; }
+  .cover2 .cv2-copy h1 { font-family: Anton, Impact, sans-serif; font-size: 50pt; line-height: 1.02; color: var(--jr-white); margin: 4mm 0 6mm; letter-spacing: 0; }
+  .cover2 .cv2-copy h1 em { color: var(--jr-red); font-style: normal; }
+  .cover2 .cv2-copy p { color: rgba(255,255,255,.72); font-size: 11pt; line-height: 1.7; max-width: 112mm; }
+  .cover2 .cv2-tags { display: flex; gap: 3mm; flex-wrap: wrap; margin-top: 7mm; }
+  .cover2 .cv2-tags span { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.3); color: rgba(255,255,255,.9); border-radius: var(--jr-radius-full); font-size: 8.5pt; font-weight: var(--jr-fw-bold); padding: 1.3mm 3.5mm; }
+  .page.back-cover.de-back { gap: 5mm; padding: 18mm 20mm; }
+  .de-back .back-logo { height: 12mm; width: auto; }
+  .de-back h2 { font-size: 25pt; line-height: 1.12; margin: 0; }
+  .de-back p { font-size: 10pt; line-height: 1.5; margin: 0; }
+  .de-back .sales-card { width: 72% !important; box-shadow: none; }
+  .de-back .contact-bar { width: 72% !important; padding: 3mm 4mm; gap: 4mm; }
+  .de-back .contact-bar .qr { width: 18mm; height: 18mm; }
+  .de-back .contact-bar .cb-title { font-size: 10.5pt; }
+  .de-back .contact-bar .cb-desc { font-size: 8pt; line-height: 1.45; }
+  .de-back .caption { font-size: 7.2pt; }
+  @media (max-width: 900px) { .route-grid, .skill-grid, .project-grid, .mini-table { grid-template-columns: 1fr; } }
+  @media (max-width: 640px) {
+    .hero h1 .t-main { font-size: 40px; }
+    .hero h1 .t-sticker { top: auto; bottom: -34px; right: 8px; transform: rotate(5deg); }
+    .hero p.sub { margin-top: 50px; }
+    .source-list { columns: 1; }
+  }
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <img class="logo" src="assets/logo/logo-zh-full.svg" alt="匠人学院" />
+    <div class="hero-flex">
+      <div>
+        <div class="bar"></div>
+        <h1><span class="t-top">AI 时代</span><br /><span class="t-main">DE 何去何从<span class="t-sticker">2026 路线图</span></span></h1>
+        <p class="sub">给 Data Engineer、Analytics Engineer、BI / 数据平台同学：把 <span class="hl">数据管道、RAG、semantic layer、eval、trace、治理</span> 翻译成 AI 职业竞争力。</p>
+        <div class="chips"><span class="chip">RAG 数据管道</span><span class="chip">AI Platform</span><span class="chip">Data Quality</span><span class="chip">扫码找 Angela</span></div>
+        <div style="margin-top: 26px;"><span class="zine-diecut" style="font-size: 24px;">别从零开始。把你的 DE 老本行接到 AI 系统里。</span></div>
+      </div>
+      <div class="mascot-wrap"><span class="tape"></span><img class="hero-mascot" src="assets/illustrations/niuxiaojiang-teaching-data.png" alt="牛小匠" /></div>
+    </div>
+  </div>
+</header>
+<div class="marquee"><div class="mq-track"><span>DATA ENGINEER TO AI<i>✦</i>RAG<i>✦</i>DATA QUALITY<i>✦</i>SEMANTIC LAYER<i>✦</i>EVALS<i>✦</i>JIANGREN.COM.AU<i>✦</i></span><span>DATA ENGINEER TO AI<i>✦</i>RAG<i>✦</i>DATA QUALITY<i>✦</i>SEMANTIC LAYER<i>✦</i>EVALS<i>✦</i>JIANGREN.COM.AU<i>✦</i></span></div></div>
+<nav class="toc">
+  <div class="wrap">
+    <a href="#how"><span class="num">00</span>这本书怎么用</a>
+    <a href="#ch1"><span class="num">01</span>不是从零开始</a>
+    <a href="#ch2"><span class="num">02</span>6 条路线</a>
+    <a href="#ch3"><span class="num">03</span>技能迁移</a>
+    <a href="#ch4"><span class="num">04</span>RAG 数据管道</a>
+    <a href="#ch5"><span class="num">05</span>治理与质量</a>
+    <a href="#ch6"><span class="num">06</span>Eval / Trace</a>
+    <a href="#ch7"><span class="num">07</span>作品集</a>
+    <a href="#ch8"><span class="num">08</span>简历面试</a>
+    <a href="#ch9"><span class="num">09</span>90 天路线</a>
+    <a href="#sources"><span class="num">10</span>来源清单</a>
+  </div>
+</nav>
+
+<section class="ch" id="how">
+  <div class="wrap">
+    <h2>这本书怎么用</h2>
+    <div class="card">
+      <p>这本不是劝所有 Data Engineer 都改名叫 AI Engineer。更准确地说，AI 时代的 DE 会分化：一部分继续做数据平台，但要变成 AI-native；一部分转去 RAG、LLMOps、AI Platform；还有一部分会走数据治理和 AI 产品数据负责人。</p>
+      <p>你读的时候只抓三件事：哪些 DE 工作会被 AI 工具吃掉，哪些能力会更值钱，你该往哪条路线补项目和简历。</p>
+    </div>
+    <div class="stat-grid">
+      <div class="stat accent"><div class="v">6</div><div class="l">条 DE 可转 AI 路线</div></div>
+      <div class="stat"><div class="v">4</div><div class="l">个作品集项目模板</div></div>
+      <div class="stat"><div class="v">90</div><div class="l">天转型执行顺序</div></div>
+    </div>
+    <div class="contact-bar">
+      <img class="qr" src="assets/contact/qr-angela.png" alt="Angela · 匠人学院资深 IT 顾问微信二维码" />
+      <div><div class="t">扫码判断 Data Engineer 转 AI 路线</div><div class="d">把你的履历、技术栈和目标岗位发来，先看更适合 RAG、AI Platform、Analytics Engineer 还是 Applied AI。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="ch" id="ch1">
+  <div class="ghost">01</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 01</div><h2>AI 时代，DE 不是消失，是分化</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-thinking.png" alt="" />
+    </div>
+    <p class="lead">WEF 的 Future of Jobs 2025 把 AI、big data、software、security 相关职业放在增长主线里；LinkedIn 2026 Jobs on the Rise 也把 AI engineer 放到增长最快岗位之一。对 DE 来说，真正的问题不是“会不会被 AI 替代”，而是你还停在写 pipeline，还是已经能支撑 AI 系统。</p>
+    <div class="callout warn"><strong>先别急着焦虑。</strong>会被压缩的是重复搬数、写样板 SQL、手工查报表。更值钱的是：把企业数据变成可靠 context，让 AI 查得到、答得准、看不越权、错了能追溯。</div>
+    <div class="pipeline">
+      <div class="pnode"><div class="pico">1</div><h4>原始数据</h4><p>表、文档、日志、工单、指标</p><span class="ptag">DE 熟</span></div>
+      <div class="plink">→</div>
+      <div class="pnode"><div class="pico">2</div><h4>AI Context</h4><p>chunk、embedding、metadata、semantic layer</p><span class="ptag">新增</span></div>
+      <div class="plink">→</div>
+      <div class="pnode"><div class="pico">3</div><h4>AI 系统</h4><p>RAG、Agent、Eval、Trace、权限</p><span class="ptag">目标</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="ch" id="ch2">
+  <div class="ghost">02</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 02</div><h2>6 条路线：先选一个主攻方向</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-chart.png" alt="" />
+    </div>
+    <p class="lead">不要一边学 RAG，一边学 Agent，一边学 MLOps，一边刷 LeetCode。AI 时代的 DE 不是只有一条路，先选一条和原经历贴得住的线。</p>
+    <div class="route-grid">
+      <article class="route-card">
+        <span class="tag">ROUTE 1</span>
+        <h3>RAG / AI Data Engineer</h3>
+        <p>最贴近 DE。你负责文档入库、chunk、embedding、metadata、权限、刷新和检索质量。</p>
+        <p><strong>可做项目：</strong>项目：公司知识库 RAG，支持 citation、ACL、错例回灌。</p>
+      </article>
+      <article class="route-card">
+        <span class="tag">ROUTE 2</span>
+        <h3>AI Platform / LLMOps</h3>
+        <p>更偏平台。把模型调用、评估、trace、成本、灰度和权限做成团队能复用的底座。</p>
+        <p><strong>可做项目：</strong>项目：prompt + eval CI，按模型、版本、用户拆成本。</p>
+      </article>
+      <article class="route-card">
+        <span class="tag">ROUTE 3</span>
+        <h3>Analytics Engineer for AI</h3>
+        <p>会 dbt / semantic layer 的人很适合。把指标口径和自然语言问数连起来。</p>
+        <p><strong>可做项目：</strong>项目：NL-to-SQL 指标助手，只允许查已定义 metric。</p>
+      </article>
+      <article class="route-card">
+        <span class="tag">ROUTE 4</span>
+        <h3>Applied AI Engineer</h3>
+        <p>如果代码能力够，可以从 DE 切到应用层：RAG、tool calling、agent workflow、API。</p>
+        <p><strong>可做项目：</strong>项目：带工具调用的数据排障助手，能查 Airflow/DBT 日志。</p>
+      </article>
+      <article class="route-card">
+        <span class="tag">ROUTE 5</span>
+        <h3>AI Governance / Data Quality</h3>
+        <p>大公司会很需要。AI 项目最怕脏数据、越权、PII、口径混乱。</p>
+        <p><strong>可做项目：</strong>项目：AI 数据准入 checklist + 自动化质量报告。</p>
+      </article>
+      <article class="route-card">
+        <span class="tag">ROUTE 6</span>
+        <h3>AI Product Data Lead</h3>
+        <p>不一定纯写代码。负责把业务数据、指标、AI 场景、风险评估串起来。</p>
+        <p><strong>可做项目：</strong>项目：为客服/销售/运营 AI Copilot 设计数据边界。</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="ch" id="ch3">
+  <div class="ghost">03</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 03</div><h2>技能迁移表：旧技能怎么变成 AI 能力</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-data.png" alt="" />
+    </div>
+    <p class="lead">AI 应用看起来新，底层很多还是工程老问题：数据从哪来、口径怎么算、权限怎么控、线上怎么查。你要做的是把老能力翻译成 AI 语言。</p>
+    <div class="skill-grid">
+      <article class="skill-card">
+        <span class="tag">01</span>
+        <h3>SQL / 数据建模 → Metric layer、NL-to-SQL、事实表/维表口径</h3>
+        <p>别让 AI 直接猜业务指标。先把指标定义成 semantic model。</p>
+      </article>
+      <article class="skill-card">
+        <span class="tag">02</span>
+        <h3>ETL / ELT Pipeline → RAG ingestion、embedding refresh、batch/stream context</h3>
+        <p>AI 数据不是一次性导入，文档更新、权限变化都要重新索引。</p>
+      </article>
+      <article class="skill-card">
+        <span class="tag">03</span>
+        <h3>Data Quality → RAG factuality、retrieval quality、answer quality</h3>
+        <p>AI 答错不一定是模型差，很多时候是 chunk、metadata、freshness 出问题。</p>
+      </article>
+      <article class="skill-card">
+        <span class="tag">04</span>
+        <h3>Orchestration → Agent workflow、eval CI、offline batch scoring</h3>
+        <p>Airflow/dbt 的思维可以直接迁移到 AI 工作流。</p>
+      </article>
+      <article class="skill-card">
+        <span class="tag">05</span>
+        <h3>治理 / 权限 → ACL、PII redaction、tool permission、audit log</h3>
+        <p>RAG 最怕“检索到了不该看的数据”。DE 的治理经验很值钱。</p>
+      </article>
+      <article class="skill-card">
+        <span class="tag">06</span>
+        <h3>Observability → Trace、latency、cost per answer、error replay</h3>
+        <p>能把一次回答拆成 retrieval、rerank、LLM、tool 四段，面试就有底气。</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="ch" id="ch4">
+  <div class="ghost">04</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 04</div><h2>第一主线：RAG 数据管道</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-working-laptop.png" alt="" />
+    </div>
+    <p class="lead">LangChain 把 RAG 拆成 indexing 和 retrieval/generation。DE 最容易补位的是 indexing：数据清洗、切片、metadata、embedding、索引刷新、权限过滤。</p>
+    <pre><code>RAG 数据管道：
+source docs / tables
+  -> clean + normalize
+  -> chunk by structure
+  -> add metadata: source, owner, time, ACL, version
+  -> create embeddings
+  -> vector / hybrid index
+  -> retrieval + rerank
+  -> answer with citation
+  -> eval + trace + feedback</code></pre>
+    <div class="callout"><strong>面试能说的点：</strong>chunk 不是按固定字数乱切，最好按标题、段落、表格、业务对象切；metadata 不是装饰，它决定权限、过滤、溯源和排障。</div>
+  </div>
+</section>
+
+<section class="ch" id="ch5">
+  <div class="ghost">05</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 05</div><h2>第二主线：数据质量、权限和治理</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-pen-book.png" alt="" />
+    </div>
+    <p class="lead">AI 会把脏数据说得很自信，所以数据质量比以前更要命。一个 RAG 系统答错，可能不是模型差，而是文档过期、chunk 不完整、权限过滤漏了、指标口径乱了。</p>
+    <div class="yes-no">
+      <div class="yn yes"><h4>DE 背景的优势</h4><ul><li>知道数据 freshness 不是口号。</li><li>知道谁能看什么数据。</li><li>知道指标口径乱会害死人。</li><li>知道 pipeline 失败要可重跑。</li></ul></div>
+      <div class="yn no"><h4>AI 项目常见坑</h4><ul><li>把所有文档丢进向量库。</li><li>没有 ACL，只靠 prompt 说“不要泄露”。</li><li>没有 eval，改一次 prompt 靠感觉。</li><li>没有 trace，线上错了查不到。</li></ul></div>
+    </div>
+    <p class="sales-card-lead">你如果已经做过数据治理或数仓项目，别把它写成“老 DE 经历”。扫 Angela 的码，可以先看怎么改成 AI 方向项目表达。</p>
+    <div class="sales-card"><img src="assets/contact/sales-cards/angela.jpg" alt="Angela · 匠人学院资深 IT 顾问" /></div>
+  </div>
+</section>
+
+<section class="ch" id="ch6">
+  <div class="ghost">06</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 06</div><h2>第三主线：Eval、Trace、成本</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-chart.png" alt="" />
+    </div>
+    <p class="lead">从 demo 到生产，差别不在 UI 漂不漂亮，而在能不能证明“变好了”。OpenAI 和 LangSmith 都把 eval 单独拿出来讲，就是因为 AI 系统不能只靠人工点几下。</p>
+    <table>
+      <tr><th>要量什么</th><th>DE 能怎么做</th><th>AI 项目里怎么说</th></tr>
+      <tr><td>Retrieval recall</td><td>准备 golden queries 和 expected docs</td><td>检索有没有把正确上下文找回来</td></tr>
+      <tr><td>Citation accuracy</td><td>抽样标注 source 是否支持答案</td><td>回答有没有证据，不是凭空编</td></tr>
+      <tr><td>P95 latency</td><td>分段计时和 dashboard</td><td>慢在检索、rerank、LLM 还是 tool</td></tr>
+      <tr><td>Cost per answer</td><td>按模型、prompt、用户、功能拆账</td><td>降本后还要重跑 eval</td></tr>
+    </table>
+  </div>
+</section>
+
+<section class="ch" id="ch7">
+  <div class="ghost">07</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 07</div><h2>作品集：别做泛泛的聊天机器人</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-data.png" alt="" />
+    </div>
+    <p class="lead">DE 转 AI 的作品集，要让面试官看到你不只是会调 API，而是能把数据系统接进 AI。下面 4 个项目，选一个做到扎实，比做 5 个玩具 demo 强。</p>
+    <div class="project-grid">
+      <article class="project-card">
+        <span class="tag">PROJECT 1</span>
+        <h3>权限型知识库 RAG</h3>
+        <p>用 200-500 篇真实文档做 RAG。要求：metadata、source citation、用户权限、更新策略、10 个失败案例。</p>
+        <div class="resume">简历写法：Built ACL-aware RAG over 420 docs; added metadata filters and rerank; created 60-query eval set for citation and permission-leak checks.</div>
+      </article>
+      <article class="project-card">
+        <span class="tag">PROJECT 2</span>
+        <h3>安全 NL-to-SQL 指标助手</h3>
+        <p>不用让模型自由写 SQL。先建 semantic model，让它只能解释和查询已定义 metric。</p>
+        <div class="resume">简历写法：Built metric Q&amp;A assistant on dbt semantic models; restricted generated SQL to governed metrics and logged every query for audit.</div>
+      </article>
+      <article class="project-card">
+        <span class="tag">PROJECT 3</span>
+        <h3>数据质量排障 Agent</h3>
+        <p>让 Agent 读取 DAG 状态、dbt test、warehouse query history，但危险动作只建议不执行。</p>
+        <div class="resume">简历写法：Created data-quality triage agent that reads pipeline logs and suggests owner/action; reduced manual root-cause lookup in weekly incidents.</div>
+      </article>
+      <article class="project-card">
+        <span class="tag">PROJECT 4</span>
+        <h3>Eval + Trace Dashboard</h3>
+        <p>把每次 AI 回答拆成 retrieval、prompt、model、tool、cost、latency。做 50-100 个 golden queries。</p>
+        <div class="resume">简历写法：Set up eval dashboard tracking retrieval recall, citation accuracy, P95 latency and cost per successful answer.</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="ch" id="ch8">
+  <div class="ghost">08</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 08</div><h2>简历和面试：把 DE 经历翻译成 AI 语言</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-thinking.png" alt="" />
+    </div>
+    <p class="lead">别只写“做过数据管道”。AI 招聘方想知道：你的数据管道能不能支撑 RAG？能不能做 eval？能不能治理权限？能不能查线上问题？</p>
+    <div class="mini-table">
+      <div class="bad"><h3>别这么写</h3><ul><li>Worked on data pipelines and learned AI tools.</li><li>Built a chatbot with company documents.</li><li>Used vector database and OpenAI API.</li></ul></div>
+      <div class="good"><h3>改成这样</h3><ul><li>Built a document ingestion pipeline for RAG over 380 policy docs; added metadata, ACL filters and daily embedding refresh jobs.</li><li>Created a 75-query eval set for retrieval recall, citation accuracy and answer refusal; tracked P95 latency and cost per successful answer.</li><li>Designed dbt semantic models for 18 business metrics and connected them to a governed NL-to-SQL assistant with query audit logs.</li></ul></div>
+    </div>
+    <div class="callout warn"><strong>面试准备三件套：</strong>一张架构图、三个失败案例、一个 eval 表。没有这三样，项目再大也容易讲虚。</div>
+  </div>
+</section>
+
+<section class="ch" id="ch9">
+  <div class="ghost">09</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 09</div><h2>90 天路线：别学散，按项目倒推</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-working-laptop.png" alt="" />
+    </div>
+    <p class="lead">转型最怕“收藏了一堆课”。你只需要一个主项目，把 RAG、权限、eval、trace、简历表达都塞进去。</p>
+    <div class="check-group">
+      <div class="head"><span class="stage">90 DAYS</span><strong>别重新读一个学位，先把一个项目做硬</strong></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">第 1-2 周：补 AI 应用基本盘</div><div class="n">跑通 embeddings、RAG、function calling、structured output。别看完教程就算学会，至少写一个 API。</div></div><span class="badge must">必做</span></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">第 3-4 周：把 DE 项目改成 AI 项目</div><div class="n">选你最熟的数据域，做 ingestion、chunk、metadata、vector index、citation。</div></div><span class="badge must">必做</span></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">第 5-8 周：加 eval 和治理</div><div class="n">准备 50 个真实 query，拆 retrieval metric 和 answer metric；加权限、PII、trace。</div></div><span class="badge must">必做</span></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">第 9-12 周：投递和复盘</div><div class="n">简历改成数字版，准备 3 个失败案例。边面边改项目，比闭门造车快。</div></div><span class="badge">开投</span></div>
+    </div>
+    <div class="contact-bar">
+      <img class="qr" src="assets/contact/qr-angela.png" alt="Angela · 匠人学院资深 IT 顾问微信二维码" />
+      <div><div class="t">想确认自己该走哪条 AI 路线？</div><div class="d">扫码找 Angela。把你现在做的 DE 项目和目标 JD 发来，先判断是补 RAG、LLMOps、semantic layer，还是应用工程。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="ch" id="sources">
+  <div class="ghost">10</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 10</div><h2>来源清单</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-pen-book.png" alt="" />
+    </div>
+    <p class="lead">核对日期：2026-06-30。市场趋势用公开报告和公开媒体报道；技术做法尽量用官方文档，不把营销文章当技术依据。</p>
+    <ul class="source-list">
+      <li><a href="https://www.weforum.org/reports/the-future-of-jobs-report-2025/">World Economic Forum Future of Jobs Report 2025</a></li>
+      <li><a href="https://www.businessinsider.com/fastest-growing-jobs-in-the-us-linkedin-2026-1">Business Insider on LinkedIn Jobs on the Rise 2026</a></li>
+      <li><a href="https://platform.openai.com/docs/guides/embeddings">OpenAI Embeddings</a></li>
+      <li><a href="https://platform.openai.com/docs/guides/evals">OpenAI Evals</a></li>
+      <li><a href="https://docs.langchain.com/oss/python/langchain/rag">LangChain RAG</a></li>
+      <li><a href="https://docs.langchain.com/langsmith/evaluation-concepts">LangSmith Evaluation concepts</a></li>
+      <li><a href="https://docs.llamaindex.ai/en/stable/getting_started/concepts/">LlamaIndex concepts</a></li>
+      <li><a href="https://docs.databricks.com/aws/en/ai-search/ai-search">Databricks Mosaic AI Vector Search</a></li>
+      <li><a href="https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-search/cortex-search-overview">Snowflake Cortex Search</a></li>
+      <li><a href="https://learn.microsoft.com/en-us/azure/search/vector-search-overview">Azure AI Search vector search</a></li>
+      <li><a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html">Amazon Bedrock Knowledge Bases</a></li>
+      <li><a href="https://docs.getdbt.com/docs/build/semantic-models">dbt Semantic models</a></li>
+    </ul>
+  </div>
+</section>
+<section class="outro">
+  <div class="wrap">
+    <h2>DE 在 AI 时代，别只换标题</h2>
+    <p>把一个数据项目升级成 AI 项目：加 RAG、权限、eval、trace、失败案例。这样你不是被工具替代，而是变成能把 AI 落到企业数据上的人。</p>
+    <div class="sales-card"><img src="assets/contact/sales-cards/angela.jpg" alt="Angela · 匠人学院资深 IT 顾问" /></div>
+    <div class="contact-bar dark">
+      <img class="qr" src="assets/contact/qr-angela.png" alt="Angela · 匠人学院资深 IT 顾问微信二维码" />
+      <div><div class="t">扫码做一次 DE 转 AI 路线判断</div><div class="d">把你的简历项目和目标岗位发来，先看更适合 RAG、AI Platform、Analytics Engineer 还是 Applied AI。</div></div>
+    </div>
+  </div>
+</section>
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.card, .route-card, .skill-card, .project-card, .check-group, .pipeline, .yes-no, .contact-bar, .sales-card, table, pre, .bad, .good').forEach(el => io.observe(el));
+</script>
+<a href="AI%20%E6%97%B6%E4%BB%A3%EF%BC%8CData%20Engineer%20%E8%AF%A5%E4%BD%95%E5%8E%BB%E4%BD%95%E4%BB%8E%20-%20%E5%8C%A0%E4%BA%BA%E5%AD%A6%E9%99%A2.pdf" download style="position:fixed;right:22px;bottom:22px;z-index:1200;display:flex;align-items:center;gap:8px;background:#0D0F12;color:#fff;font-weight:700;font-size:14.5px;padding:13px 22px;border-radius:999px;box-shadow:0 12px 28px rgba(13,15,18,.35);text-decoration:none;font-family:Inter,'PingFang SC',sans-serif;">⬇️ 下载 PDF 版</a>
+</body>
+</html>

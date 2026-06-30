@@ -1,0 +1,49 @@
+{
+  "slug": "data-engineer-ai-transition-guide",
+  "title": "AI 时代，Data Engineer 该何去何从",
+  "subtitle": "从数据管道到 AI 系统：DE 的职业发展、转型路线和 90 天行动指南",
+  "audience": "想判断 AI 时代该怎么升级职业路线的 Data Engineer、Analytics Engineer、BI、数据平台和数据治理从业者",
+  "goal": "lead-magnet",
+  "track": "T2",
+  "style": "guide",
+  "mode": "web-draft",
+  "channel": [
+    "公众号文末资料包",
+    "微信群分享",
+    "小红书引流",
+    "EOI 跟进附件"
+  ],
+  "pages": "web draft + A4 flow",
+  "status": "draft",
+  "tags": [
+    "data-engineer",
+    "ai-engineer",
+    "career",
+    "rag",
+    "llmops",
+    "data-quality",
+    "transition"
+  ],
+  "contact": {
+    "qr": "qr-angela.png",
+    "salesCard": "angela.jpg",
+    "salesCards": [
+      "angela.jpg"
+    ]
+  },
+  "sources": [
+    "World Economic Forum Future of Jobs Report 2025: https://www.weforum.org/reports/the-future-of-jobs-report-2025/",
+    "Business Insider on LinkedIn Jobs on the Rise 2026: https://www.businessinsider.com/fastest-growing-jobs-in-the-us-linkedin-2026-1",
+    "OpenAI Embeddings: https://platform.openai.com/docs/guides/embeddings",
+    "OpenAI Evals: https://platform.openai.com/docs/guides/evals",
+    "LangChain RAG: https://docs.langchain.com/oss/python/langchain/rag",
+    "LangSmith Evaluation concepts: https://docs.langchain.com/langsmith/evaluation-concepts",
+    "LlamaIndex concepts: https://docs.llamaindex.ai/en/stable/getting_started/concepts/",
+    "Databricks Mosaic AI Vector Search: https://docs.databricks.com/aws/en/ai-search/ai-search",
+    "Snowflake Cortex Search: https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-search/cortex-search-overview",
+    "Azure AI Search vector search: https://learn.microsoft.com/en-us/azure/search/vector-search-overview",
+    "Amazon Bedrock Knowledge Bases: https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html",
+    "dbt Semantic models: https://docs.getdbt.com/docs/build/semantic-models"
+  ],
+  "note": "核对日期：2026-06-30。市场趋势使用公开报告和公开报道；技术路线使用官方文档、自家 AI Engineer 内容和已核岗位图鉴内容。所有项目数字为示例写法，不承诺薪资、录取或 offer 结果。"
+}
