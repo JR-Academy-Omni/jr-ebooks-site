@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>AI Engineer 面试宝典 — web 版初稿 · JR Academy</title>
+<link rel="stylesheet" href="theme/tokens.css" />
+<link rel="stylesheet" href="theme/web-zine.css" />
+<style>
+  .hero h1 .t-main { font-size: 74px; }
+  .hero h1 .t-sticker { top: -48px; right: -18px; }
+  .map-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 18px; }
+  .map-card { border: 1px solid var(--jr-border-warm); border-radius: 18px; background: var(--jr-white); box-shadow: var(--jr-shadow-sm); padding: 18px; }
+  .map-card .tag { display: inline-flex; border-radius: 999px; background: var(--jr-red); color: #fff; padding: 5px 10px; font-size: 12px; font-weight: 800; }
+  .map-card h3 { margin: 12px 0 8px; font-size: 22px; }
+  .q-grid { display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 18px; }
+  .q-card { border: 1px solid var(--jr-border-warm); border-radius: 18px; background: var(--jr-white); padding: 18px; box-shadow: var(--jr-shadow-sm); }
+  .q-card .q-top { display: flex; justify-content: space-between; gap: 12px; align-items: center; }
+  .q-card .type { font-size: 12px; font-weight: 800; color: var(--jr-red); text-transform: uppercase; }
+  .q-card h3 { margin: 8px 0 10px; font-size: 22px; line-height: 1.3; }
+  .q-card ol { margin: 0; padding-left: 20px; }
+  .q-card li { margin: 6px 0; }
+  .mini-table { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 18px; }
+  .bad, .good { border-radius: 18px; padding: 18px; border: 1px solid var(--jr-border-warm); }
+  .bad { background: var(--jr-wash-red); }
+  .good { background: var(--jr-wash-green); }
+  .source-list { columns: 2; column-gap: 24px; line-height: 1.8; font-size: 13px; }
+  .source-list a { color: var(--jr-neutral-800); text-decoration: underline; }
+  .sales-card-lead { margin-top: 24px; font-size: 18px; font-weight: var(--jr-fw-bold); color: var(--jr-black); }
+  .flow .map-grid { grid-template-columns: 1fr 1fr; gap: 3.5mm; }
+  .flow .map-card { border-radius: 4mm; padding: 4mm; box-shadow: none; break-inside: avoid; }
+  .flow .map-card h3 { font-size: 10.5pt; margin: 2mm 0 1mm; }
+  .flow .map-card p { font-size: 8pt; line-height: 1.5; }
+  .flow .map-card .tag { font-size: 6.5pt; padding: .6mm 2mm; }
+  .flow .q-grid { gap: 3.5mm; }
+  .flow .q-card { border-radius: 4mm; padding: 4mm 5mm; box-shadow: none; break-inside: avoid; }
+  .flow .q-card h3 { font-size: 10.5pt; margin: 1.5mm 0; }
+  .flow .q-card li { font-size: 8pt; line-height: 1.45; margin: .8mm 0; }
+  .flow .mini-table { grid-template-columns: 1fr 1fr; gap: 3.5mm; }
+  .flow .bad, .flow .good { border-radius: 4mm; padding: 4mm; break-inside: avoid; }
+  .flow .source-list { columns: 1; font-size: 8pt; line-height: 1.55; }
+  @media print { body { background: var(--jr-surface-canvas); } }
+  .cover2 .cover-logo { position: absolute; top: 15mm; left: 15mm; height: 12mm; width: auto; z-index: 3; }
+  .cover2 .cv2-copy { position: relative; z-index: 3; margin-top: 36mm; max-width: 128mm; }
+  .cover2 .cv2-copy h1 { font-family: Anton, Impact, sans-serif; font-size: 60pt; line-height: 1.02; color: var(--jr-white); margin: 4mm 0 6mm; letter-spacing: 0; }
+  .cover2 .cv2-copy h1 em { color: var(--jr-red); font-style: normal; }
+  .cover2 .cv2-copy p { color: rgba(255,255,255,.72); font-size: 11pt; line-height: 1.7; max-width: 106mm; }
+  .cover2 .cv2-tags { display: flex; gap: 3mm; flex-wrap: wrap; margin-top: 7mm; }
+  .cover2 .cv2-tags span { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.3); color: rgba(255,255,255,.9); border-radius: var(--jr-radius-full); font-size: 8.5pt; font-weight: var(--jr-fw-bold); padding: 1.3mm 3.5mm; }
+  .page.back-cover.interview-back { gap: 5mm; padding: 18mm 20mm; }
+  .interview-back .back-logo { height: 12mm; width: auto; }
+  .interview-back h2 { font-size: 25pt; line-height: 1.12; margin: 0; }
+  .interview-back p { font-size: 10pt; line-height: 1.5; margin: 0; }
+  .interview-back .sales-card { width: 72% !important; box-shadow: none; }
+  .interview-back .contact-bar { width: 72% !important; padding: 3mm 4mm; gap: 4mm; }
+  .interview-back .contact-bar .qr { width: 18mm; height: 18mm; }
+  .interview-back .contact-bar .cb-title { font-size: 10.5pt; }
+  .interview-back .contact-bar .cb-desc { font-size: 8pt; line-height: 1.45; }
+  .interview-back .caption { font-size: 7.2pt; }
+  @media (max-width: 900px) { .map-grid, .mini-table { grid-template-columns: 1fr; } }
+  @media (max-width: 640px) {
+    .hero h1 .t-main { font-size: 42px; }
+    .hero h1 .t-sticker { top: auto; bottom: -34px; right: 8px; transform: rotate(5deg); }
+    .hero p.sub { margin-top: 50px; }
+    .source-list { columns: 1; }
+  }
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <img class="logo" src="assets/logo/logo-zh-full.svg" alt="匠人学院" />
+    <div class="hero-flex">
+      <div>
+        <div class="bar"></div>
+        <h1><span class="t-top">AI Engineer</span><br /><span class="t-main">面试宝典<span class="t-sticker">2026 最新核对版</span></span></h1>
+        <p class="sub">给准备 AI Engineer / LLM Engineer / Applied AI Engineer 面试的人：把 <span class="hl">RAG、Agent、Eval、Structured Output、Production、Behavioral</span> 讲成能面试的答案。</p>
+        <div class="chips"><span class="chip">RAG 系统设计</span><span class="chip">Agent & Tool Use</span><span class="chip">Eval 排障</span><span class="chip">扫码找 Rain</span></div>
+        <div style="margin-top: 26px;"><span class="zine-diecut" style="font-size: 24px;">别背题。把你的项目讲成能被追问的工程故事。</span></div>
+      </div>
+      <div class="mascot-wrap"><span class="tape"></span><img class="hero-mascot" src="assets/illustrations/niuxiaojiang-working-laptop.png" alt="牛小匠" /></div>
+    </div>
+  </div>
+</header>
+<div class="marquee"><div class="mq-track"><span>AI ENGINEER INTERVIEW<i>✦</i>RAG<i>✦</i>AGENTS<i>✦</i>EVALS<i>✦</i>PRODUCTION<i>✦</i>JIANGREN.COM.AU<i>✦</i></span><span>AI ENGINEER INTERVIEW<i>✦</i>RAG<i>✦</i>AGENTS<i>✦</i>EVALS<i>✦</i>PRODUCTION<i>✦</i>JIANGREN.COM.AU<i>✦</i></span></div></div>
+<nav class="toc">
+  <div class="wrap">
+    <a href="#how"><span class="num">00</span>这本书怎么用</a>
+    <a href="#ch1"><span class="num">01</span>面试考什么</a>
+    <a href="#ch2"><span class="num">02</span>答题框架</a>
+    <a href="#ch3"><span class="num">03</span>RAG 与幻觉</a>
+    <a href="#ch4"><span class="num">04</span>Tool / Agent</a>
+    <a href="#ch5"><span class="num">05</span>Eval 与生产</a>
+    <a href="#ch6"><span class="num">06</span>Security / Coding</a>
+    <a href="#ch7"><span class="num">07</span>简历项目</a>
+    <a href="#ch8"><span class="num">08</span>Behavioral</a>
+    <a href="#ch9"><span class="num">09</span>7 天冲刺</a>
+    <a href="#sources"><span class="num">10</span>来源清单</a>
+  </div>
+</nav>
+
+<section class="ch" id="how">
+  <div class="wrap">
+    <h2>这本书怎么用</h2>
+    <div class="card">
+      <p>先说清楚：这不是“包过题库”。AI Engineer 面试变化太快，背题只会让你看起来像没做过项目。</p>
+      <p>这本真正帮你准备的是面试官在追什么：你会不会写代码、能不能设计 RAG、懂不懂 tool calling 和 agent 边界、有没有 eval、上线以后怎么控成本和查问题。每道题后面都给答题骨架，方便你拿自己的项目去套。</p>
+    </div>
+    <div class="stat-grid">
+      <div class="stat accent"><div class="v">8</div><div class="l">类高频面试场景</div></div>
+      <div class="stat"><div class="v">14</div><div class="l">道核心题 + 答题骨架</div></div>
+      <div class="stat"><div class="v">5</div><div class="l">层排障方法</div></div>
+    </div>
+    <div class="contact-bar">
+      <img class="qr" src="assets/contact/qr-rain.png" alt="Rain · 匠人学院资深 IT 顾问微信二维码" />
+      <div><div class="t">扫码了解 AI Engineer 面试准备资料</div><div class="d">把你的项目、简历和目标岗位发来，先看差的是 RAG、Agent、eval，还是项目表达。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="ch" id="ch1">
+  <div class="ghost">01</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 01</div><h2>2026 的 AI Engineer 面试，到底在考什么</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-thinking.png" alt="" />
+    </div>
+    <p class="lead">AI Engineer 不是“会调 API 的后端”，也不是“会说 prompt 的产品”。面试会把你往工程细节里拽：RAG 准不准、工具能不能安全执行、评估怎么做、线上挂了怎么排。</p>
+    <div class="map-grid">
+      <article class="map-card">
+        <span class="tag">01</span>
+        <h3>Coding 基本盘</h3>
+        <p>不是让你刷到天荒地老。AI Engineer 仍然要能写稳代码：字符串、数组、hash map、API wrapper、并发、错误处理。</p>
+        <p><strong>可能这么问：</strong>写一个 rerank 前后的 top-k 合并函数；给一个 tool call 日志，统计失败率和 P95 latency。</p>
+      </article>
+      <article class="map-card">
+        <span class="tag">02</span>
+        <h3>LLM 应用设计</h3>
+        <p>考你能不能把 prompt、schema、tool、memory、context 管起来。</p>
+        <p><strong>可能这么问：</strong>设计一个客服 Copilot：输入是什么，输出结构是什么，失败怎么兜底。</p>
+      </article>
+      <article class="map-card">
+        <span class="tag">03</span>
+        <h3>RAG 系统设计</h3>
+        <p>高频。考切片、embedding、hybrid search、rerank、权限隔离、引用、eval。</p>
+        <p><strong>可能这么问：</strong>给法律 SaaS 做 RAG：50GB 文档、5000 QPD、多租户隔离。</p>
+      </article>
+      <article class="map-card">
+        <span class="tag">04</span>
+        <h3>Tool / Agent</h3>
+        <p>考你是否知道模型不直接执行工具，工具执行权在应用代码。</p>
+        <p><strong>可能这么问：</strong>设计一个能查库存、下单、退款的 agent，哪些工具必须加权限和人工确认。</p>
+      </article>
+      <article class="map-card">
+        <span class="tag">05</span>
+        <h3>Eval 与排障</h3>
+        <p>AI 面试最能拉开差距的地方。考你有没有数字和回归测试。</p>
+        <p><strong>可能这么问：</strong>用户说 AI 胡说，怎么定位是 retrieval、prompt、model、schema 还是数据问题。</p>
+      </article>
+      <article class="map-card">
+        <span class="tag">06</span>
+        <h3>Production</h3>
+        <p>延迟、成本、监控、安全、灰度。</p>
+        <p><strong>可能这么问：</strong>老板说 AI 月账单翻倍，怎么拆账、降本、保质量。</p>
+      </article>
+      <article class="map-card">
+        <span class="tag">07</span>
+        <h3>项目深挖</h3>
+        <p>面试官最爱从你简历里追问。你写了 RAG，就会问数据哪来、怎么评、错例是什么。</p>
+        <p><strong>可能这么问：</strong>讲一个项目：从问题、架构、metric、失败案例到上线结果。</p>
+      </article>
+      <article class="map-card">
+        <span class="tag">08</span>
+        <h3>Behavioral</h3>
+        <p>外企很看重。不是背故事，是证明你能处理 trade-off、冲突、模糊需求。</p>
+        <p><strong>可能这么问：</strong>说一次你怎么说服 PM 不上 autonomous agent，而先做 workflow。</p>
+      </article>
+    </div>
+    <div class="callout warn"><strong>判断自己准备好了没：</strong>随便拿你简历上的一个 AI 项目，能不能讲出数据来源、架构图、三个失败案例、一个评估集、一次降本或提速。如果讲不出来，先别急着刷更多题。</div>
+  </div>
+</section>
+
+<section class="ch" id="ch2">
+  <div class="ghost">02</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 02</div><h2>答题框架：面试里别一上来堆名词</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-chart.png" alt="" />
+    </div>
+    <p class="lead">很多候选人一听 RAG，就开始报 LangChain、pgvector、rerank。面试官真正想看的是：你能不能先澄清需求，再把取舍说清楚。</p>
+    <div class="map-grid">
+      <article class="map-card">
+        <span class="tag">FRAME 1</span>
+        <h3>系统设计四步</h3>
+        <p>澄清目标 → 画数据流 → 讲 trade-off → 讲 eval 和上线。不要一上来堆技术名词。</p>
+      </article>
+      <article class="map-card">
+        <span class="tag">FRAME 2</span>
+        <h3>排障五层</h3>
+        <p>输入/权限 → 检索 → Prompt/Schema → Model/Tool → 监控/回归。按层查，不要凭感觉改 prompt。</p>
+      </article>
+      <article class="map-card">
+        <span class="tag">FRAME 3</span>
+        <h3>项目讲法</h3>
+        <p>问题有多具体 → 你做了什么 → 用什么 metric 证明 → 失败在哪里 → 下一步怎么改。</p>
+      </article>
+      <article class="map-card">
+        <span class="tag">FRAME 4</span>
+        <h3>Behavioral</h3>
+        <p>STAR 够用，但每个故事都要带数字、取舍、个人动作。没有数字，就像没发生。</p>
+      </article>
+    </div>
+    <pre><code>系统设计回答顺序：
+1. 目标：用户是谁，成功标准是什么
+2. 数据：从哪里来，怎么更新，权限怎么做
+3. 架构：indexing / retrieval / generation / eval
+4. 取舍：准确率、延迟、成本、安全
+5. 上线：trace、canary、feedback、回归测试</code></pre>
+  </div>
+</section>
+
+<section class="ch" id="ch3">
+  <div class="ghost">03</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 03</div><h2>RAG 与幻觉排查：最容易拉开差距</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-data.png" alt="" />
+    </div>
+    <p class="lead">LangChain 官方 RAG 教程把流程拆成 indexing 和 retrieval/generation；LlamaIndex 也把 RAG 定义为把私有数据在 query time 提供给 LLM。面试里别只说“接了向量库”，要说清这两段怎么分工。</p>
+    <div class="q-grid">
+      <article class="q-card">
+        <div class="q-top"><span class="type">RAG 设计</span><span class="rc-num">01</span></div>
+        <h3>给法律 SaaS 设计一个 RAG，日均 5000 查询、50GB 文档、多个客户互相隔离。你怎么做？</h3>
+        <ol><li>先问约束：文档类型、更新频率、权限模型、准确率目标。</li><li>方案：ingestion pipeline、chunk by legal structure、metadata filter、hybrid search + rerank、source citation。</li><li>评估：50-200 个真实 query，分 factuality、citation、permission leak 三类打分。</li><li>上线：canary、trace、feedback、错例回灌。</li></ol>
+      </article>
+      <article class="q-card">
+        <div class="q-top"><span class="type">幻觉排查</span><span class="rc-num">02</span></div>
+        <h3>用户说 AI 答错事实，你怎么查？</h3>
+        <ol><li>先复现 query 和 trace。</li><li>看 retrieved context 是否含正确答案；没有就是 retrieval 问题。</li><li>context 有答案但模型没用，查 prompt、context ordering、answer instruction。</li><li>最后加 eval，防止同类错下次回归。</li></ol>
+      </article>
+      <article class="q-card">
+        <div class="q-top"><span class="type">Structured Output</span><span class="rc-num">03</span></div>
+        <h3>为什么不只让模型“输出 JSON”？</h3>
+        <ol><li>JSON mode 只保证格式更像 JSON，不等于满足 schema。</li><li>Structured Outputs / schema 可以约束 required keys、enum、类型。</li><li>面试答案要提 validation、retry、refusal path、版本兼容。</li></ol>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="ch" id="ch4">
+  <div class="ghost">04</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 04</div><h2>Structured Output、Function Calling、Agent 边界</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-working-laptop.png" alt="" />
+    </div>
+    <p class="lead">这块最怕背概念。OpenAI、Anthropic、Gemini 文档都讲得很明确：模型可以请求工具调用，但真正执行工具的是你的应用或平台。安全边界就在这里。</p>
+    <div class="q-grid">
+      <article class="q-card">
+        <div class="q-top"><span class="type">Function Calling</span><span class="rc-num">04</span></div>
+        <h3>function calling 里模型会不会真的执行函数？</h3>
+        <ol><li>不会。模型产生 tool/function call 和参数。</li><li>你的应用代码执行工具，再把 tool result 交回模型。</li><li>所以权限、幂等、审计、错误处理都在应用侧。</li></ol>
+      </article>
+      <article class="q-card">
+        <div class="q-top"><span class="type">Agent 边界</span><span class="rc-num">05</span></div>
+        <h3>什么时候用 autonomous agent，什么时候用 workflow？</h3>
+        <ol><li>路径能穷举，优先 workflow。</li><li>需要动态选择工具但任务单域，单 agent。</li><li>跨域且可拆子任务，再考虑 multi-agent。</li><li>面试要主动讲成本、可控性、观测性。</li></ol>
+      </article>
+      <article class="q-card">
+        <div class="q-top"><span class="type">Eval 设计</span><span class="rc-num">06</span></div>
+        <h3>怎么给客服 bot 建 eval？</h3>
+        <ol><li>先定义 success criteria：准确、引用、语气、隐私、延迟、成本。</li><li>离线数据集：真实问题、边界问题、对抗问题。</li><li>grader：能用 code 就不用 LLM；复杂主观用 rubric + LLM-as-judge + 抽样人工。</li><li>线上：trace、user feedback、负反馈进回归集。</li></ol>
+      </article>
+    </div>
+    <div class="callout"><strong>一句话记住：</strong>tool call 是模型的“请求”，不是业务系统的“授权”。退款、删数据、发邮件这类动作，必须由你的代码做权限、幂等、审计和人工确认。</div>
+  </div>
+</section>
+
+<section class="ch" id="ch5">
+  <div class="ghost">05</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 05</div><h2>Eval、成本、延迟：面试官最爱追问的生产问题</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-chart.png" alt="" />
+    </div>
+    <p class="lead">Anthropic 文档说得很直：做 LLM 应用要先定义 success criteria，再做 evaluation。LangSmith 也把 offline evaluation、online evaluation、dataset、run trace 分开讲。你能把这些说顺，面试官会觉得你真上过线。</p>
+    <div class="q-grid">
+      <article class="q-card">
+        <div class="q-top"><span class="type">成本优化</span><span class="rc-num">07</span></div>
+        <h3>AI 月账单从 $2k 涨到 $8k，怎么查？</h3>
+        <ol><li>按 endpoint、model、prompt version、用户、tool 调用拆账。</li><li>看 token 输入、输出、重复 query、失败重试、agent 步数。</li><li>措施：prompt caching、batch、small model routing、max tokens、retrieval 精简。</li><li>降本必须重新跑 eval，不能只看账单。</li></ol>
+      </article>
+      <article class="q-card">
+        <div class="q-top"><span class="type">Latency</span><span class="rc-num">08</span></div>
+        <h3>RAG 问答 P95 从 3 秒涨到 12 秒，怎么排？</h3>
+        <ol><li>分段计时：retrieval、rerank、LLM、tool、network。</li><li>查 top-k、rerank 模型、context size、并发、重试。</li><li>临时止血：减少 k、并行检索、缓存、streaming。</li><li>长期：trace dashboard 和 SLO。</li></ol>
+      </article>
+      <article class="q-card">
+        <div class="q-top"><span class="type">Prompt 注入</span><span class="rc-num">09</span></div>
+        <h3>网页内容里写了“忽略前面指令”，RAG 系统怎么防？</h3>
+        <ol><li>retrieved context 是 data，不是 instruction。</li><li>system prompt 明确忽略文档里的指令。</li><li>工具权限最小化，敏感操作二次确认。</li><li>加入 adversarial eval。</li></ol>
+      </article>
+    </div>
+    <p class="sales-card-lead">如果你的项目没有 eval 和 trace，面试容易被追到卡住。扫 Rain 的码，把项目 README 发来，先看哪里能补数字。</p>
+    <div class="sales-card"><img src="assets/contact/sales-cards/rain.jpg" alt="Rain · 匠人学院资深 IT 顾问" /></div>
+  </div>
+</section>
+
+<section class="ch" id="ch6">
+  <div class="ghost">06</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 06</div><h2>Security、Coding、ML 基础：别让基本盘拖后腿</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-pen-book.png" alt="" />
+    </div>
+    <p class="lead">AI 面试不是只聊 AI。你要能写函数、看日志、懂权限。尤其是 agent 类项目，安全问题比 demo 更重要。</p>
+    <div class="q-grid">
+      <article class="q-card">
+        <div class="q-top"><span class="type">项目深挖</span><span class="rc-num">10</span></div>
+        <h3>你简历写“RAG 命中率提升 20%”，怎么算的？</h3>
+        <ol><li>定义 denominator 和 metric。</li><li>说明 baseline、数据集、改动点、统计口径。</li><li>展示错例：哪些问题仍然错。</li><li>不要只说“感觉更准了”。</li></ol>
+      </article>
+      <article class="q-card">
+        <div class="q-top"><span class="type">Coding</span><span class="rc-num">11</span></div>
+        <h3>写一个函数，合并 vector search 和 keyword search 的结果，按综合分排序并去重。</h3>
+        <ol><li>考 hash map、排序、权重、边界条件。</li><li>加分：保留 source、score breakdown、tie-breaker。</li><li>别只写伪代码，能说复杂度。</li></ol>
+      </article>
+      <article class="q-card">
+        <div class="q-top"><span class="type">ML 基础</span><span class="rc-num">12</span></div>
+        <h3>为什么 embedding 相似不等于答案正确？</h3>
+        <ol><li>相似只说明向量空间接近。</li><li>可能 chunk 不完整、上下文冲突、权限错、语义漂移。</li><li>RAG 需要 retrieval metric + answer quality metric 分开评。</li></ol>
+      </article>
+      <article class="q-card">
+        <div class="q-top"><span class="type">Security</span><span class="rc-num">13</span></div>
+        <h3>tool 能退款、删数据、发邮件，怎么做安全边界？</h3>
+        <ol><li>分 read/write/dangerous tools。</li><li>dangerous tool 要权限、幂等 key、审批、人类确认、审计日志。</li><li>模型只建议，不直接绕过 policy。</li></ol>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="ch" id="ch7">
+  <div class="ghost">07</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 07</div><h2>简历项目怎么写，才像真的干过</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-data.png" alt="" />
+    </div>
+    <p class="lead">面试能不能聊起来，一半取决于简历怎么写。别写“用了 LangChain”，写你解决了什么问题，用什么指标证明，失败过什么。</p>
+    <div class="mini-table">
+      <div class="bad"><h3>别这么写</h3><ul><li>Built an AI chatbot using LangChain and OpenAI.</li><li>Used RAG to answer questions from documents.</li><li>Improved prompts and reduced hallucinations.</li></ul></div>
+      <div class="good"><h3>改成这样</h3><ul><li>Designed an internal knowledge-base RAG over 1,200 policy docs; added metadata filters and rerank; improved citation accuracy from 71% to 89% on 80 hand-labeled queries.</li><li>Built tool-calling support for refund / order lookup flows with idempotency keys, audit logs and human confirmation for write actions; reduced manual lookup time by 38% in pilot.</li><li>Set up 120-case eval suite for FAQ assistant; gated prompt changes in CI and tracked P95 latency / cost per successful answer in LangSmith traces.</li></ul></div>
+    </div>
+    <div class="callout warn"><strong>三种项目别放主位：</strong>克隆 ChatGPT、只有 prompt 没 eval、拿模板跑通但自己说不清数据和错误案例。项目可以小，但必须能被追问。</div>
+  </div>
+</section>
+
+<section class="ch" id="ch8">
+  <div class="ghost">08</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 08</div><h2>Behavioral：用 STAR 讲 trade-off，不讲鸡汤</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-thinking.png" alt="" />
+    </div>
+    <p class="lead">AI Engineer 的 behavioral 不只是“团队合作”。更常见的是：你怎么处理模糊需求、怎么拒绝不安全方案、怎么说服别人做 eval、怎么在成本和质量之间取舍。</p>
+    <div class="q-grid">
+      <article class="q-card">
+        <div class="q-top"><span class="type">Behavioral</span><span class="rc-num">14</span></div>
+        <h3>讲一次你为了质量牺牲速度的经历。</h3>
+        <ol><li>STAR：场景、任务、动作、结果。</li><li>必须有数字和 trade-off。</li><li>把“我们”改成“我做了什么”。</li></ol>
+      </article>
+    </div>
+    <div class="check-group">
+      <div class="head"><span class="stage">STAR</span><strong>准备 4 个故事就够用</strong></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">一次质量 vs 速度的取舍</div><div class="n">比如先上 workflow，不上 autonomous agent。</div></div><span class="badge must">必备</span></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">一次生产事故或错例复盘</div><div class="n">要讲你怎么定位，不是只讲“我们修好了”。</div></div><span class="badge must">必备</span></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">一次和 PM / 法务 / 安全的沟通</div><div class="n">AI 项目很多边界不是代码能单独决定。</div></div><span class="badge">加分</span></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">一次主动学习新工具并落地</div><div class="n">别说“我学得快”，说你用了几天、做出什么、结果如何。</div></div><span class="badge">加分</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="ch" id="ch9">
+  <div class="ghost">09</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 09</div><h2>7 天冲刺清单</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-working-laptop.png" alt="" />
+    </div>
+    <p class="lead">临近面试别再开新课。把你现有项目整理到能被追问，收益更高。</p>
+    <div class="check-group">
+      <div class="head"><span class="stage">7 DAYS</span><strong>每天只做一件硬事</strong></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">Day 1：画一张项目架构图</div><div class="n">输入、检索、模型、工具、输出、监控都画出来。</div></div><span class="badge must">必做</span></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">Day 2：写 20 个 eval query</div><div class="n">正常、边界、攻击、权限、空答案都要有。</div></div><span class="badge must">必做</span></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">Day 3：准备 3 个失败案例</div><div class="n">答错、慢、贵、工具误触发都可以。</div></div><span class="badge must">必做</span></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">Day 4：把简历项目改成数字版</div><div class="n">准确率、延迟、成本、用户数、文档量，至少补两个。</div></div><span class="badge must">必做</span></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">Day 5：模拟一次 RAG 系统设计</div><div class="n">录音，听自己有没有跳步骤。</div></div><span class="badge">练习</span></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">Day 6：准备 4 个 STAR 故事</div><div class="n">每个故事写出数字和个人动作。</div></div><span class="badge">练习</span></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">Day 7：准备反问问题</div><div class="n">问 eval、trace、cost ownership、tool safety，不要只问技术栈。</div></div><span class="badge">收尾</span></div>
+    </div>
+    <div class="contact-bar">
+      <img class="qr" src="assets/contact/qr-rain.png" alt="Rain · 匠人学院资深 IT 顾问微信二维码" />
+      <div><div class="t">想做一次 AI Engineer mock interview？</div><div class="d">扫码找 Rain。可以先从你的简历项目开始，按 RAG、Agent、Eval、Production 四块追问。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="ch" id="sources">
+  <div class="ghost">10</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 10</div><h2>官网来源清单</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-pen-book.png" alt="" />
+    </div>
+    <p class="lead">核对日期：2026-06-30。这本只把官方文档、官方教程、公开研究和自家已核内容作为依据。题目是按这些真实能力面向整理，不声称来自某家公司内部题库。</p>
+    <ul class="source-list">
+      <li><a href="https://platform.openai.com/docs/guides/prompt-engineering">OpenAI Prompt engineering</a></li>
+      <li><a href="https://platform.openai.com/docs/guides/function-calling">OpenAI Function calling</a></li>
+      <li><a href="https://platform.openai.com/docs/guides/structured-outputs">OpenAI Structured Outputs</a></li>
+      <li><a href="https://platform.openai.com/docs/guides/evals">OpenAI Evals</a></li>
+      <li><a href="https://platform.openai.com/docs/guides/deployment-checklist">OpenAI Deployment checklist</a></li>
+      <li><a href="https://platform.claude.com/docs/en/docs/build-with-claude/prompt-engineering/overview">Anthropic Prompt engineering overview</a></li>
+      <li><a href="https://platform.claude.com/docs/en/docs/test-and-evaluate/define-success">Anthropic Define success criteria and build evaluations</a></li>
+      <li><a href="https://platform.claude.com/docs/en/docs/agents-and-tools/tool-use/overview">Anthropic Tool use with Claude</a></li>
+      <li><a href="https://ai.google.dev/gemini-api/docs/function-calling">Google Gemini Function calling</a></li>
+      <li><a href="https://docs.langchain.com/oss/python/langchain/rag">LangChain RAG tutorial</a></li>
+      <li><a href="https://docs.langchain.com/langsmith/evaluation-concepts">LangSmith Evaluation concepts</a></li>
+      <li><a href="https://docs.llamaindex.ai/en/stable/getting_started/concepts/">LlamaIndex high-level concepts</a></li>
+      <li><a href="https://www.businessinsider.com/fastest-growing-jobs-in-the-us-linkedin-2026-1">Business Insider on LinkedIn Jobs on the Rise 2026</a></li>
+      <li><a href="https://arxiv.org/abs/2601.13286">AI Skills Improve Job Prospects</a></li>
+    </ul>
+  </div>
+</section>
+<section class="outro">
+  <div class="wrap">
+    <h2>面试不是背答案，是把项目讲扎实</h2>
+    <p>如果你的项目只有 demo，没有 eval、trace、错误案例和数字，面试很容易被追问到空。先把这四块补上，再去投 AI Engineer。</p>
+    <div class="sales-card"><img src="assets/contact/sales-cards/rain.jpg" alt="Rain · 匠人学院资深 IT 顾问" /></div>
+    <div class="contact-bar dark">
+      <img class="qr" src="assets/contact/qr-rain.png" alt="Rain · 匠人学院资深 IT 顾问微信二维码" />
+      <div><div class="t">扫码做一次 AI Engineer 面试路线判断</div><div class="d">把你的简历项目发来，先看该补 RAG、Agent、Eval，还是 Behavioral 故事。</div></div>
+    </div>
+  </div>
+</section>
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.card, .map-card, .q-card, .check-group, .pipeline, .yes-no, .contact-bar, .sales-card, table, pre, .bad, .good').forEach(el => io.observe(el));
+</script>
+<a href="AI%20Engineer%20%E9%9D%A2%E8%AF%95%E5%AE%9D%E5%85%B8%20-%20%E5%8C%A0%E4%BA%BA%E5%AD%A6%E9%99%A2.pdf" download style="position:fixed;right:22px;bottom:22px;z-index:1200;display:flex;align-items:center;gap:8px;background:#0D0F12;color:#fff;font-weight:700;font-size:14.5px;padding:13px 22px;border-radius:999px;box-shadow:0 12px 28px rgba(13,15,18,.35);text-decoration:none;font-family:Inter,'PingFang SC',sans-serif;">⬇️ 下载 PDF 版</a>
+</body>
+</html>
