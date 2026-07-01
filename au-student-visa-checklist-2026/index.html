@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>澳洲学生签证材料避坑清单 2026 — JR Academy</title>
+<link rel="stylesheet" href="theme/tokens.css" />
+<link rel="stylesheet" href="theme/web-zine.css" />
+<style>
+  .hero h1 .t-main { font-size: 66px; }
+  .hero h1 .t-sticker { top: -44px; right: -18px; }
+  .fact-grid, .money-grid, .trap-grid, .doc-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 18px; }
+  .fact, .money-card, .trap, .doc-box { border: 1px solid var(--jr-border-warm); border-radius: 18px; background: var(--jr-white); box-shadow: var(--jr-shadow-sm); padding: 18px; }
+  .fact .k, .money-card .label, .trap .tag, .doc-box .tag { display: inline-flex; border-radius: 999px; background: var(--jr-red); color: #fff; padding: 5px 10px; font-size: 12px; font-weight: 800; }
+  .fact .v, .money-card .amount { font-family: Anton, Impact, sans-serif; font-size: 30px; line-height: 1.05; color: var(--jr-black); margin-top: 12px; letter-spacing: 0; }
+  .trap h3, .doc-box h3 { margin: 12px 0 8px; font-size: 22px; line-height: 1.25; }
+  .danger-note { margin-top: 18px; padding: 16px 18px; border-left: 5px solid var(--jr-red); border-radius: 14px; background: var(--jr-wash-red); font-weight: 700; }
+  .ok-note { margin-top: 18px; padding: 16px 18px; border-left: 5px solid #16a34a; border-radius: 14px; background: var(--jr-wash-green); }
+  .mini-table { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 18px; }
+  .bad, .good { border-radius: 18px; padding: 18px; border: 1px solid var(--jr-border-warm); }
+  .bad { background: var(--jr-wash-red); }
+  .good { background: var(--jr-wash-green); }
+  .source-list { columns: 2; column-gap: 24px; line-height: 1.8; font-size: 13px; }
+  .source-list a { color: var(--jr-neutral-800); text-decoration: underline; }
+  .sales-card-lead { margin-top: 24px; font-size: 18px; font-weight: var(--jr-fw-bold); color: var(--jr-black); }
+  .flow .fact-grid, .flow .money-grid, .flow .trap-grid, .flow .doc-grid { grid-template-columns: repeat(2, 1fr); gap: 3.5mm; }
+  .flow .fact, .flow .money-card, .flow .trap, .flow .doc-box { border-radius: 4mm; padding: 4mm; box-shadow: none; break-inside: avoid; }
+  .flow .fact .k, .flow .money-card .label, .flow .trap .tag, .flow .doc-box .tag { font-size: 6.5pt; padding: .6mm 2mm; }
+  .flow .fact .v, .flow .money-card .amount { font-size: 15pt; margin-top: 2mm; }
+  .flow .fact p, .flow .money-card p, .flow .trap p, .flow .doc-box p { font-size: 8pt; line-height: 1.5; }
+  .flow .trap h3, .flow .doc-box h3 { font-size: 10.5pt; margin: 2mm 0 1mm; }
+  .flow .danger-note, .flow .ok-note { margin-top: 4mm; padding: 3mm 4mm; border-radius: 3mm; font-size: 8.5pt; line-height: 1.55; break-inside: avoid; }
+  .flow .mini-table { grid-template-columns: 1fr 1fr; gap: 3.5mm; }
+  .flow .bad, .flow .good { border-radius: 4mm; padding: 4mm; break-inside: avoid; }
+  .flow .visa-check .check-item .t { font-size: 8pt; line-height: 1.45; }
+  .flow .source-list { columns: 1; font-size: 8pt; line-height: 1.55; }
+  @media print { body { background: var(--jr-surface-canvas); } }
+  .cover2 .cover-logo { position: absolute; top: 15mm; left: 15mm; height: 12mm; width: auto; z-index: 3; }
+  .cover2 .cv2-copy { position: relative; z-index: 3; margin-top: 34mm; max-width: 137mm; }
+  .cover2 .cv2-copy h1 { font-family: Anton, Impact, sans-serif; font-size: 47pt; line-height: 1.02; color: var(--jr-white); margin: 4mm 0 6mm; letter-spacing: 0; }
+  .cover2 .cv2-copy h1 em { color: var(--jr-red); font-style: normal; }
+  .cover2 .cv2-copy p { color: rgba(255,255,255,.72); font-size: 11pt; line-height: 1.7; max-width: 118mm; }
+  .cover2 .cv2-tags { display: flex; gap: 3mm; flex-wrap: wrap; margin-top: 7mm; }
+  .cover2 .cv2-tags span { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.3); color: rgba(255,255,255,.9); border-radius: var(--jr-radius-full); font-size: 8.5pt; font-weight: var(--jr-fw-bold); padding: 1.3mm 3.5mm; }
+  .page.back-cover.visa-back { gap: 5mm; padding: 18mm 20mm; }
+  .visa-back .back-logo { height: 12mm; width: auto; }
+  .visa-back h2 { font-size: 25pt; line-height: 1.12; margin: 0; }
+  .visa-back p { font-size: 10pt; line-height: 1.5; margin: 0; }
+  .visa-back .sales-card { width: 72% !important; box-shadow: none; }
+  .visa-back .contact-bar { width: 72% !important; padding: 3mm 4mm; gap: 4mm; }
+  .visa-back .contact-bar .qr { width: 18mm; height: 18mm; }
+  .visa-back .contact-bar .t { font-size: 10.5pt; }
+  .visa-back .contact-bar .d { font-size: 8pt; line-height: 1.45; }
+  .visa-back .caption { font-size: 7.2pt; }
+  @media (max-width: 900px) { .fact-grid, .money-grid, .trap-grid, .doc-grid, .mini-table { grid-template-columns: 1fr; } }
+  @media (max-width: 640px) {
+    .hero h1 .t-main { font-size: 39px; }
+    .hero h1 .t-sticker { top: auto; bottom: -34px; right: 8px; transform: rotate(5deg); }
+    .hero p.sub { margin-top: 50px; }
+    .source-list { columns: 1; }
+  }
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <img class="logo" src="assets/logo/logo-zh-full.svg" alt="匠人学院" />
+    <div class="hero-flex">
+      <div>
+        <div class="bar"></div>
+        <h1><span class="t-top">AU STUDENT VISA</span><br /><span class="t-main">材料避坑清单<span class="t-sticker">2026 官方源核对</span></span></h1>
+        <p class="sub">给准备申请澳洲 Student visa subclass 500 的学生和家长：把 <span class="hl">CoE、GS、资金、英文、OSHC、体检、biometrics、递交后补料</span> 一次讲明白。</p>
+        <div class="chips"><span class="chip">Subclass 500</span><span class="chip">Genuine Student</span><span class="chip">Financial capacity</span><span class="chip">扫码找 Amelia</span></div>
+        <div style="margin-top: 26px;"><span class="zine-diecut" style="font-size: 24px;">别先问“稳不稳”。先看材料有没有明显短板。</span></div>
+      </div>
+      <div class="mascot-wrap"><span class="tape"></span><img class="hero-mascot" src="assets/illustrations/niuxiaojiang-pen-book.png" alt="牛小匠" /></div>
+    </div>
+  </div>
+</header>
+<div class="marquee"><div class="mq-track"><span>STUDENT VISA 500<i>✦</i>GS<i>✦</i>COE<i>✦</i>OSHC<i>✦</i>FINANCIAL CAPACITY<i>✦</i>JIANGREN.COM.AU<i>✦</i></span><span>STUDENT VISA 500<i>✦</i>GS<i>✦</i>COE<i>✦</i>OSHC<i>✦</i>FINANCIAL CAPACITY<i>✦</i>JIANGREN.COM.AU<i>✦</i></span></div></div>
+<nav class="toc">
+  <div class="wrap">
+    <a href="#how"><span class="num">00</span>这本清单怎么用</a>
+    <a href="#ch1"><span class="num">01</span>先看你是不是能递 500</a>
+    <a href="#ch2"><span class="num">02</span>CoE 和课程打包别填错</a>
+    <a href="#ch3"><span class="num">03</span>GS 不是小作文，是证据链</a>
+    <a href="#ch4"><span class="num">04</span>资金证明到底怎么算</a>
+    <a href="#ch5"><span class="num">05</span>英文材料别只看 offer</a>
+    <a href="#ch6"><span class="num">06</span>OSHC 最容易漏日期</a>
+    <a href="#ch7"><span class="num">07</span>身份、家庭、未成年材料</a>
+    <a href="#ch8"><span class="num">08</span>体检、品格和 biometrics</a>
+    <a href="#ch9"><span class="num">09</span>人在澳洲递签要小心</a>
+    <a href="#ch10"><span class="num">10</span>递交后别躺平</a>
+    <a href="#ch11"><span class="num">11</span>提交前 20 项核对</a>
+    <a href="#sources"><span class="num">12</span>官方来源清单</a>
+  </div>
+</nav>
+
+<section class="ch" id="how">
+  <div class="wrap">
+    <h2>这本清单怎么用</h2>
+    <div class="card">
+      <p>先说清楚：这不是 migration advice，也不承诺签证结果。它更像一张材料雷区地图，帮你把 Subclass 500 学生签证里最容易填错、漏交、讲不清的地方提前拎出来。</p>
+      <p>你可以按顺序读，也可以直接跳到资金、GS、OSHC。读完以后，最好回到 Home Affairs 的 Document Checklist Tool，再按你的护照国家和学校重跑一遍材料清单。</p>
+    </div>
+    <div class="fact-grid">
+      <div class="fact"><div class="k">GS</div><div class="v">2024-03-23 起</div><p>新递交的学生签证申请用 Genuine Student，不再用旧 GTE 口径。</p></div>
+      <div class="fact"><div class="k">150 words</div><div class="v">每题上限</div><p>GS 表单每个回答是 150 words，不是长篇自传。</p></div>
+      <div class="fact"><div class="k">AUD 29,710</div><div class="v">学生生活费</div><p>官方 12 个月 living costs 最低口径，实际城市成本可能更高。</p></div>
+      <div class="fact"><div class="k">48 hours</div><div class="v">每两周工作上限</div><p>课程进行期间一般最多 48 hours per fortnight。研究型硕博另看条件。</p></div>
+    </div>
+    <div class="contact-bar">
+      <img class="qr" src="assets/contact/qr-amelia.png" alt="Amelia · 匠人学院资深 IT 顾问微信二维码" />
+      <div><div class="t">不确定自己的材料哪里薄？</div><div class="d">扫码找 Amelia，把 offer、CoE、资金和学习背景发来，先做一次材料风险点梳理。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="ch" id="ch1">
+  <div class="ghost">01</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 01</div><h2>先看你是不是能递 500</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-thinking.png" alt="" />
+    </div>
+    <p class="lead">很多人一上来就问“资金要多少”。其实第一步不是资金，是你这份申请是不是 valid。</p>
+    <div class="doc-grid">
+      <article class="doc-box"><span class="tag">必须有</span><h3>全日制 CRICOS 课程</h3><p>普通国际学生申请 500，要读 full-time course，而且课程要在 CRICOS 上。只拿到 offer 还不够，签证申请通常要看 CoE。</p></article>
+      <article class="doc-box"><span class="tag">别拖</span><h3>足够时间递交</h3><p>Home Affairs 明说高峰期会更慢；人在澳洲续签也别拖到当前签证最后一天。</p></article>
+      <article class="doc-box"><span class="tag">身份</span><h3>在澳递签要看当前签证</h3><p>如果人在澳洲，需要 eligible substantive visa。比如 485、600、601、651 等通常不能在澳洲直接递 500。</p></article>
+      <article class="doc-box"><span class="tag">家庭</span><h3>Family members 要如实申报</h3><p>即使家人不来澳洲，也要在申请里申报。漏申报可能影响他们以后作为 subsequent entrant 加入。</p></article>
+    </div>
+    <div class="danger-note">别把“能创建 ImmiAccount”当成“能递有效申请”。CoE、当前签证状态、family declaration 这些前置项错了，后面材料再漂亮也救不了。</div>
+  </div>
+</section>
+
+<section class="ch" id="ch2">
+  <div class="ghost">02</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 02</div><h2>CoE 和课程打包别填错</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-pen-book.png" alt="" />
+    </div>
+    <p class="lead">CoE 不是附件而已。Home Affairs 会用它判断你的课程、时长、主课，以及资金和英文要求。</p>
+    <div class="trap-grid">
+      <article class="trap"><span class="tag">坑 1</span><h3>只上传第一个 CoE</h3><p>如果你是语言班 + diploma + bachelor，或者 foundation + bachelor，需要把所有 intended courses 的 CoE code 都填进申请。否则签证时长可能只按其中一个 CoE 看。</p></article>
+      <article class="trap"><span class="tag">坑 2</span><h3>course gap 没看</h3><p>打包课程之间通常 gap 要小于 two calendar months。例外是前一课在标准学年末结束、下一课在下一学年初开始。</p></article>
+      <article class="trap"><span class="tag">坑 3</span><h3>CoE 递交后失效</h3><p>CoE 在递交时要有效，审理时也要有效。course cancelled 或 complete 之后，旧 CoE 就不能继续撑着申请。</p></article>
+      <article class="trap"><span class="tag">坑 4</span><h3>把 offer 当 CoE</h3><p>offer 说明学校愿意录你，CoE 才是 enrolment 的关键证据。普通申请不要拿 offer 去替代 CoE。</p></article>
+    </div>
+    <div class="ok-note">做法：递签前把每个 CoE 的 course name、CRICOS code、start/end date、tuition、OSHC 信息单独列出来。不要只看学校邮件标题。</div>
+  </div>
+</section>
+
+<section class="ch" id="ch3">
+  <div class="ghost">03</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 03</div><h2>GS 不是小作文，是证据链</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-coffee-pointing.png" alt="" />
+    </div>
+    <p class="lead">2024 年 3 月 23 日起，新递交的学生签证申请适用 Genuine Student requirement。重点不是把自己写得多感人，而是让每句话有证据接住。</p>
+    <div class="doc-grid">
+      <article class="doc-box"><span class="tag">问法</span><h3>当前情况</h3><p>家庭、社区、工作、经济情况。不要只写“我家支持我”，要能接上工作证明、税单、银行、家庭关系材料。</p></article>
+      <article class="doc-box"><span class="tag">问法</span><h3>为什么这门课、这所学校、澳洲</h3><p>要讲你理解课程要求、学校资源、澳洲学习和生活。泛泛写“澳洲教育好”没什么用。</p></article>
+      <article class="doc-box"><span class="tag">问法</span><h3>读完有什么用</h3><p>把课程和过去学习、工作、未来岗位连接起来。跨专业可以，但要解释为什么转、怎么补、职业逻辑是什么。</p></article>
+      <article class="doc-box"><span class="tag">问法</span><h3>其他相关信息</h3><p>如果有学习空档、换专业、拒签史、在澳转签、政治/兵役等情况，别假装不存在。</p></article>
+    </div>
+    <div class="mini-table">
+      <div class="bad"><h3>别这么写</h3><p>“我从小热爱澳洲文化，贵校世界排名很高，毕业后我会回国贡献社会。”这类话太空，删掉也不影响判断。</p></div>
+      <div class="good"><h3>改成这样</h3><p>“我本科做过供应链数据分析，目标课程有 business analytics / database / capstone，毕业后对应国内跨境电商数据岗位；附件有成绩单、实习证明、岗位 JD 和家庭税务材料。”</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="ch" id="ch4">
+  <div class="ghost">04</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 04</div><h2>资金证明到底怎么算</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-chart.png" alt="" />
+    </div>
+    <p class="lead">资金不是“卡里看起来有钱”就行。Home Affairs 的算法会拆成课程费、生活费、旅行费、随行家属、孩子上学费。</p>
+    <div class="money-grid">
+      <article class="money-card">
+        <div class="label">学生本人 living costs</div>
+        <div class="amount">AUD 29,710 / 12 months</div>
+        <p>这是签证最低口径，不等于悉尼、墨尔本真实全年花费。</p>
+      </article>
+      <article class="money-card">
+        <div class="label">随行 partner</div>
+        <div class="amount">AUD 10,394 / 12 months</div>
+        <p>如果带配偶，资金不能只按学生一个人算。</p>
+      </article>
+      <article class="money-card">
+        <div class="label">随行 child</div>
+        <div class="amount">AUD 4,449 / 12 months</div>
+        <p>还要另看学校费用。</p>
+      </article>
+      <article class="money-card">
+        <div class="label">学龄儿童 school cost</div>
+        <div class="amount">至少 AUD 13,502 / child / year</div>
+        <p>各州、学校会不同，官方要求你自己查实际费用。</p>
+      </article>
+      <article class="money-card">
+        <div class="label">旅行费用参考</div>
+        <div class="amount">AUD 2,500</div>
+        <p>官方给的计算参考，不代表机票一定是这个价。</p>
+      </article>
+      <article class="money-card">
+        <div class="label">父母/配偶收入替代</div>
+        <div class="amount">AUD 87,856 或 AUD 102,500</div>
+        <p>带 family 时看更高收入门槛；证据要官方税务等文件。</p>
+      </article>
+    </div>
+    <div class="danger-note">如果 Document Checklist 要你提交 financial capacity evidence，你没交，Home Affairs 可以不再问你，直接拒。就算 checklist 没要求，审理中也可能被要求补。</div>
+    <p class="sales-card-lead">读到资金这里，很多家庭最容易卡在“钱够不够、材料怎么解释”。</p>
+    <div class="sales-card"><img src="assets/contact/sales-cards/amelia.jpg" alt="Amelia · 匠人学院资深 IT 顾问" /></div>
+  </div>
+</section>
+
+<section class="ch" id="ch5">
+  <div class="ghost">05</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 05</div><h2>英文材料别只看 offer</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-working-laptop.png" alt="" />
+    </div>
+    <p class="lead">学校给 offer 不代表签证一定不看英文。Home Affairs 明说，即使 Document Checklist 一开始显示不用交，审理中也可以要求你补英文能力证据。</p>
+    <div class="trap-grid">
+      <article class="trap"><span class="tag">日期</span><h3>2025-08-07 前后分两张表</h3><p>Home Affairs 对 test taken on or before 6 August 2025、on or after 7 August 2025 分别列了分数表。别拿旧截图当新规则。</p></article>
+      <article class="trap"><span class="tag">常见</span><h3>IELTS 通常看 6.0</h3><p>2025-08-07 后表格里，IELTS Academic / General Training 的 minimum test score 是 6.0；10 周或 20 周 ELICOS package 会有不同门槛。</p></article>
+      <article class="trap"><span class="tag">常见</span><h3>PTE Academic 是 47</h3><p>2025-08-07 后表格里，PTE Academic minimum test score 是 47；配 ELICOS 时对应分数会降到 39 或 31。</p></article>
+      <article class="trap"><span class="tag">新点</span><h3>TOEFL 注册选项别漏</h3><p>Home Affairs 写明：2026-01-21 起，申请人注册 TOEFL 时要选择 “Taking TOEFL for Australia”，才对澳洲签证有效。</p></article>
+    </div>
+    <div class="ok-note">做法：英文成绩页单独保存 PDF，再把考试日期、成绩、对应 Home Affairs 表格口径写在材料索引里。不要只说“学校已经豁免英文”。</div>
+  </div>
+</section>
+
+<section class="ch" id="ch6">
+  <div class="ghost">06</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 06</div><h2>OSHC 最容易漏日期</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-data.png" alt="" />
+    </div>
+    <p class="lead">OSHC 看起来像学校顺手帮你买了，其实是签证材料里的硬项。日期错、policy 信息缺、家属没覆盖，都可能出问题。</p>
+    <div class="doc-grid">
+      <article class="doc-box"><span class="tag">起始</span><h3>从抵澳日开始，不是开课日</h3><p>如果你提前到澳洲，OSHC start date 要从抵澳日覆盖。不要课程 2 月开学，1 月入境，但保险 2 月才开始。</p></article>
+      <article class="doc-box"><span class="tag">连续</span><h3>在澳递签不能断保</h3><p>如果之前签证要求 health insurance，新 OSHC 和旧保险之间不要有 gap。</p></article>
+      <article class="doc-box"><span class="tag">信息</span><h3>自己买的要填 policy number</h3><p>自己或中介买 OSHC，要在申请里填 provider、start/end date、policy number。学校安排的通常填 provider 和日期。</p></article>
+      <article class="doc-box"><span class="tag">家属</span><h3>Family members 也要覆盖</h3><p>带 partner、孩子，不能只买 single policy。每个随行家庭成员都要有 health insurance。</p></article>
+    </div>
+    <div class="contact-bar">
+      <img class="qr" src="assets/contact/qr-amelia.png" alt="Amelia · 匠人学院资深 IT 顾问微信二维码" />
+      <div><div class="t">想看 OSHC 和 CoE 日期有没有对上？</div><div class="d">扫码找 Amelia，发 CoE 和 OSHC policy 截图，先帮你看日期有没有明显断点。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="ch" id="ch7">
+  <div class="ghost">07</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 07</div><h2>身份、家庭、未成年材料</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-pen-book.png" alt="" />
+    </div>
+    <p class="lead">身份材料不是“扫个护照”这么简单。名字、家庭成员、未成年安排，每一个都可能影响申请。</p>
+    <div class="trap-grid">
+      <article class="trap"><span class="tag">身份</span><h3>护照页要完整清楚</h3><p>要能看到 photo、personal details、passport issue and expiry dates。模糊、裁边、反光都别交。</p></article>
+      <article class="trap"><span class="tag">改名</span><h3>有曾用名就准备证明</h3><p>结婚、离婚、改名、曾用名，最好用官方证明串起来。不要让成绩单、护照、银行文件里出现不同名字却没解释。</p></article>
+      <article class="trap"><span class="tag">家庭</span><h3>家人不来，也要申报</h3><p>Home Affairs 明说 family members 即使不计划来澳也要申报。漏申报会影响后续加入。</p></article>
+      <article class="trap"><span class="tag">未成年</span><h3>18 岁以下要 welfare</h3><p>未满 18 岁要有 welfare arrangements，并且要有父母/监护人同意来澳学习和居住。</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="ch" id="ch8">
+  <div class="ghost">08</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 08</div><h2>体检、品格和 biometrics</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-thinking.png" alt="" />
+    </div>
+    <p class="lead">这章不用写得复杂，但要知道哪些动作会有时限。</p>
+    <div class="doc-grid">
+      <article class="doc-box"><span class="tag">Health</span><h3>体检可以提前组织</h3><p>你可能需要 health examinations。递交前可以先查自己要做什么，递交后看 ImmiAccount/HAP ID。</p></article>
+      <article class="doc-box"><span class="tag">Character</span><h3>16 岁以上家属也看品格</h3><p>申请人和随行 family members 里 16 岁及以上的人，都要满足 character requirement。</p></article>
+      <article class="doc-box"><span class="tag">Biometrics</span><h3>别拖 14 天窗口</h3><p>如果要 biometrics，通常递交后很快会在 ImmiAccount 看到 request letter，并给 14 天去提供。</p></article>
+      <article class="doc-box"><span class="tag">Travel</span><h3>不要没签就买不可退机票</h3><p>Home Affairs 提醒在 visa finalised 前避免 booking travel。机票、住宿、接机都别压太死。</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="ch" id="ch9">
+  <div class="ghost">09</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 09</div><h2>人在澳洲递签要小心</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-working-laptop.png" alt="" />
+    </div>
+    <p class="lead">续签、转学、转签，最怕“以为系统会自动兜底”。人在澳洲递 500，要先看当前签证和 bridging 风险。</p>
+    <div class="trap-grid">
+      <article class="trap"><span class="tag">当前签证</span><h3>不是所有签证都能在澳递 500</h3><p>Home Affairs 列了不能在澳递的类别，包括 485、600、601、602、651、771、988 等。别等快过期才发现递不了。</p></article>
+      <article class="trap"><span class="tag">BVA</span><h3>Bridging Visa A 不能随便出境</h3><p>如果你人在澳洲递签，当前签证过期后 BVA 生效。但 BVA 没有 right of return，离境会取消。</p></article>
+      <article class="trap"><span class="tag">BVB</span><h3>需要出境要单独考虑 BVB</h3><p>如果有 substantial reasons for travel，可以看 Bridging Visa B 是否适用。不要拿 BVA 直接飞走。</p></article>
+      <article class="trap"><span class="tag">别手滑</span><h3>不要取消当前签证</h3><p>Home Affairs 明说不要 cancel your current visa。取消后可能 unlawful，也可能拿不到 BVA。</p></article>
+    </div>
+    <div class="contact-bar">
+      <img class="qr" src="assets/contact/qr-amelia.png" alt="Amelia · 匠人学院资深 IT 顾问微信二维码" />
+      <div><div class="t">人在澳洲续签，先别急着递</div><div class="d">扫码找 Amelia，把当前签证、CoE、到期日和课程计划发来，先把时间线排清楚。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="ch" id="ch10">
+  <div class="ghost">10</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 10</div><h2>递交后别躺平</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-coffee-pointing.png" alt="" />
+    </div>
+    <p class="lead">递交不是结束。很多延误不是因为政策多复杂，而是申请人没看 ImmiAccount、没补材料、没更新信息。</p>
+    <div class="doc-grid">
+      <article class="doc-box"><span class="tag">消息</span><h3>定期登录 ImmiAccount</h3><p>看是否有 request for information、biometrics、health exam、补充材料。不要等邮件提醒。</p></article>
+      <article class="doc-box"><span class="tag">CoE</span><h3>审理时也要保持有效</h3><p>如果 CoE 被 cancelled 或 course complete，需要新的 CoE 继续支撑申请。</p></article>
+      <article class="doc-box"><span class="tag">错误</span><h3>发现填错就尽快改</h3><p>可以通过 Form 1023 或 ImmiAccount Update Details 通知 incorrect answers。别假装没看见。</p></article>
+      <article class="doc-box"><span class="tag">变化</span><h3>护照、地址、关系状态变化要更新</h3><p>电话、地址、护照、婚姻/关系状态、孩子出生、welfare arrangements 变化，都要及时告知。</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="ch" id="ch11">
+  <div class="ghost">11</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 11</div><h2>提交前 20 项核对</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-chart.png" alt="" />
+    </div>
+    <p class="lead">这页可以直接照着勾。勾不上的地方，不要靠运气。</p>
+    <div class="check-group visa-check">
+      <div class="head"><span class="stage">PRE-SUBMIT</span><strong>提交前 20 项核对</strong></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">01 · Document Checklist Tool 用正确 passport country 和 education provider 跑过，提交前又重跑了一遍。</div></div><span class="badge must">必查</span></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">02 · 所有 intended courses 都有 CoE；package course 的每个 CoE code 都填了。</div></div><span class="badge must">必查</span></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">03 · CoE 仍然有效，没有 cancelled，也不是已经 complete 的旧 CoE。</div></div><span class="badge must">必查</span></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">04 · GS 回答没有写空话，每个重点都配了 transcript、employment、tax、bank、offer、course research 等证据。</div></div><span class="badge must">必查</span></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">05 · GS 每题控制在 150 words 内，且全英文。</div></div><span class="badge must">必查</span></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">06 · 资金证明按学费、living costs、travel、school cost 分开算，不是只放一张余额截图。</div></div><span class="badge must">必查</span></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">07 · 如果用父母/partner 年收入替代资金，准备的是 tax assessment 等官方文件，不是雇主证明或普通银行流水。</div></div><span class="badge must">必查</span></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">08 · 英文材料按 Home Affairs 当前表格核对，尤其注意 2025-08-07 前后 test score 表不同。</div></div><span class="badge must">必查</span></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">09 · 如用 TOEFL iBT，确认 2026-01-21 后注册时选择了 Taking TOEFL for Australia。</div></div><span class="badge must">必查</span></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">10 · OSHC 覆盖每个申请人，开始日期不晚于抵澳日期，结束日期覆盖拟签证时长。</div></div><span class="badge must">必查</span></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">11 · 自己买 OSHC 的，policy number、provider、start/end date 都能填进申请。</div></div><span class="badge">补查</span></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">12 · 护照 photo page、issue/expiry、身份证、改名证明都扫描清楚。</div></div><span class="badge">补查</span></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">13 · 所有 family members 都如实申报，即使不打算一起来澳洲。</div></div><span class="badge">补查</span></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">14 · 16 岁及以上随行家庭成员的 character 要求已考虑。</div></div><span class="badge">补查</span></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">15 · 未满 18 岁申请人的 welfare arrangement 和父母同意材料已准备。</div></div><span class="badge">补查</span></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">16 · 如果在澳洲递签，确认自己持有 eligible substantive visa；不要拖到当前签证最后一天。</div></div><span class="badge">补查</span></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">17 · 递交后每天看 ImmiAccount message，不等 deadline 最后一天才补材料。</div></div><span class="badge">补查</span></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">18 · biometrics 如果被要求，知道通常会给 14 天，要尽快预约。</div></div><span class="badge">补查</span></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">19 · 递交后如果护照、地址、电话、关系状态变化，知道要 update details。</div></div><span class="badge">补查</span></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">20 · 在 visa finalised 前不提前订不可退机票。</div></div><span class="badge">补查</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="ch" id="sources">
+  <div class="ghost">12</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 12</div><h2>官方来源清单</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-pen-book.png" alt="" />
+    </div>
+    <p class="lead">核对日期：2026-07-01。政策类内容会变，递交前一定回到 Home Affairs 原页面重查。本文不是法律意见，也不替代注册移民代理或律师建议。</p>
+    <ul class="source-list">
+      <li><a href="https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/student-500">Home Affairs Student visa (subclass 500)</a></li>
+      <li><a href="https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/student-500/genuine-student-requirement">Home Affairs Genuine Student requirement</a></li>
+      <li><a href="https://immi.homeaffairs.gov.au/visas/web-evidentiary-tool">Home Affairs Document Checklist Tool</a></li>
+      <li><a href="https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-processing-times/global-visa-processing-times">Home Affairs visa processing time guide</a></li>
+      <li><a href="https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-processing-times/visa-processing-priorities/student-visa">Home Affairs student visa processing priorities</a></li>
+      <li><a href="https://immi.homeaffairs.gov.au/visas/getting-a-visa/check-twice-submit-once">Home Affairs Check twice, submit once</a></li>
+      <li><a href="https://www.studyaustralia.gov.au/en/plan-your-move/overseas-student-health-cover-oshc">Study Australia OSHC</a></li>
+      <li><a href="https://www.studyaustralia.gov.au/en/plan-your-move">Study Australia plan your move</a></li>
+    </ul>
+  </div>
+</section>
+<section class="outro">
+  <div class="wrap">
+    <h2>材料不是越多越好，是要对得上</h2>
+    <p>如果你已经有 offer、CoE、资金材料，但不确定 GS 怎么解释、OSHC 日期怎么填、人在澳洲续签怎么排时间线，可以扫码先做一次材料风险点梳理。</p>
+    <div class="sales-card"><img src="assets/contact/sales-cards/amelia.jpg" alt="Amelia · 匠人学院资深 IT 顾问" /></div>
+    <div class="contact-bar dark">
+      <img class="qr" src="assets/contact/qr-amelia.png" alt="Amelia · 匠人学院资深 IT 顾问微信二维码" />
+      <div><div class="t">扫码了解学生签证材料准备</div><div class="d">发你的学校、课程、当前签证状态和主要材料，先帮你看哪些地方需要补证据。</div></div>
+    </div>
+  </div>
+</section>
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.card, .fact, .money-card, .trap, .doc-box, .check-group, .contact-bar, .sales-card, table, .bad, .good').forEach(el => io.observe(el));
+</script>
+<a href="%E6%BE%B3%E6%B4%B2%E5%AD%A6%E7%94%9F%E7%AD%BE%E8%AF%81%E6%9D%90%E6%96%99%E9%81%BF%E5%9D%91%E6%B8%85%E5%8D%95%202026%20-%20%E5%8C%A0%E4%BA%BA%E5%AD%A6%E9%99%A2.pdf" download style="position:fixed;right:22px;bottom:22px;z-index:1200;display:flex;align-items:center;gap:8px;background:#0D0F12;color:#fff;font-weight:700;font-size:14.5px;padding:13px 22px;border-radius:999px;box-shadow:0 12px 28px rgba(13,15,18,.35);text-decoration:none;font-family:Inter,'PingFang SC',sans-serif;">⬇️ 下载 PDF 版</a>
+</body>
+</html>
