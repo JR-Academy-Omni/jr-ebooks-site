@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>澳洲 OPC 一人公司实操手册 2026 - JR Academy</title>
+<link rel="stylesheet" href="theme/tokens.css" />
+<link rel="stylesheet" href="theme/ebook.css" />
+<link rel="stylesheet" href="theme/flow-a4.css" />
+<style>
+  .cover2 .cover-logo { position: absolute; top: 15mm; left: 15mm; height: 12mm; width: auto; z-index: 3; }
+  .cover2 .cv2-copy { position: relative; z-index: 3; margin-top: 33mm; max-width: 145mm; }
+  .cover2 .cv2-copy h1 { font-family: Anton, Impact, sans-serif; font-size: 45pt; line-height: 1.03; color: var(--jr-white); margin: 4mm 0 6mm; letter-spacing: 0; }
+  .cover2 .cv2-copy h1 em { color: var(--jr-red); font-style: normal; }
+  .cover2 .cv2-copy p { color: rgba(255,255,255,.74); font-size: 10.5pt; line-height: 1.7; max-width: 120mm; }
+  .cover2 .cv2-tags { display: flex; gap: 3mm; flex-wrap: wrap; margin-top: 7mm; }
+  .cover2 .cv2-tags span { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.3); color: rgba(255,255,255,.92); border-radius: var(--jr-radius-full); font-size: 8.5pt; font-weight: var(--jr-fw-bold); padding: 1.3mm 3.5mm; }
+  .opc-grid, .step-grid, .money-grid, .grant-grid, .source-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 18px; }
+  .opc-card, .step-card, .money-card, .grant-card, .source-card { border: 1px solid var(--jr-border-warm); border-radius: 18px; background: var(--jr-white); box-shadow: var(--jr-shadow-sm); padding: 18px; }
+  .opc-card .tag, .step-card .tag, .money-card .tag, .grant-card .tag { display: inline-flex; border-radius: 999px; background: var(--jr-red); color: #fff; padding: 5px 10px; font-size: 12px; font-weight: 800; }
+  .opc-card h3, .step-card h3, .money-card h3, .grant-card h3, .source-card h3 { margin: 12px 0 8px; font-size: 21px; line-height: 1.25; }
+  .number-card { background: var(--jr-surface-panel); border: 1px solid var(--jr-border-warm); border-radius: 18px; padding: 18px; }
+  .number-card .v { font-family: Anton, Impact, sans-serif; font-size: 32px; line-height: 1; color: var(--jr-black); letter-spacing: 0; }
+  .number-card .l { margin-top: 10px; color: var(--jr-neutral-700); font-size: 14px; line-height: 1.55; }
+  .flow .opc-grid, .flow .step-grid, .flow .money-grid, .flow .grant-grid, .flow .source-grid { grid-template-columns: repeat(2, 1fr); gap: 3.5mm; }
+  .flow .opc-card, .flow .step-card, .flow .money-card, .flow .grant-card, .flow .source-card { border-radius: 4mm; padding: 4mm; box-shadow: none; break-inside: avoid; }
+  .flow .opc-card .tag, .flow .step-card .tag, .flow .money-card .tag, .flow .grant-card .tag { font-size: 6.5pt; padding: .6mm 2mm; }
+  .flow .opc-card h3, .flow .step-card h3, .flow .money-card h3, .flow .grant-card h3, .flow .source-card h3 { font-size: 10.5pt; margin: 2mm 0 1mm; }
+  .flow .opc-card p, .flow .step-card p, .flow .money-card p, .flow .grant-card p, .flow .source-card p { font-size: 8pt; line-height: 1.5; }
+  .flow .number-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3mm; margin-top: 4mm; break-inside: avoid; }
+  .flow .number-card { border-radius: 4mm; padding: 3.5mm; }
+  .flow .number-card .v { font-size: 17pt; }
+  .flow .number-card .l { font-size: 7.2pt; margin-top: 1.5mm; line-height: 1.45; }
+  .flow .mini-note { margin-top: 4mm; padding: 3mm 4mm; border-left: 1.2mm solid var(--jr-red); border-radius: 0 3mm 3mm 0; background: var(--jr-wash-red); font-size: 8.5pt; line-height: 1.55; break-inside: avoid; }
+  .flow .sales-card-lead { margin-top: 5mm; font-size: 9.5pt; font-weight: var(--jr-fw-bold); color: var(--jr-black); }
+  .page.back-cover.opc-back { gap: 5mm; padding: 18mm 20mm; }
+  .opc-back .back-logo { height: 12mm; width: auto; }
+  .opc-back h2 { font-size: 25pt; line-height: 1.12; margin: 0; }
+  .opc-back p { font-size: 10pt; line-height: 1.5; margin: 0; }
+  .opc-back .sales-card, .opc-back .contact-bar { width: 72% !important; box-shadow: none; }
+  .opc-back .contact-bar { padding: 3mm 4mm; gap: 4mm; }
+  .opc-back .contact-bar .qr { width: 18mm; height: 18mm; }
+  .opc-back .caption { font-size: 7.2pt; }
+  @media (max-width: 900px) { .opc-grid, .step-grid, .money-grid, .grant-grid, .source-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<img class="jr-wm" src="assets/logo/jr-box.svg" alt="" />
+
+<section class="page cover2 dark">
+  <img class="cover-logo" src="assets/logo/logo-zh-white.png" alt="匠人学院" />
+  <div class="cv2-ghost">OPC</div>
+  <div class="cv2-copy">
+    <div class="cv2-kicker">更新至 2026.07</div>
+    <h1><em>澳洲</em><br />OPC<br />一人公司</h1>
+    <p>给准备接私活、做咨询、开 SaaS、做电商或把副业转正的人：Pty Ltd、ABN、Director ID、GST、工资、补贴入口和 30 天落地清单一次讲明白。</p>
+    <div class="cv2-tags"><span>Pty Ltd</span><span>ABN / ACN</span><span>Director ID</span><span>GST / PAYG</span><span>Grants Finder</span></div>
+  </div>
+  <img class="cv2-mascot" src="assets/illustrations/niuxiaojiang-working-laptop.png" alt="牛小匠" />
+  <div class="cv2-strip"><span>PTY LTD <i>✦</i> ABN <i>✦</i> ASIC <i>✦</i> ATO <i>✦</i> GST <i>✦</i> JIANGREN.COM.AU <i>✦</i></span></div>
+</section>
+
+<main class="flow">
+<section class="ch book-toc">
+  <div class="wrap">
+    <div class="ch-num">CONTENTS</div>
+    <h2>目录</h2>
+    <a href="#how"><span class="num">00</span>先把 OPC 这个词讲清楚</a>
+    <a href="#ch1"><span class="num">01</span>一人公司到底适合谁</a>
+    <a href="#ch2"><span class="num">02</span>注册前 6 个决定</a>
+    <a href="#ch3"><span class="num">03</span>ASIC、ABN、Director ID 怎么串起来</a>
+    <a href="#ch4"><span class="num">04</span>税务：GST、PAYG、公司税、Super</a>
+    <a href="#ch5"><span class="num">05</span>银行、账本和合同别混着用</a>
+    <a href="#ch6"><span class="num">06</span>政府补贴和税收优惠怎么找</a>
+    <a href="#ch7"><span class="num">07</span>孵化器、产业园和 coworking 怎么选</a>
+    <a href="#ch8"><span class="num">08</span>投融资、路演、创业大赛别太早冲</a>
+    <a href="#ch9"><span class="num">09</span>技术社区和开发者活动</a>
+    <a href="#ch10"><span class="num">10</span>30 天落地清单</a>
+    <a href="#sources"><span class="num">A</span>官方来源清单</a>
+  </div>
+</section>
+
+<section class="ch" id="how">
+  <div class="wrap">
+    <h2>先把 OPC 这个词讲清楚</h2>
+    <div class="card">
+      <p>澳洲没有一个官方公司类型叫 “OPC”。你在中文里看到的 OPC，一般是在说“一个人开的公司”。放到澳洲官方语境，最接近的是 <strong>proprietary company limited by shares</strong>，也就是常见的 <strong>Pty Ltd</strong>。</p>
+      <p>说白了，你可以一个人当 director，一个人持股，一个人接客户。但它不是 sole trader。公司是单独的法律主体，有自己的 ACN、ABN、银行账户、税号、账本和年审义务。</p>
+    </div>
+    <div class="number-row">
+      <div class="number-card"><div class="v">1</div><div class="l">Pty Ltd 至少要有一名 director，且至少一名 director 通常居住在澳洲。</div></div>
+      <div class="number-card"><div class="v">12%</div><div class="l">Super guarantee 从 2025-07-01 起为 ordinary time earnings 的 12%。</div></div>
+      <div class="number-card"><div class="v">$75K</div><div class="l">GST 注册门槛通常看年 GST turnover 是否达到 AUD 75,000。</div></div>
+      <div class="number-card"><div class="v">25%</div><div class="l">符合 base rate entity 条件的小公司，公司税率通常是 25%。</div></div>
+    </div>
+    <div class="mini-note">这本书不是法律、税务、移民或金融建议。费用、补贴、税率和表格会变，尤其是 ASIC fees 每年 7 月常调整。要交钱前，回 ASIC、ATO、ABRS 和 business.gov.au 查当天版本。</div>
+    <div class="contact-bar">
+      <img class="qr" src="assets/contact/qr-rain.png" alt="Rain · 匠人学院 IT 顾问微信二维码" />
+      <div><div class="t">想把副业做成能收款的产品？</div><div class="d">扫码找 Rain，先聊公司结构、技术交付和第一版产品怎么落地。我们不承诺补贴和融资结果。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="ch" id="ch1">
+  <div class="ghost">01</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 01</div><h2>一人公司到底适合谁</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-thinking.png" alt="" />
+    </div>
+    <p class="lead">别一上来就注册公司。公司能帮你把个人和业务分开，但它也会带来年审、账务、director duties 和税务申报。还没验证客户之前，先把成本算清楚。</p>
+    <div class="opc-grid">
+      <article class="opc-card"><span class="tag">适合</span><h3>B2B 服务和咨询</h3><p>比如 IT 咨询、网站开发、数据看板、自动化流程。客户是公司时，对方经常更愿意和 Pty Ltd 签合同、要 tax invoice、走 vendor onboarding。</p></article>
+      <article class="opc-card"><span class="tag">适合</span><h3>SaaS 和可复制产品</h3><p>如果你要接 Stripe、签软件订阅、处理用户数据，公司主体会比个人名义清楚。例子：给中介做租房线索 CRM，每月收订阅费。</p></article>
+      <article class="opc-card"><span class="tag">先别急</span><h3>只有零星私活</h3><p>一个月接一两个小单、收入还不稳定，sole trader 可能更轻。先拿 ABN 测市场，等收入稳定或客户要求公司主体，再升级也来得及。</p></article>
+      <article class="opc-card"><span class="tag">要谨慎</span><h3>想用公司“省税”</h3><p>公司税率不是个人避税通道。钱留在公司和分到个人，是两套结果。还涉及 PSI、dividend、director loan、Division 7A 等问题，别靠短视频做决定。</p></article>
+    </div>
+    <table>
+      <tr><th>结构</th><th>一句话</th><th>常见场景</th><th>你要多想一步</th></tr>
+      <tr><td>Sole trader</td><td>个人做生意</td><td>刚开始接私活、低风险服务</td><td>个人和业务责任更难分开</td></tr>
+      <tr><td>Pty Ltd</td><td>公司单独存在</td><td>B2B、SaaS、雇人、融资准备</td><td>合规和记账成本更高</td></tr>
+      <tr><td>Trust</td><td>信托持有业务或资产</td><td>家庭资产规划、复杂分配</td><td>需要会计师和律师介入</td></tr>
+    </table>
+  </div>
+</section>
+
+<section class="ch" id="ch2">
+  <div class="ghost">02</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 02</div><h2>注册前 6 个决定</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-pen-book.png" alt="" />
+    </div>
+    <p class="lead">注册公司本身不难。难的是你没想清楚就填，后面改起来麻烦。下面 6 件事先写在纸上。</p>
+    <div class="step-grid">
+      <article class="step-card"><span class="tag">一</span><h3>公司名还是 ACN 当名字</h3><p>ASIC 允许用 ACN 作为公司名的一部分。想做品牌，就查公司名和 business name；只做后台主体，名字可以朴素一点。</p></article>
+      <article class="step-card"><span class="tag">二</span><h3>注册地址和主要营业地</h3><p>registered office 不能随便写。用会计师地址、虚拟办公室或自家地址，隐私和收信责任不一样。</p></article>
+      <article class="step-card"><span class="tag">三</span><h3>director 和 shareholder</h3><p>一人公司也要区分你作为 director 管公司，和你作为 shareholder 持股。以后加合伙人时，这个区别很关键。</p></article>
+      <article class="step-card"><span class="tag">四</span><h3>股份数量和价格</h3><p>常见做法是 100 股或 1,000 股普通股，每股 1 AUD。别一开始搞复杂股权，除非已经有融资或员工期权计划。</p></article>
+      <article class="step-card"><span class="tag">五</span><h3>constitution 还是 replaceable rules</h3><p>小公司可以用 Corporations Act 的 replaceable rules。要融资、多人股东或特殊权利，再让律师看 constitution。</p></article>
+      <article class="step-card"><span class="tag">六</span><h3>行业许可和保险</h3><p>IT 咨询常看 professional indemnity、public liability、cyber insurance。餐饮、建筑、教育、金融相关行业还要看额外许可。</p></article>
+    </div>
+    <div class="callout warn"><strong>别把 business name 当公司。</strong>注册 business name 只是注册一个对外经营名称，不会自动产生公司。公司是 ASIC 注册出来的法律主体，会有 ACN。</div>
+  </div>
+</section>
+
+<section class="ch" id="ch3">
+  <div class="ghost">03</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 03</div><h2>ASIC、ABN、Director ID 怎么串起来</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-coffee-pointing.png" alt="" />
+    </div>
+    <p class="lead">很多人注册时乱，是因为把几个号码混在一起。按这个顺序看就清楚了。</p>
+    <div class="pipeline">
+      <div class="pnode"><div class="pico">1</div><h4>Director ID</h4><p>成为公司 director 之前或规定期限内申请。一个人终身一个号码。</p><span class="ptag">ABRS</span></div>
+      <div class="plink">→</div>
+      <div class="pnode"><div class="pico">2</div><h4>注册公司</h4><p>通过 ASIC 或注册代理提交，拿到 ACN。</p><span class="ptag">ASIC</span></div>
+      <div class="plink">→</div>
+      <div class="pnode"><div class="pico">3</div><h4>ABN / TFN</h4><p>公司做生意要 ABN，公司报税要 TFN。</p><span class="ptag">ABR / ATO</span></div>
+      <div class="plink">→</div>
+      <div class="pnode"><div class="pico">4</div><h4>GST / PAYG</h4><p>收入或雇佣触发后注册，不是每家公司一开始都必须。</p><span class="ptag">ATO</span></div>
+    </div>
+    <div class="opc-grid">
+      <article class="opc-card"><span class="tag">ACN</span><h3>公司身份证</h3><p>Australian Company Number，ASIC 给公司。公司文件、合同、发票和网站页脚经常要放。</p></article>
+      <article class="opc-card"><span class="tag">ABN</span><h3>做生意用的号码</h3><p>Australian Business Number，客户查你是不是正规 business，B2B 发票通常要它。</p></article>
+      <article class="opc-card"><span class="tag">TFN</span><h3>公司报税用</h3><p>公司自己的 Tax File Number，不等于你个人 TFN。公司报 company tax return 要用。</p></article>
+      <article class="opc-card"><span class="tag">Director ID</span><h3>director 本人的号码</h3><p>用来防止虚假 director 身份。不是公司号，也不是 ABN。</p></article>
+    </div>
+    <div class="mini-note">ASIC 注册费、年审费、late fee 都会变。预算时去 ASIC “fees” 页面看当天金额，别照搬旧攻略截图。</div>
+  </div>
+</section>
+<aside class="promo">
+  <span class="promo-tag">AD · 自家的</span>
+  <div class="promo-body">
+    <h4>🧪 10 分钟测出你的 AI Engineer 缺口</h4>
+    <p>官网的 77 项能力自测（五大支柱逐项点选），已有 2,300+ 人做过。测完直接看出你该补哪根柱子，免费不用注册。</p>
+  </div>
+  <a class="promo-cta" href="https://jiangren.com.au/learn/ai-engineer" target="_blank" rel="noopener">去做测试 →</a>
+</aside>
+
+<section class="ch" id="ch4">
+  <div class="ghost">04</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 04</div><h2>税务：GST、PAYG、公司税、Super</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-chart.png" alt="" />
+    </div>
+    <p class="lead">别等 BAS 到期才问会计。一个人公司最常见的税务动作，就这几件。</p>
+    <div class="money-grid">
+      <article class="money-card"><span class="tag">GST</span><h3>AUD 75,000 门槛</h3><p>如果 GST turnover 达到或预计达到 75,000 AUD，通常要注册 GST。注册后 invoice 要加 GST，定期报 BAS。</p></article>
+      <article class="money-card"><span class="tag">PAYG withholding</span><h3>发工资前就要想</h3><p>公司给你自己或员工发工资，一般要注册 PAYG withholding，从工资里扣税再交给 ATO。</p></article>
+      <article class="money-card"><span class="tag">Company tax</span><h3>25% 或 30%</h3><p>符合 base rate entity 条件的小公司通常 25%；否则一般 30%。别只看税率，还要看钱怎么从公司拿出来。</p></article>
+      <article class="money-card"><span class="tag">Super</span><h3>12%</h3><p>公司作为 employer 给员工付 super。你如果从公司拿工资，也要按规则处理 super。</p></article>
+    </div>
+    <table>
+      <tr><th>动作</th><th>触发点</th><th>例子</th><th>别踩坑</th></tr>
+      <tr><td>Tax invoice</td><td>注册 GST 后</td><td>5,500 AUD 项目费，含 500 AUD GST</td><td>没注册 GST 不要随便收 GST</td></tr>
+      <tr><td>BAS</td><td>注册 GST 或 PAYG 后</td><td>季度申报销售 GST、采购 GST credits、工资扣缴</td><td>现金流里要留出税款</td></tr>
+      <tr><td>Company tax return</td><td>公司每个财年</td><td>收入减可扣费用后算 taxable income</td><td>公司钱不等于你的个人钱</td></tr>
+      <tr><td>Super payment</td><td>发工资给员工/自己</td><td>ordinary time earnings 的 12%</td><td>迟交 super 处罚很重</td></tr>
+    </table>
+    <div class="callout"><strong>一个具体算法：</strong>你给客户开 11,000 AUD 含 GST 发票，里面 10,000 是收入，1,000 是 GST。那 1,000 不是利润，是代 ATO 收的钱。别拿去买电脑。</div>
+  </div>
+</section>
+
+<section class="ch" id="ch5">
+  <div class="ghost">05</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 05</div><h2>银行、账本和合同别混着用</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-data.png" alt="" />
+    </div>
+    <p class="lead">一人公司最容易乱的地方，不是注册，是运营。钱一混、合同一口头、发票一乱，年底会计看了也头疼。</p>
+    <div class="check-group">
+      <div class="head"><span class="stage">第一周</span><h3>基础账务</h3></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">开公司银行账户，只进出公司业务款</div><div class="n">不要用个人卡收客户钱，也不要用公司卡买私人机票。</div></div></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">选一个记账系统</div><div class="n">Xero、MYOB、QuickBooks 都行。重点不是软件，是每周对账。</div></div></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">准备 invoice 模板</div><div class="n">公司名、ACN/ABN、地址、付款条款、GST 状态写清楚。</div></div></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">保留收据和合同</div><div class="n">云盘建 `FY2026/Invoices/Receipts/Contracts`，别年底翻微信聊天。</div></div></div>
+    </div>
+    <div class="yes-no">
+      <div class="yn no"><h4>别这么干</h4><ul><li>客户先打到个人 PayID，再转给公司</li><li>合同只有微信一句“没问题”</li><li>所有订阅都绑个人邮箱</li><li>买设备没记用途</li></ul></div>
+      <div class="yn yes"><h4>改成这样</h4><ul><li>公司账户收款，公司账户付款</li><li>每个项目有 quote、SOW 或 service agreement</li><li>公司邮箱管理软件、域名和云服务</li><li>设备、软件、差旅写清业务用途</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="ch" id="ch6">
+  <div class="ghost">06</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 06</div><h2>政府补贴和税收优惠怎么找</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-hero.png" alt="" />
+    </div>
+    <p class="lead">补贴别靠朋友圈截图。澳洲补贴很碎，联邦、州、地方政府、行业机构都会发，开关时间还常变。正确做法是先找官方入口，再看 eligibility。</p>
+    <div class="grant-grid">
+      <article class="grant-card"><span class="tag">入口</span><h3>business.gov.au Grants Finder</h3><p>先按 state、industry、business stage、number of employees 过滤。每个项目看 close date、matched funding、ABN 要求、成立时间要求。</p></article>
+      <article class="grant-card"><span class="tag">研发</span><h3>R&D Tax Incentive</h3><p>如果你在做真正有技术不确定性的研发，可能查这个。普通网站外包、套 API、改 UI，通常不等于 R&D。</p></article>
+      <article class="grant-card"><span class="tag">出口</span><h3>Export Market Development Grants</h3><p>面向做海外市场推广的企业。它不是“有公司就返钱”，要看轮次、支出类型和申请窗口。</p></article>
+      <article class="grant-card"><span class="tag">就业</span><h3>Self-Employment Assistance</h3><p>给符合条件的人做商业计划、培训和 mentoring。它更像创业支持，不是无条件现金补贴。</p></article>
+    </div>
+    <div class="mini-note">判断补贴时先问四句：一是我有没有 ABN/ACN；二是项目是否还 open；三是要不要 matched funding；四是拿钱后要交什么报告。答不上来，先别把它写进现金流。</div>
+    <p class="sales-card-lead">如果你要做的是 AI 工具、自动化服务或内部系统，补贴之前先把 MVP 和技术边界画清楚。</p>
+    <div class="sales-card"><img src="assets/contact/sales-cards/rain.jpg" alt="Rain · 匠人学院 IT 顾问" /></div>
+  </div>
+</section>
+
+<section class="ch" id="ch7">
+  <div class="ghost">07</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 07</div><h2>孵化器、产业园和 coworking 怎么选</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-coffee-pointing.png" alt="" />
+    </div>
+    <p class="lead">别为了一个漂亮地址搬进去。空间、孵化器、accelerator 是工具，不是商业模式。一个人公司最该买的不是办公桌，是客户线索和同行反馈。</p>
+    <table>
+      <tr><th>类型</th><th>你能拿到什么</th><th>适合谁</th><th>先问一句</th></tr>
+      <tr><td>Coworking</td><td>办公地址、会议室、活动</td><td>自由职业、远程团队</td><td>我的客户会在这里出现吗？</td></tr>
+      <tr><td>University incubator</td><td>导师、学生资源、demo day</td><td>学生、校友、早期项目</td><td>是否必须有学校关联？</td></tr>
+      <tr><td>Accelerator</td><td>密集辅导、投资人曝光</td><td>已有 MVP 和增长信号</td><td>拿 equity 吗？条款是什么？</td></tr>
+      <tr><td>Industry hub</td><td>行业客户、采购渠道、政府连接</td><td>有明确垂直场景</td><td>它服务哪个行业，不是哪个城市？</td></tr>
+    </table>
+    <div class="opc-grid">
+      <article class="opc-card"><span class="tag">Sydney</span><h3>科技和金融客户密</h3><p>适合 fintech、B2B SaaS、AI automation。成本更高，但客户密度也高。</p></article>
+      <article class="opc-card"><span class="tag">Melbourne</span><h3>教育、医疗、设计和专业服务强</h3><p>如果你做 EdTech、health admin、consulting automation，活动和客户都不少。</p></article>
+      <article class="opc-card"><span class="tag">Brisbane / Gold Coast</span><h3>成本低，增长快</h3><p>适合远程交付、留学服务、地产相关工具和旅游/本地服务数字化。</p></article>
+      <article class="opc-card"><span class="tag">Perth / Adelaide</span><h3>行业更垂直</h3><p>矿业、能源、防务、制造和科研转化更集中。找客户要更精准。</p></article>
+    </div>
+  </div>
+
+<a class="promo-line" href="https://jiangren.com.au/blog" target="_blank" rel="noopener">📰 跟上行业节奏：匠人每天 5 条经过核源的 AI 日报，每周一份大事盘点 <span>→</span></a></section>
+<aside class="promo">
+  <span class="promo-tag">AD · 自家的</span>
+  <div class="promo-body">
+    <h4>📚 27 本 AI 工具实战手册，免费</h4>
+    <p>Cursor、Claude Code、Dify、n8n、CrewAI…每个工具一本中文实战手册，5-10 章带代码，不用注册不要钱。本书提到的工具基本都有对应深读。</p>
+  </div>
+  <a class="promo-cta" href="https://jiangren.com.au/wiki" target="_blank" rel="noopener">去翻手册 →</a>
+</aside>
+
+<section class="ch" id="ch8">
+  <div class="ghost">08</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 08</div><h2>投融资、路演、创业大赛别太早冲</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-data.png" alt="" />
+    </div>
+    <p class="lead">一个人公司当然可以做成 startup，但大多数 OPC 的第一任务不是融资，是活下来。没有客户、没有复购、没有产品指标，路演稿再漂亮也只是幻灯片。</p>
+    <div class="ladder">
+      <div class="lstep h1x"><span class="lv">0-1</span><h4>先收第一笔钱</h4><div class="lcap">服务或 MVP</div><p>例子：帮一家中介搭自动回复和客户表单，收 2,000 AUD 项目费。</p></div>
+      <div class="lstep h2x"><span class="lv">1-10</span><h4>把交付变可复制</h4><div class="lcap">模板、脚本、SOP</div><p>同一类客户重复 3 次以后，整理成 fixed package，不要每单重新发明。</p></div>
+      <div class="lstep h3x"><span class="lv">10-100</span><h4>再想融资或大赛</h4><div class="lcap">增长证据</div><p>月收入、留存、毛利、获客成本、pipeline，这些比“市场很大”更有用。</p></div>
+    </div>
+    <div class="callout warn"><strong>融资前先准备 cap table。</strong>你一个人 100% 持股时很简单；一旦给合伙人、顾问、投资人股份，shareholders agreement、vesting、IP assignment 都要认真做。</div>
+  </div>
+</section>
+
+<section class="ch" id="ch9">
+  <div class="ghost">09</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 09</div><h2>技术社区和开发者活动</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-pen-book.png" alt="" />
+    </div>
+    <p class="lead">如果你的公司和技术有关，别只待在华人群里。澳洲本地客户和合作机会，很多是在 meetup、hackathon、vendor event 和大学创业活动里碰到的。</p>
+    <div class="opc-grid">
+      <article class="opc-card"><span class="tag">开发者</span><h3>GDG、AWS、Azure、Data meetup</h3><p>适合找技术伙伴、学习云服务和展示 demo。带着一个能点开的 prototype 去，比带 20 页 PPT 强。</p></article>
+      <article class="opc-card"><span class="tag">创业</span><h3>Startup community 和 pitch night</h3><p>适合练一句话讲清问题、客户、解决方案和收费方式。别第一次上台才发现没人听懂你卖什么。</p></article>
+      <article class="opc-card"><span class="tag">学校</span><h3>大学 incubator 和校友活动</h3><p>学生创业者先看学校资源。很多学校有导师、法务模板、grant workshop 和 demo day。</p></article>
+      <article class="opc-card"><span class="tag">行业</span><h3>会计、地产、教育、医疗活动</h3><p>做 B2B 服务时，去客户所在的行业活动。例子：你做物业 AI 助手，就别只参加 AI meetup。</p></article>
+    </div>
+    <div class="mini-note">社交目标别写“多认识人”。写具体一点：本月约 5 个潜在客户做 discovery call，问他们现在怎么处理这个流程、愿意为什么付费、现在预算谁批。</div>
+  </div>
+</section>
+
+<section class="ch" id="ch10">
+  <div class="ghost">10</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 10</div><h2>30 天落地清单</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-working-laptop.png" alt="" />
+    </div>
+    <p class="lead">下面这张清单是给“真的要开始”的人。别一天刷 20 篇攻略。按周做，做完再说下一步。</p>
+    <div class="check-group">
+      <div class="head"><span class="stage">Day 1-7</span><h3>验证和结构</h3></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">写一页业务说明</div><div class="n">客户是谁、痛点是什么、收多少钱、交付物是什么。</div></div></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">问 5 个真实客户</div><div class="n">不要问“你觉得好吗”，问“你现在怎么做，花多少钱，谁决定”。</div></div></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">和会计确认结构</div><div class="n">sole trader、Pty Ltd、GST、PAYG、PSI 风险先问清。</div></div></div>
+    </div>
+    <div class="check-group">
+      <div class="head"><span class="stage">Day 8-15</span><h3>注册和基础设施</h3></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">申请 Director ID，准备 ASIC 注册信息</div><div class="n">director、shareholder、地址、股份、company name。</div></div></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">注册公司后申请 ABN / TFN</div><div class="n">拿到 ACN 后，把税务和业务号码串起来。</div></div></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">开公司银行账户和记账系统</div><div class="n">从第一笔收入开始干净，不要年底补账。</div></div></div>
+    </div>
+    <div class="check-group">
+      <div class="head"><span class="stage">Day 16-30</span><h3>收款和交付</h3></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">做 quote、invoice、SOW 模板</div><div class="n">付款节点、修改次数、IP、保密、取消条款写清。</div></div></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">跑 Grants Finder</div><div class="n">只收藏还 open 且 eligibility 明确的项目，别把补贴当收入。</div></div></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">交付第一个可展示案例</div><div class="n">客户允许的话，整理成 1 页 case study：问题、做法、结果、截图。</div></div></div>
+    </div>
+    <div class="contact-bar">
+      <img class="qr" src="assets/contact/qr-rain.png" alt="Rain · 匠人学院 IT 顾问微信二维码" />
+      <div><div class="t">30 天清单卡住了？</div><div class="d">扫码找 Rain，把你的业务想法、技术背景和目标客户发来，先拆第一版产品和交付路径。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="ch" id="sources">
+  <div class="wrap">
+    <div class="ch-num">SOURCES</div>
+    <h2>官方来源清单</h2>
+    <div class="source-grid">
+      <article class="source-card"><h3>ASIC</h3><p>公司注册步骤、officeholder duties、annual statements、fees。注册和年审费用以 ASIC 当天页面为准。</p></article>
+      <article class="source-card"><h3>ABRS</h3><p>Director ID 申请和 director 身份规则。一个人终身一个 director ID。</p></article>
+      <article class="source-card"><h3>business.gov.au</h3><p>ABN、business name、GST 注册入口、Grants and programs finder。</p></article>
+      <article class="source-card"><h3>ATO</h3><p>GST、PAYG withholding、company tax rates、super guarantee、BAS 和雇主义务。</p></article>
+    </div>
+    <table>
+      <tr><th>你要查什么</th><th>去哪里</th><th>关键词</th></tr>
+      <tr><td>注册 Pty Ltd</td><td>ASIC</td><td>Steps to register a company</td></tr>
+      <tr><td>Director ID</td><td>ABRS</td><td>Director identification number</td></tr>
+      <tr><td>ABN / business name</td><td>business.gov.au</td><td>Register for an ABN / Register a business name</td></tr>
+      <tr><td>GST / PAYG / company tax</td><td>ATO</td><td>GST turnover threshold / PAYG withholding / company tax rates</td></tr>
+      <tr><td>补贴和项目</td><td>business.gov.au</td><td>Grants and programs finder</td></tr>
+    </table>
+  </div>
+</section>
+</main>
+
+<section class="page back-cover opc-back dark">
+  <img class="back-logo" src="assets/logo/logo-zh-white.png" alt="匠人学院" />
+  <h2>公司可以一个人开，路别一个人摸黑走。</h2>
+  <p>把 Pty Ltd、税务、技术交付和第一批客户线索理顺，比“先注册再说”靠谱得多。</p>
+  <div class="sales-card"><img src="assets/contact/sales-cards/rain.jpg" alt="Rain · 匠人学院 IT 顾问" /></div>
+  <div class="contact-bar">
+    <img class="qr" src="assets/contact/qr-rain.png" alt="Rain · 匠人学院 IT 顾问微信二维码" />
+    <div><div class="t">扫码找 Rain 聊聊你的公司和产品</div><div class="d">适合 IT 咨询、AI 自动化、SaaS、留学生创业和副业转正。我们不承诺补贴、投资、收入或签证结果。</div></div>
+  </div>
+  <p class="caption">jiangren.com.au · 本手册核对日期 2026-07-01 · 不是法律、税务、移民或金融建议。</p>
+</section>
+
+<script defer src="theme/reader.js"></script>
+<a href="%E6%BE%B3%E6%B4%B2%20OPC%20%E4%B8%80%E4%BA%BA%E5%85%AC%E5%8F%B8%E5%AE%9E%E6%93%8D%E6%89%8B%E5%86%8C%202026%20-%20%E5%8C%A0%E4%BA%BA%E5%AD%A6%E9%99%A2.pdf" download style="position:fixed;right:22px;bottom:22px;z-index:1200;display:flex;align-items:center;gap:8px;background:#0D0F12;color:#fff;font-weight:700;font-size:14.5px;padding:13px 22px;border-radius:999px;box-shadow:0 12px 28px rgba(13,15,18,.35);text-decoration:none;font-family:Inter,'PingFang SC',sans-serif;">⬇️ 下载 PDF 版</a>
+</body>
+</html>

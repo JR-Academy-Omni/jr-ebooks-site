@@ -1,0 +1,41 @@
+{
+  "slug": "au-opc-one-person-company-guide-2026",
+  "title": "澳洲 OPC 一人公司实操手册 2026",
+  "subtitle": "从 Pty Ltd、ABN、Director ID、GST、工资和补贴入口，讲清一个人在澳洲怎么把公司搭起来",
+  "style": "guide + zine web + flow A4",
+  "audience": "在澳洲准备接 freelance、做 SaaS、开咨询服务、做电商或副业转正的华人创业者",
+  "track": "T3 澳洲创业与职业",
+  "checked": "2026-07-01",
+  "contact": {
+    "qr": "qr-rain.png",
+    "salesCard": "rain.jpg",
+    "salesCards": [
+      "rain.jpg"
+    ],
+    "owner": "Rain",
+    "note": "创业/职业转型泛流量题，使用 Rain；CTA 只写扫码做公司结构和技术落地梳理，不承诺补贴、投资、收入或签证结果。"
+  },
+  "tags": [
+    "australia",
+    "pty-ltd",
+    "one-person-company",
+    "startup",
+    "small-business",
+    "abn",
+    "gst"
+  ],
+  "sources": [
+    "ASIC Steps to register a company: https://asic.gov.au/for-business/registering-a-company/steps-to-register-a-company/",
+    "ASIC Company officeholder duties: https://asic.gov.au/for-business/running-a-company/company-officeholder-duties/",
+    "ASIC Annual statements: https://asic.gov.au/for-business/running-a-company/annual-statements/",
+    "ABRS Director ID: https://www.abrs.gov.au/director-identification-number",
+    "business.gov.au Register for an ABN: https://business.gov.au/registrations/register-for-an-australian-business-number-abn",
+    "business.gov.au Register a business name: https://business.gov.au/registrations/register-a-business-name",
+    "business.gov.au GST registration: https://business.gov.au/registrations/register-for-taxes/register-for-goods-and-services-tax-gst",
+    "ATO Company tax rates: https://www.ato.gov.au/tax-rates-and-codes/company-tax-rates",
+    "ATO Super guarantee: https://www.ato.gov.au/businesses-and-organisations/super-for-employers/paying-super-contributions/super-guarantee-contributions",
+    "business.gov.au Grants and programs finder: https://business.gov.au/grants-and-programs",
+    "business.gov.au Research and Development Tax Incentive: https://business.gov.au/grants-and-programs/research-and-development-tax-incentive"
+  ],
+  "note": "核对日期：2026-07-01。公司注册、税务、补贴和雇主义务会变；正文以 ASIC、ABRS、ATO、business.gov.au 官方入口为准。本文不是法律、税务、移民或金融建议。"
+}
