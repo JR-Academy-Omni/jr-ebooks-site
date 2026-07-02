@@ -9,10 +9,12 @@
 <link rel="stylesheet" href="theme/flow-a4.css" />
 <style>
   .cover2 .cover-logo { position: absolute; top: 15mm; left: 15mm; height: 12mm; width: auto; z-index: 3; }
-  .cover2 .cv2-copy { position: relative; z-index: 3; margin-top: 32mm; max-width: 148mm; }
-  .cover2 .cv2-copy h1 { font-family: Anton, Impact, sans-serif; font-size: 45pt; line-height: 1.03; color: var(--jr-white); margin: 4mm 0 6mm; letter-spacing: 0; }
-  .cover2 .cv2-copy h1 em { color: var(--jr-red); font-style: normal; }
-  .cover2 .cv2-copy p { color: rgba(255,255,255,.75); font-size: 10.5pt; line-height: 1.7; max-width: 122mm; }
+  .cover2 .cv2-copy { position: relative; z-index: 3; margin-top: 31mm; max-width: 150mm; }
+  .cover2 .manga-cover-title { font-family: Anton, Impact, sans-serif; color: var(--jr-white); margin: 4mm 0 6mm; letter-spacing: 0; }
+  .cover2 .manga-cover-title .main { display: block; font-size: 42pt; line-height: .96; white-space: nowrap; }
+  .cover2 .manga-cover-title .main em { color: var(--jr-red); font-style: normal; }
+  .cover2 .manga-cover-title .sub { display: inline-block; margin-top: 2.5mm; font-size: 45pt; line-height: .98; border-bottom: 2.2mm solid var(--jr-red); padding-bottom: 1.5mm; }
+  .cover2 .cv2-copy p { color: rgba(255,255,255,.78); font-size: 10.5pt; line-height: 1.7; max-width: 126mm; }
   .cover2 .cv2-tags { display: flex; gap: 3mm; flex-wrap: wrap; margin-top: 7mm; }
   .cover2 .cv2-tags span { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.3); color: rgba(255,255,255,.92); border-radius: var(--jr-radius-full); font-size: 8.5pt; font-weight: var(--jr-fw-bold); padding: 1.3mm 3.5mm; }
   .tool-grid, .money-grid, .prompt-grid, .platform-grid, .case-grid, .risk-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 18px; }
@@ -48,7 +50,7 @@
   <div class="cv2-ghost">MANGA</div>
   <div class="cv2-copy">
     <div class="cv2-kicker">国内版 · 更新至 2026.07</div>
-    <h1><em>AI</em><br />漫剧<br />变现地图</h1>
+    <h1 class="manga-cover-title"><span class="main"><em>AI 漫剧</em></span><span class="sub">变现地图</span></h1>
     <p>从爽文短剧、角色一致性、工具链、提示词到接单报价，一个人把 AI 漫剧跑起来。重点不是“会生成图”，是能持续产出、能过审、能接单。</p>
     <div class="cv2-tags"><span>变现路线</span><span>工具全搜集</span><span>Prompt 模板</span><span>30 天起号</span></div>
   </div>
