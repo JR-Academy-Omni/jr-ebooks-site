@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>AI 漫剧 Prompt 提示词合集 2026 - JR Academy</title>
+<link rel="stylesheet" href="theme/tokens.css" />
+<link rel="stylesheet" href="theme/ebook.css" />
+<link rel="stylesheet" href="theme/flow-a4.css" />
+<style>
+  .cover2 .cover-logo { position: absolute; top: 15mm; left: 15mm; height: 12mm; width: auto; z-index: 3; }
+  .cover2 .cv2-copy { position: relative; z-index: 3; margin-top: 31mm; max-width: 150mm; }
+  .cover2 .prompt-title { font-family: Anton, Impact, sans-serif; color: var(--jr-white); margin: 4mm 0 6mm; letter-spacing: 0; }
+  .cover2 .prompt-title .main { display: block; font-size: 42pt; line-height: .96; white-space: nowrap; }
+  .cover2 .prompt-title .main em { color: var(--jr-red); font-style: normal; }
+  .cover2 .prompt-title .sub { display: inline-block; margin-top: 2.5mm; font-size: 43pt; line-height: .98; border-bottom: 2.2mm solid var(--jr-red); padding-bottom: 1.5mm; }
+  .cover2 .cv2-copy p { color: rgba(255,255,255,.78); font-size: 10.5pt; line-height: 1.7; max-width: 126mm; }
+  .cover2 .cv2-tags { display: flex; gap: 3mm; flex-wrap: wrap; margin-top: 7mm; }
+  .cover2 .cv2-tags span { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.3); color: rgba(255,255,255,.92); border-radius: var(--jr-radius-full); font-size: 8.5pt; font-weight: var(--jr-fw-bold); padding: 1.3mm 3.5mm; }
+  .prompt-grid, .scene-grid, .source-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 18px; }
+  .prompt-card, .scene-card, .source-card { border: 1px solid var(--jr-border-warm); border-radius: 18px; background: var(--jr-white); box-shadow: var(--jr-shadow-sm); padding: 18px; }
+  .prompt-card .tag, .scene-card .tag { display: inline-flex; border-radius: 999px; background: var(--jr-red); color: #fff; padding: 5px 10px; font-size: 12px; font-weight: 800; }
+  .prompt-card h3, .scene-card h3, .source-card h3 { margin: 12px 0 8px; font-size: 21px; line-height: 1.25; }
+  .flow .prompt-grid, .flow .scene-grid, .flow .source-grid { grid-template-columns: repeat(2, 1fr); gap: 3.5mm; }
+  .flow .prompt-card, .flow .scene-card, .flow .source-card { border-radius: 4mm; padding: 4mm; box-shadow: none; break-inside: avoid; }
+  .flow .prompt-card .tag, .flow .scene-card .tag { font-size: 6.5pt; padding: .6mm 2mm; }
+  .flow .prompt-card h3, .flow .scene-card h3, .flow .source-card h3 { font-size: 10.5pt; margin: 2mm 0 1mm; }
+  .flow .prompt-card p, .flow .scene-card p, .flow .source-card p { font-size: 8pt; line-height: 1.5; }
+  .flow .copybox { background: #16181D; color: #E8EAED; border-radius: 4mm; padding: 4mm; margin-top: 3.5mm; break-inside: avoid; }
+  .flow .copybox h4 { color: #fff; margin: 0 0 2mm; font-size: 9pt; }
+  .flow .copybox p { color: #E8EAED; font-size: 7.8pt; line-height: 1.65; }
+  .flow .field-list { background: var(--jr-surface-panel); border: 1px dashed var(--jr-border-warm-strong); border-radius: 4mm; padding: 4mm 5mm; margin-top: 4mm; break-inside: avoid; }
+  .flow .field-list li { font-size: 8.3pt; line-height: 1.55; }
+  .flow .mini-note { margin-top: 4mm; padding: 3mm 4mm; border-left: 1.2mm solid var(--jr-red); border-radius: 0 3mm 3mm 0; background: var(--jr-wash-red); font-size: 8.5pt; line-height: 1.55; break-inside: avoid; }
+  .page.back-cover.prompt-back { gap: 5mm; padding: 18mm 20mm; }
+  .prompt-back .back-logo { height: 12mm; width: auto; }
+  .prompt-back h2 { font-size: 25pt; line-height: 1.12; margin: 0; }
+  .prompt-back p { font-size: 10pt; line-height: 1.5; margin: 0; }
+  .prompt-back .sales-card, .prompt-back .contact-bar { width: 72% !important; box-shadow: none; }
+  .prompt-back .contact-bar { padding: 3mm 4mm; gap: 4mm; }
+  .prompt-back .contact-bar .qr { width: 18mm; height: 18mm; }
+  .prompt-back .caption { font-size: 7.2pt; }
+  @media (max-width: 900px) { .prompt-grid, .scene-grid, .source-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<img class="jr-wm" src="assets/logo/jr-box.svg" alt="" />
+
+<section class="page cover2 dark">
+  <img class="cover-logo" src="assets/logo/logo-zh-white.png" alt="匠人学院" />
+  <div class="cv2-ghost">PROMPT</div>
+  <div class="cv2-copy">
+    <div class="cv2-kicker">国内版 · 更新至 2026.07</div>
+    <h1 class="prompt-title"><span class="main"><em>AI 漫剧</em></span><span class="sub">提示词合集</span></h1>
+    <p>爽文钩子、角色卡、分镜、图生视频、封面标题和接单话术，直接复制改字段。少讲概念，多给能跑的模板。</p>
+    <div class="cv2-tags"><span>剧情钩子</span><span>角色一致性</span><span>图生视频</span><span>发布文案</span></div>
+  </div>
+  <img class="cv2-mascot" src="assets/illustrations/niuxiaojiang-pen-book.png" alt="牛小匠" />
+  <div class="cv2-strip"><span>AI MANGA DRAMA <i>✦</i> PROMPT PACK <i>✦</i> COPY & ADAPT <i>✦</i> JIANGREN.COM.AU <i>✦</i></span></div>
+</section>
+
+<main class="flow">
+<section class="ch book-toc">
+  <div class="wrap">
+    <div class="ch-num">CONTENTS</div>
+    <h2>目录</h2>
+    <a href="#how"><span class="num">00</span>先看：提示词怎么改才不废</a>
+    <a href="#ch1"><span class="num">01</span>选题和爽文钩子</a>
+    <a href="#ch2"><span class="num">02</span>角色卡和一致性</a>
+    <a href="#ch3"><span class="num">03</span>六镜头分镜模板</a>
+    <a href="#ch4"><span class="num">04</span>图像和图生视频提示词</a>
+    <a href="#ch5"><span class="num">05</span>配音、字幕、剪辑提示词</a>
+    <a href="#ch6"><span class="num">06</span>封面、标题、评论区</a>
+    <a href="#ch7"><span class="num">07</span>商单和接单话术</a>
+    <a href="#ch8"><span class="num">08</span>复盘和迭代模板</a>
+    <a href="#sources"><span class="num">A</span>工具入口</a>
+  </div>
+</section>
+
+<section class="ch" id="how">
+  <div class="wrap">
+    <h2>先看：提示词怎么改才不废</h2>
+    <div class="card">
+      <p>这本不是让你原封不动复制。提示词最怕两个问题：一是字段没换，生成出来全是泛泛剧情；二是要求太满，一个镜头里又哭又跑又转身又爆炸，工具直接乱掉。</p>
+      <p>用法很简单：把方括号里的内容换成你的题材、平台、角色、时长和限制。每次只改一个变量，别一条视频换 10 个变量，不然你不知道到底哪里有效。</p>
+    </div>
+    <div class="field-list">
+      <h3>每条提示词都先填这 8 个字段</h3>
+      <ul>
+        <li>平台：[抖音/快手/小红书/B站/视频号]</li>
+        <li>题材：[女频复仇/男频逆袭/职场打脸/校园悬疑/知识漫剧]</li>
+        <li>主角：[年龄、身份、视觉锚点、性格]</li>
+        <li>冲突：[谁误会谁、谁欺负谁、谁反转谁]</li>
+        <li>时长：[20 秒/45 秒/60 秒]</li>
+        <li>画风：[国漫/漫画分镜/半写实/可爱 Q 版]</li>
+        <li>限制：不要真人脸、不要知名 IP、不要血腥低俗、不要承诺收益</li>
+        <li>输出格式：表格、分镜、标题列表、逐句台词</li>
+      </ul>
+    </div>
+    <div class="contact-bar">
+      <img class="qr" src="assets/contact/qr-angela.png" alt="Angela · 匠人学院 IT 顾问微信二维码" />
+      <div><div class="t">想把提示词变成作品集？</div><div class="d">扫码找 Angela，先拆你的题材、工具链和前 10 条样片。我们不承诺涨粉、收入或平台流量。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="ch" id="ch1">
+  <div class="ghost">01</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 01</div><h2>选题和爽文钩子</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-thinking.png" alt="" />
+    </div>
+    <p class="lead">开头别讲世界观。短视频漫剧先给冲突，再补背景。你要让观众在 3 秒内知道：谁被欺负了，谁要反转，为什么要继续看。</p>
+    <div class="copybox">
+      <h4>通用选题生成器</h4>
+      <p>请基于[平台]用户偏好，给我 30 个 AI 漫剧选题。题材是[题材]，目标观众是[人群]。每个选题输出：一句话剧情、前三秒冲突、主角人设、反派人设、第一集结尾悬念、可变现承接。不要使用知名 IP、真人明星、血腥低俗和承诺收益内容。</p>
+    </div>
+    <div class="copybox">
+      <h4>3 秒钩子模板</h4>
+      <p>请为下面选题写 20 个短视频开头。要求：25 字以内；第一句就是冲突；不要解释背景；适合竖屏 AI 漫剧；语言口语化；每个开头后面标注适合的情绪：愤怒、好奇、心疼、爽感、反转。选题：[粘贴选题]</p>
+    </div>
+    <div class="prompt-grid">
+      <article class="prompt-card"><span class="tag">女频</span><h3>重生复仇</h3><p>“她死前才知道，闺蜜替她签了那份合同。”这类开头先给背叛，再给重来一次。</p></article>
+      <article class="prompt-card"><span class="tag">男频</span><h3>逆袭打脸</h3><p>“全班都笑他交白卷，只有校长站了起来。”先给羞辱，再给隐藏身份。</p></article>
+      <article class="prompt-card"><span class="tag">职场</span><h3>被抢功劳</h3><p>“老板表扬她那一刻，我打开了会议录音。”适合小红书和视频号。</p></article>
+      <article class="prompt-card"><span class="tag">知识</span><h3>把工具讲成剧情</h3><p>“他用 3 个 prompt，把老板催了一周的方案做完了。”卖点要藏进故事。</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="ch" id="ch2">
+  <div class="ghost">02</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 02</div><h2>角色卡和一致性</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-pen-book.png" alt="" />
+    </div>
+    <p class="lead">角色一致性不是靠一句“同一个女孩”。你要给工具足够稳定的视觉锚点：发型、服装、配饰、表情、身材比例、常见场景。</p>
+    <div class="copybox">
+      <h4>主角角色卡</h4>
+      <p>请为 AI 漫剧主角[名字]写一张角色卡。题材是[题材]，画风是[画风]。输出：年龄、身份、脸型、发型、发色、眼睛、服装、标志物、性格、口头禅、常见表情、禁止变化、正面提示词、半身提示词、近景提示词。要求后续每个镜头都能复用，不要撞脸真实人物。</p>
+    </div>
+    <div class="copybox">
+      <h4>反派角色卡</h4>
+      <p>请为反派[名字]写角色卡。TA 和主角的关系是[关系]，冲突是[冲突]。要求视觉上和主角明显区分：服装色系、发型、表情、站姿、说话方式都不同。输出同主角角色卡格式。</p>
+    </div>
+    <div class="copybox">
+      <h4>一致性检查</h4>
+      <p>请检查下面 6 个镜头提示词是否会导致角色不一致。重点看：发型、衣服、年龄、配饰、脸型、场景。输出：风险点、修改建议、统一后的角色描述。镜头提示词：[粘贴]</p>
+    </div>
+    <div class="mini-note">一个角色最多留 3 个视觉锚点。锚点太多，画面会变乱；锚点太少，角色会变脸。</div>
+  </div>
+</section>
+
+<section class="ch" id="ch3">
+  <div class="ghost">03</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 03</div><h2>六镜头分镜模板</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-working-laptop.png" alt="" />
+    </div>
+    <p class="lead">新手别一上来做 3 分钟。先做 6 个镜头，20 到 45 秒。能把这 6 个镜头讲清楚，你再扩成长剧。</p>
+    <div class="copybox">
+      <h4>六镜头漫剧分镜</h4>
+      <p>把下面剧情拆成 6 个镜头，适合[平台]竖屏 AI 漫剧。每个镜头输出：镜头号、时长、画面、人物动作、台词、音效、字幕重点、图像提示词、视频运动提示词、转场建议。要求前三秒出现冲突，第 6 镜头留下悬念。剧情：[粘贴]</p>
+    </div>
+    <table>
+      <tr><th>镜头</th><th>功能</th><th>例子</th><th>别做什么</th></tr>
+      <tr><td>1</td><td>冲突</td><td>女主被当众取消资格</td><td>讲背景</td></tr>
+      <tr><td>2</td><td>羞辱/误会</td><td>反派拿出伪造证据</td><td>台词太长</td></tr>
+      <tr><td>3</td><td>反应</td><td>女主沉默，看向监控</td><td>表情乱跳</td></tr>
+      <tr><td>4</td><td>反击</td><td>录音开始播放</td><td>动作太复杂</td></tr>
+      <tr><td>5</td><td>爽点</td><td>全场安静，反派脸色变了</td><td>不给观众反馈</td></tr>
+      <tr><td>6</td><td>悬念</td><td>门外又来一个人</td><td>彻底讲完</td></tr>
+    </table>
+  </div>
+</section>
+<aside class="promo">
+  <span class="promo-tag">AD · 自家的</span>
+  <div class="promo-body">
+    <h4>🧪 10 分钟测出你的 AI Engineer 缺口</h4>
+    <p>官网的 77 项能力自测（五大支柱逐项点选），已有 2,300+ 人做过。测完直接看出你该补哪根柱子，免费不用注册。</p>
+  </div>
+  <a class="promo-cta" href="https://jiangren.com.au/learn/ai-engineer" target="_blank" rel="noopener">去做测试 →</a>
+</aside>
+
+<section class="ch" id="ch4">
+  <div class="ghost">04</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 04</div><h2>图像和图生视频提示词</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-chart.png" alt="" />
+    </div>
+    <p class="lead">图像提示词负责“长什么样”，视频提示词负责“怎么动”。不要把两者混成一大坨。</p>
+    <div class="copybox">
+      <h4>关键帧图像提示词</h4>
+      <p>[角色卡简版]，[场景]，[镜头景别]，[情绪]，[动作]，国漫短剧风格，竖屏 9:16，清晰线条，电影感光影，人物面部稳定，服装和发型保持一致，不要文字水印，不要真实名人脸，不要多余手指。</p>
+    </div>
+    <div class="copybox">
+      <h4>图生视频运动提示词</h4>
+      <p>镜头从[景别]缓慢推进到[景别]，主角[动作]，表情从[情绪 A]变成[情绪 B]，背景轻微动态，头发和衣角轻微摆动，动作自然，不要换脸，不要换衣服，不要新增人物，不要大幅旋转镜头。</p>
+    </div>
+    <div class="copybox">
+      <h4>首尾帧提示</h4>
+      <p>请根据首帧和尾帧生成中间动作。保持同一角色、同一服装、同一发型、同一场景。动作只做[一个动作]，不要增加道具，不要切换视角。整体时长[5 秒]，适合竖屏短视频。</p>
+    </div>
+    <div class="scene-grid">
+      <article class="scene-card"><span class="tag">办公室</span><h3>职场打脸</h3><p>会议室、投影幕、玻璃墙、同事围观。动作要简单：起身、递文件、播放录音。</p></article>
+      <article class="scene-card"><span class="tag">校园</span><h3>逆袭和误会</h3><p>教室、走廊、公告栏、操场。别一次塞太多学生，生成容易乱。</p></article>
+      <article class="scene-card"><span class="tag">豪门</span><h3>女频复仇</h3><p>客厅、宴会厅、长桌、落地窗。重点是表情和站位，不是豪华细节。</p></article>
+      <article class="scene-card"><span class="tag">玄幻</span><h3>男频爽点</h3><p>擂台、山门、法阵、长袍。要控制特效，不要每帧都爆光。</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="ch" id="ch5">
+  <div class="ghost">05</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 05</div><h2>配音、字幕、剪辑提示词</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-data.png" alt="" />
+    </div>
+    <p class="lead">AI 漫剧的质感，很多时候死在声音和字幕。画面 80 分，配音像念稿，也留不住人。</p>
+    <div class="copybox">
+      <h4>配音风格提示</h4>
+      <p>请把下面台词改成适合短视频漫剧配音的口语稿。要求：每句不超过 18 个字；情绪标注在括号里；保留冲突和悬念；不要书面腔。人物：[角色设定]。台词：[粘贴]</p>
+    </div>
+    <div class="copybox">
+      <h4>字幕切分</h4>
+      <p>请把下面配音稿切成短视频字幕。要求：每行 8 到 14 个汉字；重要词单独成行；每 2 到 3 秒一个信息点；输出为“时间段 + 字幕”。配音稿：[粘贴]</p>
+    </div>
+    <div class="copybox">
+      <h4>剪辑节奏表</h4>
+      <p>请根据 6 个镜头生成剪辑节奏表。输出：镜头时长、BGM 情绪、音效、字幕重点、转场、是否需要停顿。要求前 3 秒节奏快，中段留 1 次情绪停顿，结尾 2 秒给悬念。</p>
+    </div>
+    <div class="mini-note">字幕别把整句都贴上去。短视频字幕是节奏工具，不是逐字稿。</div>
+  </div>
+
+<a class="promo-line" href="https://jiangren.com.au/blog" target="_blank" rel="noopener">📰 跟上行业节奏：匠人每天 5 条经过核源的 AI 日报，每周一份大事盘点 <span>→</span></a></section>
+
+<section class="ch" id="ch6">
+  <div class="ghost">06</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 06</div><h2>封面、标题、评论区</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-coffee-pointing.png" alt="" />
+    </div>
+    <p class="lead">同一条成片，标题和封面换一换，数据可能差很多。别只生成视频，发布文案也要当成生产线的一部分。</p>
+    <div class="copybox">
+      <h4>抖音/快手标题</h4>
+      <p>请为这条 AI 漫剧写 20 个标题。要求：20 字以内；强冲突；不要低俗夸张；不要承诺收益；不要像广告。每个标题标注情绪类型：打脸、悬疑、心疼、反转、爽感。剧情：[粘贴]</p>
+    </div>
+    <div class="copybox">
+      <h4>小红书标题</h4>
+      <p>请为这条 AI 漫剧写 15 个小红书标题。要求：像真实创作者分享，不要太营销；适合收藏；18 字以内；给 5 个封面大字方案。剧情：[粘贴]</p>
+    </div>
+    <div class="copybox">
+      <h4>评论区置顶</h4>
+      <p>请写 10 条评论区置顶话术。目标是引导用户讨论下一集，不要诱导违规互动，不要承诺结果。语气像创作者本人。剧情悬念：[粘贴]</p>
+    </div>
+    <div class="prompt-grid">
+      <article class="prompt-card"><span class="tag">封面字</span><h3>最多 8 个字</h3><p>“她回来了”“全班安静”“录音响了”。别把剧情梗概塞封面。</p></article>
+      <article class="prompt-card"><span class="tag">标题</span><h3>别写工具名</h3><p>观众点剧情，不是点“AI 生成”。工具名适合教程号，不适合剧情号。</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="ch" id="ch7">
+  <div class="ghost">07</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 07</div><h2>商单和接单话术</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-chart.png" alt="" />
+    </div>
+    <p class="lead">接单别群发“我会 AI 漫剧”。客户不关心工具，客户关心你能不能帮他把卖点拍成有人看的故事。</p>
+    <div class="copybox">
+      <h4>客户行业剧情化</h4>
+      <p>客户行业是[行业]，产品/服务是[产品]，目标用户是[人群]。请给我 10 个剧情化短视频创意，每个创意包含：用户痛点、人物冲突、产品出现方式、结尾转化动作。要求产品自然出现，不要硬广。</p>
+    </div>
+    <div class="copybox">
+      <h4>私信开场</h4>
+      <p>请帮我写 5 条给[行业客户]的私信开场。语气礼貌、简短，不夸大，不承诺流量。重点表达：我看到了你们的[具体内容]，可以用 AI 漫剧做一个 15 秒样片，帮你把[卖点]讲成故事。</p>
+    </div>
+    <div class="copybox">
+      <h4>报价说明</h4>
+      <p>请把我的服务整理成 3 个套餐：样片包、系列包、账号包。每个套餐写清交付物、修改次数、周期、客户需要提供什么、我不承诺什么。语气专业但不要太硬。</p>
+    </div>
+  </div>
+</section>
+<aside class="promo">
+  <span class="promo-tag">AD · 自家的</span>
+  <div class="promo-body">
+    <h4>📚 27 本 AI 工具实战手册，免费</h4>
+    <p>Cursor、Claude Code、Dify、n8n、CrewAI…每个工具一本中文实战手册，5-10 章带代码，不用注册不要钱。本书提到的工具基本都有对应深读。</p>
+  </div>
+  <a class="promo-cta" href="https://jiangren.com.au/wiki" target="_blank" rel="noopener">去翻手册 →</a>
+</aside>
+
+<section class="ch" id="ch8">
+  <div class="ghost">08</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 08</div><h2>复盘和迭代模板</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-working-laptop.png" alt="" />
+    </div>
+    <p class="lead">做 10 条以后，不复盘就等于白做。复盘不是写感想，是找变量。</p>
+    <div class="copybox">
+      <h4>单条视频复盘</h4>
+      <p>请根据下面数据复盘这条 AI 漫剧。输出：表现最好的点、可能掉人的位置、下一条要保留什么、下一条只改一个什么变量。数据：播放[ ]、完播[ ]、点赞[ ]、收藏[ ]、评论关键词[ ]。视频内容：[粘贴]</p>
+    </div>
+    <div class="copybox">
+      <h4>10 条样片复盘</h4>
+      <p>下面是 10 条 AI 漫剧的数据。请帮我判断哪个题材、哪个开头、哪个角色、哪个时长更值得继续做。输出：继续做的 3 个方向、停止做的 3 个方向、下一周发布计划。数据：[粘贴表格]</p>
+    </div>
+    <div class="check-group">
+      <div class="head"><span class="stage">每周复盘</span><h3>只看 5 个问题</h3></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">哪条开头让人停住了？</div><div class="n">看前 3 秒和评论，不靠自己感觉。</div></div></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">哪个角色被记住了？</div><div class="n">评论里有人喊角色名，说明人设开始成立。</div></div></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">哪个镜头最像模板资产？</div><div class="n">能复用的镜头，比一次性炫技更值钱。</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="ch" id="sources">
+  <div class="wrap">
+    <div class="ch-num">SOURCES</div>
+    <h2>工具入口</h2>
+    <div class="source-grid">
+      <article class="source-card"><h3>视频生成</h3><p>即梦、可灵、海螺、Vidu。重点看图生视频、首尾帧、参考生视频、商用条款和水印规则。</p></article>
+      <article class="source-card"><h3>剪辑发布</h3><p>剪映 / CapCut、抖音创作者中心、小红书蒲公英、B 站创作中心、视频号助手。</p></article>
+      <article class="source-card"><h3>合规提醒</h3><p>不要使用未授权 IP、真人肖像、明星脸、搬运小说剧情和虚假经历。平台规则以后台最新说明为准。</p></article>
+      <article class="source-card"><h3>配套阅读</h3><p>这本是提示词合集。完整变现路线看《AI 漫剧变现地图 2026》。</p></article>
+    </div>
+  </div>
+</section>
+</main>
+
+<section class="page back-cover prompt-back dark">
+  <img class="back-logo" src="assets/logo/logo-zh-white.png" alt="匠人学院" />
+  <h2>提示词不是魔法。它是你的生产线说明书。</h2>
+  <p>先用模板跑 10 条，再把有效的提示词、角色卡和分镜沉淀成自己的作品集。</p>
+  <div class="sales-card"><img src="assets/contact/sales-cards/angela.jpg" alt="Angela · 匠人学院 IT 顾问" /></div>
+  <div class="contact-bar">
+    <img class="qr" src="assets/contact/qr-angela.png" alt="Angela · 匠人学院 IT 顾问微信二维码" />
+    <div><div class="t">扫码找 Angela 拆 AI 漫剧作品集</div><div class="d">适合想做内容副业、AI 工具实战、短视频接单和作品集包装的人。我们不承诺涨粉、收入、商单或平台流量。</div></div>
+  </div>
+  <p class="caption">jiangren.com.au · 本手册核对日期 2026-07-02 · 不构成法律、税务、投资或平台运营承诺。</p>
+</section>
+
+<script defer src="theme/reader.js"></script>
+<a href="AI%20%E6%BC%AB%E5%89%A7%20Prompt%20%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%90%88%E9%9B%86%202026%20-%20%E5%8C%A0%E4%BA%BA%E5%AD%A6%E9%99%A2.pdf" download style="position:fixed;right:22px;bottom:22px;z-index:1200;display:flex;align-items:center;gap:8px;background:#0D0F12;color:#fff;font-weight:700;font-size:14.5px;padding:13px 22px;border-radius:999px;box-shadow:0 12px 28px rgba(13,15,18,.35);text-decoration:none;font-family:Inter,'PingFang SC',sans-serif;">⬇️ 下载 PDF 版</a>
+</body>
+</html>
