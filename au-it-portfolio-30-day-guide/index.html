@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>澳洲 IT 求职作品集 30 天搭建清单 - JR Academy</title>
+<link rel="stylesheet" href="theme/tokens.css" />
+<link rel="stylesheet" href="theme/ebook.css" />
+<link rel="stylesheet" href="theme/flow-a4.css" />
+<style>
+  .cover2 .cover-logo { position: absolute; top: 15mm; left: 15mm; height: 12mm; width: auto; z-index: 3; }
+  .cover2 .cv2-copy { position: relative; z-index: 3; margin-top: 30mm; max-width: 152mm; }
+  .cover2 .portfolio-title { font-family: Anton, Impact, sans-serif; color: var(--jr-white); margin: 4mm 0 6mm; letter-spacing: 0; }
+  .cover2 .portfolio-title .top { display: inline; font-size: 42pt; line-height: 1; }
+  .cover2 .portfolio-title .main { display: inline; font-size: 42pt; line-height: 1; }
+  .cover2 .portfolio-title .main em { color: var(--jr-red); font-style: normal; }
+  .cover2 .portfolio-title .sub { display: inline-block; margin-top: 2.5mm; font-size: 36pt; line-height: .98; border-bottom: 2.2mm solid var(--jr-red); padding-bottom: 1.4mm; }
+  .cover2 .cv2-copy p { color: rgba(255,255,255,.78); font-size: 10.5pt; line-height: 1.7; max-width: 128mm; }
+  .cover2 .cv2-tags { display: flex; gap: 3mm; flex-wrap: wrap; margin-top: 7mm; }
+  .cover2 .cv2-tags span { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.3); color: rgba(255,255,255,.92); border-radius: var(--jr-radius-full); font-size: 8.5pt; font-weight: var(--jr-fw-bold); padding: 1.3mm 3.5mm; }
+  .role-grid, .project-grid, .proof-grid, .source-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 18px; }
+  .role-card, .project-card, .proof-card, .source-card { border: 1px solid var(--jr-border-warm); border-radius: 18px; background: var(--jr-white); box-shadow: var(--jr-shadow-sm); padding: 18px; }
+  .role-card .tag, .project-card .tag, .proof-card .tag { display: inline-flex; border-radius: 999px; background: var(--jr-red); color: #fff; padding: 5px 10px; font-size: 12px; font-weight: 800; }
+  .role-card h3, .project-card h3, .proof-card h3, .source-card h3 { margin: 12px 0 8px; font-size: 21px; line-height: 1.25; }
+  .day-table { width: 100%; border-collapse: collapse; margin-top: 18px; background: #fff; border-radius: 16px; overflow: hidden; box-shadow: var(--jr-shadow-sm); }
+  .day-table th { background: var(--jr-black); color: #fff; text-align: left; padding: 10px 12px; font-size: 13px; }
+  .day-table td { border-bottom: 1px solid var(--jr-divider-warm); padding: 10px 12px; font-size: 13px; vertical-align: top; }
+  .sample-box { background: #16181D; color: #E8EAED; border-radius: 18px; padding: 18px; margin-top: 18px; }
+  .sample-box h4 { color: #fff; margin: 0 0 8px; }
+  .sample-box p, .sample-box li { color: #E8EAED; }
+  .mini-note { margin-top: 18px; padding: 14px 16px; border-left: 5px solid var(--jr-red); border-radius: 0 12px 12px 0; background: var(--jr-wash-red); font-size: 15px; line-height: 1.6; }
+  .flow .role-grid, .flow .project-grid, .flow .proof-grid, .flow .source-grid { grid-template-columns: repeat(2, 1fr); gap: 3.5mm; }
+  .flow .role-card, .flow .project-card, .flow .proof-card, .flow .source-card { border-radius: 4mm; padding: 4mm; box-shadow: none; break-inside: avoid; }
+  .flow .role-card .tag, .flow .project-card .tag, .flow .proof-card .tag { font-size: 6.5pt; padding: .6mm 2mm; }
+  .flow .role-card h3, .flow .project-card h3, .flow .proof-card h3, .flow .source-card h3 { font-size: 10.3pt; margin: 2mm 0 1mm; }
+  .flow .role-card p, .flow .project-card p, .flow .proof-card p, .flow .source-card p { font-size: 7.8pt; line-height: 1.5; }
+  .flow .day-table { margin-top: 3.5mm; box-shadow: none; break-inside: avoid; }
+  .flow .day-table th { padding: 2mm 2.4mm; font-size: 7pt; }
+  .flow .day-table td { padding: 2mm 2.4mm; font-size: 7pt; line-height: 1.42; }
+  .flow .sample-box { border-radius: 4mm; padding: 4mm; margin-top: 3.5mm; break-inside: avoid; }
+  .flow .sample-box h4 { font-size: 9pt; margin-bottom: 2mm; }
+  .flow .sample-box p, .flow .sample-box li { font-size: 7.6pt; line-height: 1.55; }
+  .flow .mini-note { margin-top: 3.5mm; padding: 3mm 4mm; border-left: 1.2mm solid var(--jr-red); border-radius: 0 3mm 3mm 0; font-size: 8.2pt; line-height: 1.55; break-inside: avoid; }
+  .page.back-cover.portfolio-back { gap: 5mm; padding: 18mm 20mm; }
+  .portfolio-back .back-logo { height: 12mm; width: auto; }
+  .portfolio-back h2 { font-size: 25pt; line-height: 1.12; margin: 0; }
+  .portfolio-back p { font-size: 10pt; line-height: 1.5; margin: 0; }
+  .portfolio-back .sales-card, .portfolio-back .contact-bar { width: 72% !important; box-shadow: none; }
+  .portfolio-back .contact-bar { padding: 3mm 4mm; gap: 4mm; }
+  .portfolio-back .contact-bar .qr { width: 18mm; height: 18mm; }
+  .portfolio-back .caption { font-size: 7.2pt; }
+  @media (max-width: 900px) { .role-grid, .project-grid, .proof-grid, .source-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<img class="jr-wm" src="assets/logo/jr-box.svg" alt="" />
+
+<section class="page cover2 dark">
+  <img class="cover-logo" src="assets/logo/logo-zh-white.png" alt="匠人学院" />
+  <div class="cv2-ghost">PORTFOLIO</div>
+  <div class="cv2-copy">
+    <div class="cv2-kicker">澳洲 IT 求职 · 从项目到面试</div>
+    <h1 class="portfolio-title"><span class="top">澳洲 IT </span><span class="main"><em>作品集</em></span><span class="sub">30 天搭建清单</span></h1>
+    <p>别只说“我会 Java / React / SQL”。用 30 天做出能打开、能截图、能讲清楚 trade-off 的作品集。</p>
+    <div class="cv2-tags"><span>GitHub README</span><span>Demo 截图</span><span>简历项目</span><span>面试讲法</span></div>
+  </div>
+  <img class="cv2-mascot" src="assets/illustrations/niuxiaojiang-working-laptop.png" alt="牛小匠" />
+  <div class="cv2-strip"><span>AU IT PORTFOLIO <i>✦</i> GITHUB <i>✦</i> RESUME <i>✦</i> INTERVIEW <i>✦</i> JIANGREN.COM.AU <i>✦</i></span></div>
+</section>
+
+<main class="flow">
+<section class="ch book-toc">
+  <div class="wrap">
+    <div class="ch-num">CONTENTS</div>
+    <h2>目录</h2>
+    <a href="#how"><span class="num">00</span>先看：作品集不是作业合集</a>
+    <a href="#ch1"><span class="num">01</span>先选目标岗位，不要先选技术栈</a>
+    <a href="#ch2"><span class="num">02</span>作品集的 6 个必备证据</a>
+    <a href="#ch3"><span class="num">03</span>30 天执行表</a>
+    <a href="#ch4"><span class="num">04</span>按岗位选项目</a>
+    <a href="#ch5"><span class="num">05</span>项目 README 模板</a>
+    <a href="#ch6"><span class="num">06</span>简历 bullet 怎么写</a>
+    <a href="#ch7"><span class="num">07</span>面试怎么讲项目</a>
+    <a href="#ch8"><span class="num">08</span>发布前检查清单</a>
+    <a href="#sources"><span class="num">A</span>来源和工具入口</a>
+  </div>
+</section>
+
+<section class="ch" id="how">
+  <div class="wrap">
+    <h2>先看：作品集不是作业合集</h2>
+    <div class="card">
+      <p>澳洲 IT 早期求职，作品集不是“我做过几个课设”的仓库列表。招聘方真正想看的是：你能不能把一个小问题从需求、实现、部署、测试、文档讲完整。</p>
+      <p>说白了，一个能打开的项目，比五个只写了“Coming soon”的仓库强。一个写清楚失败和取舍的 README，比一堆技术名词更像干过活的人。</p>
+    </div>
+    <div class="stat-grid">
+      <div class="stat accent"><div class="v">30</div><div class="l">天做出第一版可投递作品集</div></div>
+      <div class="stat"><div class="v">6</div><div class="l">类证据：代码、截图、Demo、测试、文档、讲法</div></div>
+      <div class="stat"><div class="v">9</div><div class="l">个岗位方向项目选题</div></div>
+    </div>
+    <div class="contact-bar">
+      <img class="qr" src="assets/contact/qr-rain.png" alt="Rain · 匠人学院资深 IT 顾问微信二维码" />
+      <div><div class="t">不知道自己该做什么项目？</div><div class="d">扫码找 Rain，把目标岗位、学校项目和简历发来，先看作品集缺哪块证据。不承诺面试或 offer。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="ch" id="ch1">
+  <div class="ghost">01</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 01</div><h2>先选目标岗位，不要先选技术栈</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-thinking.png" alt="" />
+    </div>
+    <p class="lead">很多同学卡在第一步：到底做 React 项目、Python 项目，还是 AI 项目？顺序反了。先选 2 个目标岗位，再反推项目证据。</p>
+    <div class="role-grid">
+      <article class="role-card"><span class="tag">Frontend</span><h3>看交互和工程习惯</h3><p>项目要有路由、表单校验、状态管理、API 调用、loading/error 状态、响应式截图。别只放静态 landing page。</p></article>
+      <article class="role-card"><span class="tag">Backend</span><h3>看 API 和数据建模</h3><p>项目要有认证、数据库 schema、错误处理、日志、测试、API 文档。README 里画清请求流程。</p></article>
+      <article class="role-card"><span class="tag">Data</span><h3>看数据问题怎么落地</h3><p>项目要有数据来源、清洗、指标定义、可视化、结论和限制。别只贴一张 dashboard。</p></article>
+      <article class="role-card"><span class="tag">Cyber / Cloud</span><h3>看安全边界和部署</h3><p>项目要有 threat model、权限、监控、IaC、CI/CD 或云部署截图。别写“熟悉 AWS”就完了。</p></article>
+    </div>
+    <div class="mini-note">做作品集前，先去 Jobs and Skills Australia、SEEK、LinkedIn 找 10 条目标 JD，把共同要求抄出来。项目不是为了炫技，是为了回答 JD。</div>
+  </div>
+</section>
+
+<section class="ch" id="ch2">
+  <div class="ghost">02</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 02</div><h2>作品集的 6 个必备证据</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-chart.png" alt="" />
+    </div>
+    <p class="lead">“我做了一个项目”不够。你要让没见过你的人，三分钟内看懂项目能跑、你做了关键部分、你知道哪里难。</p>
+    <table>
+      <tr><th>证据</th><th>要放什么</th><th>常见坑</th></tr>
+      <tr><td>GitHub</td><td>干净 repo、清晰 commit、可运行说明</td><td>只有 zip 解压代码</td></tr>
+      <tr><td>README</td><td>背景、功能、架构、安装、截图、测试</td><td>只写技术栈列表</td></tr>
+      <tr><td>Demo</td><td>线上链接或 60 秒录屏</td><td>面试官点不开</td></tr>
+      <tr><td>截图</td><td>核心页面、错误状态、后台或 dashboard</td><td>只放首页</td></tr>
+      <tr><td>测试</td><td>单测、API 测试、数据校验或安全检查</td><td>完全没有验证</td></tr>
+      <tr><td>讲法</td><td>STAR、技术决策、trade-off、下一步</td><td>只会说“我负责开发”</td></tr>
+    </table>
+    <div class="sample-box">
+      <h4>一句话自检</h4>
+      <p>如果 recruiter 只看你的 README 和截图，不跑代码，也能知道你解决了什么问题、用了什么技术、哪里体现岗位能力，这个作品集才算能递出去。</p>
+    </div>
+  </div>
+</section>
+
+<section class="ch" id="ch3">
+  <div class="ghost">03</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 03</div><h2>30 天执行表</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-pen-book.png" alt="" />
+    </div>
+    <p class="lead">别等“学完再做”。30 天只做一件事：把一个中等大小项目做到能展示。每天任务不要超过 90 分钟，不然很容易断。</p>
+    <table class="day-table">
+      <tr><th>阶段</th><th>天数</th><th>交付物</th><th>具体动作</th></tr>
+      <tr><td>定岗位</td><td>1-3</td><td>目标 JD 表</td><td>找 10 条岗位，圈出共同技能、业务场景、动词。选一个主岗位、一个备选岗位。</td></tr>
+      <tr><td>定项目</td><td>4-6</td><td>项目 brief</td><td>写清用户是谁、痛点是什么、MVP 做哪 5 个功能、不做什么。</td></tr>
+      <tr><td>搭骨架</td><td>7-10</td><td>可运行 repo</td><td>初始化项目、建数据库或 mock data、写 README 草稿、开 issues。</td></tr>
+      <tr><td>核心功能</td><td>11-17</td><td>能跑的 MVP</td><td>每天只推进一个功能。做完就截图，不要等最后补。</td></tr>
+      <tr><td>质量证据</td><td>18-21</td><td>测试和错误处理</td><td>补 API 测试、数据校验、loading/error、安全或权限说明。</td></tr>
+      <tr><td>包装</td><td>22-26</td><td>README + Demo</td><td>录 60 秒 demo，补架构图、技术取舍、已知限制和下一步。</td></tr>
+      <tr><td>投递材料</td><td>27-30</td><td>简历 bullet + 面试讲法</td><td>把项目改成 3 条简历 bullet，准备 2 分钟英文讲法和 5 个追问答案。</td></tr>
+    </table>
+  </div>
+</section>
+<aside class="promo">
+  <span class="promo-tag">AD · 自家的</span>
+  <div class="promo-body">
+    <h4>🧪 10 分钟测出你的 AI Engineer 缺口</h4>
+    <p>官网的 77 项能力自测（五大支柱逐项点选），已有 2,300+ 人做过。测完直接看出你该补哪根柱子，免费不用注册。</p>
+  </div>
+  <a class="promo-cta" href="https://jiangren.com.au/learn/ai-engineer" target="_blank" rel="noopener">去做测试 →</a>
+</aside>
+
+<section class="ch" id="ch4">
+  <div class="ghost">04</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 04</div><h2>按岗位选项目</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-data.png" alt="" />
+    </div>
+    <p class="lead">项目不用大，但要像岗位。下面这些选题都能做成小而完整的作品集。</p>
+    <div class="project-grid">
+      <article class="project-card"><span class="tag">Frontend</span><h3>Rental Inspection App</h3><p>租房检查清单、照片上传、缺陷分类、PDF 报告。重点展示表单、状态、移动端和可用性。</p></article>
+      <article class="project-card"><span class="tag">Backend</span><h3>Clinic Booking API</h3><p>预约、医生排班、用户权限、冲突检测、API 文档。重点展示 schema、错误处理和测试。</p></article>
+      <article class="project-card"><span class="tag">Data Analyst</span><h3>Job Market Dashboard</h3><p>抓取公开岗位样本，按技能、城市、岗位类型做 dashboard。重点展示指标定义和洞察。</p></article>
+      <article class="project-card"><span class="tag">Data Engineer</span><h3>ETL Quality Pipeline</h3><p>从 CSV/API 到 warehouse，加入数据质量检查、日志和重跑策略。重点展示 pipeline 可靠性。</p></article>
+      <article class="project-card"><span class="tag">Cyber</span><h3>Access Review Tool</h3><p>导入用户权限，识别异常角色和过期账号。重点展示 threat model、audit log 和 least privilege。</p></article>
+      <article class="project-card"><span class="tag">AI Engineer</span><h3>Course Advisor RAG</h3><p>基于课程 handbook 的问答助手。重点展示检索、引用、eval、失败案例和安全边界。</p></article>
+    </div>
+    <p class="sales-card-lead">如果你已经有学校项目，但不知道能不能包装成求职项目，先别重做。扫 Rain 的码，把 README 或截图发来，先看能不能救。</p>
+    <div class="sales-card"><img src="assets/contact/sales-cards/rain.jpg" alt="Rain · Senior IT Career Consultant" /></div>
+  </div>
+</section>
+
+<section class="ch" id="ch5">
+  <div class="ghost">05</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 05</div><h2>项目 README 模板</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-working-laptop.png" alt="" />
+    </div>
+    <p class="lead">README 不是说明书尾巴，它就是你的作品集首页。招聘方先看它，再决定要不要继续点。</p>
+    <div class="sample-box">
+      <h4>可直接复制的 README 结构</h4>
+      <ul>
+        <li>Project name：一句话说明项目解决什么问题。</li>
+        <li>Context：谁会用，为什么需要它。</li>
+        <li>Features：列 5 个核心功能，不要列 20 个。</li>
+        <li>Tech stack：每个技术写“为什么用”，别只堆名字。</li>
+        <li>Architecture：一张图或文字流程，说明前端、后端、数据库、第三方服务。</li>
+        <li>How to run：安装、环境变量、启动命令、测试命令。</li>
+        <li>Screenshots / Demo：至少 4 张截图或 60 秒录屏。</li>
+        <li>Testing / Validation：你怎么确认它没坏。</li>
+        <li>Trade-offs：时间不够时你砍掉了什么，为什么。</li>
+        <li>Next steps：下一版会补什么，和目标岗位能力有什么关系。</li>
+      </ul>
+    </div>
+    <div class="mini-note">别写“使用先进技术栈”。直接写：用了 PostgreSQL，因为预约冲突需要事务；用了 Redis，因为搜索结果可以缓存 10 分钟。</div>
+  </div>
+</section>
+
+<section class="ch" id="ch6">
+  <div class="ghost">06</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 06</div><h2>简历 bullet 怎么写</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-coffee-pointing.png" alt="" />
+    </div>
+    <p class="lead">作品集做完，还要翻译成简历语言。别写“负责项目开发”。要写动作、技术、结果和验证方式。</p>
+    <table>
+      <tr><th>弱写法</th><th>改成这样</th></tr>
+      <tr><td>Developed a web app using React.</td><td>Built a React inspection workflow with form validation, image upload and mobile responsive views, reducing manual report steps from 6 screens to 2.</td></tr>
+      <tr><td>Used Python for data analysis.</td><td>Created a Python pipeline to clean 12 months of job-posting samples, classify skills and publish a dashboard for weekly trend review.</td></tr>
+      <tr><td>Implemented backend APIs.</td><td>Designed REST APIs for booking, cancellation and schedule conflict checks with PostgreSQL constraints and integration tests.</td></tr>
+      <tr><td>Made an AI chatbot.</td><td>Built a RAG course advisor with chunk metadata, citation display and 20-case eval set to catch unsupported answers.</td></tr>
+    </table>
+    <div class="contact-bar">
+      <img class="qr" src="assets/contact/qr-rain.png" alt="Rain · 匠人学院资深 IT 顾问微信二维码" />
+      <div><div class="t">项目做了，但简历写不出来？</div><div class="d">扫码找 Rain，把项目 README 和目标 JD 发来，先看 bullet 有没有像岗位语言。</div></div>
+    </div>
+  </div>
+</section>
+<aside class="promo">
+  <span class="promo-tag">AD · 自家的</span>
+  <div class="promo-body">
+    <h4>📚 27 本 AI 工具实战手册，免费</h4>
+    <p>Cursor、Claude Code、Dify、n8n、CrewAI…每个工具一本中文实战手册，5-10 章带代码，不用注册不要钱。本书提到的工具基本都有对应深读。</p>
+  </div>
+  <a class="promo-cta" href="https://jiangren.com.au/wiki" target="_blank" rel="noopener">去翻手册 →</a>
+</aside>
+
+<section class="ch" id="ch7">
+  <div class="ghost">07</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 07</div><h2>面试怎么讲项目</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-chart.png" alt="" />
+    </div>
+    <p class="lead">面试官问项目，不是让你背 README。他想听你怎么做决定，怎么处理限制，怎么知道方案有效。</p>
+    <div class="proof-grid">
+      <article class="proof-card"><span class="tag">开场</span><h3>30 秒讲清背景</h3><p>“这个项目模拟 rental inspection 场景，用户是 property manager。痛点是现场记录分散，最后报告要手工整理。”</p></article>
+      <article class="proof-card"><span class="tag">技术</span><h3>讲一个关键决策</h3><p>“图片上传没有直接塞进数据库，而是存对象存储，数据库只保存 URL 和 metadata，因为后面要做报告导出。”</p></article>
+      <article class="proof-card"><span class="tag">问题</span><h3>主动讲一次失败</h3><p>“第一版表单状态太分散，后来改成 step state，错误提示统一处理，测试也更容易写。”</p></article>
+      <article class="proof-card"><span class="tag">结果</span><h3>落回岗位能力</h3><p>“这个项目主要证明我能把需求拆成工作流、写可维护组件、处理 API 错误和移动端体验。”</p></article>
+    </div>
+    <div class="sample-box">
+      <h4>5 个一定要准备的追问</h4>
+      <p>为什么选这个技术？如果用户量变大怎么办？你怎么测试？安全和隐私怎么处理？如果再给两周你会改什么？</p>
+    </div>
+  </div>
+
+<a class="promo-line" href="https://jiangren.com.au/blog" target="_blank" rel="noopener">📰 跟上行业节奏：匠人每天 5 条经过核源的 AI 日报，每周一份大事盘点 <span>→</span></a></section>
+
+<section class="ch" id="ch8">
+  <div class="ghost">08</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 08</div><h2>发布前检查清单</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-pen-book.png" alt="" />
+    </div>
+    <p class="lead">作品集发布前，用这页扫一遍。能勾上的越多，越像求职材料；勾不上，就先别急着投。</p>
+    <div class="check-group">
+      <div class="head"><span class="stage">GitHub</span><h3>仓库能不能给陌生人看</h3></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">README 第一屏说清项目价值</div><div class="n">别让人先滚 3 屏才知道你做了什么。</div></div></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">有启动命令、环境变量和测试命令</div><div class="n">哪怕别人不跑，也能看出你认真交付。</div></div></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">没有密钥、个人隐私、学校未授权材料</div><div class="n">`.env`、真实用户数据、公司资料都不要放。</div></div></div>
+    </div>
+    <div class="check-group">
+      <div class="head"><span class="stage">Portfolio</span><h3>页面能不能帮你争取面试</h3></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">每个项目都有截图或录屏</div><div class="n">面试官没时间先装依赖。</div></div></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">每个项目都对应一个目标岗位能力</div><div class="n">不是“我做过很多”，而是“我能做这份工作”。</div></div></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">简历 bullet 和 README 说的是同一件事</div><div class="n">别简历写 AI，README 打开是 Todo App。</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="ch" id="sources">
+  <div class="wrap">
+    <div class="ch-num">SOURCES</div>
+    <h2>来源和工具入口</h2>
+    <div class="source-grid">
+      <article class="source-card"><h3>澳洲岗位和技能</h3><p>Jobs and Skills Australia 的 Internet Vacancy Index、Occupation shortages analysis、Australian Skills Classification。</p></article>
+      <article class="source-card"><h3>行业报告</h3><p>ACS Digital Pulse 用来观察澳洲 tech workforce 和技能讨论，不用它承诺个人就业结果。</p></article>
+      <article class="source-card"><h3>求职材料</h3><p>SEEK Career Advice、GitHub Docs、Atlassian Agile 文档，用来核对简历、README、项目管理和文档习惯。</p></article>
+      <article class="source-card"><h3>使用提醒</h3><p>这本是作品集材料清单，不是就业、签证、收入或雇主反馈承诺。真正投递前，再按目标 JD 改一版。</p></article>
+    </div>
+  </div>
+</section>
+</main>
+
+<section class="page back-cover portfolio-back dark">
+  <img class="back-logo" src="assets/logo/logo-zh-white.png" alt="匠人学院" />
+  <h2>别等简历写完才想项目。项目本身就是简历。</h2>
+  <p>先做一个能打开、能讲清、能对应岗位的作品集。再去投递，底气会完全不一样。</p>
+  <div class="sales-card"><img src="assets/contact/sales-cards/rain.jpg" alt="Rain · Senior IT Career Consultant" /></div>
+  <div class="contact-bar">
+    <img class="qr" src="assets/contact/qr-rain.png" alt="Rain · 匠人学院资深 IT 顾问微信二维码" />
+    <div><div class="t">扫码找 Rain 看作品集和简历</div><div class="d">适合准备澳洲 IT 实习、Graduate Program、Junior 岗和转码求职的人。不承诺面试、offer、签证或收入结果。</div></div>
+  </div>
+  <p class="caption">jiangren.com.au · 资料会持续更新 · 不构成就业、签证、法律或收入承诺。</p>
+</section>
+
+<script defer src="theme/reader.js"></script>
+<a href="%E6%BE%B3%E6%B4%B2%20IT%20%E6%B1%82%E8%81%8C%E4%BD%9C%E5%93%81%E9%9B%86%2030%20%E5%A4%A9%E6%90%AD%E5%BB%BA%E6%B8%85%E5%8D%95%20-%20%E5%8C%A0%E4%BA%BA%E5%AD%A6%E9%99%A2.pdf" download style="position:fixed;right:22px;bottom:22px;z-index:1200;display:flex;align-items:center;gap:8px;background:#0D0F12;color:#fff;font-weight:700;font-size:14.5px;padding:13px 22px;border-radius:999px;box-shadow:0 12px 28px rgba(13,15,18,.35);text-decoration:none;font-family:Inter,'PingFang SC',sans-serif;">⬇️ 下载 PDF 版</a>
+</body>
+</html>

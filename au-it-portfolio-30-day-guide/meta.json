@@ -1,0 +1,36 @@
+{
+  "slug": "au-it-portfolio-30-day-guide",
+  "title": "澳洲 IT 求职作品集 30 天搭建清单",
+  "subtitle": "从目标岗位、项目选题、GitHub README、Demo 截图到简历和面试讲法，把作品集做成能递出去的求职材料",
+  "style": "checklist + zine web + flow A4",
+  "audience": "准备在澳洲找 IT 实习、Graduate Program、Junior 岗位或转码求职的学生和早期求职者",
+  "track": "T2 澳洲 IT 求职",
+  "checked": "2026-07-06",
+  "contact": {
+    "qr": "qr-rain.png",
+    "salesCard": "rain.jpg",
+    "salesCards": [
+      "rain.jpg"
+    ],
+    "owner": "Rain",
+    "note": "澳洲 IT 求职作品集高意向资料，使用 Rain；CTA 只写作品集、简历和面试材料诊断，不承诺面试、offer、签证或收入结果。"
+  },
+  "tags": [
+    "australia",
+    "it-career",
+    "portfolio",
+    "github",
+    "resume",
+    "interview"
+  ],
+  "sources": [
+    "Jobs and Skills Australia - Internet Vacancy Index: https://www.jobsandskills.gov.au/data/internet-vacancy-index",
+    "Jobs and Skills Australia - Occupation shortages analysis: https://www.jobsandskills.gov.au/data/occupation-shortages-analysis",
+    "Jobs and Skills Australia - Australian Skills Classification: https://www.jobsandskills.gov.au/data/australian-skills-classification",
+    "ACS Digital Pulse reports: https://www.acs.org.au/insightsandpublications/reports-publications/digital-pulse.html",
+    "SEEK Career Advice: https://www.seek.com.au/career-advice",
+    "GitHub Docs: https://docs.github.com/",
+    "Atlassian Agile guidance: https://www.atlassian.com/agile"
+  ],
+  "note": "作品集建议会随澳洲岗位要求和平台规则持续更新；不保证面试、offer、签证、收入或雇主反馈结果。"
+}
