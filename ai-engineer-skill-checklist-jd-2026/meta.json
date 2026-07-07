@@ -1,0 +1,38 @@
+{
+  "slug": "ai-engineer-skill-checklist-jd-2026",
+  "title": "AI Engineer 技能自查清单 + 大厂 AI 岗 JD 拆解",
+  "subtitle": "把 RAG、Agent、Eval、LLMOps、Cloud 和系统设计拆成能勾选的证据项，给在职工程师自测差距",
+  "style": "checklist + zine web + flow A4",
+  "audience": "想从软件、数据、后端、全栈、算法或平台岗位转向 AI Engineer / GenAI Engineer 的在职工程师",
+  "track": "T2 AI Engineer 求职 / 在职转型",
+  "checked": "2026-07-07",
+  "contact": {
+    "qr": "qr-amelia.png",
+    "salesCard": "amelia.jpg",
+    "salesCards": [
+      "amelia.jpg"
+    ],
+    "owner": "Amelia",
+    "note": "AI Engineer 技能自查和 JD 拆解资料，使用 Amelia；CTA 只写项目、简历和面试诊断，不承诺面试、offer、签证或收入结果。"
+  },
+  "tags": [
+    "ai-engineer",
+    "rag",
+    "agents",
+    "evals",
+    "llmops",
+    "jd-analysis"
+  ],
+  "sources": [
+    "OpenAI Platform Docs - Evals: https://platform.openai.com/docs/guides/evals",
+    "OpenAI Platform Docs: https://platform.openai.com/docs/",
+    "Anthropic Claude Docs: https://docs.anthropic.com/",
+    "LangChain Docs: https://docs.langchain.com/",
+    "LlamaIndex Docs: https://docs.llamaindex.ai/",
+    "MLflow Docs: https://mlflow.org/docs/latest/",
+    "AWS Bedrock Docs: https://docs.aws.amazon.com/bedrock/",
+    "Azure AI Foundry Docs: https://learn.microsoft.com/azure/ai-foundry/",
+    "Google Cloud Vertex AI Generative AI Docs: https://cloud.google.com/vertex-ai/generative-ai/docs"
+  ],
+  "note": "技能要求和 JD 信号会随岗位变化；本清单不保证面试、offer、签证、收入或雇主反馈结果。"
+}
