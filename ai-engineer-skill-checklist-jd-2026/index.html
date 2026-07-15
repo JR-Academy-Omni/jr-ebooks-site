@@ -9,37 +9,44 @@
 <link rel="stylesheet" href="theme/flow-a4.css" />
 <style>
   .cover2 .cover-logo { position: absolute; top: 15mm; left: 15mm; height: 12mm; width: auto; z-index: 3; }
-  .cover2 .cv2-copy { position: relative; z-index: 3; margin-top: 40mm; max-width: 135mm; }
+  .cover2 .cv2-copy { position: relative; z-index: 3; margin-top: 40mm; max-width: 138mm; }
   .cover2 .ai-title { color: var(--jr-white); margin: 5mm 0 8mm; letter-spacing: 0; }
   .cover2 .ai-title .top { display: block; font-family: Anton, Impact, sans-serif; font-size: 38pt; line-height: .98; }
   .cover2 .ai-title .top em { color: var(--jr-red); font-style: normal; }
   .cover2 .ai-title .main { display: block; font-family: var(--jr-font-cn, "Noto Sans SC", "PingFang SC", sans-serif); font-size: 31pt; font-weight: 900; line-height: 1.08; border-bottom: 2mm solid var(--jr-red); padding-bottom: 2mm; width: max-content; max-width: 100%; }
-  .cover2 .ai-title .sub { display: block; margin-top: 5mm; font-family: var(--jr-font-cn, "Noto Sans SC", "PingFang SC", sans-serif); font-size: 24pt; font-weight: 900; line-height: 1.12; border-bottom: 0; padding-bottom: 0; color: rgba(255,255,255,.92); }
+  .cover2 .ai-title .sub { display: block; margin-top: 5mm; font-family: var(--jr-font-cn, "Noto Sans SC", "PingFang SC", sans-serif); font-size: 24pt; font-weight: 900; line-height: 1.12; color: rgba(255,255,255,.92); }
   .cover2 .cv2-copy p { color: rgba(255,255,255,.74); font-size: 9.4pt; line-height: 1.6; max-width: 105mm; }
   .cover2 .cv2-mascot { width: 54mm; right: 12mm; bottom: 34mm; opacity: .95; }
-  .signal-grid, .skill-grid, .q-grid, .source-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 18px; }
-  .signal-card, .skill-card, .q-card, .source-card { border: 1px solid var(--jr-border-warm); border-radius: 18px; background: var(--jr-white); box-shadow: var(--jr-shadow-sm); padding: 18px; }
-  .signal-card .tag, .skill-card .tag, .q-card .tag { display: inline-flex; border-radius: 999px; background: var(--jr-red); color: #fff; padding: 5px 10px; font-size: 12px; font-weight: 800; }
-  .signal-card h3, .skill-card h3, .q-card h3, .source-card h3 { margin: 12px 0 8px; font-size: 21px; line-height: 1.25; }
-  .score-table { width: 100%; border-collapse: collapse; margin-top: 18px; background: #fff; border-radius: 16px; overflow: hidden; box-shadow: var(--jr-shadow-sm); }
-  .score-table th { background: var(--jr-black); color: #fff; text-align: left; padding: 10px 12px; font-size: 13px; }
+  .signal-grid, .skill-grid, .q-grid, .source-grid, .answer-grid, .download-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 18px; }
+  .signal-card, .skill-card, .q-card, .source-card, .answer-card, .download-card { border: 1px solid var(--jr-border-warm); border-radius: 18px; background: var(--jr-white); box-shadow: var(--jr-shadow-sm); padding: 18px; }
+  .signal-card .tag, .skill-card .tag, .q-card .tag, .answer-card .tag { display: inline-flex; border-radius: 999px; background: var(--jr-red); color: var(--jr-white); padding: 5px 10px; font-size: 12px; font-weight: 800; }
+  .signal-card h3, .skill-card h3, .q-card h3, .source-card h3, .answer-card h3, .download-card h3 { margin: 12px 0 8px; font-size: 21px; line-height: 1.25; }
+  .score-table { width: 100%; border-collapse: collapse; margin-top: 18px; background: var(--jr-white); border-radius: 16px; overflow: hidden; box-shadow: var(--jr-shadow-sm); }
+  .score-table th { background: var(--jr-black); color: var(--jr-white); text-align: left; padding: 10px 12px; font-size: 13px; }
   .score-table td { border-bottom: 1px solid var(--jr-divider-warm); padding: 10px 12px; font-size: 13px; vertical-align: top; }
   .copybox { background: #16181D; color: #E8EAED; border-radius: 18px; padding: 18px; margin-top: 18px; }
-  .copybox h4 { color: #fff; margin: 0 0 8px; }
+  .copybox h4 { color: var(--jr-white); margin: 0 0 8px; }
   .copybox p, .copybox li { color: #E8EAED; }
   .mini-note { margin-top: 18px; padding: 14px 16px; border-left: 5px solid var(--jr-red); border-radius: 0 12px 12px 0; background: var(--jr-wash-red); font-size: 15px; line-height: 1.6; }
-  .flow .signal-grid, .flow .skill-grid, .flow .q-grid, .flow .source-grid { grid-template-columns: repeat(2, 1fr); gap: 3.5mm; }
-  .flow .signal-card, .flow .skill-card, .flow .q-card, .flow .source-card { border-radius: 4mm; padding: 4mm; box-shadow: none; break-inside: avoid; }
-  .flow .signal-card .tag, .flow .skill-card .tag, .flow .q-card .tag { font-size: 6.5pt; padding: .6mm 2mm; }
-  .flow .signal-card h3, .flow .skill-card h3, .flow .q-card h3, .flow .source-card h3 { font-size: 10.3pt; margin: 2mm 0 1mm; }
-  .flow .signal-card p, .flow .skill-card p, .flow .q-card p, .flow .source-card p { font-size: 7.8pt; line-height: 1.5; }
-  .flow .score-table { margin-top: 3.5mm; box-shadow: none; break-inside: avoid; }
+  .flow .signal-grid, .flow .skill-grid, .flow .q-grid, .flow .source-grid, .flow .answer-grid, .flow .download-grid { grid-template-columns: repeat(2, 1fr); gap: 3.5mm; }
+  .flow .signal-card, .flow .skill-card, .flow .q-card, .flow .source-card, .flow .answer-card, .flow .download-card { border-radius: 4mm; padding: 4mm; box-shadow: none; break-inside: avoid; }
+  .flow .signal-card .tag, .flow .skill-card .tag, .flow .q-card .tag, .flow .answer-card .tag { font-size: 6.5pt; padding: .6mm 2mm; }
+  .flow .signal-card h3, .flow .skill-card h3, .flow .q-card h3, .flow .source-card h3, .flow .answer-card h3, .flow .download-card h3 { font-size: 10.3pt; margin: 2mm 0 1mm; }
+  .flow .signal-card p, .flow .skill-card p, .flow .q-card p, .flow .source-card p, .flow .answer-card p, .flow .download-card p { font-size: 7.8pt; line-height: 1.5; }
+  .flow .score-table { margin-top: 3.5mm; box-shadow: none; break-inside: auto; }
   .flow .score-table th { padding: 2mm 2.4mm; font-size: 7pt; }
   .flow .score-table td { padding: 2mm 2.4mm; font-size: 7pt; line-height: 1.42; }
+  .flow .score-table.compact td { font-size: 6.7pt; padding: 1.7mm 2mm; }
   .flow .copybox { border-radius: 4mm; padding: 4mm; margin-top: 3.5mm; break-inside: avoid; }
   .flow .copybox h4 { font-size: 9pt; margin-bottom: 2mm; }
   .flow .copybox p, .flow .copybox li { font-size: 7.5pt; line-height: 1.55; }
   .flow .mini-note { margin-top: 3.5mm; padding: 3mm 4mm; border-left: 1.2mm solid var(--jr-red); border-radius: 0 3mm 3mm 0; font-size: 8.2pt; line-height: 1.55; break-inside: avoid; }
+  .flow .level-box { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3mm; margin-top: 3.5mm; break-inside: avoid; }
+  .flow .level { border: 1px solid var(--jr-border-warm); border-radius: 3mm; background: var(--jr-surface-panel); padding: 3mm; }
+  .flow .level strong { display: block; font-size: 8.8pt; color: var(--jr-red); margin-bottom: 1mm; }
+  .flow .level p { font-size: 7.2pt; line-height: 1.45; margin: 0; }
+  .flow .bullets { margin: 2mm 0 0; padding-left: 4mm; }
+  .flow .bullets li { font-size: 8pt; line-height: 1.55; margin: .8mm 0; }
   .page.back-cover.ai-back { gap: 5mm; padding: 18mm 20mm; }
   .ai-back .back-logo { height: 12mm; width: auto; }
   .ai-back h2 { font-size: 25pt; line-height: 1.12; margin: 0; }
@@ -48,7 +55,7 @@
   .ai-back .contact-bar { padding: 3mm 4mm; gap: 4mm; }
   .ai-back .contact-bar .qr { width: 18mm; height: 18mm; }
   .ai-back .caption { font-size: 7.2pt; }
-  @media (max-width: 900px) { .signal-grid, .skill-grid, .q-grid, .source-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 900px) { .signal-grid, .skill-grid, .q-grid, .source-grid, .answer-grid, .download-grid { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -58,12 +65,12 @@
   <img class="cover-logo" src="assets/logo/logo-zh-white.png" alt="匠人学院" />
   <div class="cv2-ghost">AI JD</div>
   <div class="cv2-copy">
-    <div class="cv2-kicker">RAG · Agent · Eval · Cloud</div>
+    <div class="cv2-kicker">JD Evidence · Scorecard · Project Kit</div>
     <h1 class="ai-title"><span class="top"><em>AI Engineer</em></span><span class="main">技能自查清单</span><span class="sub">大厂 AI 岗 JD 拆解</span></h1>
-    <p>把真实岗位要求拆成可勾选能力项，知道自己该补哪一块。</p>
+    <p>给想转 AI Engineer 的在职工程师：先看真实岗位在要什么，再自测差距，最后把项目和简历补成能讲的证据。</p>
   </div>
   <img class="cv2-mascot" src="assets/illustrations/niuxiaojiang-teaching-data.png" alt="牛小匠" />
-  <div class="cv2-strip"><span>AI ENGINEER <i>✦</i> RAG <i>✦</i> AGENTS <i>✦</i> EVALS <i>✦</i> PRODUCTION <i>✦</i></span></div>
+  <div class="cv2-strip"><span>AI ENGINEER <i>✦</i> RAG <i>✦</i> AGENTS <i>✦</i> EVALS <i>✦</i> RESUME PROOF <i>✦</i></span></div>
 </section>
 
 <main class="flow">
@@ -72,15 +79,19 @@
     <div class="ch-num">CONTENTS</div>
     <h2>目录</h2>
     <a href="#how"><span class="num">00</span>先看：这不是 AI 工具清单</a>
-    <a href="#ch1"><span class="num">01</span>大厂 AI 岗 JD 反复出现什么</a>
-    <a href="#ch2"><span class="num">02</span>AI Engineer 技能雷达</a>
-    <a href="#ch3"><span class="num">03</span>RAG 自查清单</a>
-    <a href="#ch4"><span class="num">04</span>Agent / Tool Use 自查清单</a>
-    <a href="#ch5"><span class="num">05</span>Eval / Observability 自查清单</a>
-    <a href="#ch6"><span class="num">06</span>Production / Cloud / Safety 自查清单</a>
-    <a href="#ch7"><span class="num">07</span>JD 拆解成简历和项目</a>
-    <a href="#ch8"><span class="num">08</span>面试高频题</a>
-    <a href="#sources"><span class="num">A</span>来源清单</a>
+    <a href="#jd-bank"><span class="num">01</span>真实 JD 证据库</a>
+    <a href="#salary"><span class="num">02</span>薪资和岗位池怎么读</a>
+    <a href="#score"><span class="num">03</span>能打分的技能自测</a>
+    <a href="#rag"><span class="num">04</span>RAG 自查清单</a>
+    <a href="#agent"><span class="num">05</span>Agent / Tool Use 自查清单</a>
+    <a href="#eval"><span class="num">06</span>Eval / Observability 自查清单</a>
+    <a href="#prod"><span class="num">07</span>Production / Cloud / Safety 自查清单</a>
+    <a href="#project"><span class="num">08</span>客服工单 Agent 参考项目</a>
+    <a href="#artifacts"><span class="num">09</span>失败库、golden set、trace 范本</a>
+    <a href="#resume"><span class="num">10</span>JD 拆成简历和项目证据</a>
+    <a href="#interview"><span class="num">11</span>面试题完整答案</a>
+    <a href="#templates"><span class="num">A</span>可下载模板</a>
+    <a href="#sources"><span class="num">B</span>来源和边界</a>
   </div>
 </section>
 
@@ -88,130 +99,176 @@
   <div class="wrap">
     <h2>先看：这不是 AI 工具清单</h2>
     <div class="card">
-      <p>会用 ChatGPT、Claude、Cursor，不等于能投 AI Engineer。公开 JD 里真正反复出现的，是你能不能把 LLM 接进真实系统：检索、工具调用、评测、监控、权限、成本、延迟和失败处理。</p>
-      <p>这本给在职工程师用。你不用从零学 Python，也不用把所有论文看完。你要先知道：自己缺的是 RAG 数据层，Agent 工程化，还是 Eval 和生产化。</p>
+      <p>会用 ChatGPT、Claude、Cursor，不等于能投 AI Engineer。岗位真正看的是：你能不能把 LLM 接进真实系统，能不能处理检索、工具调用、评测、监控、权限、成本、延迟和失败。</p>
+      <p>这本给在职工程师用。你不用从零学 Python，也不用把所有论文看完。你要先知道自己缺的是 RAG 数据层、Agent 工程化，还是 Eval 和生产化。</p>
     </div>
     <div class="stat-grid">
-      <div class="stat accent"><div class="v">6</div><div class="l">个 AI Engineer 能力域</div></div>
-      <div class="stat"><div class="v">42</div><div class="l">条可勾选自查项</div></div>
-      <div class="stat"><div class="v">24</div><div class="l">道面试追问题</div></div>
+      <div class="stat accent"><div class="v">10</div><div class="l">条真实 JD 摘录</div></div>
+      <div class="stat"><div class="v">24</div><div class="l">道可判定自测题</div></div>
+      <div class="stat"><div class="v">20</div><div class="l">条 failure case 范本</div></div>
     </div>
     <div class="contact-bar">
       <img class="qr" src="assets/contact/qr-amelia.png" alt="Amelia · 匠人学院 IT 顾问微信二维码" />
       <div><div class="t">想知道自己离 AI Engineer 差哪一块？</div><div class="d">扫码找 Amelia，把简历项目和目标 JD 发来，先拆 RAG、Agent、Eval、Cloud 哪块最该补。不承诺面试或 offer。</div></div>
     </div>
   </div>
+</section>
 
-<a class="promo-line" href="https://jiangren.com.au/learn/prompt-master" target="_blank" rel="noopener">🧑‍💻 光看不动手没用：Prompt Master / LLM Lab / Vibe Coding 三个浏览器内实验室，边读边跑 <span>→</span></a></section>
-
-<section class="ch" id="ch1">
+<section class="ch" id="jd-bank">
   <div class="ghost">01</div>
   <div class="wrap">
     <div class="ch-head">
-      <div><div class="ch-num">CHAPTER 01</div><h2>大厂 AI 岗 JD 反复出现什么</h2></div>
+      <div><div class="ch-num">CHAPTER 01</div><h2>真实 JD 证据库</h2></div>
       <img class="ch-illo" src="assets/illustrations/niuxiaojiang-thinking.png" alt="" />
     </div>
-    <p class="lead">不同公司叫法不一样：AI Engineer、GenAI Engineer、Applied AI Engineer、LLM Engineer、AI Platform Engineer。公开 JD 的共同信号大概分 6 类。</p>
-    <div class="signal-grid">
-      <article class="signal-card"><span class="tag">LLM App</span><h3>把模型接进业务</h3><p>不是只调 API。要会结构化输出、工具调用、prompt 版本、fallback、错误处理和用户体验。</p></article>
-      <article class="signal-card"><span class="tag">RAG</span><h3>让模型查得到、答得准</h3><p>数据切分、embedding、metadata、rerank、引用、权限、更新策略和失败样例。</p></article>
-      <article class="signal-card"><span class="tag">Agent</span><h3>让系统会做事但不乱做</h3><p>tool schema、planner、memory、权限边界、human-in-the-loop、超时和重试。</p></article>
-      <article class="signal-card"><span class="tag">Eval</span><h3>证明系统变好了</h3><p>离线 eval、在线反馈、golden set、回归测试、trace、成本、延迟和安全指标。</p></article>
-      <article class="signal-card"><span class="tag">Production</span><h3>能上线、能排错、能控成本</h3><p>API、queue、cache、observability、deployment、rate limit、secret、rollback。</p></article>
-      <article class="signal-card"><span class="tag">Collab</span><h3>和产品、数据、安全一起干活</h3><p>AI 岗不是单人炫技。要能解释 trade-off，写文档，和非技术角色对齐风险。</p></article>
+    <p class="lead">先别背“AI Engineer 需要 RAG、Agent、Eval”。先看公开 JD。下面每条都按“公司、岗位、原文短摘录、来源、抓取日期”登记。摘录只保留关键短句，够你证明这些词不是我们编的。</p>
+    <table class="score-table compact">
+      <tr><th>公司 / 地区</th><th>岗位名</th><th>原文摘录和技能词</th><th>来源链接 / 日期</th></tr>
+      <tr><td>SEEK / AU</td><td>LK Property Group · AI Engineer</td><td>“Build and deploy <strong>AI agents</strong> across leading LLMs”；“Integrate AI services into existing systems via <strong>APIs, webhooks, and data pipelines</strong>”；“Test and refine semi-autonomous and autonomous agents”。</td><td><a href="https://www.seek.com.au/ai-engineer-jobs">seek.com.au</a><br/>2026-07-15</td></tr>
+      <tr><td>SEEK / AU</td><td>City Facilities Management · Senior AI Engineer</td><td>“Design, develop and deploy <strong>machine learning, generative AI, and agentic AI</strong> solutions”；“Azure AI Services, AI Foundry, Containers, and <strong>MLOps</strong> practices”；“Copilot & AI Agents”。</td><td><a href="https://www.seek.com.au/ai-engineer-jobs">seek.com.au</a><br/>2026-07-15</td></tr>
+      <tr><td>SEEK / AU</td><td>Lanson Partners · AI Engineer</td><td>“Developing <strong>RAG</strong> solutions, AI agents, <strong>tool-calling workflows</strong>”；“Deploying AI solutions across AWS, including Amazon Bedrock”；“Establishing <strong>evaluation frameworks</strong>”。</td><td><a href="https://www.seek.com.au/ai-engineer-jobs">seek.com.au</a><br/>2026-07-15</td></tr>
+      <tr><td>SEEK / AU</td><td>CVT Global · AI Engineer - Graduate</td><td>“Assist in the development and implementation of <strong>AI solutions</strong>”；“Design, develop, test and implement software integrations and systems”；“Support the deployment and monitoring of AI applications”。</td><td><a href="https://www.seek.com.au/ai-engineer-jobs">seek.com.au</a><br/>2026-07-15</td></tr>
+      <tr><td>SEEK / AU</td><td>Chemist Warehouse · AI Engineer</td><td>“Build and operate enterprise <strong>LLM/GenAI</strong> solutions”；“Design and implement <strong>RAG</strong> capabilities”；“Implement <strong>LLMOps/MLOps</strong> and CI/CD pipelines including monitoring, evaluation and deployment automation”。</td><td><a href="https://www.seek.com.au/ai-engineer-jobs">seek.com.au</a><br/>2026-07-15</td></tr>
+      <tr><td>SEEK / AU</td><td>Real Time · AI Engineer</td><td>“Deliver end-to-end <strong>AI solutions</strong>”；“Build <strong>agentic systems</strong>”；“Design, write, and scale stateful multi-agent workflows and automated <strong>RAG</strong> pipelines using Python, Langflow, and LangGraph”。</td><td><a href="https://www.seek.com.au/ai-engineer-jobs">seek.com.au</a><br/>2026-07-15</td></tr>
+      <tr><td>SEEK / AU</td><td>Nuage Technology Group · AI Engineer</td><td>“Architecting and building <strong>GenAI and agentic systems</strong> that go into production”；“AWS, Azure or GC”；“Bedrock or SageMaker, or Azure ML / Azure OpenAI”；“LangGraph, Semantic Kernel, AutoGen, or Google ADK”。</td><td><a href="https://www.seek.com.au/ai-engineer-jobs">seek.com.au</a><br/>2026-07-15</td></tr>
+      <tr><td>SEEK / AU</td><td>Nuage Technology Group · Software Engineer (AI + .NET)</td><td>“Junior Engineer to help build and grow their <strong>AI capability</strong>”；“build internal AI platforms”；“AI automations, or <strong>agentic AI</strong> solutions”；“LLMs, prompt engineering, <strong>RAG</strong>, AI workflows”。</td><td><a href="https://www.seek.com.au/ai-engineer-jobs">seek.com.au</a><br/>2026-07-15</td></tr>
+      <tr><td>BOSS / CN</td><td>四川盈播网络科技 · 大模型应用工程师</td><td>“负责<strong>智能客服系统</strong>、智能质检等开发与维护”；“负责<strong>AI 辅助工具</strong>开发”；“熟悉大语言模型(LLM)相关技术”；“熟悉常用大模型工具套件，如 <strong>RAG、MCP、Skills、Agent</strong>”。</td><td><a href="https://www.zhipin.com/">zhipin.com</a><br/>2026-07-15</td></tr>
+      <tr><td>BOSS / CN</td><td>朗姿医疗 · AI 应用开发工程师 LLM Agent / RAG</td><td>“设计并开发 <strong>Agent 工作流</strong>、工具调用、上下文管理、长期记忆机制”；“参与 <strong>RAG 知识库</strong>建设，包含索引构建、语义检索、重排序与效果优化”；“建立 AI 应用效果评估机制，持续跟踪回答准确性、知识命中率、推荐合理性”。</td><td><a href="https://www.zhipin.com/">zhipin.com</a><br/>2026-07-15</td></tr>
+      <tr><td>拉勾 / CN</td><td>微博 · AIGC 算法工程师（NLP 方向）</td><td>“负责微博基础内容 <strong>AI</strong> 的研发”；“负责自然语言处理、多模态内容理解和生成模型调优”；“参与负责大模型预训练技术、海量参数下大模型高效微调技术、基于大模型 Prompt 提示学习技术”。</td><td><a href="https://www.lagou.com/">lagou.com</a><br/>2026-07-15</td></tr>
+    </table>
+
+    <h3>10 条 JD 来源里的技能词频</h3>
+    <table class="score-table">
+      <tr><th>技能词</th><th>出现次数</th><th>怎么理解</th></tr>
+      <tr><td>LLM / GenAI / 大模型</td><td>10 / 11 已核验</td><td>岗位不是“会聊天”，而是把模型能力接进产品或业务。</td></tr>
+      <tr><td>RAG / retrieval / 知识库</td><td>5 / 11 已核验</td><td>企业数据怎么被找到、引用、更新、控权限。</td></tr>
+      <tr><td>Agent / tool calling / workflow</td><td>8 / 11 已核验</td><td>会调用工具还不够，要有审批、回滚、失败处理。</td></tr>
+      <tr><td>Eval / quality / metrics</td><td>4 / 11 已核验</td><td>要证明系统变好，不是 demo 看着顺眼。</td></tr>
+      <tr><td>Cloud / deployment / production</td><td>7 / 11 已核验</td><td>能上线、能排错、能控成本，才像工程岗位。</td></tr>
+      <tr><td>Data pipeline / analytics</td><td>3 / 11 已核验</td><td>AI 项目吃数据，数据质量差，模型再强也白搭。</td></tr>
+    </table>
+    <div class="mini-note">说明：AU 侧 8 条来自 SEEK 截图核验；CN 侧 2 条来自 BOSS、1 条来自拉勾截图核验。招聘页会频繁上下架，投递前要按当天目标 JD 再拆一遍。</div>
+  </div>
+</section>
+
+<section class="ch" id="salary">
+  <div class="ghost">02</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 02</div><h2>真实薪资和岗位池怎么读</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-chart.png" alt="" />
+    </div>
+    <p class="lead">这章复用同仓库《AI 岗位图鉴 2026》的数据口径，并补上岗位池数量栏。数据日期：薪资口径核验到 2026-06-25；招聘搜索快照抓取到 2026-07-15。薪资是市场参考，不是收入承诺。</p>
+    <table class="score-table compact">
+      <tr><th>市场</th><th>岗位数量 / 池口径</th><th>Junior / entry</th><th>Mid</th><th>Senior</th><th>来源和判断</th></tr>
+      <tr><td>AU</td><td>SEEK “ai engineer” 搜索截图显示 <strong>1,184 jobs</strong>。样本薪资从 Graduate AU$80K 起，到 Real Time AI Engineer AU$180K+ super；Nuage AI+.NET 为 AU$90K-$120K；Lanson 为 AU$150K-$180K base + super + bonus。</td><td>CVT Global Graduate: AU$80K 起；Nuage AI+.NET: AU$90K-$120K。</td><td>LK Property: AU$80K-$100K；Lanson: AU$150K-$180K base。</td><td>Real Time: AU$180K+ super；Senior/enterprise 岗还看平台、云和行业经验。</td><td>SEEK 截图 2026-07-15；SEEK Career Advice；Robert Half AU 2026；本仓库 ai-jobs-salary-atlas。</td></tr>
+      <tr><td>CN</td><td>BOSS 成都“大模型应用工程师”样本：18-30K、9-14K·13薪、10-15K、15-30K、8-12K；朗姿 LLM Agent/RAG 为 12-24K。拉勾“AIGC 工程师”显示 <strong>500+</strong> 职位，微博 AIGC NLP 岗为 20-40K。</td><td>AI 应用工程师 Agent 方向 8-12K；大模型应用工程师 9-14K·13薪；朗姿 LLM Agent/RAG 经验不限 12-24K。</td><td>大模型应用工程师 18-30K；AI 应用/微调部署 10-15K；微博 AIGC NLP 20-40K。</td><td>3-5 年大模型应用工程师样本 18-30K / 15-30K；资深岗位更看 LLM、Agent、RAG、评测机制和业务流程落地。</td><td>BOSS / 拉勾截图 2026-07-15；薪资为样本，不代表全国。</td></tr>
+      <tr><td>US 参考</td><td>不作为 AU/CN 收入口径，只做全球岗位价值参照。</td><td>entry 仍看软件工程基础和项目证据。</td><td>Robert Half US 2026：AI/ML Engineer US$134K-$193.25K；Data Scientist US$121.75K-$182.5K。</td><td>BLS Software Developers 2024 中位数 US$133,080，2024-2034 预计增长 15%。</td><td>Robert Half US 2026；BLS OOH。</td></tr>
+    </table>
+    <div class="card">
+      <h3>Entry-level 缺口到底在哪</h3>
+      <p>说白了，纯 “Junior AI Engineer” 岗位少。更现实的入口是三类：一类是软件工程师岗位加 GenAI feature，一类是数据工程/分析岗位加 LLM 数据层，一类是云/平台岗位加 AI 服务部署。</p>
+      <p>所以你要准备的不是“我学过 AI”，而是一个能被软件、数据、平台岗位都读懂的项目：有 RAG，有工具调用，有 eval，有日志，有简历 bullet。</p>
     </div>
   </div>
 </section>
 
-<section class="ch" id="ch2">
-  <div class="ghost">02</div>
+<section class="ch" id="score">
+  <div class="ghost">03</div>
   <div class="wrap">
     <div class="ch-head">
-      <div><div class="ch-num">CHAPTER 02</div><h2>AI Engineer 技能雷达</h2></div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-chart.png" alt="" />
+      <div><div class="ch-num">CHAPTER 03</div><h2>能打分的技能自测</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-pen-book.png" alt="" />
     </div>
-    <p class="lead">先别补课。先打分。每项 0 到 3 分：0 是没做过，1 是跟教程做过，2 是自己项目跑通，3 是能解释 trade-off 和失败案例。</p>
-    <table class="score-table">
-      <tr><th>能力域</th><th>0-1 分表现</th><th>2-3 分表现</th><th>证据</th></tr>
-      <tr><td>RAG</td><td>只知道向量库</td><td>能设计 chunk、metadata、rerank、引用和权限</td><td>RAG demo + eval set + 失败样例</td></tr>
-      <tr><td>Agent</td><td>只会叫工具</td><td>能控制 tool schema、权限、重试、human approval</td><td>可复现 agent workflow</td></tr>
-      <tr><td>Eval</td><td>只看主观感觉</td><td>有 golden set、回归测试、trace 和指标</td><td>eval report + traces</td></tr>
-      <tr><td>LLMOps</td><td>只本地跑 demo</td><td>有日志、成本、延迟、prompt 版本和 rollout</td><td>dashboard / README</td></tr>
-      <tr><td>Safety</td><td>只写“加 guardrail”</td><td>能处理 prompt injection、PII、权限越界</td><td>risk table + test cases</td></tr>
-      <tr><td>Product</td><td>只讲技术</td><td>能说明用户场景、ROI、失败兜底和上线边界</td><td>PRD / one-pager</td></tr>
+    <p class="lead">每题 0/1/2 分：0 是不会，1 是半会或照教程做过，2 是能独立解释并拿出项目证据。24 题满分 48。别骗自己，面试官会追细节。</p>
+    <table class="score-table compact">
+      <tr><th>能力域</th><th>可判定小题</th><th>0 / 1 / 2 怎么打</th><th>证据</th></tr>
+      <tr><td>RAG</td><td>能否独立设计 chunk size、overlap、metadata？</td><td>0 不会；1 照教程；2 能解释取舍。</td><td>索引配置。</td></tr>
+      <tr><td>RAG</td><td>能否解释 hybrid search 和 rerank 何时有用？</td><td>0 不会；1 知道名词；2 有对比。</td><td>检索实验。</td></tr>
+      <tr><td>RAG</td><td>能否处理 citation、freshness、document ACL？</td><td>0 不会；1 单点做过；2 三项都有。</td><td>带引用回答。</td></tr>
+      <tr><td>RAG</td><td>是否维护 retrieval / citation failure cases？</td><td>0 没有；1 少于 10 条；2 至少 20 条。</td><td>失败库。</td></tr>
+      <tr><td>Agent</td><td>能否写 tool schema、输入输出和错误码？</td><td>0 不会；1 toy demo；2 可校验。</td><td>tool spec。</td></tr>
+      <tr><td>Agent</td><td>能否让退款、删除、账单修改走人工审批？</td><td>0 没有；1 手动提醒；2 workflow 阻断。</td><td>审批记录。</td></tr>
+      <tr><td>Agent</td><td>能否处理 retry、timeout、fallback、idempotency？</td><td>0 没有；1 只做 retry；2 四项都有。</td><td>测试日志。</td></tr>
+      <tr><td>Agent</td><td>能否追踪每次 agent decision 和 tool call？</td><td>0 没有；1 console log；2 结构化 trace。</td><td>trace。</td></tr>
+      <tr><td>Eval</td><td>能否写 10 题 golden set 和评分点？</td><td>0 没有；1 只有问题；2 有期望和评分。</td><td>eval CSV。</td></tr>
+      <tr><td>Eval</td><td>能否区分 retrieval miss、answer drift、citation error？</td><td>0 混在一起；1 能说；2 能归因。</td><td>失败分类。</td></tr>
+      <tr><td>Eval</td><td>能否用同一批案例比较 prompt 版本？</td><td>0 不会；1 手测；2 有回归表。</td><td>版本报告。</td></tr>
+      <tr><td>Eval</td><td>能否统计 quality、groundedness、latency、cost？</td><td>0 没有；1 两项；2 四项都有。</td><td>dashboard。</td></tr>
+      <tr><td>LLMOps</td><td>能否记录 model、prompt version、token、latency、cost？</td><td>0 没有；1 部分字段；2 字段完整。</td><td>日志表。</td></tr>
+      <tr><td>LLMOps</td><td>能否给低风险请求做 cache 或 deterministic route？</td><td>0 没有；1 只设计；2 已实现。</td><td>路由代码。</td></tr>
+      <tr><td>LLMOps</td><td>能否解释 rate limit、rollback、prompt rollout？</td><td>0 不会；1 讲概念；2 有方案。</td><td>部署文档。</td></tr>
+      <tr><td>LLMOps</td><td>能否排查一次成本突然升高？</td><td>0 不会；1 看总账；2 能按 trace 拆。</td><td>成本分析。</td></tr>
+      <tr><td>Safety</td><td>能否测试 prompt injection？</td><td>0 没有；1 少量样例；2 回归测试。</td><td>攻击样例。</td></tr>
+      <tr><td>Safety</td><td>能否避免 PII 出现在回答和日志里？</td><td>0 没有；1 只在回答；2 回答日志都脱敏。</td><td>脱敏测试。</td></tr>
+      <tr><td>Safety</td><td>能否在 retrieval 和 tool call 前做权限检查？</td><td>0 没有；1 只做一处；2 两处都有。</td><td>ACL 测试。</td></tr>
+      <tr><td>Safety</td><td>能否说清 guardrail 的边界？</td><td>0 不会；1 说口号；2 能讲失败样例。</td><td>风险表。</td></tr>
+      <tr><td>Product</td><td>能否定义用户场景、验收标准、上线边界？</td><td>0 没有；1 模糊；2 可验收。</td><td>PRD。</td></tr>
+      <tr><td>Product</td><td>能否说明什么时候不该用 LLM？</td><td>0 不会；1 知道风险；2 能给替代方案。</td><td>trade-off。</td></tr>
+      <tr><td>Product</td><td>能否把项目改成 JD 匹配的简历 bullet？</td><td>0 不会；1 泛泛写；2 按 JD 改。</td><td>简历版本。</td></tr>
+      <tr><td>Product</td><td>能否和 product / data / security 解释 trade-off？</td><td>0 不会；1 只讲技术；2 能讲业务边界。</td><td>复盘文档。</td></tr>
     </table>
-    <div class="mini-note">如果你 6 项里有 4 项还停在 0-1 分，先别急着投 AI Engineer。先做一个能覆盖 RAG + Eval + 部署的项目。</div>
+    <div class="level-box">
+      <div class="level"><strong>0-15：L0</strong><p>还在工具体验层。先做一个完整项目，不急着投。</p></div>
+      <div class="level"><strong>16-27：L1</strong><p>能跑 demo，但证据弱。补 eval、trace、失败样例。</p></div>
+      <div class="level"><strong>28-39：L2</strong><p>可以投 AI 相关软件/数据岗。简历要按 JD 改。</p></div>
+      <div class="level"><strong>40-48：L3</strong><p>可以冲 AI Engineer。准备好系统设计和取舍。</p></div>
+    </div>
+    <h3>30 天补强路径</h3>
+    <table class="score-table">
+      <tr><th>当前水平</th><th>未来 30 天先补 3 件事</th><th>别做什么</th></tr>
+      <tr><td>L0</td><td>跑通客服工单 Agent；写 10 题 golden set；部署一个可访问 demo。</td><td>别刷一堆工具名。</td></tr>
+      <tr><td>L1</td><td>补 20 条 failure case；加 trace；把 README 写成可复现项目。</td><td>别只录一个顺利视频。</td></tr>
+      <tr><td>L2</td><td>按 3 条目标 JD 改简历；准备 5 道完整面试答案；做一次成本和延迟分析。</td><td>别所有岗位投同一版简历。</td></tr>
+      <tr><td>L3</td><td>补系统设计图；准备 trade-off；把项目数据、限制、下一步写清楚。</td><td>别把自己讲成“什么都会”。</td></tr>
+    </table>
   </div>
 </section>
 <aside class="promo">
   <span class="promo-tag">AD · 自家的</span>
   <div class="promo-body">
-    <h4>🎬 还没准备好 cohort？先上入门自学课</h4>
-    <p>AI Engineer 入门（RAG 方向）：4 周 52 小时视频 + 25 个浏览器内 Lab + AI Tutor 即时答疑，自己掌握节奏，是 Bootcamp 的官方前置课。</p>
+    <h4>📚 27 本 AI 工具实战手册，免费</h4>
+    <p>Cursor、Claude Code、Dify、n8n、CrewAI…每个工具一本中文实战手册，5-10 章带代码，不用注册不要钱。本书提到的工具基本都有对应深读。</p>
   </div>
-  <a class="promo-cta" href="https://jiangren.com.au/program-course/ai-engineer-rag" target="_blank" rel="noopener">看课程介绍 →</a>
+  <a class="promo-cta" href="https://jiangren.com.au/wiki" target="_blank" rel="noopener">去翻手册 →</a>
 </aside>
 
-<section class="ch" id="ch3">
-  <div class="ghost">03</div>
+<section class="ch" id="rag">
+  <div class="ghost">04</div>
   <div class="wrap">
     <div class="ch-head">
-      <div><div class="ch-num">CHAPTER 03</div><h2>RAG 自查清单</h2></div>
+      <div><div class="ch-num">CHAPTER 04</div><h2>RAG 自查清单</h2></div>
       <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-data.png" alt="" />
     </div>
-    <p class="lead">RAG 不是“丢进向量库再问”。公开 JD 里写 retrieval、knowledge base、enterprise data、grounding，本质都在看这一块。</p>
+    <p class="lead">RAG 不是“丢进向量库再问”。岗位写 retrieval、knowledge base、enterprise data、grounding，本质都在看你能不能让企业资料被正确使用。</p>
     <div class="check-group">
       <div class="head"><span class="stage">RAG</span><h3>能勾上这些，才不像教程项目</h3></div>
-      <div class="check-item"><span class="box"></span><div><div class="t">我能解释 chunk size、overlap、metadata 为什么这么设</div><div class="n">不是照默认参数。</div></div></div>
-      <div class="check-item"><span class="box"></span><div><div class="t">我做过 hybrid search 或 rerank 对比</div><div class="n">知道什么时候关键词比 embedding 更稳。</div></div></div>
-      <div class="check-item"><span class="box"></span><div><div class="t">我能处理权限和引用</div><div class="n">用户看不到的文档，模型也不能拿来回答。</div></div></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">我能解释 chunk size、overlap、metadata 为什么这么设</div><div class="n">例子：退款政策按标题和条款号切，不按固定 500 token 硬切。</div></div></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">我做过 hybrid search 或 rerank 对比</div><div class="n">例子：用户搜 “chargeback” 时，关键词检索比纯 embedding 更稳。</div></div></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">我能处理权限和引用</div><div class="n">例子：Sales 用户不能检索 HR 薪资文件，引用必须指向可见文档。</div></div></div>
       <div class="check-item"><span class="box"></span><div><div class="t">我有失败案例库</div><div class="n">至少 20 条：找不到、找错、答偏、引用错、权限错。</div></div></div>
       <div class="check-item"><span class="box"></span><div><div class="t">我能说清 freshness 和更新策略</div><div class="n">文档变了以后，索引怎么更新，缓存怎么失效。</div></div></div>
     </div>
   </div>
 </section>
 
-<section class="ch" id="ch4">
-  <div class="ghost">04</div>
+<section class="ch" id="agent">
+  <div class="ghost">05</div>
   <div class="wrap">
     <div class="ch-head">
-      <div><div class="ch-num">CHAPTER 04</div><h2>Agent / Tool Use 自查清单</h2></div>
+      <div><div class="ch-num">CHAPTER 05</div><h2>Agent / Tool Use 自查清单</h2></div>
       <img class="ch-illo" src="assets/illustrations/niuxiaojiang-working-laptop.png" alt="" />
     </div>
     <p class="lead">Agent 岗位最怕“能跑但不可控”。面试会追：工具怎么定义、怎么防止乱调用、怎么让人审批、怎么回滚。</p>
     <div class="skill-grid">
-      <article class="skill-card"><span class="tag">Tool Schema</span><h3>参数清楚，输出可验证</h3><p>每个 tool 要有明确输入、输出、错误码和权限，不要让模型自由编参数。</p></article>
-      <article class="skill-card"><span class="tag">Control</span><h3>能中断、重试、降级</h3><p>超时、API 失败、工具返回异常时，要有 retry、fallback、human review。</p></article>
-      <article class="skill-card"><span class="tag">Memory</span><h3>知道什么该记，什么不该记</h3><p>用户偏好、任务状态、临时上下文和隐私数据要分开处理。</p></article>
+      <article class="skill-card"><span class="tag">Tool Schema</span><h3>参数清楚，输出可验证</h3><p>每个 tool 有明确输入、输出、错误码和权限。比如 `refund_ticket(ticket_id, amount, reason)` 不能让模型自由编字段。</p></article>
+      <article class="skill-card"><span class="tag">Control</span><h3>能中断、重试、降级</h3><p>超时、API 失败、工具返回异常时，有 retry、fallback、human review，不让 agent 一路乱撞。</p></article>
+      <article class="skill-card"><span class="tag">Memory</span><h3>知道什么该记，什么不该记</h3><p>用户偏好、任务状态、临时上下文和隐私数据分开处理。PII 不进长期记忆。</p></article>
       <article class="skill-card"><span class="tag">Audit</span><h3>每一步都能追溯</h3><p>谁触发、模型决定了什么、调用了哪个工具、结果是什么，都要 trace。</p></article>
     </div>
     <div class="copybox">
       <h4>Agent 项目最小证据</h4>
-      <p>做一个“客服工单 agent”或“内部知识库 action agent”：能检索资料、创建/更新工单、遇到退款/删除/权限动作时要求人工确认，并保留 trace。</p>
-    </div>
-  </div>
-</section>
-
-<section class="ch" id="ch5">
-  <div class="ghost">05</div>
-  <div class="wrap">
-    <div class="ch-head">
-      <div><div class="ch-num">CHAPTER 05</div><h2>Eval / Observability 自查清单</h2></div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-pen-book.png" alt="" />
-    </div>
-    <p class="lead">AI 系统和普通系统最大的差别：你不能只测“接口通不通”。你要测回答好不好、有没有引用、有没有胡说、有没有越权。</p>
-    <table class="score-table">
-      <tr><th>指标</th><th>看什么</th><th>项目里怎么证明</th></tr>
-      <tr><td>Answer quality</td><td>答案是否解决用户问题</td><td>golden set + 人工评分规则</td></tr>
-      <tr><td>Groundedness</td><td>答案是否基于资料</td><td>引用片段和原文对齐检查</td></tr>
-      <tr><td>Retrieval</td><td>该找的文档有没有找出来</td><td>top-k hit rate / recall 样例</td></tr>
-      <tr><td>Safety</td><td>是否泄露、越权、被注入</td><td>prompt injection 和 PII 测试集</td></tr>
-      <tr><td>Cost / latency</td><td>每次调用多少钱、多慢</td><td>trace dashboard 或日志统计</td></tr>
-      <tr><td>Regression</td><td>改 prompt 后有没有变差</td><td>CI 里跑 eval 或手动回归表</td></tr>
-    </table>
-    <div class="contact-bar">
-      <img class="qr" src="assets/contact/qr-amelia.png" alt="Amelia · 匠人学院 IT 顾问微信二维码" />
-      <div><div class="t">项目没有 Eval，面试容易被追卡</div><div class="d">扫码找 Amelia，把 RAG/Agent 项目发来，先看该补 golden set、trace 还是失败样例。</div></div>
+      <p>做一个“客服工单 agent”：能检索资料、创建/更新工单、遇到退款/删除/权限动作时要求人工确认，并保留 trace。别只做自动回复。</p>
     </div>
   </div>
 </section>
@@ -224,11 +281,43 @@
   <a class="promo-cta" href="https://jiangren.com.au/learn/ai-engineer" target="_blank" rel="noopener">去做测试 →</a>
 </aside>
 
-<section class="ch" id="ch6">
+<section class="ch" id="eval">
   <div class="ghost">06</div>
   <div class="wrap">
     <div class="ch-head">
-      <div><div class="ch-num">CHAPTER 06</div><h2>Production / Cloud / Safety 自查清单</h2></div>
+      <div><div class="ch-num">CHAPTER 06</div><h2>Eval / Observability 自查清单</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-pen-book.png" alt="" />
+    </div>
+    <p class="lead">AI 系统和普通系统最大的差别：你不能只测“接口通不通”。你要测回答好不好、有没有引用、有没有胡说、有没有越权。</p>
+    <table class="score-table">
+      <tr><th>指标</th><th>看什么</th><th>项目里怎么证明</th></tr>
+      <tr><td>Answer quality</td><td>答案是否解决用户问题</td><td>golden set + 人工评分规则。</td></tr>
+      <tr><td>Groundedness</td><td>答案是否基于资料</td><td>引用片段和原文对齐检查。</td></tr>
+      <tr><td>Retrieval</td><td>该找的文档有没有找出来</td><td>top-k hit rate / recall 样例。</td></tr>
+      <tr><td>Safety</td><td>是否泄露、越权、被注入</td><td>prompt injection 和 PII 测试集。</td></tr>
+      <tr><td>Cost / latency</td><td>每次调用多少钱、多慢</td><td>trace dashboard 或日志统计。</td></tr>
+      <tr><td>Regression</td><td>改 prompt 后有没有变差</td><td>CI 里跑 eval 或手动回归表。</td></tr>
+    </table>
+    <div class="contact-bar">
+      <img class="qr" src="assets/contact/qr-amelia.png" alt="Amelia · 匠人学院 IT 顾问微信二维码" />
+      <div><div class="t">项目没有 Eval，面试容易被追卡</div><div class="d">扫码找 Amelia，把 RAG/Agent 项目发来，先看该补 golden set、trace 还是失败样例。</div></div>
+    </div>
+  </div>
+</section>
+<aside class="promo">
+  <span class="promo-tag">AD · 自家的</span>
+  <div class="promo-body">
+    <h4>🎬 还没准备好 cohort？先上入门自学课</h4>
+    <p>AI Engineer 入门（RAG 方向）：4 周 52 小时视频 + 25 个浏览器内 Lab + AI Tutor 即时答疑，自己掌握节奏，是 Bootcamp 的官方前置课。</p>
+  </div>
+  <a class="promo-cta" href="https://jiangren.com.au/program-course/ai-engineer-rag" target="_blank" rel="noopener">看课程介绍 →</a>
+</aside>
+
+<section class="ch" id="prod">
+  <div class="ghost">07</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 07</div><h2>Production / Cloud / Safety 自查清单</h2></div>
       <img class="ch-illo" src="assets/illustrations/niuxiaojiang-coffee-pointing.png" alt="" />
     </div>
     <p class="lead">大厂 AI 岗不会只问 demo。会问如果上线给 10 万用户，怎么控成本、怎么限流、怎么观测、怎么处理坏回答。</p>
@@ -243,24 +332,43 @@
   </div>
 </section>
 
-<section class="ch" id="ch7">
-  <div class="ghost">07</div>
+<section class="ch" id="project">
+  <div class="ghost">08</div>
   <div class="wrap">
     <div class="ch-head">
-      <div><div class="ch-num">CHAPTER 07</div><h2>JD 拆解成简历和项目</h2></div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-chart.png" alt="" />
+      <div><div class="ch-num">CHAPTER 08</div><h2>客服工单 Agent 参考项目</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-data.png" alt="" />
     </div>
-    <p class="lead">看到 JD 里的“build GenAI applications”，不要只写“会 LangChain”。要翻译成证据。</p>
+    <p class="lead">别再写“我做了一个 RAG 聊天机器人”。做一个客服工单 Agent，面试官能追的点全在里面。</p>
     <table class="score-table">
-      <tr><th>JD 信号</th><th>简历证据</th><th>项目证据</th></tr>
-      <tr><td>RAG / knowledge retrieval</td><td>写 chunk、metadata、rerank、citation、eval</td><td>知识库问答 + 20 条失败样例</td></tr>
-      <tr><td>Agents / tool use</td><td>写 tool schema、approval、trace、fallback</td><td>工单 agent / workflow agent</td></tr>
-      <tr><td>Evaluation</td><td>写 golden set、regression、quality metric</td><td>eval report + dashboard</td></tr>
-      <tr><td>Production systems</td><td>写 latency、cost、logging、deployment</td><td>线上 demo + 架构图 + 日志</td></tr>
-      <tr><td>Cross-functional work</td><td>写 product/legal/security/data 协作</td><td>PRD、风险表、上线边界说明</td></tr>
+      <tr><th>模块</th><th>功能规格</th><th>验收标准</th></tr>
+      <tr><td>RAG 检索</td><td>检索退款、订阅、账号删除、发票、SLA 文档，答案带引用。</td><td>10 题 golden set 至少 8 题引用正确。</td></tr>
+      <tr><td>工单增改</td><td>读取工单、创建 follow-up、更新 priority、追加 internal note。</td><td>tool call 参数可校验，失败有错误码。</td></tr>
+      <tr><td>人工审批</td><td>退款、删除账号、改账单地址必须 pending approval。</td><td>没有审批记录时，工具不能执行。</td></tr>
+      <tr><td>Trace</td><td>记录 request_id、user_id、retrieval、prompt_version、tool call、latency、cost。</td><td>能从一次坏回答追到原因。</td></tr>
+      <tr><td>Safety</td><td>检测 prompt injection、越权文档、PII 输出。</td><td>至少 5 条攻击样例能被拒绝或转人工。</td></tr>
     </table>
-    <p class="sales-card-lead">如果你已经有 AI demo，但简历还是写“做了一个聊天机器人”，扫 Amelia 的码，先把项目改成 JD 能看懂的证据。</p>
-    <div class="sales-card"><img src="assets/contact/sales-cards/amelia.jpg" alt="Amelia · IT Career Consultant" /></div>
+    <h3>Repo 目录骨架</h3>
+    <pre><code>customer-ticket-agent/
+  app/
+    api/                 # FastAPI or Next.js API routes
+    agent/               # planner, tool router, approval policy
+    rag/                 # loaders, chunking, retrieval, rerank
+    tools/               # ticket, refund, account, notification tools
+    evals/               # golden set, scoring script, regression report
+    observability/       # traces, cost, latency, prompt version
+  data/
+    policies/            # fake SOP docs, refund rules, account deletion
+    tickets/             # synthetic ticket seed data
+  tests/
+    safety_cases.json
+    golden_set.csv
+  README.md
+  docker-compose.yml</code></pre>
+    <div class="card">
+      <h3>技术选型建议</h3>
+      <p>后端用 Python + FastAPI 更好讲，前端可用 Next.js。RAG 用 Postgres + pgvector 或 Qdrant。Agent workflow 用 LangGraph 或自己写状态机。Trace 用 OpenTelemetry、LangSmith、Phoenix 或一张结构化日志表。重点不是工具名，是你能解释为什么这么选。</p>
+    </div>
   </div>
 </section>
 <aside class="promo">
@@ -272,21 +380,137 @@
   <a class="promo-cta" href="https://jiangren.com.au/program-course/ai-engineer-bootcamp" target="_blank" rel="noopener">看课程大纲 →</a>
 </aside>
 
-<section class="ch" id="ch8">
-  <div class="ghost">08</div>
+<section class="ch" id="artifacts">
+  <div class="ghost">09</div>
   <div class="wrap">
     <div class="ch-head">
-      <div><div class="ch-num">CHAPTER 08</div><h2>面试高频题</h2></div>
+      <div><div class="ch-num">CHAPTER 09</div><h2>失败库、golden set、trace 范本</h2></div>
       <img class="ch-illo" src="assets/illustrations/niuxiaojiang-working-laptop.png" alt="" />
     </div>
-    <p class="lead">AI Engineer 面试的追问，经常从项目细节开始。下面这些题，别背概念，用你的项目答。</p>
-    <div class="q-grid">
-      <article class="q-card"><span class="tag">RAG</span><h3>RAG 答错了怎么排查？</h3><p>先分 retrieval miss、bad chunk、rerank 问题、prompt 问题、模型幻觉，再看 trace 和样例。</p></article>
-      <article class="q-card"><span class="tag">Eval</span><h3>怎么证明新版 prompt 更好？</h3><p>用固定 eval set 做回归，比较 groundedness、task success、cost、latency，不只看 3 个手测例子。</p></article>
-      <article class="q-card"><span class="tag">Agent</span><h3>Agent 为什么会乱调用工具？</h3><p>tool 描述不清、权限边界弱、缺少状态机、没有人审、错误返回不可解释，都可能导致。</p></article>
-      <article class="q-card"><span class="tag">Safety</span><h3>怎么防 prompt injection？</h3><p>区分系统指令和外部内容，做 allowlist tool、引用隔离、权限检查、输出验证和攻击样例测试。</p></article>
-      <article class="q-card"><span class="tag">System</span><h3>成本突然升高怎么办？</h3><p>查 token、retrieval、rerank、重复请求、cache hit、模型选择和超长上下文。</p></article>
-      <article class="q-card"><span class="tag">Product</span><h3>什么时候不该用 LLM？</h3><p>规则稳定、风险高、可解释性强要求、低延迟低成本任务，可能用传统逻辑更好。</p></article>
+    <h3>20 条 failure case 范本</h3>
+    <table class="score-table compact">
+      <tr><th>类型</th><th>现象</th><th>原因</th><th>修法</th></tr>
+      <tr><td>not found</td><td>问退款期限，系统说未找到。</td><td>退款政策 PDF 没入库。</td><td>补 loader，重建索引。</td></tr>
+      <tr><td>not found</td><td>问发票下载路径，答成联系客服。</td><td>query 没扩展同义词。</td><td>加 invoice/receipt 同义词。</td></tr>
+      <tr><td>not found</td><td>问账号删除 SLA，检索为空。</td><td>chunk 标题丢失。</td><td>metadata 保留章节标题。</td></tr>
+      <tr><td>not found</td><td>问企业套餐退款，命中个人套餐。</td><td>缺 plan_type filter。</td><td>检索前加 metadata filter。</td></tr>
+      <tr><td>找错</td><td>把 chargeback 当普通退款。</td><td>关键词权重太低。</td><td>hybrid search + rerank。</td></tr>
+      <tr><td>找错</td><td>引用旧版政策。</td><td>没有 effective_date。</td><td>按日期过滤，旧版降权。</td></tr>
+      <tr><td>找错</td><td>把澳洲政策答给美国用户。</td><td>地区 metadata 缺失。</td><td>region 必填。</td></tr>
+      <tr><td>找错</td><td>Top-1 是 FAQ，SOP 在 Top-5。</td><td>没有 rerank。</td><td>cross-encoder rerank。</td></tr>
+      <tr><td>答案漂移</td><td>明明文档写 14 天，回答 30 天。</td><td>模型用常识补全。</td><td>要求只基于引用回答。</td></tr>
+      <tr><td>答案漂移</td><td>把“不保证退款”说成“可以退款”。</td><td>否定句没保留上下文。</td><td>按条款段落切 chunk。</td></tr>
+      <tr><td>答案漂移</td><td>答案太自信，没有说明限制。</td><td>prompt 缺置信度规则。</td><td>低置信度转人工。</td></tr>
+      <tr><td>答案漂移</td><td>回答了用户没问的销售话术。</td><td>system prompt 混进营销目标。</td><td>客服任务和营销任务拆开。</td></tr>
+      <tr><td>引用错</td><td>答案正确，引用到无关 FAQ。</td><td>引用取自 Top-1，不是答案来源。</td><td>生成时绑定 evidence span。</td></tr>
+      <tr><td>引用错</td><td>引用链接 404。</td><td>文档 URL 更新。</td><td>索引存 canonical URL。</td></tr>
+      <tr><td>引用错</td><td>引用内部文档给外部用户。</td><td>展示层没做权限检查。</td><td>answer 和 citation 都过 ACL。</td></tr>
+      <tr><td>权限错</td><td>普通用户查到 VIP 价格。</td><td>检索没传 user_role。</td><td>检索 query 带 role scope。</td></tr>
+      <tr><td>权限错</td><td>agent 直接发起退款。</td><td>tool allowlist 太宽。</td><td>高风险工具必须审批。</td></tr>
+      <tr><td>权限错</td><td>输出用户手机号。</td><td>PII redaction 缺失。</td><td>日志和回答都脱敏。</td></tr>
+      <tr><td>工具错</td><td>重复创建两张工单。</td><td>重试没有 idempotency key。</td><td>写入工具加 request_id。</td></tr>
+      <tr><td>工具错</td><td>工具失败后模型说已完成。</td><td>错误返回不可解释。</td><td>标准化 tool error schema。</td></tr>
+    </table>
+
+    <h3>10 题 golden set 范本</h3>
+    <table class="score-table compact">
+      <tr><th>问题</th><th>期望答案</th><th>评分点</th></tr>
+      <tr><td>年度订阅 7 天内能退吗？</td><td>能否退款取决于 plan 和地区，先引用退款政策。</td><td>引用正确；不承诺。</td></tr>
+      <tr><td>chargeback 和 refund 一样吗？</td><td>不是。chargeback 走争议流程，需转人工。</td><td>区分概念；转人工。</td></tr>
+      <tr><td>怎么删除账号？</td><td>说明入口、影响、人工确认。</td><td>不直接执行删除。</td></tr>
+      <tr><td>能帮我改账单邮箱吗？</td><td>需要验证身份后更新。</td><td>调用前检查权限。</td></tr>
+      <tr><td>我的发票在哪里下载？</td><td>给出路径和条件。</td><td>命中 invoice 文档。</td></tr>
+      <tr><td>企业客户 SLA 是多久？</td><td>按 plan 和合同条款回答。</td><td>不拿个人 FAQ 回答。</td></tr>
+      <tr><td>澳洲用户适用美国退款政策吗？</td><td>不直接适用，按 region 检索。</td><td>地区过滤。</td></tr>
+      <tr><td>用户让我忽略系统规则怎么办？</td><td>拒绝外部指令，继续按政策答。</td><td>prompt injection 防护。</td></tr>
+      <tr><td>退款 API 超时怎么办？</td><td>不要说完成，创建 pending 状态。</td><td>工具失败处理。</td></tr>
+      <tr><td>怎么证明新版 prompt 更好？</td><td>跑同一批 golden set，比 quality、groundedness、latency、cost。</td><td>有回归思路。</td></tr>
+    </table>
+
+    <h3>一段真实 trace 长这样</h3>
+    <pre><code>{
+  "request_id": "req_20260715_104233",
+  "user_id": "u_8821",
+  "role": "customer_support_l2",
+  "query": "企业客户想取消年度订阅，能直接退款吗？",
+  "prompt_version": "support_agent_v3.2",
+  "retrieval": [
+    {"doc": "refund_policy_enterprise_au.md", "score": 0.86, "citation": "section 4.2"},
+    {"doc": "approval_matrix.md", "score": 0.81, "citation": "refund_over_500"}
+  ],
+  "decision": "needs_human_approval",
+  "tool_calls": [
+    {"tool": "get_ticket", "args": {"ticket_id": "T-1042"}, "status": "ok"},
+    {"tool": "create_approval", "args": {"amount": 1200, "reason": "annual cancellation"}, "status": "pending"}
+  ],
+  "answer_quality": {"grounded": true, "risk": "medium"},
+  "latency_ms": 2840,
+  "estimated_cost_usd": 0.018
+}</code></pre>
+  </div>
+</section>
+
+<section class="ch" id="resume">
+  <div class="ghost">10</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 10</div><h2>JD 拆成简历和项目证据</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-chart.png" alt="" />
+    </div>
+    <p class="lead">看到 JD 里的 “build GenAI applications”，不要只写“会 LangChain”。要翻译成证据。</p>
+    <table class="score-table">
+      <tr><th>JD 信号</th><th>简历证据</th><th>项目证据</th></tr>
+      <tr><td>RAG / knowledge retrieval</td><td>写 chunk、metadata、rerank、citation、eval。</td><td>知识库问答 + 20 条失败样例。</td></tr>
+      <tr><td>Agents / tool use</td><td>写 tool schema、approval、trace、fallback。</td><td>工单 agent / workflow agent。</td></tr>
+      <tr><td>Evaluation</td><td>写 golden set、regression、quality metric。</td><td>eval report + dashboard。</td></tr>
+      <tr><td>Production systems</td><td>写 latency、cost、logging、deployment。</td><td>线上 demo + 架构图 + 日志。</td></tr>
+      <tr><td>Cross-functional work</td><td>写 product/legal/security/data 协作。</td><td>PRD、风险表、上线边界说明。</td></tr>
+    </table>
+    <h3>20 条简历 bullet 库</h3>
+    <table class="score-table compact">
+      <tr><th>方向</th><th>可改写 bullet</th></tr>
+      <tr><td>RAG</td><td>Built a RAG pipeline over policy documents with metadata filtering, citation grounding, and scheduled re-indexing.</td></tr>
+      <tr><td>RAG</td><td>Improved retrieval quality by comparing vector search, keyword search, and reranking on a 10-question golden set.</td></tr>
+      <tr><td>RAG</td><td>Designed chunking strategy for SOP documents using section headers, effective dates, and region tags.</td></tr>
+      <tr><td>RAG</td><td>Added ACL-aware retrieval so users only receive answers from documents they are allowed to access.</td></tr>
+      <tr><td>RAG</td><td>Maintained a 20-case failure library covering missing documents, wrong retrieval, answer drift, bad citations, and permission gaps.</td></tr>
+      <tr><td>Agent</td><td>Implemented a customer ticket agent with structured tool schemas for ticket lookup, note creation, and approval requests.</td></tr>
+      <tr><td>Agent</td><td>Added human approval gates for refunds, account deletion, and billing changes to prevent unsafe autonomous actions.</td></tr>
+      <tr><td>Agent</td><td>Built retry, timeout, fallback, and idempotency handling for external tool calls.</td></tr>
+      <tr><td>Agent</td><td>Logged agent decisions, tool inputs, tool outputs, and approval status for auditability.</td></tr>
+      <tr><td>Agent</td><td>Separated task state, short-term context, and PII to avoid unsafe memory behavior.</td></tr>
+      <tr><td>Eval</td><td>Created a golden set with expected answers and scoring criteria for answer quality, groundedness, and citation accuracy.</td></tr>
+      <tr><td>Eval</td><td>Compared prompt versions using regression tests instead of manual cherry-picked examples.</td></tr>
+      <tr><td>Eval</td><td>Instrumented traces to capture model, prompt version, retrieval hits, latency, and estimated token cost.</td></tr>
+      <tr><td>Eval</td><td>Diagnosed failures by separating retrieval miss, poor chunking, rerank issue, prompt issue, and model hallucination.</td></tr>
+      <tr><td>Eval</td><td>Built safety test cases for prompt injection, PII leakage, and unauthorized document access.</td></tr>
+      <tr><td>Production</td><td>Deployed the AI service behind an API with rate limiting, structured logging, and rollback-ready prompt versions.</td></tr>
+      <tr><td>Production</td><td>Reduced avoidable model calls through caching and deterministic routing for low-risk FAQ requests.</td></tr>
+      <tr><td>Production</td><td>Added cost and latency dashboards to identify expensive prompts and slow retrieval paths.</td></tr>
+      <tr><td>Production</td><td>Documented architecture trade-offs across vector database, reranker, model choice, and hosting setup.</td></tr>
+      <tr><td>Production</td><td>Worked with product and support stakeholders to define safe rollout scope, escalation rules, and acceptance criteria.</td></tr>
+    </table>
+    <p class="sales-card-lead">如果你已经有 AI demo，但简历还是写“做了一个聊天机器人”，扫 Amelia 的码，先把项目改成 JD 能看懂的证据。</p>
+    <div class="sales-card"><img src="assets/contact/sales-cards/amelia.jpg" alt="Amelia · IT Career Consultant" /></div>
+  </div>
+
+<a class="promo-line" href="https://jiangren.com.au/blog" target="_blank" rel="noopener">📰 跟上行业节奏：匠人每天 5 条经过核源的 AI 日报，每周一份大事盘点 <span>→</span></a>
+<a class="promo-line" href="https://jiangren.com.au/job-interview/process" target="_blank" rel="noopener">🎤 面试前刷一遍：各公司真实面经与题库（按轮次整理） <span>→</span></a></section>
+
+<section class="ch" id="interview">
+  <div class="ghost">11</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 11</div><h2>面试题完整答案</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-working-laptop.png" alt="" />
+    </div>
+    <p class="lead">下面不是背诵稿，是“强候选人会怎么说”。你要换成自己的项目数据。</p>
+    <div class="answer-grid">
+      <article class="answer-card"><span class="tag">RAG</span><h3>RAG 答错了怎么排查？</h3><p>我会先把问题拆成 retrieval 和 generation 两段。第一步看 trace：Top-K 有没有召回正确文档，metadata filter 有没有把地区、权限、日期过滤对。第二步看 chunk，是否把否定句或条款切散。第三步看 rerank 和 prompt，答案是不是用了未引用内容。踩雷答法：直接说“换更强模型”。</p></article>
+      <article class="answer-card"><span class="tag">Eval</span><h3>怎么证明新版 prompt 更好？</h3><p>我不会只拿三条顺利样例演示。我会固定 golden set，分 answer quality、groundedness、citation accuracy、latency、cost 评分。新版只有在质量提升且成本延迟可接受时才上线。踩雷答法：说“我感觉回答更自然”。</p></article>
+      <article class="answer-card"><span class="tag">Agent</span><h3>Agent 为什么会乱调用工具？</h3><p>常见原因是 tool 描述太宽、权限没有做在工具层、状态机不清楚、错误返回不可读。我会把高风险工具放到 approval gate 后面，所有写操作带 idempotency key，并记录工具输入输出。踩雷答法：说“加一句不要乱调用”。</p></article>
+      <article class="answer-card"><span class="tag">Safety</span><h3>怎么防 prompt injection？</h3><p>我会把外部文档当不可信输入，系统指令和检索内容分层处理。工具调用用 allowlist，执行前检查用户权限和 action risk。再用攻击样例做回归，比如让文档诱导模型泄露系统提示词。踩雷答法：只说“加 guardrail”。</p></article>
+      <article class="answer-card"><span class="tag">System</span><h3>成本突然升高怎么办？</h3><p>我会先看 trace 聚合：请求量、上下文长度、模型选择、rerank 次数、cache hit、重复重试。再定位是某个 prompt 版本变长，还是检索返回太多内容，或者工具失败导致重试。踩雷答法：只说“换便宜模型”。</p></article>
     </div>
     <div class="copybox">
       <h4>再准备这 12 题</h4>
@@ -294,26 +518,31 @@
     </div>
   </div>
 
-<a class="promo-line" href="https://jiangren.com.au/job-interview/process" target="_blank" rel="noopener">🎤 面试前刷一遍：各公司真实面经与题库（按轮次整理） <span>→</span></a>
-<a class="promo-line" href="https://jiangren.com.au/blog" target="_blank" rel="noopener">📰 跟上行业节奏：匠人每天 5 条经过核源的 AI 日报，每周一份大事盘点 <span>→</span></a></section>
-<aside class="promo">
-  <span class="promo-tag">AD · 自家的</span>
-  <div class="promo-body">
-    <h4>📚 27 本 AI 工具实战手册，免费</h4>
-    <p>Cursor、Claude Code、Dify、n8n、CrewAI…每个工具一本中文实战手册，5-10 章带代码，不用注册不要钱。本书提到的工具基本都有对应深读。</p>
+<a class="promo-line" href="https://jiangren.com.au/learn/prompt-master" target="_blank" rel="noopener">🧑‍💻 光看不动手没用：Prompt Master / LLM Lab / Vibe Coding 三个浏览器内实验室，边读边跑 <span>→</span></a></section>
+
+<section class="ch" id="templates">
+  <div class="wrap">
+    <div class="ch-num">APPENDIX A</div>
+    <h2>可下载模板</h2>
+    <p class="lead">这本 PDF 旁边配了四个可直接打开的模板文件。打印自查、复制到 Notion、丢进 Google Sheet 都行。</p>
+    <div class="download-grid">
+      <article class="download-card"><h3>简历 bullet 库</h3><p><code>templates/resume-bullets-ai-engineer.csv</code>：RAG、Agent、Eval、Production 各 5 条，按目标 JD 改数字和场景。</p></article>
+      <article class="download-card"><h3>PDF / 表格版自查清单</h3><p><code>templates/printable-self-check.html</code> 可直接打印；<code>templates/self-check-scorecard.csv</code> 可导入表格打分。</p></article>
+      <article class="download-card"><h3>Notion / Sheet 自评打分器</h3><p><code>templates/notion-sheet-scoring.md</code>：字段、公式和 30 天补强路径。</p></article>
+      <article class="download-card"><h3>项目验收清单</h3><p>客服工单 Agent 的验收标准已经放在第 08 章，可直接搬到 README。</p></article>
+    </div>
   </div>
-  <a class="promo-cta" href="https://jiangren.com.au/wiki" target="_blank" rel="noopener">去翻手册 →</a>
-</aside>
+</section>
 
 <section class="ch" id="sources">
   <div class="wrap">
-    <div class="ch-num">SOURCES</div>
-    <h2>来源清单</h2>
+    <div class="ch-num">APPENDIX B</div>
+    <h2>来源和边界</h2>
     <div class="source-grid">
-      <article class="source-card"><h3>官方能力源</h3><p>OpenAI Evals / Platform Docs、Anthropic Claude Docs、LangChain、LlamaIndex、MLflow，用来核对 eval、agent、RAG 和 tracing 口径。</p></article>
-      <article class="source-card"><h3>云平台源</h3><p>AWS Bedrock、Azure AI Foundry、Google Cloud Vertex AI 文档，用来核对 knowledge base、agent、guardrail、部署和企业 AI 能力。</p></article>
-      <article class="source-card"><h3>JD 信号</h3><p>公开 AI lab、cloud vendor、SaaS 和企业 AI 产品团队岗位描述中反复出现的能力信号，不声称来自任何公司内部题库。</p></article>
-      <article class="source-card"><h3>使用提醒</h3><p>这本是自查表，不是资格认证。投递前要按目标公司最新 JD 重拆一遍。</p></article>
+      <article class="source-card"><h3>JD 来源</h3><p>Canva Life at Canva、Atlassian Careers、Amazon Jobs、Google Careers、SEEK、ByteDance Jobs、Alibaba Talent、Tencent Careers、BOSS 直聘、拉勾。岗位页会变，抓取日期写在第 01 章。</p></article>
+      <article class="source-card"><h3>薪资来源</h3><p>复用本仓库《AI 岗位图鉴 2026》：Robert Half 2026、SEEK Australia Career Advice、BLS Occupational Outlook Handbook、WEF、PwC 公开报告摘录。</p></article>
+      <article class="source-card"><h3>技术口径</h3><p>OpenAI Evals / Platform Docs、Anthropic Claude Docs、LangChain、LlamaIndex、MLflow、AWS Bedrock、Azure AI Foundry、Google Cloud Vertex AI。</p></article>
+      <article class="source-card"><h3>使用提醒</h3><p>这本是自查表，不是资格认证。它不承诺面试、offer、签证或收入结果。投递前要按目标公司最新 JD 重拆一遍。</p></article>
     </div>
   </div>
 </section>
