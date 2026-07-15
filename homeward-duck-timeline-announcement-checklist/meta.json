@@ -1,0 +1,47 @@
+{
+  "slug": "homeward-duck-timeline-announcement-checklist",
+  "title": "澳洲留学生回国求职：时间线与公告手册",
+  "subtitle": "从完课、Testamur、认证到秋招春招，别靠群消息替自己做决定",
+  "audience": "正在准备回国校招、春招或体制内路径的澳洲留学生",
+  "goal": "internal-review",
+  "track": "T2",
+  "style": "longform-a4-reader",
+  "channel": ["小红书内容承接", "内部审稿"],
+  "status": "internal-review",
+  "format": "a4-page-reader",
+  "mobileReading": "responsive-scroll-first",
+  "pages": 32,
+  "contact": {
+    "owner": "Amelia",
+    "role": "回国鸭求职咨询",
+    "qr": "qr-amelia.png",
+    "touchpoints": [
+      "批次提醒：备注 日历",
+      "公告拆解：备注 公告卡",
+      "学校与赛道判断：备注 学校路径",
+      "封底一对一梳理"
+    ]
+  },
+  "illustrations": {
+    "generator": "OpenAI image model",
+    "assets": [
+      "assets/cover-return-duck.png",
+      "assets/timeline-return-duck.png",
+      "assets/announcement-return-duck.png",
+      "assets/school-route-return-duck.png"
+    ]
+  },
+  "sources": [
+    "jr-omni/new-media/xiaohongshu/huiguoya/SOURCE_SOT.md",
+    "huiguoya/docs/01-product.md",
+    "huiguoya/docs/prd/PRD_WEB.md"
+  ],
+  "distribution": {
+    "salesQr": "jr-ebooks/assets/contact/qr-amelia.png",
+    "salesQrOwner": "Amelia",
+    "xiaohongshuDisplayName": "回国鸭",
+    "xiaohongshuId": null,
+    "xiaohongshuProfileUrl": null,
+    "publicRelease": "blocked"
+  }
+}
