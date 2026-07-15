@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<title>AI Engineer 自查清单打印版</title>
+<style>
+  @page { size: A4; margin: 14mm; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Noto Sans SC", Arial, sans-serif; color: #111; }
+  h1 { font-size: 24px; margin: 0 0 6px; }
+  p { font-size: 12px; line-height: 1.6; margin: 0 0 12px; }
+  table { width: 100%; border-collapse: collapse; font-size: 10px; }
+  th { background: #111; color: #fff; text-align: left; padding: 6px; }
+  td { border: 1px solid #ddd; padding: 5px; vertical-align: top; }
+  .score { width: 46px; text-align: center; }
+  .box { display: inline-block; width: 11px; height: 11px; border: 1px solid #111; margin-right: 3px; vertical-align: -2px; }
+  .footer { margin-top: 12px; font-size: 10px; color: #666; }
+</style>
+</head>
+<body>
+<h1>AI Engineer 技能自查清单</h1>
+<p>每题 0/1/2 分：0 不会；1 半会或照教程做过；2 能独立解释并拿出项目证据。满分 48。0-15=L0，16-27=L1，28-39=L2，40-48=L3。</p>
+<table>
+  <tr><th>能力域</th><th>自测题</th><th class="score">0</th><th class="score">1</th><th class="score">2</th><th>证据 / 下一步</th></tr>
+  <tr><td>RAG</td><td>能否独立设计 chunk size、overlap、metadata？</td><td><span class="box"></span></td><td><span class="box"></span></td><td><span class="box"></span></td><td></td></tr>
+  <tr><td>RAG</td><td>能否解释 hybrid search 和 rerank 何时有用？</td><td><span class="box"></span></td><td><span class="box"></span></td><td><span class="box"></span></td><td></td></tr>
+  <tr><td>RAG</td><td>能否处理 citation、freshness、document ACL？</td><td><span class="box"></span></td><td><span class="box"></span></td><td><span class="box"></span></td><td></td></tr>
+  <tr><td>RAG</td><td>是否维护 retrieval / citation failure cases？</td><td><span class="box"></span></td><td><span class="box"></span></td><td><span class="box"></span></td><td></td></tr>
+  <tr><td>Agent</td><td>能否写 tool schema、输入输出和错误码？</td><td><span class="box"></span></td><td><span class="box"></span></td><td><span class="box"></span></td><td></td></tr>
+  <tr><td>Agent</td><td>能否让退款、删除、账单修改走人工审批？</td><td><span class="box"></span></td><td><span class="box"></span></td><td><span class="box"></span></td><td></td></tr>
+  <tr><td>Agent</td><td>能否处理 retry、timeout、fallback、idempotency？</td><td><span class="box"></span></td><td><span class="box"></span></td><td><span class="box"></span></td><td></td></tr>
+  <tr><td>Agent</td><td>能否追踪每次 agent decision 和 tool call？</td><td><span class="box"></span></td><td><span class="box"></span></td><td><span class="box"></span></td><td></td></tr>
+  <tr><td>Eval</td><td>能否写 10 题 golden set 和评分点？</td><td><span class="box"></span></td><td><span class="box"></span></td><td><span class="box"></span></td><td></td></tr>
+  <tr><td>Eval</td><td>能否区分 retrieval miss、answer drift、citation error？</td><td><span class="box"></span></td><td><span class="box"></span></td><td><span class="box"></span></td><td></td></tr>
+  <tr><td>Eval</td><td>能否用同一批案例比较 prompt 版本？</td><td><span class="box"></span></td><td><span class="box"></span></td><td><span class="box"></span></td><td></td></tr>
+  <tr><td>Eval</td><td>能否统计 quality、groundedness、latency、cost？</td><td><span class="box"></span></td><td><span class="box"></span></td><td><span class="box"></span></td><td></td></tr>
+  <tr><td>LLMOps</td><td>能否记录 model、prompt version、token、latency、cost？</td><td><span class="box"></span></td><td><span class="box"></span></td><td><span class="box"></span></td><td></td></tr>
+  <tr><td>LLMOps</td><td>能否给低风险请求做 cache 或 deterministic route？</td><td><span class="box"></span></td><td><span class="box"></span></td><td><span class="box"></span></td><td></td></tr>
+  <tr><td>LLMOps</td><td>能否解释 rate limit、rollback、prompt rollout？</td><td><span class="box"></span></td><td><span class="box"></span></td><td><span class="box"></span></td><td></td></tr>
+  <tr><td>LLMOps</td><td>能否排查一次成本突然升高？</td><td><span class="box"></span></td><td><span class="box"></span></td><td><span class="box"></span></td><td></td></tr>
+  <tr><td>Safety</td><td>能否测试 prompt injection？</td><td><span class="box"></span></td><td><span class="box"></span></td><td><span class="box"></span></td><td></td></tr>
+  <tr><td>Safety</td><td>能否避免 PII 出现在回答和日志里？</td><td><span class="box"></span></td><td><span class="box"></span></td><td><span class="box"></span></td><td></td></tr>
+  <tr><td>Safety</td><td>能否在 retrieval 和 tool call 前做权限检查？</td><td><span class="box"></span></td><td><span class="box"></span></td><td><span class="box"></span></td><td></td></tr>
+  <tr><td>Safety</td><td>能否说清 guardrail 的边界？</td><td><span class="box"></span></td><td><span class="box"></span></td><td><span class="box"></span></td><td></td></tr>
+  <tr><td>Product</td><td>能否定义用户场景、验收标准、上线边界？</td><td><span class="box"></span></td><td><span class="box"></span></td><td><span class="box"></span></td><td></td></tr>
+  <tr><td>Product</td><td>能否说明什么时候不该用 LLM？</td><td><span class="box"></span></td><td><span class="box"></span></td><td><span class="box"></span></td><td></td></tr>
+  <tr><td>Product</td><td>能否把项目改成 JD 匹配的简历 bullet？</td><td><span class="box"></span></td><td><span class="box"></span></td><td><span class="box"></span></td><td></td></tr>
+  <tr><td>Product</td><td>能否和 product / data / security 解释 trade-off？</td><td><span class="box"></span></td><td><span class="box"></span></td><td><span class="box"></span></td><td></td></tr>
+</table>
+<p class="footer">JR Academy · jiangren.com.au · 本表用于自查，不构成录用、签证或收入承诺。</p>
+</body>
+</html>
