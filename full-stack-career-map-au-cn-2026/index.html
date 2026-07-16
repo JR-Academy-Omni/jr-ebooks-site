@@ -28,6 +28,7 @@
   .copybox { background: #16181D; color: #E8EAED; border-radius: 18px; padding: 18px; margin-top: 18px; }
   .copybox h4 { color: #fff; margin: 0 0 8px; }
   .copybox p, .copybox li { color: #E8EAED; }
+  .copybox pre { margin: 0; white-space: pre-wrap; font-family: var(--jr-font-mono, ui-monospace, monospace); }
   .mini-note { margin-top: 18px; padding: 14px 16px; border-left: 5px solid var(--jr-red); border-radius: 0 12px 12px 0; background: var(--jr-wash-red); font-size: 15px; line-height: 1.6; }
   .flow .stack-grid, .flow .jd-grid, .flow .q-grid, .flow .source-grid { grid-template-columns: repeat(2, 1fr); gap: 3.5mm; }
   .flow .stack-card, .flow .jd-card, .flow .q-card, .flow .source-card { border-radius: 4mm; padding: 4mm; box-shadow: none; break-inside: avoid; }
@@ -37,10 +38,32 @@
   .flow .road-table { margin-top: 3.5mm; box-shadow: none; break-inside: avoid; }
   .flow .road-table th { padding: 2mm 2.4mm; font-size: 7pt; }
   .flow .road-table td { padding: 2mm 2.4mm; font-size: 7pt; line-height: 1.42; }
+  .flow .road-table td.ok { color: #15803d; font-weight: 800; text-align: center; }
+  .flow .road-table td.no { color: var(--jr-red); font-weight: 800; text-align: center; }
   .flow .copybox { border-radius: 4mm; padding: 4mm; margin-top: 3.5mm; break-inside: avoid; }
   .flow .copybox h4 { font-size: 9pt; margin-bottom: 2mm; }
   .flow .copybox p, .flow .copybox li { font-size: 7.5pt; line-height: 1.55; }
+  .flow .copybox pre { font-size: 7pt; line-height: 1.5; }
   .flow .mini-note { margin-top: 3.5mm; padding: 3mm 4mm; border-left: 1.2mm solid var(--jr-red); border-radius: 0 3mm 3mm 0; font-size: 8.2pt; line-height: 1.55; break-inside: avoid; }
+  /* 面试问答块 */
+  .flow .callout.bad { border-left-color: var(--jr-red); background: var(--jr-wash-red); }
+  .flow .callout .lab { display: block; font-weight: 800; font-size: 8.4pt; margin-bottom: 1.4mm; }
+  .flow .qa { margin-top: 5mm; break-inside: avoid; }
+  .flow .qa > h3 { font-size: 11pt; margin: 0 0 1.5mm; line-height: 1.3; }
+  .flow .qa .dom { display: inline-block; font-size: 6.4pt; font-weight: 800; color: #fff; background: var(--jr-black); border-radius: 999px; padding: .5mm 2.4mm; margin-right: 2mm; vertical-align: middle; }
+  .flow .qa .callout { margin-top: 2.2mm; }
+  /* 简历范本 */
+  .flow .resume-sheet { border: 1px solid var(--jr-border-warm); border-radius: 3mm; background: #fff; padding: 6mm 7mm; margin-top: 4mm; break-inside: avoid; }
+  .flow .resume-sheet .rs-name { font-size: 15pt; font-weight: 800; margin: 0; color: var(--jr-black); }
+  .flow .resume-sheet .rs-tagline { font-size: 8.4pt; font-weight: 700; color: var(--jr-red); margin: 1mm 0 .5mm; }
+  .flow .resume-sheet .rs-contact { font-size: 7.2pt; color: var(--jr-neutral-600); margin: 0 0 1mm; }
+  .flow .resume-sheet .rs-sec { font-size: 8.6pt; font-weight: 800; color: var(--jr-black); border-bottom: 1.5px solid var(--jr-red); padding-bottom: 1mm; margin: 4mm 0 2mm; letter-spacing: .02em; text-transform: uppercase; }
+  .flow .resume-sheet p, .flow .resume-sheet li { font-size: 7.6pt; line-height: 1.52; }
+  .flow .resume-sheet ul { margin: 1mm 0 0; padding-left: 4.5mm; }
+  .flow .resume-sheet .rs-job { display: flex; justify-content: space-between; align-items: baseline; gap: 3mm; margin-top: 2.5mm; }
+  .flow .resume-sheet .rs-job .rs-role { font-size: 8pt; font-weight: 800; }
+  .flow .resume-sheet .rs-job .rs-date { font-size: 7pt; color: var(--jr-neutral-600); font-weight: 600; flex: none; }
+  .flow .resume-sheet .rs-two { display: grid; grid-template-columns: 1fr 1fr; gap: 2mm 6mm; }
   .page.back-cover.fs-back { gap: 5mm; padding: 18mm 20mm; }
   .fs-back .back-logo { height: 12mm; width: auto; }
   .fs-back h2 { font-size: 25pt; line-height: 1.12; margin: 0; }
@@ -49,7 +72,7 @@
   .fs-back .contact-bar { padding: 3mm 4mm; gap: 4mm; }
   .fs-back .contact-bar .qr { width: 18mm; height: 18mm; }
   .fs-back .caption { font-size: 7.2pt; }
-  @media (max-width: 900px) { .stack-grid, .jd-grid, .q-grid, .source-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 900px) { .stack-grid, .jd-grid, .q-grid, .source-grid { grid-template-columns: 1fr; } .flow .resume-sheet .rs-two { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -59,10 +82,10 @@
   <img class="cover-logo" src="assets/logo/logo-zh-white.png" alt="匠人学院" />
   <div class="cv2-ghost">FULLSTACK</div>
   <div class="cv2-copy">
-    <div class="cv2-kicker">澳洲 / 中国 · 转码求职路线</div>
+    <div class="cv2-kicker">澳洲 / 中国 · 转码求职实操包</div>
     <h1 class="fs-title"><span class="top">2026</span><span class="main">全栈开发<em>求职地图</em></span><span class="sub">从技术栈到面试</span></h1>
-    <p>React 还是 Vue？Node 还是 Java？AWS 要学到哪？这本按真实 JD 信号倒推学习顺序、项目、简历和面试题。</p>
-    <div class="cv2-tags"><span>技术栈路线</span><span>JD 拆解</span><span>简历模板</span><span>面试高频题</span></div>
+    <p>10 条真实 JD、两地真实薪资、能照着建的项目规格、8 道面试完整答案、AU/CN 双版简历范本。全部按 2026 年真实招聘信号倒推。</p>
+    <div class="cv2-tags"><span>真实 JD 证据库</span><span>真实薪资+签证</span><span>项目规格</span><span>面试范例答案</span><span>简历范本</span></div>
   </div>
   <img class="cv2-mascot" src="assets/illustrations/niuxiaojiang-teaching-chart.png" alt="牛小匠" />
   <div class="cv2-strip"><span>FULL STACK MAP <i>✦</i> AUSTRALIA <i>✦</i> CHINA <i>✦</i> RESUME <i>✦</i> INTERVIEW <i>✦</i></span></div>
@@ -74,15 +97,18 @@
     <div class="ch-num">CONTENTS</div>
     <h2>目录</h2>
     <a href="#how"><span class="num">00</span>先看：全栈不是把所有东西都学一遍</a>
-    <a href="#ch1"><span class="num">01</span>澳洲 / 中国 JD 有什么不同</a>
-    <a href="#ch2"><span class="num">02</span>技术栈路线图：按顺序学</a>
-    <a href="#ch3"><span class="num">03</span>8 周学习和项目计划</a>
-    <a href="#ch4"><span class="num">04</span>真实 JD 拆解：关键词怎么翻译</a>
-    <a href="#ch5"><span class="num">05</span>项目组合：别只做 Todo App</a>
-    <a href="#ch6"><span class="num">06</span>简历模板：把技术写成证据</a>
-    <a href="#ch7"><span class="num">07</span>面试高频题：怎么答才像干过活</a>
-    <a href="#ch8"><span class="num">08</span>投递前 20 项检查</a>
-    <a href="#sources"><span class="num">A</span>来源清单</a>
+    <a href="#ch1"><span class="num">01</span>澳洲 vs 中国：面试流程、时间线、卡点全对比</a>
+    <a href="#ch2"><span class="num">02</span>真实 JD 证据库：AU 5 条 + CN 5 条原文</a>
+    <a href="#ch3"><span class="num">03</span>真实薪资、岗位数字、签证与门槛</a>
+    <a href="#ch4"><span class="num">04</span>技术栈路线图：按顺序学</a>
+    <a href="#ch5"><span class="num">05</span>8 周学习和项目计划</a>
+    <a href="#ch6"><span class="num">06</span>项目组合：两个能照着建的完整规格</a>
+    <a href="#ch7"><span class="num">07</span>真实 JD 拆解：关键词怎么翻译</a>
+    <a href="#ch8"><span class="num">08</span>简历模板：把技术写成证据</a>
+    <a href="#ch9"><span class="num">09</span>面试高频题：8 道完整范例答案</a>
+    <a href="#ch10"><span class="num">10</span>投递前 20 项检查</a>
+    <a href="#appendix"><span class="num">A1</span>附录：AU / CN 完整简历范本 + README</a>
+    <a href="#sources"><span class="num">A2</span>来源清单</a>
   </div>
 </section>
 
@@ -93,10 +119,11 @@
       <p>转码最容易掉进一个坑：今天学 React，明天学 Vue，后天学 Java，周末又去补 AWS。学了很多，但 JD 一打开，还是不知道自己能投什么。</p>
       <p>全栈求职不是“前后端数据库云都精通”。早期岗位更看重：你能不能做一个完整业务功能，从页面、API、数据库、权限、部署到排错都说得清楚。</p>
     </div>
+    <div class="callout warn"><span class="lab">先说一句实话，别学到一半才发现</span>市场在降温。2025 年，澳洲 Jobs and Skills Australia 第一次把 Software Engineer 移出了全国短缺清单；中国这边，斯坦福一份研究显示 2022 年底到 2025 年 7 月，22–25 岁的年轻程序员就业人数掉了近两成。这不是叫你别学，是叫你别用三年前的乐观预期来学 —— 门槛更高了，你的项目和简历得更能打。</div>
     <div class="stat-grid">
-      <div class="stat accent"><div class="v">4</div><div class="l">层主线：前端、后端、数据、部署</div></div>
-      <div class="stat"><div class="v">8</div><div class="l">周路线：从基础到可投项目</div></div>
-      <div class="stat"><div class="v">30</div><div class="l">道高频面试题和答题方向</div></div>
+      <div class="stat accent"><div class="v">10</div><div class="l">条真实 JD：AU 5 + CN 5，带原文和来源</div></div>
+      <div class="stat"><div class="v">2</div><div class="l">个完整项目规格：schema、API、权限矩阵</div></div>
+      <div class="stat"><div class="v">8</div><div class="l">道面试题：完整范例答案 + 反面对照</div></div>
     </div>
     <div class="contact-bar">
       <img class="qr" src="assets/contact/qr-rain.png" alt="Rain · 匠人学院资深 IT 顾问微信二维码" />
@@ -109,25 +136,195 @@
   <div class="ghost">01</div>
   <div class="wrap">
     <div class="ch-head">
-      <div><div class="ch-num">CHAPTER 01</div><h2>澳洲 / 中国 JD 有什么不同</h2></div>
+      <div><div class="ch-num">CHAPTER 01</div><h2>澳洲 vs 中国：面试流程、时间线、卡点全对比</h2></div>
       <img class="ch-illo" src="assets/illustrations/niuxiaojiang-thinking.png" alt="" />
     </div>
-    <p class="lead">澳洲和中国都要全栈，但招聘语言不一样。澳洲 JD 更常把沟通、ownership、cloud、CI/CD、testing 写进要求；中国 JD 更常把业务迭代速度、Vue/React、Java/Spring Boot、微服务、小程序、性能优化写得很细。</p>
+    <p class="lead">这是这本书唯一别人抄不走的部分。两地都要全栈，但招人的方式差得很远。你要是拿中国那套准备去投澳洲，或者反过来，基本会撞墙。下面一条条拆。</p>
+
+    <h3>一、面试流程和轮次</h3>
+    <table class="road-table">
+      <tr><th>环节</th><th>澳洲（真实 4 轮为主）</th><th>中国（3 轮技术面 + HR）</th></tr>
+      <tr><td>第一关</td><td>Recruiter/phone screen，约 30 分钟，聊背景、动机，还有一句几乎必问：你有没有工作签证。</td><td>一面，直接上技术。项目 + 基础八股 + 可能现场手撕一道算法。</td></tr>
+      <tr><td>技术关</td><td>take-home 项目 / timed coding / system design，三选一或组合。有的会让你 review 一段 PR。</td><td>二面，项目拷打为主：这个模块你怎么设计的、并发多大、怎么优化的、踩过什么坑。</td></tr>
+      <tr><td>软性关</td><td>pair programming + 和 lead engineer 聊，夹着 culture fit 和情景行为题，权重和技术一样高。</td><td>三面，经理面，看综合能力和稳定性，有的大厂到这轮才谈别的。</td></tr>
+      <tr><td>收尾</td><td>final + reference check，会真的打电话给你前同事核实。</td><td>HR 面，谈薪资、到岗时间、家庭情况，部分大厂三面后就没有独立 HR 面。</td></tr>
+    </table>
+    <div class="mini-note">一个真实例子：悉尼/珀斯的 Sitemate，候选人报告的流程是 —— 先做一个对接第三方 API 的 take-home，再 pair programming + 技术面，再情景文化面，最后 reference check。注意它把“review 一段 PR、描述你会怎么实现某功能”当技术题，不是纯刷 LeetCode。（来源：Glassdoor，2026-07 查）</div>
+
+    <h3>二、时间线：什么时候投</h3>
     <div class="jd-grid">
-      <article class="jd-card"><span class="tag">Australia</span><h3>看完整交付</h3><p>SEEK 当前 full stack 搜索里能看到 React、Node、TypeScript、AWS、Java、Angular 等组合。简历要证明你会做功能、测试、部署和沟通。</p></article>
-      <article class="jd-card"><span class="tag">China</span><h3>看栈匹配和上线速度</h3><p>常见信号是 Vue/React、Java/Spring Boot、Node、MySQL/Redis、微服务、权限、性能、小程序。简历要写清模块、接口、并发和上线结果。</p></article>
-      <article class="jd-card"><span class="tag">共同点</span><h3>都不喜欢“只会教程”</h3><p>如果项目没有登录、CRUD、错误处理、数据库关系、部署和 README，招聘方很难判断你能不能进团队。</p></article>
-      <article class="jd-card"><span class="tag">差异点</span><h3>澳洲更吃表达，中国更吃细节</h3><p>澳洲面试常追项目决策和协作；中国面试更容易追框架原理、接口设计、SQL、缓存、并发和八股基础。</p></article>
+      <article class="jd-card"><span class="tag">Australia</span><h3>全年滚动，没有招聘季</h3><p>澳洲大部分岗位常年在招，看到合适的就投，不用等。唯一例外是大厂和银行的 graduate program，有固定年度批次，通常提前大半年开。</p></article>
+      <article class="jd-card"><span class="tag">China</span><h3>秋招是主战场，卡毕业月份</h3><p>秋招 9–11 月放最多 headcount，春招 3–4 月补录，社招常年。应届生身份和毕业时间强绑定，错过窗口很吃亏。2026 秋招一般收 2026.1–2027.8 毕业的同学。</p></article>
     </div>
-    <div class="mini-note">先别问哪个国家更容易。先把目标 JD 贴出来，圈出重复出现 5 次以上的关键词，那才是你第一阶段要学的东西。</div>
+
+    <h3>三、卡点：真正卡住人的地方不一样</h3>
+    <table class="road-table">
+      <tr><th></th><th>澳洲卡在哪</th><th>中国卡在哪</th></tr>
+      <tr><td>硬门槛</td><td>工作身份。大量岗（尤其远程岗、政府/公共机构）写死要 current Australian work rights，纯海外身份直接被 screen 掉。</td><td>学历和第一学历。大厂校招约 1:50，头部国企常看是不是 985/211；非名校要靠竞赛、项目或稀缺技能突围。</td></tr>
+      <tr><td>隐性门槛</td><td>愿不愿 sponsor 签证，更多看公司规模和它是不是已经是 approved sponsor，而不是岗位本身。startup 薪资开得高但担保逐案而定。</td><td>年龄。筛简历第一眼看年龄，25–28 岁优先约面，35 岁以上除非有稀缺技能，简历常直接进待定区。</td></tr>
+      <tr><td>身份的坑</td><td>PR 让你从“需要担保”变“随便投”，但拿 PR 是另一条长路，别把学技术和拿身份混成一件事。</td><td>留学生应届身份：回国 2 年内别急着签正式劳动合同、别缴国内职工社保 —— 一旦职工社保记录出现，多数企业和考公岗会认定你不再是应届生。</td></tr>
+    </table>
+
+    <h3>四、phone screen / 一面真会问什么</h3>
+    <div class="jd-grid">
+      <article class="jd-card"><span class="tag">澳洲一面示例</span><h3>先讲一个完整项目</h3><p>“介绍一个你从前端、后端到部署完整做过的项目” —— 这是最常见的开场。接着可能让你 review 一段 PR 指出问题，或者口述你会怎么实现某个功能。再夹一道行为题：跨团队协作、冲突怎么解决。澳洲对表达和 culture fit 的权重，和技术是并列的。</p></article>
+      <article class="jd-card"><span class="tag">中国一面示例</span><h3>项目深挖 + 八股</h3><p>顺着你简历里的项目往死里问：模块怎么设计、数据量多大、慢查询怎么优化。然后是 Java 核心（JVM、多线程、Spring Bean 生命周期）、MySQL 索引、Redis 缓存穿透击穿雪崩，可能现场一道算法。考察优先级：项目深挖排第一，八股排第二。</p></article>
+    </div>
+    <div class="callout"><span class="lab">一句话记住差别</span>澳洲那关，你得能把项目讲成一个“我怎么和人协作交付”的故事；中国那关，你得能把项目讲到“并发、索引、缓存”这种细节，还能扛住追问。同一个项目，两地要练两套讲法。</div>
   </div>
-</section>
+
+<a class="promo-line" href="https://jiangren.com.au/blog" target="_blank" rel="noopener">📰 跟上行业节奏：匠人每天 5 条经过核源的 AI 日报，每周一份大事盘点 <span>→</span></a></section>
 
 <section class="ch" id="ch2">
   <div class="ghost">02</div>
   <div class="wrap">
     <div class="ch-head">
-      <div><div class="ch-num">CHAPTER 02</div><h2>技术栈路线图：按顺序学</h2></div>
+      <div><div class="ch-num">CHAPTER 02</div><h2>真实 JD 证据库：AU 5 条 + CN 5 条</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-data.png" alt="" />
+    </div>
+    <p class="lead">别信“市场需要什么”这种二手转述。下面是 2026 年 7 月真实在招的岗位，技能词直接从招聘页摘。看多了你会发现：要求其实高度重复，重复出现的就是你该先学的。</p>
+    <div class="callout warn"><span class="lab">数据怎么来的，先说清楚</span>澳洲这 5 条来自 SEEK 全栈挂牌页（当日显示 555 个全栈岗），公司、岗位、城市、薪资都是真的；单岗详情页有反爬，个别只拿到挂牌的技术栈短摘，不是每条都有整段英文原文。中国这 5 条里，前 4 条是 BOSS 直聘上真实在招的具名岗位（成都，2026-07-16 手工抓的岗位描述原文），最后 1 条是三茅的岗位模板聚合，专门用来看“最大公约数”，已单独标注。</div>
+
+    <h3>澳洲 · SEEK 全栈岗（2026-07-15）</h3>
+
+    <div class="jobcard">
+      <div class="jc-top"><div><div class="jc-name">Junior Full-Stack Dev：React, Node, AWS</div><div class="jc-en">LVT People（GovTech，服务 City of Sydney）· Sydney NSW</div></div><div class="jc-badges"><span class="jc-badge explosive">Australia</span><span class="jc-badge steady">JS/TS 阵营</span></div></div>
+      <div class="jc-blurb">原文：“at least 3 years of experience in Full Stack Development using <span class="hl">Typescript</span>, with proven skills in <span class="hl">React 18</span> and <span class="hl">AWS</span> services.” 岗位描述里 React 18 / Node / AWS / TypeScript 贯穿始终。</div>
+      <div class="chips"><span class="chip-sk">TypeScript</span><span class="chip-sk">React 18</span><span class="chip-sk">Node</span><span class="chip-sk">AWS</span></div>
+      <div class="jc-foot"><div class="jc-course">注意：写着 junior，却要 3 年全栈经验。澳洲不少“junior”其实要能独立交付。</div><div class="jc-src">来源 SEEK / talent.com<br>2026-07-15</div></div>
+    </div>
+
+    <div class="jobcard">
+      <div class="jc-top"><div><div class="jc-name">Full Stack Developer (Java / React)</div><div class="jc-en">Talent Corp · Brisbane QLD（Hybrid）</div></div><div class="jc-badges"><span class="jc-badge explosive">Australia</span><span class="jc-badge fast">合同制</span></div></div>
+      <div class="jc-salary">$900–982/天</div><div class="jc-salnote">日薪合同岗 + super（不是年薪）</div>
+      <div class="jc-blurb">挂牌栈：“<span class="hl">Java</span> and <span class="hl">React</span> expertise”。前端 React、后端 Java，典型的企业全栈组合，走合同制。</div>
+      <div class="chips"><span class="chip-sk">Java</span><span class="chip-sk">React</span></div>
+      <div class="jc-foot"><div class="jc-course">合同岗日薪高，但没 super 沉淀、没工作稳定性，适合有经验的人。</div><div class="jc-src">来源 SEEK 挂牌页<br>2026-07-15</div></div>
+    </div>
+
+    <div class="jobcard">
+      <div class="jc-top"><div><div class="jc-name">Full Stack Engineer</div><div class="jc-en">FinXL IT Professional Services · Sydney NSW（Hybrid）</div></div><div class="jc-badges"><span class="jc-badge explosive">Australia</span><span class="jc-badge steady">企业后端</span></div></div>
+      <div class="jc-salary">最高 $160k</div><div class="jc-salnote">年薪 base</div>
+      <div class="jc-blurb">挂牌栈：“<span class="hl">Java</span>, JPA, Hibernate, <span class="hl">MariaDB</span>, MongoDB, <span class="hl">Vue.JS</span>, <span class="hl">Angular</span>”。Java 全家桶 + 前端还要会两个框架，企业级系统的典型配置。</div>
+      <div class="chips"><span class="chip-sk">Java</span><span class="chip-sk">JPA/Hibernate</span><span class="chip-sk">MariaDB</span><span class="chip-sk">Vue.js</span><span class="chip-sk">Angular</span></div>
+      <div class="jc-foot"><div class="jc-course">前端两个框架都列，说明它维护的是老系统 + 新系统并存。</div><div class="jc-src">来源 SEEK 挂牌页<br>2026-07-15</div></div>
+    </div>
+
+    <div class="jobcard">
+      <div class="jc-top"><div><div class="jc-name">Full Stack Developer</div><div class="jc-en">Auto &amp; General（保险）· Toowong, Brisbane QLD（Hybrid）</div></div><div class="jc-badges"><span class="jc-badge explosive">Australia</span><span class="jc-badge steady">企业后端</span></div></div>
+      <div class="jc-blurb">挂牌栈：“<span class="hl">AWS</span>/<span class="hl">Java</span>/<span class="hl">Angular</span> solutions”。大保险公司，云 + Java 后端为主，Angular 做前端。</div>
+      <div class="chips"><span class="chip-sk">AWS</span><span class="chip-sk">Java</span><span class="chip-sk">Angular</span></div>
+      <div class="jc-foot"><div class="jc-course">大公司通常有内部担保流程，比 startup 更可能考虑 sponsor。</div><div class="jc-src">来源 SEEK 挂牌页<br>2026-07-15</div></div>
+    </div>
+
+    <div class="jobcard">
+      <div class="jc-top"><div><div class="jc-name">Full-stack React/Node.js Developer</div><div class="jc-en">Sydney Opera House（悉尼歌剧院）· Sydney NSW（Hybrid）</div></div><div class="jc-badges"><span class="jc-badge explosive">Australia</span><span class="jc-badge steady">JS/TS 阵营</span></div></div>
+      <div class="jc-salary">$131,318</div><div class="jc-salnote">年薪写死 + 12% super</div>
+      <div class="jc-blurb">挂牌栈：“<span class="hl">React</span>/<span class="hl">Node.js</span>”。知名机构，薪资精确到个位数（公共机构常这样），纯 JS 全栈组合。</div>
+      <div class="chips"><span class="chip-sk">React</span><span class="chip-sk">Node.js</span></div>
+      <div class="jc-foot"><div class="jc-course">纯 JS/Node 一套栈就能投，适合从前端过渡到全栈的人。</div><div class="jc-src">来源 SEEK 挂牌页<br>2026-07-15</div></div>
+    </div>
+
+    <h3>中国 · 全栈 / Java 岗（BOSS 直聘 · 成都 · 2026-07-16）</h3>
+
+    <div class="jobcard">
+      <div class="jc-top"><div><div class="jc-name">全栈开发工程师</div><div class="jc-en">挚文集团 / Momo Group（经智联渠道）</div></div><div class="jc-badges"><span class="jc-badge fast">China</span><span class="jc-badge emerging">全栈 + AI</span></div></div>
+      <div class="jc-blurb">摘录：基于微服务架构（<span class="hl">Spring Boot</span> / Go）与前端框架（<span class="hl">React</span> / <span class="hl">Vue</span> / Next.js）做端到端开发，并<span class="hl">集成大模型（LLM）能力</span>；要求 Java / Go / Python + JS/TS，熟 MySQL / TiDB / <span class="hl">Redis</span>，掌握 Docker / K8s 与 CI/CD。</div>
+      <div class="chips"><span class="chip-sk">Spring Boot</span><span class="chip-sk">React/Vue</span><span class="chip-sk">LLM 集成</span><span class="chip-sk">Redis</span><span class="chip-sk">K8s</span></div>
+      <div class="jc-foot"><div class="jc-course"><b>2026 新趋势</b>：全栈岗开始叠“大模型集成”。会用 LLM API 做业务功能，是新的加分项。</div><div class="jc-src">来源 wondercv / zhaopin<br>2026-07-15</div></div>
+    </div>
+
+    <div class="jobcard">
+      <div class="jc-top"><div><div class="jc-name">全栈开发工程师</div><div class="jc-en">中拓云智能 · 成都武侯区桂溪 · 5-10年 / 本科</div></div><div class="jc-badges"><span class="jc-badge fast">China</span><span class="jc-badge steady">Java 全栈</span></div></div>
+      <div class="jc-salary">14-28K·13薪</div><div class="jc-salnote">独立负责后端全栈 + 可视化大屏 + 业务中台</div>
+      <div class="jc-blurb">原文：后端精通 <span class="hl">Java / Go / Python</span> 任意一种，精通 <span class="hl">SpringBoot / SpringCloud</span>，熟悉<span class="hl">微服务架构</span>；前端熟练 <span class="hl">Vue3 / React</span>、TypeScript、HTML5/CSS3，熟练使用 <span class="hl">Element Plus / Ant Design</span>；了解 Docker、CI/CD、nginx 配置。</div>
+      <div class="chips"><span class="chip-sk">Java/Go/Python</span><span class="chip-sk">SpringCloud</span><span class="chip-sk">微服务</span><span class="chip-sk">Vue3/React</span><span class="chip-sk">Element Plus</span></div>
+      <div class="jc-foot"><div class="jc-course">5 年以上全栈 + 熟悉微服务，是国内“高级全栈”的典型门槛，薪资也上到 28K。</div><div class="jc-src">BOSS 直聘 · 成都<br>2026-07-16</div></div>
+    </div>
+
+    <div class="jobcard">
+      <div class="jc-top"><div><div class="jc-name">JAVA 全栈开发工程师</div><div class="jc-en">深圳一颗橙科技 · 成都武侯区桂溪 · 5-10年 / 本科</div></div><div class="jc-badges"><span class="jc-badge fast">China</span><span class="jc-badge steady">企业后端</span></div></div>
+      <div class="jc-salary">7-12K·13薪</div><div class="jc-salnote">标签含 JVM / Redis / MyBatis / Spring / 分布式经验</div>
+      <div class="jc-blurb">原文：精通 <span class="hl">Java</span> 及面向对象设计；熟悉前端 <span class="hl">Vue3</span>、JavaScript、Element Plus，具备前后端协同开发能力；熟练编写复杂 SQL 及优化，熟悉 <span class="hl">MySQL</span>，独立完成<span class="hl">索引设计、Slow Query 性能调优</span>；理解财务 / ERP / 售后业务并做数字化重构。</div>
+      <div class="chips"><span class="chip-sk">Java</span><span class="chip-sk">Vue3</span><span class="chip-sk">MySQL 索引</span><span class="chip-sk">Slow Query</span><span class="chip-sk">Redis</span></div>
+      <div class="jc-foot"><div class="jc-course">“索引设计、Slow Query 调优”写进硬要求 —— 印证第 09 章那道 SQL 优化面试题必问。</div><div class="jc-src">BOSS 直聘 · 成都<br>2026-07-16</div></div>
+    </div>
+
+    <div class="jobcard">
+      <div class="jc-top"><div><div class="jc-name">全栈开发工程师</div><div class="jc-en">成都澄桑谷网络科技 · 成都双流区华阳 · 经验/学历不限</div></div><div class="jc-badges"><span class="jc-badge fast">China</span><span class="jc-badge emerging">全栈 + AI</span></div></div>
+      <div class="jc-salary">8-13K</div><div class="jc-salnote">覆盖前端到部署运维全链路</div>
+      <div class="jc-blurb">原文：后端 <span class="hl">Python（Django/Flask/FastAPI）</span>或 <span class="hl">Java（Spring Boot/Spring Cloud）</span>，设计 RESTful API；前端 <span class="hl">Vue 2/3 全家桶</span>（Pinia/Vuex/Vue Router/Vite）+ TypeScript；数据库 PostgreSQL/MySQL + <span class="hl">Redis</span> 缓存；容器化 Docker/K8s + CI/CD。必备栏还写死 <span class="hl">AI Agent 研发能力</span>（MCP/Tools）与 <span class="hl">AI Coding</span>（Claude Code/Codex）。</div>
+      <div class="chips"><span class="chip-sk">Vue 全家桶</span><span class="chip-sk">Python/Java</span><span class="chip-sk">Redis</span><span class="chip-sk">Docker/K8s</span><span class="chip-sk">AI Agent</span><span class="chip-sk">MCP</span></div>
+      <div class="jc-foot"><div class="jc-course"><b>2026 信号</b>：连中小厂的全栈岗，都把 AI Agent / MCP / AI Coding 写进“必备技能”了。</div><div class="jc-src">BOSS 直聘 · 成都<br>2026-07-16</div></div>
+    </div>
+
+    <div class="jobcard">
+      <div class="jc-top"><div><div class="jc-name">全栈工程师（岗位模板 · 聚合）</div><div class="jc-en">三茅招聘 JD 库 · 平台聚合，非单条原文</div></div><div class="jc-badges"><span class="jc-badge born">China</span><span class="jc-badge born">最大公约数</span></div></div>
+      <div class="jc-blurb">前端 HTML/CSS/JS + <span class="hl">React / Angular / Vue</span> 至少一门；后端 Python / <span class="hl">Java</span> / C++ 至少一门 + Node.js / Django；数据库 MySQL / PostgreSQL / MongoDB / <span class="hl">Redis</span>；另有 Git、Webpack、<span class="hl">多线程高并发</span>、小程序等。</div>
+      <div class="chips"><span class="chip-sk">Vue/React</span><span class="chip-sk">Java/Node</span><span class="chip-sk">Redis</span><span class="chip-sk">高并发</span><span class="chip-sk">小程序</span></div>
+      <div class="jc-foot"><div class="jc-course">这条是多个级别模板的合并，代表国内全栈要求的“最大公约数”，不是某家公司原文。</div><div class="jc-src">来源 zhaopin.hrloo.com<br>2026-07-15</div></div>
+    </div>
+
+    <div class="mini-note">看完 10 条，把重复的圈出来：澳洲是 React/Node/TypeScript/AWS 和 Java/Angular 两条线，云几乎必备；中国是 Java + Spring Boot/Cloud + MySQL 索引 + Redis + Vue3，微服务反复出现，2026 年连中小厂都开始把 AI Agent / AI Coding 写进必备栏。这些高频词，就是你第一阶段的学习清单。</div>
+  </div>
+</section>
+
+<section class="ch" id="ch3">
+  <div class="ghost">03</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 03</div><h2>真实薪资、岗位数字、签证与门槛</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-chart.png" alt="" />
+    </div>
+    <p class="lead">薪资这块水最深，招聘方和 recruiter 都爱报乐观数。下面我把官方城市均值、recruiter 分层数和真实招聘广告的起薪放一起，你自己看差距。</p>
+
+    <h3>澳洲薪资（AUD）</h3>
+    <table class="road-table">
+      <tr><th>城市</th><th>全栈平均年薪</th><th>城市</th><th>全栈平均年薪</th></tr>
+      <tr><td>Gold Coast</td><td>$150,000</td><td>Sydney</td><td>$120,000</td></tr>
+      <tr><td>Melbourne</td><td>$125,000</td><td>Brisbane</td><td>$117,500</td></tr>
+      <tr><td>Perth</td><td>$125,000</td><td>Adelaide</td><td>$115,000</td></tr>
+      <tr><td>Newcastle</td><td>$120,000</td><td>Canberra</td><td>$112,500</td></tr>
+    </table>
+    <div class="jd-grid">
+      <article class="jd-card"><span class="tag">按经验（recruiter 数）</span><h3>Entry $130k / Mid $150k / Senior $170k</h3><p>Clicks IT 的 salary guide 口径。日薪合同：Entry $725、Mid $830、Senior $1,040。但这套偏乐观，别拿来当自己第一份工的预期。</p></article>
+      <article class="jd-card"><span class="tag">真实起薪（招聘广告）</span><h3>毕业生 / junior 多在 $70k–100k</h3><p>同一天 SEEK 上，Forex Sport 全栈开 $70k–85k，Verizon Group 的 Software Engineer/Full Stack 开 $90k–100k。转码第一份工，用城市均值 $112k–125k 当中位锚点更稳，别信 recruiter 的 $130k 起。</p></article>
+    </div>
+    <div class="src">来源：SEEK 官方薪资页（页面标 July 2026）、Clicks IT Recruitment salary guide、SEEK 全栈挂牌真实广告，均 2026-07-15 查。</div>
+
+    <h3>中国薪资（RMB）</h3>
+    <div class="jobcard">
+      <div class="jc-top"><div><div class="jc-name">上海 Java 中高级（有经验）</div><div class="jc-en">Morgan McKinley 2026 薪酬指南 · 硬来源 · 年薪</div></div><div class="jc-badges"><span class="jc-badge fast">China</span></div></div>
+      <div class="jc-salary">¥32万–52万</div><div class="jc-salnote">低 32 万 / 中位 39 万 / 高 52 万（年薪）</div>
+      <div class="jc-blurb">这是有几年经验的上海 Java 开发中位区间。刚入行的低不少 —— 职友集口径，全国 Java 后端 48% 的岗位在 ¥10–20K/月（年薪约 12–24 万）。</div>
+      <div class="jc-foot"><div class="jc-course">城市月薪：北京 ¥26.9K / 上海 ¥25.2K / 深圳 ¥22.3K（Java 后端平均，偏中高）。</div><div class="jc-src">Morgan McKinley / 职友集<br>2026-07-15</div></div>
+    </div>
+    <div class="jd-grid">
+      <article class="jd-card"><span class="tag">全栈（全国）</span><h3>约 ¥18K/月，Indeed 口径 ¥22,360</h3><p>经验梯度：初级约 ¥8K、中级约 ¥15K、高级/资深能破 ¥30K。全栈普遍比单一岗高，因为一个人干两个人的活。</p></article>
+      <article class="jd-card"><span class="tag">按经验（Java）</span><h3>1–3 年约 ¥12.7K/月</h3><p>3–5 年年薪 15 万算正常水平（保守口径，一线更高）。2024 全国程序员平均月薪 ¥15,302 做个大盘参照。</p></article>
+    </div>
+    <div class="src">来源：Morgan McKinley 2026 中国大陆薪酬指南（上海 Java）、职友集、Indeed 中国，均 2026-07-15 查；职友集数字经搜索转述（原页反爬）。</div>
+
+    <h3>岗位数量和市场温度</h3>
+    <div class="callout warn"><span class="lab">别只看“缺人”的老新闻</span>澳洲：SEEK 当日全澳挂 555 个全栈岗，量还在，但 2025 年 Software Engineer 和 Developer Programmer 双双被移出 JSA 全国短缺清单 —— 2021 年开始统计以来第一次。中国：2025 大厂校招回暖（京东 2026 校招 3.5 万岗），但斯坦福研究显示 2022 年底到 2025 年 7 月，22–25 岁年轻程序员就业累计减少近 20%。结论就一句：岗位有，但入门更卷了，靠项目和简历拉开差距。</div>
+
+    <h3>签证 / PR：澳洲这条一定要看懂</h3>
+    <div class="card">
+      <p>很多人一看到“Software Engineer 掉出短缺清单”就慌，其实误读了。掉出短缺清单，不等于不能移民。</p>
+      <p>Developer Programmer（261312）和 Software Engineer（261313）<strong>仍然在 MLTSSL 和 CSOL 上</strong>，签证通道还开着：189（技术独立 PR）、190（州担保 PR）、491（偏远地区 PR 跳板）、482 Skills in Demand（雇主担保，最长 4 年，PR 跳板）、186（雇主提名 PR）。技术评估走 ACS。</p>
+      <p>真正卡你的不是清单，是<strong>工作身份</strong>：很多岗写死要 current Australian work rights，纯海外身份会被 screen 掉。谁愿意 sponsor，更多看公司规模和它是不是已经是 approved sponsor，不是看岗位。</p>
+    </div>
+    <div class="callout"><span class="lab">留学生应届身份（回国方向）</span>留学回国不分应届往届、没有三方协议，“是否应届由用人单位界定”，离校 2 年内没落实工作可按应届参加招聘。红线：回国 2 年内别急着签正式劳动合同、别缴国内职工社保，一旦职工社保记录出现，多数企业和考公岗就认定你不再应届。互联网大厂通常要毕业 1 年内可投，金融类友好些，接受 2–3 年内。</div>
+    <p class="sales-card-lead">读到这一章，如果你在纠结“我这个身份/背景到底投澳洲还是回国划算”，这不是一句话能定的。扫 Rain 的码，把你的签证状态、毕业时间和目标城市发来，先帮你把路线捋一版。不承诺签证、offer 或收入结果。</p>
+    <div class="sales-card"><img src="assets/contact/sales-cards/rain.jpg" alt="Rain · Senior IT Career Consultant" /></div>
+  </div>
+</section>
+
+<section class="ch" id="ch4">
+  <div class="ghost">04</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 04</div><h2>技术栈路线图：按顺序学</h2></div>
       <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-chart.png" alt="" />
     </div>
     <p class="lead">路线不是越长越好。转码第一阶段只要一条主线：TypeScript + 一个前端框架 + 一个后端框架 + SQL + Git/Docker + 基础云部署。</p>
@@ -141,54 +338,10 @@
       <tr><td>6</td><td>AWS / Azure / Vercel / Render</td><td>能部署前后端、配置环境变量、看日志</td><td>考证代替项目</td></tr>
     </table>
     <div class="stack-grid">
-      <article class="stack-card"><span class="tag">澳洲优先</span><h3>React + TypeScript + Node/AWS</h3><p>适合投 full stack / frontend-heavy 岗。项目要有测试、部署、英文 README 和 business context。</p></article>
-      <article class="stack-card"><span class="tag">中国优先</span><h3>Vue/React + Java Spring Boot</h3><p>适合投中大型互联网、企业软件和外包/项目制公司。要补 SQL、Redis、接口、权限、性能和基础八股。</p></article>
+      <article class="stack-card"><span class="tag">澳洲优先</span><h3>React + TypeScript + Node/AWS</h3><p>对应第 02 章的 LVT People、悉尼歌剧院这类岗。项目要有测试、部署、英文 README 和 business context。Stack Overflow 2025 里 Node 48.7% 已超 React 44.7%，TypeScript 43.6% 和 AWS 43.3% 几乎并列 —— 和澳洲 JD 高度吻合。</p></article>
+      <article class="stack-card"><span class="tag">中国优先</span><h3>Vue/React + Java Spring Boot</h3><p>对应第 02 章的电鸭、某互联网 Java 岗。要补 SQL、Redis、接口、权限、性能和基础八股。国内前端默认 Vue，后端默认 Java，微服务几乎必提。</p></article>
     </div>
-  </div>
-</section>
-
-<section class="ch" id="ch3">
-  <div class="ghost">03</div>
-  <div class="wrap">
-    <div class="ch-head">
-      <div><div class="ch-num">CHAPTER 03</div><h2>8 周学习和项目计划</h2></div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-pen-book.png" alt="" />
-    </div>
-    <p class="lead">别做“无限学习计划”。8 周只交付一个可投递项目和一份能讲清楚的简历。</p>
-    <table class="road-table">
-      <tr><th>周</th><th>主题</th><th>产出</th><th>验收标准</th></tr>
-      <tr><td>1</td><td>JS/TS + Git</td><td>小型数据表单</td><td>能提交 PR，能解释 async/await、类型、模块。</td></tr>
-      <tr><td>2</td><td>React 或 Vue</td><td>前端页面 4 个</td><td>有路由、表单校验、API mock、错误状态。</td></tr>
-      <tr><td>3</td><td>后端 API</td><td>REST API + auth</td><td>能解释 token、middleware、status code。</td></tr>
-      <tr><td>4</td><td>数据库</td><td>schema + 查询</td><td>能画 ERD，解释索引和事务。</td></tr>
-      <tr><td>5</td><td>整合</td><td>前后端联调</td><td>登录、CRUD、权限、错误处理都能跑。</td></tr>
-      <tr><td>6</td><td>测试和质量</td><td>单测/API 测试</td><td>至少覆盖核心 service 和 3 条失败路径。</td></tr>
-      <tr><td>7</td><td>部署</td><td>线上 demo</td><td>环境变量、日志、README 启动命令齐全。</td></tr>
-      <tr><td>8</td><td>简历和面试</td><td>3 条 bullet + 20 个问答</td><td>能 2 分钟讲项目，能答技术取舍。</td></tr>
-    </table>
-  </div>
-</section>
-
-<section class="ch" id="ch4">
-  <div class="ghost">04</div>
-  <div class="wrap">
-    <div class="ch-head">
-      <div><div class="ch-num">CHAPTER 04</div><h2>真实 JD 拆解：关键词怎么翻译</h2></div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-data.png" alt="" />
-    </div>
-    <p class="lead">JD 不是愿望清单。你要把每条要求翻译成“简历证据”和“面试故事”。</p>
-    <table class="road-table">
-      <tr><th>JD 写法</th><th>它真正想看</th><th>你怎么证明</th></tr>
-      <tr><td>React/Vue, reusable components</td><td>组件拆分、状态管理、可维护性</td><td>README 放组件结构图，简历写一个复杂表单或 dashboard。</td></tr>
-      <tr><td>Node/Spring Boot REST APIs</td><td>接口设计、错误处理、认证、日志</td><td>放 API 文档和测试截图，面试讲 status code 和 auth flow。</td></tr>
-      <tr><td>SQL, database design</td><td>schema、索引、事务、查询性能</td><td>放 ERD，讲一次慢查询或数据一致性处理。</td></tr>
-      <tr><td>AWS/Docker/CI/CD</td><td>能部署、能排错、知道环境差异</td><td>放部署架构和日志截图，讲一次 production-like bug。</td></tr>
-      <tr><td>Agile, stakeholder communication</td><td>能在团队里交付，不是自己玩</td><td>写 issue、PR、验收标准，准备一个需求变更故事。</td></tr>
-    </table>
-    <div class="contact-bar">
-      <img class="qr" src="assets/contact/qr-rain.png" alt="Rain · 匠人学院资深 IT 顾问微信二维码" />
-      <div><div class="t">想把目标 JD 拆成学习计划？</div><div class="d">扫码找 Rain，把 2 条澳洲或中国 JD 发来，先帮你圈关键词、项目证据和简历改法。</div></div>
-    </div>
+    <div class="mini-note">一个数据帮你排优先级：Stack Overflow 2025 里 Docker 用到 71.1%，一年涨了 17 个百分点，是当年最大增幅。容器化现在基本是全栈默认技能，别跳过。</div>
   </div>
 </section>
 <aside class="promo">
@@ -204,18 +357,21 @@
   <div class="ghost">05</div>
   <div class="wrap">
     <div class="ch-head">
-      <div><div class="ch-num">CHAPTER 05</div><h2>项目组合：别只做 Todo App</h2></div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-working-laptop.png" alt="" />
+      <div><div class="ch-num">CHAPTER 05</div><h2>8 周学习和项目计划</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-pen-book.png" alt="" />
     </div>
-    <p class="lead">全栈项目要像真实业务。一个项目就够，但必须有用户、权限、数据、错误和部署。</p>
-    <div class="stack-grid">
-      <article class="stack-card"><span class="tag">澳洲</span><h3>Rental Maintenance Portal</h3><p>租客提交维修单、物业分派、状态追踪、图片上传、邮件通知。适合展示 React/Node/PostgreSQL/AWS。</p></article>
-      <article class="stack-card"><span class="tag">澳洲</span><h3>Clinic Booking System</h3><p>医生排班、预约冲突、取消、角色权限、API 测试。适合展示后端设计和数据一致性。</p></article>
-      <article class="stack-card"><span class="tag">中国</span><h3>企业审批系统</h3><p>请假/报销/采购审批、角色权限、流程状态、Redis 缓存。适合展示 Vue/React + Spring Boot + MySQL。</p></article>
-      <article class="stack-card"><span class="tag">中国</span><h3>小程序 + 管理后台</h3><p>用户端下单或预约，后台审核和数据统计。适合展示业务闭环、接口、权限和上线速度。</p></article>
-    </div>
-    <p class="sales-card-lead">读到这里，如果你已经做过课设，不一定要推倒重来。扫 Rain 的码，把 repo 和目标岗位发来，先看怎么包装成全栈项目。</p>
-    <div class="sales-card"><img src="assets/contact/sales-cards/rain.jpg" alt="Rain · Senior IT Career Consultant" /></div>
+    <p class="lead">别做“无限学习计划”。8 周只交付一个可投递项目和一份能讲清楚的简历。项目具体建什么，看下一章的两份完整规格。</p>
+    <table class="road-table">
+      <tr><th>周</th><th>主题</th><th>产出</th><th>验收标准</th></tr>
+      <tr><td>1</td><td>JS/TS + Git</td><td>小型数据表单</td><td>能提交 PR，能解释 async/await、类型、模块。</td></tr>
+      <tr><td>2</td><td>React 或 Vue</td><td>前端页面 4 个</td><td>有路由、表单校验、API mock、错误状态。</td></tr>
+      <tr><td>3</td><td>后端 API</td><td>REST API + auth</td><td>能解释 token、middleware、status code。</td></tr>
+      <tr><td>4</td><td>数据库</td><td>schema + 查询</td><td>能画 ERD，解释索引和事务。</td></tr>
+      <tr><td>5</td><td>整合</td><td>前后端联调</td><td>登录、CRUD、权限、错误处理都能跑。</td></tr>
+      <tr><td>6</td><td>测试和质量</td><td>单测/API 测试</td><td>至少覆盖核心 service 和 3 条失败路径。</td></tr>
+      <tr><td>7</td><td>部署</td><td>线上 demo</td><td>环境变量、日志、README 启动命令齐全。</td></tr>
+      <tr><td>8</td><td>简历和面试</td><td>3 条 bullet + 20 个问答</td><td>能 2 分钟讲项目，能答技术取舍。</td></tr>
+    </table>
   </div>
 </section>
 
@@ -223,10 +379,134 @@
   <div class="ghost">06</div>
   <div class="wrap">
     <div class="ch-head">
-      <div><div class="ch-num">CHAPTER 06</div><h2>简历模板：把技术写成证据</h2></div>
+      <div><div class="ch-num">CHAPTER 06</div><h2>项目组合：两个能照着建的完整规格</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-working-laptop.png" alt="" />
+    </div>
+    <p class="lead">全栈项目要像真实业务。别只做 Todo App。下面先给四个方向，再挑一个澳洲、一个中国的，写成你能直接照着建的完整规格 —— 用户故事、数据库、API、权限、验收标准全给你。</p>
+    <div class="stack-grid">
+      <article class="stack-card"><span class="tag">澳洲</span><h3>Rental Maintenance Portal</h3><p>租客提交维修单、物业分派、状态追踪、图片上传、邮件通知。展示 React/Node/PostgreSQL/AWS。<b>下面写完整规格。</b></p></article>
+      <article class="stack-card"><span class="tag">澳洲</span><h3>Clinic Booking System</h3><p>医生排班、预约冲突、取消、角色权限、API 测试。适合展示后端设计和数据一致性。</p></article>
+      <article class="stack-card"><span class="tag">中国</span><h3>企业审批系统</h3><p>请假/报销/采购审批、角色权限、流程状态、Redis 缓存。展示 Vue/React + Spring Boot + MySQL。<b>下面写完整规格。</b></p></article>
+      <article class="stack-card"><span class="tag">中国</span><h3>小程序 + 管理后台</h3><p>用户端下单或预约，后台审核和数据统计。适合展示业务闭环、接口、权限和上线速度。</p></article>
+    </div>
+
+    <h3>规格一 · Rental Maintenance Portal（澳洲向，React + Node + PostgreSQL）</h3>
+    <div class="copybox">
+      <h4>用户故事（照着这个拆功能）</h4>
+      <ul>
+        <li>作为<b>租客</b>，我能登录、提交一张维修单（标题、描述、房源、上传照片），并看到它的处理状态。</li>
+        <li>作为<b>物业经理</b>，我能看到所有维修单、按状态筛选、指派给某个维修工、改优先级。</li>
+        <li>作为<b>维修工</b>，我只能看到指派给我的单，更新进度、标记完成、留备注。</li>
+        <li>系统在状态变化时给相关人发一封邮件通知（用 SES 或本地 mock）。</li>
+      </ul>
+    </div>
+    <div class="copybox">
+      <h4>数据库 schema（PostgreSQL）</h4>
+<pre>users        (id, name, email, password_hash, role[tenant|manager|worker], created_at)
+properties   (id, address, tenant_id → users.id)
+tickets      (id, title, description, property_id → properties.id,
+              created_by → users.id, assigned_to → users.id 可空,
+              status[open|assigned|in_progress|done|closed],
+              priority[low|med|high], created_at, updated_at)
+ticket_photos(id, ticket_id → tickets.id, url, uploaded_at)
+ticket_logs  (id, ticket_id → tickets.id, actor_id → users.id,
+              action, note, created_at)   -- 谁在什么时候改了什么</pre>
+      <p>关系一句话：一个 property 属于一个 tenant；一张 ticket 挂在一个 property 上，可指派给一个 worker；一张 ticket 有多张 photo 和多条 log。</p>
+    </div>
+    <table class="road-table">
+      <tr><th>Method + 路径</th><th>作用</th><th>谁能调</th></tr>
+      <tr><td>POST /auth/login</td><td>登录拿 JWT</td><td>所有人</td></tr>
+      <tr><td>POST /tickets</td><td>创建维修单（带图片）</td><td>tenant</td></tr>
+      <tr><td>GET /tickets</td><td>列表（按角色过滤 + status 筛选 + 分页）</td><td>三种角色，返回范围不同</td></tr>
+      <tr><td>GET /tickets/:id</td><td>单条详情 + 照片 + 日志</td><td>相关人</td></tr>
+      <tr><td>PATCH /tickets/:id/assign</td><td>指派维修工 + 改优先级</td><td>manager</td></tr>
+      <tr><td>PATCH /tickets/:id/status</td><td>更新状态 + 留备注</td><td>worker（本人单）/ manager</td></tr>
+    </table>
+    <table class="road-table">
+      <tr><th>操作</th><th>tenant</th><th>manager</th><th>worker</th></tr>
+      <tr><td>建单 / 看自己的单</td><td class="ok">✓</td><td class="ok">✓</td><td class="no">✗</td></tr>
+      <tr><td>看全部单</td><td class="no">✗</td><td class="ok">✓</td><td class="no">✗</td></tr>
+      <tr><td>指派 / 改优先级</td><td class="no">✗</td><td class="ok">✓</td><td class="no">✗</td></tr>
+      <tr><td>改状态</td><td class="no">✗</td><td class="ok">✓</td><td class="ok">仅本人单</td></tr>
+    </table>
+    <div class="callout"><span class="lab">验收标准（做到这些才算能投）</span>① 三种角色登录后看到的列表不同，越权访问返回 403；② 建单能传图并在详情页显示；③ 每次状态变化写一条 ticket_log；④ 至少 3 条失败路径有测试（越权、空标题、指派给不存在的人）；⑤ README 有启动命令、种子数据、架构图；⑥ 部署一个能点开的 demo。</div>
+
+    <h3>规格二 · 企业审批系统（中国向，Vue + Spring Boot + MySQL + Redis）</h3>
+    <div class="copybox">
+      <h4>用户故事</h4>
+      <ul>
+        <li>作为<b>员工</b>，我能提交请假/报销申请，看到它走到哪一步、被谁审批。</li>
+        <li>作为<b>直属主管</b>，我审批我下属的申请，能同意/驳回并写理由。</li>
+        <li>作为<b>财务</b>，报销在主管通过后流转到我这里做二次审批。</li>
+        <li>作为<b>管理员</b>，我配置审批流（几级审批、谁审）、管理部门和角色。</li>
+      </ul>
+    </div>
+    <div class="copybox">
+      <h4>数据库 schema（MySQL）</h4>
+<pre>sys_user     (id, username, password, dept_id, role_id)
+sys_dept     (id, name, parent_id)          -- 部门树
+sys_role     (id, name, code)               -- employee/manager/finance/admin
+approval_flow(id, type[leave|expense], steps_json)  -- 审批流配置
+apply        (id, applicant_id, type, amount, reason, status,
+              current_step, created_at)      -- 一张申请单
+apply_record (id, apply_id, approver_id, action[pass|reject],
+              comment, step_no, created_at)  -- 每一步审批留痕
+索引：apply(applicant_id, status)、apply(current_step)、apply_record(apply_id)</pre>
+      <p>Redis 用在哪：登录 token、审批流配置缓存、待办数量计数（避免每次 count 查库）。</p>
+    </div>
+    <table class="road-table">
+      <tr><th>接口</th><th>作用</th><th>谁能调</th></tr>
+      <tr><td>POST /login</td><td>登录，token 存 Redis</td><td>所有人</td></tr>
+      <tr><td>POST /apply</td><td>提交申请，按 flow 生成第一步</td><td>employee</td></tr>
+      <tr><td>GET /apply/mine</td><td>我发起的申请 + 状态</td><td>employee</td></tr>
+      <tr><td>GET /apply/todo</td><td>待我审批的（读 Redis 计数）</td><td>manager / finance</td></tr>
+      <tr><td>POST /apply/:id/approve</td><td>同意/驳回 + 流转下一步</td><td>当前步骤审批人</td></tr>
+      <tr><td>GET /admin/flow</td><td>配置审批流</td><td>admin</td></tr>
+    </table>
+    <table class="road-table">
+      <tr><th>操作</th><th>员工</th><th>主管</th><th>财务</th><th>管理员</th></tr>
+      <tr><td>提交申请</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td></tr>
+      <tr><td>审批下属</td><td class="no">✗</td><td class="ok">✓</td><td class="no">✗</td><td class="no">✗</td></tr>
+      <tr><td>报销二审</td><td class="no">✗</td><td class="no">✗</td><td class="ok">✓</td><td class="no">✗</td></tr>
+      <tr><td>配置审批流</td><td class="no">✗</td><td class="no">✗</td><td class="no">✗</td><td class="ok">✓</td></tr>
+    </table>
+    <div class="callout"><span class="lab">验收标准</span>① 审批流可配置成一级或两级，报销走两级、请假走一级；② 同一步不能重复审批，审批后状态和 current_step 正确流转；③ 待办数量从 Redis 读，申请状态变化时更新计数；④ 越权审批（审别人下属）返回无权限；⑤ 每一步写 apply_record，详情页能看到完整审批链路；⑥ 压一下并发提交，说得清幂等怎么处理。</div>
+    <div class="mini-note">这两个项目故意选了“有角色、有流程、有状态流转”的业务，就是因为它能同时展示前端、API、schema、权限和一致性 —— 面试官顺着任何一条都能追问，而你都答得上来。</div>
+  </div>
+</section>
+
+<section class="ch" id="ch7">
+  <div class="ghost">07</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 07</div><h2>真实 JD 拆解：关键词怎么翻译</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-data.png" alt="" />
+    </div>
+    <p class="lead">JD 不是愿望清单。你要把每条要求翻译成“简历证据”和“面试故事”。下面这些 JD 写法，都是第 02 章真实岗位里出现过的。</p>
+    <table class="road-table">
+      <tr><th>JD 写法</th><th>它真正想看</th><th>你怎么证明</th></tr>
+      <tr><td>React/Vue, reusable components</td><td>组件拆分、状态管理、可维护性</td><td>README 放组件结构图，简历写一个复杂表单或 dashboard。</td></tr>
+      <tr><td>Node/Spring Boot REST APIs</td><td>接口设计、错误处理、认证、日志</td><td>放 API 文档和测试截图，面试讲 status code 和 auth flow。</td></tr>
+      <tr><td>SQL, database design（索引优化能力）</td><td>schema、索引、事务、查询性能</td><td>放 ERD，讲一次慢查询怎么加索引解决的。</td></tr>
+      <tr><td>AWS/Docker/CI/CD</td><td>能部署、能排错、知道环境差异</td><td>放部署架构和日志截图，讲一次 production-like bug。</td></tr>
+      <tr><td>集成大模型 / LLM 能力（2026 新）</td><td>会用 LLM API 做业务功能，不是只会 prompt</td><td>项目里加一个 AI 功能（摘要/分类/问答），讲清 token、成本、错误兜底。</td></tr>
+      <tr><td>Agile, stakeholder communication</td><td>能在团队里交付，不是自己玩</td><td>写 issue、PR、验收标准，准备一个需求变更故事。</td></tr>
+    </table>
+    <div class="contact-bar">
+      <img class="qr" src="assets/contact/qr-rain.png" alt="Rain · 匠人学院资深 IT 顾问微信二维码" />
+      <div><div class="t">想把目标 JD 拆成学习计划？</div><div class="d">扫码找 Rain，把 2 条澳洲或中国 JD 发来，先帮你圈关键词、项目证据和简历改法。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="ch" id="ch8">
+  <div class="ghost">08</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 08</div><h2>简历模板：把技术写成证据</h2></div>
       <img class="ch-illo" src="assets/illustrations/niuxiaojiang-coffee-pointing.png" alt="" />
     </div>
-    <p class="lead">全栈简历最怕写成技能清单。招聘方不缺“会 React 的人”，缺的是能把功能做完的人。</p>
+    <p class="lead">全栈简历最怕写成技能清单。招聘方不缺“会 React 的人”，缺的是能把功能做完的人。完整的一页范本在附录，这里先给你改写的套路。</p>
     <div class="copybox">
       <h4>项目 bullet 模板</h4>
       <ul>
@@ -237,13 +517,77 @@
     </div>
     <table class="road-table">
       <tr><th>弱写法</th><th>改成这样</th></tr>
-      <tr><td>熟悉 React、Node、MySQL。</td><td>Built a role-based maintenance portal with React, Node.js and MySQL, including ticket workflow, image upload and admin status tracking.</td></tr>
-      <tr><td>做过 Spring Boot 项目。</td><td>Designed Spring Boot REST APIs for approval workflow with JWT auth, MySQL schema, Redis caching and integration tests for failed submissions.</td></tr>
+      <tr><td>熟悉 React、Node、MySQL。</td><td>Built a role-based maintenance portal with React, Node.js and PostgreSQL, including ticket workflow, image upload and admin status tracking.</td></tr>
+      <tr><td>做过 Spring Boot 项目。</td><td>Designed Spring Boot REST APIs for a multi-step approval workflow with JWT auth, MySQL schema, Redis caching and integration tests for rejected submissions.</td></tr>
       <tr><td>了解 AWS 部署。</td><td>Containerised the backend with Docker and deployed a live demo with environment variables, logs and rollback notes documented in README.</td></tr>
     </table>
+    <div class="mini-note">改写的核心就一句：把“我会什么”换成“我做出了什么，解决了谁的什么问题”。招聘方是拿这句话去对 JD 关键词的。</div>
   </div>
+</section>
 
-<a class="promo-line" href="https://jiangren.com.au/blog" target="_blank" rel="noopener">📰 跟上行业节奏：匠人每天 5 条经过核源的 AI 日报，每周一份大事盘点 <span>→</span></a></section>
+<section class="ch" id="ch9">
+  <div class="ghost">09</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 09</div><h2>面试高频题：8 道完整范例答案</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-chart.png" alt="" />
+    </div>
+    <p class="lead">题目不是拿来背的。下面 8 道，每道给一版“像干过活”的答法，再给一版“一听就是背的”反面对照。都落回第 06 章那两个项目讲。</p>
+
+    <div class="qa">
+      <h3><span class="dom">Frontend</span>React/Vue 的状态该怎么设计？</h3>
+      <div class="callout"><span class="lab">✅ 像干过活的答法</span>我会先把状态分三类：server state（后端数据，比如维修单列表）、form state（正在填的表单）、UI state（弹窗开没开、loading）。server state 我用 React Query 管缓存和刷新，不塞进全局 store，避免数据不一致。举我项目里的例子：维修单列表有筛选和分页，筛选条件是 URL state，列表数据是 server state，提交表单的错误是局部 state，三者分开，改一个不影响另一个。</div>
+      <div class="callout bad"><span class="lab">🚫 一听就是背的</span>“状态管理就用 Redux，把所有数据放进 store 统一管理。” —— 全塞全局是新手信号，面试官会追问“列表数据也放 Redux 吗，那刷新怎么办”，然后你就卡住了。</div>
+    </div>
+
+    <div class="qa">
+      <h3><span class="dom">Backend</span>登录鉴权你怎么做？</h3>
+      <div class="callout"><span class="lab">✅ 像干过活的答法</span>密码用 bcrypt 加盐存，不存明文。登录成功签一个 JWT，放 access token（短期）+ refresh token（长期）。每个受保护接口过一个 middleware 校验 token 和角色。我项目里三种角色权限不同，middleware 里先验 token 再查这个角色能不能调这个接口，越权返回 403。token 过期返回 401，前端拿 refresh token 换新的。</div>
+      <div class="callout bad"><span class="lab">🚫 一听就是背的</span>“用 JWT 做登录，把用户信息存在 token 里。” —— 太浅，而且往 token 里塞敏感信息是坑。面试官会问“token 怎么失效、密码怎么存、越权怎么拦”，答不上就露馅。</div>
+    </div>
+
+    <div class="qa">
+      <h3><span class="dom">Database</span>为什么要加索引？一条慢查询怎么优化？</h3>
+      <div class="callout"><span class="lab">✅ 像干过活的答法</span>索引是拿写入变慢和存储换查询变快。加在高频查询条件和排序字段上。我项目里维修单按 status 和 assigned_to 查最多，就在 (assigned_to, status) 上建联合索引。真遇到慢查询我会先 EXPLAIN，看是不是全表扫、有没有走索引，再决定加索引还是改查询。不是无脑加，因为写多读少的表加太多索引反而拖慢。</div>
+      <div class="callout bad"><span class="lab">🚫 一听就是背的</span>“加索引能加快查询速度，所以把常用字段都加上索引。” —— 每个字段都加是反效果。面试官一句“那写入变慢怎么办、联合索引最左匹配懂吗”就问穿了。</div>
+    </div>
+
+    <div class="qa">
+      <h3><span class="dom">System</span>用户量变大了怎么扩容？</h3>
+      <div class="callout"><span class="lab">✅ 像干过活的答法</span>先别急着上架构。我会先定位瓶颈：看监控和日志，是数据库慢、还是某个接口慢、还是没加缓存。按性价比从低到高来：先加索引和分页，再加 Redis 缓存热点数据，再把耗时操作（发邮件、生成报表）改成异步队列，再考虑读写分离。数据库连接池、慢查询这些先榨干，微服务和分库分表是最后才碰的。</div>
+      <div class="callout bad"><span class="lab">🚫 一听就是背的</span>“用户量大就上微服务、分库分表、加机器。” —— 一上来就重架构，面试官知道你没真扛过量。真实场景里 90% 的问题加个索引或缓存就解决了。</div>
+    </div>
+
+    <div class="qa">
+      <h3><span class="dom">Ops</span>线上挂了，你怎么排查？</h3>
+      <div class="callout"><span class="lab">✅ 像干过活的答法</span>有套路的：先看是不是刚部署过（最常见，先想能不能 rollback 止血）。再按链路查：health check 过不过、日志有没有报错、环境变量对不对、数据库连得上吗、第三方服务挂没挂。我项目里踩过一次，本地好好的线上 500，最后是环境变量少配了数据库密码，看日志三分钟定位。排查顺序永远是先止血、再定位、再修。</div>
+      <div class="callout bad"><span class="lab">🚫 一听就是背的</span>“看一下报错，然后改代码重新部署。” —— 没有章法。面试官想听的是你有没有一套“止血→定位→复盘”的流程，而不是撞运气。</div>
+    </div>
+
+    <div class="qa">
+      <h3><span class="dom">China 高频</span>Redis 缓存穿透、击穿、雪崩怎么处理？</h3>
+      <div class="callout"><span class="lab">✅ 像干过活的答法</span>三个是不同问题。穿透：查一个根本不存在的 key，每次都打到库，用布隆过滤器或缓存空值挡。击穿：某个热点 key 突然过期，大量请求同时打库，用互斥锁让一个请求去回源、其他等着。雪崩：大批 key 同一时间过期，给过期时间加随机偏移错开。我审批系统里待办数量是热点，就缓存计数并给过期时间加随机值。</div>
+      <div class="callout bad"><span class="lab">🚫 一听就是背的</span>把三个概念背一遍但分不清区别，或者只会说“加缓存”。面试官会给个具体场景让你选方案，分不清就答错。</div>
+    </div>
+
+    <div class="qa">
+      <h3><span class="dom">Behavioral</span>做到一半需求变了，你怎么办？</h3>
+      <div class="callout"><span class="lab">✅ 像干过活的答法</span>用 STAR。情境：项目做到第 5 周，PM 说审批要从一级改成两级。我做的：先评估影响，发现 schema 和流转逻辑要改；跟 PM 确认核心是先保证能跑通两级，UI 优化可以放后面；把变更拆成“先加一步审批、再补配置界面”两步。结果：核心功能按时交付，配置界面下个迭代补上。重点是我说清了取舍和沟通，不是“我加班硬做完”。</div>
+      <div class="callout bad"><span class="lab">🚫 一听就是背的</span>“需求变了我就加班加点把它做完。” —— 澳洲面试尤其不吃这套。他们想看你会不会评估影响、砍 scope、和 stakeholder 沟通，而不是无脑扛。</div>
+    </div>
+
+    <div class="qa">
+      <h3><span class="dom">Project</span>讲一个你项目里最难的 bug？</h3>
+      <div class="callout"><span class="lab">✅ 像干过活的答法</span>挑一个有“定位过程”的。比如：维修单偶尔状态回退，复现不了。我加日志发现是前端两个请求并发，后到的旧数据覆盖了新状态。解决：后端加乐观锁（版本号），前端禁掉重复提交。讲清楚“现象→怎么定位→根因→怎么修→怎么防复发”，这一条就够撑一轮技术面。</div>
+      <div class="callout bad"><span class="lab">🚫 一听就是背的</span>“最难的 bug 是一个报错，我 Google 了一下就解决了。” —— 等于没答。面试官问这题就是想看你的 debug 思路和技术深度，随便糊弄会直接减分。</div>
+    </div>
+
+    <div class="copybox">
+      <h4>再准备这 12 个话题（框架级，自己补答案）</h4>
+      <p>事件循环、Promise、组件复用、表单校验、REST vs GraphQL、HTTP 状态码、SQL join、事务隔离级别、消息队列可靠性、Docker 镜像分层、CI/CD 流程、JVM/GC（投中国岗必备）。</p>
+    </div>
+  </div>
+</section>
 <aside class="promo">
   <span class="promo-tag">AD · 自家的</span>
   <div class="promo-body">
@@ -253,34 +597,11 @@
   <a class="promo-cta" href="https://jiangren.com.au/wiki" target="_blank" rel="noopener">去翻手册 →</a>
 </aside>
 
-<section class="ch" id="ch7">
-  <div class="ghost">07</div>
+<section class="ch" id="ch10">
+  <div class="ghost">10</div>
   <div class="wrap">
     <div class="ch-head">
-      <div><div class="ch-num">CHAPTER 07</div><h2>面试高频题：怎么答才像干过活</h2></div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-chart.png" alt="" />
-    </div>
-    <p class="lead">题目不是拿来背的。每道题都要落回你的项目，不然听起来像搜索答案。</p>
-    <div class="q-grid">
-      <article class="q-card"><span class="tag">Frontend</span><h3>React/Vue 状态怎么设计？</h3><p>答：先区分 server state、form state、UI state。举项目里搜索、分页、表单错误怎么处理。</p></article>
-      <article class="q-card"><span class="tag">Backend</span><h3>登录认证怎么做？</h3><p>答：讲 password hash、JWT/session、middleware、权限检查、token 过期和错误返回。</p></article>
-      <article class="q-card"><span class="tag">Database</span><h3>为什么要加索引？</h3><p>答：讲查询条件、排序、写入成本。最好用你项目里的 ticket status 或 user_id 查询举例。</p></article>
-      <article class="q-card"><span class="tag">System</span><h3>如果用户量变大怎么办？</h3><p>答：先定位瓶颈，再讲缓存、分页、异步任务、数据库连接池、日志和监控。别一上来就微服务。</p></article>
-      <article class="q-card"><span class="tag">Cloud</span><h3>线上挂了怎么排查？</h3><p>答：看 health check、logs、env vars、database connection、recent deploy、rollback。讲一个你项目里的排错例子。</p></article>
-      <article class="q-card"><span class="tag">Behavioral</span><h3>需求变了怎么办？</h3><p>答：用 STAR。说清 trade-off、沟通、拆 scope 和保住核心交付，不要只说“我加班完成”。</p></article>
-    </div>
-    <div class="copybox">
-      <h4>再准备这 12 题</h4>
-      <p>事件循环、Promise、组件复用、表单校验、REST vs GraphQL、HTTP 状态码、SQL join、事务、缓存穿透、Docker 镜像、CI/CD、项目里最难的 bug。</p>
-    </div>
-  </div>
-</section>
-
-<section class="ch" id="ch8">
-  <div class="ghost">08</div>
-  <div class="wrap">
-    <div class="ch-head">
-      <div><div class="ch-num">CHAPTER 08</div><h2>投递前 20 项检查</h2></div>
+      <div><div class="ch-num">CHAPTER 10</div><h2>投递前 20 项检查</h2></div>
       <img class="ch-illo" src="assets/illustrations/niuxiaojiang-pen-book.png" alt="" />
     </div>
     <p class="lead">投递前别只看简历排版。先确认你的材料真的对应 JD。</p>
@@ -289,13 +610,113 @@
       <div class="check-item"><span class="box"></span><div><div class="t">圈出 10 条 JD 里重复出现的技术</div><div class="n">React/Vue、Node/Java、SQL、AWS、Docker 哪个出现最多，优先学哪个。</div></div></div>
       <div class="check-item"><span class="box"></span><div><div class="t">简历前半页能看到目标栈</div><div class="n">不要让招聘方翻到最后才发现你会。</div></div></div>
       <div class="check-item"><span class="box"></span><div><div class="t">项目能对应至少 5 个 JD 关键词</div><div class="n">对应不上，就补功能或换项目。</div></div></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">投澳洲：确认工作身份措辞对得上</div><div class="n">很多岗要 current work rights，别投明显 screen 掉你的。</div></div></div>
     </div>
     <div class="check-group">
       <div class="head"><span class="stage">材料</span><h3>全栈证据检查</h3></div>
-      <div class="check-item"><span class="box"></span><div><div class="t">GitHub README 有截图、启动命令和架构图</div><div class="n">别只留代码。</div></div></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">GitHub README 有截图、启动命令和架构图</div><div class="n">别只留代码。范本见附录。</div></div></div>
       <div class="check-item"><span class="box"></span><div><div class="t">有一个线上 demo 或 60 秒录屏</div><div class="n">别人点不开，也能看懂。</div></div></div>
       <div class="check-item"><span class="box"></span><div><div class="t">准备 2 分钟项目讲法和 5 个追问</div><div class="n">项目是你面试的主战场。</div></div></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">同一个项目练两套讲法</div><div class="n">投澳洲练协作和取舍，投中国练并发和索引。</div></div></div>
     </div>
+  </div>
+</section>
+
+<section class="ch" id="appendix">
+  <div class="ghost">A</div>
+  <div class="wrap">
+    <div class="ch-num">APPENDIX</div>
+    <h2>附录：AU / CN 完整简历范本 + README</h2>
+    <p class="lead">下面两份是一页纸的完整范本，照着结构套自己的经历就行。文字都能整段复制。范本里的项目就是第 06 章那两个 —— 你真做出来了，这份简历就是真的。</p>
+    <div class="callout"><span class="lab">要可下载的版本？</span>本书配了两个独立的可打印简历模板：<b>templates/resume-au.html</b>（澳洲版）和 <b>templates/resume-cn.html</b>（中国版）。用浏览器打开，按 Ctrl/Cmd + P 就能另存成 PDF；也可以整段复制下面的文字，粘进你自己的 Word 或 Google Docs 直接改。</div>
+
+    <div class="resume-sheet">
+      <div class="rs-name">Wei Chen</div>
+      <div class="rs-tagline">Full-Stack Developer · React / Node.js / AWS</div>
+      <div class="rs-contact">Sydney NSW（Full working rights）· wei.chen@email.com · github.com/weichen · linkedin.com/in/weichen</div>
+
+      <div class="rs-sec">Summary</div>
+      <p>Full-stack developer building end-to-end web apps with React, TypeScript, Node.js and AWS. Comfortable owning a feature from UI to API, database and deployment. Looking for a junior/mid full-stack role in Sydney.</p>
+
+      <div class="rs-sec">Skills</div>
+      <div class="rs-two">
+        <p><b>Frontend:</b> React 18, TypeScript, React Query, HTML/CSS</p>
+        <p><b>Backend:</b> Node.js, Express, REST APIs, JWT auth</p>
+        <p><b>Data:</b> PostgreSQL, schema design, indexing</p>
+        <p><b>Infra:</b> Docker, AWS (S3, SES), GitHub Actions CI</p>
+      </div>
+
+      <div class="rs-sec">Projects</div>
+      <div class="rs-job"><span class="rs-role">Rental Maintenance Portal — React, Node.js, PostgreSQL, AWS</span><span class="rs-date">2026</span></div>
+      <ul>
+        <li>Built a role-based maintenance portal (tenant / manager / worker) with a ticket workflow, image upload to S3 and status tracking.</li>
+        <li>Designed the REST API and PostgreSQL schema with JWT auth; access is filtered per role and unauthorised requests return 403.</li>
+        <li>Added integration tests for 3 failure paths (unauthorised access, empty title, invalid assignment); containerised with Docker and deployed a live demo.</li>
+      </ul>
+
+      <div class="rs-sec">Education</div>
+      <p>Bachelor of IT — University of Sydney, 2025 · Self-directed full-stack study, 2026</p>
+    </div>
+
+    <div class="resume-sheet">
+      <div class="rs-name">陈伟</div>
+      <div class="rs-tagline">全栈开发工程师 · Vue / Java Spring Boot / MySQL / Redis</div>
+      <div class="rs-contact">上海 · 应届（2026.6 毕业）· 158-xxxx-xxxx · wei.chen@email.com · github.com/weichen</div>
+
+      <div class="rs-sec">个人简介</div>
+      <p>全栈开发，主攻 Java 后端 + Vue 前端，能独立完成一个带角色权限和流程的业务系统，从接口、数据库到缓存。熟悉微服务基础和 SQL 调优。求上海 Java/全栈开发岗。</p>
+
+      <div class="rs-sec">技能</div>
+      <div class="rs-two">
+        <p><b>后端：</b>Java、Spring Boot、Spring Cloud 基础、REST</p>
+        <p><b>前端：</b>Vue3、Vuex、Element-UI、VueRouter</p>
+        <p><b>数据：</b>MySQL（索引优化、事务）、Redis（缓存）</p>
+        <p><b>工程：</b>Git、Docker、Maven、Linux</p>
+      </div>
+
+      <div class="rs-sec">项目经历</div>
+      <div class="rs-job"><span class="rs-role">企业审批系统 — Vue + Spring Boot + MySQL + Redis</span><span class="rs-date">2026</span></div>
+      <ul>
+        <li>独立设计并实现请假/报销审批系统，支持可配置的一级/二级审批流，四种角色权限隔离。</li>
+        <li>用 Spring Boot 写 REST 接口 + JWT 鉴权；MySQL 设计申请单和审批留痕两张表，在高频查询字段建联合索引。</li>
+        <li>用 Redis 缓存待办数量和审批流配置，给过期时间加随机偏移防雪崩；处理同一步重复审批的幂等问题。</li>
+      </ul>
+
+      <div class="rs-sec">教育背景</div>
+      <p>计算机科学与技术 本科 — 某大学，2026.6 毕业</p>
+    </div>
+
+    <div class="copybox">
+      <h4>GitHub README 范本（整段复制，把方括号换成你的）</h4>
+<pre># [项目名] — [一句话说它解决谁的什么问题]
+
+[一张首页截图 / 架构图，放这里]  ![screenshot](docs/screenshot.png)
+
+## 技术栈
+Frontend: [React 18 + TypeScript] · Backend: [Node.js + Express]
+Database: [PostgreSQL] · Infra: [Docker + AWS S3 + GitHub Actions]
+
+## 功能
+- [ ] 角色权限（tenant / manager / worker），越权返回 403
+- [ ] 维修单工作流 + 图片上传 + 状态追踪
+- [ ] 3 条失败路径有测试
+
+## 本地启动
+```
+git clone [repo] && cd [repo]
+cp .env.example .env      # 配 DB 和 AWS
+docker compose up         # 一键起前后端和数据库
+npm run seed              # 塞种子数据
+```
+打开 http://localhost:3000，默认账号见 seed 文件。
+
+## 架构
+[一段话或一张图：前端 → API → 数据库/缓存 → 部署]
+
+## 我做的取舍
+[挑 1-2 个技术决策讲：为什么用 X 不用 Y，遇到什么坑怎么解决的]</pre>
+    </div>
+    <div class="mini-note">README 最容易被忽略但最能加分。招聘方点开你的 repo，30 秒内看到截图、启动命令和你的技术取舍，对你的判断就完全不一样了。别只留一堆代码。</div>
   </div>
 </section>
 
@@ -304,10 +725,12 @@
     <div class="ch-num">SOURCES</div>
     <h2>来源清单</h2>
     <div class="source-grid">
-      <article class="source-card"><h3>澳洲岗位</h3><p>SEEK Full Stack Developer 当前搜索、Jobs and Skills Australia 的 Internet Vacancy Index 和 Occupation shortages analysis。</p></article>
-      <article class="source-card"><h3>技术趋势</h3><p>Stack Overflow Developer Survey 2025，用来观察主流开发技术；具体求职仍按目标 JD。</p></article>
-      <article class="source-card"><h3>官方技术文档</h3><p>React、Vue、Node.js、Spring Boot、Docker、GitHub Docs。学技术时尽量回官方文档，不只刷短视频。</p></article>
-      <article class="source-card"><h3>使用提醒</h3><p>这本是求职学习地图，不是就业承诺。不同城市、公司、岗位会变，投递前重新抓 10 条 JD 再改。</p></article>
+      <article class="source-card"><h3>澳洲岗位与薪资</h3><p>SEEK Full Stack Developer 挂牌页与官方薪资页（July 2026）、Jobs and Skills Australia 2025 Occupation Shortage List、ACS Information Age 关于 Software Engineer 退出短缺清单的报道。均 2026-07-15 查。</p></article>
+      <article class="source-card"><h3>澳洲签证</h3><p>Home Affairs 技术职业清单（MLTSSL / CSOL）、261312 Developer Programmer 与 261313 Software Engineer 职业评估（ACS）。签证规则会变，投递或申请前请回官方核对。</p></article>
+      <article class="source-card"><h3>中国岗位与薪资</h3><p>Morgan McKinley 2026 中国大陆薪酬指南（上海 Java）、职友集、Indeed 中国；挚文集团/电鸭等平台在招 JD 摘要。BOSS/拉勾逐条页反爬，部分为搜索转述与聚合，已在正文标注。</p></article>
+      <article class="source-card"><h3>技术趋势与面试</h3><p>Stack Overflow Developer Survey 2025（Technology）；Glassdoor Sitemate 面试实录；React、Vue、Node.js、Spring Boot、Docker、GitHub 官方文档。学技术尽量回官方文档。</p></article>
+      <article class="source-card"><h3>门槛与身份</h3><p>留学生应届身份认定规则（离校 2 年内、职工社保红线）、中国互联网“35 岁门槛”与学历门槛讨论、斯坦福关于年轻程序员就业下降的研究。均为公开来源转述，个人情况请咨询专业人士。</p></article>
+      <article class="source-card"><h3>使用提醒</h3><p>这本是求职学习地图，不是就业、签证、收入承诺。技术栈、JD 信号、薪资和签证规则都会随市场变化，投递前重新抓 10 条 JD 再改，签证以官方为准。</p></article>
     </div>
   </div>
 </section>

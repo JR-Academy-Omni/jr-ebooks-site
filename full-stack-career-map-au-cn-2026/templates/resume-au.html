@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Resume Template — Full-Stack Developer (AU)</title>
+<style>
+  :root { --red:#E4322B; --ink:#1a1a1a; --muted:#666; --line:#e2ddd4; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:#efe9df; font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; color:var(--ink); }
+  .bar { max-width:210mm; margin:0 auto; padding:10px 16px; font-size:13px; color:var(--muted); }
+  .bar b { color:var(--ink); }
+  .sheet { width:210mm; min-height:297mm; margin:0 auto 20px; background:#fff; padding:18mm 20mm; box-shadow:0 4px 24px rgba(0,0,0,.12); }
+  .name { font-size:26pt; font-weight:800; margin:0; letter-spacing:-.01em; }
+  .tagline { font-size:12pt; font-weight:700; color:var(--red); margin:4px 0 3px; }
+  .contact { font-size:9.5pt; color:var(--muted); margin:0; }
+  .sec { font-size:11pt; font-weight:800; text-transform:uppercase; letter-spacing:.03em; border-bottom:2px solid var(--red); padding-bottom:3px; margin:20px 0 8px; }
+  p, li { font-size:10pt; line-height:1.55; }
+  .skills { display:grid; grid-template-columns:1fr 1fr; gap:2px 24px; }
+  .skills p { margin:2px 0; }
+  .job { display:flex; justify-content:space-between; align-items:baseline; gap:12px; margin-top:8px; }
+  .job .role { font-size:10.5pt; font-weight:800; }
+  .job .date { font-size:9pt; color:var(--muted); font-weight:600; flex:none; }
+  ul { margin:4px 0 0; padding-left:18px; }
+  @media print {
+    body { background:#fff; }
+    .bar { display:none; }
+    .sheet { box-shadow:none; margin:0; width:auto; min-height:auto; padding:16mm 18mm; }
+    @page { size:A4; margin:0; }
+  }
+</style>
+</head>
+<body>
+<div class="bar">📄 <b>可下载简历模板 · 澳洲版</b> —— 按 <b>Ctrl/Cmd + P</b> → 另存为 PDF 即可。方括号和示例内容换成你自己的。来自匠人学院《2026 全栈开发求职地图》。</div>
+<div class="sheet">
+  <div class="name">Wei Chen</div>
+  <div class="tagline">Full-Stack Developer · React / Node.js / AWS</div>
+  <div class="contact">Sydney NSW (Full working rights) · wei.chen@email.com · github.com/weichen · linkedin.com/in/weichen</div>
+
+  <div class="sec">Summary</div>
+  <p>Full-stack developer building end-to-end web apps with React, TypeScript, Node.js and AWS. Comfortable owning a feature from UI to API, database and deployment. Looking for a junior/mid full-stack role in Sydney.</p>
+
+  <div class="sec">Skills</div>
+  <div class="skills">
+    <p><b>Frontend:</b> React 18, TypeScript, React Query, HTML/CSS</p>
+    <p><b>Backend:</b> Node.js, Express, REST APIs, JWT auth</p>
+    <p><b>Data:</b> PostgreSQL, schema design, indexing</p>
+    <p><b>Infra:</b> Docker, AWS (S3, SES), GitHub Actions CI</p>
+  </div>
+
+  <div class="sec">Projects</div>
+  <div class="job"><span class="role">Rental Maintenance Portal — React, Node.js, PostgreSQL, AWS</span><span class="date">2026</span></div>
+  <ul>
+    <li>Built a role-based maintenance portal (tenant / manager / worker) with a ticket workflow, image upload to S3 and status tracking.</li>
+    <li>Designed the REST API and PostgreSQL schema with JWT auth; access is filtered per role and unauthorised requests return 403.</li>
+    <li>Added integration tests for 3 failure paths (unauthorised access, empty title, invalid assignment); containerised with Docker and deployed a live demo.</li>
+  </ul>
+
+  <div class="sec">Education</div>
+  <p>Bachelor of IT — University of Sydney, 2025 · Self-directed full-stack study, 2026</p>
+</div>
+</body>
+</html>

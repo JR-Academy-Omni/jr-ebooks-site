@@ -1,11 +1,11 @@
 {
   "slug": "full-stack-career-map-au-cn-2026",
   "title": "2026 澳洲/中国 全栈开发求职地图",
-  "subtitle": "技术栈路线图、真实 JD 拆解、简历模板和面试高频题，给转码和早期求职者一条能照着学的顺序",
+  "subtitle": "10 条真实 JD、两地真实薪资与签证、能照着建的项目规格、8 道面试完整答案、AU/CN 双版简历范本，给转码和早期全栈求职者一份实操包",
   "style": "guide + zine web + flow A4",
   "audience": "想转全栈开发、准备澳洲或中国 IT 求职、还不知道 React/Vue/Node/Java/Spring/AWS 怎么排序的人",
   "track": "T2 IT 求职 / 转码",
-  "checked": "2026-07-07",
+  "checked": "2026-07-16",
   "contact": {
     "qr": "qr-rain.png",
     "salesCard": "rain.jpg",
@@ -24,16 +24,17 @@
     "interview"
   ],
   "sources": [
-    "SEEK Full Stack Developer jobs: https://www.seek.com.au/full-stack-developer-jobs",
-    "Jobs and Skills Australia Internet Vacancy Index: https://www.jobsandskills.gov.au/data/internet-vacancy-index",
-    "Jobs and Skills Australia Occupation shortages analysis: https://www.jobsandskills.gov.au/data/occupation-shortages-analysis",
+    "SEEK Full Stack Developer jobs (挂牌页 555 岗 @2026-07-15): https://au.seek.com/full-stack-developer-jobs",
+    "SEEK Full Stack Developer salary (城市均值 @July 2026): https://au.seek.com/career-advice/role/full-stack-developer/salary",
+    "Clicks IT Recruitment salary guide (经验分层，偏乐观): https://clicks.com.au/job-salary/full-stack-developer/",
+    "Jobs and Skills Australia 2025 Occupation Shortage List: https://www.jobsandskills.gov.au/data/occupation-shortage/occupation-shortage-list",
+    "ACS Information Age (Software Engineer 退出短缺清单): https://ia.acs.org.au/article/2025/there-s-no-shortage-of-software-engineers-in-australia-anymore.html",
+    "Home Affairs skill occupation list (MLTSSL / CSOL, 261312/261313): https://immi.homeaffairs.gov.au/visas/working-in-australia/skill-occupation-list",
+    "Morgan McKinley 2026 China salary guide (上海 Java): https://www.morganmckinley.com.cn/zh-hans/salary-guide",
+    "职友集 Java 后端 / 全栈薪资: https://www.jobui.com/salary/quanguo-javahouduankaifa/",
+    "Glassdoor Sitemate Full Stack 面试实录: https://www.glassdoor.com/Interview/Sitemate-Full-Stack-Engineer-Interview-Questions-EI_IE3008131.htm",
     "Stack Overflow Developer Survey 2025 Technology: https://survey.stackoverflow.co/2025/technology/",
-    "React docs: https://react.dev/learn",
-    "Vue docs: https://vuejs.org/guide/introduction.html",
-    "Node.js Learn: https://nodejs.org/en/learn",
-    "Spring Boot docs: https://docs.spring.io/spring-boot/",
-    "Docker docs: https://docs.docker.com/",
-    "GitHub Docs: https://docs.github.com/"
+    "React / Vue / Node.js / Spring Boot / Docker / GitHub 官方文档"
   ],
-  "note": "技术栈和 JD 信号会随市场变化；不保证面试、offer、签证、收入或雇主反馈结果。"
+  "note": "真实 JD、薪资、签证与门槛数据核对到 2026-07-15，含硬来源与聚合观察分级（正文已标注）；BOSS/拉勾逐条页反爬，部分中国 JD 为搜索转述与平台聚合。技术栈、JD 信号、薪资与签证规则会随市场变化，投递或申请前请重查；不保证面试、offer、签证、收入或雇主反馈结果。研究原料见 research/market-data-au.md 与 research/market-data-cn.md。"
 }

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>简历模板 — 全栈开发工程师（中国版）</title>
+<style>
+  :root { --red:#E4322B; --ink:#1a1a1a; --muted:#666; --line:#e2ddd4; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:#efe9df; font-family:-apple-system,"PingFang SC","Microsoft YaHei","Segoe UI",Roboto,Helvetica,Arial,sans-serif; color:var(--ink); }
+  .bar { max-width:210mm; margin:0 auto; padding:10px 16px; font-size:13px; color:var(--muted); }
+  .bar b { color:var(--ink); }
+  .sheet { width:210mm; min-height:297mm; margin:0 auto 20px; background:#fff; padding:18mm 20mm; box-shadow:0 4px 24px rgba(0,0,0,.12); }
+  .name { font-size:26pt; font-weight:800; margin:0; }
+  .tagline { font-size:12pt; font-weight:700; color:var(--red); margin:4px 0 3px; }
+  .contact { font-size:9.5pt; color:var(--muted); margin:0; }
+  .sec { font-size:11pt; font-weight:800; letter-spacing:.02em; border-bottom:2px solid var(--red); padding-bottom:3px; margin:20px 0 8px; }
+  p, li { font-size:10pt; line-height:1.6; }
+  .skills { display:grid; grid-template-columns:1fr 1fr; gap:2px 24px; }
+  .skills p { margin:2px 0; }
+  .job { display:flex; justify-content:space-between; align-items:baseline; gap:12px; margin-top:8px; }
+  .job .role { font-size:10.5pt; font-weight:800; }
+  .job .date { font-size:9pt; color:var(--muted); font-weight:600; flex:none; }
+  ul { margin:4px 0 0; padding-left:18px; }
+  @media print {
+    body { background:#fff; }
+    .bar { display:none; }
+    .sheet { box-shadow:none; margin:0; width:auto; min-height:auto; padding:16mm 18mm; }
+    @page { size:A4; margin:0; }
+  }
+</style>
+</head>
+<body>
+<div class="bar">📄 <b>可下载简历模板 · 中国版</b> —— 按 <b>Ctrl/Cmd + P</b> → 另存为 PDF 即可。方括号和示例内容换成你自己的。来自匠人学院《2026 全栈开发求职地图》。</div>
+<div class="sheet">
+  <div class="name">陈伟</div>
+  <div class="tagline">全栈开发工程师 · Vue / Java Spring Boot / MySQL / Redis</div>
+  <div class="contact">上海 · 应届（2026.6 毕业）· 158-xxxx-xxxx · wei.chen@email.com · github.com/weichen</div>
+
+  <div class="sec">个人简介</div>
+  <p>全栈开发，主攻 Java 后端 + Vue 前端，能独立完成一个带角色权限和流程的业务系统，从接口、数据库到缓存。熟悉微服务基础和 SQL 调优。求上海 Java / 全栈开发岗。</p>
+
+  <div class="sec">技能</div>
+  <div class="skills">
+    <p><b>后端：</b>Java、Spring Boot、Spring Cloud 基础、REST</p>
+    <p><b>前端：</b>Vue3、Vuex、Element-UI、VueRouter</p>
+    <p><b>数据：</b>MySQL（索引优化、事务）、Redis（缓存）</p>
+    <p><b>工程：</b>Git、Docker、Maven、Linux</p>
+  </div>
+
+  <div class="sec">项目经历</div>
+  <div class="job"><span class="role">企业审批系统 — Vue + Spring Boot + MySQL + Redis</span><span class="date">2026</span></div>
+  <ul>
+    <li>独立设计并实现请假/报销审批系统，支持可配置的一级/二级审批流，四种角色权限隔离。</li>
+    <li>用 Spring Boot 写 REST 接口 + JWT 鉴权；MySQL 设计申请单和审批留痕两张表，在高频查询字段建联合索引。</li>
+    <li>用 Redis 缓存待办数量和审批流配置，给过期时间加随机偏移防雪崩；处理同一步重复审批的幂等问题。</li>
+  </ul>
+
+  <div class="sec">教育背景</div>
+  <p>计算机科学与技术 本科 — 某大学，2026.6 毕业</p>
+</div>
+</body>
+</html>
