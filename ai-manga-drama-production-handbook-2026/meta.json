@@ -1,0 +1,43 @@
+{
+  "slug": "ai-manga-drama-production-handbook-2026",
+  "title": "AI 漫剧从 0 到成片实操手册",
+  "subtitle": "6 工具清单 + 10 个避坑点 + 越轴自查表，从选题、剧本、分镜、角色一致性、配音到剪映成片，做出第一条 60 秒 AI 漫剧样片",
+  "style": "guide + zine web + flow A4",
+  "audience": "想做 AI 漫剧、短视频剧情号、AI 内容作品集和个人样片的国内创作者",
+  "track": "T5 国内 AI 内容创业",
+  "checked": "2026-07-21",
+  "contact": {
+    "qr": "qr-amelia.png",
+    "salesCard": "amelia.jpg",
+    "salesCards": [
+      "amelia.jpg"
+    ],
+    "owner": "Amelia",
+    "note": "AI 内容创作/作品集实操题，使用 Amelia；CTA 只写工具链、样片和作品集诊断，不承诺涨粉、收入、平台推荐或商单结果。"
+  },
+  "tags": [
+    "ai",
+    "manga-drama",
+    "short-video",
+    "storyboard",
+    "prompt",
+    "capcut"
+  ],
+  "sources": [
+    "即梦 AI 官方站: https://jimeng.jianying.com/",
+    "可灵 AI 官方站: https://klingai.kuaishou.com/",
+    "Midjourney 官方站: https://www.midjourney.com/",
+    "Stability AI / Stable Diffusion 官方站: https://stability.ai/",
+    "Runway Help Center: https://help.runwayml.com/",
+    "OpenAI Sora Help: https://help.openai.com/en/collections/10292292-sora",
+    "OpenAI ChatGPT: https://chatgpt.com/",
+    "Anthropic Claude: https://claude.ai/",
+    "MiniMax Audio / Speech API: https://www.minimax.io/audio",
+    "ElevenLabs 官方站: https://elevenlabs.io/",
+    "剪映 / CapCut 官方站: https://www.capcut.cn/ / https://www.capcut.com/",
+    "YouTube Shorts 创作者帮助: https://support.google.com/youtube/",
+    "Adobe / filmmaking 180-degree rule references: https://www.adobe.com/creativecloud/video/discover/180-degree-rule.html",
+    "国家版权局: https://www.ncac.gov.cn/"
+  ],
+  "note": "核对日期：2026-07-21。AI 图像、视频、配音、剪辑工具能力、额度、水印、商用和版权条款变化很快；正文只提供成片方法、检查表和官方入口，不承诺涨粉、收入、商单、平台推荐或版权/审核结果。"
+}
