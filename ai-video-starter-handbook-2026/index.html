@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>AI 视频从 0 到 1 — JR Academy</title>
+<link rel="stylesheet" href="theme/tokens.css" />
+<link rel="stylesheet" href="theme/ebook.css" />
+<link rel="stylesheet" href="theme/flow-a4.css" />
+<style>
+  .cover2 .cover-logo { position: absolute; top: 15mm; left: 15mm; height: 12mm; width: auto; z-index: 3; }
+  .cover2 .cv2-copy { position: relative; z-index: 3; margin-top: 36mm; max-width: 130mm; }
+  .cover2 .cv2-copy h1 { font-family: Anton, Impact, sans-serif; font-size: 58pt; line-height: 1.02; color: var(--jr-white); margin: 4mm 0 6mm; letter-spacing: 0; }
+  .cover2 .cv2-copy h1 em { color: var(--jr-red); font-style: normal; }
+  .cover2 .cv2-copy p { color: rgba(255,255,255,.74); font-size: 11pt; line-height: 1.7; max-width: 108mm; }
+  .cover2 .cv2-tags { display: flex; gap: 3mm; flex-wrap: wrap; margin-top: 7mm; }
+  .cover2 .cv2-tags span { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.3); color: rgba(255,255,255,.9); border-radius: var(--jr-radius-full); font-size: 8.5pt; font-weight: var(--jr-fw-bold); padding: 1.3mm 3.5mm; }
+  .flow .video-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5mm; margin-top: 4mm; }
+  .flow .video-card { border: 1px solid var(--jr-border-warm); border-radius: 4mm; background: var(--jr-white); padding: 4mm 5mm; break-inside: avoid; }
+  .flow .video-card h3 { font-size: 10.8pt; margin: 1.2mm 0; }
+  .flow .video-card p { font-size: 8pt; line-height: 1.55; margin-top: 1mm; }
+  .flow .video-card .tag { display: inline-flex; border-radius: 999px; background: var(--jr-red); color: #fff; padding: .6mm 2mm; font-size: 6.5pt; font-weight: 800; }
+  .flow .formula { display: grid; grid-template-columns: repeat(6, 1fr); gap: 2mm; margin: 4mm 0; }
+  .flow .formula span { background: var(--jr-surface-panel); border: 1px solid var(--jr-border-warm); border-radius: 3mm; padding: 2mm; text-align: center; font-size: 7.2pt; font-weight: var(--jr-fw-bold); }
+  .flow .shot-list { counter-reset: shot; display: grid; gap: 2.5mm; margin-top: 4mm; }
+  .flow .shot { display: grid; grid-template-columns: 9mm 1fr; gap: 3mm; align-items: start; border: 1px solid var(--jr-border-warm); border-radius: 3.5mm; padding: 3mm 4mm; background: var(--jr-surface-panel); break-inside: avoid; }
+  .flow .shot::before { counter-increment: shot; content: counter(shot); width: 7mm; height: 7mm; border-radius: 50%; background: var(--jr-red); color: #fff; display: grid; place-items: center; font-size: 8pt; font-weight: var(--jr-fw-bold); }
+  .flow .shot b { color: var(--jr-black); }
+  .flow .shot p { font-size: 8.3pt; line-height: 1.5; margin: .6mm 0 0; }
+  .flow .tool-table td:first-child { width: 24%; font-weight: var(--jr-fw-bold); color: var(--jr-black); }
+  .flow .tiny-note { font-size: 7.5pt; color: var(--jr-neutral-600); line-height: 1.5; margin-top: 2mm; }
+  .flow .template-table th, .flow .template-table td { font-size: 7.4pt; padding: 1.7mm 2mm; }
+  .flow .template-table td:first-child { width: 10%; font-weight: var(--jr-fw-bold); color: var(--jr-red); }
+  .flow .publish-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5mm; margin-top: 4mm; }
+  .flow .publish-card { background: var(--jr-surface-panel); border: 1px solid var(--jr-border-warm); border-radius: 4mm; padding: 4mm 5mm; break-inside: avoid; }
+  .flow .publish-card h3 { font-size: 10pt; margin: 0 0 2mm; }
+  .flow .publish-card ul { margin: 0; padding-left: 4mm; }
+  .flow .publish-card li { font-size: 8pt; line-height: 1.55; margin-top: .8mm; }
+  @media print { html, body { background: #FFFCF6; } }
+  .sales-card-lead { margin-top: 5mm; font-size: 10.5pt; font-weight: var(--jr-fw-medium); color: var(--jr-neutral-900); line-height: 1.6; }
+  .page.back-cover.ai-video-back { gap: 5mm; padding: 18mm 20mm; }
+  .ai-video-back .back-logo { height: 12mm; width: auto; }
+  .ai-video-back h2 { font-size: 25pt; line-height: 1.12; margin: 0; }
+  .ai-video-back p { font-size: 10pt; line-height: 1.5; margin: 0; }
+  .ai-video-back .sales-card { width: 88% !important; box-shadow: none; }
+  .ai-video-back .contact-bar { width: 88% !important; padding: 3mm 4mm; gap: 4mm; }
+  .ai-video-back .contact-bar .qr { width: 18mm; height: 18mm; }
+  .ai-video-back .contact-bar .cb-title { font-size: 10.5pt; }
+  .ai-video-back .contact-bar .cb-desc { font-size: 8pt; line-height: 1.45; }
+  .ai-video-back .caption { font-size: 7.2pt; }
+  @media (max-width: 900px) {
+    .flow .video-grid, .flow .formula { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<img class="jr-wm" src="assets/logo/jr-box.svg" alt="" />
+
+<section class="page cover2 dark">
+  <img class="cover-logo" src="assets/logo/logo-zh-white.png" alt="匠人学院" />
+  <div class="cv2-ghost">VIDEO</div>
+  <div class="cv2-copy">
+    <div class="cv2-kicker">AI 视频实操入门</div>
+    <h1><em>AI</em><br />视频<br />从 0 到 1</h1>
+    <p>别先收藏一堆工具。先把一个想法拆成脚本、分镜、提示词、剪辑和发布。第一条视频不求惊艳，先做到能发。</p>
+    <div class="cv2-tags"><span>脚本</span><span>分镜</span><span>Prompt</span><span>扫码找 Rain</span></div>
+  </div>
+  <img class="cv2-mascot" src="assets/illustrations/niuxiaojiang-working-laptop.png" alt="牛小匠" />
+  <div class="cv2-strip"><span>AI VIDEO <i>*</i> STORYBOARD <i>*</i> PROMPT <i>*</i> EDITING <i>*</i> JIANGREN.COM.AU <i>*</i></span></div>
+</section>
+
+<main class="flow">
+<section class="ch book-toc">
+  <div class="wrap">
+    <div class="ch-num">CONTENTS</div>
+    <h2>目录</h2>
+    <a href="#how"><span class="num">00</span>这本书怎么用</a>
+    <a href="#ch1"><span class="num">01</span>AI 视频能做什么，别幻想什么</a>
+    <a href="#ch2"><span class="num">02</span>完整工作流：从选题到发布</a>
+    <a href="#ch3"><span class="num">03</span>新手最容易上手的 5 类视频</a>
+    <a href="#ch4"><span class="num">04</span>脚本怎么写才适合生成画面</a>
+    <a href="#ch5"><span class="num">05</span>把一句话拆成 6 个镜头</a>
+    <a href="#ch6"><span class="num">06</span>提示词公式和常用词</a>
+    <a href="#ch7"><span class="num">07</span>工具地图：别被工具带着跑</a>
+    <a href="#ch8"><span class="num">08</span>实战：30 秒社群宣传视频</a>
+    <a href="#ch9"><span class="num">09</span>常见翻车现场</a>
+    <a href="#ch10"><span class="num">10</span>可复制分镜表模板</a>
+    <a href="#ch11"><span class="num">11</span>发布前检查</a>
+    <a href="#ch12"><span class="num">12</span>7 天练习计划</a>
+    <div class="callout warn">建议先读第 2、4、5 章。你会发现，AI 视频卡住通常不是工具问题，是脚本没有镜头。</div>
+  </div>
+</section>
+
+<section class="ch" id="how">
+  <div class="wrap">
+    <h2>这本书怎么用</h2>
+    <div class="card">
+      <p>这不是“AI 视频工具大全”。工具更新太快，今天好用的按钮，过两个月可能换名字。</p>
+      <p>这本只教一件事：怎么把一个想法，做成一条能发布的短视频。你会拿到脚本写法、分镜拆法、提示词公式、30 秒案例和 7 天练习清单。说白了，别等自己研究明白所有工具，先做出第一条。</p>
+    </div>
+    <div class="stat-grid">
+      <div class="stat accent"><div class="v">1</div><div class="l">条完整工作流</div></div>
+      <div class="stat"><div class="v">5</div><div class="l">类新手视频方向</div></div>
+      <div class="stat"><div class="v">7</div><div class="l">天做出第一条</div></div>
+    </div>
+    <div class="contact-bar">
+      <img class="qr" src="assets/contact/qr-rain.png" alt="Rain · 匠人学院资深 IT 顾问微信二维码" />
+      <div><div class="t">扫码进 AI 视频社群</div><div class="d">群里会放真实选题拆解、脚本修改思路和作品复盘。你把账号方向发来，先看第一条从哪类视频开始。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="ch" id="ch1">
+  <div class="ghost">01</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 01</div><h2>AI 视频能做什么，别幻想什么</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-thinking.png" alt="" />
+    </div>
+    <p class="lead">AI 视频不是“一句话出爆款”。更现实的用法是：帮你把脚本、画面、配音、字幕和素材测试速度拉起来。你还是要负责判断主题、节奏和观众为什么要看。</p>
+    <table>
+      <thead><tr><th>适合先做</th><th>别一开始就做</th></tr></thead>
+      <tbody>
+        <tr><td>15-45 秒知识短视频，比如“AI 视频新手三件事”</td><td>3 分钟以上连续剧情，还要求角色每个镜头完全一致</td></tr>
+        <tr><td>课程、社群、公开课预热视频</td><td>品牌级广告大片，要求每一帧都像专业片场</td></tr>
+        <tr><td>产品卖点演示、活动倒计时、图文转视频</td><td>大量真实人物肖像、敏感身份或未经授权素材</td></tr>
+        <tr><td>账号内容素材测试，一天试 3 个脚本方向</td><td>指望工具直接替你想选题、写钩子、做复盘</td></tr>
+      </tbody>
+    </table>
+    <div class="callout warn"><strong>新手判断：</strong>如果一个视频可以拆成 5-8 个独立镜头，AI 就比较好参与。如果它靠演员连续表演、复杂对白和稳定角色推进，先别拿它练手。</div>
+  </div>
+</section>
+
+<section class="ch" id="ch2">
+  <div class="ghost">02</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 02</div><h2>完整工作流：从选题到发布</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-chart.png" alt="" />
+    </div>
+    <p class="lead">别第一步打开视频生成工具。先把视频当成一个小项目：目标是谁，第一秒怎么抓人，每个镜头要表达什么，最后让观众做什么。</p>
+    <div class="roadmap">
+      <div class="rline"></div>
+      <div class="rstops">
+        <div class="rstop"><div class="rdot">1</div><div class="rtime">10 MIN</div><h4>选题</h4><p>一句话写清楚：给谁看，解决什么问题。</p></div>
+        <div class="rstop"><div class="rdot">2</div><div class="rtime">20 MIN</div><h4>脚本</h4><p>先写 30 秒口播，不要先写长文。</p></div>
+        <div class="rstop"><div class="rdot">3</div><div class="rtime">30 MIN</div><h4>分镜</h4><p>每 4-6 秒一个镜头，写清主体和动作。</p></div>
+        <div class="rstop final"><div class="rdot">4</div><div class="rtime">60 MIN</div><h4>生成发布</h4><p>生成画面，配音字幕，剪辑，发出后复盘。</p></div>
+      </div>
+    </div>
+    <div class="check-group">
+      <div class="head"><span class="stage">WORKFLOW</span><strong>一条视频至少过这 8 步</strong></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">选题</div><div class="n">例：给“想做 AI 视频但不知道先学什么”的人，讲清第一条视频怎么做。</div></div><span class="badge must">必做</span></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">脚本</div><div class="n">写出开头钩子、2-3 个信息点、结尾行动。</div></div><span class="badge must">必做</span></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">分镜</div><div class="n">把每句话变成镜头，不要让 AI 猜画面。</div></div><span class="badge must">必做</span></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">画面生成</div><div class="n">先生成关键镜头，再补过渡镜头。</div></div><span class="badge">可迭代</span></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">配音字幕</div><div class="n">先把旁白节奏定下来，字幕位置留出安全区。</div></div><span class="badge">可迭代</span></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">剪辑</div><div class="n">按旁白剪画面，不要把生成片段原样拼上去。</div></div><span class="badge must">必做</span></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">封面标题</div><div class="n">标题说清痛点，封面只放一个核心信息。</div></div><span class="badge">发布前</span></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">发布复盘</div><div class="n">记录标题、完播和评论问题，下一条只改一个变量。</div></div><span class="badge must">必做</span></div>
+    </div>
+    <div class="contact-bar">
+      <img class="qr" src="assets/contact/qr-rain.png" alt="Rain · 匠人学院资深 IT 顾问微信二维码" />
+      <div><div class="t">卡在脚本和分镜？</div><div class="d">扫码进群，把你的选题发来。先看它能不能拆成 5-8 个镜头。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="ch" id="ch3">
+  <div class="ghost">03</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 03</div><h2>新手最容易上手的 5 类视频</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-data.png" alt="" />
+    </div>
+    <p class="lead">第一条视频别挑战电影。先选一种能快速发布、容易复盘、对社群和账号有用的类型。</p>
+    <div class="video-grid">
+      <article class="video-card"><span class="tag">01</span><h3>图文科普视频</h3><p><strong>例子：</strong>“AI 视频新手为什么总翻车？”用 5 个画面配旁白讲清原因。</p><p><strong>适合：</strong>知识博主、课程号、留学/求职科普。</p></article>
+      <article class="video-card"><span class="tag">02</span><h3>AI 口播辅助视频</h3><p><strong>例子：</strong>真人口播 10 秒，AI 生成 4 个 B-roll 镜头补画面。</p><p><strong>适合：</strong>个人 IP、顾问、老师。真人信任感更强。</p></article>
+      <article class="video-card"><span class="tag">03</span><h3>产品/服务介绍</h3><p><strong>例子：</strong>给“AI 视频社群”做 30 秒介绍：问题、练习、点评、进群。</p><p><strong>适合：</strong>课程、社群、SaaS、小店活动。</p></article>
+      <article class="video-card"><span class="tag">04</span><h3>情绪短片</h3><p><strong>例子：</strong>“下班后，一个人坐在电脑前研究 AI 工具”，配字幕讲转型焦虑。</p><p><strong>适合：</strong>小红书、短剧感账号、品牌情绪片。</p></article>
+      <article class="video-card"><span class="tag">05</span><h3>活动预热视频</h3><p><strong>例子：</strong>公开课前 24 小时，做一条“今晚讲 3 个 AI 视频案例”的倒计时。</p><p><strong>适合：</strong>直播、公开课、社群招募、线下活动。</p></article>
+      <article class="video-card"><span class="tag">先别做</span><h3>连续剧情长片</h3><p>角色一致性、动作连续性、对白节奏都难。等你能稳定做 5 条 30 秒视频，再试 2-3 分钟剧情。</p></article>
+    </div>
+  </div>
+
+<a class="promo-line" href="https://jiangren.com.au/learn/prompt-master" target="_blank" rel="noopener">🧑‍💻 光看不动手没用：Prompt Master / LLM Lab / Vibe Coding 三个浏览器内实验室，边读边跑 <span>→</span></a></section>
+<aside class="promo">
+  <span class="promo-tag">AD · 自家的</span>
+  <div class="promo-body">
+    <h4>📚 27 本 AI 工具实战手册，免费</h4>
+    <p>Cursor、Claude Code、Dify、n8n、CrewAI…每个工具一本中文实战手册，5-10 章带代码，不用注册不要钱。本书提到的工具基本都有对应深读。</p>
+  </div>
+  <a class="promo-cta" href="https://jiangren.com.au/wiki" target="_blank" rel="noopener">去翻手册 →</a>
+</aside>
+
+<section class="ch" id="ch4">
+  <div class="ghost">04</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 04</div><h2>脚本怎么写才适合生成画面</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-pen-book.png" alt="" />
+    </div>
+    <p class="lead">适合 AI 视频的脚本，不是公众号段落。每句话最好能变成一个画面。抽象词太多，工具只能乱猜。</p>
+    <div class="yes-no">
+      <div class="yn no">
+        <h4>不适合直接生成</h4>
+        <ul>
+          <li>“AI 正在改变内容创作。”</li>
+          <li>“普通人也能抓住时代机会。”</li>
+          <li>“工具会让效率大幅提升。”</li>
+        </ul>
+      </div>
+      <div class="yn yes">
+        <h4>更容易变成画面</h4>
+        <ul>
+          <li>“一个运营盯着空白剪辑时间线，旁边贴着 10 个选题便签。”</li>
+          <li>“电脑屏幕上，脚本被拆成 6 个镜头卡片。”</li>
+          <li>“手机里弹出第一条 AI 视频发布成功的页面。”</li>
+        </ul>
+      </div>
+    </div>
+    <pre><code>30 秒脚本骨架：
+第 1-3 秒：说痛点
+很多人做 AI 视频，第一步就错了。
+
+第 4-18 秒：给方法
+别先打开工具。先写 30 秒脚本，再拆 6 个镜头。
+每个镜头只写一件事：谁、在哪里、做什么。
+
+第 19-27 秒：给例子
+比如“AI 视频社群宣传”，可以拆成卡住、拆脚本、生成画面、剪辑、发布、进群。
+
+第 28-30 秒：给行动
+想拿分镜模板，扫码进群一起练。</code></pre>
+    <div class="callout"><strong>自检：</strong>把脚本里的“效率、机会、未来、赋能、改变”圈出来。每出现一个抽象词，就补一个具体画面。</div>
+  </div>
+</section>
+
+<section class="ch" id="ch5">
+  <div class="ghost">05</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 05</div><h2>把一句话拆成 6 个镜头</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-coffee-pointing.png" alt="" />
+    </div>
+    <p class="lead">题目是“为什么你做不出第一条 AI 视频”。别让 AI 自己想画面，直接把画面喂给它。</p>
+    <div class="shot-list">
+      <div class="shot"><div><b>卡住</b><p>深夜桌面，电脑打开 5 个 AI 视频工具标签页，一个人皱眉看空白脚本。</p></div></div>
+      <div class="shot"><div><b>误区</b><p>屏幕上出现一句很空的 prompt：“帮我做一条爆款 AI 视频”。旁边打上红色叉。</p></div></div>
+      <div class="shot"><div><b>方法</b><p>白板上出现流程：选题、脚本、分镜、生成、剪辑、发布。</p></div></div>
+      <div class="shot"><div><b>分镜</b><p>6 张镜头卡片铺在桌上，每张卡片只有一行画面描述。</p></div></div>
+      <div class="shot"><div><b>剪辑</b><p>剪辑软件时间线上有配音、字幕、B-roll 和背景音乐四条轨道。</p></div></div>
+      <div class="shot"><div><b>发布</b><p>手机页面显示视频已发布，标题是“AI 视频第一条怎么做”。</p></div></div>
+    </div>
+    <div class="contact-bar">
+      <img class="qr" src="assets/contact/qr-rain.png" alt="Rain · 匠人学院资深 IT 顾问微信二维码" />
+      <div><div class="t">想拿可复制的分镜表？</div><div class="d">扫码进群，发你的选题。先用表格把一句话拆成镜头，而不是继续换工具。</div></div>
+    </div>
+  </div>
+
+<a class="promo-line" href="https://jiangren.com.au/blog" target="_blank" rel="noopener">📰 跟上行业节奏：匠人每天 5 条经过核源的 AI 日报，每周一份大事盘点 <span>→</span></a></section>
+
+<section class="ch" id="ch6">
+  <div class="ghost">06</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 06</div><h2>提示词公式和常用词</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-chart.png" alt="" />
+    </div>
+    <p class="lead">提示词不是越长越好。先把画面说清楚，再补镜头语言和风格。新手每条 prompt 控制在一个镜头里，别让它同时完成剧情、剪辑和旁白。</p>
+    <div class="formula">
+      <span>主体</span><span>场景</span><span>动作</span><span>镜头</span><span>风格</span><span>时长</span>
+    </div>
+    <pre><code>基础公式：
+一个年轻运营坐在深夜办公室，电脑屏幕上是空白剪辑时间线，
+他拿起便签把脚本拆成 6 个镜头卡片，
+镜头缓慢推进，真实纪录片风格，柔和桌面灯光，5 秒。</code></pre>
+    <table>
+      <thead><tr><th>你想控制</th><th>可以这样写</th></tr></thead>
+      <tbody>
+        <tr><td>镜头距离</td><td>close-up、medium shot、wide shot。新手多用 medium shot，容错高。</td></tr>
+        <tr><td>镜头运动</td><td>slow push-in、tracking shot、static camera。别每个镜头都大幅运动。</td></tr>
+        <tr><td>质感</td><td>documentary style、product commercial、clean tutorial video、soft natural light。</td></tr>
+        <tr><td>避免跑偏</td><td>no text on screen、no distorted hands、no extra people。注意：负面词不是每次都有效。</td></tr>
+      </tbody>
+    </table>
+    <div class="callout warn"><strong>一句经验：</strong>如果画面一直乱，先缩短 prompt。只保留主体、场景、动作。风格词加太多，工具反而不知道听谁的。</div>
+  </div>
+</section>
+
+<section class="ch" id="ch7">
+  <div class="ghost">07</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 07</div><h2>工具地图：别被工具带着跑</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-data.png" alt="" />
+    </div>
+    <p class="lead">工具可以换，流程别换。你要知道每类工具负责哪一段，而不是今天听说一个新工具，就把前面的脚本和分镜全丢了。</p>
+    <table class="tool-table">
+      <thead><tr><th>环节</th><th>你要产出什么</th><th>工具类型</th></tr></thead>
+      <tbody>
+        <tr><td>选题/脚本</td><td>30 秒口播稿、标题、封面文案</td><td>ChatGPT、Claude、Gemini 等文本模型</td></tr>
+        <tr><td>分镜</td><td>5-8 个镜头卡片，每个镜头一行画面</td><td>文本模型 + 表格/Notion/文档</td></tr>
+        <tr><td>图片底图</td><td>角色、场景、产品图、封面素材</td><td>图片生成或设计工具</td></tr>
+        <tr><td>视频生成</td><td>每个镜头 4-6 秒的视频片段</td><td>Runway、Kling、Pika、Luma 等视频生成工具</td></tr>
+        <tr><td>配音字幕</td><td>旁白、字幕、节奏点</td><td>剪映、CapCut、配音工具</td></tr>
+        <tr><td>剪辑发布</td><td>竖屏成片、封面、标题、发布时间</td><td>剪映、CapCut、Premiere、Final Cut 等</td></tr>
+      </tbody>
+    </table>
+    <p class="tiny-note">工具名称只做类别示例。功能、价格、地区可用性和商用条款会变化，真正使用前要看平台官网最新说明。</p>
+    <p class="sales-card-lead">如果你不知道该用哪套工具组合，先别买一堆会员。扫 Rain 的码，把你要做的视频类型发来，先把脚本、分镜和工具顺序排清楚。</p>
+    <div class="sales-card"><img src="assets/contact/sales-cards/rain.jpg" alt="Rain · 匠人学院资深 IT 顾问" /></div>
+  </div>
+</section>
+<aside class="promo">
+  <span class="promo-tag">AD · 自家的</span>
+  <div class="promo-body">
+    <h4>🎬 还没准备好 cohort？先上入门自学课</h4>
+    <p>AI Engineer 入门（RAG 方向）：4 周 52 小时视频 + 25 个浏览器内 Lab + AI Tutor 即时答疑，自己掌握节奏，是 Bootcamp 的官方前置课。</p>
+  </div>
+  <a class="promo-cta" href="https://jiangren.com.au/program-course/ai-engineer-rag" target="_blank" rel="noopener">看课程介绍 →</a>
+</aside>
+
+<section class="ch" id="ch8">
+  <div class="ghost">08</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 08</div><h2>实战：30 秒社群宣传视频</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-working-laptop.png" alt="" />
+    </div>
+    <p class="lead">我们拿这本书的目的做一个案例：给 AI 视频社群做一条 30 秒宣传视频。不是硬广，是帮观众看到自己卡在哪里。</p>
+    <div class="card">
+      <h3>目标和受众</h3>
+      <p><strong>目标：</strong>让想做 AI 视频的人扫码进群拿模板、看案例、交第一条作业。</p>
+      <p><strong>受众：</strong>已经刷到过 AI 视频工具，但自己还没做出第一条可发布作品的人。</p>
+    </div>
+    <pre><code>30 秒旁白稿：
+很多人做 AI 视频，第一步就错了。
+不是先打开工具，而是先把想法拆成镜头。
+一个 30 秒视频，通常只需要 6 个镜头：
+卡住、误区、方法、分镜、剪辑、发布。
+你不用一次做大片，先做一条能发的短视频。
+想拿脚本和分镜模板，扫码进群一起练。</code></pre>
+    <div class="shot-list">
+      <div class="shot"><div><b>0-4 秒</b><p>空白时间线 + 5 个工具标签页，字幕：第一步就错了。</p></div></div>
+      <div class="shot"><div><b>5-9 秒</b><p>一句空 prompt 被划掉：帮我做爆款视频。</p></div></div>
+      <div class="shot"><div><b>10-15 秒</b><p>白板流程出现：脚本、分镜、生成、剪辑。</p></div></div>
+      <div class="shot"><div><b>16-20 秒</b><p>桌上 6 张镜头卡片，手把卡片排成顺序。</p></div></div>
+      <div class="shot"><div><b>21-25 秒</b><p>剪辑时间线出现配音、字幕、视频片段。</p></div></div>
+      <div class="shot"><div><b>26-30 秒</b><p>二维码和社群入口，字幕：进群拿模板，一起练第一条。</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="ch" id="ch9">
+  <div class="ghost">09</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 09</div><h2>常见翻车现场</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-thinking.png" alt="" />
+    </div>
+    <table>
+      <thead><tr><th>问题</th><th>通常原因</th><th>先怎么改</th></tr></thead>
+      <tbody>
+        <tr><td>人物每个镜头都变脸</td><td>你在做连续剧情，但没有固定角色参考和镜头策略</td><td>先做无固定主角的知识视频，或用真人口播 + AI B-roll</td></tr>
+        <tr><td>视频像素材库拼贴</td><td>只有画面，没有旁白节奏和信息递进</td><td>先剪配音，再让画面服务每句话</td></tr>
+        <tr><td>字幕压住主体</td><td>生成时没留字幕安全区</td><td>prompt 里写 clean lower third space，剪辑时统一字幕位置</td></tr>
+        <tr><td>提示词越写越乱</td><td>一个镜头里塞了剧情、风格、台词、剪辑要求</td><td>一条 prompt 只管一个 4-6 秒镜头</td></tr>
+        <tr><td>生成结果不能商用</td><td>没看工具条款、素材授权、肖像授权</td><td>商用前查平台条款；不用未授权真人肖像和品牌素材</td></tr>
+      </tbody>
+    </table>
+    <div class="callout warn"><strong>别急着重做：</strong>每次翻车只改一个变量。先改脚本，再改分镜，再改 prompt。三个一起改，你不知道到底哪里变好了。</div>
+  </div>
+</section>
+<aside class="promo">
+  <span class="promo-tag">AD · 自家的</span>
+  <div class="promo-body">
+    <h4>🧪 10 分钟测出你的 AI Engineer 缺口</h4>
+    <p>官网的 77 项能力自测（五大支柱逐项点选），已有 2,300+ 人做过。测完直接看出你该补哪根柱子，免费不用注册。</p>
+  </div>
+  <a class="promo-cta" href="https://jiangren.com.au/learn/ai-engineer" target="_blank" rel="noopener">去做测试 →</a>
+</aside>
+
+<section class="ch" id="ch10">
+  <div class="ghost">10</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 10</div><h2>可复制分镜表模板</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-pen-book.png" alt="" />
+    </div>
+    <p class="lead">你不需要一开始就做复杂分镜板。先用表格把每个镜头说清楚。只要这一页填不出来，说明脚本还太虚。</p>
+    <table class="template-table">
+      <thead><tr><th>镜头</th><th>旁白/字幕</th><th>画面描述</th><th>Prompt 要点</th><th>时长</th><th>备注</th></tr></thead>
+      <tbody>
+        <tr><td>01</td><td>很多人做 AI 视频，第一步就错了。</td><td>空白剪辑时间线，旁边开着多个工具标签页。</td><td>年轻运营、深夜桌面、空白时间线、medium shot</td><td>4 秒</td><td>开头要让人看到“卡住”。</td></tr>
+        <tr><td>02</td><td>不是先打开工具。</td><td>一句空 prompt 被划掉：帮我做爆款视频。</td><td>computer screen, prompt text crossed out, tutorial style</td><td>5 秒</td><td>避免真的生成可读中文，后期字幕补。</td></tr>
+        <tr><td>03</td><td>先把想法拆成镜头。</td><td>白板上出现脚本、分镜、生成、剪辑四步。</td><td>whiteboard, sticky notes, clean workflow, static camera</td><td>5 秒</td><td>画面只讲一个方法。</td></tr>
+        <tr><td>04</td><td>一个 30 秒视频，通常 6 个镜头就够。</td><td>桌上 6 张镜头卡片排成一条线。</td><td>six storyboard cards on desk, hand arranging cards</td><td>5 秒</td><td>这里可以放模板截图。</td></tr>
+        <tr><td>05</td><td>剪完配音字幕，再发出去复盘。</td><td>剪辑时间线上有视频、配音、字幕三条轨道。</td><td>video editing timeline, voiceover track, subtitle track</td><td>6 秒</td><td>节奏跟旁白走。</td></tr>
+        <tr><td>06</td><td>想拿模板，扫码进群一起练。</td><td>手机显示视频发布成功，旁边放二维码。</td><td>phone screen, video published, QR code area, clean layout</td><td>5 秒</td><td>CTA 清楚，不要塞太多字。</td></tr>
+      </tbody>
+    </table>
+    <div class="callout"><strong>填表顺序：</strong>先写旁白，再写画面描述，最后才写 prompt。很多人反过来做，结果 prompt 看起来很长，视频却没有逻辑。</div>
+  </div>
+</section>
+
+<section class="ch" id="ch11">
+  <div class="ghost">11</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 11</div><h2>发布前检查</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-chart.png" alt="" />
+    </div>
+    <p class="lead">AI 视频不是生成完就发。发布前用 10 分钟过一遍，很多低级问题能直接挡住。</p>
+    <div class="publish-grid">
+      <article class="publish-card">
+        <h3>前 3 秒</h3>
+        <ul>
+          <li>第一句话有没有具体痛点，比如“第一步就错了”。</li>
+          <li>画面有没有让人看懂“谁卡住了”。</li>
+          <li>不要用“今天给大家分享一个很有用的方法”开头。</li>
+        </ul>
+      </article>
+      <article class="publish-card">
+        <h3>字幕和画面</h3>
+        <ul>
+          <li>字幕有没有挡住脸、手、产品或二维码。</li>
+          <li>每屏字幕别超过两行。</li>
+          <li>AI 生成画面里奇怪的手、字、脸，能剪掉就剪掉。</li>
+        </ul>
+      </article>
+      <article class="publish-card">
+        <h3>标题和封面</h3>
+        <ul>
+          <li>标题说具体问题：AI 视频第一条怎么做。</li>
+          <li>封面只放一个核心信息，不要把 6 个卖点全塞上去。</li>
+          <li>标题和视频内容要一致，别用夸张承诺钓点击。</li>
+        </ul>
+      </article>
+      <article class="publish-card">
+        <h3>CTA 和复盘</h3>
+        <ul>
+          <li>结尾只让观众做一个动作：扫码、评论或收藏。</li>
+          <li>发完记录标题、发布时间、完播、评论问题。</li>
+          <li>下一条只改一个变量：开头、标题、镜头或 CTA。</li>
+        </ul>
+      </article>
+    </div>
+    <div class="contact-bar">
+      <img class="qr" src="assets/contact/qr-rain.png" alt="Rain · 匠人学院资深 IT 顾问微信二维码" />
+      <div><div class="t">发之前想让人看一眼？</div><div class="d">扫码进群，把脚本、分镜表或成片发来。先看前 3 秒、字幕和 CTA 有没有明显问题。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="ch" id="ch12">
+  <div class="ghost">12</div>
+  <div class="wrap">
+    <div class="ch-head">
+      <div><div class="ch-num">CHAPTER 12</div><h2>7 天练习计划</h2></div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-hero.png" alt="" />
+    </div>
+    <p class="lead">不要把第一条视频拖成一个月。7 天够你跑完整流程，哪怕最后只有 30 秒，也比一直研究工具强。</p>
+    <div class="check-group">
+      <div class="head"><span class="stage">7 DAYS</span><strong>第一条 AI 视频交付清单</strong></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">Day 1 · 定一个账号方向</div><div class="n">例：AI 工具教学、留学求职、课程宣传、产品介绍。不要一天换一个方向。</div></div><span class="badge must">必做</span></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">Day 2 · 写 3 个选题</div><div class="n">每个选题只写一句话：给谁看，解决什么具体问题。</div></div><span class="badge">输出</span></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">Day 3 · 写 30 秒脚本</div><div class="n">痛点、方法、例子、行动。删掉空话，补具体画面。</div></div><span class="badge">输出</span></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">Day 4 · 拆 6 个镜头</div><div class="n">每个镜头写主体、场景、动作。先不追求高级镜头语言。</div></div><span class="badge must">必做</span></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">Day 5 · 生成和筛素材</div><div class="n">每个镜头至少生成 2 个版本，只留能服务旁白的。</div></div><span class="badge">迭代</span></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">Day 6 · 剪辑字幕</div><div class="n">先听节奏，再看画面。字幕不要挡住主体。</div></div><span class="badge">成片</span></div>
+      <div class="check-item"><span class="box"></span><div><div class="t">Day 7 · 发布和复盘</div><div class="n">记录标题、完播、评论问题。下一条只改一个变量。</div></div><span class="badge must">发布</span></div>
+    </div>
+    <div class="contact-bar">
+      <img class="qr" src="assets/contact/qr-rain.png" alt="Rain · 匠人学院资深 IT 顾问微信二维码" />
+      <div><div class="t">进群一起做第一条 AI 视频</div><div class="d">群里适合拿模板、看案例、改脚本、交作业。别自己在工具里反复试同一个问题。</div></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<section class="page back-cover dark ai-video-back">
+  <img class="back-logo" src="assets/logo/logo-zh-white.png" alt="匠人学院" />
+  <h2>你不缺工具名，缺的是第一条能发的作品。</h2>
+  <p style="max-width: 78%;">如果你已经想做 AI 视频，但卡在选题、脚本、分镜或工具选择，可以扫 Rain 的码进群。少聊空概念，先看案例、改脚本、做第一条。</p>
+  <div class="sales-card"><img src="assets/contact/sales-cards/rain.jpg" alt="Rain · 匠人学院资深 IT 顾问" /></div>
+  <div class="contact-bar">
+    <img class="qr" src="assets/contact/qr-rain.png" alt="Rain · 匠人学院资深 IT 顾问微信二维码" />
+    <div class="cb-body">
+      <div class="cb-title">扫码进 AI 视频社群</div>
+      <div class="cb-desc">脚本模板、分镜表、工具路线、案例拆解。先把第一条视频做出来。</div>
+    </div>
+  </div>
+  <p class="caption" style="color: rgba(255,255,255,0.5);">© JR Academy · 学 AI 来匠人 · 欢迎转发 · jiangren.com.au</p>
+</section>
+<script defer src="theme/reader.js"></script>
+<a href="AI%20%E8%A7%86%E9%A2%91%E4%BB%8E%200%20%E5%88%B0%201%20-%20%E5%8C%A0%E4%BA%BA%E5%AD%A6%E9%99%A2.pdf" download style="position:fixed;right:22px;bottom:22px;z-index:1200;display:flex;align-items:center;gap:8px;background:#0D0F12;color:#fff;font-weight:700;font-size:14.5px;padding:13px 22px;border-radius:999px;box-shadow:0 12px 28px rgba(13,15,18,.35);text-decoration:none;font-family:Inter,'PingFang SC',sans-serif;">⬇️ 下载 PDF 版</a>
+</body>
+</html>
