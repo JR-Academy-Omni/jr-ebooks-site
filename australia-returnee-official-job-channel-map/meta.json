@@ -1,0 +1,59 @@
+{
+  "slug": "australia-returnee-official-job-channel-map",
+  "title": "澳洲留学生回国求职官方渠道地图",
+  "subtitle": "校招、国企、公共就业与行业专项：每周 30 分钟建立自己的官方机会监测系统",
+  "audience": "正在澳洲就读、刚毕业或准备回国求职，只会使用商业招聘软件、尚未建立官方信息源的中国留学生",
+  "goal": "lead-magnet",
+  "track": "T2",
+  "style": "checklist",
+  "design": "homeward-duck",
+  "channel": [
+    "微信群分享",
+    "回国鸭小红书引流",
+    "社群共建"
+  ],
+  "pages": 14,
+  "status": "review",
+  "format": "a4-page-reader",
+  "contact": {
+    "owner": "Amelia",
+    "role": "回国鸭求职咨询",
+    "qr": "qr-amelia.png",
+    "salesCard": "amelia.jpg"
+  },
+  "distribution": {
+    "salesQr": "jr-ebooks/assets/contact/qr-amelia.png",
+    "salesQrOwner": "Amelia",
+    "xiaohongshuDisplayName": "回国鸭",
+    "xiaohongshuId": "95170461340",
+    "xiaohongshuProfileUrl": "https://www.xiaohongshu.com/user/profile/6a05dacf0000000002000c00",
+    "publicRelease": "pending-qa"
+  },
+  "maintenance": {
+    "dynamicAppendixOwner": "Melody",
+    "schedule": "每周四",
+    "method": "正文保存渠道与核验方法；具体岗位、项目与截止日进入动态附录",
+    "publicAppendixUrl": "https://jr-academy-omni.github.io/jr-ebooks-site/australia-returnee-official-job-channel-map/appendix.html",
+    "lastUpdated": "2026-07-28",
+    "nextUpdate": "2026-07-30"
+  },
+  "illustrations": {
+    "generator": "OpenAI image model",
+    "assets": [
+      "assets/cover-channel-map.jpg",
+      "assets/verify-source-chain.jpg",
+      "assets/weekly-maintenance.jpg"
+    ]
+  },
+  "sources": [
+    "jr-omni/new-media/xiaohongshu/huiguoya/SOURCE_SOT.md",
+    "jr-omni/new-media/xiaohongshu/huiguoya/TOPIC_SOT.md",
+    "jr-omni/new-media/xiaohongshu/huiguoya/reference/monitoring/2026-07-28-competitor-topics.md",
+    "huiguoya/docs/08-requirements-playbook.md",
+    "huiguoya/docs/09-recruitment-calendar.md",
+    "教育部等八部门 2026 年国聘行动通知",
+    "教育部、文化和旅游部 2026 年文旅人才招聘专项行动通知",
+    "中组部等十部门关于进一步做好留学人才回国服务工作的意见"
+  ]
+}
+
