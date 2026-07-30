@@ -1,21 +1,19 @@
 {
   "slug": "australia-returnee-city-selection-handbook",
-  "title": "2026 澳洲留学生回国就业城市机会地图",
-  "subtitle": "北上深广杭宁成青：政策、岗位与落地条件实查及人群适配建议",
+  "title": "2026 澳洲留学生回国就业40城机会地图",
+  "subtitle": "政策、岗位与落地条件实查：从40城中找到第一投递、第二验证与平衡备选",
   "audience": "正在澳洲就读、刚毕业或准备回国求职，想直接获得城市结论的中国留学生",
   "goal": "lead-magnet",
   "track": "T2",
   "style": "result-report",
   "design": "homeward-duck-city-evidence",
-  "channel": [
-    "微信群分享",
-    "回国鸭小红书引流",
-    "城市路径互查"
-  ],
-  "pages": 11,
+  "channel": ["微信群分享", "回国鸭小红书引流", "城市路径互查"],
+  "pages": 28,
+  "cityCount": 40,
   "status": "published",
   "format": "a4-page-reader",
-  "version": "2.0",
+  "version": "4.0",
+  "pdfFileName": "2026 澳洲留学生回国就业40城机会地图.pdf",
   "contact": {
     "owner": "Amelia",
     "role": "回国鸭求职咨询",
@@ -31,28 +29,25 @@
     "publicRelease": "published",
     "publishedAt": "2026-07-30",
     "publicUrl": "https://jr-academy-omni.github.io/jr-ebooks-site/australia-returnee-city-selection-handbook/",
-    "pdfUrl": "https://jr-academy-omni.github.io/jr-ebooks-site/australia-returnee-city-selection-handbook/2026-%E6%BE%B3%E6%B4%B2%E7%95%99%E5%AD%A6%E7%94%9F%E5%9B%9E%E5%9B%BD%E5%B0%B1%E4%B8%9A%E5%9F%8E%E5%B8%82%E6%9C%BA%E4%BC%9A%E5%9C%B0%E5%9B%BE.pdf"
+    "pdfUrl": "https://jr-academy-omni.github.io/jr-ebooks-site/australia-returnee-city-selection-handbook/2026-%E6%BE%B3%E6%B4%B2%E7%95%99%E5%AD%A6%E7%94%9F%E5%9B%9E%E5%9B%BD%E5%B0%B1%E4%B8%9A40%E5%9F%8E%E6%9C%BA%E4%BC%9A%E5%9C%B0%E5%9B%BE.pdf"
   },
   "maintenance": {
     "annualUpdateCardOwner": "Melody",
-    "schedule": "每周四核验窗口；每月复核城市岗位样本；季度更新正文结论",
-    "method": "正文保存八城结论与人群适配；补贴金额、落户条件、项目窗口和当前岗位进入动态附录",
+    "schedule": "每周四检查政策窗口；每月检查城市岗位样本；季度更新正文结论",
+    "method": "正文与动态附录均按统一字段维护40城；仅纳入有官方入口和明确适用边界的政策、岗位与落地信息",
     "lastUpdated": "2026-07-30",
     "nextUpdate": "2026-08-06",
     "publicAppendixUrl": "https://jr-academy-omni.github.io/jr-ebooks-site/australia-returnee-city-selection-handbook/appendix.html"
   },
   "illustrations": {
     "generator": "OpenAI image model (built-in image_gen)",
-    "assets": [
-      "assets/cover-city-routes.png",
-      "assets/three-city-decision.png"
-    ],
+    "assets": ["assets/cover-city-routes.png", "assets/three-city-decision.png"],
     "promptSummary": "城市通勤地图与证据核验工作台；不使用排名、奖杯或仿官方界面"
   },
   "sources": [
     "jr-omni/new-media/xiaohongshu/huiguoya/SOURCE_SOT.md",
-    "huiguoya/docs/cities/",
-    "北京市、上海市、深圳市、广州市、杭州市、南京市、成都市、青岛市政府与人社官方页面",
+    "huiguoya/docs/cities/（40城全部档案）",
+    "各城市政府、人社、公安、国资与政务服务官方页面",
     "全国人力资源社会保障政务服务平台",
     "国家大学生就业服务平台",
     "国家留学人才就业服务平台"
