@@ -1,20 +1,21 @@
 {
   "slug": "australia-returnee-city-selection-handbook",
-  "title": "留学生回国城市选择：政策、岗位与落地条件核验手册",
-  "subtitle": "给澳洲留学生的三城比较方法——把政策、岗位与个人约束放进同一张表",
-  "audience": "正在澳洲就读、刚毕业或准备回国，正在多个中国城市之间选择的中国留学生",
+  "title": "2026 澳洲留学生回国就业城市机会地图",
+  "subtitle": "北上深广杭宁成青：政策、岗位与落地条件实查及人群适配建议",
+  "audience": "正在澳洲就读、刚毕业或准备回国求职，想直接获得城市结论的中国留学生",
   "goal": "lead-magnet",
   "track": "T2",
-  "style": "guide-checklist",
+  "style": "result-report",
   "design": "homeward-duck-city-evidence",
   "channel": [
     "微信群分享",
     "回国鸭小红书引流",
     "城市路径互查"
   ],
-  "pages": 16,
+  "pages": 11,
   "status": "published",
   "format": "a4-page-reader",
+  "version": "2.0",
   "contact": {
     "owner": "Amelia",
     "role": "回国鸭求职咨询",
@@ -30,12 +31,12 @@
     "publicRelease": "published",
     "publishedAt": "2026-07-30",
     "publicUrl": "https://jr-academy-omni.github.io/jr-ebooks-site/australia-returnee-city-selection-handbook/",
-    "pdfUrl": "https://jr-academy-omni.github.io/jr-ebooks-site/australia-returnee-city-selection-handbook/%E7%95%99%E5%AD%A6%E7%94%9F%E5%9B%9E%E5%9B%BD%E5%9F%8E%E5%B8%82%E9%80%89%E6%8B%A9%EF%BC%9A%E6%94%BF%E7%AD%96%E3%80%81%E5%B2%97%E4%BD%8D%E4%B8%8E%E8%90%BD%E5%9C%B0%E6%9D%A1%E4%BB%B6%E6%A0%B8%E9%AA%8C%E6%89%8B%E5%86%8C%20-%20%E5%8C%A0%E4%BA%BA%E5%AD%A6%E9%99%A2.pdf"
+    "pdfUrl": "https://jr-academy-omni.github.io/jr-ebooks-site/australia-returnee-city-selection-handbook/2026-%E6%BE%B3%E6%B4%B2%E7%95%99%E5%AD%A6%E7%94%9F%E5%9B%9E%E5%9B%BD%E5%B0%B1%E4%B8%9A%E5%9F%8E%E5%B8%82%E6%9C%BA%E4%BC%9A%E5%9C%B0%E5%9B%BE.pdf"
   },
   "maintenance": {
     "annualUpdateCardOwner": "Melody",
-    "schedule": "每周四",
-    "method": "正文保存城市比较与核验方法；补贴金额、落户条件、项目窗口和当前岗位进入年度更新卡",
+    "schedule": "每周四核验窗口；每月复核城市岗位样本；季度更新正文结论",
+    "method": "正文保存八城结论与人群适配；补贴金额、落户条件、项目窗口和当前岗位进入动态附录",
     "lastUpdated": "2026-07-30",
     "nextUpdate": "2026-08-06",
     "publicAppendixUrl": "https://jr-academy-omni.github.io/jr-ebooks-site/australia-returnee-city-selection-handbook/appendix.html"
@@ -44,20 +45,16 @@
     "generator": "OpenAI image model (built-in image_gen)",
     "assets": [
       "assets/cover-city-routes.png",
-      "assets/policy-four-layers.png",
       "assets/three-city-decision.png"
     ],
     "promptSummary": "城市通勤地图与证据核验工作台；不使用排名、奖杯或仿官方界面"
   },
   "sources": [
     "jr-omni/new-media/xiaohongshu/huiguoya/SOURCE_SOT.md",
-    "jr-omni/new-media/xiaohongshu/huiguoya/TOPIC_SOT.md",
-    "jr-omni/new-media/xiaohongshu/huiguoya/CONTENT_DERIVATION.md",
     "huiguoya/docs/cities/",
-    "huiguoya/docs/prd/PRD_desktop-report-city-comparison.md",
-    "huiguoya/docs/prd/PRD_city-policy-archive-system.md",
-    "南京市人社局 宁人社规〔2026〕4号",
+    "北京市、上海市、深圳市、广州市、杭州市、南京市、成都市、青岛市政府与人社官方页面",
     "全国人力资源社会保障政务服务平台",
-    "国家大学生就业服务平台"
+    "国家大学生就业服务平台",
+    "国家留学人才就业服务平台"
   ]
 }
