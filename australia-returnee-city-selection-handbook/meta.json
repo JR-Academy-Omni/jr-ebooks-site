@@ -8,11 +8,11 @@
   "style": "result-report",
   "design": "homeward-duck-city-evidence",
   "channel": ["微信群分享", "回国鸭小红书引流", "城市路径互查"],
-  "pages": 18,
+  "pages": 28,
   "cityCount": 40,
   "status": "published",
   "format": "a4-page-reader",
-  "version": "4.1",
+  "version": "4.2",
   "pdfFileName": "2026 澳洲留学生回国就业40城机会地图.pdf",
   "contact": {
     "owner": "Amelia",
@@ -27,7 +27,7 @@
     "xiaohongshuId": "95170461340",
     "xiaohongshuProfileUrl": "https://www.xiaohongshu.com/user/profile/6a05dacf0000000002000c00",
     "publicRelease": "published",
-    "publishedAt": "2026-07-30",
+    "publishedAt": "2026-08-04",
     "publicUrl": "https://jr-academy-omni.github.io/jr-ebooks-site/australia-returnee-city-selection-handbook/",
     "pdfUrl": "https://jr-academy-omni.github.io/jr-ebooks-site/australia-returnee-city-selection-handbook/2026-%E6%BE%B3%E6%B4%B2%E7%95%99%E5%AD%A6%E7%94%9F%E5%9B%9E%E5%9B%BD%E5%B0%B1%E4%B8%9A40%E5%9F%8E%E6%9C%BA%E4%BC%9A%E5%9C%B0%E5%9B%BE.pdf"
   },
@@ -35,7 +35,7 @@
     "annualUpdateCardOwner": "Melody",
     "schedule": "每周四检查政策窗口；每月检查城市岗位样本；季度更新正文结论",
     "method": "正文与动态附录均按统一字段维护40城；仅纳入有官方入口和明确适用边界的政策、岗位与落地信息",
-    "lastUpdated": "2026-07-30",
+    "lastUpdated": "2026-08-04",
     "nextUpdate": "2026-08-06",
     "publicAppendixUrl": "https://jr-academy-omni.github.io/jr-ebooks-site/australia-returnee-city-selection-handbook/appendix.html"
   },
@@ -53,3 +53,4 @@
     "国家留学人才就业服务平台"
   ]
 }
+

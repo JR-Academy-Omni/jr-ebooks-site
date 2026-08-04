@@ -429,3 +429,4 @@ pre code { background: none; padding: 0; color: inherit; }
 @media print {
   .yes-no, .duo-path, .check-group, .roadmap, .card, table { break-inside: avoid; }
 }
+
