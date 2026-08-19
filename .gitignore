@@ -1,0 +1,8 @@
+
+# 依赖与构建产物：可重装/重建，不进 git
+node_modules/
+.next/
+dist/
+.cache/
+__pycache__/
+*.pyc
