@@ -1,0 +1,222 @@
+/* =====================================================
+   flow-a4.css — 长内容书的 A4 自动分页模式
+   用法: 封面/封底仍用 .page 设计画布；正文放 <main class="flow">，
+        浏览器打印/render.mjs 自动分页（named page 带页边距），
+        页码由 render.mjs 的 footerTemplate 打。
+   类名与 draft.html（web-zine 词汇）兼容，内容可直接搬。
+   ===================================================== */
+
+/* 左右 margin 归 0：@page 边距区 Chrome 打印不上色（永远白色），横向留白改由
+   main.flow 自己的 padding 承担，奶黄底才能涂满整页宽。上下边距留给 render.mjs 的
+   header/footer 模板（同色背景补上下两条），整张 A4 才是一致的暖白底。 */
+@page flowpg { margin: 16mm 0 18mm; }
+
+main.flow {
+  page: flowpg;
+  font-family: var(--jr-font-sans);
+  color: var(--jr-neutral-900);
+  background: var(--jr-surface-canvas);
+  padding: 0 15mm; /* print：替代原 @page 左右 15mm */
+}
+@media screen {
+  main.flow { width: 210mm; margin: 0 auto 24px; padding: 16mm 15mm; box-shadow: var(--jr-shadow-lg); }
+}
+
+/* —— 章节 —— */
+.flow section.ch { padding: 0; border: none; }
+.flow section.ch + section.ch { break-before: page; }
+.flow .wrap { max-width: none; padding: 0; }
+.flow .ghost, .flow .marquee { display: none; }
+
+.flow .ch-num {
+  display: inline-block; font-size: 9pt; font-weight: var(--jr-fw-bold); letter-spacing: .14em;
+  background: var(--jr-red); color: #fff; padding: 1.2mm 4mm; border-radius: var(--jr-radius-full);
+  transform: rotate(-2deg); margin-bottom: 4mm;
+}
+.flow h2 { font-size: 17pt; font-weight: var(--jr-fw-bold); color: var(--jr-black); margin: 0 0 4mm; line-height: 1.3; }
+.flow h3 { font-size: 12pt; font-weight: var(--jr-fw-bold); color: var(--jr-black); margin: 6mm 0 2.5mm; break-after: avoid; }
+.flow h4 { font-size: 10.5pt; font-weight: var(--jr-fw-bold); color: var(--jr-black); margin: 4.5mm 0 2mm; break-after: avoid; }
+.flow p, .flow li { font-size: 9.5pt; line-height: 1.7; }
+.flow p + p { margin-top: 2.5mm; }
+.flow .lead { font-size: 10.5pt; }
+.flow .hl { background: linear-gradient(transparent 58%, rgba(255,200,77,.75) 58%, rgba(255,200,77,.75) 92%, transparent 92%); }
+.flow .hl-red { background: linear-gradient(transparent 58%, rgba(255,77,79,.32) 58%, rgba(255,77,79,.32) 92%, transparent 92%); }
+.flow .ch-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 6mm; }
+.flow .ch-illo { height: 24mm; flex: none; transform: rotate(4deg); }
+
+/* —— 组件（与 web 同名，print 字号）—— */
+.flow .card {
+  background: var(--jr-surface-panel); border: 1px solid var(--jr-border-warm);
+  border-radius: 4mm; padding: 4mm 5mm; margin-top: 4mm; break-inside: avoid;
+}
+.flow .card .title-row { display: flex; gap: 3mm; align-items: baseline; margin-bottom: 2mm; }
+.flow .card .title-row .n { font-family: 'Anton', var(--jr-font-sans); color: var(--jr-red); font-size: 13pt; line-height: 1; }
+.flow .caption { font-size: 8pt; color: var(--jr-neutral-600); margin-bottom: 2mm; }
+
+.flow .callout {
+  border-left: 1.2mm solid var(--jr-purple); background: #F6F4FF;
+  border-radius: 0 3mm 3mm 0; padding: 3.5mm 4.5mm; margin-top: 4mm;
+  font-size: 9pt; break-inside: avoid;
+}
+.flow .callout.warn { border-left-color: var(--jr-yellow); background: var(--jr-wash-yellow); }
+
+.flow table { width: 100%; border-collapse: collapse; margin-top: 3.5mm; font-size: 8.5pt; break-inside: avoid; background: #fff; }
+.flow th { text-align: left; font-size: 7.5pt; color: #fff; background: var(--jr-black); padding: 2mm 2.5mm; }
+.flow td { padding: 2mm 2.5mm; border-bottom: 1px solid var(--jr-divider-warm); vertical-align: top; }
+.flow tr:nth-child(even) td { background: var(--jr-surface-panel-alt); }
+.flow .src { font-size: 7.5pt; color: var(--jr-neutral-600); margin-top: 2mm; }
+
+.flow pre {
+  font-family: var(--jr-font-mono); font-size: 8pt; background: #16181D; color: #E8EAED;
+  border-radius: 3mm; padding: 8mm 4mm 3.5mm; margin-top: 3mm; position: relative;
+  line-height: 1.6; white-space: pre-wrap; word-break: break-word; break-inside: avoid;
+}
+.flow pre::before {
+  content: ''; position: absolute; top: 3mm; left: 4mm; width: 2.4mm; height: 2.4mm; border-radius: 50%;
+  background: #FF5F57; box-shadow: 4.5mm 0 0 #FEBC2E, 9mm 0 0 #28C840;
+}
+.flow code { font-size: 8.5pt; background: var(--jr-wash-gray); border-radius: 1mm; padding: 0 1mm; }
+.flow pre code { background: none; padding: 0; }
+
+.flow .stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3.5mm; margin-top: 3.5mm; break-inside: avoid; }
+.flow .stat { background: var(--jr-surface-panel); border: 1px solid var(--jr-border-warm); border-radius: 4mm; padding: 3.5mm 4mm; }
+.flow .stat .v { font-family: 'Anton', var(--jr-font-sans); font-size: 18pt; line-height: 1; color: var(--jr-black); }
+.flow .stat.accent .v { color: var(--jr-red); }
+.flow .stat .l { font-size: 7.5pt; color: var(--jr-neutral-600); margin-top: 1.5mm; line-height: 1.45; }
+
+.flow .pullquote {
+  margin: 4mm 0 0; padding: 4mm 5mm 4mm 12mm; font-size: 11pt; font-weight: var(--jr-fw-semibold);
+  background: #fff; border-radius: 4mm; box-shadow: var(--jr-shadow-sm); position: relative; break-inside: avoid;
+}
+.flow .pullquote::before { content: '“'; position: absolute; left: 3mm; top: 0; font-family: 'Anton'; font-size: 22pt; color: var(--jr-red); }
+
+/* infographics */
+.flow .duo-path { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; margin-top: 3.5mm; break-inside: avoid; }
+.flow .path { background: var(--jr-surface-panel); border: 1px solid var(--jr-border-warm); border-radius: 4mm; padding: 4mm; }
+.flow .path.win { border: 0.6mm solid var(--jr-red); position: relative; }
+.flow .path.win::after { content: 'WINNER ✦'; position: absolute; top: -3mm; right: 3mm; font-family: 'Anton'; font-size: 7pt; background: var(--jr-red); color: #fff; padding: 0.8mm 3mm; border-radius: var(--jr-radius-full); }
+.flow .path h4 { font-size: 9.5pt; margin-bottom: 2.5mm; }
+.flow .pstep { font-size: 8pt; padding: 2mm 3mm; background: var(--jr-surface-panel-alt); border: 1px solid var(--jr-border-warm); border-radius: 2mm; }
+.flow .parrow { text-align: center; color: var(--jr-red); font-size: 8pt; font-weight: 700; padding: 0.5mm 0; }
+.flow .duo-badge { grid-column: 1/-1; text-align: center; font-weight: var(--jr-fw-bold); background: var(--jr-black); color: #fff; border-radius: var(--jr-radius-full); padding: 2.5mm 4mm; font-size: 8.5pt; }
+
+.flow .chart { background: #fff; border: 1px solid var(--jr-border-warm); border-radius: 4mm; padding: 5mm 5mm 3mm; margin-top: 3.5mm; break-inside: avoid; }
+.flow .chart .crow { display: flex; align-items: center; gap: 3mm; padding: 1.4mm 0; }
+.flow .chart .clabel { width: 28mm; flex: none; font-size: 8pt; text-align: right; font-weight: var(--jr-fw-medium); }
+.flow .chart .ctrack { flex: 1; position: relative; height: 4mm; }
+.flow .chart .gline { position: absolute; top: -1mm; bottom: -1mm; width: 1px; background: var(--jr-divider-warm); }
+.flow .chart .cbar { position: absolute; height: 4mm; border-radius: 1.2mm; top: 0; }
+.flow .chart .cbar.a { background: var(--jr-black); }
+.flow .chart .cbar.b { background: var(--jr-wash-red); border: 1px solid var(--jr-red); }
+.flow .chart .cbar span { position: absolute; left: 100%; margin-left: 1.5mm; font-size: 6.5pt; white-space: nowrap; color: var(--jr-neutral-600); top: 50%; transform: translateY(-50%); }
+.flow .chart .caxis { position: relative; height: 4mm; margin-left: 31mm; font-size: 6.5pt; color: var(--jr-neutral-600); }
+.flow .chart .caxis span { position: absolute; transform: translateX(-50%); }
+.flow .chart .clegend { display: flex; gap: 5mm; font-size: 7.5pt; color: var(--jr-neutral-600); margin-top: 2mm; margin-left: 31mm; }
+.flow .chart .clegend i { display: inline-block; width: 3.5mm; height: 2.5mm; border-radius: 1mm; margin-right: 1.5mm; }
+
+.flow .pipeline { display: flex; margin-top: 3.5mm; break-inside: avoid; }
+.flow .pnode { flex: 1; background: var(--jr-surface-panel); border: 1px solid var(--jr-border-warm); border-radius: 4mm; padding: 3.5mm 2.5mm; text-align: center; }
+.flow .pnode .pico { font-size: 14pt; line-height: 1; }
+.flow .pnode h4 { font-size: 8.5pt; margin: 2mm 0 1.5mm; }
+.flow .pnode p { font-size: 7.5pt; color: var(--jr-neutral-600); line-height: 1.5; }
+.flow .pnode .ptag { display: inline-block; margin-top: 2mm; font-size: 6.5pt; padding: 0.6mm 2.5mm; border-radius: var(--jr-radius-full); background: var(--jr-chip-ai-bg); color: var(--jr-chip-ai-text); }
+.flow .plink { align-self: center; padding: 0 1.5mm; color: var(--jr-red); font-weight: var(--jr-fw-bold); font-size: 11pt; }
+
+.flow .yes-no { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; margin-top: 3.5mm; break-inside: avoid; }
+.flow .yn { border-radius: 4mm; padding: 4mm 5mm; }
+.flow .yn.yes { background: var(--jr-wash-green); }
+.flow .yn.no { background: var(--jr-wash-red); }
+.flow .yn h4 { font-size: 9.5pt; margin-bottom: 2mm; }
+.flow .yn ul { list-style: none; padding: 0; }
+.flow .yn li { font-size: 8.5pt; padding: 1mm 0; }
+
+.flow .roadmap { position: relative; margin-top: 6mm; break-inside: avoid; }
+.flow .roadmap .rline { position: absolute; top: 4mm; left: 6%; right: 6%; height: 1.2mm; background: repeating-linear-gradient(90deg, var(--jr-red) 0 3.5mm, transparent 3.5mm 6mm); }
+.flow .roadmap .rstops { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3.5mm; position: relative; }
+.flow .rstop .rdot { width: 8mm; height: 8mm; border-radius: 50%; background: var(--jr-red); color: #fff; font-family: 'Anton'; display: flex; align-items: center; justify-content: center; font-size: 9pt; margin-bottom: 2.5mm; border: 1mm solid var(--jr-surface-canvas); box-shadow: 0 0 0 0.5mm var(--jr-red); }
+.flow .rstop.final .rdot { background: var(--jr-black); box-shadow: 0 0 0 0.5mm var(--jr-black); }
+.flow .rstop .rtime { font-size: 7pt; font-weight: var(--jr-fw-bold); color: var(--jr-red-text); }
+.flow .rstop h4 { font-size: 9.5pt; margin: 1mm 0 1.5mm; }
+.flow .rstop p { font-size: 7.5pt; color: var(--jr-neutral-600); line-height: 1.55; }
+
+.flow .ladder { display: flex; align-items: flex-end; gap: 3.5mm; margin-top: 3.5mm; break-inside: avoid; }
+.flow .lstep { position: relative; flex: 1; background: var(--jr-surface-panel); border: 1px solid var(--jr-border-warm); border-radius: 4mm; padding: 4mm; display: flex; flex-direction: column; }
+.flow .lstep .lv { font-size: 7pt; font-weight: var(--jr-fw-bold); color: #fff; background: var(--jr-red); border-radius: var(--jr-radius-full); padding: 0.8mm 3mm; align-self: flex-start; transform: rotate(-2deg); }
+.flow .lstep:nth-child(2) .lv { background: var(--jr-red-aa); }
+.flow .lstep:nth-child(3) .lv { background: var(--jr-black); }
+.flow .lstep h4 { font-size: 9.5pt; margin: 2.5mm 0 1.5mm; }
+.flow .lstep .lcap { font-size: 7pt; color: var(--jr-chip-ai-text); margin-bottom: 1.5mm; }
+.flow .lstep p { font-size: 8pt; color: var(--jr-neutral-600); line-height: 1.55; }
+.flow .lstep.h1x { min-height: 52mm; } .flow .lstep.h2x { min-height: 64mm; } .flow .lstep.h3x { min-height: 76mm; }
+.flow .lstep .zine-holo { display: none; }
+
+.flow .check-group { background: var(--jr-surface-panel); border: 0.4mm dashed var(--jr-border-warm-strong); border-radius: 4mm; padding: 4mm 5mm; margin-top: 4mm; break-inside: avoid; }
+.flow .check-group .head { display: flex; gap: 3mm; align-items: baseline; border-bottom: 1px solid var(--jr-divider-warm); padding-bottom: 2mm; }
+.flow .check-group .head .stage { font-size: 7.5pt; font-weight: var(--jr-fw-bold); color: #fff; background: var(--jr-black); border-radius: var(--jr-radius-full); padding: 0.8mm 3mm; }
+.flow .check-item { display: flex; gap: 3mm; padding: 2.5mm 0; border-bottom: 1px dashed var(--jr-divider-warm); }
+.flow .check-item:last-child { border-bottom: none; }
+.flow .check-item .box { width: 4.5mm; height: 4.5mm; flex: none; margin-top: 0.8mm; border: 0.5mm solid var(--jr-neutral-300); border-radius: 1.2mm; }
+.flow .check-item .t { font-size: 9pt; font-weight: var(--jr-fw-medium); }
+.flow .check-item .n { font-size: 8pt; color: var(--jr-neutral-600); margin-top: 0.5mm; }
+.flow .badge { flex: none; align-self: flex-start; font-size: 7pt; font-weight: var(--jr-fw-semibold); padding: 0.6mm 2.5mm; border-radius: var(--jr-radius-full); background: var(--jr-wash-yellow); color: #8a6116; }
+.flow .badge.must { background: var(--jr-red); color: #fff; }
+
+.flow .figure { border: 1px solid var(--jr-border-warm); border-radius: 4mm; overflow: hidden; margin-top: 4mm; break-inside: avoid; }
+.flow .figure img { display: block; width: 100%; }
+.flow .figure .figcap { padding: 2.5mm 4mm; font-family: 'Caveat', cursive; font-size: 11pt; background: var(--jr-wash-yellow); border-top: 1px solid var(--jr-border-warm); }
+
+.flow .contact-bar { display: flex; align-items: center; gap: 5mm; background: #fff; border: 0.4mm dashed var(--jr-border-warm-strong); border-radius: 4mm; padding: 4mm 5mm; margin-top: 5mm; break-inside: avoid; }
+.flow .contact-bar img.qr { width: 22mm; height: 22mm; border-radius: 2mm; border: 1px solid var(--jr-border-warm); }
+.flow .contact-bar .t { font-size: 10.5pt; font-weight: var(--jr-fw-bold); }
+.flow .contact-bar .d { font-size: 8.5pt; color: var(--jr-neutral-600); margin-top: 1mm; }
+.flow .sales-card { border-radius: 4mm; overflow: hidden; border: 1px solid var(--jr-border-warm); margin-top: 4mm; break-inside: avoid; }
+.flow .sales-card img { display: block; width: 100%; }
+.flow .zine-diecut { display: inline-block; font-weight: var(--jr-fw-bold); color: var(--jr-black); transform: rotate(-2deg);
+  text-shadow: -1.2mm -1.2mm 0 #fff, 1.2mm -1.2mm 0 #fff, -1.2mm 1.2mm 0 #fff, 1.2mm 1.2mm 0 #fff, -1.6mm 0 0 #fff, 1.6mm 0 0 #fff, 0 -1.6mm 0 #fff, 0 1.6mm 0 #fff; }
+
+/* —— 书内目录页 —— */
+.flow .book-toc { break-after: page; }
+.flow .book-toc a { display: flex; gap: 4mm; align-items: baseline; padding: 2.4mm 0; border-bottom: 1px dashed var(--jr-border-warm-strong); text-decoration: none; color: var(--jr-neutral-900); font-size: 10pt; font-weight: var(--jr-fw-medium); }
+.flow .book-toc a .num { font-family: 'Anton', var(--jr-font-sans); font-size: 11pt; color: var(--jr-red); min-width: 9mm; }
+
+/* —— 岗位图鉴卡（ai-jobs-salary-atlas）—— */
+.flow .jobcard { background: #fff; border: 1px solid var(--jr-border-warm); border-radius: 4mm; padding: 4.5mm 5mm 4mm; margin-top: 4mm; break-inside: avoid; }
+.flow .jobcard .jc-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 3mm; }
+.flow .jobcard .jc-name { font-size: 11.5pt; font-weight: var(--jr-fw-bold); color: var(--jr-black); line-height: 1.2; }
+.flow .jobcard .jc-en { font-size: 7pt; color: var(--jr-neutral-600); letter-spacing: .03em; margin-top: 0.5mm; }
+.flow .jobcard .jc-badges { display: flex; gap: 1.5mm; flex: none; }
+.flow .jobcard .jc-badge { font-size: 6.3pt; font-weight: var(--jr-fw-semibold); padding: 0.6mm 2.2mm; border-radius: var(--jr-radius-full); white-space: nowrap; }
+.flow .jobcard .jc-badge.born { background: var(--jr-wash-gray); color: var(--jr-neutral-600); }
+.flow .jobcard .jc-badge.explosive { background: var(--jr-wash-red); color: var(--jr-red-text); }
+.flow .jobcard .jc-badge.fast { background: var(--jr-wash-yellow); color: #8a6116; }
+.flow .jobcard .jc-badge.steady { background: #dbeafe; color: #1d4ed8; }
+.flow .jobcard .jc-badge.emerging { background: #cffafe; color: #0e7490; }
+.flow .jobcard .jc-salary { font-family: 'Anton', var(--jr-font-sans); font-size: 18pt; color: var(--jr-black); line-height: 1; margin-top: 3mm; }
+.flow .jobcard .jc-salnote { font-size: 6.8pt; color: var(--jr-neutral-600); margin-top: 1.2mm; line-height: 1.45; }
+.flow .jobcard .jc-blurb { font-size: 8pt; color: var(--jr-neutral-900); line-height: 1.55; margin-top: 2.5mm; }
+.flow .jobcard .jc-rows { margin-top: 2.5mm; display: flex; flex-direction: column; gap: 1.2mm; }
+.flow .jobcard .jc-row { font-size: 7.5pt; color: var(--jr-neutral-900); line-height: 1.4; }
+.flow .jobcard .jc-row .lab { color: var(--jr-neutral-600); }
+.flow .jobcard .chips { display: inline-flex; flex-wrap: wrap; gap: 1.3mm; }
+.flow .jobcard .chip-sk { font-size: 6.6pt; padding: 0.4mm 2mm; border-radius: var(--jr-radius-full); background: var(--jr-chip-ai-bg); color: var(--jr-chip-ai-text); }
+.flow .jobcard .jc-foot { margin-top: 2.8mm; padding-top: 2.5mm; border-top: 1px dashed var(--jr-divider-warm); display: flex; justify-content: space-between; align-items: baseline; gap: 3mm; }
+.flow .jobcard .jc-course { font-size: 7.3pt; color: var(--jr-neutral-900); }
+.flow .jobcard .jc-course b { color: var(--jr-red); }
+.flow .jobcard .jc-src { font-size: 6.3pt; color: var(--jr-neutral-600); text-align: right; flex: none; max-width: 42%; line-height: 1.4; }
+
+/* —— AI 职业冲击地图 —— */
+.flow .risk-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3.5mm; margin-top: 4mm; break-inside: avoid; }
+.flow .risk-col { border-radius: 4mm; padding: 4mm 4.5mm; }
+.flow .risk-col.high { background: var(--jr-wash-red); }
+.flow .risk-col.mid { background: var(--jr-wash-yellow); }
+.flow .risk-col.low { background: var(--jr-wash-green); }
+.flow .risk-col .rc-n { font-family: 'Anton', var(--jr-font-sans); font-size: 24pt; line-height: 1; color: var(--jr-black); }
+.flow .risk-col .rc-l { font-size: 8.5pt; font-weight: var(--jr-fw-bold); margin-top: 1mm; }
+.flow .risk-col .rc-d { font-size: 7pt; color: var(--jr-neutral-900); margin-top: 1.5mm; line-height: 1.5; }
+.flow .trans-table { margin-top: 4mm; break-inside: avoid; }
+.flow .trans-row { display: flex; align-items: center; gap: 3mm; padding: 2.2mm 0; border-bottom: 1px dashed var(--jr-divider-warm); font-size: 8.5pt; }
+.flow .trans-row.head { border-bottom: 1.5px solid var(--jr-black); padding-bottom: 1.5mm; }
+.flow .trans-row.head span { font-size: 7pt; font-weight: var(--jr-fw-bold); color: var(--jr-neutral-600); letter-spacing: .04em; }
+.flow .trans-row .from { flex: 1; }
+.flow .trans-row .arr { color: var(--jr-red); font-weight: var(--jr-fw-bold); flex: none; }
+.flow .trans-row .to { flex: 1; font-weight: var(--jr-fw-semibold); color: var(--jr-black); }

@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<base data-ebook-seo href="https://jiangren.com.au/ebooks/data-engineer-ai-transition-guide/" />
 <meta charset="UTF-8" />
-<title>AI 时代，Data Engineer 该何去何从 | JR Academy</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>AI 时代，Data Engineer 该何去何从 — JR Academy</title>
 <link rel="stylesheet" href="theme/tokens.css" />
-<link rel="stylesheet" href="theme/web-zine.css" />
+<link rel="stylesheet" href="theme/ebook.css" />
+<link rel="stylesheet" href="theme/flow-a4.css" />
 <style>
   .hero h1 .t-main { font-size: 68px; }
   .hero h1 .t-sticker { top: -44px; right: -22px; }
@@ -56,115 +57,40 @@
     .source-list { columns: 1; }
   }
 </style>
-<!-- ebook-seo:start -->
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<meta name="theme-color" content="#fffdf7" />
-<meta name="description" content="从数据管道到 AI 系统：DE 的职业发展、转型路线和 90 天行动指南" />
-<meta name="author" content="JR Academy AI 教研组" />
-<meta name="keywords" content="data-engineer, ai-engineer, career, rag, llmops, data-quality, transition" />
-<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
-<link rel="canonical" href="https://jiangren.com.au/ebooks/data-engineer-ai-transition-guide" />
-<meta property="og:type" content="book" />
-<meta property="og:site_name" content="匠人学院·JR Academy" />
-<meta property="og:locale" content="zh_CN" />
-<meta property="og:title" content="AI 时代，Data Engineer 该何去何从 | JR Academy" />
-<meta property="og:description" content="从数据管道到 AI 系统：DE 的职业发展、转型路线和 90 天行动指南" />
-<meta property="og:url" content="https://jiangren.com.au/ebooks/data-engineer-ai-transition-guide" />
-<meta property="og:image" content="https://jiangren.com.au/image/free-resources/share-default.png" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="AI 时代，Data Engineer 该何去何从 | JR Academy" />
-<meta name="twitter:description" content="从数据管道到 AI 系统：DE 的职业发展、转型路线和 90 天行动指南" />
-<meta name="twitter:image" content="https://jiangren.com.au/image/free-resources/share-default.png" />
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://jiangren.com.au/ebooks/data-engineer-ai-transition-guide#webpage","url":"https://jiangren.com.au/ebooks/data-engineer-ai-transition-guide","name":"AI 时代，Data Engineer 该何去何从 | JR Academy","description":"从数据管道到 AI 系统：DE 的职业发展、转型路线和 90 天行动指南","inLanguage":"zh-CN","mainEntity":{"@id":"https://jiangren.com.au/ebooks/data-engineer-ai-transition-guide#book"},"isPartOf":{"@type":"WebSite","name":"匠人学院·JR Academy","url":"https://jiangren.com.au"}},{"@type":"Book","@id":"https://jiangren.com.au/ebooks/data-engineer-ai-transition-guide#book","name":"AI 时代，Data Engineer 该何去何从","abstract":"从数据管道到 AI 系统：DE 的职业发展、转型路线和 90 天行动指南","inLanguage":"zh-CN","url":"https://jiangren.com.au/ebooks/data-engineer-ai-transition-guide","author":{"@type":"Organization","name":"JR Academy AI 教研组"},"publisher":{"@type":"Organization","name":"匠人学院·JR Academy","url":"https://jiangren.com.au"},"encoding":{"@type":"MediaObject","contentUrl":"https://jiangren.com.au/ebooks/data-engineer-ai-transition-guide/AI%20%E6%97%B6%E4%BB%A3%EF%BC%8CData%20Engineer%20%E8%AF%A5%E4%BD%95%E5%8E%BB%E4%BD%95%E4%BB%8E%20-%20%E5%8C%A0%E4%BA%BA%E5%AD%A6%E9%99%A2.pdf","encodingFormat":"application/pdf"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"匠人学院","item":"https://jiangren.com.au"},{"@type":"ListItem","position":2,"name":"电子书","item":"https://jiangren.com.au/ebooks"},{"@type":"ListItem","position":3,"name":"AI 时代，Data Engineer 该何去何从","item":"https://jiangren.com.au/ebooks/data-engineer-ai-transition-guide"}]}]}</script>
-<style data-ebook-web-layout>
-.ebook-navigation { position:sticky; top:0; z-index:1100; display:flex; align-items:center; justify-content:space-between; gap:12px; box-sizing:border-box; padding:env(safe-area-inset-top) max(16px,env(safe-area-inset-right)) 0 max(16px,env(safe-area-inset-left)); min-height:52px; background:#fffdf7; border-bottom:1px solid #deded5; color:#191b22; font:14px/1.4 sans-serif; }
-.ebook-navigation a { display:flex; min-height:48px; align-items:center; color:#1555aa; text-decoration:none; flex-shrink:0; }
-.ebook-navigation span { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-size:12px; min-width:0; }
-.ebook-navigation a:focus-visible { outline:3px solid #1555aa; outline-offset:2px; }
-body.reader-mode .ebook-navigation { position:fixed; top:0; left:0; right:0; }
-@media print { .ebook-navigation { display:none !important; } }
-@media screen and (max-width: 840px) {
-  body { overflow-wrap: anywhere; }
-  body .ghost { right: 0; max-width: 100%; overflow: hidden; }
-  body .marquee { transform: none; }
-  body table { display: block; max-width: 100%; overflow-x: auto; }
-  body .hero-flex > div, body .ch-head > div { min-width: 0; }
-  body .source-list a { overflow-wrap: anywhere; }
-  body .back-logo { max-width: 100%; height: auto; }
-  body .chart { max-width: 100%; overflow-x: auto; }
-  body:has(main.flow) > .page { zoom: var(--ebook-cover-scale, 1); }
-  body main.flow { box-sizing: border-box; width: calc(100% - 24px); max-width: 760px; padding: 24px 18px 150px; overflow-wrap: anywhere; }
-  main.flow p, main.flow li { font-size: 15px; }
-  main.flow .stat-grid, main.flow .duo-path { grid-template-columns: 1fr; }
-  main.flow img { max-width: 100%; object-fit: contain; }
-  main.flow table { display: block; max-width: 100%; overflow-x: auto; }
-  main.flow pre { max-width: 100%; overflow-x: auto; }
-  body .reader-bar { bottom:calc(8px + env(safe-area-inset-bottom)); max-width:calc(100% - 24px); gap:2px; padding:7px 8px; }
-  body .reader-bar .rd-sep { display:none; }
-  body .reader-bar .rd-toggle { white-space:nowrap; flex-shrink:0; }
-  body .reader-bar button, body .reader-bar .rd-toggle { min-width:44px; min-height:44px; touch-action:manipulation; }
-  body a[download] { bottom:calc(18px + env(safe-area-inset-bottom)) !important; min-height:44px; box-sizing:border-box; }
-  body:has(.reader-bar) a[download] { bottom:calc(80px + env(safe-area-inset-bottom)) !important; right: 16px !important; padding: 10px 16px !important; }
-  body.reader-mode .page { transform:translate(-50%,-50%) scale(calc(var(--reader-scale,1) * .8)); }
-  body:has(.ebook-navigation):not(.reader-mode) { padding-bottom:calc(140px + env(safe-area-inset-bottom)); }
-}
-</style>
-<script>
-(() => {
-  const fitCover = () => document.documentElement.style.setProperty('--ebook-cover-scale', String(Math.min(1, (innerWidth - 32) / (210 * 96 / 25.4))));
-  fitCover();
-  addEventListener('resize', fitCover);
-  addEventListener('DOMContentLoaded', () => {
-    const nav = document.createElement('nav');
-    nav.className = 'ebook-navigation';
-    nav.setAttribute('aria-label', '电子书导航');
-    const back = document.createElement('a');
-    back.href = 'https://jiangren.com.au/ebooks';
-    back.textContent = '‹ 书架';
-    const title = document.createElement('span');
-    title.textContent = "AI 时代，Data Engineer 该何去何从";
-    const home = document.createElement('a');
-    home.href = 'https://jiangren.com.au';
-    home.textContent = '官网 ↗';
-    nav.append(back, title, home);
-    document.body.prepend(nav);
-  });
-})();
-</script>
-<!-- ebook-seo:end -->
 </head>
 <body>
-<header class="hero">
-  <div class="wrap">
-    <img class="logo" src="assets/logo/logo-zh-full.svg" alt="匠人学院" />
-    <div class="hero-flex">
-      <div>
-        <div class="bar"></div>
-        <h1><span class="t-top">AI 时代</span><br /><span class="t-main">DE 何去何从<span class="t-sticker">2026 路线图</span></span></h1>
-        <p class="sub">给 Data Engineer、Analytics Engineer、BI / 数据平台同学：把 <span class="hl">数据管道、RAG、semantic layer、eval、trace、治理</span> 翻译成 AI 职业竞争力。</p>
-        <div class="chips"><span class="chip">RAG 数据管道</span><span class="chip">AI Platform</span><span class="chip">Data Quality</span><span class="chip">扫码找 Angela</span></div>
-        <div style="margin-top: 26px;"><span class="zine-diecut" style="font-size: 24px;">别从零开始。把你的 DE 老本行接到 AI 系统里。</span></div>
-      </div>
-      <div class="mascot-wrap"><span class="tape"></span><img class="hero-mascot" src="assets/illustrations/niuxiaojiang-teaching-data.png" alt="牛小匠" /></div>
-    </div>
+<img class="jr-wm" src="assets/logo/jr-box.svg" alt="" />
+<section class="page cover2 dark">
+  <img class="cover-logo" src="assets/logo/logo-zh-white.png" alt="匠人学院" />
+  <div class="cv2-ghost">DATA</div>
+  <div class="cv2-copy">
+    <div class="cv2-kicker">2026 职业路线图</div>
+    <h1><em>AI</em><br />时代<br />DE 何去何从</h1>
+    <p>从数据管道、RAG、semantic layer、数据质量到 AI 系统生产化。别从零开始，把你的 DE 老本行接到 AI 系统里。</p>
+    <div class="cv2-tags"><span>RAG</span><span>Data Quality</span><span>Eval</span><span>扫码找 Angela</span></div>
   </div>
-</header>
-<div class="marquee"><div class="mq-track"><span>DATA ENGINEER TO AI<i>✦</i>RAG<i>✦</i>DATA QUALITY<i>✦</i>SEMANTIC LAYER<i>✦</i>EVALS<i>✦</i>JIANGREN.COM.AU<i>✦</i></span><span>DATA ENGINEER TO AI<i>✦</i>RAG<i>✦</i>DATA QUALITY<i>✦</i>SEMANTIC LAYER<i>✦</i>EVALS<i>✦</i>JIANGREN.COM.AU<i>✦</i></span></div></div>
-<nav class="toc">
+  <img class="cv2-mascot" src="assets/illustrations/niuxiaojiang-teaching-data.png" alt="牛小匠" />
+  <div class="cv2-strip"><span>DATA ENGINEER TO AI <i>✦</i> RAG <i>✦</i> EVALS <i>✦</i> SEMANTIC LAYER <i>✦</i> JIANGREN.COM.AU <i>✦</i></span></div>
+</section>
+<main class="flow">
+<section class="ch book-toc">
   <div class="wrap">
+    <div class="ch-num">CONTENTS</div>
+    <h2>目录</h2>
     <a href="#how"><span class="num">00</span>这本书怎么用</a>
-    <a href="#ch1"><span class="num">01</span>不是从零开始</a>
-    <a href="#ch2"><span class="num">02</span>6 条路线</a>
-    <a href="#ch3"><span class="num">03</span>技能迁移</a>
+    <a href="#ch1"><span class="num">01</span>AI 时代，DE 不是消失，是分化</a>
+    <a href="#ch2"><span class="num">02</span>6 条路线：先选一个主攻方向</a>
+    <a href="#ch3"><span class="num">03</span>技能迁移表</a>
     <a href="#ch4"><span class="num">04</span>RAG 数据管道</a>
-    <a href="#ch5"><span class="num">05</span>治理与质量</a>
-    <a href="#ch6"><span class="num">06</span>Eval / Trace</a>
-    <a href="#ch7"><span class="num">07</span>作品集</a>
-    <a href="#ch8"><span class="num">08</span>简历面试</a>
+    <a href="#ch5"><span class="num">05</span>数据质量、权限和治理</a>
+    <a href="#ch6"><span class="num">06</span>Eval、Trace、成本</a>
+    <a href="#ch7"><span class="num">07</span>作品集项目</a>
+    <a href="#ch8"><span class="num">08</span>简历和面试</a>
     <a href="#ch9"><span class="num">09</span>90 天路线</a>
     <a href="#sources"><span class="num">10</span>来源清单</a>
+    <div class="callout warn">先读第 1、3 章，判断自己不是“从零转”。再从第 2 章选一条路线，把第 7 章项目做出来。</div>
   </div>
-</nav>
+</section>
 
 <section class="ch" id="how">
   <div class="wrap">
@@ -295,6 +221,14 @@ body.reader-mode .ebook-navigation { position:fixed; top:0; left:0; right:0; }
     </div>
   </div>
 </section>
+<aside class="promo">
+  <span class="promo-tag">AD · 自家的</span>
+  <div class="promo-body">
+    <h4>🎯 已经有基础，只差 offer：VIP 1-on-1</h4>
+    <p>导师一对一的高薪 Offer 计划：评估 → 简历深度优化 → 内推匹配 → 面试全程陪跑。同时只带 10-15 人，12 个月没拿到 Offer 退一半 —— 条款白纸黑字。</p>
+  </div>
+  <a class="promo-cta" href="https://jiangren.com.au/ai-engineer-vip" target="_blank" rel="noopener">了解 VIP 计划 →</a>
+</aside>
 
 <section class="ch" id="ch4">
   <div class="ghost">04</div>
@@ -316,7 +250,8 @@ source docs / tables
   -> eval + trace + feedback</code></pre>
     <div class="callout"><strong>面试能说的点：</strong>chunk 不是按固定字数乱切，最好按标题、段落、表格、业务对象切；metadata 不是装饰，它决定权限、过滤、溯源和排障。</div>
   </div>
-</section>
+
+<a class="promo-line" href="https://jiangren.com.au/blog" target="_blank" rel="noopener">📰 跟上行业节奏：匠人每天 5 条经过核源的 AI 日报，每周一份大事盘点 <span>→</span></a></section>
 
 <section class="ch" id="ch5">
   <div class="ghost">05</div>
@@ -334,6 +269,14 @@ source docs / tables
     <div class="sales-card"><img src="assets/contact/sales-cards/angela.jpg" alt="Angela · 匠人学院资深 IT 顾问" /></div>
   </div>
 </section>
+<aside class="promo">
+  <span class="promo-tag">AD · 自家的</span>
+  <div class="promo-body">
+    <h4>💼 简历投不出响？用求职匠过一遍</h4>
+    <p>求职匠 Job Hunter：简历优化 + JD 匹配度分析 + AI 面试模拟。把第 18 章的高信号写法落到你自己的简历上。</p>
+  </div>
+  <a class="promo-cta" href="https://jiangren.com.au/tools/job-hunter" target="_blank" rel="noopener">打开求职匠 →</a>
+</aside>
 
 <section class="ch" id="ch6">
   <div class="ghost">06</div>
@@ -351,7 +294,16 @@ source docs / tables
       <tr><td>Cost per answer</td><td>按模型、prompt、用户、功能拆账</td><td>降本后还要重跑 eval</td></tr>
     </table>
   </div>
-</section>
+
+<a class="promo-line" href="https://jiangren.com.au/certifications" target="_blank" rel="noopener">📜 简历要客观信号？AWS AI Practitioner / ML 认证备考资料在这 <span>→</span></a></section>
+<aside class="promo">
+  <span class="promo-tag">AD · 自家的</span>
+  <div class="promo-body">
+    <h4>📚 27 本 AI 工具实战手册，免费</h4>
+    <p>Cursor、Claude Code、Dify、n8n、CrewAI…每个工具一本中文实战手册，5-10 章带代码，不用注册不要钱。本书提到的工具基本都有对应深读。</p>
+  </div>
+  <a class="promo-cta" href="https://jiangren.com.au/wiki" target="_blank" rel="noopener">去翻手册 →</a>
+</aside>
 
 <section class="ch" id="ch7">
   <div class="ghost">07</div>
@@ -404,7 +356,8 @@ source docs / tables
     </div>
     <div class="callout warn"><strong>面试准备三件套：</strong>一张架构图、三个失败案例、一个 eval 表。没有这三样，项目再大也容易讲虚。</div>
   </div>
-</section>
+
+<a class="promo-line" href="https://jiangren.com.au/job-interview/process" target="_blank" rel="noopener">🎤 面试前刷一遍：各公司真实面经与题库（按轮次整理） <span>→</span></a></section>
 
 <section class="ch" id="ch9">
   <div class="ghost">09</div>
@@ -427,6 +380,14 @@ source docs / tables
     </div>
   </div>
 </section>
+<aside class="promo">
+  <span class="promo-tag">AD · 自家的</span>
+  <div class="promo-body">
+    <h4>🚀 想要节奏和反馈：AI Engineer Bootcamp</h4>
+    <p>12 周 cohort，16 个 Quest 串成你自己的项目 ISA —— 从第一个 RAG 到发布 MCP server、QLoRA 微调、上生产毕业，7 个 production-ready 项目进作品集。第 1 周不满意全额退款。</p>
+  </div>
+  <a class="promo-cta" href="https://jiangren.com.au/program-course/ai-engineer-bootcamp" target="_blank" rel="noopener">看课程大纲 →</a>
+</aside>
 
 <section class="ch" id="sources">
   <div class="ghost">10</div>
@@ -452,23 +413,22 @@ source docs / tables
     </ul>
   </div>
 </section>
-<section class="outro">
-  <div class="wrap">
-    <h2>DE 在 AI 时代，别只换标题</h2>
-    <p>把一个数据项目升级成 AI 项目：加 RAG、权限、eval、trace、失败案例。这样你不是被工具替代，而是变成能把 AI 落到企业数据上的人。</p>
-    <div class="sales-card"><img src="assets/contact/sales-cards/angela.jpg" alt="Angela · 匠人学院资深 IT 顾问" /></div>
-    <div class="contact-bar dark">
-      <img class="qr" src="assets/contact/qr-angela.png" alt="Angela · 匠人学院资深 IT 顾问微信二维码" />
-      <div><div class="t">扫码做一次 DE 转 AI 路线判断</div><div class="d">把你的简历项目和目标岗位发来，先看更适合 RAG、AI Platform、Analytics Engineer 还是 Applied AI。</div></div>
+</main>
+<section class="page back-cover dark de-back">
+  <img class="back-logo" src="assets/logo/logo-zh-white.png" alt="匠人学院" />
+  <h2>别只学工具。先判断自己往哪走。</h2>
+  <p style="max-width: 78%;">AI 时代的 DE，不是只有“转 AI Engineer”这一条路。你可以做 RAG 数据工程、AI Platform、semantic layer、数据治理，或 Applied AI。卡住了，扫 Angela 的码，先判断你适合哪条路线。</p>
+  <div class="sales-card" style="width: 88%;"><img src="assets/contact/sales-cards/angela.jpg" alt="Angela · 匠人学院资深 IT 顾问" /></div>
+  <div class="contact-bar" style="width: 88%;">
+    <img class="qr" src="assets/contact/qr-angela.png" alt="Angela · 匠人学院资深 IT 顾问微信二维码" />
+    <div class="cb-body">
+      <div class="cb-title">扫码了解 DE 转 AI 路线</div>
+      <div class="cb-desc">简历项目诊断、RAG / AI Platform / Semantic Layer / Eval 补强路线。</div>
     </div>
   </div>
+  <p class="caption" style="color: rgba(255,255,255,0.5);">© JR Academy · 学 AI 来匠人 · 来源核对日期 2026-06-30 · 欢迎转发</p>
 </section>
-<script>
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-  }, { threshold: 0.12 });
-  document.querySelectorAll('.card, .route-card, .skill-card, .project-card, .check-group, .pipeline, .yes-no, .contact-bar, .sales-card, table, pre, .bad, .good').forEach(el => io.observe(el));
-</script>
+<script defer src="theme/reader.js"></script>
 <a href="AI%20%E6%97%B6%E4%BB%A3%EF%BC%8CData%20Engineer%20%E8%AF%A5%E4%BD%95%E5%8E%BB%E4%BD%95%E4%BB%8E%20-%20%E5%8C%A0%E4%BA%BA%E5%AD%A6%E9%99%A2.pdf" download style="position:fixed;right:22px;bottom:22px;z-index:1200;display:flex;align-items:center;gap:8px;background:#0D0F12;color:#fff;font-weight:700;font-size:14.5px;padding:13px 22px;border-radius:999px;box-shadow:0 12px 28px rgba(13,15,18,.35);text-decoration:none;font-family:Inter,'PingFang SC',sans-serif;">⬇️ 下载 PDF 版</a>
 </body>
 </html>

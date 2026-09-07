@@ -371,3 +371,61 @@ pre code { background: none; padding: 0; color: inherit; }
 .mt-2 { margin-top: 2mm; } .mt-4 { margin-top: 4mm; } .mt-6 { margin-top: 6mm; } .mt-8 { margin-top: 8mm; }
 .mb-2 { margin-bottom: 2mm; } .mb-4 { margin-bottom: 4mm; } .mb-6 { margin-bottom: 6mm; }
 .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; }
+
+/* =====================================================
+   信息图 / 清单组件（print-safe，与 web-zine.css 同名对齐）
+   2026-06 au-go8-scholarship-guide 引入，无动画、mm/pt 单位
+   ===================================================== */
+
+/* 来源行 */
+.src { font-size: 8.5pt; color: var(--jr-neutral-600); margin-top: 2mm; line-height: 1.5; }
+
+/* badge（必备/可选/必做等小标签） */
+.badge { flex: none; align-self: flex-start; font-size: 8.5pt; font-weight: var(--jr-fw-semibold); padding: 0.6mm 3mm; border-radius: var(--jr-radius-full); background: var(--jr-wash-yellow); color: #8a6116; }
+.badge.must { background: var(--jr-red); color: #fff; }
+
+/* yes-no 双栏对比 */
+.yes-no { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; margin-top: 4mm; }
+.yn { border-radius: 4mm; padding: 5mm 6mm; }
+.yn.yes { background: var(--jr-wash-green); }
+.yn.no { background: var(--jr-wash-red); }
+.yn h4 { font-size: 11pt; margin-bottom: 2.5mm; color: var(--jr-black); }
+.yn ul { list-style: none; padding: 0; margin: 0; }
+.yn li { font-size: 9.5pt; padding: 1mm 0; line-height: 1.55; }
+
+/* duo-path 双路径对比 */
+.duo-path { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; margin-top: 4mm; }
+.path { background: var(--jr-surface-panel); border: 1px solid var(--jr-border-warm); border-radius: 4mm; padding: 5mm 5.5mm; }
+.path.win { border: 0.7mm solid var(--jr-red); }
+.path h4 { font-size: 10.5pt; margin-bottom: 3mm; color: var(--jr-black); }
+.pstep { font-size: 9.5pt; padding: 2mm 3mm; background: var(--jr-surface-panel-alt); border: 1px solid var(--jr-border-warm); border-radius: 2.5mm; }
+.parrow { text-align: center; color: var(--jr-red); font-size: 9pt; padding: 0.5mm 0; font-weight: 700; }
+.duo-badge { grid-column: 1 / -1; text-align: center; font-weight: var(--jr-fw-bold); background: var(--jr-black); color: #fff; border-radius: var(--jr-radius-full); padding: 2.5mm 4mm; font-size: 9.5pt; }
+
+/* roadmap 时间线 */
+.roadmap { position: relative; margin-top: 6mm; }
+.roadmap .rline { position: absolute; top: 4mm; left: 6%; right: 6%; height: 1.2mm; background: repeating-linear-gradient(90deg, var(--jr-red) 0 3.5mm, transparent 3.5mm 6mm); border-radius: 1mm; }
+.roadmap .rstops { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3.5mm; position: relative; }
+.rstop .rdot { width: 8mm; height: 8mm; border-radius: 50%; background: var(--jr-red); color: #fff; font-family: var(--jr-font-sans); font-weight: var(--jr-fw-bold); display: flex; align-items: center; justify-content: center; font-size: 10pt; margin-bottom: 3mm; border: 1mm solid var(--jr-surface-canvas); box-shadow: 0 0 0 0.5mm var(--jr-red); }
+.rstop.final .rdot { background: var(--jr-black); box-shadow: 0 0 0 0.5mm var(--jr-black); }
+.rstop .rtime { font-size: 8pt; font-weight: var(--jr-fw-bold); color: var(--jr-red-text); letter-spacing: .03em; }
+.rstop h4 { font-size: 10.5pt; margin: 1mm 0 1.5mm; color: var(--jr-black); }
+.rstop p { font-size: 8.5pt; color: var(--jr-neutral-600); line-height: 1.55; }
+
+/* check-group 清单 */
+.check-group { background: var(--jr-surface-panel); border: 0.4mm dashed var(--jr-border-warm-strong); border-radius: 4mm; padding: 5mm 6mm; margin-top: 4mm; }
+.check-group .head { display: flex; gap: 3mm; align-items: baseline; border-bottom: 1px solid var(--jr-divider-warm); padding-bottom: 2.5mm; }
+.check-group .head .stage { font-size: 8.5pt; font-weight: var(--jr-fw-bold); color: #fff; background: var(--jr-black); border-radius: var(--jr-radius-full); padding: 0.6mm 3mm; }
+.check-group .head h3 { font-size: 11pt; color: var(--jr-black); }
+.check-item { display: flex; gap: 3.5mm; padding: 3mm 0; border-bottom: 0.3mm dashed var(--jr-divider-warm); }
+.check-item:last-child { border-bottom: none; }
+.check-item .box { width: 5mm; height: 5mm; flex: none; margin-top: 0.8mm; border: 0.6mm solid var(--jr-neutral-300); border-radius: 1.5mm; }
+.check-item .t { font-size: 10pt; font-weight: var(--jr-fw-medium); color: var(--jr-black); }
+.check-item .n { font-size: 8.5pt; color: var(--jr-neutral-600); margin-top: 0.5mm; line-height: 1.5; }
+
+/* sales-card 前的场景化一句话 */
+.sales-card-lead { font-size: 10.5pt; font-weight: var(--jr-fw-medium); color: var(--jr-neutral-900); margin-top: 6mm; line-height: 1.6; }
+
+@media print {
+  .yes-no, .duo-path, .check-group, .roadmap, .card, table { break-inside: avoid; }
+}

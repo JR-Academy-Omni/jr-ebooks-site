@@ -53,5 +53,6 @@
     "templates/printable-self-check.html",
     "templates/notion-sheet-scoring.md"
   ],
-  "note": "技能要求和 JD 信号会随岗位变化；本清单不保证面试、offer、签证、收入或雇主反馈结果。"
+  "note": "技能要求和 JD 信号会随岗位变化；本清单不保证面试、offer、签证、收入或雇主反馈结果。",
+  "status": "published"
 }

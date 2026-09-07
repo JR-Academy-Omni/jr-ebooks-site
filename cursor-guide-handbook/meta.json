@@ -1,0 +1,36 @@
+{
+  "slug": "cursor-guide-handbook",
+  "title": "Cursor 中文上手手册",
+  "subtitle": "AI 编程 IDE 实战：Agent Mode 自主编程、MCP 集成、.cursor/rules/*.mdc 全解析，7 章配真实命令和配置",
+  "audience": "VS Code 开发者、想用 AI 提速写代码的全栈/后端工程师、AI 转行求职者",
+  "goal": "lead-magnet",
+  "track": "T1",
+  "style": "handbook",
+  "mode": "flow",
+  "channel": [
+    "微信群分享",
+    "小红书引流",
+    "公众号文末资料包"
+  ],
+  "pages": "flow 自动分页",
+  "status": "published",
+  "tags": [
+    "ai-tools",
+    "cursor",
+    "ai-coding",
+    "agent-mode",
+    "mcp"
+  ],
+  "contact": {
+    "qr": "qr-rain.png",
+    "salesCards": [
+      "rain.jpg",
+      "angela.jpg"
+    ]
+  },
+  "sources": [
+    "jr-wiki src/content/wiki/cursor-guide/ 7 章原文（source of truth，md2flow 直转）",
+    "章节配图：YouTube 缩略图，cloud 环境网络受限未下载，figure 块已删除"
+  ],
+  "note": "内容已生成；本地渲染已通过，准备发布到 GitHub Pages。"
+}

@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<title>Dify 实战手册：可视化搭建 AI 应用 — JR Academy</title>
+<link rel="stylesheet" href="theme/ebook.css" />
+<link rel="stylesheet" href="theme/flow-a4.css" />
+</head>
+<body>
+<img class="jr-wm" src="assets/logo/jr-box.svg" alt="" />
+
+<section class="page cover2">
+  <div class="cv2-ghost">Dify</div>
+  <div class="cv2-head">
+    <img src="assets/logo/logo-zh-white.png" alt="匠人学院" />
+    <span class="cv2-sticker">🧩 2026 实操版</span>
+  </div>
+  <div class="cv2-body">
+    <div class="cv2-kicker">不写代码，也能搭 AI 应用</div>
+    <div class="cv2-title"><em>Dify</em> 实战手册</div>
+    <div class="cv2-bar"></div>
+    <p class="cv2-sub">开源 LLMOps 平台，GitHub 13 万星。从 5 分钟云端试用到 Docker 自部署，从 Chatflow 拖拽到 RAG 知识库调优、Agent 智能体，到 Nginx + HTTPS 上线生产环境。7 章原文实战内容，含命令、配置、踩坑合集。</p>
+    <div class="cv2-chips">
+      <span class="chip">🆓 开源自部署，数据完全自控</span>
+      <span class="chip">🔍 RAG 知识库分块调优全解</span>
+      <span class="chip">🤖 Workflow + Agent 三板斧</span>
+    </div>
+    <div class="cv2-diecut">Chatbot 太简单？Dify 的 Workflow 才是正经 AI 后端</div>
+  </div>
+  <span class="cv2-holo">🧩</span>
+  <img class="cv2-mascot" src="assets/illustrations/niuxiaojiang-working-laptop.png" alt="牛小匠" />
+  <div class="cv2-domain">jiangren.com.au · 在线版随官网更新 /wiki/dify-guide</div>
+  <div class="cv2-strip"><span>学 AI 来匠人 <i>✦</i> Dify 实战手册 <i>✦</i> JIANGREN.COM.AU <i>✦</i> 不写代码也能搭 AI 应用 <i>✦</i> 学 AI 来匠人 <i>✦</i></span></div>
+</section>
+
+<main class="flow">
+<div class="book-toc">
+  <div class="ch-num">CONTENTS</div>
+  <h2>目录（7 章）</h2>
+  <a href="#ch1"><span class="num">01</span>🧠 Dify 是什么：LLMOps 标杆与竞品全对比</a>
+  <a href="#ch2"><span class="num">02</span>🚀 快速上手：云端 5 分钟 or Docker 自部署</a>
+  <a href="#ch3"><span class="num">03</span>⚙️ 核心功能：Workflow、RAG 知识库和 Agent 三板斧</a>
+  <a href="#ch4"><span class="num">04</span>🔌 进阶技巧：API 集成、MCP 协议、生产部署</a>
+  <a href="#ch5"><span class="num">05</span>🤔 常见问题：定价、踩坑和选型建议</a>
+  <a href="#ch6"><span class="num">06</span>📚 RAG 知识库实战：分块调优与 Reranking</a>
+  <a href="#ch7"><span class="num">07</span>🖥️ 自部署完整指南：Docker + Nginx + HTTPS</a>
+</div>
+
+<section class="ch" id="how">
+  <div class="wrap">
+    <h2>📖 这本手册怎么读</h2>
+    <div class="card">
+      <p>这本书和官网 wiki《Dify 实战手册》同源（jiangren.com.au/wiki/dify-guide，免费、不用注册，官网那份持续更新）。完全没接触过 Dify 的，第 1、2 章看清楚它能干什么、5 分钟跑通一个应用；想做 RAG 知识库的，第 3 章了解三板斧、第 6 章专门讲分块策略和检索调优（这章能让召回率从 60% 拉到 90%+）；要上生产环境、数据私有化部署的，第 7 章从空白 VPS 到 HTTPS 上线全走一遍，坑都标出来了。书里命令全可复制，Docker Compose 配置可直接用。</p>
+    </div>
+    <div class="contact-bar">
+      <img class="qr" src="assets/contact/qr-amelia.png" alt="Amelia · 匠人学院 IT 顾问微信" />
+      <div><div class="t">💬 装的时候卡住了？扫码进群问</div><div class="d">群里每周分享真实的 Dify 工作流模板和 AI 应用搭建案例。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="ch" id="ch1">
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 01</div>
+        <h2>🧠 Dify 是什么：开源 LLM 应用开发平台，GitHub 13 万星的 LLMOps 标杆</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-thinking.png" alt="" />
+    </div>
+<p>Dify 是一个开源的 LLM 应用开发平台——你可以用可视化拖拽的方式搭建 AI 聊天机器人、RAG 知识库问答、多步骤工作流、自主决策 Agent，然后一键发布成 API 或网页应用。不需要从零写 LangChain 代码，也不需要自己搞向量数据库。</p>
+<figure class="figure"><img src="dify-describe.png" alt="Dify workflow editor" /><div class="figcap">Dify workflow editor</div></figure>
+<h3>为什么 Dify 值得关注</h3>
+<p>GitHub 上 139K+ star，全球 140 万台机器在跑 Dify，280 多家企业（Maersk、Novartis、Anker）付费用它。2026 年 3 月刚融了 3000 万美元 Pre-A 轮。</p>
+<p>火的原因很直白：<strong>它把 LLM 应用开发的门槛拉到了最低</strong>。产品经理可以拖拽搭工作流，开发者可以通过 API 把 Dify 当后端，运维可以用 Docker 一键部署私有化版本。一个平台，三种人都能用。</p>
+<h3>核心定位：BaaS + LLMOps</h3>
+<p>Dify 的定位是 <strong>Backend-as-a-Service</strong>（后端即服务）加 <strong>LLMOps</strong>（大模型运维）。翻译成人话就是：</p>
+<ol><li><strong>BaaS</strong>：每个 AI 应用自动生成 REST API，你的前端直接调就行</li><li><strong>LLMOps</strong>：内置日志追踪、性能监控、标注反馈，帮你持续优化 AI 应用</li></ol>
+<h3>五种应用类型</h3>
+<table><tr><th>类型</th><th>特点</th><th>适合场景</th></tr><tr><td><strong>Chatbot</strong></td><td>多轮对话，有记忆</td><td>客服机器人、FAQ 助手</td></tr><tr><td><strong>Agent</strong></td><td>自主推理 + 调用工具</td><td>数据分析、多步骤任务</td></tr><tr><td><strong>Chatflow</strong></td><td>对话驱动的可视化工作流</td><td>复杂业务流程、多分支对话</td></tr><tr><td><strong>Workflow</strong></td><td>任务驱动，无记忆</td><td>批量处理、数据管道</td></tr><tr><td><strong>Text Generator</strong></td><td>单次文本生成</td><td>翻译、摘要、内容生成</td></tr></table>
+<p>我个人最推荐新手从 <strong>Chatflow</strong> 开始——它既有对话体验，又能在画布上看到整个逻辑链路，比纯 Chatbot 更灵活，比纯 Workflow 更直观。</p>
+<h3>技术架构一句话版</h3>
+<pre>用户请求 → Next.js 前端 → Flask API → Celery Worker → LLM Provider
+                                ↓               ↓
+                           PostgreSQL       Vector DB (Weaviate/Qdrant)
+                              (元数据)         (RAG 向量检索)</pre>
+<p>整套用 Docker Compose 跑起来，7-8 个容器：API、Worker、Web、PostgreSQL、Redis、Sandbox（代码执行沙箱）。</p>
+<h3>跟竞品怎么选</h3>
+<table><tr><th>维度</th><th>Dify</th><th>Coze（扣子）</th><th>FastGPT</th><th>LangChain</th></tr><tr><td>界面</td><td>可视化 + API 双模式</td><td>可视化为主</td><td>可视化为主</td><td>纯代码</td></tr><tr><td>自部署</td><td>Docker/K8s，完全免费</td><td>2025 年 7 月才开源</td><td>Docker，免费</td><td>库，不是平台</td></tr><tr><td>模型支持</td><td>100+ 模型，含国内厂商</td><td>字节系模型 + GPT</td><td>通过 OneAPI 接入</td><td>最广，但要写代码</td></tr><tr><td>RAG</td><td>内置全流程</td><td>内置</td><td>精度更高（医疗/金融）</td><td>需自己组装</td></tr><tr><td>Agent</td><td>Function Calling + ReAct</td><td>Bot 模式</td><td>基础</td><td>最灵活（代码级）</td></tr><tr><td>适合谁</td><td>开发者 + 运营 + 企业</td><td>C 端用户 + 低代码</td><td>中国中小企业</td><td>纯开发者</td></tr></table>
+<p><strong>我的选型建议</strong>：想快速出活、团队有非技术人员 → Dify。只做国内 C 端 Bot → Coze。对 RAG 精度有极致要求（医疗/法律） → FastGPT。全部要自定义、团队全是开发者 → LangChain。</p>
+<p>不是非此即彼——很多团队用 Dify 做原型验证，确认可行后再用 LangChain 重写核心模块。</p>
+  </div>
+</section>
+<section class="ch" id="ch2">
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 02</div>
+        <h2>🚀 Dify 快速上手：云端 5 分钟 or 本地 Docker 部署</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-hero.png" alt="" />
+    </div>
+<p>Dify 提供两条上手路线：云端 Sandbox 零配置试用，或者 Docker Compose 部署到自己的服务器。两条路我都走过，各有各的好。</p>
+<figure class="figure"><img src="dify-models.png" alt="Dify model providers" /><div class="figcap">Dify model providers</div></figure>
+<h3>路线一：云端 Sandbox（5 分钟上手）</h3>
+<ol><li>打开 <a href="https://dify.ai">dify.ai</a>，点右上角 Get Started</li><li>用 <strong>GitHub</strong> 或 <strong>Google</strong> 账号登录</li><li>进入 Dashboard，直接点 "Create App"</li><li>完事。不需要信用卡，不需要装任何东西</li></ol>
+<p>Sandbox 免费额度：</p>
+<table><tr><th>项目</th><th>限额</th></tr><tr><td>每月消息数</td><td>200 条</td></tr><tr><td>应用数</td><td>10 个</td></tr><tr><td>向量存储</td><td>5 MB</td></tr><tr><td>文档上传</td><td>50 个</td></tr><tr><td>团队成员</td><td>1 人</td></tr><tr><td>日志保留</td><td>15 天</td></tr></table>
+<p>200 条消息看着少，但够你体验所有功能、跑通一个 demo。真正要用起来，往下看路线二。</p>
+<h3>路线二：Docker Compose 本地部署（免费无限制）</h3>
+<p>自部署的 Dify 没有消息数限制、没有应用数限制、没有团队人数限制——你的硬件就是唯一瓶颈。</p>
+<p><strong>最低配置</strong>：2 核 CPU、4 GB RAM、20 GB 硬盘、Docker 20.10+</p>
+<p><strong>推荐配置</strong>：4 核、8 GB RAM。如果还要跑 Ollama 本地模型，建议 16 GB 起步。</p>
+<pre># 1. 克隆仓库
+git clone https://github.com/langgenius/dify.git
+
+# 2. 进入 docker 目录
+cd dify/docker
+
+# 3. 复制环境变量文件
+cp .env.example .env
+
+# 4. 生成密钥并填入 .env 的 SECRET_KEY
+openssl rand -base64 42
+
+# 5. 启动所有服务
+docker compose up -d
+
+# 6. 等 1-2 分钟，检查容器状态
+docker compose ps</pre>
+<p>全部显示 <code>healthy</code> 后，浏览器打开 <code>http://你的IP</code>，创建管理员账号，就能用了。</p>
+<p><strong>升级也简单</strong>：</p>
+<pre>cd dify/docker
+git pull origin main
+docker compose pull
+docker compose up -d</pre>
+<h3>配模型：接 OpenAI / Claude / Ollama</h3>
+<p>拿到 Dify 后第一件事——去 <strong>Settings → Model Providers</strong> 配模型。</p>
+<p><strong>接 OpenAI</strong>：填 API Key 就行，GPT-4o、GPT-3.5-turbo、DALL-E、Whisper 全部可用。</p>
+<p><strong>接 Anthropic</strong>：填 API Key，Claude Sonnet 4.6、Claude 3.5 Sonnet、Claude 3 Opus 都能用。</p>
+<p><strong>接 Ollama（本地模型，零成本）</strong>：</p>
+<pre># 先在服务器上装 Ollama
+curl -fsSL https://ollama.com/install.sh | sh
+
+# 拉一个模型
+ollama pull llama3
+ollama pull deepseek-r1
+
+# 在 Dify 里添加 Ollama provider
+# Server URL: http://host.docker.internal:11434</pre>
+<p>用 Ollama 跑本地模型的好处：<strong>零 API 费用、数据不出服务器、断网也能用</strong>。一个 7B 参数的模型大概吃 4.5 GB 内存，日常问答够用了。</p>
+<p>我的建议是：先用 OpenAI 或 Claude 的 API 跑通流程，确认效果满意后再考虑用 Ollama 本地模型降低成本。</p>
+<h3>创建第一个应用</h3>
+<p>配好模型后，点 Dashboard → Create App：</p>
+<ol><li>选 <strong>Chatflow</strong>（推荐新手）</li><li>给应用起个名字，比如"产品 FAQ 助手"</li><li>进入编排界面——左边是节点列表，中间是画布，右边是测试对话窗</li><li>画布上默认有 Start → LLM → Answer 三个节点</li><li>点 LLM 节点，写 System Prompt，选模型</li><li>右边窗口测试几轮对话</li><li>点右上角 <strong>Publish</strong>，搞定</li></ol>
+<p>发布后 Dify 自动生成：</p>
+<ul><li>一个可分享的网页链接</li><li>一套 REST API（带 Bearer Token 认证）</li><li>一段可嵌入的 iframe 代码</li></ul>
+<p>三种方式让你的 AI 应用立刻能用。</p>
+  </div>
+</section>
+<section class="ch" id="ch3">
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 03</div>
+        <h2>⚙️ Dify 核心功能详解：Workflow、RAG 知识库和 Agent 三板斧</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-working-laptop.png" alt="" />
+    </div>
+<p>Dify 最值钱的三个功能是 Workflow 工作流、RAG 知识库和 Agent 智能体。把这三个搞明白，基本上能覆盖 80% 的 AI 应用场景。</p>
+<figure class="figure"><img src="dify-describe.png" alt="Dify Studio workflow canvas" /><div class="figcap">Dify Studio workflow canvas</div></figure>
+<h3>Workflow：拖拽搭建 AI 流水线</h3>
+<p>Dify 的 Workflow 编辑器是一个无限画布，你把各种节点拖上去、连线、配参数，一条 AI 流水线就搭好了。</p>
+<p><strong>核心节点类型</strong>：</p>
+<table><tr><th>节点</th><th>作用</th><th>使用频率</th></tr><tr><td><strong>LLM</strong></td><td>调用大模型</td><td>几乎每个流程都用</td></tr><tr><td><strong>Knowledge Retrieval</strong></td><td>查询 RAG 知识库</td><td>做问答类应用必用</td></tr><tr><td><strong>Question Classifier</strong></td><td>LLM 驱动的意图分类</td><td>多分支路由</td></tr><tr><td><strong>If/Else</strong></td><td>条件判断分支</td><td>逻辑控制</td></tr><tr><td><strong>Code</strong></td><td>执行 Python 或 Node.js</td><td>数据清洗、格式转换</td></tr><tr><td><strong>HTTP Request</strong></td><td>调外部 REST API</td><td>对接第三方服务</td></tr><tr><td><strong>Template</strong></td><td>Jinja2 模板渲染</td><td>拼接输出文本</td></tr><tr><td><strong>Agent</strong></td><td>自主推理 + 工具调用</td><td>复杂决策场景</td></tr><tr><td><strong>Human Input</strong></td><td>暂停等人工审核</td><td>v1.13 新增，审批流程</td></tr></table>
+<p>一个典型的客服 Workflow 长这样：</p>
+<pre>Start → Question Classifier → [产品咨询] → Knowledge Retrieval → LLM → Answer
+                             → [退换货]   → HTTP Request (查订单) → LLM → Answer
+                             → [投诉]     → Human Input → LLM → Answer</pre>
+<p><strong>实用技巧</strong>：Workflow 分两种——<strong>Chatflow</strong>（带对话记忆，适合聊天场景）和 <strong>Workflow</strong>（无状态，适合批量任务）。如果你的应用需要多轮对话，选 Chatflow；如果是定时跑的数据处理管道，选 Workflow。</p>
+<h3>RAG 知识库：让 AI 读懂你的文档</h3>
+<p>RAG（Retrieval-Augmented Generation）是让 AI 基于你自己的文档回答问题的技术。Dify 把整个 RAG 流程封装好了：上传文档 → 自动分块 → 向量化 → 存入向量数据库 → 检索 → 注入 LLM 上下文。</p>
+<p><strong>支持的文件格式</strong>：TXT、Markdown、PDF、HTML、XLSX、DOCX、CSV、PPTX、EPUB——基本上办公文档都能吃。单文件上限 15 MB，可以改配置放大。</p>
+<p><strong>三种分块策略</strong>：</p>
+<ol><li><strong>General（通用）</strong>：按分隔符和长度切块，大部分场景够用</li><li><strong>Parent-Child（父子）</strong>：小块精确匹配，大块提供上下文，检索精度更高</li><li><strong>Q&amp;A</strong>：适合 FAQ 表格类文档，按问答对切分</li></ol>
+<pre># 通过 API 创建知识库并上传文档
+import requests
+
+headers = {"Authorization": "Bearer YOUR_API_KEY"}
+
+# 创建知识库
+resp = requests.post("http://localhost/v1/datasets", headers=headers,
+    json={"name": "产品手册"})
+dataset_id = resp.json()["id"]
+
+# 上传文档
+with open("manual.pdf", "rb") as f:
+    requests.post(f"http://localhost/v1/datasets/{dataset_id}/document/create-by-file",
+        headers=headers,
+        files={"file": f},
+        data={"indexing_technique": "high_quality",
+              "process_rule": '{"mode": "automatic"}'})</pre>
+<p><strong>检索模式</strong>：向量搜索（语义匹配）、全文搜索（关键词匹配）、<strong>混合搜索</strong>（两者结合 + Rerank 重排序）。我建议直接用混合搜索——精度最高，速度也没慢多少。</p>
+<h3>Agent 智能体：让 AI 自己决定该干什么</h3>
+<p>Agent 不是按你设计的固定流程走，而是 AI 自己判断该调用什么工具、该执行什么步骤。</p>
+<p><strong>两种推理策略</strong>：</p>
+<ul><li><strong>Function Calling</strong>：模型一次性判断意图、选工具、提取参数。速度快，适合意图明确的场景</li><li><strong>ReAct</strong>：模型交替"思考"和"行动"，一步一步推进。适合需要多轮推理的复杂任务</li></ul>
+<p><strong>工具类型</strong>：</p>
+<ul><li><strong>内置工具</strong>：Google 搜索、计算器、DALL-E 生图、天气查询等 50+ 个</li><li><strong>自定义 API 工具</strong>：写一个 OpenAPI Schema，Dify 自动帮你调</li><li><strong>子工作流工具</strong>：把另一个 Dify Workflow 当工具调用，实现 Agent 套 Workflow</li></ul>
+<pre># 自定义工具的 OpenAPI Schema 示例
+openapi: 3.0.0
+info:
+  title: 订单查询
+  version: 1.0.0
+paths:
+  /api/orders/{orderId}:
+    get:
+      summary: 根据订单号查询订单状态
+      parameters:
+        - name: orderId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 订单信息</pre>
+<p>Agent 搭配 RAG 知识库和自定义工具，基本上能处理大部分企业内部的智能问答需求。</p>
+  </div>
+</section>
+<aside class="promo">
+  <span class="promo-tag">AD · 自家的</span>
+  <div class="promo-body">
+    <h4>📚 27 本 AI 工具实战手册，免费</h4>
+    <p>Cursor、Claude Code、Dify、n8n、CrewAI…每个工具一本中文实战手册，5-10 章带代码，不用注册不要钱。本书提到的工具基本都有对应深读。</p>
+  </div>
+  <a class="promo-cta" href="https://jiangren.com.au/wiki" target="_blank" rel="noopener">去翻手册 →</a>
+</aside>
+<section class="ch" id="ch4">
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 04</div>
+        <h2>🔌 Dify 进阶技巧：API 集成、插件生态和生产环境实战</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-chart.png" alt="" />
+    </div>
+<p>Dify 基础功能上手后，这些进阶玩法能让你的 AI 应用真正跑在生产环境里。</p>
+<figure class="figure"><img src="dify-readme-if.png" alt="Dify branding" /><div class="figcap">Dify branding</div></figure>
+<h3>API 集成：把 Dify 当 AI 后端用</h3>
+<p>每个 Dify 应用发布后自动生成一套 REST API。在 App → API Access 页面拿到 API Key，你的前端或后端直接调就行。</p>
+<pre>import requests
+
+API_KEY = "app-xxxxxxxxxxxx"
+BASE_URL = "http://localhost/v1"
+
+# 发送消息（流式返回）
+response = requests.post(f"{BASE_URL}/chat-messages",
+    headers={"Authorization": f"Bearer {API_KEY}"},
+    json={
+        "inputs": {},
+        "query": "帮我总结一下这个季度的销售数据",
+        "user": "user-123",
+        "response_mode": "streaming",
+        "conversation_id": ""  # 空字符串 = 新对话
+    },
+    stream=True)
+
+for line in response.iter_lines():
+    if line:
+        print(line.decode())</pre>
+<p><strong>几个实用接口</strong>：</p>
+<ul><li><code>POST /chat-messages</code> — 发消息（支持 streaming）</li><li><code>GET /conversations</code> — 列出用户的所有对话</li><li><code>POST /audio-to-text</code> — 语音转文字</li><li><code>GET /messages/{id}/feedbacks</code> — 获取用户反馈</li></ul>
+<p>这套 API 最实用的地方是：<strong>你可以用任何语言、任何框架调用 Dify</strong>。React、Vue、Flutter、微信小程序——只要能发 HTTP 请求就行。不需要绑定 Dify 的前端。</p>
+<h3>MCP 协议：双向打通外部工具链</h3>
+<p>Dify v1.6.0 起原生支持 <strong>MCP（Model Context Protocol）</strong>，而且是双向的：</p>
+<ul><li><strong>作为 MCP Client</strong>：Dify 可以调用外部 MCP Server 提供的工具（比如 Claude Code 的文件操作、数据库查询）</li><li><strong>作为 MCP Server</strong>：Dify 的应用可以被其他 MCP 客户端调用</li></ul>
+<p>这意味着你可以把 Dify 接入更大的 AI 工具生态。比如在 Claude Desktop 里直接调用你在 Dify 搭建的 RAG 知识库。</p>
+<h3>插件生态和 Marketplace</h3>
+<p>Dify v1.0 引入了插件架构。模型、工具、Agent 策略都是插件，可以独立安装、升级、替换。</p>
+<p><strong>Marketplace</strong>（marketplace.dify.ai）上有社区贡献的插件：</p>
+<ul><li>模型插件：接入各种 LLM provider</li><li>工具插件：Slack 发消息、Jira 创建 ticket、发邮件</li><li>Agent 策略插件：CoT、ToT（Tree-of-Thought）、GoT（Graph-of-Thought）</li></ul>
+<p><strong>自己开发插件</strong>也不复杂——写一个 manifest.yaml 定义元信息，Python 写逻辑，上传到 Marketplace。</p>
+<h3>生产环境优化</h3>
+<p>Dify 跑 demo 容易，跑在生产环境需要注意几件事：</p>
+<p><strong>1. 反向代理</strong></p>
+<pre># Nginx 配置示例
+server {
+    listen 443 ssl;
+    server_name dify.yourcompany.com;
+
+    location / {
+        proxy_pass http://127.0.0.1:80;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_buffering off;  # 重要：SSE 流式输出需要关闭缓冲
+    }
+}</pre>
+<p><strong>2. 向量数据库选型</strong>：默认 Weaviate 够用。数据量大（100 万+ 文档）考虑换 Qdrant 或 Milvus。</p>
+<p><strong>3. Worker 扩容</strong>：高并发场景增加 Celery Worker 副本数。</p>
+<p><strong>4. 监控</strong>：Dify 内置 LLMOps 日志面板，按应用维度看调用量、延迟、token 消耗、用户满意度。</p>
+<h3>真实案例</h3>
+<p><strong>Kakaku.com（日本价格比较网站）</strong>：75% 的员工用 Dify 搭建 AI 应用，一家公司内部跑着近 950 个 Dify 应用。</p>
+<p><strong>全球科技公司 VoC 分析</strong>：用 Dify Workflow 编排 5 个 Agent（翻译、标注、分析、质检、汇总），每月处理 5 万条用户评价，单次分析时间从 8 小时降到 3 小时。</p>
+<p><strong>企业快速原型</strong>：某公司一个月内用 Dify 搭了 200+ AI 应用，其中一个应用被使用近 1 万次。</p>
+<p>这些案例说明一个趋势：<strong>Dify 正在从"开发者工具"变成"全员 AI 平台"</strong>。</p>
+  </div>
+</section>
+
+<section class="ch" id="mid-contact">
+  <div class="wrap">
+    <div class="contact-bar">
+      <img class="qr" src="assets/contact/qr-rain.png" alt="Rain · 匠人学院 IT 顾问微信" />
+      <div><div class="t">🤖 真的在用 Dify 搭 AI 应用？来群里聊聊</div><div class="d">分享你的工作流截图和踩坑经验，和其他用 Dify 做项目的同学互通有无。</div></div>
+    </div>
+  </div>
+</section>
+<aside class="promo">
+  <span class="promo-tag">AD · 自家的</span>
+  <div class="promo-body">
+    <h4>🧪 10 分钟测出你的 AI Engineer 缺口</h4>
+    <p>官网的 77 项能力自测（五大支柱逐项点选），已有 2,300+ 人做过。测完直接看出你该补哪根柱子，免费不用注册。</p>
+  </div>
+  <a class="promo-cta" href="https://jiangren.com.au/learn/ai-engineer" target="_blank" rel="noopener">去做测试 →</a>
+</aside>
+
+<section class="ch" id="ch5">
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 05</div>
+        <h2>🤔 Dify 常见问题 FAQ：定价、踩坑和选型建议</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-coffee-pointing.png" alt="" />
+    </div>
+<p>用 Dify 过程中最常遇到的问题都在这里了，包括定价怎么算、自部署踩坑合集、什么时候该换别的工具。</p>
+
+<h3>定价：到底花多少钱</h3>
+<p>Dify 有两种用法，成本差很多：</p>
+<table><tr><th>方案</th><th>Sandbox</th><th>Professional</th><th>Team</th><th>自部署</th></tr><tr><td>月费</td><td>$0</td><td>$59</td><td>$159</td><td>$0</td></tr><tr><td>消息数</td><td>200/月</td><td>5,000/月</td><td>10,000/月</td><td>无限</td></tr><tr><td>应用数</td><td>10</td><td>50</td><td>200+</td><td>无限</td></tr><tr><td>向量存储</td><td>5 MB</td><td>200 MB</td><td>20 GB</td><td>看硬盘</td></tr><tr><td>团队成员</td><td>1</td><td>3</td><td>多人</td><td>无限</td></tr></table>
+<p><strong>我的建议</strong>：个人学习或小团队直接自部署，一台 4 核 8G 的服务器（月费约 $20-40）就够跑。只有不想碰服务器运维的团队才考虑云端付费版。</p>
+<p>年付打八三折。学生和教育工作者可以申请免费使用。</p>
+<h3>自部署踩坑合集</h3>
+<p><strong>端口冲突</strong>：Dify 默认用 80 端口。如果服务器上已经跑着 Nginx 或 Apache，先改 <code>.env</code> 里的端口映射：</p>
+<pre># .env 文件
+EXPOSE_NGINX_PORT=3000
+# 然后访问 http://你的IP:3000</pre>
+<p><strong>Ollama 连不上</strong>：Docker 容器里访问宿主机的 Ollama，URL 不能写 <code>localhost</code>：</p>
+<pre># 错误写法
+OLLAMA_HOST=http://localhost:11434
+
+# 正确写法（Docker Desktop for Mac/Windows）
+OLLAMA_HOST=http://host.docker.internal:11434
+
+# 正确写法（Linux）
+OLLAMA_HOST=http://172.17.0.1:11434</pre>
+<p><strong>知识库上传后检索不到内容</strong>：通常是分块策略不对。PDF 文件建议用 Parent-Child 模式；短文本 FAQ 用 Q&amp;A 模式。检索模式选"混合"，别只用向量搜索。</p>
+<p><strong>升级后插件报错</strong>：v1.11 之后的版本对插件签名验证更严格。临时解决：在 <code>.env</code> 加 <code>FORCE_VERIFYING_SIGNATURE=false</code>。正式环境建议等插件作者更新。</p>
+<p><strong>OpenAI TTS 不出声</strong>：源码部署的用户需要装 FFmpeg：</p>
+<pre># Ubuntu/Debian
+apt-get install ffmpeg
+
+# macOS
+brew install ffmpeg</pre>
+<p><strong>内存不够用</strong>：知识库文档多或并发量大时，Docker 容器可能 OOM。给 Docker Desktop 分配至少 8 GB 内存，或者在 <code>docker-compose.yaml</code> 里加资源限制。</p>
+<h3>谁适合用 Dify，谁不适合</h3>
+<p><strong>适合的人</strong>：</p>
+<ul><li>想快速搭建 AI 应用原型的<strong>开发者和产品经理</strong></li><li>不会写代码但需要 AI 工具的<strong>运营和业务人员</strong>——Dify 的可视化编排真的不需要编程</li><li>需要<strong>私有化部署</strong>、数据不能出内网的企业</li><li>想<strong>同时接多个模型</strong>（GPT-4o + Claude + 国产模型）做 A/B 测试的团队</li></ul>
+<p><strong>不太适合的场景</strong>：</p>
+<ul><li>对 RAG 精度有极致要求的垂直领域（医疗、法律），FastGPT 的检索精度目前更高</li><li>需要从底层完全定制 AI 链路的场景——Dify 的抽象层会限制灵活性，不如直接用 LangChain</li><li>许可证限制：Dify 的开源协议<strong>禁止未授权的 SaaS 转售</strong>。你用 Dify 给自己公司搭应用没问题，但不能用它搭一个 SaaS 平台卖给别人</li></ul>
+<h3>跟 Coze / FastGPT 怎么选</h3>
+<table><tr><th>场景</th><th>选 Dify</th><th>选 Coze</th><th>选 FastGPT</th></tr><tr><td>想用多个国际模型</td><td>✅</td><td>❌ 字节系为主</td><td>⚠️ 需配 OneAPI</td></tr><tr><td>非技术人员搭应用</td><td>✅ 可视化好</td><td>✅ 更简单</td><td>⚠️ 门槛略高</td></tr><tr><td>数据私有化部署</td><td>✅ 成熟</td><td>⚠️ 刚开源</td><td>✅ 成熟</td></tr><tr><td>RAG 精度优先</td><td>⚠️ 够用</td><td>⚠️ 一般</td><td>✅ 最强</td></tr><tr><td>工作流编排</td><td>✅ 最强</td><td>⚠️ 基础</td><td>⚠️ 基础</td></tr><tr><td>社区和插件生态</td><td>✅ 139K star</td><td>✅ 字节生态</td><td>⚠️ 较小</td></tr></table>
+<p>简单说：<strong>Dify 是全能选手</strong>，大部分场景都能用，但每个单项可能不是第一。如果你没有明确的偏好，从 Dify 开始是最安全的选择。</p>
+<h3>学习资源</h3>
+<ul><li><a href="https://docs.dify.ai">官方文档</a>——最权威，更新也快</li><li><a href="https://github.com/langgenius/dify/discussions">GitHub Discussions</a>——遇到问题先搜这里</li><li><a href="https://github.com/svcvit/Awesome-Dify-Workflow">Awesome Dify Workflow</a>——社区共享的工作流模板，直接导入能用</li><li><a href="https://dify101.com">Dify 101</a>——第三方教程站，有分步骤截图</li></ul>
+<p>别一上来就看视频教程——很多过时了。Dify 迭代很快，v1.0 之后的架构和之前完全不同，优先看官方文档。</p>
+  </div>
+</section>
+<section class="ch" id="ch6">
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 06</div>
+        <h2>📚 Dify RAG 知识库实战：分块策略、检索调优与 reranking</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-data.png" alt="" />
+    </div>
+<p>很多人上传完文档，测试几条问题，发现回答驴唇不对马嘴，就把锅甩给大模型。其实多半是知识库配错了。Dify RAG 管道有七八个配置点，任何一个没调好都会影响最终质量。这章把每个参数讲清楚，顺带给一个调优流程。</p>
+
+<h3>RAG 管道的五个阶段</h3>
+<p>先建一个心智模型，知道问题出在哪一层才能对症下药：</p>
+<pre>文档上传 → 分块 (Chunking) → 向量化 (Indexing) → 检索 (Retrieval) → 重排 (Reranking) → 生成 (Generation)</pre>
+<p>分块决定你存进去的信息粒度，检索决定能召回什么，reranking 决定送给模型的是不是真正相关的内容。三个环节相互影响，不能只盯着一个。</p>
+<h3>分块模式：三选一，选错就从头来</h3>
+<p><strong>分块结构一旦保存无法修改</strong>。上传文档前想清楚用哪种模式，改错了只能删掉重传。</p>
+<h4>通用模式（General）</h4>
+<p>默认选项，适合大多数场景：产品文档、新闻、博客、说明书。按分隔符（换行、段落）切块，可以指定最大块长度（通常 512-1000 token）和重叠长度（overlap，通常 50-100 token）。</p>
+<pre>段落 A（1000 token）
+  ↓ 切割
+块 1: 第 1-512 token
+块 2: 第 462-974 token  ← 50 token 重叠确保上下文连续
+块 3: 第 924-1000 token</pre>
+<p><strong>overlap 不要设 0</strong>。没有重叠时，切块边界处的信息很容易被两个块各分走一半，单独看都不完整。通常设总块长的 10%。</p>
+<h4>父子模式（Parent-Child）— Dify v0.15.0+</h4>
+<p>父子模式解决的是"精准匹配"和"上下文丰富"的矛盾。</p>
+<ul><li><strong>子块（Child chunk）</strong>：小，几十到一两百 token，用于向量相似度匹配——短文本的 embedding 更精准</li><li><strong>父块（Parent chunk）</strong>：大，几百 token 或整篇文档，检索命中后送给 LLM——保留足够上下文</li></ul>
+<p>工作流程：用户问题 → 和子块做相似度匹配 → 找到子块 → 返回对应的父块给模型。</p>
+<p>两种父块策略：</p>
+<ul><li><strong>段落模式</strong>：按段落分父块，父块相对独立，适合有清晰段落结构的技术文档</li><li><strong>全文档模式</strong>：整个文档作为一个父块，适合内容密度高、前后关联强的合同、报告</li></ul>
+<p>父子模式<strong>只支持 High Quality 索引</strong>，不支持 Economy 模式。</p>
+<h4>Q&amp;A 模式</h4>
+<p>文档上传后，Dify 用 LLM 自动从每个段落生成若干问答对，存储的不是原文而是问答对。检索时用用户问题和这些预生成问题做匹配。</p>
+<p>适合场景非常具体：<strong>FAQ 文档、产品客服知识库、帮助中心</strong>。用户通常直接问"怎么退货""发货多久"这类问题，和预生成问题的相似度非常高，召回精度远高于通用模式。</p>
+<p>不适合：技术文档、合同文本、需要综合多个段落来回答的问题。</p>
+<p>Q&amp;A 模式<strong>只支持 High Quality</strong>，而且处理成本比通用模式高很多——每个段落都要调一次 LLM 生成问答对。文档量大的时候算一下 token 消耗再决定。</p>
+<h3>索引质量：High Quality vs Economy</h3>
+<table><tr><th></th><th>High Quality</th><th>Economy</th></tr><tr><td>索引方式</td><td>调用 embedding 模型向量化</td><td>倒排索引（关键词）</td></tr><tr><td>检索精度</td><td>高，理解语义</td><td>低，只做关键词匹配</td></tr><tr><td>成本</td><td>按 token 计费</td><td>免费</td></tr><tr><td>支持的检索模式</td><td>向量 / 全文 / 混合</td><td>仅全文</td></tr><tr><td>支持父子/Q&amp;A 模式</td><td>✅</td><td>❌</td></tr></table>
+<p>生产环境没有理由用 Economy。Embedding 的成本不高——1MB 的文档用 <code>text-embedding-3-small</code> 处理大概花几美分。Economy 存在是给本地测试用的。</p>
+<h3>检索模式配置</h3>
+<h4>三种检索模式</h4>
+<p><strong>向量检索（Vector Search）</strong>：把用户问题也向量化，计算和文档块的余弦相似度，返回语义最接近的块。能处理同义词和表达方式不同的情况，但对专有名词、产品型号这类需要精确匹配的词效果不好。</p>
+<p><strong>全文检索（Full-text Search）</strong>：BM25 算法，关键词匹配。对 SKU、命令名称、专有名词精准，但不理解语义。</p>
+<p><strong>混合检索（Hybrid Search）</strong>：两者都跑，结果合并后排序。<strong>生产环境默认选混合</strong>，几乎总比单一模式强。</p>
+<p>混合检索有个权重参数 α（通常 0-1），控制向量分数和全文分数的比重：</p>
+<pre>final_score = α × vector_score + (1 - α) × keyword_score</pre>
+<ul><li>α = 1：纯向量</li><li>α = 0：纯关键词</li><li>α = 0.5：各占一半（默认，大多数场景合适）</li></ul>
+<p>文档里专有名词多、精确查询多的场景把 α 调低；通用问答场景 α = 0.5 或稍高。</p>
+<h4>TopK 和 Score Threshold</h4>
+<p><strong>TopK</strong>：检索阶段返回多少个块送给下游（reranker 或直接给 LLM）。默认通常是 5。</p>
+<p>TopK 不是越大越好：</p>
+<ul><li>太小：漏掉相关内容</li><li>太大：送给 LLM 的 context 里噪声变多，而且吃 token</li></ul>
+<p>经验值：混合检索 TopK 设 5-10，如果接了 reranker 可以设 15-20 让 reranker 从更多候选里挑。</p>
+<p><strong>Score Threshold</strong>：低于这个分数的块直接过滤掉，不送给 LLM。</p>
+<p>用 Score Threshold 要小心——设太高容易什么都检索不到。建议先把 threshold 设 0（不过滤），观察检索到的块的分数分布，再决定合理的下限。</p>
+<h3>Reranking：召回率的最后一关</h3>
+<p>Reranker 是一个独立的评分模型，接受（用户问题, 候选块）对，重新打分并排序，输出真正相关的 Top N 给 LLM。</p>
+<p>它解决的问题：向量相似度不等于实际相关性。两段话向量很近，但未必都能回答当前问题。Reranker 做的是精排，代价是计算量更大，只适合在 TopK 候选集上跑。</p>
+<h4>可选的 Reranker 模型</h4>
+<p><strong>Cohere Rerank 3</strong>：商业 API，精度高，直接在 Dify 模型设置里填 API key 接入。对英文效果最好，中文效果也可以接受。按每次 rerank 调用的文档数计费。</p>
+<p><strong>BGE Reranker（BAAI/bge-reranker-v2-m3）</strong>：开源模型，中英双语，可以自部署在 Ollama 或 vLLM 上，自部署后没有 API 费用。中文场景优先考虑这个。</p>
+<p>Dify 里接入 BGE Reranker 的配置示意：</p>
+<pre># 在 Dify 模型提供商里添加自部署 rerank 端点
+model_type: rerank
+model: BAAI/bge-reranker-v2-m3
+endpoint: http://your-server:8080/rerank  # vLLM 或 xinference 部署</pre>
+<p>接入后在知识库的检索设置里勾选「启用 Reranking」，选择对应模型，设置：</p>
+<ul><li><strong>Rerank TopK</strong>：从候选里最终保留多少个块给 LLM（通常 3-5）</li><li><strong>Score Threshold</strong>：reranker 分数低于此值的块丢弃（可选）</li></ul>
+<h4>Reranker 调用流程</h4>
+<pre>用户问题
+    ↓
+混合检索 → TopK=15 个候选块
+    ↓
+Reranker 对 15 个候选重打分
+    ↓
+按 Reranker 分数排序，取 Top 5
+    ↓
+送给 LLM 生成答案</pre>
+<p>检索 TopK 设大（15-20），Reranker TopK 设小（3-5），让精排模型承担过滤职责。</p>
+<h3>实战调优流程</h3>
+<p>遇到知识库回答质量差，不要乱调参数，按这个顺序排查：</p>
+<h4>第一步：确认内容在知识库里</h4>
+<p>在知识库页面直接搜索关键词，看有没有召回结果。没有召回说明分块出了问题，或者文档根本没被正确解析（PDF 的图片内容、扫描件默认无法提取文字）。</p>
+<pre># Dify 支持测试检索，在知识库详情页 → 召回测试
+# 输入用户的问题，观察返回的块和分数</pre>
+<h4>第二步：看召回块是否包含答案</h4>
+<p>召回了内容，但回答还是不对，看一下召回的块里有没有答案。</p>
+<ul><li><strong>有答案但没用</strong>：LLM 忽略了相关内容，可能是 context 太长、噪声太多，降低 TopK 或开启 reranker</li><li><strong>没有答案</strong>：分块切得太碎把相关信息分散了，换父子模式，或者调大块长度</li></ul>
+<h4>第三步：针对文档类型选分块策略</h4>
+<table><tr><th>文档类型</th><th>推荐分块模式</th><th>推荐检索模式</th></tr><tr><td>产品 FAQ / 帮助中心</td><td>Q&amp;A 模式</td><td>向量或混合</td></tr><tr><td>技术文档（有层级结构）</td><td>父子模式（段落）</td><td>混合 + Reranker</td></tr><tr><td>合同 / 长报告</td><td>父子模式（全文档）</td><td>混合 + Reranker</td></tr><tr><td>新闻 / 博客文章</td><td>通用模式</td><td>混合</td></tr><tr><td>产品目录 / 含 SKU</td><td>通用模式</td><td>混合，α 偏向关键词</td></tr></table>
+<h4>第四步：调整参数组合</h4>
+<p>一个在大多数场景表现稳定的配置：</p>
+<pre>分块模式: 父子模式（段落）
+索引质量: High Quality
+检索模式: 混合检索，α=0.5
+检索 TopK: 15
+Reranker: BGE-reranker-v2-m3（中文场景）或 Cohere Rerank 3（英文场景）
+Reranker TopK: 5
+Score Threshold: 0.3（先跑几轮再调）</pre>
+<p>这不是最优解，是个稳健的起点。根据你的文档类型和问答模式，每个参数都可能需要调整。</p>
+<h3>几个容易踩的坑</h3>
+<p><strong>分块后不能改模式</strong>：选错了只能删重传，大文档要重新 embedding，代价不小。第一次上传小样本测试清楚再批量导入。</p>
+<p><strong>PDF 扫描件无法检索</strong>：扫描 PDF 里的文字是图片，Dify 默认不做 OCR。要么换成文字版 PDF，要么用支持 OCR 的 parser（Dify 的知识管道里可以配置）。</p>
+<p><strong>Reranker 和 Embedding 要语言匹配</strong>：用了中文 embedding 模型（比如 <code>text-embedding-3-small</code> 支持多语言），但 Reranker 选了只支持英文的版本，中文结果排序会乱。中文场景 Reranker 用 BGE 或 Cohere v3（支持多语言）。</p>
+<p><strong>知识库版本和应用绑定</strong>：一个知识库可以绑定多个 Dify 应用，更新文档后所有绑定的应用都会受影响。生产环境的知识库更新前先在测试应用里验证。</p>
+<p><strong>父子模式的索引成本</strong>：父子模式存了子块又存父块，索引存储量是通用模式的 2 倍左右。不是成本问题，但向量数据库容量要留余量。</p>
+
+    <p class="sales-card-lead">📊 RAG 调优到这步，你已经比大多数 Dify 用户走得更深了。想把 RAG + Dify 做成能展示的项目？Amelia 聊聊你的方向：</p>
+    <div class="sales-card"><img src="assets/contact/sales-cards/amelia.jpg" alt="Amelia · IT Career Consultant · 匠人学院" /></div>
+  </div>
+
+<a class="promo-line" href="https://jiangren.com.au/blog" target="_blank" rel="noopener">📰 跟上行业节奏：匠人每天 5 条经过核源的 AI 日报，每周一份大事盘点 <span>→</span></a>
+<a class="promo-line" href="https://jiangren.com.au/learn/prompt-master" target="_blank" rel="noopener">🧑‍💻 光看不动手没用：Prompt Master / LLM Lab / Vibe Coding 三个浏览器内实验室，边读边跑 <span>→</span></a></section>
+<aside class="promo">
+  <span class="promo-tag">AD · 自家的</span>
+  <div class="promo-body">
+    <h4>🎬 还没准备好 cohort？先上入门自学课</h4>
+    <p>AI Engineer 入门（RAG 方向）：4 周 52 小时视频 + 25 个浏览器内 Lab + AI Tutor 即时答疑，自己掌握节奏，是 Bootcamp 的官方前置课。</p>
+  </div>
+  <a class="promo-cta" href="https://jiangren.com.au/program-course/ai-engineer-rag" target="_blank" rel="noopener">看课程介绍 →</a>
+</aside>
+<section class="ch" id="ch7">
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 07</div>
+        <h2>🖥️ Dify 自部署完整指南：Docker Compose + Nginx 反向代理 + HTTPS</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-pen-book.png" alt="" />
+    </div>
+<p>云端托管的 Dify 够用，但数据出境、API 限流、每月 token 配额这几件事总会在不合时宜的时候让你难受。自部署一套就没这些烦恼——代价是要自己管机器、管证书、管升级。这章把整条路走一遍，顺带把坑标出来。</p>
+
+<h3>前置条件</h3>
+<p><strong>机器规格</strong>：最低 2 vCPU / 4 GB RAM（跑完整栈 + 向量数据库），推荐 4 vCPU / 8 GB。磁盘留 40 GB 以上，向量数据会持续增长。</p>
+<p><strong>软件依赖</strong>：</p>
+<ul><li>Docker Engine 24.0+</li><li>Docker Compose v2（命令是 <code>docker compose</code>，不是旧版 <code>docker-compose</code>）</li><li>一个指向该服务器 IP 的域名 A 记录（申请 SSL 证书用）</li></ul>
+<p><strong>端口</strong>：服务器防火墙放开 80、443、22。不要直接暴露 Dify 内部端口（5001、3000 等）到公网。</p>
+<h3>架构速览</h3>
+<p>Dify 的 <code>docker-compose.yaml</code> 默认起八个服务：</p>
+<table><tr><th>服务</th><th>作用</th></tr><tr><td><code>api</code></td><td>Dify 后端 Python Flask，端口 5001</td></tr><tr><td><code>web</code></td><td>Next.js 前端，端口 3000</td></tr><tr><td><code>worker</code></td><td>Celery 异步任务（RAG 索引、回调）</td></tr><tr><td><code>db</code></td><td>PostgreSQL，应用元数据</td></tr><tr><td><code>redis</code></td><td>会话缓存 + 任务队列</td></tr><tr><td><code>weaviate</code></td><td>默认向量数据库</td></tr><tr><td><code>sandbox</code></td><td>代码执行沙箱（隔离环境运行用户代码）</td></tr><tr><td><code>nginx</code></td><td>内置反向代理，把 <code>/api/</code> 路由到 <code>api</code>，其余路由到 <code>web</code></td></tr></table>
+<p>外层再加一个宿主机 Nginx 做 HTTPS 终端，证书放在宿主机上，内部流量走 HTTP。</p>
+<h3>Step 1：拉代码，配 .env</h3>
+<pre>git clone https://github.com/langgenius/dify.git
+cd dify/docker
+cp .env.example .env</pre>
+<p><code>.env.example</code> 里有一百多个变量，大多数默认值可以直接用。必须改的几个：</p>
+<pre># .env — 必改项
+
+# 换成强随机字符串（openssl rand -hex 32 生成）
+SECRET_KEY=your-random-secret-key-here
+
+# 换成你的域名（后面配完 HTTPS 再改成 https://）
+CONSOLE_URL=https://dify.example.com
+APP_URL=https://dify.example.com
+
+# 如果宿主机 80/443 已被占用，把内置 nginx 挪到别的端口
+EXPOSE_NGINX_PORT=8080
+EXPOSE_NGINX_SSL_PORT=8443</pre>
+<p><code>SECRET_KEY</code> 不改的话用的是示例值，等于把签名密钥公开，任何人都能伪造 session。</p>
+<h4>选择向量数据库</h4>
+<p>默认是 Weaviate。如果你已经有 Qdrant 或 Milvus，在 <code>.env</code> 里改：</p>
+<pre>VECTOR_STORE=qdrant
+QDRANT_URL=http://your-qdrant-host:6333
+QDRANT_API_KEY=your-key</pre>
+<p>不改的话直接用内置 Weaviate 就行，零额外配置。</p>
+<h3>Step 2：启动 Dify 容器栈</h3>
+<pre>cd dify/docker
+docker compose up -d</pre>
+<p>第一次启动会拉镜像，根据网速大概要 3-8 分钟。确认所有服务跑起来：</p>
+<pre>docker compose ps</pre>
+<p>期望输出每个服务都是 <code>Up</code>（<code>healthy</code> 更好）。如果 <code>api</code> 或 <code>worker</code> 反复重启，先看日志：</p>
+<pre>docker compose logs api --tail 50
+docker compose logs worker --tail 50</pre>
+<p>最常见原因：<code>.env</code> 的 <code>SECRET_KEY</code> 没改，或者 PostgreSQL 还没完成初始化就被 <code>api</code> 连接了——后者等十秒再 <code>docker compose restart api</code> 一般能解决。</p>
+<h3>Step 3：宿主机 Nginx 反向代理</h3>
+<p>内置 Nginx 监听 <code>8080</code>（或者你在 <code>.env</code> 里设的端口），宿主机 Nginx 在 <code>80/443</code> 做 TLS 终端，然后把流量转发进去。</p>
+<p>先装 Nginx：</p>
+<pre># Ubuntu/Debian
+sudo apt install nginx -y</pre>
+<p>创建站点配置（先只配 HTTP，等会儿 Certbot 会自动改成 HTTPS）：</p>
+<pre># /etc/nginx/sites-available/dify
+server {
+    listen 80;
+    server_name dify.example.com;
+
+    # 大文件上传（知识库文档）
+    client_max_body_size 100M;
+
+    location / {
+        proxy_pass http://127.0.0.1:8080;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+
+        # WebSocket 支持（Dify 控制台用到）
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+
+        proxy_read_timeout 300s;
+        proxy_connect_timeout 10s;
+    }
+}</pre>
+<p>启用并测试：</p>
+<pre>sudo ln -s /etc/nginx/sites-available/dify /etc/nginx/sites-enabled/
+sudo nginx -t
+sudo systemctl reload nginx</pre>
+<p>此时用 <code>curl http://dify.example.com</code> 应该能拿到 Dify 前端的 HTML。</p>
+<h3>Step 4：Certbot 申请 SSL 证书</h3>
+<pre>sudo apt install certbot python3-certbot-nginx -y
+sudo certbot --nginx -d dify.example.com</pre>
+<p>Certbot 会自动修改你的 Nginx 配置，加上 <code>ssl_certificate</code>、<code>ssl_certificate_key</code>，并把 80 端口重定向到 443。完成后验证：</p>
+<pre>sudo nginx -t &amp;&amp; sudo systemctl reload nginx
+curl -I https://dify.example.com
+# 期望看到 HTTP/2 200</pre>
+<p>证书 90 天到期，Certbot 的 systemd timer 会自动续期，不需要手动操作。</p>
+<h4>最终 Nginx 配置长这样</h4>
+<p>Certbot 改完之后，配置大概是：</p>
+<pre>server {
+    listen 80;
+    server_name dify.example.com;
+    return 301 https://$host$request_uri;
+}
+
+server {
+    listen 443 ssl http2;
+    server_name dify.example.com;
+
+    ssl_certificate     /etc/letsencrypt/live/dify.example.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/dify.example.com/privkey.pem;
+    ssl_protocols       TLSv1.2 TLSv1.3;
+    ssl_ciphers         HIGH:!aNULL:!MD5;
+
+    client_max_body_size 100M;
+
+    location / {
+        proxy_pass http://127.0.0.1:8080;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto https;
+
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+
+        proxy_read_timeout 300s;
+    }
+}</pre>
+<p>注意 <code>X-Forwarded-Proto https</code> 硬编码成 <code>https</code>，不用 <code>$scheme</code>——因为宿主机到容器那段是 HTTP，如果用 <code>$scheme</code> 传进去的是 <code>http</code>，Dify 生成的链接会变成 <code>http://</code> 开头，表单提交 CSRF 校验会报错。</p>
+<h3>Step 5：Dify 首次初始化</h3>
+<p>打开浏览器访问 <code>https://dify.example.com</code>，进入管理员账号创建页面。填完邮箱和密码，登进控制台，去「设置 → 模型供应商」填你的 OpenAI / Anthropic / 本地 Ollama 的 API Key。</p>
+<p>如果你用 Ollama 或 LiteLLM 这类本地模型，<code>BASE_URL</code> 要填宿主机内网 IP 而不是 <code>localhost</code>，容器里的 <code>localhost</code> 解析不到宿主机。Docker Compose 默认网络下，用 <code>host.docker.internal</code>（Mac/Windows）或宿主机内网 IP（Linux）。</p>
+<h3>升级 Dify</h3>
+<pre>cd dify/docker
+git pull
+docker compose pull
+docker compose down
+docker compose up -d</pre>
+<p>数据卷（PostgreSQL、Weaviate、上传文件）挂在命名 volume 上，<code>down</code> 不会删数据。但升级前建议先备份 PostgreSQL：</p>
+<pre>docker compose exec db pg_dump -U postgres dify &gt; dify-backup-$(date +%Y%m%d).sql</pre>
+<h3>常见问题排查</h3>
+<p><strong>问：首页白屏，控制台报 502</strong> 先看 <code>docker compose ps</code>，确认 <code>api</code> 和 <code>web</code> 都在跑。再检查宿主机 Nginx 的 <code>proxy_pass</code> 端口有没有对上 <code>.env</code> 里的 <code>EXPOSE_NGINX_PORT</code>。</p>
+<p><strong>问：上传知识库文档报 413 Request Entity Too Large</strong> Nginx 默认限制 1MB。在宿主机 Nginx 配置里加 <code>client_max_body_size 100M;</code>（已在上面的示例里包含）。</p>
+<p><strong>问：<code>certbot</code> 报 "Could not bind to IPv4 or IPv6"</strong> <code>certbot --nginx</code> 的 standalone 模式需要占用 80 端口，但你的 Nginx 已经在用。用 <code>--nginx</code> 插件就好（不是 <code>--standalone</code>），它会和 Nginx 协作，不需要停服。</p>
+<p><strong>问：Dify 生成的链接是 http:// 不是 https://</strong> <code>.env</code> 里的 <code>CONSOLE_URL</code> 和 <code>APP_URL</code> 还没改成 <code>https://</code>。改完 <code>docker compose restart api</code> 生效。</p>
+<p><strong>问：磁盘快满了</strong> 向量数据、Docker 镜像层和日志是三大占用。清理未使用镜像：<code>docker image prune -f</code>。Weaviate 数据在 <code>volumes/weaviate</code>，没有简单缩容方法，规划时提前留够空间。</p>
+<p>自部署的核心优势是数据完全在自己手里，模型调用也走自己的 API Key，适合有数据合规要求或者用量大的场景。跑起来之后日常维护很少，主要就是偶尔升级版本和看一眼磁盘使用率。</p>
+
+    <p class="sales-card-lead">🖥️ 自部署 Dify 跑起来了，数据在自己手里。接下来想用它做什么项目、怎么写进简历？Rain 帮你看：</p>
+    <div class="sales-card"><img src="assets/contact/sales-cards/rain.jpg" alt="Rain · Senior IT Career Consultant · 匠人学院" /></div>
+  </div>
+</section>
+
+</main>
+
+<section class="page back-cover">
+  <div class="logo"><img src="assets/logo/logo-zh-white.png" alt="匠人学院" /></div>
+  <h2>搭完 Dify 应用，接下来怎么落到简历里？</h2>
+  <p style="max-width: 78%;">这本手册的在线版在 jiangren.com.au/wiki/dify-guide，随官网更新。匠人学院还有 20+ 本同款 AI 工具指南（Claude Code、Cursor、Windsurf、CrewAI、n8n…）和 AI Engineer 方向的项目制课程——想知道 Dify + RAG + Agent 怎么用进真实业务、做成找工作的作品，来聊聊。</p>
+
+  <div class="sales-card" style="width: 88%;"><img src="assets/contact/sales-cards/angela.jpg" alt="Angela · IT Career Consultant · 匠人学院" /></div>
+
+  <div class="contact-bar" style="width: 88%;">
+    <img class="qr" src="assets/contact/qr-amelia.png" alt="Amelia · 匠人学院 IT 顾问微信" />
+    <div class="cb-body">
+      <div class="cb-title">扫码进社群，Dify 实操答疑</div>
+      <div class="cb-desc">把这本 PDF 转给还在手写 LangChain 样板代码的同事。</div>
+    </div>
+    <div class="cb-brand"><img src="assets/logo/jr-box.svg" alt="JR" /><span class="cb-url">jiangren.com.au</span></div>
+  </div>
+
+  <p class="caption" style="color: rgba(255,255,255,0.5);">© JR Academy · 学 AI 来匠人 · 内容源自 jiangren.com.au/wiki《Dify 实战手册》· 界面图来自 Dify 官方文档 · 欢迎转发</p>
+</section>
+
+<script defer src="theme/reader.js"></script>
+<a href="Dify%20%E5%AE%9E%E6%88%98%E6%89%8B%E5%86%8C%EF%BC%9A%E5%8F%AF%E8%A7%86%E5%8C%96%E6%90%AD%E5%BB%BA%20AI%20%E5%BA%94%E7%94%A8%20-%20%E5%8C%A0%E4%BA%BA%E5%AD%A6%E9%99%A2.pdf" download style="position:fixed;right:22px;bottom:22px;z-index:1200;display:flex;align-items:center;gap:8px;background:#0D0F12;color:#fff;font-weight:700;font-size:14.5px;padding:13px 22px;border-radius:999px;box-shadow:0 12px 28px rgba(13,15,18,.35);text-decoration:none;font-family:Inter,'PingFang SC',sans-serif;">⬇️ 下载 PDF 版</a>
+</body>
+</html>

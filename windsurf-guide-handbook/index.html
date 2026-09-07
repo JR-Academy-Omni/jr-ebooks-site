@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<title>Windsurf Agentic IDE 中文上手手册 — JR Academy</title>
+<link rel="stylesheet" href="theme/ebook.css" />
+<link rel="stylesheet" href="theme/flow-a4.css" />
+</head>
+<body>
+<img class="jr-wm" src="assets/logo/jr-box.svg" alt="" />
+
+<section class="page cover2">
+  <div class="cv2-ghost">Windsurf</div>
+  <div class="cv2-head">
+    <img src="assets/logo/logo-zh-white.png" alt="匠人学院" />
+    <span class="cv2-sticker">🌊 2026 实战版</span>
+  </div>
+  <div class="cv2-body">
+    <div class="cv2-kicker">告诉 Cascade 你要什么，它帮你写代码、跑命令、修 bug</div>
+    <div class="cv2-title"><em>Windsurf</em> Agentic IDE<br/>中文上手手册</div>
+    <div class="cv2-bar"></div>
+    <p class="cv2-sub">Codeium 出品、Cognition 收购的 AI 原生代码编辑器。Cascade Agent + Flow State 实时追踪 + 无限 Tab 补全——免费版就能用。8 章从安装到全栈实战，.windsurfrules 配置 / MCP 接外部工具 / Cascade 调 Bug 全在这。</p>
+    <div class="cv2-chips">
+      <span class="chip">🆓 Free 版含无限 Tab 补全</span>
+      <span class="chip">⚡ Cascade 自动跨文件改代码</span>
+      <span class="chip">🔌 MCP 接 Figma/数据库</span>
+    </div>
+    <div class="cv2-diecut">一个人干整个项目，让 Cascade 跑腿</div>
+  </div>
+  <span class="cv2-holo">🌊</span>
+  <img class="cv2-mascot" src="assets/illustrations/niuxiaojiang-working-laptop.png" alt="牛小匠" />
+  <div class="cv2-domain">jiangren.com.au · 在线版随官网更新 /wiki/windsurf-guide</div>
+  <div class="cv2-strip"><span>学 AI 来匠人 <i>✦</i> Windsurf Agentic IDE 手册 <i>✦</i> JIANGREN.COM.AU <i>✦</i> Cascade 帮你写代码 <i>✦</i> 学 AI 来匠人 <i>✦</i></span></div>
+</section>
+
+<main class="flow">
+<div class="book-toc">
+  <div class="ch-num">CONTENTS</div>
+  <h2>目录（8 章）</h2>
+  <a href="#ch1"><span class="num">01</span>🌊 Windsurf 是什么：第一个 Agentic IDE</a>
+  <a href="#ch2"><span class="num">02</span>🚀 安装与第一个项目：5 分钟跑通 Todo App</a>
+  <a href="#ch3"><span class="num">03</span>⚡ 三大核心功能：Cascade / Supercomplete / Web Preview</a>
+  <a href="#ch4"><span class="num">04</span>⚙️ 进阶配置：.windsurfrules / MCP / Memory / 省 Credit</a>
+  <a href="#ch5"><span class="num">05</span>❓ 常见问题、定价与选型：Windsurf vs Cursor vs Claude Code</a>
+  <a href="#ch6"><span class="num">06</span>🐛 用 Cascade 调试和修复 Bug：真实全链路案例</a>
+  <a href="#ch7"><span class="num">07</span>🔀 Git 集成与团队协作：AI 写 commit / PR / 解冲突</a>
+  <a href="#ch8"><span class="num">08</span>🏗️ 项目实战：Cascade 搭全栈 CRUD，20 分钟搞定</a>
+</div>
+
+<section class="ch" id="how">
+  <div class="wrap">
+    <h2>📖 这本手册怎么读</h2>
+    <div class="card">
+      <p>这本书和官网 wiki《Windsurf AI IDE 实战指南》同源（jiangren.com.au/wiki/windsurf-guide，免费，不用注册，官网那份持续更新）。</p>
+      <p>完全没碰过 Windsurf 的，第 1、2 章搞清楚概念，跑通第一个 Todo App；用 Cursor 转过来的，第 4 章的 .windsurfrules 是重点，对比 .cursorrules 一分钟就懂；想用 Cascade 调 bug 的，直接跳第 6 章，有五个可直接复制的调试 prompt 模板；想搭全栈项目的，第 8 章有完整从零搭建记录。代码全可复制，配置直接用。</p>
+    </div>
+    <div class="contact-bar">
+      <img class="qr" src="assets/contact/qr-amelia.png" alt="Amelia · 匠人学院 IT 顾问微信" />
+      <div><div class="t">💬 装好 Windsurf 想进 AI 开发群？扫这里</div><div class="d">群里每周分享 AI IDE 选型、Cascade 配置技巧和真实项目案例。</div></div>
+    </div>
+  </div>
+</section>
+<section class="ch" id="ch1">
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 01</div>
+        <h2>🌊 Windsurf 是什么：第一个 Agentic IDE</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-thinking.png" alt="" />
+    </div>
+<h3>Windsurf 一句话介绍</h3>
+<p>Windsurf 是由 Codeium 团队打造的 AI 原生代码编辑器，2024 年底发布，2025 年 12 月被 Cognition AI（Devin 的母公司）收购。它基于 VS Code 内核，但把 AI 做成了编辑器的底层能力，而不是插件。</p>
+<p>核心卖点就一个词：<strong>Cascade</strong>——一个能理解你整个代码库、跨文件推理、自主执行多步任务的 AI Agent。你告诉它"给这个项目加一个登录页面"，它会自己规划、创建文件、写代码、跑命令，一条龙搞定。</p>
+<h3>技术架构</h3>
+<p>Windsurf 不只是"VS Code 加了个 AI 侧边栏"。它在 VS Code 内核之上加了三层自研基础设施：</p>
+<pre>┌──────────────────────────────────┐
+│         Cascade Agent            │  ← 多步推理 + 代码执行
+├──────────────────────────────────┤
+│     Flow State Engine            │  ← 实时追踪编辑 / 终端 / 剪贴板
+├──────────────────────────────────┤
+│   Codebase Indexing (本地向量库)  │  ← 语义搜索全项目
+├──────────────────────────────────┤
+│        VS Code 内核               │  ← 编辑器 / 插件 / 终端
+└──────────────────────────────────┘</pre>
+<ul><li><strong>Codebase Indexing</strong>：项目打开后自动建索引。Cascade 回答问题时不是靠你手动 <code>@</code> 文件，它能语义搜索整个代码库找到相关代码。</li><li><strong>Flow State Engine</strong>：持续监听你在编辑器里的行为——改了哪行、跑了什么命令、复制了什么报错。Cascade 随时知道你"在干嘛"。</li><li><strong>Cascade Agent</strong>：拿到上下文后，拆任务 → 改代码 → 跑命令 → 验证结果，循环执行直到任务完成。</li></ul>
+<p>Cognition AI 收购 Windsurf 后，Cascade 的 Agent 能力在持续增强——长期方向是让 Windsurf 接近一个"IDE 里的 Devin"。</p>
+<h3>和 Cursor、Claude Code 有什么不同</h3>
+<p>这三个工具代表了 AI 编程的三种思路：</p>
+<table><tr><th>特性</th><th>Windsurf</th><th>Cursor</th><th>Claude Code</th></tr><tr><td>本质</td><td>AI 原生 IDE</td><td>VS Code 魔改 + AI</td><td>终端 AI Agent</td></tr><tr><td>核心 AI</td><td>Cascade Agent</td><td>Composer Agent</td><td>Claude CLI</td></tr><tr><td>自动补全</td><td>Supercomplete（不耗 credit）</td><td>Tab 补全</td><td>无</td></tr><tr><td>上下文感知</td><td>Flow State 实时追踪</td><td>手动 @ 引用</td><td>自动读代码库</td></tr><tr><td>学习曲线</td><td>低，VS Code 用户直接上手</td><td>低</td><td>中等（需要终端基础）</td></tr><tr><td>免费额度</td><td>有，含无限 Tab 补全</td><td>有，2K 补全</td><td>无免费额度</td></tr></table>
+<p>实际使用中的差别：</p>
+<ul><li><strong>Windsurf 的 Flow State</strong> 会追踪你的每一个操作——编辑、终端命令、剪贴板——然后 Cascade 能直接"接住"你的意图，不用反复解释上下文。你复制了一段报错，直接说"修这个"就行。</li><li><strong>Cursor 的 Composer</strong> 在处理明确任务时速度更快，但大项目里上下文管理不如 Windsurf 自动化。Cursor 的 <code>.cursorrules</code> 生态更成熟，社区更大。</li><li><strong>Claude Code</strong> 在复杂重构和代码质量上碾压，但它是终端工具，没有可视化界面和自动补全。适合大型代码库的架构级改动。</li></ul>
+<pre># 选择思路：
+# 日常写代码 + 需要自动补全 → Windsurf 或 Cursor
+# 大型重构 + 安全审计 + CI/CD 自动化 → Claude Code
+# 最佳组合：IDE 里用 Windsurf 写业务代码，终端开 Claude Code 做重构和审查</pre>
+<h3>谁适合用 Windsurf</h3>
+<ul><li><strong>前端开发者</strong>：Web Preview 功能可以直接在 IDE 里预览网页，点击元素让 Cascade 改样式，比 alt-tab 浏览器高效一个档次</li><li><strong>全栈独立开发者</strong>：一个人干整个项目，Cascade 的多文件编辑 + 终端命令执行能省大量时间</li><li><strong>从 VS Code 迁移的人</strong>：设置、插件、快捷键都能一键导入，零切换成本</li><li><strong>预算有限的开发者</strong>：免费版的 Tab 补全不限量，对学生和个人开发者友好</li><li><strong>设计转开发的人</strong>：Figma MCP 可以读取设计稿直接生成代码，降低实现门槛</li></ul>
+<p>不太适合的场景：纯后端 / 系统编程（Rust、C++、Go），这类场景 Claude Code 的终端模式更顺手；团队已经重度依赖 Cursor 生态（大量 <code>.cursorrules</code> 积累）的情况下迁移成本较高。</p>
+    <div class="contact-bar">
+      <img class="qr" src="assets/contact/qr-amelia.png" alt="Amelia · 匠人学院 IT 顾问微信" />
+      <div><div class="t">💬 用 Windsurf 遇到问题？扫码进群问</div><div class="d">群里每周分享真实的 Windsurf / Cascade 配置和 AI IDE 对比实测。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="ch" id="ch2">
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 02</div>
+        <h2>🚀 安装与第一个项目</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-working-laptop.png" alt="" />
+    </div>
+<h3>下载安装</h3>
+<p>Windsurf 支持 macOS、Windows、Linux 三个平台，去官网下载对应安装包就行：</p>
+<pre># macOS（也可以直接下载 .dmg）
+brew install --cask windsurf
+
+# Linux（Debian/Ubuntu）
+# 去 windsurf.com/download 下载 .deb，然后：
+sudo dpkg -i windsurf_*.deb
+
+# Windows
+# 直接下载 .exe 安装包，双击运行</pre>
+<p>安装后第一次启动，Windsurf 会问你要不要导入 VS Code 或 Cursor 的设置。<strong>强烈建议导入</strong>——主题、快捷键、插件都能保留，体验几乎一模一样。</p>
+<h3>注册与登录</h3>
+<p>打开 Windsurf 后右侧会出现 Cascade 面板，点击登录。支持 Google、GitHub 账号直接注册，免费账户就能开始用。</p>
+<p>注册完成后你会获得：</p>
+<table><tr><th>免费额度</th><th>说明</th></tr><tr><td>Tab 自动补全</td><td><strong>无限量</strong>，不消耗任何 credit</td></tr><tr><td>Cascade 对话</td><td>每月 25 次 prompt credit</td></tr><tr><td>模型</td><td>默认使用 Codeium 基础模型</td></tr></table>
+<p>25 次 Cascade 够你完整体验功能了。觉得好用再考虑升级 Pro（$15/月，500 credit）。</p>
+<h3>第一个项目：用 Cascade 生成一个 Todo App</h3>
+<p>打开一个空文件夹，然后在 Cascade 面板里输入：</p>
+<pre>帮我创建一个 React + TypeScript 的 Todo 应用，要求：
+- 用 Vite 脚手架
+- 支持添加、删除、标记完成
+- 用 Tailwind CSS 做样式
+- 数据存 localStorage</pre>
+<p>Cascade 会开始规划任务，你能看到它的执行步骤：</p>
+<ol><li>运行 <code>npm create vite@latest</code> 初始化项目</li><li>安装 Tailwind CSS 依赖并配置</li><li>创建 <code>TodoApp.tsx</code>、<code>TodoItem.tsx</code> 组件</li><li>编写 localStorage 读写逻辑</li><li>运行 <code>npm run dev</code> 启动开发服务器</li></ol>
+<p>整个过程大概 2-3 分钟。Cascade 每一步都会展示 diff 预览，你可以点 Accept 或 Reject 逐步控制。</p>
+<h3>关键操作速查</h3>
+<table><tr><th>快捷键</th><th>作用</th></tr><tr><td><code>Ctrl/Cmd + L</code></td><td>打开 Cascade 面板</td></tr><tr><td><code>Ctrl/Cmd + I</code></td><td>Inline Edit（选中代码后原地修改）</td></tr><tr><td><code>Tab</code></td><td>接受 Supercomplete 补全建议</td></tr><tr><td><code>Esc</code></td><td>拒绝当前补全建议</td></tr><tr><td><code>Ctrl/Cmd + Shift + P</code></td><td>命令面板（和 VS Code 一样）</td></tr><tr><td><code>Ctrl/Cmd + .</code></td><td>快速修复（Quick Fix）</td></tr></table>
+<h3>Turbo 模式</h3>
+<p>Cascade 默认每一步都要你点 Accept。开启 Turbo 模式后，Cascade 可以自动执行终端命令，不再逐步确认。适合你信任 AI 输出、想让它一口气跑完的场景。</p>
+<p>在 Cascade 面板顶部找到 Turbo 开关，或者在设置里搜索 <code>turbo</code>：</p>
+<pre>// settings.json
+{
+  "windsurf.cascade.turboMode": true
+}</pre>
+<p>刚上手的时候建议关着 Turbo，等你熟悉 Cascade 的行为模式后再打开。跑 <code>rm</code>、<code>DROP TABLE</code> 这类危险命令时 Cascade 仍然会弹确认，不会盲执行。</p>
+<h3>索引与 .windsurfignore</h3>
+<p>第一次打开大项目时，Windsurf 会做代码库索引（Indexing）。这个过程会吃 CPU 和内存，大项目可能要等几分钟。<strong>别急着开始问 Cascade 问题</strong>，等右下角的索引进度条跑完再操作，否则 AI 回答的上下文会不完整。</p>
+<p>在项目根目录创建 <code>.windsurfignore</code> 文件，排除不需要索引的目录：</p>
+<pre>node_modules/
+dist/
+build/
+.git/
+*.lock
+coverage/
+.next/</pre>
+<p>这样能把索引文件数量减少 90% 以上，Cascade 响应也会更快。</p>
+<p>一个实测数据：10 万行代码的 Next.js monorepo，不加 <code>.windsurfignore</code> 索引要 4 分钟，排除 <code>node_modules</code> 和 <code>dist</code> 后 40 秒内完成。</p>
+<h3>Memories：让 AI 记住你的习惯</h3>
+<p>Windsurf 的 Memories 功能会在使用过程中学习你的编码偏好——比如你总是用 <code>const</code> 不用 <code>let</code>、API 错误处理总是返回 <code>{ success: false, error }</code> 格式。大约用两天后 Memories 开始生效，之后 Cascade 生成的代码会自动符合你的风格，不用每次在 prompt 里重复说明。</p>
+<p>Memories 在设置里可以查看和清除：命令面板搜 <code>Windsurf: Manage Memories</code>。</p>
+  </div>
+</section>
+
+<section class="ch" id="ch3">
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 03</div>
+        <h2>⚡ 三大核心功能深度解析</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-chart.png" alt="" />
+    </div>
+<h3>Cascade：你的 AI 编程搭档</h3>
+<p>Windsurf 的灵魂就是 Cascade。它不是一个聊天机器人，而是一个能动手干活的 Agent——读代码、改文件、跑命令、看报错、修 bug，全自动。</p>
+<h4>Code 模式 vs Chat 模式</h4>
+<p>Cascade 有两个模式，切换按钮在面板顶部：</p>
+<table><tr><th>模式</th><th>用途</th><th>会改文件吗</th></tr><tr><td><strong>Code</strong></td><td>写功能、改 bug、重构</td><td>会，直接修改代码</td></tr><tr><td><strong>Chat</strong></td><td>问问题、讨论架构、学习</td><td>不会，只给建议</td></tr></table>
+<p>日常开发 90% 的时间用 Code 模式。想讨论"这个 API 该怎么设计"或"这段代码为什么慢"时切 Chat 模式。</p>
+<h4>规划 + Flow State</h4>
+<p>给 Cascade 一个复杂任务，它会先生成执行计划。后台有 planning agent 优化长期方案，前台模型执行当前步骤：</p>
+<pre>// "给 Express API 加 JWT 认证" → Cascade 自动规划：
+// Step 1: npm install jsonwebtoken bcryptjs
+// Step 2: 创建 src/middleware/auth.ts
+// Step 3: 创建 src/routes/auth.ts
+// Step 4: 给现有路由加 authMiddleware
+// Step 5: .env.example 添加 JWT_SECRET</pre>
+<p>每步都有 diff 预览和 checkpoint，搞砸了一键回滚。</p>
+<p><strong>Flow State</strong> 是 Windsurf 独有能力：Cascade 持续追踪你的编辑、终端命令、剪贴板内容。你直接说"修一下刚才那个报错"就行，不用复制粘贴错误信息。</p>
+<h4>实战：用 Cascade 重构 Express 认证 Middleware</h4>
+<p>这是最能体现 Cascade 多文件能力的场景：项目早期偷懒，把 token 校验逻辑直接写在每个路由里，后来发现要改逻辑时要改七八个地方。告诉 Cascade：</p>
+<div class="callout">"把散落在各路由里的 JWT 验证逻辑提取到 <code>src/middleware/auth.ts</code>，所有用到的路由改成 <code>router.use(authMiddleware)</code>。"</div>
+<p><strong>Cascade 的实际执行步骤：</strong></p>
+<p>第一步，它先扫描整个 <code>src/routes/</code> 目录，找出所有包含 <code>jwt.verify</code> 的文件，列出来让你确认范围。</p>
+<p>第二步，新建 <code>src/middleware/auth.ts</code>：</p>
+<pre>// src/middleware/auth.ts
+import { Request, Response, NextFunction } from 'express';
+import jwt from 'jsonwebtoken';
+
+export interface AuthRequest extends Request {
+  user?: { id: string; role: string };
+}
+
+export function authMiddleware(
+  req: AuthRequest,
+  res: Response,
+  next: NextFunction
+) {
+  const token = req.headers.authorization?.split(' ')[1];
+  if (!token) {
+    return res.status(401).json({ error: 'No token provided' });
+  }
+  try {
+    const payload = jwt.verify(token, process.env.JWT_SECRET!) as {
+      id: string;
+      role: string;
+    };
+    req.user = payload;
+    next();
+  } catch {
+    return res.status(401).json({ error: 'Invalid token' });
+  }
+}</pre>
+<p>第三步，同时修改 <code>src/routes/users.ts</code>、<code>src/routes/orders.ts</code>、<code>src/routes/admin.ts</code> 等七个文件——把各自内嵌的 <code>jwt.verify</code> 块删掉，在 router 顶部插入 <code>router.use(authMiddleware)</code>。整个过程 Cascade 自动处理，每个文件都生成 diff 预览。</p>
+<p>第四步，跑 <code>npm run test</code>，有一个测试失败：测试里发的请求没带 token。Cascade 看到终端报错，直接定位到 <code>src/__tests__/orders.test.ts</code>，在 <code>beforeAll</code> 里加了生成测试 token 并注入 <code>Authorization</code> header 的逻辑，不用你动手。</p>
+<p><strong>这就是 Cascade 多文件感知的价值</strong>——七个路由文件 + 一个新 middleware + 一个测试文件，一次对话搞定，且改动是一致的，不会出现只改了五个路由漏掉两个的低级错误。</p>
+<p>你发现一个细节：之前有的路由用 <code>req.userId</code>，有的用 <code>req.user.id</code>，现在统一了。Cascade 在改完后会主动提示："发现 3 处旧的 <code>req.userId</code> 引用，已一并替换为 <code>req.user?.id</code>。"这就是 Flow State 的作用——它记住了你在这个对话里的意图，不只是机械执行字面指令。</p>
+<h3>Supercomplete：不花钱的自动补全</h3>
+<p>Supercomplete 是 Windsurf 的 Tab 补全功能，<strong>免费版也不限量</strong>。它比普通补全更聪明，能根据你最近的编辑模式预测下一步操作。</p>
+<p>举个例子，你刚在一个文件里把 <code>console.log</code> 换成了 <code>logger.info</code>，切到另一个文件按 Tab，Supercomplete 会自动建议同样的替换。</p>
+<pre># 你在写一个 FastAPI 路由，刚敲完函数签名：
+@app.get("/users/{user_id}")
+async def get_user(user_id: int):
+    # 按 Tab，Supercomplete 会补全：
+    user = await db.users.find_one({"_id": user_id})
+    if not user:
+        raise HTTPException(status_code=404, detail="User not found")
+    return user</pre>
+<p>和 GitHub Copilot 的区别：Supercomplete 对你当前项目的上下文理解更准，因为它基于 Windsurf 的索引引擎，了解你整个代码库的模式。但注意：<strong>装了 Copilot 或 Tabnine 插件的话要先禁用</strong>，否则两个补全会打架。</p>
+<p>Supercomplete 在重复性改动时特别省力。比如你在给 API 加统一的错误处理，第一个路由手动写完之后，后面每个路由按一下 Tab 就补全了相同的 <code>try/catch</code> 结构——它认出了你的模式，不需要你说任何话。</p>
+<h3>Web Preview：在 IDE 里看效果</h3>
+<p>做前端开发时，Cascade 面板右上角有一个 Web Preview 按钮。点开后会在 IDE 内嵌一个浏览器窗口，实时显示你的网页。</p>
+<p>最好用的地方：你可以直接<strong>点击预览里的元素</strong>，Cascade 会定位到对应代码。然后说"把这个按钮改成蓝色圆角"，它就能精准修改——因为它知道你点的是哪个 DOM 元素。</p>
+<p>这个工作流比"改代码 → 切浏览器 → 刷新 → 切回来"高效太多，特别是调 CSS 的时候。Web Preview 适合轻量前端项目（Vite / Next.js dev server），重型应用建议还是开独立浏览器，IDE 内嵌渲染性能有上限。</p>
+<h3>三个功能的协作关系</h3>
+<p>Cascade、Supercomplete、Web Preview 不是孤立的三个工具，日常开发里会同时用到：</p>
+<ul><li>写新功能时：用 Cascade Code 模式起步，拿到可跑的骨架</li><li>补细节时：Supercomplete 接管，Tab 键飞速填充重复逻辑</li><li>前端调样式时：Web Preview 点哪改哪，Cascade 精准定位代码</li></ul>
+<p>理解这三个功能的分工，是从"偶尔用 AI 辅助"升级到"以 AI 为主力"的关键一步。</p>
+    <div class="sales-card">
+      <img class="sc-photo" src="assets/contact/sales-cards/amelia.jpg" alt="Amelia" />
+      <div class="sc-body">
+        <div class="sc-name">Amelia</div>
+        <div class="sc-role">匠人学院 IT 顾问</div>
+        <p class="sc-pitch">装好了还不知道怎么用 Cascade？或者想知道哪个 AI IDE 最适合你现在的项目？扫码加我，15 分钟聊清楚。</p>
+        <div class="sc-cta"><a href="https://jiangren.com.au">jiangren.com.au</a></div>
+      </div>
+      <img class="sc-qr" src="assets/contact/qr-amelia.png" alt="微信扫码" />
+    </div>
+  </div>
+</section>
+<aside class="promo">
+  <span class="promo-tag">AD · 自家的</span>
+  <div class="promo-body">
+    <h4>📚 27 本 AI 工具实战手册，免费</h4>
+    <p>Cursor、Claude Code、Dify、n8n、CrewAI…每个工具一本中文实战手册，5-10 章带代码，不用注册不要钱。本书提到的工具基本都有对应深读。</p>
+  </div>
+  <a class="promo-cta" href="https://jiangren.com.au/wiki" target="_blank" rel="noopener">去翻手册 →</a>
+</aside>
+
+<section class="ch" id="ch4">
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 04</div>
+        <h2>⚙️ 进阶技巧与实战配置</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-pen-book.png" alt="" />
+    </div>
+<h3>.windsurfrules：让 AI 按你的规矩写代码</h3>
+<p>Windsurf 最高 ROI 的配置就是 <code>.windsurfrules</code> 文件。在项目根目录创建它，Cascade 每次生成代码都会遵守里面的规则。</p>
+<p>规则文件有两个位置：</p>
+<ul><li><strong>全局规则</strong> — 存在 <code>~/global_rules.md</code>，对所有项目生效，适合个人习惯（如"永远写中文注释"）</li><li><strong>项目规则</strong> — 存在项目根目录的 <code>.windsurfrules</code>，只对当前项目生效，适合团队约定</li></ul>
+<p>两者上限各 6000 字符，合计 12000 字符。超了要截断。</p>
+<p>几个要点：</p>
+<ul><li><strong>规则改了之后重启 Windsurf</strong> 才生效，不重启改了等于没改</li><li>新版 Windsurf 也支持 <code>.windsurf/rules/rules.md</code> 格式，两者同时存在时新格式优先</li><li>规则文件可以 commit 进仓库，团队所有人都共享同一套约束</li></ul>
+<p>最常见的失效写法是"写干净的代码"这类空洞指令——AI 看不懂"干净"的边界，照样乱写。有效规则必须是<strong>可执行的约束</strong>，比如"不用 any 类型"、"所有 API 调用用 TanStack Query 封装"。</p>
+<h3>前端项目 .windsurfrules 完整范例</h3>
+<p>以下是一个 Next.js 14+ App Router 项目的真实规则文件。按照类别分块，每块职责清晰：</p>
+<pre># .windsurfrules — Next.js 前端项目
+
+## 技术栈约定
+- Framework: Next.js 15 App Router，不用 Pages Router
+- 语言: TypeScript 5.x，strictMode 开启，禁止 any
+- 样式: Tailwind CSS 4 + CSS Modules（复杂动画）
+- 组件库: shadcn/ui，不要引入其他 UI 库
+- 状态: Zustand（全局）+ React Context（局部）
+- 数据获取: TanStack Query v5，禁止在 component 里裸写 useEffect + fetch
+- 表单: React Hook Form + Zod schema 校验
+- 图片: 只用 next/image，不用 &lt;img&gt;
+
+## 文件命名
+- React 组件文件: PascalCase（UserCard.tsx）
+- 普通 util 文件: kebab-case（format-date.ts）
+- 目录名: kebab-case
+- 测试文件: *.test.tsx 放在组件同目录
+
+## 组件规范
+- 全用函数式组件，禁止 class component
+- 用具名导出（export function），不用 default export
+- props 类型用 interface 定义，放在组件文件顶部
+- 超过 200 行的组件必须拆分
+
+## API 调用规范
+- API base URL 从 process.env.NEXT_PUBLIC_API_URL 读取，禁止硬编码
+- 所有 HTTP 请求封装在 /lib/api/ 目录，不要在 component 文件里直接调用 fetch
+- 错误边界用 React Error Boundary 处理，不要在每个 component 写 try-catch
+
+## 禁止事项
+- 禁止 CSS-in-JS（styled-components / emotion）
+- 禁止在 Server Component 里使用 useState / useEffect
+- 禁止把 API key 写进前端代码
+- 禁止用 lodash（用原生 ES2024 代替）</pre>
+<p>这份规则覆盖了新人最容易犯的 10+ 个错误——技术栈选型、命名、组件粒度、API 封装、环境变量管理。Cascade 拿到这份规则后，生成的代码基本可以直接过 code review。</p>
+<h3>后端项目 .windsurfrules 完整范例</h3>
+<p>Python FastAPI 项目的规则风格略有不同，更侧重类型标注和接口设计：</p>
+<pre># .windsurfrules — FastAPI 后端项目
+
+## 技术栈
+- Python 3.12+，强制类型标注
+- 框架: FastAPI 0.115+，不用 Flask
+- ORM: SQLAlchemy 2.x async，不用同步 session
+- 数据校验: Pydantic v2
+- DB: PostgreSQL 17，连接池用 asyncpg
+- 认证: JWT（jose 库），不用 Session
+- 测试: pytest + httpx.AsyncClient
+
+## 项目结构
+- app/routers/  — 路由层，只处理 HTTP 逻辑
+- app/services/ — 业务逻辑，不直接操作 DB
+- app/repositories/ — 数据访问层，唯一直接写 SQL 的地方
+- app/schemas/  — Pydantic 输入输出 schema
+
+## 接口规范
+- 所有端点必须写 OpenAPI 注释（summary + description）
+- 响应 schema 用 response_model 标注
+- 错误统一用 HTTPException，不要直接 raise 500
+- 路由命名用 kebab-case（/user-profiles，不用 /userProfiles）
+
+## 安全
+- 禁止把密钥写进代码或 .env 提交到仓库
+- 所有用户输入通过 Pydantic 校验，不做手动 sanitize
+- SQL 参数化查询，绝不拼接字符串
+
+## 异步规范
+- DB 操作全部 async/await，禁止混用同步 session
+- background task 用 FastAPI BackgroundTasks，不要自己起线程</pre>
+<p>这套规则配合 PostgreSQL MCP Server（后面会讲），Cascade 可以读取数据库 schema 后直接生成 CRUD 接口，不需要你手动告诉它表结构。</p>
+<h3>规则写法：有效 vs. 无效</h3>
+<p>写规则的常见坑是指令太模糊，AI 不知道该怎么执行：</p>
+<table><tr><th>无效写法</th><th>有效写法</th></tr><tr><td>写干净的代码</td><td>函数不超过 40 行，超过就拆</td></tr><tr><td>注意安全性</td><td>所有用户输入必须过 Zod/Pydantic 校验</td></tr><tr><td>合理处理错误</td><td>用 Result 类型，不用 try-catch 直接 throw</td></tr><tr><td>保持代码可读</td><td>变量名不用缩写（dt → dateTime，usr → user）</td></tr><tr><td>用好 TypeScript</td><td>禁止 any，禁止 as 类型断言，禁止 @ts-ignore</td></tr></table>
+<p>规则文件不是越长越好，超过 4000 字符后规则之间开始互相干扰。实测下来，<strong>50 条清晰的具体规则</strong>比 200 条模糊描述效果好得多。</p>
+<h3>Cascade Memory：跨会话持久记忆</h3>
+<p>Rules 是你手动写的约束，Memory 是 Cascade 自动学习并记下来的东西。</p>
+<p>每次会话结束后，Cascade 会把它认为"有用的上下文"提取成记忆条目，存在本地文件：</p>
+<pre>~/.codeium/windsurf/memories/
+├── {workspace-hash}/
+│   ├── memories.json
+│   └── ...</pre>
+<p>下次打开同一个工作区，Cascade 会自动加载这些记忆，不需要你重新解释项目背景。</p>
+<h4>Cascade 会自动记住什么</h4>
+<ul><li>你纠正过的错误（"你之前用 axios，我们这个项目用 ky"）</li><li>项目里不在代码里但重要的约定（"部署目标是 AWS Lambda，不是 EC2"）</li><li>你明确要求记住的信息</li></ul>
+<h4>手动创建记忆</h4>
+<p>不需要等 Cascade 自动识别，你可以直接告诉它：</p>
+<pre>记住：我们的后端跑在 Kubernetes 上，端口配置在 k8s/config.yaml，不要在代码里硬编码端口号</pre>
+<p>Cascade 收到指令后会创建记忆条目。你也可以在 Cascade 面板里管理已有记忆，看到它记了什么，随时删改。</p>
+<h4>记忆不会跨工作区共享</h4>
+<p>这是个容易踩的坑：在项目 A 里告诉 Cascade "我们用 pnpm 不用 npm"，切换到项目 B 后 Cascade 不会知道这件事。全局习惯用 <code>global_rules.md</code> 写，项目约定用 <code>.windsurfrules</code> 写，临时上下文才用 Memory。</p>
+<h4>Memory vs. Rules：怎么选</h4>
+<table><tr><th>特征</th><th>Memory</th><th>Rules</th></tr><tr><td>谁写的</td><td>Cascade 自动 / 你口头要求</td><td>你手动维护</td></tr><tr><td>持久性</td><td>本地，不提交 git</td><td>文件，可提交</td></tr><tr><td>团队共享</td><td>❌ 仅本机</td><td>✅ 提交后团队共享</td></tr><tr><td>适合场景</td><td>临时上下文、当前任务进展</td><td>代码规范、技术栈约定</td></tr><tr><td>可控性</td><td>低（AI 自动总结）</td><td>高（你写什么就是什么）</td></tr></table>
+<p>结论：<strong>重要的团队约定写进 <code>.windsurfrules</code> 提交 git</strong>，不要依赖 Memory。Memory 只用于会话内的临时状态。</p>
+<h3>MCP Server：给 Cascade 接外部能力</h3>
+<p>MCP（Model Context Protocol）让 Cascade 能调用外部工具。Windsurf 内置了 MCP Marketplace，一键就能装。</p>
+<p>最实用的几个 MCP Server：</p>
+<table><tr><th>MCP Server</th><th>能干什么</th></tr><tr><td><strong>Figma</strong></td><td>读取 Figma 设计稿，直接生成对应 UI 代码</td></tr><tr><td><strong>PostgreSQL</strong></td><td>查询数据库 schema，生成 SQL，验证查询结果</td></tr><tr><td><strong>Playwright</strong></td><td>跑端到端测试，截图验证 UI</td></tr><tr><td><strong>Slack</strong></td><td>在 IDE 里读/发 Slack 消息</td></tr></table>
+<p>配置方式：打开 Cascade 面板右上角的 MCP 图标，或者手动编辑配置文件：</p>
+<pre>// mcp_config.json
+{
+  "mcpServers": {
+    "postgres": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-postgres"],
+      "env": {
+        "POSTGRES_CONNECTION_STRING": "postgresql://user:pass@localhost:5432/mydb"
+      }
+    },
+    "figma": {
+      "command": "npx",
+      "args": ["-y", "@anthropic-ai/mcp-server-figma"],
+      "env": {
+        "FIGMA_ACCESS_TOKEN": "your-token-here"
+      }
+    }
+  }
+}</pre>
+<p>配好 Figma MCP 后，跟 Cascade 说"按照 Figma 里的 Login Page 写代码"，它会自己读设计稿、提取布局颜色、生成组件。</p>
+<p>配好 PostgreSQL MCP 后，Cascade 能主动查 schema，你只需要说"给 users 表加一个 email 唯一索引"，它知道当前表长什么样，直接生成正确的 migration。</p>
+<h3>模型选择与 Credit 管理</h3>
+<p>Pro 用户可在 Cascade 面板底部切换模型：</p>
+<pre># 日常写代码 → 默认模型，速度快省 credit
+# 复杂架构 → Claude Sonnet，推理强
+# 快速原型 → GPT-4o，响应最快</pre>
+<p>省 credit 四招：</p>
+<ol><li><strong>大任务先 Chat 讨论再 Code 执行</strong> — Chat 模式消耗的 credit 比 Agent 模式低很多，先想清楚再动手</li><li><strong>拆分任务粒度</strong> — 一次做一个小改动，比让 Cascade 自己想"下一步"省很多 token</li><li><strong>用 Inline Edit（<code>Ctrl+I</code>）</strong> — 只改当前光标位置的代码，不启动完整 Cascade 流程</li><li><strong>能 Tab 补全解决的别开 Cascade</strong> — Copilot 级别的自动补全不消耗 Cascade credit</li></ol>
+<p>另外，如果你用公司账号有 Team 计划，Credit 是按 seat 分配的。把 <code>.windsurfrules</code> 写好，减少 Cascade 来回确认的次数，是最实际的降本手段。</p>
+<h3>实战技巧汇总</h3>
+<p>走完上面的配置，几个高频操作值得单独记：</p>
+<p><strong>快速生成 Rules 文件</strong>：直接跟 Cascade 说"根据这个项目的代码，帮我生成一份 <code>.windsurfrules</code>"，它会扫描现有文件总结规律，你再审核调整比从零写快很多。</p>
+<p><strong>调试 Rules 是否生效</strong>：在 Cascade 里问"你对这个项目有哪些规则约束"，如果它能复述你 <code>.windsurfrules</code> 的主要内容，说明规则已被加载。</p>
+<p><strong>团队共享记忆</strong>：Memory 本身不能共享，但可以把重要的记忆内容手动转写成 <code>.windsurfrules</code> 条目，提交到仓库。或者维护一份 <code>AGENTS.md</code>，描述 AI 在这个项目里应该知道的背景信息。</p>
+<p><strong>MCP 连不上的排查</strong>：先在终端手动跑 MCP server 命令确认没有依赖缺失，再检查 Windsurf 的 MCP 配置文件路径是否正确——Mac 上在 <code>~/.codeium/windsurf/mcp_config.json</code>，Windows 在 <code>%APPDATA%\Codeium\windsurf\mcp_config.json</code>。</p>
+  </div>
+</section>
+
+<section class="ch" id="ch5">
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 05</div>
+        <h2>❓ 常见问题、定价与选型建议</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-coffee-pointing.png" alt="" />
+    </div>
+<h3>常见问题</h3>
+<h4>Cascade 转圈不动怎么办？</h4>
+<p>Windsurf 里最常见的问题。通常是这几个原因：</p>
+<ol><li><strong>免费额度用完了</strong>——检查右下角的 credit 余额</li><li><strong>请求超时</strong>——大项目里上下文太长，Cascade 处理不过来。缩小任务范围，比如指定"只改 <code>src/components/Header.tsx</code>"</li><li><strong>网络问题</strong>——Cascade 需要稳定的网络连接。如果你在国内，考虑配代理</li><li><strong>索引没跑完</strong>——右下角有索引进度条，等它跑完再操作</li></ol>
+<pre># 如果 Cascade 彻底卡死，终极解决方案：
+# 1. Ctrl+Shift+P 打开命令面板
+# 2. 搜索 "Windsurf: Clear Cascade History"
+# 3. 重启 Windsurf
+# 4. 等索引完成后再试</pre>
+<h4>Cascade 改错了代码怎么办？</h4>
+<p>别慌。Windsurf 有 checkpoint 机制，每次 Cascade 修改代码前都会自动保存一个快照。</p>
+<p>在 Cascade 面板里找到对应的操作步骤，点 <strong>Revert</strong> 就能回滚到那一步之前的状态。这比手动 <code>git stash</code> 或 <code>Ctrl+Z</code> 可靠得多。</p>
+<p>更稳妥的做法是在做大改动前先提交一次 git：</p>
+<pre>git add -A &amp;&amp; git commit -m "wip: before cascade refactor"</pre>
+<p>这样即便 checkpoint 也不能救你，<code>git reset --hard HEAD</code> 一条命令回到原点。</p>
+<h4>插件兼容性 &amp; 中文支持</h4>
+<p>兼容绝大部分 VS Code 插件，但 <strong>Copilot/Tabnine 必须禁用</strong>（和 Supercomplete 冲突），Remote SSH 不支持。Cascade 完全支持中文对话、中文注释，日常中文指令 + 英文代码体验流畅。</p>
+<h4>Windsurf Memories 是什么？</h4>
+<p>Memories 是 Windsurf 2025 年下半年加入的长期记忆功能——Cascade 会从对话里自动提取你的偏好（比如"用 TypeScript strict 模式"、"测试框架用 Vitest"），存入一个持久化的文本文件，下次打开新对话时自动载入。</p>
+<p>你可以在 Settings → Cascade → Memories 里手动编辑或删除记忆条目。建议定期审查一下，防止旧的错误偏好影响新项目。</p>
+<pre># 典型的 Memories 条目示例
+- Always use pnpm, never npm or yarn
+- Prefer async/await over .then() chains
+- Database: PostgreSQL with Drizzle ORM
+- Test framework: Vitest + Testing Library</pre>
+<h4>为什么 Cascade 没有用我选的模型？</h4>
+<p>免费版只能用基础模型，选 Claude Sonnet/GPT-4o 不会生效。另一个原因是该模型当前处于高负载——Windsurf 会自动降级到可用模型。如果你付了 Pro，可以在设置里把首选模型固定住，避免自动降级。</p>
+<h4>一个"交互（interaction）"到底消耗多少？</h4>
+<p>2026 年 3 月切换到 quota 制之后，计量单位从 credit 变成了 interaction。规则是：<strong>一次 Cascade 提问 = 一次 interaction</strong>，不管 Cascade 在背后读了多少文件、改了多少行代码。Tab 补全不消耗 interaction，完全免费。</p>
+<p>所以如果你的问题描述得越清楚，Cascade 一次搞定，就越省 interaction。拆成 5 次小问题反而消耗更多。</p>
+<h3>定价详解（2026 年）</h3>
+<h4>当前套餐</h4>
+<table><tr><th>方案</th><th>月费</th><th>AI 交互额度</th><th>Tab 补全</th><th>可用模型</th></tr><tr><td><strong>Free</strong></td><td>$0</td><td>5 次/天</td><td>无限</td><td>基础模型</td></tr><tr><td><strong>Pro</strong></td><td>$20</td><td>50 次/天</td><td>无限</td><td>Claude 3.7 / GPT-4o / Gemini 1.5 Pro</td></tr><tr><td><strong>Pro Plus</strong></td><td>$35</td><td>250 次/天</td><td>无限</td><td>旗舰模型优先排队</td></tr><tr><td><strong>Teams</strong></td><td>$30/人</td><td>50 次/人/天</td><td>无限</td><td>全部模型 + 管理后台</td></tr><tr><td><strong>Enterprise</strong></td><td>定制</td><td>定制</td><td>无限</td><td>全部模型 + SSO + 审计日志</td></tr></table>
+<div class="callout"><strong>注意</strong>：2026 年 3 月 19 日，Windsurf 把 Pro 从 $15 涨到 $20，并将计费方式从 credit 池改成每日 quota。老用户在取消或切换套餐前仍保留旧制。</div>
+<h4>额度用完了怎么办？</h4>
+<p>每天额度在 UTC 午夜重置。如果当天用完了，有两个选项：</p>
+<ol><li><strong>等第二天重置</strong>——对大多数人够用</li><li><strong>购买 Pro Plus</strong>——每天 250 次，重度用户的选择</li></ol>
+<p>对比一下：Cursor Pro 同样是 $20/月，但用的是 credit 池而不是每日 quota，重度 Agent 使用者可能一周内就打光 credit，然后要按使用量付费。Windsurf 的每日 quota 对突发性高峰更友好——比如某天密集重构，明天又恢复正常。</p>
+<h3>Windsurf vs Cursor vs Claude Code 深度选型对比</h3>
+<p>这三款工具经常被放一起比，但它们的定位其实不完全重叠。</p>
+<h4>核心维度对比</h4>
+<table><tr><th>维度</th><th>Windsurf</th><th>Cursor</th><th>Claude Code</th></tr><tr><td><strong>形态</strong></td><td>IDE（VS Code fork）</td><td>IDE（VS Code fork）</td><td>终端 CLI</td></tr><tr><td><strong>月费</strong></td><td>$20（Pro）</td><td>$20（Pro）</td><td>API 计费，Max plan $100</td></tr><tr><td><strong>Tab 补全</strong></td><td>无限（含 Free）</td><td>无限（含 Free）</td><td>无</td></tr><tr><td><strong>Agent 额度</strong></td><td>50 次/天（Pro）</td><td>credit 池（$20/月约 500 次，重度下降快）</td><td>按 token 计费，无次数上限</td></tr><tr><td><strong>上下文处理</strong></td><td>Flow State 自动追踪多文件</td><td>Composer 手动添加上下文</td><td>整个项目 git tree 实时可见</td></tr><tr><td><strong>规则文件</strong></td><td><code>.windsurfrules</code></td><td><code>.cursorrules</code> / <code>.mdc</code></td><td><code>CLAUDE.md</code></td></tr><tr><td><strong>内置 Web Preview</strong></td><td>✅</td><td>❌（需外部浏览器）</td><td>❌</td></tr><tr><td><strong>离线使用</strong></td><td>❌ 需要联网</td><td>❌ 需要联网</td><td>❌ 需要联网</td></tr><tr><td><strong>Git 操作</strong></td><td>基础 diff / checkpoint</td><td>基础 diff</td><td>完整 git 操作（commit/PR/rebase）</td></tr><tr><td><strong>多文件重构</strong></td><td>Cascade 自动识别影响范围</td><td>Composer 需手动指定文件</td><td>精准，但需明确指令</td></tr><tr><td><strong>学习曲线</strong></td><td>低（IDE 习惯即可）</td><td>低（VS Code 用户无缝切换）</td><td>中（需熟悉 CLI 工作流）</td></tr><tr><td><strong>中文支持</strong></td><td>✅ 对话/注释</td><td>✅ 对话/注释</td><td>✅ 完整中文</td></tr></table>
+<h4>按场景选</h4>
+<p><strong>写新功能、日常开发</strong>：Windsurf 或 Cursor 都行。区别在于 Windsurf 的 Tab 补全在 Free 版就是无限，Cursor 的 Tab 补全在超出阈值后也会限速。如果你的主要需求是补全 + 偶尔问 AI，Windsurf Free 就够。</p>
+<p><strong>大型项目重构、跨多个文件改动</strong>：Windsurf Cascade 的 Flow State 胜出——它会主动追踪哪些文件和你的改动相关，无需手动 <code>@file</code> 添加。Cursor Composer 在项目大了之后需要频繁手动指定上下文，费力气。</p>
+<p><strong>精确控制、脚本化任务</strong>：Claude Code。它是 CLI，可以嵌入 CI 流程、shell 脚本，做自动化；而且整个项目的 git 历史对它都是透明的，不需要手动喂上下文。Cascade 再聪明，也是个 GUI，没法被脚本调用。</p>
+<p><strong>预算敏感</strong>：</p>
+<ul><li>只写前端/全栈、每天有几十次 AI 对话 → Windsurf Pro $20</li><li>偶尔用 AI 辅助、主要靠 Tab 补全 → Windsurf Free，完全够</li><li>需要处理复杂架构决策或长篇重构 → Claude Code Max plan $100，按月付，不用担心 token 超支</li></ul>
+<p><strong>团队场景</strong>：Windsurf Teams $30/人，有集中管理后台、使用量统计、billing 控制。Cursor Business $40/人，功能类似但贵 $10。Claude Code 团队版需要用 Anthropic API，按实际消耗计费，适合用量不均衡的团队。</p>
+<h4>价格综合对比</h4>
+<pre>个人开发者（中等使用量）：
+  Windsurf Pro:   $20/月  →  50 次/天 Agent + 无限 Tab
+  Cursor Pro:     $20/月  →  credit 池（重度 Agent 可能不够）
+  Claude Code:    $20/月  →  Claude Pro API，轻量任务够用
+
+个人开发者（重度 Agent）：
+  Windsurf Pro Plus:  $35/月  →  250 次/天
+  Cursor Pro:         $20+超量费
+  Claude Code Max:    $100/月 →  token 无限
+
+5 人团队：
+  Windsurf Teams:  $150/月 ($30×5)
+  Cursor Business: $200/月 ($40×5)
+  Claude Code API: 视用量，$100–$300/月</pre>
+<h3>我的实战建议</h3>
+<p>大多数全栈开发者用下来，最有效率的组合是：<strong>Windsurf（日常写代码） + Claude Code（大型重构/自动化任务）</strong>。</p>
+<p>Windsurf 处理 80% 的时间——打开项目，Tab 补全加速，遇到需要多文件改的功能让 Cascade 跑一遍，速度快、上下文不用手动管。</p>
+<p>Claude Code 处理剩下 20% 的硬骨头——需要读整个 git 历史的 bug 追查、需要脚本化的批量任务、需要精确控制每一步的重构。</p>
+<p>Cursor 作为第三选择，在你已经熟悉 <code>.cursorrules</code> 生态且团队里有大量 Cursor 配置积累时，换过来的迁移成本太高，就留在 Cursor 里。新手从 Windsurf 进入比 Cursor 更平滑——免费版就给无限 Tab 补全，不用一开始就想清楚要不要付费。</p>
+<p>最后一个选型原则：<strong>不要在同一台机器上同时运行 Windsurf + Cursor</strong>，索引服务会互抢资源，两个都变慢。选一个主力 IDE，另一个按需打开。</p>
+  </div>
+</section>
+<aside class="promo">
+  <span class="promo-tag">AD · 自家的</span>
+  <div class="promo-body">
+    <h4>🧪 10 分钟测出你的 AI Engineer 缺口</h4>
+    <p>官网的 77 项能力自测（五大支柱逐项点选），已有 2,300+ 人做过。测完直接看出你该补哪根柱子，免费不用注册。</p>
+  </div>
+  <a class="promo-cta" href="https://jiangren.com.au/learn/ai-engineer" target="_blank" rel="noopener">去做测试 →</a>
+</aside>
+
+<section class="ch" id="ch6">
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 06</div>
+        <h2>🐛 用 Cascade 调试和修复 Bug</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-hero.png" alt="" />
+    </div>
+<p>调试是 Cascade 最能体现 Agent 能力的场景。传统调试你得自己看报错 → 猜原因 → 找代码 → 试修复 → 再跑。Cascade 能一条龙把这个循环自动化。</p>
+<h3>报错直接甩给 Cascade</h3>
+<p>终端里跑 <code>npm run dev</code> 爆红了，不用复制粘贴报错信息。Windsurf 的 Flow State 已经捕获了终端输出，直接在 Cascade 面板里说：</p>
+<pre>修一下刚才终端里的报错</pre>
+<p>Cascade 会自动读取报错内容，定位到出错的文件和行号，分析根因，然后给出修复。整个过程你不需要提供任何额外上下文。</p>
+<p>如果你想更精确地定位问题：</p>
+<pre>终端里报了 TypeError: Cannot read properties of undefined (reading 'map')
+看一下 src/components/UserList.tsx 里的数据流，找到 undefined 是哪来的</pre>
+<p>Cascade 会从组件出发，往上追溯 props 传递链、API 调用、状态管理，找到数据在哪一步变成了 <code>undefined</code>。</p>
+<h3>跨文件追踪 Bug</h3>
+<p>真实项目里的 bug 很少只涉及一个文件。比如"用户登录后跳转到空白页"，问题可能出在路由配置、Auth 状态管理、或者 API 返回的 token 格式。</p>
+<p>给 Cascade 的 prompt 这么写：</p>
+<pre>用户登录成功后跳转到 /dashboard 显示空白页。
+请检查以下链路：
+1. 登录 API 的 response 格式
+2. token 存储逻辑（localStorage 还是 cookie）
+3. 路由守卫的鉴权判断
+4. Dashboard 组件的数据加载</pre>
+<p>Cascade 会按链路逐个检查，跨 5-10 个文件追踪数据流向，最后定位到具体问题。</p>
+<h3>用 Chat 模式做诊断</h3>
+<p>不确定 bug 在哪时，先用 Chat 模式（不改文件）做诊断：</p>
+<pre>Chat 模式下的 prompt：
+"这个项目的 API 请求为什么有时会返回 401？
+帮我分析 src/lib/api.ts 里的 token 刷新逻辑有没有竞态条件"</pre>
+<p>Chat 模式只分析不动代码，适合先搞清楚问题再决定怎么改。确认诊断结果后切回 Code 模式让 Cascade 执行修复。</p>
+<h3>TypeScript 类型错误批量修复</h3>
+<p>项目里一堆 TypeScript 类型错误是最适合 Cascade 的场景之一：</p>
+<pre># 先让 TypeScript 编译器输出所有错误
+npx tsc --noEmit 2&gt;&amp;1 | head -50</pre>
+<p>然后告诉 Cascade：</p>
+<pre>跑 tsc --noEmit 有 23 个类型错误，帮我逐个修复。
+优先处理 src/types/ 目录下的类型定义问题，
+然后再修使用侧的类型不匹配。</pre>
+<p>Cascade 会按依赖顺序修复：先修类型定义，再修使用端，避免改了 A 导致 B 报新错的连锁反应。</p>
+<h3>完整 Bug Fix 走查：真实 case</h3>
+<p>下面是一个真实场景的完整调试过程，展示 Cascade 是怎么一步步推进的。</p>
+<p><strong>场景</strong>：Next.js 项目，用户偶发性看到"购物车商品突然清空"。复现概率大约 20%，纯前端行为，后端日志干净。</p>
+<p><strong>第一步：告诉 Cascade 现象和怀疑范围</strong></p>
+<pre>购物车偶发清空，概率约 20%，后端日志没有异常，怀疑是前端状态管理问题。
+项目用 Zustand 管购物车状态，持久化到 localStorage。
+请检查 src/store/cartStore.ts 和 src/hooks/useCart.ts，
+看看有没有竞态或者 hydration 时机问题。</pre>
+<p>Cascade 读完两个文件后发现：<code>useCart</code> 在组件 mount 时调用了 <code>initCart()</code>，而 <code>initCart()</code> 会从 localStorage 读数据覆盖当前 state——如果用户在快速切换页面时，两个实例同时 mount 就会互相覆盖。</p>
+<p><strong>第二步：让 Cascade 验证推断</strong></p>
+<pre>你的推断是 initCart 被并发调用，能帮我在 cartStore.ts 里
+加一个 initialized 标志位，确认一下 initCart 有没有重入问题？
+先加 console.log 跑一遍，别直接改逻辑。</pre>
+<p>Cascade 在 <code>initCart</code> 前后加了 <code>console.log('[cart] init start')</code> 和 <code>console.log('[cart] init end')</code>，然后指导你复现：快速点击导航 3 次，观察控制台。结果出现了 <code>init start → init start → init end → init end</code>，证实了重入。</p>
+<p><strong>第三步：让 Cascade 修复</strong></p>
+<pre>确认是重入问题了，帮我修：
+- 加 initialized 标志位，第二次调用直接 return
+- 修复后跑一遍 tsc --noEmit 确认没有类型问题</pre>
+<pre>// cartStore.ts 修复后的关键片段
+let initialized = false;
+
+const initCart = () =&gt; {
+  if (initialized) return;
+  initialized = true;
+
+  const stored = localStorage.getItem('cart');
+  if (stored) {
+    try {
+      useCartStore.setState({ items: JSON.parse(stored) });
+    } catch {
+      localStorage.removeItem('cart');
+    }
+  }
+};</pre>
+<p><strong>第四步：回归验证</strong></p>
+<pre>修完了，帮我写一个快速 smoke test：
+模拟 initCart 被连续调用 3 次，验证 state 只被设置一次</pre>
+<p>Cascade 写出了对应的 Vitest 测试用例，跑通后整个 debug 流程结束。</p>
+<p>从发现问题到修复 + 测试，全程大约 15 分钟，期间你主要在引导和验证，Cascade 在跨文件读代码和修改。</p>
+<h3>高效调试 Prompt 模板</h3>
+<p>下面 5 个模板可以直接复制使用，按场景套。</p>
+<p><strong>模板 1：异步 / 竞态条件</strong></p>
+<pre>[现象] {描述偶发性 / 顺序相关的 bug}
+[怀疑] 可能是 {Promise 竞态 / useEffect 依赖 / 事件监听未清理}
+请检查 {文件路径} 里的异步逻辑，
+重点看：1) Promise 是否有 race condition；2) 组件卸载时是否 cleanup；
+3) 订阅是否幂等。
+先 Chat 模式分析，确认后再改代码。</pre>
+<p><strong>模板 2：性能回归定位</strong></p>
+<pre>[现象] {页面/接口} 比上周慢了 {X} 倍，CI benchmark 报告附在下面。
+[已知] 最近合并的 PR 是 {PR 列表}。
+帮我分析 git diff {commit A}..{commit B} 里有没有明显的性能问题：
+- N+1 查询
+- 同步阻塞操作移到了热路径
+- 缓存 key 变化导致命中率下降
+输出可疑点，我逐个确认。</pre>
+<p><strong>模板 3：网络请求失败 / 4xx 5xx</strong></p>
+<pre>POST {路径} 返回 {状态码}，服务端日志如下：
+---
+{粘贴日志}
+---
+请检查 {客户端 fetch 文件} 和 {服务端 handler 文件}，
+对比请求参数格式（Content-Type / body schema / auth header），
+找出客户端发送的和服务端期望的有什么不一致。</pre>
+<p><strong>模板 4：React 渲染异常（闪烁 / 无限重渲染 / hydration mismatch）</strong></p>
+<pre>组件 {ComponentName} 出现 {闪烁/无限重渲染/hydration error}。
+React DevTools 显示 {Profiler 截图描述 / 控制台报错}。
+请检查：
+1. useEffect 依赖数组是否完整
+2. state 更新是否在渲染期间触发（setState in render）
+3. SSR/CSR 的初始 state 是否一致
+先给我分析，不要动代码。</pre>
+<p><strong>模板 5：数据库慢查询</strong></p>
+<pre>{接口路径} P99 延迟 {Xms}，EXPLAIN ANALYZE 输出如下：
+---
+{粘贴 EXPLAIN 结果}
+---
+ORM 代码在 {文件路径}。
+帮我分析：
+1. 缺少哪些索引
+2. ORM 生成的 SQL 有没有 N+1
+3. 能否加 select 字段裁剪 payload
+给出具体的 SQL 和 ORM 改法。</pre>
+<h3>调试实战技巧</h3>
+<p><strong>给 Cascade 看日志，而不是只描述现象</strong>。"接口报错了"不如"POST /api/users 返回 500，日志里显示 <code>UNIQUE constraint failed: users.email</code>"——后者 Cascade 能直接定位到数据库 schema 和插入逻辑。</p>
+<p><strong>用 Revert 大胆试</strong>。Cascade 每次改代码都有 checkpoint，修错了一键回滚。所以不要犹豫"要不要让它试试"，试完不行就 Revert，比你自己手动 debug 快得多。</p>
+<pre>// 一个通用的调试 prompt 结构：
+// "这段代码的预期行为是 X，实际行为是 Y。
+//  相关日志/报错是 Z。
+//  请定位根因并修复。"
+//
+// 越具体，Cascade 越准。</pre>
+<p><strong>搭配 <code>console.log</code> 定位</strong>。有时候 Cascade 的推理不够准确，你可以让它先加几个 <code>console.log</code> 跑一遍看输出，然后基于实际输出再修复——这比猜测更可靠。</p>
+<p><strong>让 Cascade 写验证用例</strong>。修完 bug 后，顺手让 Cascade 把刚才的 fix 逻辑写成单测或 E2E 测试步骤，防止回归。这一步很多人省掉，结果同样的 bug 两周后又出现。</p>
+    <div class="sales-card">
+      <img class="sc-photo" src="assets/contact/sales-cards/rain.jpg" alt="Rain" />
+      <div class="sc-body">
+        <div class="sc-name">Rain</div>
+        <div class="sc-role">匠人学院课程顾问</div>
+        <p class="sc-pitch">调试这关过了，下一步是系统学 AI 开发？我们的 AI 工程师课程从 Vibe Coding 到生产部署都有，扫码了解。</p>
+        <div class="sc-cta"><a href="https://jiangren.com.au">jiangren.com.au</a></div>
+      </div>
+      <img class="sc-qr" src="assets/contact/qr-rain.png" alt="微信扫码" />
+    </div>
+  </div>
+</section>
+
+<section class="ch" id="ch7">
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 07</div>
+        <h2>🔀 Git 集成与团队协作</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-data.png" alt="" />
+    </div>
+<p>Windsurf 在 VS Code 的 Git 基础上加了一层 AI 能力。commit message、PR 描述、merge conflict 都可以让 Cascade 代劳。</p>
+<h3>AI 生成 Commit Message</h3>
+<p>在 Source Control 面板里暂存文件后，点输入框旁边的 ✨ 按钮（或按快捷键），Windsurf 会根据 diff 内容自动生成 commit message：</p>
+<pre># Windsurf 会分析你的 staged changes，生成类似这样的 commit message：
+# feat: add user authentication with JWT
+#
+# - Create auth middleware for route protection
+# - Add login/register endpoints with bcrypt password hashing
+# - Store JWT tokens in httpOnly cookies</pre>
+<p>生成的 message 会遵循 Conventional Commits 格式。如果你的团队有其他约定，在 <code>.windsurfrules</code> 里写清楚：</p>
+<pre># .windsurfrules
+## Git 规范
+- commit message 用中文
+- 格式：&lt;type&gt;(&lt;scope&gt;): &lt;描述&gt;
+- type 可选：feat / fix / refactor / docs / test / chore</pre>
+<h3>分支管理</h3>
+<p>创建新分支时 Cascade 会基于你当前的工作上下文建议分支名。你也可以直接告诉它：</p>
+<pre>帮我创建一个分支，实现用户头像上传功能</pre>
+<p>Cascade 会建议 <code>feature/user-avatar-upload</code> 这样的分支名，并自动执行 <code>git checkout -b</code>。</p>
+<p>Wave 13 之后 Windsurf 支持 <strong>Git Worktree</strong>：在一个窗口里同时打开多个分支的工作目录，配合 Cascade 的并行 Agent，你可以一边在 <code>feature-a</code> 分支写新功能，一边让另一个 Cascade 在 <code>fix-b</code> 分支修 bug。</p>
+<h3>Merge Conflict 解决</h3>
+<p>遇到合并冲突时，Cascade 能理解冲突双方的意图。直接说：</p>
+<pre>帮我解决当前的 merge conflict，保留两边的改动，合并逻辑</pre>
+<p>Cascade 不是简单地选"ours"或"theirs"——它会读懂两个分支分别改了什么，把两边的逻辑合到一起。比如一个分支加了字段验证，另一个分支改了错误提示文案，Cascade 会保留验证逻辑 + 新文案。</p>
+<p>复杂冲突还是建议先用 Chat 模式分析，确认合并策略后再让 Code 模式执行。</p>
+<h3>AI 生成 PR 描述</h3>
+<p>写 PR 时让 Cascade 帮你生成描述：</p>
+<pre>帮我写一个 PR 描述，总结这个分支上所有的改动。
+包括：改了什么、为什么改、怎么测试</pre>
+<p>Cascade 会读取分支上的所有 commit，分析代码变更，生成结构化的 PR 描述：</p>
+<pre>## What
+- 新增用户头像上传功能，支持 JPG/PNG/WebP 格式
+- 头像存储到 S3，URL 写入用户表
+
+## Why
+产品需求 #142：用户个人资料页需要展示头像
+
+## How to test
+1. 登录后进入 /profile 页面
+2. 点击头像区域上传一张图片
+3. 验证图片显示正确且刷新后持久化</pre>
+<h3>团队协作配置</h3>
+<p>多人协作时，<code>.windsurfrules</code> 应该提交到仓库里，让团队成员共享 AI 编码规范：</p>
+<pre># 把 rules 文件加入版本控制
+git add .windsurfrules
+git commit -m "chore: add windsurf rules for team coding standards"</pre>
+<p>建议团队统一的 rules 内容：</p>
+<pre># .windsurfrules (团队共享)
+## 代码规范
+- 变量命名用 camelCase，组件用 PascalCase
+- API 路由文件放 src/routes/，中间件放 src/middleware/
+- 测试文件和源文件同目录，命名 *.test.ts
+
+## Review 准则
+- 新增 API 端点必须加入参校验（Zod schema）
+- 数据库操作必须在 try-catch 里
+- 敏感操作需要日志记录</pre>
+<p>每个人还可以在 <code>~/.windsurf/global_rules.md</code> 里配自己的个人偏好（比如用 Vim 快捷键、偏好 pnpm），这些不会影响团队成员。</p>
+  </div>
+
+<a class="promo-line" href="https://jiangren.com.au/blog" target="_blank" rel="noopener">📰 跟上行业节奏：匠人每天 5 条经过核源的 AI 日报，每周一份大事盘点 <span>→</span></a>
+<a class="promo-line" href="https://jiangren.com.au/learn/prompt-master" target="_blank" rel="noopener">🧑‍💻 光看不动手没用：Prompt Master / LLM Lab / Vibe Coding 三个浏览器内实验室，边读边跑 <span>→</span></a></section>
+<aside class="promo">
+  <span class="promo-tag">AD · 自家的</span>
+  <div class="promo-body">
+    <h4>🎬 还没准备好 cohort？先上入门自学课</h4>
+    <p>AI Engineer 入门（RAG 方向）：4 周 52 小时视频 + 25 个浏览器内 Lab + AI Tutor 即时答疑，自己掌握节奏，是 Bootcamp 的官方前置课。</p>
+  </div>
+  <a class="promo-cta" href="https://jiangren.com.au/program-course/ai-engineer-rag" target="_blank" rel="noopener">看课程介绍 →</a>
+</aside>
+
+<section class="ch" id="ch8">
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 08</div>
+        <h2>🏗️ 项目实战：用 Cascade 搭全栈 CRUD</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-working-laptop.png" alt="" />
+    </div>
+<p>光看功能介绍不直观，这一章完整演示用 Windsurf 从空目录到可运行的全栈应用的过程。项目是一个带用户认证的 Todo CRUD，技术栈 Next.js + Prisma + SQLite。</p>
+<h3>第一步：初始化项目</h3>
+<p>打开一个空文件夹，在 Cascade Code 模式里输入：</p>
+<pre>创建一个 Next.js 15 + TypeScript 项目，用 App Router。
+集成 Prisma ORM + SQLite 做数据库。
+不要用任何 UI 库，用 Tailwind CSS 手写样式。</pre>
+<p>Cascade 会自动执行：</p>
+<pre>npx create-next-app@latest todo-app --typescript --tailwind --app --src-dir
+cd todo-app
+npm install prisma @prisma/client
+npx prisma init --datasource-provider sqlite</pre>
+<p>等它跑完你会看到一个标准的 Next.js 项目结构，<code>prisma/schema.prisma</code> 已经创建好。</p>
+<h3>第二步：定义数据模型</h3>
+<p>继续告诉 Cascade：</p>
+<pre>在 prisma/schema.prisma 里定义两个模型：
+- User：id, email (unique), password, name, createdAt
+- Todo：id, title, completed (默认 false), createdAt, userId (外键关联 User)
+然后跑 prisma migrate</pre>
+<p>Cascade 会编辑 schema 文件并执行迁移：</p>
+<pre>model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  password  String
+  name      String
+  createdAt DateTime @default(now())
+  todos     Todo[]
+}
+
+model Todo {
+  id        Int      @id @default(autoincrement())
+  title     String
+  completed Boolean  @default(false)
+  createdAt DateTime @default(now())
+  userId    Int
+  user      User     @relation(fields: [userId], references: [id])
+}</pre>
+<pre>npx prisma migrate dev --name init
+# 自动生成 prisma/migrations/ 目录和 SQLite 数据库文件</pre>
+<h3>第三步：API 路由</h3>
+<pre>创建 CRUD API 路由：
+- POST /api/todos - 新建待办
+- GET /api/todos - 获取当前用户的所有待办
+- PATCH /api/todos/[id] - 更新待办状态
+- DELETE /api/todos/[id] - 删除待办
+用 NextResponse，数据库操作用 Prisma Client</pre>
+<p>Cascade 会在 <code>src/app/api/todos/</code> 下创建 <code>route.ts</code> 和 <code>[id]/route.ts</code>，每个端点大约 20-30 行代码。这里的关键是让 Cascade 一次性生成所有路由，而不是一个一个写——它能保持代码风格一致。</p>
+<h3>第四步：前端页面</h3>
+<pre>创建 /todos 页面，功能：
+- 顶部输入框 + 添加按钮
+- 待办列表，每项有勾选和删除按钮
+- 勾选后文字加删除线
+- 用 Server Actions 或 fetch 调用 API
+- 样式用 Tailwind，暗色主题</pre>
+<p>Cascade 会创建 <code>src/app/todos/page.tsx</code> 和相关的 Client Components。它一般会把列表项拆成独立组件（<code>TodoItem.tsx</code>），这是合理的拆分。</p>
+<p>这时候用 <strong>Web Preview</strong> 功能实时查看效果：点 Cascade 面板右上角的预览按钮，边改边看，不用切浏览器。</p>
+<h3>第五步：收尾和优化</h3>
+<p>项目能跑了，让 Cascade 做收尾：</p>
+<pre>请检查并优化：
+1. API 路由加入参校验（title 不能为空，不能超过 200 字符）
+2. 加 loading 状态和错误提示
+3. 空列表显示友好的提示文案
+4. 添加成功后自动清空输入框并 focus</pre>
+<p>Cascade 会跨多个文件做这些优化，每步都有 diff 预览。</p>
+<h3>从这个项目学到什么</h3>
+<p>整个过程耗时大约 15-20 分钟（如果你手写，少说两个小时）。几个关键操作习惯：</p>
+<ul><li><strong>大任务先给全貌</strong>。第一个 prompt 就说清技术栈和项目结构，后面的 prompt 就不用反复解释上下文。</li><li><strong>一次只做一层</strong>。数据模型 → API → 前端 → 优化，每步让 Cascade 完成后检查一下再继续，别一个 prompt 塞所有需求。</li><li><strong>善用 Web Preview</strong>。前端改动实时看效果，比盲写然后刷浏览器高效得多。</li><li><strong>Revert 不可怕</strong>。Cascade 生成的代码不满意直接 Revert 重来，比手动改它的代码更快。</li></ul>
+  </div>
+</section>
+
+
+</main>
+
+<section class="page back-cover">
+  <div class="logo"><img src="assets/logo/logo-zh-white.png" alt="匠人学院" /></div>
+  <h2>Windsurf 上手了，接下来怎么把 AI 编程变成真正的技能？</h2>
+  <p style="max-width: 78%;">这本手册的在线版在 jiangren.com.au/wiki/windsurf-guide，随官网更新。匠人学院还有 20+ 本同款 AI 工具指南（Cursor、Claude Code、n8n、Dify…）和 AI Engineer 方向的项目制课程——想知道怎么把 Windsurf + Cascade 变成简历里的实战经历，来聊聊。</p>
+
+  <div class="sales-card" style="width: 88%;"><img src="assets/contact/sales-cards/angela.jpg" alt="Angela · IT Career Consultant · 匠人学院" /></div>
+
+  <div class="contact-bar" style="width: 88%;">
+    <img class="qr" src="assets/contact/qr-amelia.png" alt="Amelia · 匠人学院 IT 顾问微信" />
+    <div class="cb-body">
+      <div class="cb-title">扫码进社群，Windsurf / AI IDE 实战答疑</div>
+      <div class="cb-desc">把这本 PDF 转给还在手写代码、没用上 AI IDE 的同学。</div>
+    </div>
+    <div class="cb-brand"><img src="assets/logo/jr-box.svg" alt="JR" /><span class="cb-url">jiangren.com.au</span></div>
+  </div>
+
+  <p class="caption" style="color: rgba(255,255,255,0.5);">© JR Academy · 学 AI 来匠人 · 内容源自 jiangren.com.au/wiki《Windsurf AI IDE 实战指南》· 欢迎转发</p>
+</section>
+
+<script defer src="theme/reader.js"></script>
+<a href="Windsurf%20Agentic%20IDE%20%E4%B8%AD%E6%96%87%E4%B8%8A%E6%89%8B%E6%89%8B%E5%86%8C%20-%20%E5%8C%A0%E4%BA%BA%E5%AD%A6%E9%99%A2.pdf" download style="position:fixed;right:22px;bottom:22px;z-index:1200;display:flex;align-items:center;gap:8px;background:#0D0F12;color:#fff;font-weight:700;font-size:14.5px;padding:13px 22px;border-radius:999px;box-shadow:0 12px 28px rgba(13,15,18,.35);text-decoration:none;font-family:Inter,'PingFang SC',sans-serif;">⬇️ 下载 PDF 版</a>
+</body>
+</html>

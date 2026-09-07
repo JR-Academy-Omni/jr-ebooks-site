@@ -14,7 +14,7 @@
     "AI 视频社群引流"
   ],
   "pages": "web draft + A4 flow",
-  "status": "draft",
+  "status": "published",
   "tags": [
     "ai-video",
     "short-video",
@@ -32,6 +32,12 @@
       "rain.jpg"
     ]
   },
-  "sources": [],
+  "sources": [
+    "OpenAI Sora product page: https://openai.com/sora/",
+    "Runway official site: https://runwayml.com/",
+    "Kling AI official site: https://klingai.com/",
+    "CapCut official site: https://www.capcut.com/",
+    "ElevenLabs official site: https://elevenlabs.io/"
+  ],
   "note": "工具名称只做功能示例，不承诺价格、额度、可用地区或生成效果。AI 视频工具更新很快，具体功能以各平台官网最新说明为准。"
 }

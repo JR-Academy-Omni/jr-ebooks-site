@@ -1,125 +1,50 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<base data-ebook-seo href="https://jiangren.com.au/ebooks/sydney-new-student-guide/" />
 <meta charset="UTF-8" />
-<title>悉尼大学新生指南 | JR Academy</title>
+<title>悉尼大学新生指南 — JR Academy</title>
 <link rel="stylesheet" href="theme/ebook.css" />
-<link rel="stylesheet" href="theme/web-zine.css" />
+<link rel="stylesheet" href="theme/flow-a4.css" />
 <style>
-  .hero h1 .t-main { margin-top: 58px; }
-  .hero h1 .t-sticker { top: -42px; right: 4px; transform: rotate(5deg); }
-  .mini-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 16px; }
-  .mini { background: #fff; border: 1px solid var(--jr-border-warm); border-radius: 16px; padding: 16px; box-shadow: var(--jr-shadow-panel); }
-  .mini b { display: block; color: var(--jr-black); margin-bottom: 6px; }
-  .source-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 16px; }
-  .source-card a { color: var(--jr-red); font-weight: 800; text-decoration: none; overflow-wrap: anywhere; }
-  .sales-card-lead { margin-top: 24px; font-size: 17px; font-weight: var(--jr-fw-bold); color: var(--jr-black); }
-  .steps { counter-reset: st; display: grid; gap: 12px; margin-top: 16px; }
-  .step { counter-increment: st; display: grid; grid-template-columns: 42px 1fr; gap: 12px; background: #fff; border: 1px solid var(--jr-border-warm); border-radius: 16px; padding: 16px; }
-  .step::before { content: counter(st); width: 34px; height: 34px; border-radius: 999px; background: var(--jr-black); color: #fff; display: grid; place-items: center; font-family: Anton, var(--jr-font-sans); }
-  .step h3 { margin: 0 0 4px; }
-  @media (max-width: 760px) {
-    .hero h1 .t-main { margin-top: 48px; font-size: 64px; }
-    .hero h1 .t-sticker { top: -34px; right: 6px; font-size: 12px; }
-    .mini-grid, .source-grid { grid-template-columns: 1fr; }
-  }
+  .flow .mini-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3.5mm; margin-top: 3.5mm; break-inside: avoid; }
+  .flow .mini { background: #fff; border: 1px solid var(--jr-border-warm); border-radius: 4mm; padding: 4mm; }
+  .flow .mini b { display: block; color: var(--jr-black); margin-bottom: 1.5mm; }
+  .flow .source-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 3mm; margin-top: 4mm; break-inside: avoid; }
+  .flow .source-card a { color: var(--jr-red); font-weight: 800; text-decoration: none; overflow-wrap: anywhere; }
+  .flow .sales-card-lead { font-size: 9.5pt; font-weight: var(--jr-fw-bold); margin-top: 5mm; }
+  .flow .steps { counter-reset: st; display: grid; gap: 3mm; margin-top: 3.5mm; }
+  .flow .step { counter-increment: st; display: grid; grid-template-columns: 8mm 1fr; gap: 3mm; background: #fff; border: 1px solid var(--jr-border-warm); border-radius: 4mm; padding: 4mm; break-inside: avoid; }
+  .flow .step::before { content: counter(st); width: 7mm; height: 7mm; border-radius: 999px; background: var(--jr-black); color: #fff; display: grid; place-items: center; font-family: Anton, var(--jr-font-sans); font-size: 9pt; }
+  .flow .step h3 { margin: 0 0 1mm; }
 </style>
-<!-- ebook-seo:start -->
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<meta name="theme-color" content="#fffdf7" />
-<meta name="description" content="The University of Sydney 新生入学、enrolment、课表、Orientation、第一月 checklist。" />
-<meta name="author" content="JR Academy AI 教研组" />
-<meta name="keywords" content="go8, australia, new-student, orientation, 悉尼" />
-<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
-<link rel="canonical" href="https://jiangren.com.au/ebooks/sydney-new-student-guide" />
-<meta property="og:type" content="book" />
-<meta property="og:site_name" content="匠人学院·JR Academy" />
-<meta property="og:locale" content="zh_CN" />
-<meta property="og:title" content="悉尼大学新生指南 | JR Academy" />
-<meta property="og:description" content="The University of Sydney 新生入学、enrolment、课表、Orientation、第一月 checklist。" />
-<meta property="og:url" content="https://jiangren.com.au/ebooks/sydney-new-student-guide" />
-<meta property="og:image" content="https://jiangren.com.au/image/free-resources/share-default.png" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="悉尼大学新生指南 | JR Academy" />
-<meta name="twitter:description" content="The University of Sydney 新生入学、enrolment、课表、Orientation、第一月 checklist。" />
-<meta name="twitter:image" content="https://jiangren.com.au/image/free-resources/share-default.png" />
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://jiangren.com.au/ebooks/sydney-new-student-guide#webpage","url":"https://jiangren.com.au/ebooks/sydney-new-student-guide","name":"悉尼大学新生指南 | JR Academy","description":"The University of Sydney 新生入学、enrolment、课表、Orientation、第一月 checklist。","inLanguage":"zh-CN","mainEntity":{"@id":"https://jiangren.com.au/ebooks/sydney-new-student-guide#book"},"isPartOf":{"@type":"WebSite","name":"匠人学院·JR Academy","url":"https://jiangren.com.au"}},{"@type":"Book","@id":"https://jiangren.com.au/ebooks/sydney-new-student-guide#book","name":"悉尼大学新生指南","abstract":"The University of Sydney 新生入学、enrolment、课表、Orientation、第一月 checklist。","inLanguage":"zh-CN","url":"https://jiangren.com.au/ebooks/sydney-new-student-guide","author":{"@type":"Organization","name":"JR Academy AI 教研组"},"publisher":{"@type":"Organization","name":"匠人学院·JR Academy","url":"https://jiangren.com.au"},"encoding":{"@type":"MediaObject","contentUrl":"https://jiangren.com.au/ebooks/sydney-new-student-guide/%E6%82%89%E5%B0%BC%E5%A4%A7%E5%AD%A6%E6%96%B0%E7%94%9F%E6%8C%87%E5%8D%97%20-%20%E5%8C%A0%E4%BA%BA%E5%AD%A6%E9%99%A2.pdf","encodingFormat":"application/pdf"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"匠人学院","item":"https://jiangren.com.au"},{"@type":"ListItem","position":2,"name":"电子书","item":"https://jiangren.com.au/ebooks"},{"@type":"ListItem","position":3,"name":"悉尼大学新生指南","item":"https://jiangren.com.au/ebooks/sydney-new-student-guide"}]}]}</script>
-<style data-ebook-web-layout>
-.ebook-navigation { position:sticky; top:0; z-index:1100; display:flex; align-items:center; justify-content:space-between; gap:12px; box-sizing:border-box; padding:env(safe-area-inset-top) max(16px,env(safe-area-inset-right)) 0 max(16px,env(safe-area-inset-left)); min-height:52px; background:#fffdf7; border-bottom:1px solid #deded5; color:#191b22; font:14px/1.4 sans-serif; }
-.ebook-navigation a { display:flex; min-height:48px; align-items:center; color:#1555aa; text-decoration:none; flex-shrink:0; }
-.ebook-navigation span { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-size:12px; min-width:0; }
-.ebook-navigation a:focus-visible { outline:3px solid #1555aa; outline-offset:2px; }
-body.reader-mode .ebook-navigation { position:fixed; top:0; left:0; right:0; }
-@media print { .ebook-navigation { display:none !important; } }
-@media screen and (max-width: 840px) {
-  body { overflow-wrap: anywhere; }
-  body .ghost { right: 0; max-width: 100%; overflow: hidden; }
-  body .marquee { transform: none; }
-  body table { display: block; max-width: 100%; overflow-x: auto; }
-  body .hero-flex > div, body .ch-head > div { min-width: 0; }
-  body .source-list a { overflow-wrap: anywhere; }
-  body .back-logo { max-width: 100%; height: auto; }
-  body .chart { max-width: 100%; overflow-x: auto; }
-  body:has(main.flow) > .page { zoom: var(--ebook-cover-scale, 1); }
-  body main.flow { box-sizing: border-box; width: calc(100% - 24px); max-width: 760px; padding: 24px 18px 150px; overflow-wrap: anywhere; }
-  main.flow p, main.flow li { font-size: 15px; }
-  main.flow .stat-grid, main.flow .duo-path { grid-template-columns: 1fr; }
-  main.flow img { max-width: 100%; object-fit: contain; }
-  main.flow table { display: block; max-width: 100%; overflow-x: auto; }
-  main.flow pre { max-width: 100%; overflow-x: auto; }
-  body .reader-bar { bottom:calc(8px + env(safe-area-inset-bottom)); max-width:calc(100% - 24px); gap:2px; padding:7px 8px; }
-  body .reader-bar .rd-sep { display:none; }
-  body .reader-bar .rd-toggle { white-space:nowrap; flex-shrink:0; }
-  body .reader-bar button, body .reader-bar .rd-toggle { min-width:44px; min-height:44px; touch-action:manipulation; }
-  body a[download] { bottom:calc(18px + env(safe-area-inset-bottom)) !important; min-height:44px; box-sizing:border-box; }
-  body:has(.reader-bar) a[download] { bottom:calc(80px + env(safe-area-inset-bottom)) !important; right: 16px !important; padding: 10px 16px !important; }
-  body.reader-mode .page { transform:translate(-50%,-50%) scale(calc(var(--reader-scale,1) * .8)); }
-  body:has(.ebook-navigation):not(.reader-mode) { padding-bottom:calc(140px + env(safe-area-inset-bottom)); }
-}
-</style>
-<script>
-(() => {
-  const fitCover = () => document.documentElement.style.setProperty('--ebook-cover-scale', String(Math.min(1, (innerWidth - 32) / (210 * 96 / 25.4))));
-  fitCover();
-  addEventListener('resize', fitCover);
-  addEventListener('DOMContentLoaded', () => {
-    const nav = document.createElement('nav');
-    nav.className = 'ebook-navigation';
-    nav.setAttribute('aria-label', '电子书导航');
-    const back = document.createElement('a');
-    back.href = 'https://jiangren.com.au/ebooks';
-    back.textContent = '‹ 书架';
-    const title = document.createElement('span');
-    title.textContent = "悉尼大学新生指南";
-    const home = document.createElement('a');
-    home.href = 'https://jiangren.com.au';
-    home.textContent = '官网 ↗';
-    nav.append(back, title, home);
-    document.body.prepend(nav);
-  });
-})();
-</script>
-<!-- ebook-seo:end -->
 </head>
 <body>
-<header class="hero">
-  <div class="wrap">
-    <img class="logo" src="assets/logo/logo-zh-full.svg" alt="匠人学院" />
-    <div class="hero-flex">
-      <div>
-        <div class="bar"></div>
-        <h1><span class="t-top">悉尼大学</span><br/><span class="t-main">新生指南<span class="t-sticker">Sydney Student + Canvas</span></span></h1>
-        <p class="sub">给 USYD 新生：UniKey、Sydney Student、Canvas、Timetable、USI 和 course planning 怎么串起来。</p>
-        <div class="chips"><span class="chip">Sydney Student</span><span class="chip">Canvas</span><span class="chip">UniKey</span></div>
-      </div>
-      <div class="mascot-wrap"><div class="tape"></div><img class="hero-mascot" src="assets/illustrations/niuxiaojiang-hero.png" alt="牛小匠" /></div>
-    </div>
-  </div>
-  <div class="marquee"><div class="mq-track"><span>The University of Sydney <i>✦</i> New Student Guide <i>✦</i> 2026-06-29 official-source checked <i>✦</i> Rain QR <i>✦</i></span><span>The University of Sydney <i>✦</i> New Student Guide <i>✦</i> 2026-06-29 official-source checked <i>✦</i> Rain QR <i>✦</i></span></div></div>
-</header>
+<img class="jr-wm" src="assets/logo/jr-box.svg" alt="" />
 
-<nav class="toc wrap">
+<section class="page cover2">
+  <div class="cv2-ghost">GO8</div>
+  <div class="cv2-head">
+    <img src="assets/logo/logo-zh-white.png" alt="匠人学院" />
+    <span class="cv2-sticker">2026 官网核对版</span>
+  </div>
+  <div class="cv2-body">
+    <div class="cv2-kicker">Group of Eight · offer / enrolment / timetable / orientation / first month</div>
+    <div class="cv2-title"><em>悉尼大学</em><br/>新生指南</div>
+    <div class="cv2-bar"></div>
+    <p class="cv2-sub">给 USYD 新生：UniKey、Sydney Student、Canvas、Timetable、USI 和 course planning 怎么串起来。 核对日期 2026-06-29，日期和系统提示以学校官网最新信息为准。</p>
+    <div class="cv2-chips"><span class="chip">Sydney Student</span><span class="chip">Canvas</span><span class="chip">UniKey</span></div>
+    <div class="cv2-diecut">悉大不是缺入口，是入口太多。你先知道每个入口管什么，就不会在开学前乱点。</div>
+  </div>
+  <span class="cv2-holo">GO8</span>
+  <img class="cv2-mascot" src="assets/illustrations/niuxiaojiang-hero.png" alt="牛小匠" />
+  <div class="cv2-domain">jiangren.com.au · The University of Sydney · 2026-06-29</div>
+  <div class="cv2-strip"><span>学 AI 来匠人 <i>✦</i> 澳洲八大新生指南 <i>✦</i> 悉尼大学 <i>✦</i> JIANGREN.COM.AU <i>✦</i></span></div>
+</section>
+
+<main class="flow">
+<div class="book-toc">
+  <div class="ch-num">CONTENTS</div>
+  <h2>目录</h2>
   <a href="#how"><span class="num">00</span>这本书怎么用</a>
   <a href="#ch1"><span class="num">01</span>Offer 之后先做哪几件事</a>
   <a href="#ch2"><span class="num">02</span>账号、邮箱、学生证和系统入口</a>
@@ -129,8 +54,7 @@ body.reader-mode .ebook-navigation { position:fixed; top:0; left:0; right:0; }
   <a href="#ch6"><span class="num">06</span>第一个月怎么不掉队</a>
   <a href="#ch7"><span class="num">07</span>FAQ</a>
   <a href="#ch8"><span class="num">08</span>官方来源清单</a>
-</nav>
-
+</div>
 <section class="ch" id="how">
   <div class="wrap">
     <h2>这本书怎么用</h2>
@@ -180,7 +104,16 @@ body.reader-mode .ebook-navigation { position:fixed; top:0; left:0; right:0; }
     </div>
     <p class="lead">enrolment 是正式进入课程的动作。很多事故不是不会学习，是这里没做完。</p><div class="steps"><div class="step"><div><h3>先看 course planning</h3><p>USYD 官方 course planning 页面把 course components、units of study、handbook and course rules、sample plans 放在一起讲。</p></div></div><div class="step"><div><h3>再挑 units of study</h3><p>unit rules 里看 prerequisite、corequisite、prohibition、assumed knowledge。</p></div></div><div class="step"><div><h3>补上 USI</h3><p>Current students 页面提醒学生需要 USI 才能在澳洲学习、查结果和毕业；拿到后要在 Sydney Student 里提供。</p></div></div></div><div class="card"><div class="title-row"><span class="n">QA</span><h3>自查句</h3></div><p>你应该能清楚说出：我在哪个系统 enrol、选了哪些 course/unit/subject、每门算多少 credit/units、课表有没有最后确认。</p></div><div class="src">官方源：<a href="https://www.sydney.edu.au/students/home.html" target="_blank" rel="noreferrer">Current students</a> ｜ <a href="https://www.sydney.edu.au/handbooks/" target="_blank" rel="noreferrer">2026 Handbooks</a> ｜ <a href="https://www.sydney.edu.au/students/course-planning.html" target="_blank" rel="noreferrer">Planning your course</a> ｜ <a href="https://www.sydney.edu.au/students/course-planning/choosing-units.html" target="_blank" rel="noreferrer">Choose your units of study</a> ｜ <a href="https://www.sydney.edu.au/students/usi.html" target="_blank" rel="noreferrer">Unique Student Identifier</a> ｜核对 2026-06-29</div>
   </div>
-</section>
+
+<a class="promo-line" href="https://jiangren.com.au/blog" target="_blank" rel="noopener">📰 跟上行业节奏：匠人每天 5 条经过核源的 AI 日报，每周一份大事盘点 <span>→</span></a></section>
+<aside class="promo">
+  <span class="promo-tag">AD · 自家的</span>
+  <div class="promo-body">
+    <h4>📚 27 本 AI 工具实战手册，免费</h4>
+    <p>Cursor、Claude Code、Dify、n8n、CrewAI…每个工具一本中文实战手册，5-10 章带代码，不用注册不要钱。本书提到的工具基本都有对应深读。</p>
+  </div>
+  <a class="promo-cta" href="https://jiangren.com.au/wiki" target="_blank" rel="noopener">去翻手册 →</a>
+</aside>
 <section class="ch" id="ch4">
   <div class="ghost">04</div>
   <div class="wrap">
@@ -213,6 +146,14 @@ body.reader-mode .ebook-navigation { position:fixed; top:0; left:0; right:0; }
   </div><div class="callout"><strong>说白了：</strong>签证、CoE、study load、withdraw 这些事，别靠朋友经验。每个人的 course、visa 和日期都可能不一样。</div>
   </div>
 </section>
+<aside class="promo">
+  <span class="promo-tag">AD · 自家的</span>
+  <div class="promo-body">
+    <h4>🧪 10 分钟测出你的 AI Engineer 缺口</h4>
+    <p>官网的 77 项能力自测（五大支柱逐项点选），已有 2,300+ 人做过。测完直接看出你该补哪根柱子，免费不用注册。</p>
+  </div>
+  <a class="promo-cta" href="https://jiangren.com.au/learn/ai-engineer" target="_blank" rel="noopener">去做测试 →</a>
+</aside>
 <section class="ch" id="ch6">
   <div class="ghost">06</div>
   <div class="wrap">
@@ -255,25 +196,25 @@ body.reader-mode .ebook-navigation { position:fixed; top:0; left:0; right:0; }
     <p class="lead">下面这些是本书引用和核对的官方入口。发给学生前，建议再点一遍学校页面，尤其是日期类信息。</p><div class="source-grid"><div class="card source-card"><h3>Current students</h3><p><a href="https://www.sydney.edu.au/students/home.html" target="_blank" rel="noreferrer">https://www.sydney.edu.au/students/home.html</a></p></div><div class="card source-card"><h3>2026 Handbooks</h3><p><a href="https://www.sydney.edu.au/handbooks/" target="_blank" rel="noreferrer">https://www.sydney.edu.au/handbooks/</a></p></div><div class="card source-card"><h3>Planning your course</h3><p><a href="https://www.sydney.edu.au/students/course-planning.html" target="_blank" rel="noreferrer">https://www.sydney.edu.au/students/course-planning.html</a></p></div><div class="card source-card"><h3>Choose your units of study</h3><p><a href="https://www.sydney.edu.au/students/course-planning/choosing-units.html" target="_blank" rel="noreferrer">https://www.sydney.edu.au/students/course-planning/choosing-units.html</a></p></div><div class="card source-card"><h3>Unique Student Identifier</h3><p><a href="https://www.sydney.edu.au/students/usi.html" target="_blank" rel="noreferrer">https://www.sydney.edu.au/students/usi.html</a></p></div></div><div class="callout"><strong>核对说明：</strong>USYD Current students 页 2026-06-29 抓取显示 modified 2026-06-29，含 Canvas、Email、Sydney Student、Timetables、Units 等入口；旧 getting-started 链接同日返回 404。</div>
   </div>
 </section>
+</main>
 
-<section class="ch">
-  <div class="wrap">
-    <h2>最后提醒</h2>
-    <div class="contact-bar">
+<section class="page back-cover">
+  <div class="logo"><img src="assets/logo/logo-zh-white.png" alt="匠人学院" /></div>
+  <h2>悉尼大学新生指南，先按官网把第一步走稳</h2>
+  <p style="max-width: 82%;">这本书只做新生流程整理和资料入口。真正操作前，请再打开学校官网核对当期日期、系统提示和你的个人 enrolment 状态。</p>
+  <p class="sales-card-lead" style="max-width: 82%; color: rgba(255,255,255,0.82);">想继续拿悉尼新生、选课和入学资料更新，可以扫下面二维码。</p>
+  <div class="sales-card" style="width: 82%;"><img src="assets/contact/sales-cards/rain.jpg" alt="Rain · 匠人学院资深 IT 顾问" /></div>
+  <div class="contact-bar lg" style="width: 82%;">
     <img class="qr" src="assets/contact/qr-rain.png" alt="Rain · 匠人学院资深 IT 顾问微信" />
-    <div><div class="t">扫码了解更多悉尼新生资料</div><div class="d">二维码为 Rain。这本书不承诺申请或学校审批结果，只做入学、选课和新生信息的资料入口。</div></div>
+    <div class="cb-body">
+      <div class="cb-title">扫码找 Rain，了解更多新生资料更新</div>
+      <div class="cb-desc">适合拿到 offer、准备入学、刚到澳洲、或者第一学期选课和课表还没理顺的同学。</div>
+    </div>
   </div>
-  </div>
+  <div class="cta-url">jiangren.com.au</div>
+  <p class="caption" style="color: rgba(255,255,255,0.5);">© JR Academy · 资料核对 2026-06-29 · 以学校官网最新信息为准</p>
 </section>
-<script>
-(() => {
-  const io = new IntersectionObserver((es) => {
-    es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-  }, { threshold: 0.12 });
-  document.querySelectorAll('.ch, .toc, .card, .mini, .source-card, .check-group, .contact-bar, .sales-card, table')
-    .forEach(el => { el.classList.add('reveal'); io.observe(el); });
-})();
-</script>
+<script defer src="theme/reader.js"></script>
 <a href="%E6%82%89%E5%B0%BC%E5%A4%A7%E5%AD%A6%E6%96%B0%E7%94%9F%E6%8C%87%E5%8D%97%20-%20%E5%8C%A0%E4%BA%BA%E5%AD%A6%E9%99%A2.pdf" download style="position:fixed;right:22px;bottom:22px;z-index:1200;display:flex;align-items:center;gap:8px;background:#0D0F12;color:#fff;font-weight:700;font-size:14.5px;padding:13px 22px;border-radius:999px;box-shadow:0 12px 28px rgba(13,15,18,.35);text-decoration:none;font-family:Inter,'PingFang SC',sans-serif;">⬇️ 下载 PDF 版</a>
 </body>
 </html>

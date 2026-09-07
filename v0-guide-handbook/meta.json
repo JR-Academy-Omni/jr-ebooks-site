@@ -1,0 +1,27 @@
+{
+  "slug": "v0-guide-handbook",
+  "title": "v0 实战手册：AI 全栈应用构建",
+  "subtitle": "Vercel 出品的 AI 代码生成器完整指南 — Design Mode、Git 工作流、Supabase 全栈、Platform API + 生产上线 checklist",
+  "track": "T1",
+  "style": "handbook",
+  "mode": "flow",
+  "status": "published",
+  "contact": {
+    "how-to-read": "qr-amelia",
+    "ch04-sales": "amelia.jpg",
+    "ch05-bar": "qr-rain",
+    "ch06-sales": "rain.jpg",
+    "back-cover-card": "angela.jpg",
+    "back-cover-bar": "qr-amelia"
+  },
+  "sources": [
+    "jr-wiki: src/content/wiki/v0-guide/01-what-is-v0.md",
+    "jr-wiki: src/content/wiki/v0-guide/02-getting-started.md",
+    "jr-wiki: src/content/wiki/v0-guide/03-core-features.md",
+    "jr-wiki: src/content/wiki/v0-guide/04-advanced-tips.md",
+    "jr-wiki: src/content/wiki/v0-guide/05-faq.md",
+    "jr-wiki: src/content/wiki/v0-guide/06-supabase-fullstack.md",
+    "jr-wiki: src/content/wiki/v0-guide/07-platform-api.md",
+    "jr-wiki: src/content/wiki/v0-guide/08-production-checklist.md"
+  ]
+}

@@ -1,139 +1,64 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<base data-ebook-seo href="https://jiangren.com.au/ebooks/uq-course-selection-guide/" />
 <meta charset="UTF-8" />
-<title>昆士兰大学选课指南 | JR Academy</title>
-<link rel="stylesheet" href="theme/tokens.css" />
-<link rel="stylesheet" href="theme/web-zine.css" />
+<title>昆士兰大学选课指南 — JR Academy</title>
+<link rel="stylesheet" href="theme/ebook.css" />
+<link rel="stylesheet" href="theme/flow-a4.css" />
 <style>
-  .hero h1 .t-main { margin-top: 64px; }
-  .hero h1 .t-sticker { top: -44px; right: -12px; transform: rotate(5deg); }
-  .source-list a { color: var(--jr-red); text-decoration: none; font-weight: 700; }
-  .mini-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 16px; }
-  .mini { background: #fff; border: 1px solid var(--jr-border-warm); border-radius: 16px; padding: 16px; box-shadow: var(--jr-shadow-panel); }
-  .mini b { display: block; color: var(--jr-black); margin-bottom: 6px; }
-  .steps { counter-reset: st; display: grid; gap: 12px; margin-top: 16px; }
-  .step { counter-increment: st; display: grid; grid-template-columns: 44px 1fr; gap: 12px; background: #fff; border: 1px solid var(--jr-border-warm); border-radius: 16px; padding: 16px; }
-  .step::before { content: counter(st); width: 34px; height: 34px; border-radius: 999px; background: var(--jr-black); color: #fff; display: grid; place-items: center; font-family: Anton, var(--jr-font-sans); }
-  .step h3 { margin: 0 0 4px; }
-  .src a { color: inherit; }
-  .qgrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 16px; }
-  @media (max-width: 760px) {
-    .hero h1 .t-main { margin-top: 52px; }
-    .hero h1 .t-sticker { top: -35px; right: 4px; font-size: 12px; }
-    .mini-grid, .qgrid { grid-template-columns: 1fr; }
-  }
+  .flow .source-list a { color: var(--jr-red); text-decoration: none; font-weight: 700; }
+  .flow .mini-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3.5mm; margin-top: 3.5mm; break-inside: avoid; }
+  .flow .mini { background: #fff; border: 1px solid var(--jr-border-warm); border-radius: 4mm; padding: 4mm; }
+  .flow .mini b { display: block; color: var(--jr-black); margin-bottom: 1.5mm; }
+  .flow .steps { counter-reset: st; display: grid; gap: 3mm; margin-top: 3.5mm; }
+  .flow .step { counter-increment: st; display: grid; grid-template-columns: 9mm 1fr; gap: 3mm; background: #fff; border: 1px solid var(--jr-border-warm); border-radius: 4mm; padding: 4mm; break-inside: avoid; }
+  .flow .step::before { content: counter(st); width: 7mm; height: 7mm; border-radius: 999px; background: var(--jr-black); color: #fff; display: grid; place-items: center; font-family: Anton, var(--jr-font-sans); font-size: 9pt; }
+  .flow .step h3 { margin: 0 0 1mm; }
+  .flow .qgrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 3.5mm; margin-top: 3.5mm; }
+  .flow .qgrid .card { margin-top: 0; }
 </style>
-<!-- ebook-seo:start -->
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<meta name="theme-color" content="#fffdf7" />
-<meta name="description" content="给 UQ 新生和在读同学：program requirements、ECP、SI-net、My Timetable 怎么串起来。" />
-<meta name="author" content="JR Academy AI 教研组" />
-<meta name="keywords" content="study-abroad, australia, go8, course-selection, university" />
-<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
-<link rel="canonical" href="https://jiangren.com.au/ebooks/uq-course-selection-guide" />
-<meta property="og:type" content="book" />
-<meta property="og:site_name" content="匠人学院·JR Academy" />
-<meta property="og:locale" content="zh_CN" />
-<meta property="og:title" content="昆士兰大学选课指南 | JR Academy" />
-<meta property="og:description" content="给 UQ 新生和在读同学：program requirements、ECP、SI-net、My Timetable 怎么串起来。" />
-<meta property="og:url" content="https://jiangren.com.au/ebooks/uq-course-selection-guide" />
-<meta property="og:image" content="https://jiangren.com.au/image/free-resources/share-default.png" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="昆士兰大学选课指南 | JR Academy" />
-<meta name="twitter:description" content="给 UQ 新生和在读同学：program requirements、ECP、SI-net、My Timetable 怎么串起来。" />
-<meta name="twitter:image" content="https://jiangren.com.au/image/free-resources/share-default.png" />
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://jiangren.com.au/ebooks/uq-course-selection-guide#webpage","url":"https://jiangren.com.au/ebooks/uq-course-selection-guide","name":"昆士兰大学选课指南 | JR Academy","description":"给 UQ 新生和在读同学：program requirements、ECP、SI-net、My Timetable 怎么串起来。","inLanguage":"zh-CN","mainEntity":{"@id":"https://jiangren.com.au/ebooks/uq-course-selection-guide#book"},"isPartOf":{"@type":"WebSite","name":"匠人学院·JR Academy","url":"https://jiangren.com.au"}},{"@type":"Book","@id":"https://jiangren.com.au/ebooks/uq-course-selection-guide#book","name":"昆士兰大学选课指南","abstract":"给 UQ 新生和在读同学：program requirements、ECP、SI-net、My Timetable 怎么串起来。","inLanguage":"zh-CN","url":"https://jiangren.com.au/ebooks/uq-course-selection-guide","author":{"@type":"Organization","name":"JR Academy AI 教研组"},"publisher":{"@type":"Organization","name":"匠人学院·JR Academy","url":"https://jiangren.com.au"},"encoding":{"@type":"MediaObject","contentUrl":"https://jiangren.com.au/ebooks/uq-course-selection-guide/%E6%98%86%E5%A3%AB%E5%85%B0%E5%A4%A7%E5%AD%A6%E9%80%89%E8%AF%BE%E6%8C%87%E5%8D%97%20-%20%E5%8C%A0%E4%BA%BA%E5%AD%A6%E9%99%A2.pdf","encodingFormat":"application/pdf"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"匠人学院","item":"https://jiangren.com.au"},{"@type":"ListItem","position":2,"name":"电子书","item":"https://jiangren.com.au/ebooks"},{"@type":"ListItem","position":3,"name":"昆士兰大学选课指南","item":"https://jiangren.com.au/ebooks/uq-course-selection-guide"}]}]}</script>
-<style data-ebook-web-layout>
-.ebook-navigation { position:sticky; top:0; z-index:1100; display:flex; align-items:center; justify-content:space-between; gap:12px; box-sizing:border-box; padding:env(safe-area-inset-top) max(16px,env(safe-area-inset-right)) 0 max(16px,env(safe-area-inset-left)); min-height:52px; background:#fffdf7; border-bottom:1px solid #deded5; color:#191b22; font:14px/1.4 sans-serif; }
-.ebook-navigation a { display:flex; min-height:48px; align-items:center; color:#1555aa; text-decoration:none; flex-shrink:0; }
-.ebook-navigation span { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-size:12px; min-width:0; }
-.ebook-navigation a:focus-visible { outline:3px solid #1555aa; outline-offset:2px; }
-body.reader-mode .ebook-navigation { position:fixed; top:0; left:0; right:0; }
-@media print { .ebook-navigation { display:none !important; } }
-@media screen and (max-width: 840px) {
-  body { overflow-wrap: anywhere; }
-  body .ghost { right: 0; max-width: 100%; overflow: hidden; }
-  body .marquee { transform: none; }
-  body table { display: block; max-width: 100%; overflow-x: auto; }
-  body .hero-flex > div, body .ch-head > div { min-width: 0; }
-  body .source-list a { overflow-wrap: anywhere; }
-  body .back-logo { max-width: 100%; height: auto; }
-  body .chart { max-width: 100%; overflow-x: auto; }
-  body:has(main.flow) > .page { zoom: var(--ebook-cover-scale, 1); }
-  body main.flow { box-sizing: border-box; width: calc(100% - 24px); max-width: 760px; padding: 24px 18px 150px; overflow-wrap: anywhere; }
-  main.flow p, main.flow li { font-size: 15px; }
-  main.flow .stat-grid, main.flow .duo-path { grid-template-columns: 1fr; }
-  main.flow img { max-width: 100%; object-fit: contain; }
-  main.flow table { display: block; max-width: 100%; overflow-x: auto; }
-  main.flow pre { max-width: 100%; overflow-x: auto; }
-  body .reader-bar { bottom:calc(8px + env(safe-area-inset-bottom)); max-width:calc(100% - 24px); gap:2px; padding:7px 8px; }
-  body .reader-bar .rd-sep { display:none; }
-  body .reader-bar .rd-toggle { white-space:nowrap; flex-shrink:0; }
-  body .reader-bar button, body .reader-bar .rd-toggle { min-width:44px; min-height:44px; touch-action:manipulation; }
-  body a[download] { bottom:calc(18px + env(safe-area-inset-bottom)) !important; min-height:44px; box-sizing:border-box; }
-  body:has(.reader-bar) a[download] { bottom:calc(80px + env(safe-area-inset-bottom)) !important; right: 16px !important; padding: 10px 16px !important; }
-  body.reader-mode .page { transform:translate(-50%,-50%) scale(calc(var(--reader-scale,1) * .8)); }
-  body:has(.ebook-navigation):not(.reader-mode) { padding-bottom:calc(140px + env(safe-area-inset-bottom)); }
-}
-</style>
-<script>
-(() => {
-  const fitCover = () => document.documentElement.style.setProperty('--ebook-cover-scale', String(Math.min(1, (innerWidth - 32) / (210 * 96 / 25.4))));
-  fitCover();
-  addEventListener('resize', fitCover);
-  addEventListener('DOMContentLoaded', () => {
-    const nav = document.createElement('nav');
-    nav.className = 'ebook-navigation';
-    nav.setAttribute('aria-label', '电子书导航');
-    const back = document.createElement('a');
-    back.href = 'https://jiangren.com.au/ebooks';
-    back.textContent = '‹ 书架';
-    const title = document.createElement('span');
-    title.textContent = "昆士兰大学选课指南";
-    const home = document.createElement('a');
-    home.href = 'https://jiangren.com.au';
-    home.textContent = '官网 ↗';
-    nav.append(back, title, home);
-    document.body.prepend(nav);
-  });
-})();
-</script>
-<!-- ebook-seo:end -->
 </head>
 <body>
+<img class="jr-wm" src="assets/logo/jr-box.svg" alt="" />
 
-<header class="hero">
-  <div class="wrap">
-    <img class="logo" src="assets/logo/logo-zh-full.svg" alt="匠人学院" />
-    <div class="hero-flex">
-      <div>
-        <div class="bar"></div>
-        <h1><span class="t-top">昆士兰大学</span><br /><span class="t-main">选课指南<span class="t-sticker">SI-net + ECP</span></span></h1>
-        <p class="sub">给 UQ 新生和在读同学：program requirements、ECP、SI-net、My Timetable 怎么串起来。<span class="hl">看完你应该能自己判断：这门课能不能选、什么时候选、退了会怎样。</span></p>
-        <div class="chips"><span class="chip">8 units full-time</span><span class="chip">ECP</span><span class="chip">My Timetable</span></div>
-        <div style="margin-top: 26px;"><span class="zine-diecut" style="font-size: 24px;">UQ 的 planner 只是计划，不等于拿到 class spot。</span></div>
-      </div>
-      <div class="mascot-wrap"><span class="tape"></span><img class="hero-mascot" src="assets/illustrations/niuxiaojiang-hero.png" alt="牛小匠" /></div>
+<section class="page cover2">
+  <div class="cv2-ghost">GO8</div>
+  <div class="cv2-head">
+    <img src="assets/logo/logo-zh-white.png" alt="匠人学院" />
+    <span class="cv2-sticker">2026 官网核对版</span>
+  </div>
+  <div class="cv2-body">
+    <div class="cv2-kicker">Group of Eight · 选课 / enrolment / timetable / census date</div>
+    <div class="cv2-title"><em>昆士兰大学</em><br/>选课指南</div>
+    <div class="cv2-bar"></div>
+    <p class="cv2-sub">给 UQ 新生和在读同学：program requirements、ECP、SI-net、My Timetable 怎么串起来。看完你应该能自己判断：这门课能不能选、什么时候选、退了会怎样。</p>
+    <div class="cv2-chips">
+      <span class="chip">8 units full-time</span>
+      <span class="chip">ECP</span>
+      <span class="chip">My Timetable</span>
     </div>
+    <div class="cv2-diecut">UQ 的 planner 只是计划，不等于拿到 class spot。</div>
   </div>
-</header>
+  <span class="cv2-holo">GO8</span>
+  <img class="cv2-mascot" src="assets/illustrations/niuxiaojiang-hero.png" alt="牛小匠" />
+  <div class="cv2-domain">jiangren.com.au · 资料核对 2026-06-25 · 以学校官网最新信息为准</div>
+  <div class="cv2-strip"><span>学 AI 来匠人 <i>✦</i> 澳洲八大选课指南 <i>✦</i> 昆士兰大学 <i>✦</i> JIANGREN.COM.AU <i>✦</i></span></div>
+</section>
 
-<div class="marquee"><div class="mq-track"><span>澳洲八大选课指南<i>✦</i>昆士兰大学<i>✦</i>真实官网源<i>✦</i>JIANGREN.COM.AU<i>✦</i>先读规则再选课<i>✦</i></span><span>澳洲八大选课指南<i>✦</i>昆士兰大学<i>✦</i>真实官网源<i>✦</i>JIANGREN.COM.AU<i>✦</i>先读规则再选课<i>✦</i></span></div></div>
-
-<nav class="toc">
-  <div class="wrap">
-    <a href="#ch1"><span class="num">01</span>先把词典对齐</a>
-    <a href="#ch2"><span class="num">02</span>Handbook / catalogue 怎么读</a>
-    <a href="#ch3"><span class="num">03</span>Core / elective / major 怎么拆</a>
-    <a href="#ch4"><span class="num">04</span>Prerequisite 和 availability</a>
-    <a href="#ch5"><span class="num">05</span>Enrolment 真正怎么走</a>
-    <a href="#ch6"><span class="num">06</span>Timetable：计划和拿到位置</a>
-    <a href="#ch7"><span class="num">07</span>Census / withdraw / study load</a>
-    <a href="#ch8"><span class="num">08</span>FAQ：最常见的坑</a>
-  </div>
-</nav>
+<main class="flow">
+<div class="book-toc">
+  <div class="ch-num">CONTENTS</div>
+  <h2>目录</h2>
+  <a href="#how"><span class="num">00</span>这本书怎么用</a>
+  <a href="#ch1"><span class="num">01</span>先把词典对齐</a>
+  <a href="#ch2"><span class="num">02</span>Handbook / catalogue 怎么读</a>
+  <a href="#ch3"><span class="num">03</span>Core / elective / major 怎么拆</a>
+  <a href="#ch4"><span class="num">04</span>Prerequisite 和 availability</a>
+  <a href="#ch5"><span class="num">05</span>Enrolment 真正怎么走</a>
+  <a href="#ch6"><span class="num">06</span>Timetable：计划和拿到位置</a>
+  <a href="#ch7"><span class="num">07</span>Census / withdraw / study load</a>
+  <a href="#ch8"><span class="num">08</span>FAQ：最常见的坑</a>
+</div>
 
 <section class="ch" id="how">
   <div class="wrap">
@@ -196,7 +121,16 @@ body.reader-mode .ebook-navigation { position:fixed; top:0; left:0; right:0; }
       <div class="callout"><strong>实操模板：</strong>开一个表格，四列就够：必修 / 主修或方向 / 可选空间 / 不能忘的日期。每门课先放进其中一列，再去排 timetable。</div>
       <div class="src source-list">官方源：<a href="https://my.uq.edu.au/information-and-services/manage-my-program/classes-timetables-and-coursework/choosing-your-courses" target="_blank" rel="noreferrer">Choosing your courses</a> ｜ <a href="https://my.uq.edu.au/information-and-services/manage-my-program/classes-timetables-and-coursework/enrolment-and-class-allocation" target="_blank" rel="noreferrer">Enrolment and class allocation</a> ｜ <a href="https://my.uq.edu.au/information-and-services/manage-my-program/classes-timetables-and-coursework/about-your-timetable" target="_blank" rel="noreferrer">About your timetable</a> ｜ <a href="https://my.uq.edu.au/information-and-services/manage-my-program/classes-timetables-and-coursework/about-your-timetable/teaching-period-calendar" target="_blank" rel="noreferrer">Teaching period calendar</a> ｜ <a href="https://my.uq.edu.au/information-and-services/manage-my-program/classes-timetables-and-coursework/withdrawing-course-or-program" target="_blank" rel="noreferrer">Withdrawing from a course or program</a> ｜核对 2026-06-25</div>
   </div>
-</section>
+
+<a class="promo-line" href="https://jiangren.com.au/blog" target="_blank" rel="noopener">📰 跟上行业节奏：匠人每天 5 条经过核源的 AI 日报，每周一份大事盘点 <span>→</span></a></section>
+<aside class="promo">
+  <span class="promo-tag">AD · 自家的</span>
+  <div class="promo-body">
+    <h4>📚 27 本 AI 工具实战手册，免费</h4>
+    <p>Cursor、Claude Code、Dify、n8n、CrewAI…每个工具一本中文实战手册，5-10 章带代码，不用注册不要钱。本书提到的工具基本都有对应深读。</p>
+  </div>
+  <a class="promo-cta" href="https://jiangren.com.au/wiki" target="_blank" rel="noopener">去翻手册 →</a>
+</aside>
 <section class="ch" id="ch4">
   <div class="ghost">04</div>
   <div class="wrap">
@@ -236,6 +170,14 @@ body.reader-mode .ebook-navigation { position:fixed; top:0; left:0; right:0; }
   </div>
   </div>
 </section>
+<aside class="promo">
+  <span class="promo-tag">AD · 自家的</span>
+  <div class="promo-body">
+    <h4>🧪 10 分钟测出你的 AI Engineer 缺口</h4>
+    <p>官网的 77 项能力自测（五大支柱逐项点选），已有 2,300+ 人做过。测完直接看出你该补哪根柱子，免费不用注册。</p>
+  </div>
+  <a class="promo-cta" href="https://jiangren.com.au/learn/ai-engineer" target="_blank" rel="noopener">去做测试 →</a>
+</aside>
 <section class="ch" id="ch6">
   <div class="ghost">06</div>
   <div class="wrap">
@@ -289,30 +231,26 @@ body.reader-mode .ebook-navigation { position:fixed; top:0; left:0; right:0; }
       <div class="src source-list">官方源：<a href="https://my.uq.edu.au/information-and-services/manage-my-program/classes-timetables-and-coursework/choosing-your-courses" target="_blank" rel="noreferrer">Choosing your courses</a> ｜ <a href="https://my.uq.edu.au/information-and-services/manage-my-program/classes-timetables-and-coursework/enrolment-and-class-allocation" target="_blank" rel="noreferrer">Enrolment and class allocation</a> ｜ <a href="https://my.uq.edu.au/information-and-services/manage-my-program/classes-timetables-and-coursework/about-your-timetable" target="_blank" rel="noreferrer">About your timetable</a> ｜ <a href="https://my.uq.edu.au/information-and-services/manage-my-program/classes-timetables-and-coursework/about-your-timetable/teaching-period-calendar" target="_blank" rel="noreferrer">Teaching period calendar</a> ｜ <a href="https://my.uq.edu.au/information-and-services/manage-my-program/classes-timetables-and-coursework/withdrawing-course-or-program" target="_blank" rel="noreferrer">Withdrawing from a course or program</a> ｜核对 2026-06-25</div>
   </div>
 </section>
+</main>
 
-<footer class="outro">
-  <div class="wrap">
-    <img class="logo" src="assets/logo/logo-zh-white.png" alt="匠人学院" />
-    <h2>选课先别靠感觉，先把规则看明白</h2>
-    <p>昆士兰大学选课指南 是澳洲八大选课指南系列的一本。适合拿到 offer、准备入学、或者下学期要换课/换专业方向的同学。真正 enrol 前，请再点开学校官网核对当期日期和系统提示。</p>
-    <div class="sales-card"><img src="assets/contact/sales-cards/angela.jpg" alt="Angela · 匠人学院 IT 顾问 · 匠人学院" /></div>
-    <div class="contact-bar">
+<section class="page back-cover">
+  <div class="logo"><img src="assets/logo/logo-zh-white.png" alt="匠人学院" /></div>
+  <h2>选课先别靠感觉，先把规则看明白</h2>
+  <p style="max-width: 82%;">昆士兰大学选课指南 是澳洲八大选课指南系列的一本。真正 enrol 前，请再点开学校官网核对当期日期和系统提示。</p>
+  <p class="sales-card-lead" style="max-width: 82%; color: rgba(255,255,255,0.82);">如果你想让人帮你过一遍选课表，可以扫下面顾问码，把 degree、想读方向和当前 plan 发来。</p>
+  <div class="sales-card" style="width: 82%;"><img src="assets/contact/sales-cards/angela.jpg" alt="Angela · 匠人学院 IT 顾问 · 匠人学院" /></div>
+  <div class="contact-bar lg" style="width: 82%;">
     <img class="qr" src="assets/contact/qr-angela.png" alt="Angela · 匠人学院 IT 顾问微信" />
-    <div><div class="t">想找人帮你过一遍选课表？</div><div class="d">扫码找 Angela。我们可以先帮你看 degree requirements、study load、时间节点这些容易出事的地方。</div></div>
+    <div class="cb-body">
+      <div class="cb-title">扫码找 Angela，先看规则有没有明显冲突</div>
+      <div class="cb-desc">适合拿到 offer、准备入学、或者下学期要换课 / 换方向的同学。我们先帮你看 degree requirements、study load 和关键时间节点。</div>
+    </div>
   </div>
-    <p class="fine">© JR Academy · jiangren.com.au · 资料核对 2026-06-25 · 以学校官网最新信息为准</p>
-  </div>
-</footer>
+  <div class="cta-url">jiangren.com.au</div>
+  <p class="caption" style="color: rgba(255,255,255,0.5);">© JR Academy · 资料核对 2026-06-25 · 以学校官网最新信息为准</p>
+</section>
 
-<script>
-(() => {
-  const io = new IntersectionObserver((es) => {
-    es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-  }, { threshold: 0.12 });
-  document.querySelectorAll('.card, .chart, .duo-path, .pipeline, .yes-no, .roadmap, .ladder, .check-group, .callout, .figure, .pullquote, .stat-grid, .contact-bar, .sales-card, table')
-    .forEach(el => { el.classList.add('reveal'); io.observe(el); });
-})();
-</script>
+<script defer src="theme/reader.js"></script>
 <a href="%E6%98%86%E5%A3%AB%E5%85%B0%E5%A4%A7%E5%AD%A6%E9%80%89%E8%AF%BE%E6%8C%87%E5%8D%97%20-%20%E5%8C%A0%E4%BA%BA%E5%AD%A6%E9%99%A2.pdf" download style="position:fixed;right:22px;bottom:22px;z-index:1200;display:flex;align-items:center;gap:8px;background:#0D0F12;color:#fff;font-weight:700;font-size:14.5px;padding:13px 22px;border-radius:999px;box-shadow:0 12px 28px rgba(13,15,18,.35);text-decoration:none;font-family:Inter,'PingFang SC',sans-serif;">⬇️ 下载 PDF 版</a>
 </body>
 </html>

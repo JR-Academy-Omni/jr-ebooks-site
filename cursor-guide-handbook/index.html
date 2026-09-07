@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<title>Cursor 中文上手手册 — JR Academy</title>
+<link rel="stylesheet" href="theme/ebook.css" />
+<link rel="stylesheet" href="theme/flow-a4.css" />
+</head>
+<body>
+<img class="jr-wm" src="assets/logo/jr-box.svg" alt="" />
+
+<section class="page cover2">
+  <div class="cv2-ghost">CURSOR</div>
+  <div class="cv2-head">
+    <img src="assets/logo/logo-zh-white.png" alt="匠人学院" />
+    <span class="cv2-sticker">🤖 2026 实操版</span>
+  </div>
+  <div class="cv2-body">
+    <div class="cv2-kicker">VS Code 用的，装 Cursor 花 5 分钟</div>
+    <div class="cv2-title"><em>Cursor</em> 中文<br/>上手手册</div>
+    <div class="cv2-bar"></div>
+    <p class="cv2-sub">AI 编程 IDE 实战：从安装到 Agent Mode、MCP 集成、.cursor/rules/*.mdc 全解析。7 章配真实命令和配置，照抄能跑。</p>
+    <div class="cv2-chips">
+      <span class="chip">🤖 Agent Mode 自主编程</span>
+      <span class="chip">🔌 MCP 接数据库/文档</span>
+      <span class="chip">📋 Rules 按需注入</span>
+    </div>
+    <div class="cv2-diecut">写代码是 Tab，复杂任务是 Agent</div>
+  </div>
+  <span class="cv2-holo">⌨️</span>
+  <img class="cv2-mascot" src="assets/illustrations/niuxiaojiang-working-laptop.png" alt="牛小匠" />
+  <div class="cv2-domain">jiangren.com.au · 在线版随官网更新 /wiki/cursor-guide</div>
+  <div class="cv2-strip"><span>学 AI 来匠人 <i>✦</i> Cursor 上手手册 <i>✦</i> JIANGREN.COM.AU <i>✦</i> 写代码是 Tab，复杂任务是 Agent <i>✦</i> 学 AI 来匠人 <i>✦</i></span></div>
+</section>
+
+<main class="flow">
+<div class="book-toc">
+  <div class="ch-num">CONTENTS</div>
+  <h2>目录（7 章）</h2>
+  <a href="#ch1"><span class="num">01</span>🤖 Cursor 是什么：AI 编程 IDE 的王者</a>
+  <a href="#ch2"><span class="num">02</span>🚀 安装与第一个 Agent Mode 项目</a>
+  <a href="#ch3"><span class="num">03</span>🧩 三大核心功能深度解析</a>
+  <a href="#ch4"><span class="num">04</span>⚙️ 进阶配置与高级玩法</a>
+  <a href="#ch5"><span class="num">05</span>❓ 常见问题、定价与选型建议</a>
+  <a href="#ch6"><span class="num">06</span>🔌 Cursor MCP 集成实战</a>
+  <a href="#ch7"><span class="num">07</span>📋 .cursor/rules/*.mdc 深度解析</a>
+</div>
+
+<section class="ch" id="how">
+  <div class="wrap">
+    <h2>📖 这本手册怎么读</h2>
+    <div class="card">
+      <p>这本书和官网 wiki《Cursor 上手指南》同源（jiangren.com.au/wiki/cursor-guide，免费、不用注册，官网那份持续更新）。刚听说 Cursor 不知道值不值得换的，第 1 章 5 分钟搞清楚；VS Code 用户想零成本切过来的，第 2 章照着做；想把 Agent Mode 真正用起来的，第 3、4 章是重点——有具体的 prompt 写法和 .cursorrules 模板；想把 Cursor 接数据库、文档、GitHub 的，第 6 章的 MCP 配置可以直接抄；第 7 章的 .mdc Rules 是进阶内容，不急着用可以先跳过。</p>
+    </div>
+    <div class="contact-bar">
+      <img class="qr" src="assets/contact/qr-rain.png" alt="Rain · 匠人学院 IT 顾问微信" />
+      <div><div class="t">💬 装 Cursor 卡住了？扫码进群问</div><div class="d">群里每周分享 Cursor 使用技巧和 AI 编程真实案例，都是干过活总结出来的。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="ch" id="ch1">
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 01</div>
+        <h2>🤖 Cursor 是什么：AI 编程 IDE 的王者</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-thinking.png" alt="" />
+    </div>
+<h3>Cursor 一句话介绍</h3>
+<p>Cursor 是 Anysphere 团队打造的 AI 编程 IDE，2023 年发布，目前是全球用户量最大的 AI 代码编辑器。它 fork 了 VS Code 内核，在此基础上把 AI 做成了编辑器的一等公民——不是插件，是底层能力。</p>
+
+<p>2025-2026 年 Cursor 连续迭代：<strong>Agent Mode</strong>（自主编程 Agent）、<strong>Background Agent</strong>（云端异步执行任务）、<strong>MCP 集成</strong>（连接外部工具）、<strong>BugBot</strong>（PR 自动修 bug）。2026 年发布的 <strong>Cursor 3.0</strong> 带来了全新的 Agents Window 和 Agent Tabs——你可以同时开多个 Agent 并行干活。这些功能让 Cursor 从"一个带 AI 的编辑器"进化成了"一个会写代码的 Agent 平台"。</p>
+<h3>核心架构</h3>
+<p>Cursor 的 AI 能力分四层：</p>
+<pre>┌──────────────────────────────────┐
+│      Agent Mode / Composer       │  ← 多文件自主编程
+├──────────────────────────────────┤
+│     Tab Autocomplete Engine      │  ← 预测性自动补全
+├──────────────────────────────────┤
+│    Codebase Indexing (向量检索)    │  ← 全项目语义搜索
+├──────────────────────────────────┤
+│        VS Code 内核               │  ← 编辑器 / 插件 / 终端
+└──────────────────────────────────┘</pre>
+<ul><li><strong>Codebase Indexing</strong>：打开项目后自动建索引，AI 回答问题时能搜索整个代码库找到相关代码，不只看你手动 <code>@</code> 的文件</li><li><strong>Tab Engine</strong>：不只是补全当前行，能预测你接下来要编辑的位置和内容——改完一行按 Tab，光标会跳到下一个需要改的地方</li><li><strong>Agent Mode / Composer</strong>：给它一个任务描述，它能自己创建文件、改代码、跑终端命令、读报错、修 bug，循环执行直到搞定</li></ul>
+<h3>和 Windsurf、Claude Code 的区别</h3>
+<p>这三个是 2026 年 AI 编程的三大主力工具，各有侧重：</p>
+<table><tr><th>特性</th><th>Cursor</th><th>Windsurf</th><th>Claude Code</th></tr><tr><td>本质</td><td>VS Code fork + AI</td><td>AI 原生 IDE</td><td>终端 AI Agent</td></tr><tr><td>Agent 核心</td><td>Agent Mode</td><td>Cascade</td><td>Claude CLI</td></tr><tr><td>自动补全</td><td>Tab（有上限）</td><td>Supercomplete（无限）</td><td>无</td></tr><tr><td>上下文管理</td><td>@ 引用 + Notepads</td><td>Flow State 自动追踪</td><td>自动读代码库</td></tr><tr><td>社区生态</td><td>最大，教程最多</td><td>中等</td><td>增长快</td></tr><tr><td>独家能力</td><td>Background Agent（云端异步）</td><td>Web Preview</td><td>Extended Thinking</td></tr></table>
+<p>实际使用中的差别：</p>
+<ul><li><strong>Cursor 的 Agent Mode</strong> 是目前最成熟的 IDE 内 Agent——社区大、<code>.cursorrules</code> 生态丰富、和 VS Code 插件兼容性最好。如果你已经在用 VS Code，切 Cursor 的迁移成本接近零</li><li><strong>Windsurf 的 Flow State</strong> 在上下文自动感知上更强，免费 Tab 补全不限量。预算有限优先看 Windsurf</li><li><strong>Claude Code</strong> 是终端工具，没有 GUI，但在大型代码库重构和复杂推理上碾压两者。最佳搭配是 Cursor + Claude Code 双开</li></ul>
+<pre># 选型速查：
+# 生态最大 + Background Agent → Cursor
+# 免费额度最多 + 上下文追踪 → Windsurf
+# 大型重构 + 架构级改动 → Claude Code
+# 最佳组合：Cursor 写业务代码，Claude Code 做审查和重构</pre>
+<h3>谁适合用 Cursor</h3>
+<ul><li><strong>VS Code 用户</strong>：设置、插件、主题一键导入，体验无缝切换</li><li><strong>全栈开发者</strong>：Agent Mode 能跨前后端文件协作，一个 prompt 搞定完整功能</li><li><strong>团队协作</strong>：Business 计划支持集中管理 <code>.cursorrules</code>、统一模型配置、使用量审计</li><li><strong>想要云端 Agent 的人</strong>：Background Agent 能在后台跑任务，你去喝杯咖啡回来代码写好了</li><li><strong>追求最新模型的人</strong>：Cursor 第一时间接入 Claude、GPT、Gemini 最新模型</li></ul>
+<p>不太适合：纯 Vim/Emacs 用户（虽然有 Vim 模式但体验一般）；预算极有限只想免费用的人（Windsurf 免费额度更多）。</p>
+  </div>
+</section>
+
+
+<section class="ch" id="ch2">
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 02</div>
+        <h2>🚀 安装与第一个 Agent Mode 项目</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-working-laptop.png" alt="" />
+    </div>
+<h3>下载安装</h3>
+<p>Cursor 支持 macOS、Windows、Linux，去官网下载安装包：</p>
+
+<pre># macOS（推荐 Homebrew）
+brew install --cask cursor
+
+# Linux（AppImage，下载后直接运行）
+chmod +x cursor-*.AppImage
+./cursor-*.AppImage
+
+# Windows
+# 去 cursor.com 下载 .exe，双击安装</pre>
+<p>第一次启动会问你要不要导入 VS Code 设置。<strong>一定要导入</strong>——快捷键、主题、插件、snippets 全部保留，零切换成本。</p>
+<h3>注册与登录</h3>
+<p>启动后右上角点头像登录。支持 Google、GitHub、邮箱注册。免费用户（Hobby 计划）的额度：</p>
+<table><tr><th>免费额度</th><th>说明</th></tr><tr><td>Tab 自动补全</td><td>2000 次/月</td></tr><tr><td>Premium 模型请求</td><td>50 次/月（Claude Sonnet、GPT-4o）</td></tr><tr><td>Agent Mode</td><td>包含在 Premium 请求内</td></tr><tr><td>慢速请求</td><td>无限（排队等，但不花钱）</td></tr></table>
+<p>50 次 premium 请求足够你体验完整功能。用完了还能无限次慢速请求，只是要排队等几秒。</p>
+<h3>第一个项目：用 Agent Mode 建一个天气应用</h3>
+<p>打开一个空文件夹，按 <code>Ctrl/Cmd + I</code> 打开 Composer，切到 <strong>Agent</strong> 模式（面板顶部有 Normal / Agent 切换），输入：</p>
+<pre>创建一个 React + TypeScript 天气查询应用：
+- 用 Vite 脚手架
+- 调用 OpenWeatherMap 免费 API
+- 输入城市名显示当前天气和 5 天预报
+- 用 Tailwind CSS 做响应式布局
+- 加载状态和错误处理都要有</pre>
+<p>Agent Mode 会自动规划并执行：</p>
+<ol><li>运行 <code>npm create vite@latest</code> 初始化项目</li><li>安装 Tailwind CSS、axios 依赖</li><li>创建 <code>WeatherApp.tsx</code>、<code>WeatherCard.tsx</code>、<code>api/weather.ts</code></li><li>编写 API 调用逻辑和 UI 组件</li><li>运行 <code>npm run dev</code> 启动开发服务器</li></ol>
+<p>每一步都展示文件 diff 和终端输出。Agent 改错了？对话里直接说"回滚最后一步"就行。</p>
+<h3>四种交互模式速查</h3>
+<p>Cursor 有四种 AI 交互方式，搞清楚什么时候用哪个：</p>
+<table><tr><th>模式</th><th>快捷键</th><th>用途</th><th>会改代码吗</th></tr><tr><td><strong>Tab</strong></td><td><code>Tab</code></td><td>行内自动补全</td><td>会</td></tr><tr><td><strong>Cmd+K</strong></td><td><code>Ctrl/Cmd + K</code></td><td>选中代码后原地修改</td><td>会</td></tr><tr><td><strong>Chat</strong></td><td><code>Ctrl/Cmd + L</code></td><td>问问题、讨论方案</td><td>不会</td></tr><tr><td><strong>Composer/Agent</strong></td><td><code>Ctrl/Cmd + I</code></td><td>多文件任务、自主编程</td><td>会</td></tr></table>
+<p>日常使用频率：Tab &gt; Cmd+K &gt; Agent &gt; Chat。大部分代码靠 Tab 补全搞定，复杂任务才需要开 Agent。</p>
+<h3>索引与 .cursorignore</h3>
+<p>Cursor 打开项目后会自动索引代码库。大项目可以用 <code>.cursorignore</code> 排除不需要索引的目录，和 <code>.gitignore</code> 语法一样：</p>
+<pre>node_modules/
+dist/
+build/
+.git/
+*.lock
+coverage/
+.next/
+__pycache__/</pre>
+<p>索引完成前 AI 的回答可能缺少上下文。项目设置里可以看到索引状态：<code>Cursor Settings &gt; Features &gt; Codebase Indexing</code>。</p>
+<h3>导入 VS Code 插件的注意事项</h3>
+<p>Cursor 兼容绝大部分 VS Code 插件，但有几个冲突需要注意：</p>
+<pre># 必须禁用的插件（和 Cursor AI 冲突）：
+# - GitHub Copilot / Copilot Chat
+# - Tabnine
+# - Codeium（就是 Windsurf 那家）
+# - Amazon CodeWhisperer
+
+# 推荐保留的插件：
+# - ESLint / Prettier（代码规范）
+# - GitLens（Git 增强）
+# - Error Lens（行内报错提示）
+# - Thunder Client（API 测试）</pre>
+<p>装了 Copilot 不禁用的话，两个 AI 会同时给你补全建议，体验非常混乱。</p>
+  </div>
+</section>
+
+
+
+<section class="ch" id="ch2-cta">
+  <div class="wrap">
+    <div class="contact-bar">
+      <img class="qr" src="assets/contact/qr-rain.png" alt="Rain · 匠人学院 IT 顾问微信" />
+      <div><div class="t">👥 想找一起学 AI 编程的同学？</div><div class="d">加入匠人学院社群，每周有 Cursor 和 Claude Code 的真实案例分享。</div></div>
+    </div>
+  </div>
+</section>
+<aside class="promo">
+  <span class="promo-tag">AD · 自家的</span>
+  <div class="promo-body">
+    <h4>📚 27 本 AI 工具实战手册，免费</h4>
+    <p>Cursor、Claude Code、Dify、n8n、CrewAI…每个工具一本中文实战手册，5-10 章带代码，不用注册不要钱。本书提到的工具基本都有对应深读。</p>
+  </div>
+  <a class="promo-cta" href="https://jiangren.com.au/wiki" target="_blank" rel="noopener">去翻手册 →</a>
+</aside>
+
+<section class="ch" id="ch3">
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 03</div>
+        <h2>🧩 三大核心功能深度解析</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-chart.png" alt="" />
+    </div>
+<h3>Agent Mode：让 AI 自己写代码</h3>
+<p>Cursor Agent Mode 是目前 IDE 里最成熟的自主编程功能。按 <code>Ctrl/Cmd + I</code> 打开 Composer，顶部切到 Agent 模式，它就变成了一个能动手干活的 AI Agent。</p>
+
+<p>Agent Mode 能做的事：</p>
+<table><tr><th>能力</th><th>说明</th></tr><tr><td>创建/修改文件</td><td>跨多个文件同时编辑，自动处理 import</td></tr><tr><td>跑终端命令</td><td>安装依赖、启动服务、跑测试</td></tr><tr><td>读报错并修复</td><td>终端报错后自动分析原因、改代码、重跑</td></tr><tr><td>搜索代码库</td><td>语义搜索找到相关代码，不需要你手动指定文件</td></tr><tr><td>调 MCP 工具</td><td>连接数据库、读 Figma 设计稿、跑浏览器测试</td></tr></table>
+<h4>一个真实例子：给现有项目加用户认证</h4>
+<pre>给这个 Express + MongoDB 项目加 JWT 认证：
+- 注册、登录、刷新 token 三个接口
+- 密码用 bcrypt 加密
+- 保护现有的 /api/posts 和 /api/comments 路由
+- 写 middleware，不要侵入现有路由代码</pre>
+<p>Agent 会自动执行 6-8 步：装依赖 → 建 <code>auth.middleware.ts</code> → 建 <code>auth.routes.ts</code> → 建 <code>auth.service.ts</code> → 改 <code>app.ts</code> 注册路由 → 改现有路由加 middleware → 跑 <code>npm run build</code> 验证。全程 2-3 分钟。</p>
+<h4>提高 Agent 成功率的三个技巧</h4>
+<ol><li><strong>给足上下文</strong>：用 <code>@</code> 引用关键文件。<code>@src/models/User.ts @src/routes/index.ts</code> 比让 Agent 自己翻代码库准确率高 30%</li><li><strong>分步给任务</strong>：别一次给太大的任务。"先建数据模型和 API 路由"→ 验证没问题 → "再加前端页面"</li><li><strong>用 Notepads 存常用上下文</strong>：把项目架构、技术栈规范存进 Notepads，Agent 每次都能读到</li></ol>
+<h3>Tab 补全：不止补全，还能预测</h3>
+<p>Cursor 的 Tab 不只是补全当前行，它有一个独特能力叫 <strong>Multi-line Edit Prediction</strong>——改完一行按 Tab，光标会跳到下一个"应该改"的地方，继续帮你补全。</p>
+<pre># 场景：你要把所有 print() 换成 logging.info()
+# 手动改了第一处：
+logging.info(f"User {user_id} logged in")  # 原来是 print(...)
+
+# 按 Tab → 光标自动跳到下一个 print()，建议改成 logging.info
+# 继续按 Tab → 又跳下一个
+# 连按几次 Tab，全文件 print 都换完了</pre>
+<p>这个能力在重命名变量、统一代码风格、批量修改时特别省时间。和 Find &amp; Replace 的区别是：Tab 能理解上下文，不会机械替换——如果某个 <code>print</code> 是在 debug 代码里的，它会跳过。</p>
+<h4>Tab 补全调优</h4>
+<p>在 <code>Cursor Settings &gt; Features &gt; Cursor Tab</code> 里可以精调：</p>
+<pre>{
+  "cursor.cpp.enablePartialAccepts": true,
+  "cursor.general.enableShadowWorkspace": true
+}</pre>
+<ul><li><strong>Partial Accepts</strong>：按 <code>Ctrl/Cmd + →</code> 只接受补全建议的一个词，而不是整行。适合补全大部分对但结尾需要改的情况</li><li><strong>Shadow Workspace</strong>：后台隐形工作区，Tab 在这里跑类型检查确保补全建议编译通过，减少错误建议</li></ul>
+<h3>Composer：多文件协作利器</h3>
+<p>Composer 是 Cursor 的多文件编辑核心。<code>Ctrl/Cmd + I</code> 打开，有两个模式：</p>
+<table><tr><th>模式</th><th>用途</th></tr><tr><td><strong>Normal</strong></td><td>你指定改哪些文件，AI 执行</td></tr><tr><td><strong>Agent</strong></td><td>AI 自己决定改哪些文件 + 跑什么命令</td></tr></table>
+<p>Normal 模式适合你已经知道要改什么、改哪几个文件的场景。Agent 模式适合"我描述需求，你自己规划怎么做"的场景。</p>
+<h4>@ 引用：精确控制上下文</h4>
+<p>Composer 和 Chat 里都能用 <code>@</code> 引用各种上下文：</p>
+<pre>@file — 引用具体文件
+@folder — 引用整个目录
+@code — 引用选中的代码块
+@web — 让 AI 搜索互联网
+@docs — 引用已索引的文档（如 React 官方文档）
+@git — 引用 git diff / commit 历史
+@notepads — 引用 Notepads 里存的上下文
+@definitions — 引用符号定义（函数、类、变量）</pre>
+<p>实际使用中，<code>@file</code> 和 <code>@folder</code> 用得最多。给 Agent 精确的上下文，比写一大段 prompt 描述"那个文件"有效得多。</p>
+  </div>
+</section>
+
+
+<section class="ch" id="ch4">
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 04</div>
+        <h2>⚙️ 进阶配置与高级玩法</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-coffee-pointing.png" alt="" />
+    </div>
+<h3>.cursorrules：让 Cursor 按你的规矩写代码</h3>
+<p>Cursor 最值得花时间配的东西就是 <code>.cursorrules</code>。在项目根目录创建这个文件，AI 每次生成代码都会遵守里面的规则——相当于给 AI 一份项目编码规范。</p>
+
+<pre># .cursorrules
+
+## 技术栈
+- Frontend: Next.js 15 + TypeScript 5.7 + Tailwind CSS 4
+- Backend: tRPC + Drizzle ORM
+- Database: PostgreSQL 17
+- Testing: Vitest + Playwright
+
+## 编码规范
+- React 组件一律用函数式 + hooks，禁用 class component
+- 状态管理用 Zustand，不用 Redux / Context
+- 数据获取用 TanStack Query，不用 useEffect + fetch
+- 类型定义放 types/ 目录，用 Zod schema 做运行时验证
+
+## 文件命名
+- 组件: PascalCase (UserProfile.tsx)
+- 工具函数: camelCase (formatDate.ts)
+- 常量: SCREAMING_SNAKE_CASE
+
+## 禁止事项
+- 不用 any 类型，实在不知道用 unknown
+- 不在 component 里直接调数据库
+- 不硬编码 API URL，用环境变量
+- 不用 var，只用 const / let</pre>
+<h4>新版 Rules 系统</h4>
+<p>Cursor 已经支持更灵活的 <code>.cursor/rules/</code> 目录结构：</p>
+<pre>.cursor/
+  rules/
+    global.mdc      # 全局规则，所有对话生效
+    react.mdc       # 只在 .tsx 文件生效（文件级规则）
+    api.mdc         # 只在 src/api/ 下生效（目录级规则）
+    testing.mdc     # 手动引用的规则（Agent 按需读取）</pre>
+<p>每个 <code>.mdc</code> 文件的 frontmatter 指定作用范围：</p>
+<table><tr><th>类型</th><th>说明</th></tr><tr><td><code>always</code></td><td>每次对话都自动加载</td></tr><tr><td><code>auto-attached</code></td><td>匹配 glob 模式时自动加载，如 <code>globs: ["**/*.tsx"]</code></td></tr><tr><td><code>agent-requested</code></td><td>Agent 根据任务需要自己决定是否读取</td></tr><tr><td><code>manual</code></td><td>只有你用 <code>@rules</code> 手动引用时才加载</td></tr></table>
+<p>建议每个项目 5-8 个规则文件，每个不超过 100 行。社区资源 <a href="https://github.com/PatrickJS/awesome-cursorrules">awesome-cursorrules</a> 有 React、Vue、Next.js、Python、Go 等上百个模板可以直接抄。</p>
+<h3>MCP：给 Agent 连接外部工具</h3>
+<p>MCP（Model Context Protocol）让 Cursor 的 Agent 调用外部工具——数据库、设计稿、浏览器、API 平台。在 <code>Cursor Settings &gt; Features &gt; MCP</code> 里添加，或者手动编辑 <code>.cursor/mcp.json</code>：</p>
+<pre>{
+  "mcpServers": {
+    "postgres": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-postgres"],
+      "env": {
+        "POSTGRES_CONNECTION_STRING": "postgresql://user:pass@localhost:5432/mydb"
+      }
+    },
+    "playwright": {
+      "command": "npx",
+      "args": ["-y", "@anthropic-ai/mcp-server-playwright"]
+    },
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_TOKEN": "ghp_xxx"
+      }
+    }
+  }
+}</pre>
+<p>配好后，Agent Mode 会自动识别可用的 MCP 工具。对话里说"查一下数据库里有哪些表"或"用 Playwright 截个图看看首页效果"，Agent 就会调用对应的 MCP Server。</p>
+<p>实用 MCP 推荐：</p>
+<table><tr><th>MCP Server</th><th>用途</th></tr><tr><td><strong>Playwright</strong></td><td>浏览器自动化、截图、端到端测试</td></tr><tr><td><strong>PostgreSQL/MySQL</strong></td><td>查 schema、跑 SQL、验证数据</td></tr><tr><td><strong>GitHub</strong></td><td>读 issue、创建 PR、查 CI 状态</td></tr><tr><td><strong>Figma</strong></td><td>读设计稿生成 UI 代码</td></tr><tr><td><strong>Filesystem</strong></td><td>安全地读写指定目录的文件</td></tr></table>
+<h3>Background Agent：云端异步编程</h3>
+<p>Background Agent 是 Cursor 的杀手级功能——把任务丢给云端 Agent，它在远程环境里自主执行，你关掉电脑都能继续跑。</p>
+<p>使用方法：Composer 里点 Background Agent 图标（或搜索 <code>Background Agent</code>），描述任务后提交。Agent 会在云端 fork 一个分支，完成后你能看到所有改动的 diff，确认后合并。</p>
+<pre># 适合 Background Agent 的任务：
+# - 给整个项目写单元测试
+# - 迁移数据库 schema + 更新所有查询
+# - 把项目从 JavaScript 迁到 TypeScript
+# - 批量重命名 API 接口 + 更新前端调用
+
+# 不适合的任务：
+# - 需要实时反馈的 UI 调试
+# - 依赖本地环境变量或数据库的任务
+# - 需要你频繁确认方向的探索性任务</pre>
+<h3>Notepads：可复用的上下文片段</h3>
+<p>Notepads 在左侧边栏，用来存项目级的上下文信息。和 <code>.cursorrules</code> 的区别：rules 是强制规则，Notepads 是参考资料。</p>
+<p>创建几个常用 Notepad：</p>
+<ul><li><strong>架构说明</strong>：项目整体结构、目录规范、数据流</li><li><strong>API 契约</strong>：前后端接口定义、字段说明</li><li><strong>设计系统</strong>：颜色、字号、间距、组件规范</li></ul>
+<p>在 Composer 或 Chat 里用 <code>@notepads</code> 引用。Agent 会自动读取相关的 Notepad 内容，不用每次重新解释项目背景。</p>
+<h3>YOLO Mode：全自动执行</h3>
+<p>Cursor Settings 里搜索 <code>auto-run</code>，开启后 Agent 可以自动执行终端命令不需要你逐条确认。适合你信任 AI 输出、想让它一口气跑完的场景。</p>
+<p>可以配置白名单，只允许自动执行特定命令：</p>
+<pre>npm install, npm run build, npm test, npx prisma generate</pre>
+<p>危险命令（<code>rm -rf</code>、<code>DROP TABLE</code>）即使开了 YOLO 也会弹确认。但还是建议只在个人项目里开——团队项目用默认的逐步确认更安全。</p>
+  </div>
+</section>
+<aside class="promo">
+  <span class="promo-tag">AD · 自家的</span>
+  <div class="promo-body">
+    <h4>🧪 10 分钟测出你的 AI Engineer 缺口</h4>
+    <p>官网的 77 项能力自测（五大支柱逐项点选），已有 2,300+ 人做过。测完直接看出你该补哪根柱子，免费不用注册。</p>
+  </div>
+  <a class="promo-cta" href="https://jiangren.com.au/learn/ai-engineer" target="_blank" rel="noopener">去做测试 →</a>
+</aside>
+
+
+
+<section class="ch">
+  <div class="wrap">
+    <p class="sales-card-lead">配好 .cursorrules 和 MCP 之后，想聊聊怎么把 AI 编程能力转化成职业竞争力？</p>
+    <div class="sales-card"><img src="assets/contact/sales-cards/rain.jpg" alt="Rain · Senior IT Career Consultant" /></div>
+  </div>
+</section>
+
+<section class="ch" id="ch5">
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 05</div>
+        <h2>❓ 常见问题、定价与选型建议</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-pen-book.png" alt="" />
+    </div>
+<h3>常见问题</h3>
+<h4>Agent Mode 改错了代码怎么办？</h4>
+<p>Cursor 有 checkpoint 机制。Agent 每一步操作前都会保存快照，在 Composer 面板里找到对应步骤，点 <strong>Restore Checkpoint</strong> 即可回滚。比手动 <code>git stash</code> 或 <code>Ctrl+Z</code> 靠谱。</p>
+
+<p>如果整个对话都跑偏了，直接关掉 Composer 开一轮新的。之前的改动可以用 Git 回滚：</p>
+<pre># 查看 Agent 改了哪些文件
+git diff --name-only
+
+# 只回滚某个文件
+git checkout -- src/components/Header.tsx
+
+# 全部回滚
+git checkout -- .</pre>
+<h4>Tab 补全不准怎么调？</h4>
+<p>几个排查方向：</p>
+<ol><li><strong>索引没跑完</strong>——设置里看 Codebase Indexing 状态，大项目首次索引可能要几分钟</li><li><strong><code>.cursorignore</code> 没配</strong>——<code>node_modules</code> 和 <code>dist</code> 进了索引会拉低准确率</li><li><strong>冲突插件没禁</strong>——Copilot、Tabnine、Codeium 必须禁用</li><li><strong>模型选错了</strong>——Tab 用 <code>cursor-small</code> 模型时速度快但准确率稍低，试试切回默认</li></ol>
+<pre>// settings.json - 推荐 Tab 配置
+{
+  "cursor.cpp.enablePartialAccepts": true,
+  "cursor.general.enableShadowWorkspace": true
+}</pre>
+<h4>Agent 跑到一半网络断了？</h4>
+<p>Agent Mode 的对话不会丢，重新联网后在 Composer 历史里找到那轮对话继续就行。Background Agent 更不怕断网——它跑在云端，你断网它也在继续。</p>
+<h4>中文支持如何？</h4>
+<p>Cursor 完全支持中文对话和中文注释。Agent Mode 用中文描述需求、中文写 <code>.cursorrules</code> 都没问题。唯一建议：代码本身还是写英文（变量名、函数名），中文变量名在某些框架和工具链里会出问题。</p>
+<h3>定价详解（2026 年）</h3>
+<p>Cursor 在 2026 年改用了 <strong>token 消耗制</strong>——不再是固定次数，而是按模型和任务复杂度扣 credit。年付打八折。</p>
+<table><tr><th>方案</th><th>月费</th><th>额度</th><th>Tab 补全</th><th>独有功能</th></tr><tr><td><strong>Hobby</strong></td><td>$0</td><td>有限 Agent 请求</td><td>有限</td><td>基础功能</td></tr><tr><td><strong>Pro</strong></td><td>$20</td><td>$20 前沿模型 credit</td><td>无限</td><td>Agent Mode + MCP + BugBot</td></tr><tr><td><strong>Pro+</strong></td><td>$60</td><td>3x Pro 额度</td><td>无限</td><td>高频用户首选</td></tr><tr><td><strong>Ultra</strong></td><td>$200</td><td>20x Pro 额度</td><td>无限</td><td>优先体验新功能</td></tr><tr><td><strong>Teams</strong></td><td>$40/人</td><td>同 Pro</td><td>无限</td><td>SSO + RBAC + 用量分析</td></tr></table>
+<p><strong>我的建议</strong>：先用 Hobby 体验一周。如果每天都在用 Agent Mode，直接上 Pro——$20/月省下来的时间远超这个价。大部分开发者 Pro 就够，Pro+ 适合每天高强度使用 Agent 的人。</p>
+<h4>Cursor vs Windsurf 价格对比</h4>
+<pre>Cursor Pro $20/月:
+  ✓ 500 premium 请求
+  ✓ 无限 Tab 补全
+  ✓ Background Agent
+  ✓ 社区最大、教程最多
+  ✗ Tab 补全有上限（但 Pro 无限）
+
+Windsurf Pro $20/月:
+  ✓ 500 Cascade credit
+  ✓ 无限 Tab 补全（免费版也不限量）
+  ✓ Flow State 自动上下文
+  ✓ Web Preview 内置
+  ✗ 没有 Background Agent
+  ✗ 社区和教程较少</pre>
+<p>两者同价，选 Cursor 看生态和 Background Agent，选 Windsurf 看免费额度和上下文追踪。</p>
+<h3>选型决策树</h3>
+<pre>你需要 AI 编程工具吗？
+├── 是 → 你用 VS Code 吗？
+│   ├── 是 → Cursor（零迁移成本）
+│   └── 否 → 你习惯终端吗？
+│       ├── 是 → Claude Code
+│       └── 否 → Windsurf
+├── 你预算有限吗？
+│   ├── 是 → Windsurf（免费额度最多）
+│   └── 否 → Cursor Pro + Claude Code（最强组合）
+└── 你需要云端异步 Agent 吗？
+    ├── 是 → Cursor Background Agent
+    └── 否 → 三个都行，试了再说</pre>
+<h3>最佳实践总结</h3>
+<ol><li><strong>先配 <code>.cursorrules</code></strong>——投入 10 分钟，之后每次生成的代码都符合你的规范</li><li><strong>用 Notepads 存项目上下文</strong>——不用每次对话都重新解释架构</li><li><strong>Agent Mode 分步走</strong>——大任务拆成 3-5 个小任务，成功率翻倍</li><li><strong>Tab 补全是主力</strong>——90% 的代码靠 Tab 搞定，Agent 只在大任务时开</li><li><strong>配 MCP</strong>——连上数据库和 Playwright 后，Agent 的能力上一个台阶</li><li><strong>定期清理 Composer 历史</strong>——对话太长上下文会混乱，每个任务新开一轮</li></ol>
+  </div>
+</section>
+<aside class="promo">
+  <span class="promo-tag">AD · 自家的</span>
+  <div class="promo-body">
+    <h4>🎬 还没准备好 cohort？先上入门自学课</h4>
+    <p>AI Engineer 入门（RAG 方向）：4 周 52 小时视频 + 25 个浏览器内 Lab + AI Tutor 即时答疑，自己掌握节奏，是 Bootcamp 的官方前置课。</p>
+  </div>
+  <a class="promo-cta" href="https://jiangren.com.au/program-course/ai-engineer-rag" target="_blank" rel="noopener">看课程介绍 →</a>
+</aside>
+
+
+<section class="ch" id="ch6">
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 06</div>
+        <h2>🔌 Cursor MCP 集成实战</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-data.png" alt="" />
+    </div>
+<p>MCP（Model Context Protocol）是 Anthropic 提出的一个开放协议，定义了 AI 如何与外部工具和数据源通信。Cursor 从 0.43 版本起内置 MCP 支持，现在你可以把 GitHub、Notion、Postgres 这些工具直接接进 Agent Mode，让 AI 不只是"建议"——而是真的帮你执行操作。</p>
+<p>截至 2026 年初，社区已有超过 5000 个 MCP 服务端，覆盖数据库、文档、监控、支付等几乎所有常见工具。</p>
+
+<h3>MCP 是怎么工作的</h3>
+<p>每个 MCP 服务端对外暴露一批"工具"（tool），Agent 在对话时可以调用这些工具。比如：</p>
+<ul><li>Postgres MCP 暴露 <code>query_database</code> 工具</li><li>GitHub MCP 暴露 <code>create_issue</code>、<code>list_pull_requests</code>、<code>get_file_contents</code> 等工具</li><li>Notion MCP 暴露 <code>search_pages</code>、<code>create_page</code>、<code>update_block</code> 等工具</li></ul>
+<p>Agent 接到你的指令后，会自动判断要调哪些工具，构造请求，拿到结果，继续推理——全程不需要你手动切 tab。</p>
+<p><strong>注意</strong>：MCP 工具只在 <strong>Agent Mode</strong> 下可用，普通 Ask / Chat 模式里不触发。</p>
+<h3>配置文件位置</h3>
+<p>Cursor 的 MCP 配置写在 JSON 文件里，有两个层级：</p>
+<table><tr><th>配置文件</th><th>作用范围</th></tr><tr><td><code>.cursor/mcp.json</code>（项目根目录）</td><td>只对当前项目生效，可以提交进 git（注意不要 hardcode 密钥）</td></tr><tr><td><code>~/.cursor/mcp.json</code>（用户主目录）</td><td>全局生效，所有项目共用</td></tr></table>
+<p>基本格式：</p>
+<pre>{
+  "mcpServers": {
+    "服务名": {
+      "command": "运行命令",
+      "args": ["参数列表"],
+      "env": {
+        "环境变量名": "值"
+      }
+    }
+  }
+}</pre>
+<p>密钥不要 hardcode，用 <code>${env:变量名}</code> 从系统环境变量读取：</p>
+<pre>{
+  "mcpServers": {
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_TOKEN": "${env:GITHUB_TOKEN}"
+      }
+    }
+  }
+}</pre>
+<p>配置完后，打开 <strong>Cursor Settings → Tools &amp; MCP</strong>，能看到每个服务端的状态指示灯。绿色表示正常，红色说明启动失败——通常是命令不存在或 token 无效。</p>
+<h3>GitHub MCP：让 Agent 直接操作仓库</h3>
+<h4>安装配置</h4>
+<pre>{
+  "mcpServers": {
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_TOKEN": "${env:GITHUB_TOKEN}"
+      }
+    }
+  }
+}</pre>
+<p><code>GITHUB_TOKEN</code> 用 Personal Access Token（PAT）。权限按需给：</p>
+<ul><li>只读代码审查：勾选 <code>repo:read</code></li><li>需要创建 Issue / PR：勾选 <code>repo</code>（读写）</li><li>不需要 Actions：不要勾 <code>workflow</code></li></ul>
+<p>在终端里先 export：</p>
+<pre>export GITHUB_TOKEN=ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</pre>
+<p>或者加进 <code>~/.zshrc</code> / <code>~/.bashrc</code> 让每次启动自动生效。</p>
+<h4>实际场景</h4>
+<p><strong>场景 1：调查一个陌生仓库</strong></p>
+<p>打开 Cursor，新建 Composer，输入：</p>
+<pre>用 github MCP 读一下 facebook/react 仓库最近 10 个 open PR，
+找出哪些涉及 concurrent rendering，给我一个简短摘要</pre>
+<p>Agent 会调 <code>list_pull_requests</code> + <code>get_pull_request</code>，直接返回结果，不用你开浏览器。</p>
+<p><strong>场景 2：修完 bug 顺手开 Issue</strong></p>
+<p>你刚修了一个线上 bug，想把问题记录成 Issue 以便追踪：</p>
+<pre>在 my-org/my-repo 创建一个 Issue，标题是"Fix: 登录页 token 刷新竞态条件"，
+描述用中文，把刚才我们对话里找到的根因和修复方案写进去</pre>
+<p>Agent 调 <code>create_issue</code>，自动填好 body——你不用离开 IDE。</p>
+<p><strong>场景 3：Code Review 辅助</strong></p>
+<pre>读一下 my-org/my-repo 的 PR #142，找出潜在的安全问题</pre>
+<p>Agent 拉 PR diff，分析代码，直接给你 review 意见。</p>
+<h3>Notion MCP：把文档接进工作流</h3>
+<p>Notion 官方在 2025 年发布了 <code>@notionhq/notion-mcp-server</code>，配置方式：</p>
+<pre>{
+  "mcpServers": {
+    "notion": {
+      "command": "npx",
+      "args": ["-y", "@notionhq/notion-mcp-server"],
+      "env": {
+        "OPENAPI_MCP_HEADERS": "{\"Authorization\": \"Bearer ${env:NOTION_TOKEN}\", \"Notion-Version\": \"2022-06-28\"}"
+      }
+    }
+  }
+}</pre>
+<p><code>NOTION_TOKEN</code> 从 Notion 开发者页面创建 Integration 拿到（Internal Integration Token）。创建后在 Notion 页面右上角「连接」里授权给这个 Integration，它才能读写那个页面。</p>
+<p>如果想用社区版（更轻量）：</p>
+<pre>{
+  "mcpServers": {
+    "notion": {
+      "command": "npx",
+      "args": ["-y", "@suekou/mcp-notion-server"],
+      "env": {
+        "NOTION_API_TOKEN": "${env:NOTION_TOKEN}"
+      }
+    }
+  }
+}</pre>
+<h4>实际场景</h4>
+<p><strong>场景 1：读文档写代码</strong></p>
+<p>团队把 API 设计文档放在 Notion：</p>
+<pre>读 Notion 页面「用户服务 API v2 设计」，
+根据里面的接口定义帮我生成 TypeScript 类型声明</pre>
+<p>Agent 调 <code>retrieve_page</code>，拿到 Notion 内容，直接生成类型文件。</p>
+<p><strong>场景 2：Bug 修完更新文档</strong></p>
+<pre>刚修了用户登录流程的一个 bug，找到 Notion 里「登录服务已知问题」这个页面，
+把今天修的问题追加进去（日期 2026-05-10，问题描述：token 刷新竞态，修复方式：加锁）</pre>
+<p>Agent 调 <code>search</code>（找页面）→ <code>append_block_children</code>（追加内容），文档更新到位。</p>
+<p><strong>场景 3：把 Sprint 任务转成代码骨架</strong></p>
+<pre>读 Notion 数据库「2026 Q2 Sprint」里本周分配给我的任务，
+帮我在 src/features/ 下生成对应的文件骨架</pre>
+<h3>Postgres MCP：自然语言查数据库</h3>
+<pre>{
+  "mcpServers": {
+    "postgres": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-postgres"],
+      "env": {
+        "DATABASE_URL": "${env:DATABASE_URL}"
+      }
+    }
+  }
+}</pre>
+<p><code>DATABASE_URL</code> 格式：<code>postgresql://user:password@host:5432/dbname</code></p>
+<p>生产数据库建一个<strong>只读用户</strong>专门给 MCP 用，不要用 owner 账号：</p>
+<pre>-- 创建只读角色
+CREATE USER cursor_mcp WITH PASSWORD 'xxxxx';
+GRANT CONNECT ON DATABASE myapp TO cursor_mcp;
+GRANT USAGE ON SCHEMA public TO cursor_mcp;
+GRANT SELECT ON ALL TABLES IN SCHEMA public TO cursor_mcp;
+-- 对未来新建的表也生效
+ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT ON TABLES TO cursor_mcp;</pre>
+<h4>实际场景</h4>
+<p><strong>场景 1：调试时查线上数据</strong></p>
+<p>你在排查一个用户反馈的订单问题：</p>
+<pre>在 postgres 里查一下 user_id = 12345 最近 7 天的订单记录，
+看看 status 和 payment_status 有没有不一致的情况</pre>
+<p>Agent 调 <code>query</code>，直接出结果，不用开 Postico / DBeaver / psql。</p>
+<p><strong>场景 2：理解陌生数据库</strong></p>
+<p>接手老项目，不熟悉 schema：</p>
+<pre>列出 postgres 里所有表，重点说明 users、orders、payments 这三张表的字段和关联关系</pre>
+<p>Agent 调 <code>list_tables</code> + <code>describe_table</code>，3 秒给你一份关系图谱。</p>
+<p><strong>场景 3：写迁移脚本</strong></p>
+<pre>users 表目前没有 email_verified 字段，
+帮我写一个 migration SQL，加这个字段并把现有所有 is_active=true 的用户设为已验证</pre>
+<p>Agent 查了表结构再生成 SQL，不会出现字段名写错的低级错误。</p>
+<h3>多个 MCP 服务端同时配置</h3>
+<p>实际工作中往往会同时接多个服务端：</p>
+<pre>{
+  "mcpServers": {
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_TOKEN": "${env:GITHUB_TOKEN}"
+      }
+    },
+    "notion": {
+      "command": "npx",
+      "args": ["-y", "@suekou/mcp-notion-server"],
+      "env": {
+        "NOTION_API_TOKEN": "${env:NOTION_TOKEN}"
+      }
+    },
+    "postgres": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-postgres"],
+      "env": {
+        "DATABASE_URL": "${env:DATABASE_URL}"
+      }
+    }
+  }
+}</pre>
+<p>这份配置放在 <code>~/.cursor/mcp.json</code>（全局），所有项目共用，只在特定项目需要覆盖时才写 <code>.cursor/mcp.json</code>。</p>
+<h3>安全注意事项</h3>
+<p><strong>最小权限原则</strong>：每个 MCP 服务端的凭证只给它真正需要的权限。GitHub token 只需要 read 就不要给 write。</p>
+<p><strong>工具审批模式</strong>：在 Cursor Settings → Agent 里可以开启"Ask before tool use"——每次 Agent 准备调用 MCP 工具时会先弹框让你确认，防止误操作。生产环境推荐打开。</p>
+<p><strong>不要提交密钥</strong>：<code>.cursor/mcp.json</code> 里用 <code>${env:VAR_NAME}</code> 引用环境变量，密钥通过 <code>.env.local</code> 或系统环境变量注入，<code>.env.local</code> 加进 <code>.gitignore</code>。</p>
+<h3>常见问题排查</h3>
+<p><strong>MCP 服务端显示红色 / 离线</strong></p>
+<p>99% 是 <code>npx</code> 找不到包或者 node 版本不对。先手动跑一下：</p>
+<pre>npx -y @modelcontextprotocol/server-github</pre>
+<p>看报什么错。常见原因：npm registry 超时（换源），node &lt; 18（升级）。</p>
+<p><strong>Agent 说"我没有那个工具"</strong></p>
+<p>确认你在 Agent Mode（不是 Ask 模式）。然后看 Cursor Settings → Tools &amp; MCP 里那个服务端是不是绿色在线。</p>
+<p><strong>Postgres 连接超时</strong></p>
+<p>检查 <code>DATABASE_URL</code> 里的 host 是否可从本机直接连（生产 RDS 一般要配 VPN 或 bastion）。本地开发用 <code>localhost</code> 就行。</p>
+<h3>下一步扩展</h3>
+<p>接完这三个之后，工程师们常见的进阶配置：</p>
+<ul><li><strong>Playwright MCP</strong>：让 Agent 直接操控浏览器，做 E2E 测试、爬数据、自动填表单</li><li><strong>Slack MCP</strong>：在 Cursor 里直接查频道消息、发通知</li><li><strong>Stripe MCP</strong>：Agent 查订阅状态、退款记录，不用开 Dashboard</li><li><strong>File System MCP</strong>：Agent 在本机指定目录里读写文件，适合批量处理脚本</li></ul>
+<p>MCP 目录站 <a href="https://cursor.directory/plugins">cursor.directory</a> 能搜到大部分社区维护的服务端，按需安装。</p>
+  </div>
+
+<a class="promo-line" href="https://jiangren.com.au/blog" target="_blank" rel="noopener">📰 跟上行业节奏：匠人每天 5 条经过核源的 AI 日报，每周一份大事盘点 <span>→</span></a></section>
+
+
+
+<section class="ch">
+  <div class="wrap">
+    <div class="contact-bar">
+      <img class="qr" src="assets/contact/qr-amelia.png" alt="Amelia · IT Career Consultant" />
+      <div><div class="t">🔌 MCP 接了哪些工具最有用？</div><div class="d">群里有人整理了 10 个最常用的 MCP Server 配置，进群发口令"MCP"领取。</div></div>
+    </div>
+  </div>
+
+<a class="promo-line" href="https://jiangren.com.au/learn/prompt-master" target="_blank" rel="noopener">🧑‍💻 光看不动手没用：Prompt Master / LLM Lab / Vibe Coding 三个浏览器内实验室，边读边跑 <span>→</span></a></section>
+
+<section class="ch" id="ch7">
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 07</div>
+        <h2>📋 .cursor/rules/*.mdc 深度解析</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-hero.png" alt="" />
+    </div>
+<p><code>.cursorrules</code> 是 Cursor 早期的规则方案：一个文件，写啥都往里扔，每次对话都全量注入上下文。规则多了之后这个方案开始露出问题——token 消耗直接拉满，不相关的规则也在占位，Agent 的注意力被稀释。</p>
+<p>从 0.45 版本起，Cursor 正式推出 <code>.cursor/rules/</code> 目录 + <code>.mdc</code> 文件的新方案，核心改变是<strong>按需注入</strong>：一条规则只有在真正需要的时候才出现在上下文里。</p>
+
+<h3>.mdc 文件的基本格式</h3>
+<p><code>.mdc</code> 全称 Markdown with Cursor metadata，本质是在普通 Markdown 文件头部加一段 YAML frontmatter，告诉 Cursor 这条规则什么时候应该注入：</p>
+<pre>---
+description: 这条规则的用途，给 Agent 看的说明
+globs:
+  - src/**/*.tsx
+  - src/**/*.ts
+alwaysApply: false
+---
+
+（以下是规则正文，普通 Markdown）
+
+## TypeScript 代码规范
+
+- 所有组件用 function 声明，不用箭头函数
+- Props 类型用 interface，不用 type alias
+- 禁止 any，用 unknown + 类型收窄</pre>
+<p>frontmatter 里有三个字段控制触发行为：</p>
+<table><tr><th>字段</th><th>类型</th><th>作用</th></tr><tr><td><code>description</code></td><td>string</td><td>规则的用途描述，Agent Requested 模式下 AI 靠这个决定要不要加载</td></tr><tr><td><code>globs</code></td><td>string[]</td><td>文件 glob 模式，Auto Attached 模式下匹配文件自动触发</td></tr><tr><td><code>alwaysApply</code></td><td>boolean</td><td>为 true 时规则永远注入，不管对话内容是什么</td></tr></table>
+<h3>四种触发类型</h3>
+<h4>1. Always Apply — 全局生效</h4>
+<pre>---
+alwaysApply: true
+---</pre>
+<p>只要 <code>alwaysApply: true</code>，这条规则在<strong>每一次</strong>对话里都会被注入，不管你在讨论 TypeScript 还是 SQL 还是在问天气。适合放全局性约定：</p>
+<ul><li>项目技术栈（"本项目用 Next.js 14 App Router，不用 Pages Router"）</li><li>代码风格底线（"禁止 console.log 提交到 main"）</li><li>安全红线（"所有用户输入必须经过 zod 校验"）</li></ul>
+<p><strong>注意</strong>：<code>alwaysApply: true</code> 时，<code>globs</code> 字段会被完全忽略——规则无条件注入，不需要文件匹配。</p>
+<p>每条 Always Apply 规则都消耗固定 token。保守上限：总 Always Apply 规则不超过 <strong>2000 token</strong>（约 1500 中文字）。超了就开始影响 Agent 的有效推理空间。</p>
+<h4>2. Auto Attached — 文件触发</h4>
+<pre>---
+globs:
+  - "**/*.test.ts"
+  - "**/*.spec.ts"
+alwaysApply: false
+---</pre>
+<p>当对话里引用的文件（<code>@file</code>、Composer 里打开的文件、Agent 读到的文件）匹配 <code>globs</code> 里的 pattern 时，规则自动注入。</p>
+<p>这是最常用的模式，因为它做到了精准匹配：写测试时只注入测试规范，改 React 组件时只注入组件规范，互不干扰。</p>
+<p>典型配置：</p>
+<pre>---
+globs:
+  - "src/components/**/*.tsx"
+  - "src/app/**/*.tsx"
+alwaysApply: false
+---
+
+## React 组件规范
+
+- 组件文件名用 PascalCase（UserCard.tsx，不是 user-card.tsx）
+- 每个组件文件只 export 一个组件
+- 客户端组件顶部必须有 "use client"
+- 样式用 Tailwind，不要 inline style 除非动态值</pre>
+<p><code>globs</code> 字段支持数组，多个 pattern 之间是<strong>或</strong>的关系，只要有一个匹配就触发。</p>
+<h4>3. Agent Requested — AI 自主决定</h4>
+<pre>---
+description: "数据库 schema 设计规范，当需要设计或修改数据库表结构时使用"
+alwaysApply: false
+---</pre>
+<p>没有 <code>globs</code>，没有 <code>alwaysApply: true</code>，只有 <code>description</code>——这种情况下，Cursor Agent 会把 description 读一遍，<strong>自行判断</strong>当前对话是否需要这条规则。</p>
+<p>这个模式适合：</p>
+<ul><li>专项规范（数据库 schema 规则、API 设计规范）</li><li>不和特定文件类型绑定，但只在特定场景下需要的规则</li></ul>
+<p>Agent Requested 的准确性高度依赖 description 的质量。写得模糊（"代码规范"）AI 可能漏拉；写得具体（"当需要写 Prisma schema 或 SQL migration 时加载此规则"）成功率显著提高。</p>
+<h4>4. Manual — 手动召唤</h4>
+<pre>---
+alwaysApply: false
+---</pre>
+<p>三个字段全空（或只有规则正文没有 frontmatter），这条规则只能通过 <code>@rule-name</code> 手动引用：</p>
+<pre>@performance-checklist 帮我看看这段代码有没有性能问题</pre>
+<p>适合那些"偶尔需要但不想常驻"的规则：</p>
+<ul><li>发版前的代码审查清单</li><li>特定架构迁移指南</li><li>临时的代码风格统一要求</li></ul>
+<h3>Glob 模式详解</h3>
+<p>glob 是一种路径匹配语法，Cursor 遵循标准 glob 规范：</p>
+<table><tr><th>模式</th><th>含义</th><th>例子</th></tr><tr><td><code>*</code></td><td>匹配单层目录内的任意字符（不含 <code>/</code>）</td><td><code>src/*.ts</code> 匹配 <code>src/index.ts</code>，不匹配 <code>src/utils/helper.ts</code></td></tr><tr><td><code>**</code></td><td>匹配任意深度的目录</td><td><code>src/**/*.ts</code> 匹配 <code>src/utils/helper.ts</code></td></tr><tr><td><code>{a,b}</code></td><td>匹配多个可选项</td><td><code>src/**/*.{ts,tsx}</code></td></tr><tr><td><code>!pattern</code></td><td>排除</td><td><code>!**/*.test.ts</code></td></tr></table>
+<p>实际工程中几个常见写法：</p>
+<pre>globs:
+  # 所有 TypeScript 文件（含 TSX）
+  - "src/**/*.{ts,tsx}"
+
+  # 只匹配测试文件
+  - "**/*.{test,spec}.{ts,js}"
+
+  # API 路由（Next.js App Router）
+  - "src/app/api/**/route.ts"
+
+  # 配置文件
+  - "*.config.{ts,js,mjs}"
+  - ".env*"</pre>
+<p>一个容易踩的坑：<code>src/*.tsx</code> 和 <code>src/**/*.tsx</code> 的区别。前者<strong>只匹配</strong> <code>src/</code> 直属的文件，后者匹配所有子目录。大多数场景都应该用 <code>**</code>。</p>
+<h3>多 rule 并发：优先级与冲突处理</h3>
+<p>当一次对话里同时触发了多条规则，它们的内容会合并注入。问题来了：两条规则说的话互相矛盾怎么办？</p>
+<h4>优先级层级</h4>
+<p>Cursor 有三层规则来源，按优先级从高到低：</p>
+<pre>Team Rules（团队规则）
+    ↓ 若有冲突，上层覆盖下层
+Project Rules（.cursor/rules/*.mdc）
+    ↓
+User Rules（全局用户设置）
+    ↓
+Legacy（.cursorrules）</pre>
+<p>同层级的多个 <code>.mdc</code> 文件之间，Cursor <strong>不保证</strong>哪一条优先。如果两条 Project Rules 互相矛盾（一条说"用 default export"，另一条说"禁止 default export"），Agent 会产生不一致的输出——有时遵循这条，有时遵循那条。</p>
+<h4>解决冲突的实际做法</h4>
+<p><strong>拆分关注点，避免 glob 重叠</strong></p>
+<p>把不同关注点的规则分开，让它们不会在同一个文件上同时触发：</p>
+<pre>.cursor/rules/
+├── react-components.mdc    # globs: src/components/**/*.tsx
+├── api-routes.mdc          # globs: src/app/api/**/*.ts
+├── database.mdc            # globs: prisma/**/*.prisma, **/migrations/**
+└── global-security.mdc    # alwaysApply: true（安全底线，全局）</pre>
+<p>这样打开 <code>src/components/UserCard.tsx</code> 只触发 <code>react-components.mdc</code>，不会和 <code>api-routes.mdc</code> 撞。</p>
+<p><strong>优先级明确化：关键约束写进 Always Apply</strong></p>
+<p>如果有一条规则是你不希望被任何其他规则覆盖的底线，把它单独抽出来做成 Always Apply 并置顶：</p>
+<pre>---
+alwaysApply: true
+---
+
+## 安全底线（所有代码必须遵守，不受其他规则覆盖）
+
+- 禁止在代码里 hardcode 任何密钥、token、密码
+- 所有 SQL 必须用参数化查询，禁止字符串拼接
+- 用户输入必须在边界处 validate，不信任任何来源</pre>
+<p><strong>定期审查重复规则</strong></p>
+<p>随着项目演进，.mdc 文件容易越积越多，老规则和新规则形成冲突。建议每季度 grep 一下：</p>
+<pre># 找所有 .mdc 文件里包含 "export" 相关规则
+grep -r "export" .cursor/rules/ --include="*.mdc" -l
+
+# 列出所有 alwaysApply: true 的规则（最高成本）
+grep -rl "alwaysApply: true" .cursor/rules/</pre>
+<h3>目录组织最佳实践</h3>
+<p>Cursor 会递归读取 <code>.cursor/rules/</code> 下所有 <code>.mdc</code> 文件，子目录纯粹是给人看的，不影响规则加载：</p>
+<pre>.cursor/rules/
+├── core/
+│   ├── security.mdc        # alwaysApply: true — 安全红线
+│   └── git-commits.mdc     # alwaysApply: true — commit message 格式
+├── frontend/
+│   ├── react.mdc           # globs: **/*.tsx
+│   ├── styling.mdc         # globs: **/*.{css,scss,tailwind}
+│   └── testing.mdc         # globs: **/*.{test,spec}.{ts,tsx}
+├── backend/
+│   ├── api-design.mdc      # description: API 设计时
+│   └── database.mdc        # globs: prisma/**
+└── ops/
+    └── deployment.mdc      # manual — 手动 @deployment 召唤</pre>
+<p>几个经验规则：</p>
+<ul><li>单个 <code>.mdc</code> 文件保持在 <strong>500 行以内</strong>。太长的规则文件 AI 读到后面会开始走神</li><li>所有 Always Apply 规则加起来 <strong>不超过 2000 token</strong>，约 1500 中文字或 500 行英文</li><li>每条规则只做一件事。"前端规范.mdc" 是个反面例子，拆成 react.mdc + styling.mdc + testing.mdc 会准确很多</li><li><code>description</code> 字段要具体——"当需要写 xxx 时加载" 比 "xxx 规范" 的触发成功率高</li></ul>
+<h3>从 .cursorrules 迁移</h3>
+<p>如果你的项目有一个胖 <code>.cursorrules</code> 文件，迁移到 <code>.mdc</code> 的方式：</p>
+<ol><li>按关注点把内容切段（代码风格 / 测试规范 / 安全要求 / API 设计……）</li><li>每段创建一个 <code>.mdc</code> 文件，判断它适合哪种触发类型</li><li>全局底线 → <code>alwaysApply: true</code>；和文件类型挂钩的 → <code>globs</code>；专项规范 → <code>description</code></li><li>迁移完后保留 <code>.cursorrules</code> 一段时间做并行对照，确认没有规则丢失</li></ol>
+<p>如果 <code>.cursorrules</code> 和 <code>.mdc</code> 规则同时存在，当两者冲突时 <code>.mdc</code> 优先，<code>.cursorrules</code> 内容会被静默覆盖。</p>
+<h3>快速参考</h3>
+<pre># 全局生效
+---
+alwaysApply: true
+---
+
+# 文件匹配触发
+---
+globs: ["src/**/*.tsx", "src/**/*.ts"]
+alwaysApply: false
+---
+
+# AI 按需决定
+---
+description: "当需要设计数据库 schema 或写 migration 时使用"
+alwaysApply: false
+---
+
+# 手动 @rule-name 召唤
+---
+alwaysApply: false
+---</pre>
+<p>四种模式对应四种场景，选对了比堆规则数量更有效。</p>
+  </div>
+</section>
+
+
+
+</main>
+
+<section class="page back-cover">
+  <div class="bc-inner" style="width:100%;max-width:170mm;">
+    <img src="assets/logo/logo-zh-white.png" alt="匠人学院" class="bc-logo" style="height:12mm;width:auto;" />
+    <div class="bc-tagline">学 AI 来匠人</div>
+    <p class="bc-body">Cursor 的 Agent Mode 配好了之后，真正的问题是：你的项目架构让 AI 看得懂吗？想把 AI 编程能力变成真正的竞争力，看看匠人学院的 IT 求职课程。</p>
+    <p class="sales-card-lead" style="color:#ccc;margin-top:0.6em;">在线版随官网持续更新：</p>
+    <div class="bc-url">jiangren.com.au/wiki/cursor-guide</div>
+    <div class="sales-card" style="width:56%;"><img src="assets/contact/sales-cards/angela.jpg" alt="Angela · IT Career Consultant" /></div>
+    <div class="contact-bar" style="margin-top:0.8em;">
+      <img class="qr" src="assets/contact/qr-rain.png" alt="Rain · 匠人学院 IT 顾问微信" />
+      <div><div class="t">💬 扫码关注匠人学院</div><div class="d">jiangren.com.au</div></div>
+    </div>
+  </div>
+</section>
+<script defer src="theme/reader.js"></script>
+<a href="Cursor%20%E4%B8%AD%E6%96%87%E4%B8%8A%E6%89%8B%E6%89%8B%E5%86%8C%20-%20%E5%8C%A0%E4%BA%BA%E5%AD%A6%E9%99%A2.pdf" download style="position:fixed;right:22px;bottom:22px;z-index:1200;display:flex;align-items:center;gap:8px;background:#0D0F12;color:#fff;font-weight:700;font-size:14.5px;padding:13px 22px;border-radius:999px;box-shadow:0 12px 28px rgba(13,15,18,.35);text-decoration:none;font-family:Inter,'PingFang SC',sans-serif;">⬇️ 下载 PDF 版</a>
+</body>
+</html>

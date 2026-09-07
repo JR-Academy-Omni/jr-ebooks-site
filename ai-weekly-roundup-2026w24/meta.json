@@ -6,9 +6,26 @@
   "goal": "lead-magnet",
   "track": "T1",
   "style": "roundup",
-  "channel": ["微信群", "小红书评论区领取", "线下打印发放"],
-  "contact": { "qr": "qr-rain.png", "label": "Rain · 匠人学院 IT 顾问", "salesCard": "rain.jpg" },
-  "sources": ["jr-wiki ai-daily 2026-06-05 ~ 2026-06-11"],
+  "channel": [
+    "微信群",
+    "小红书评论区领取",
+    "线下打印发放"
+  ],
+  "contact": {
+    "qr": "qr-rain.png",
+    "label": "Rain · 匠人学院 IT 顾问",
+    "salesCard": "rain.jpg"
+  },
+  "sources": [
+    "../jr-wiki/src/data/ai-daily/2026-06-05.json",
+    "../jr-wiki/src/data/ai-daily/2026-06-06.json",
+    "../jr-wiki/src/data/ai-daily/2026-06-07.json",
+    "../jr-wiki/src/data/ai-daily/2026-06-08.json",
+    "../jr-wiki/src/data/ai-daily/2026-06-09.json",
+    "../jr-wiki/src/data/ai-daily/2026-06-10.json",
+    "../jr-wiki/src/data/ai-daily/2026-06-11.json"
+  ],
+  "note": "基于匠人学院 AI 日报汇编；日报源包含公司公告、官方博客和媒体报道。IPO、融资、价格、模型参数和发布日期变化很快，公开引用前需回原始来源复核。",
   "pages": 8,
-  "status": "draft"
+  "status": "published"
 }

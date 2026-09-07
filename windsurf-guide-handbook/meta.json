@@ -1,0 +1,37 @@
+{
+  "slug": "windsurf-guide-handbook",
+  "title": "Windsurf Agentic IDE 中文上手手册",
+  "subtitle": "Cascade 自动跨文件改代码 + Flow State 实时追踪 + 无限 Tab 补全——从安装到全栈实战，.windsurfrules 配置 / MCP 接 Figma + 数据库 / Cascade 调 Bug 五大模板，8 章全有真实代码",
+  "audience": "全栈开发者 / 前端工程师 / 从 VS Code 迁移的开发者 / 预算有限想用 AI 辅助编程的人",
+  "goal": "lead-magnet",
+  "track": "T1",
+  "style": "handbook",
+  "mode": "flow",
+  "channel": [
+    "微信群分享",
+    "小红书引流",
+    "公众号文末资料包"
+  ],
+  "pages": "flow 自动分页",
+  "status": "published",
+  "tags": [
+    "ai-tools",
+    "windsurf",
+    "cascade",
+    "ai-coding",
+    "vibe-coding",
+    "ide"
+  ],
+  "contact": {
+    "qr": "qr-amelia.png",
+    "salesCards": [
+      "amelia.jpg",
+      "rain.jpg",
+      "angela.jpg"
+    ]
+  },
+  "sources": [
+    "jr-wiki src/content/wiki/windsurf-guide/ 8 章原文（source of truth，md2flow 直转）",
+    "YouTube 缩略图：cloud 环境无法访问，整段 figure 已删除（规则：下载失败/404 的 figure 删掉）"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "slug": "lovable-guide-handbook",
+  "title": "Lovable 实战手册：vibe coding 时代的全栈应用构建",
+  "subtitle": "从 5 分钟第一个应用到 Supabase 全栈集成、自定义域名上线 — 7 章原文实战内容，含 Prompt 模板、SQL 与 TypeScript 代码",
+  "track": "T1",
+  "style": "handbook",
+  "mode": "flow",
+  "status": "published",
+  "contact": {
+    "how-to-read": "qr-amelia",
+    "ch03-bar": "qr-rain",
+    "ch06-sales": "amelia.jpg",
+    "ch07-sales": "rain.jpg",
+    "back-cover-card": "angela.jpg",
+    "back-cover-bar": "qr-amelia"
+  },
+  "sources": [
+    "jr-wiki: src/content/wiki/lovable-guide/01-what-is-lovable.md",
+    "jr-wiki: src/content/wiki/lovable-guide/02-getting-started.md",
+    "jr-wiki: src/content/wiki/lovable-guide/03-core-features.md",
+    "jr-wiki: src/content/wiki/lovable-guide/04-advanced-tips.md",
+    "jr-wiki: src/content/wiki/lovable-guide/05-faq.md",
+    "jr-wiki: src/content/wiki/lovable-guide/06-supabase-integration.md",
+    "jr-wiki: src/content/wiki/lovable-guide/07-deploy-production.md",
+    "Lovable official blog, Series C announcement, 2026-08-12: https://lovable.dev/blog/raising-400m-series-c-at-13-3b-valuation"
+  ]
+}

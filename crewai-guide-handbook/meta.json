@@ -1,0 +1,37 @@
+{
+  "slug": "crewai-guide-handbook",
+  "title": "CrewAI 多 Agent 实战手册",
+  "subtitle": "50k+ Star 开源框架：从安装到生产——Agent 角色设计、Task 链、Flow 编排、Memory、FastAPI + Docker 部署，8 章全有真实代码可复制",
+  "audience": "想搭多 Agent 应用的 Python 开发者 / AI 工程师 / 想做 AI 自动化的转行者",
+  "goal": "lead-magnet",
+  "track": "T1",
+  "style": "handbook",
+  "mode": "flow",
+  "channel": [
+    "微信群分享",
+    "小红书引流",
+    "公众号文末资料包"
+  ],
+  "pages": "flow 自动分页",
+  "status": "published",
+  "tags": [
+    "ai-tools",
+    "multi-agent",
+    "crewai",
+    "ai-agent",
+    "python"
+  ],
+  "contact": {
+    "qr": "qr-amelia.png",
+    "salesCards": [
+      "amelia.jpg",
+      "rain.jpg",
+      "angela.jpg"
+    ]
+  },
+  "sources": [
+    "jr-wiki src/content/wiki/crewai-guide/ 8 章原文（source of truth，md2flow 直转）",
+    "crewai_logo.png：https://raw.githubusercontent.com/crewAIInc/crewAI/main/docs/images/crewai_logo.png（已本地化）",
+    "YouTube 缩略图：代理无法访问，整段 figure 已删除（规则：下载失败/404 的 figure 删掉）"
+  ]
+}

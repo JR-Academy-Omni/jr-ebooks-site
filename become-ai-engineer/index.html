@@ -1,111 +1,45 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<base data-ebook-seo href="https://jiangren.com.au/ebooks/become-ai-engineer/" />
 <meta charset="UTF-8" />
-<title>怎么变成 AI Engineer | JR Academy</title>
-<link rel="stylesheet" href="theme/tokens.css" />
-<link rel="stylesheet" href="theme/web-zine.css" />
-<!-- ebook-seo:start -->
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<meta name="theme-color" content="#fffdf7" />
-<meta name="description" content="全球行情、技术全栈、AI 工作流、上岸路线 —— 读完这本就通透" />
-<meta name="author" content="JR Academy AI 教研组" />
-
-<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
-<link rel="canonical" href="https://jiangren.com.au/ebooks/become-ai-engineer" />
-<meta property="og:type" content="book" />
-<meta property="og:site_name" content="匠人学院·JR Academy" />
-<meta property="og:locale" content="zh_CN" />
-<meta property="og:title" content="怎么变成 AI Engineer | JR Academy" />
-<meta property="og:description" content="全球行情、技术全栈、AI 工作流、上岸路线 —— 读完这本就通透" />
-<meta property="og:url" content="https://jiangren.com.au/ebooks/become-ai-engineer" />
-<meta property="og:image" content="https://jiangren.com.au/image/free-resources/share-default.png" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="怎么变成 AI Engineer | JR Academy" />
-<meta name="twitter:description" content="全球行情、技术全栈、AI 工作流、上岸路线 —— 读完这本就通透" />
-<meta name="twitter:image" content="https://jiangren.com.au/image/free-resources/share-default.png" />
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://jiangren.com.au/ebooks/become-ai-engineer#webpage","url":"https://jiangren.com.au/ebooks/become-ai-engineer","name":"怎么变成 AI Engineer | JR Academy","description":"全球行情、技术全栈、AI 工作流、上岸路线 —— 读完这本就通透","inLanguage":"zh-CN","mainEntity":{"@id":"https://jiangren.com.au/ebooks/become-ai-engineer#book"},"isPartOf":{"@type":"WebSite","name":"匠人学院·JR Academy","url":"https://jiangren.com.au"}},{"@type":"Book","@id":"https://jiangren.com.au/ebooks/become-ai-engineer#book","name":"怎么变成 AI Engineer","abstract":"全球行情、技术全栈、AI 工作流、上岸路线 —— 读完这本就通透","inLanguage":"zh-CN","url":"https://jiangren.com.au/ebooks/become-ai-engineer","author":{"@type":"Organization","name":"JR Academy AI 教研组"},"publisher":{"@type":"Organization","name":"匠人学院·JR Academy","url":"https://jiangren.com.au"},"encoding":{"@type":"MediaObject","contentUrl":"https://jiangren.com.au/ebooks/become-ai-engineer/%E6%80%8E%E4%B9%88%E5%8F%98%E6%88%90%20AI%20Engineer%20-%20%E5%8C%A0%E4%BA%BA%E5%AD%A6%E9%99%A2.pdf","encodingFormat":"application/pdf"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"匠人学院","item":"https://jiangren.com.au"},{"@type":"ListItem","position":2,"name":"电子书","item":"https://jiangren.com.au/ebooks"},{"@type":"ListItem","position":3,"name":"怎么变成 AI Engineer","item":"https://jiangren.com.au/ebooks/become-ai-engineer"}]}]}</script>
-<style data-ebook-web-layout>
-.ebook-navigation { position:sticky; top:0; z-index:1100; display:flex; align-items:center; justify-content:space-between; gap:12px; box-sizing:border-box; padding:env(safe-area-inset-top) max(16px,env(safe-area-inset-right)) 0 max(16px,env(safe-area-inset-left)); min-height:52px; background:#fffdf7; border-bottom:1px solid #deded5; color:#191b22; font:14px/1.4 sans-serif; }
-.ebook-navigation a { display:flex; min-height:48px; align-items:center; color:#1555aa; text-decoration:none; flex-shrink:0; }
-.ebook-navigation span { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-size:12px; min-width:0; }
-.ebook-navigation a:focus-visible { outline:3px solid #1555aa; outline-offset:2px; }
-body.reader-mode .ebook-navigation { position:fixed; top:0; left:0; right:0; }
-@media print { .ebook-navigation { display:none !important; } }
-@media screen and (max-width: 840px) {
-  body { overflow-wrap: anywhere; }
-  body .ghost { right: 0; max-width: 100%; overflow: hidden; }
-  body .marquee { transform: none; }
-  body table { display: block; max-width: 100%; overflow-x: auto; }
-  body .hero-flex > div, body .ch-head > div { min-width: 0; }
-  body .source-list a { overflow-wrap: anywhere; }
-  body .back-logo { max-width: 100%; height: auto; }
-  body .chart { max-width: 100%; overflow-x: auto; }
-  body:has(main.flow) > .page { zoom: var(--ebook-cover-scale, 1); }
-  body main.flow { box-sizing: border-box; width: calc(100% - 24px); max-width: 760px; padding: 24px 18px 150px; overflow-wrap: anywhere; }
-  main.flow p, main.flow li { font-size: 15px; }
-  main.flow .stat-grid, main.flow .duo-path { grid-template-columns: 1fr; }
-  main.flow img { max-width: 100%; object-fit: contain; }
-  main.flow table { display: block; max-width: 100%; overflow-x: auto; }
-  main.flow pre { max-width: 100%; overflow-x: auto; }
-  body .reader-bar { bottom:calc(8px + env(safe-area-inset-bottom)); max-width:calc(100% - 24px); gap:2px; padding:7px 8px; }
-  body .reader-bar .rd-sep { display:none; }
-  body .reader-bar .rd-toggle { white-space:nowrap; flex-shrink:0; }
-  body .reader-bar button, body .reader-bar .rd-toggle { min-width:44px; min-height:44px; touch-action:manipulation; }
-  body a[download] { bottom:calc(18px + env(safe-area-inset-bottom)) !important; min-height:44px; box-sizing:border-box; }
-  body:has(.reader-bar) a[download] { bottom:calc(80px + env(safe-area-inset-bottom)) !important; right: 16px !important; padding: 10px 16px !important; }
-  body.reader-mode .page { transform:translate(-50%,-50%) scale(calc(var(--reader-scale,1) * .8)); }
-  body:has(.ebook-navigation):not(.reader-mode) { padding-bottom:calc(140px + env(safe-area-inset-bottom)); }
-}
-</style>
-<script>
-(() => {
-  const fitCover = () => document.documentElement.style.setProperty('--ebook-cover-scale', String(Math.min(1, (innerWidth - 32) / (210 * 96 / 25.4))));
-  fitCover();
-  addEventListener('resize', fitCover);
-  addEventListener('DOMContentLoaded', () => {
-    const nav = document.createElement('nav');
-    nav.className = 'ebook-navigation';
-    nav.setAttribute('aria-label', '电子书导航');
-    const back = document.createElement('a');
-    back.href = 'https://jiangren.com.au/ebooks';
-    back.textContent = '‹ 书架';
-    const title = document.createElement('span');
-    title.textContent = "怎么变成 AI Engineer";
-    const home = document.createElement('a');
-    home.href = 'https://jiangren.com.au';
-    home.textContent = '官网 ↗';
-    nav.append(back, title, home);
-    document.body.prepend(nav);
-  });
-})();
-</script>
-<!-- ebook-seo:end -->
+<title>怎么变成 AI Engineer — JR Academy</title>
+<link rel="stylesheet" href="theme/ebook.css" />
+<link rel="stylesheet" href="theme/styles/checklist.css" />
+<link rel="stylesheet" href="theme/flow-a4.css" />
 </head>
 <body>
+<img class="jr-wm" src="assets/logo/jr-box.svg" alt="" />
 
-<header class="hero">
-  <div class="wrap">
-    <img class="logo" src="assets/logo/logo-zh-full.svg" alt="匠人学院" />
-    <div class="hero-flex">
-      <div>
-        <div class="bar"></div>
-        <h1><span class="t-top">怎么变成</span><br /><span class="t-main">AI ENGINEER<span class="t-sticker">🚀 2026 实操版</span></span></h1>
-        <p class="sub">这个岗位到底是干嘛的、在澳洲能拿多少钱、要学哪四样东西、项目做什么、简历怎么写。一次讲完，<span class="hl">看完你至少知道自己该不该转、从哪下手</span>。</p>
-        <div class="chips"><span class="chip">🧭 岗位边界讲清</span><span class="chip">💰 真实薪资数据</span><span class="chip">✅ 30 天启动清单</span></div>
-        <div style="margin-top: 26px;"><span class="zine-diecut" style="font-size: 26px;">读完这本我就通透了 —— 班主任亲测</span></div>
-      </div>
-      <div class="mascot-wrap"><span class="tape"></span><img class="hero-mascot" src="assets/illustrations/niuxiaojiang-hero.png" alt="牛小匠" /></div>
-    </div>
+<!-- P1 封面 v2 黑底大字报 -->
+<section class="page cover2">
+  <div class="cv2-ghost">AI</div>
+  <div class="cv2-head">
+    <img src="assets/logo/logo-zh-white.png" alt="匠人学院" />
+    <span class="cv2-sticker">🚀 2026 实操版</span>
   </div>
-</header>
+  <div class="cv2-body">
+    <div class="cv2-kicker">怎么变成</div>
+    <div class="cv2-title"><em>AI</em> ENGINEER</div>
+    <div class="cv2-bar"></div>
+    <p class="cv2-sub">这个岗位到底是干嘛的、在澳洲能拿多少钱、要学哪四样东西、项目做什么、简历怎么写。一次讲完，看完你至少知道自己该不该转、从哪下手。</p>
+    <div class="cv2-chips">
+      <span class="chip">🧭 岗位边界讲清</span>
+      <span class="chip">💰 真实薪资数据</span>
+      <span class="chip">✅ 30 天启动清单</span>
+    </div>
+    <div class="cv2-diecut">读完这本我就通透了 —— 班主任亲测</div>
+  </div>
+  <span class="cv2-holo">🎯</span>
+  <img class="cv2-mascot" src="assets/illustrations/niuxiaojiang-hero.png" alt="牛小匠" />
+  <div class="cv2-domain">jiangren.com.au · 完整版 8 章指南见 /wiki/ai-engineer</div>
+  <div class="cv2-strip"><span>学 AI 来匠人 <i>✦</i> AI ENGINEER <i>✦</i> JIANGREN.COM.AU <i>✦</i> 读完这本就通透 <i>✦</i> 学 AI 来匠人 <i>✦</i> AI ENGINEER <i>✦</i></span></div>
+</section>
 
-<div class="marquee"><div class="mq-track"><span>学 AI 来匠人<i>✦</i>AI ENGINEER<i>✦</i>转码上岸<i>✦</i>JIANGREN.COM.AU<i>✦</i>读完这本就通透<i>✦</i></span><span>学 AI 来匠人<i>✦</i>AI ENGINEER<i>✦</i>转码上岸<i>✦</i>JIANGREN.COM.AU<i>✦</i>读完这本就通透<i>✦</i></span></div></div>
-
-<nav class="toc">
-  <div class="wrap">
-    <a href="#ch1"><span class="num">01</span>🧭 岗位真相：AI Engineer 是什么、不是什么</a>
+<main class="flow">
+<div class="book-toc">
+  <div class="ch-num">CONTENTS</div>
+  <h2>目录（19 章）</h2>
+<a href="#ch1"><span class="num">01</span>🧭 岗位真相：AI Engineer 是什么、不是什么</a>
     <a href="#ch2"><span class="num">02</span>💰 先说钱：全球行情与四地薪资带</a>
     <a href="#ch3"><span class="num">03</span>🗺️ AI Engineer 到底需要会什么：官方能力地图</a>
     <a href="#ch4"><span class="num">04</span>🔌 LLM 基础：原理、API 与账单</a>
@@ -124,9 +58,7 @@ body.reader-mode .ebook-navigation { position:fixed; top:0; left:0; right:0; }
     <a href="#ch17"><span class="num">17</span>🛠️ 作品集：3 个项目</a>
     <a href="#ch18"><span class="num">18</span>📄 简历与面试（全球版）</a>
     <a href="#ch19"><span class="num">19</span>✅ 30 天启动清单</a>
-  </div>
-</nav>
-
+</div>
 <section class="ch" id="how">
   <div class="wrap">
     <h2>📖 这本书怎么读</h2>
@@ -145,7 +77,6 @@ body.reader-mode .ebook-navigation { position:fixed; top:0; left:0; right:0; }
 </section>
 
 <section class="ch" id="ch1">
-  <div class="ghost">01</div>
   <div class="wrap">
     <div class="ch-head">
       <div>
@@ -189,7 +120,6 @@ body.reader-mode .ebook-navigation { position:fixed; top:0; left:0; right:0; }
 </section>
 
 <section class="ch" id="ch2">
-  <div class="ghost">02</div>
   <div class="wrap">
     <div class="ch-head">
       <div>
@@ -256,7 +186,6 @@ body.reader-mode .ebook-navigation { position:fixed; top:0; left:0; right:0; }
 </section>
 
 <section class="ch" id="ch3">
-  <div class="ghost">03</div>
   <div class="wrap">
     <div class="ch-head">
       <div>
@@ -345,7 +274,6 @@ body.reader-mode .ebook-navigation { position:fixed; top:0; left:0; right:0; }
 </section>
 
 <section class="ch" id="ch4">
-  <div class="ghost">04</div>
   <div class="wrap">
     <div class="ch-head">
       <div>
@@ -478,7 +406,6 @@ for await (const event of stream) {
 </section>
 
 <section class="ch" id="ch5">
-  <div class="ghost">05</div>
   <div class="wrap">
     <div class="ch-num">CHAPTER 05</div>
     <h2>🤔 模型选型工程：任务定型号，路由管生产</h2>
@@ -549,9 +476,16 @@ kill_switch: env.LLM_GATEWAY_OFF    # 一键全局关闸</pre>
     <p>核心收益：换模型不改业务代码（改配置就行）、新模型用 5% 流量验证再放量、每个团队/租户的成本看得见。面试聊到"你们怎么管多个模型"，把这套讲出来就是 production 信号。</p>
   </div>
 </section>
+<aside class="promo">
+  <span class="promo-tag">AD · 自家的</span>
+  <div class="promo-body">
+    <h4>🎯 已经有基础，只差 offer：VIP 1-on-1</h4>
+    <p>导师一对一的高薪 Offer 计划：评估 → 简历深度优化 → 内推匹配 → 面试全程陪跑。同时只带 10-15 人，12 个月没拿到 Offer 退一半 —— 条款白纸黑字。</p>
+  </div>
+  <a class="promo-cta" href="https://jiangren.com.au/ai-engineer-vip" target="_blank" rel="noopener">了解 VIP 计划 →</a>
+</aside>
 
 <section class="ch" id="ch6">
-  <div class="ghost">06</div>
   <div class="wrap">
     <div class="ch-num">CHAPTER 06</div>
     <h2>✍️ Prompt Engineering：写得好比换大模型还省钱</h2>
@@ -746,11 +680,12 @@ Assistant: [calls lookup_order] 在途，预计 1 月 20 日送达。
       <p><strong>GPT Agent Mode</strong> —— 工具用 TypeScript namespace 风格定义；金融操作整类列入禁区清单；消息分通道（analysis / commentary / final），思考和结论分开走。</p>
       <p><strong>Gemini CLI</strong> —— "项目约定优先"（先读本地配置再动手）+ 软件工程五步工作流（理解 → 计划 → 实现 → 验证 → 复盘）直接写进 system prompt。</p>
     </div>
+
+    <div class="callout">📢 <strong>课代表插播：</strong>Prompt 这章光看不算会。jiangren.com.au/learn 里有 Prompt Master Lab，浏览器里直接改 prompt 看输出对比，免费不用装东西 —— 练 20 分钟再翻下一章，后面 RAG、Agent 两章会顺很多。</div>
   </div>
 </section>
 
 <section class="ch" id="ch7">
-  <div class="ghost">07</div>
   <div class="wrap">
     <div class="ch-num">CHAPTER 07</div>
     <h2>🧠 Context Engineering：管好模型那扇注意力窗（2026 新必修）</h2>
@@ -786,9 +721,16 @@ Assistant: [calls lookup_order] 在途，预计 1 月 20 日送达。
     <div class="callout">💡 <strong>实操四桶法（Write / Select / Compress / Isolate）：</strong>该写盘的写盘（文件系统当外部记忆）、该挑选的挑选（只取相关 chunk）、该压缩的压缩（70-80% 用量触发，压缩稿按"碰过的文件 / 已做决定 / 未决问题 / 下一步"四段写）、该隔离的隔离（子任务开独立 context —— 这正是 multi-agent 的真正价值，第 10 章细讲）。</div>
   </div>
 </section>
+<aside class="promo">
+  <span class="promo-tag">AD · 自家的</span>
+  <div class="promo-body">
+    <h4>💼 简历投不出响？用求职匠过一遍</h4>
+    <p>求职匠 Job Hunter：简历优化 + JD 匹配度分析 + AI 面试模拟。把第 18 章的高信号写法落到你自己的简历上。</p>
+  </div>
+  <a class="promo-cta" href="https://jiangren.com.au/tools/job-hunter" target="_blank" rel="noopener">打开求职匠 →</a>
+</aside>
 
 <section class="ch" id="ch8">
-  <div class="ghost">08</div>
   <div class="wrap">
     <div class="ch-head">
       <div>
@@ -961,10 +903,11 @@ User Query ──┬─ 向量检索 ──┐                              │
     </table>
     <p class="src">每个产物至少带 5 个 metadata 字段：来源、时间戳、处理工具、置信度、权限级别 —— 和 RAG chunk 的 metadata 纪律一致。</p>
   </div>
-</section>
+
+<a class="promo-line" href="https://jiangren.com.au/learn/prompt-master" target="_blank" rel="noopener">🧑‍💻 光看不动手没用：Prompt Master / LLM Lab / Vibe Coding 三个浏览器内实验室，边读边跑 <span>→</span></a>
+<a class="promo-line" href="https://jiangren.com.au/job-interview/process" target="_blank" rel="noopener">🎤 面试前刷一遍：各公司真实面经与题库（按轮次整理） <span>→</span></a></section>
 
 <section class="ch" id="ch9">
-  <div class="ghost">09</div>
   <div class="wrap">
     <div class="ch-num">CHAPTER 09</div>
     <h2>🦾 工具与 Agent：让 AI 不只回答，而是去干活</h2>
@@ -1088,7 +1031,6 @@ async def call_tool(name, arguments):
 </section>
 
 <section class="ch" id="ch10">
-  <div class="ghost">10</div>
   <div class="wrap">
     <div class="ch-num">CHAPTER 10</div>
     <h2>👥 Multi-Agent 与框架选型：什么时候值得上</h2>
@@ -1143,7 +1085,6 @@ result = crew.kickoff()</pre>
 </section>
 
 <section class="ch" id="ch11">
-  <div class="ghost">11</div>
   <div class="wrap">
     <div class="ch-head">
       <div>
@@ -1256,9 +1197,16 @@ jobs:
     <p style="margin-top:10px;">两个保底动作：<strong>给裁判塞 rubric（评分细则）能把评测方差降 40-60%</strong>，比裸打分稳得多；关键评测用多裁判投票 + 人工抽查 10%，防"裁判幻觉"。一致性检验用 Spearman 相关 / Cohen's κ 对齐人工标注 —— 能说出这两个词，面试官就知道你真做过 eval。</p>
   </div>
 </section>
+<aside class="promo">
+  <span class="promo-tag">AD · 自家的</span>
+  <div class="promo-body">
+    <h4>📚 27 本 AI 工具实战手册，免费</h4>
+    <p>Cursor、Claude Code、Dify、n8n、CrewAI…每个工具一本中文实战手册，5-10 章带代码，不用注册不要钱。本书提到的工具基本都有对应深读。</p>
+  </div>
+  <a class="promo-cta" href="https://jiangren.com.au/wiki" target="_blank" rel="noopener">去翻手册 →</a>
+</aside>
 
 <section class="ch" id="ch12">
-  <div class="ghost">12</div>
   <div class="wrap">
     <div class="ch-num">CHAPTER 12</div>
     <h2>🛡️ 生产部署：上线之后不挂的四件套</h2>
@@ -1409,11 +1357,15 @@ if (SUSPICIOUS.some(k => userMsg.toLowerCase().includes(k))) {
     <p>AI workflow 一旦超过三步（抓取 → 分析 → 生成 → 审核 → 发布），就该按状态机管理而不是一串 await：六个状态 <code>pending → running → waiting_review → succeeded / failed → cancelled</code>，每步落盘可恢复。重试策略四件套：最大次数（3 次封顶）、指数退避、<strong>幂等键</strong>（重试不会重复扣款/重复发邮件）、升级路径（重试用尽进死信队列叫人）。盯五个指标：队列积压、单步 P95 耗时、重试率、死信数、人工介入率 —— 还有全章最该记住的一个：<span class="hl">cost per successful task</span>（失败的重试也烧钱，按"成功一单的全成本"算账才真实）。</p>
 
     <div class="callout">💡 <strong>上线节奏（灰度纪律）：</strong>新模型/新 prompt 永远按 内部试用 → canary 1-5% → 20% → 全量 的序列放量，每一步盯 eval 分数和成本再走下一步 —— 第 5 章 gateway 的 canary 配置就是为这个准备的。</div>
+
+    <div class="contact-bar">
+      <img class="qr" src="assets/contact/qr-amelia.png" alt="Amelia · 匠人学院 IT 顾问微信" />
+      <div><div class="t">🙋 技术 9 章到这就讲完了，跟着跑到这里的人不多</div><div class="d">RAG 接不通、部署报错、eval 分数看不懂 —— 都是群里每天在聊的。扫码进群把报错贴出来，免费；后面 7 章讲怎么把这些变成工作。</div></div>
+    </div>
   </div>
 </section>
 
 <section class="ch" id="ch13">
-  <div class="ghost">13</div>
   <div class="wrap">
     <div class="ch-head">
       <div>
@@ -1487,7 +1439,6 @@ if (SUSPICIOUS.some(k => userMsg.toLowerCase().includes(k))) {
 </section>
 
 <section class="ch" id="ch14">
-  <div class="ghost">14</div>
   <div class="wrap">
     <div class="ch-num">CHAPTER 14</div>
     <h2>🎨 AI 产品思维：用户要的是 trust，不是 wow</h2>
@@ -1511,9 +1462,16 @@ if (SUSPICIOUS.some(k => userMsg.toLowerCase().includes(k))) {
     <p><strong>任务成功率</strong>（不是"回答了"而是"解决了"）、<strong>refine 率</strong>（多少回答需要用户返工 —— 高了说明首答质量差）、<strong>放弃率</strong>（用户中途关掉）、<strong>反馈率</strong>（点赞点踩参与度，是 eval 集的天然来源）、<strong>来源点击率</strong>（用户验证你的引用 —— 这是信任的直接信号）。这 5 个指标接上第 11 章的 eval 体系，就是 AI 产品的完整质量闭环。</p>
   </div>
 </section>
+<aside class="promo">
+  <span class="promo-tag">AD · 自家的</span>
+  <div class="promo-body">
+    <h4>🚀 想要节奏和反馈：AI Engineer Bootcamp</h4>
+    <p>12 周 cohort，16 个 Quest 串成你自己的项目 ISA —— 从第一个 RAG 到发布 MCP server、QLoRA 微调、上生产毕业，7 个 production-ready 项目进作品集。第 1 周不满意全额退款。</p>
+  </div>
+  <a class="promo-cta" href="https://jiangren.com.au/program-course/ai-engineer-bootcamp" target="_blank" rel="noopener">看课程大纲 →</a>
+</aside>
 
 <section class="ch" id="ch15">
-  <div class="ghost">15</div>
   <div class="wrap">
     <div class="ch-num">CHAPTER 15</div>
     <h2>🎓 免费怎么学，付费怎么学（说实话版）</h2>
@@ -1537,10 +1495,10 @@ if (SUSPICIOUS.some(k => userMsg.toLowerCase().includes(k))) {
     <div class="callout">💡 <strong>什么人不需要付费</strong>：已经在写代码、能自己定节奏、做完项目有人帮你 review 的 —— 看免费内容 + 照本书路线走就行，别花这个钱。<strong>什么人付费划算</strong>：需要 deadline 才动的、想要 7 个项目带着做完的、卡在"简历投不出响"想要内推和面试陪跑的。对照第 2 章的薪资溢价自己算 ROI。</div>
     <div class="callout warn">⚠️ 我们不承诺收入和 offer —— 任何承诺这个的课都建议你跑。我们承诺的是过程：课程内容、项目产出、可验证的导师（LinkedIn 公开）、白纸黑字的退款条款。</div>
   </div>
-</section>
+
+<a class="promo-line" href="https://jiangren.com.au/certifications" target="_blank" rel="noopener">📜 简历要客观信号？AWS AI Practitioner / ML 认证备考资料在这 <span>→</span></a></section>
 
 <section class="ch" id="ch16">
-  <div class="ghost">16</div>
   <div class="wrap">
     <div class="ch-head">
       <div>
@@ -1569,7 +1527,6 @@ if (SUSPICIOUS.some(k => userMsg.toLowerCase().includes(k))) {
 </section>
 
 <section class="ch" id="ch17">
-  <div class="ghost">17</div>
   <div class="wrap">
     <div class="ch-head">
       <div>
@@ -1616,7 +1573,6 @@ router 把月度账单降 64%。可一键复现。"</pre>
 </section>
 
 <section class="ch" id="ch18">
-  <div class="ghost">18</div>
   <div class="wrap">
     <div class="ch-num">CHAPTER 18</div>
     <h2>📄 简历与面试：怎么写才像干过活的</h2>
@@ -1679,7 +1635,6 @@ Familiar（了解过、写过 demo 的）：
 </section>
 
 <section class="ch" id="ch19">
-  <div class="ghost">19</div>
   <div class="wrap">
     <div class="ch-num">CHAPTER 19</div>
     <h2>✅ 30 天启动清单（打印 A4 版可打勾）</h2>
@@ -1711,29 +1666,29 @@ Familiar（了解过、写过 demo 的）：
   </div>
 </section>
 
-<footer class="outro">
-  <div class="wrap">
-    <img class="logo" src="assets/logo/logo-zh-white.png" alt="匠人学院" />
-    <h2>能写的都写在这了，剩下的是动手 💪</h2>
-    <p>这本是浓缩版。每章的细节，包括 API 代码、RAG 架构、完整面试题，都在 jiangren.com.au/wiki，免费看。要是想有人陪着走完这 4 个月，匠人学院有 AI Engineer 方向的项目制课程，可以先找 Amelia 聊聊你的背景合不合适，再决定。</p>
-    <div class="sales-card"><img src="assets/contact/sales-cards/amelia.jpg" alt="Amelia · IT Career Consultant · 匠人学院" /></div>
-    <div class="contact-bar">
-      <img class="qr" src="assets/contact/qr-amelia.png" alt="Amelia · 匠人学院 IT 顾问微信" />
-      <div><div class="t">🤝 一个人学容易断，进群一起</div><div class="d">群里答转行问题，每周发 AI 大事盘点。这本也欢迎转给想转行的朋友。</div></div>
-    </div>
-    <p class="fine">© JR Academy · 学 AI 来匠人 · 内容源自 jiangren.com.au/wiki《AI Engineer 完全指南》· 欢迎转发</p>
-  </div>
-</footer>
 
-<script>
-(() => {
-  const io = new IntersectionObserver((es) => {
-    es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-  }, { threshold: 0.12 });
-  document.querySelectorAll('.card, .chart, .duo-path, .pipeline, .yes-no, .roadmap, .ladder, .check-group, .callout, .figure, .pullquote, .stat-grid, .contact-bar, .sales-card, table')
-    .forEach(el => { el.classList.add('reveal'); io.observe(el); });
-})();
-</script>
+</main>
+
+<section class="page back-cover">
+  <div class="logo"><img src="assets/logo/logo-zh-white.png" alt="匠人学院" /></div>
+  <h2>先别一个人硬扛</h2>
+  <p style="max-width: 78%;">这本书把 AI Engineer 的主线讲完了。每章细节（API 代码、RAG 架构、面试题库）在 jiangren.com.au/wiki 免费读。想有人帮你看背景、项目和简历，先扫码聊一次，判断这条路适不适合你。</p>
+
+  <div class="sales-card" style="width: 88%;"><img src="assets/contact/sales-cards/amelia.jpg" alt="Amelia · IT Career Consultant · 匠人学院" /></div>
+
+  <div class="contact-bar" style="width: 88%;">
+    <img class="qr" src="assets/contact/qr-amelia.png" alt="Amelia · 匠人学院 IT 顾问微信" />
+    <div class="cb-body">
+      <div class="cb-title">不想一个人摸索？扫码进社群</div>
+      <div class="cb-desc">转行路线答疑 + 每周 AI 大事盘点。把这本 PDF 转给同样想转行的朋友。</div>
+    </div>
+    <div class="cb-brand"><img src="assets/logo/jr-box.svg" alt="JR" /><span class="cb-url">jiangren.com.au</span></div>
+  </div>
+
+  <p class="caption" style="color: rgba(255,255,255,0.5);">© JR Academy · 学 AI 来匠人 · 内容源自 jiangren.com.au/wiki《AI Engineer 完全指南》· 欢迎转发</p>
+</section>
+
+<script defer src="theme/reader.js"></script>
 <a href="%E6%80%8E%E4%B9%88%E5%8F%98%E6%88%90%20AI%20Engineer%20-%20%E5%8C%A0%E4%BA%BA%E5%AD%A6%E9%99%A2.pdf" download style="position:fixed;right:22px;bottom:22px;z-index:1200;display:flex;align-items:center;gap:8px;background:#0D0F12;color:#fff;font-weight:700;font-size:14.5px;padding:13px 22px;border-radius:999px;box-shadow:0 12px 28px rgba(13,15,18,.35);text-decoration:none;font-family:Inter,'PingFang SC',sans-serif;">⬇️ 下载 PDF 版</a>
 </body>
 </html>

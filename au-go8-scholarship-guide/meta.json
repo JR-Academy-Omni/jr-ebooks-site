@@ -13,7 +13,7 @@
     "小红书引流"
   ],
   "pages": "flow 自动分页",
-  "status": "draft",
+  "status": "published",
   "tags": [
     "study-abroad",
     "australia",
@@ -31,5 +31,5 @@
     "各校官方奖学金页（unimelb / sydney / anu / unsw / monash / uq / uwa / adelaide）+ 联邦政府 education.gov.au / dfat.gov.au / studyaustralia.gov.au，9 个 agent 并行逐校查证，核对日期 2026-06",
     "查证原始数据在 research/ 目录（00-common-rules + 01~08 八校）"
   ],
-  "note": "draft.html 已完成（web 审稿版）。注意：墨尔本/Monash 官网有 Cloudflare 反爬，金额来自官方页快照交叉核对，发布前建议人工浏览器复核。下一步：用户审稿改定 → 排 A4 index.html（flow 模式）→ npm run render → deploy-pages.sh"
+  "note": "web draft + A4 flow index 已完成；PDF 渲染通过。注意：墨尔本/Monash 官网有 Cloudflare 反爬，金额来自官方页快照交叉核对，公开引用前建议人工浏览器复核。"
 }

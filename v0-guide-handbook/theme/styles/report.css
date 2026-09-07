@@ -1,0 +1,69 @@
+/* =====================================================
+   Style: report — 数据报告版
+   适合：行业洞察 / 薪资趋势 / 调研报告（数据必须有真实来源）
+   特征：大数字 stat 块、CSS 横条图、数据表、关键结论框
+   依赖：ebook.css
+   ===================================================== */
+
+/* —— Stat 大数字 —— */
+.stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4mm; margin: 4mm 0; }
+.stat-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+.stat {
+  background: var(--jr-surface-panel);
+  border: 1px solid var(--jr-border-warm);
+  border-radius: var(--jr-radius-lg);
+  padding: 4mm 5mm;
+}
+.stat .stat-value {
+  font-size: 24pt;
+  font-weight: var(--jr-fw-bold);
+  line-height: 1.1;
+  color: var(--jr-black);
+  font-variant-numeric: tabular-nums;
+}
+.stat .stat-value .unit { font-size: 11pt; color: var(--jr-neutral-600); font-weight: var(--jr-fw-medium); }
+.stat.accent .stat-value { color: var(--jr-red-text); }
+.stat .stat-label { font-size: 9pt; color: var(--jr-neutral-600); margin-top: 1.5mm; line-height: 1.5; }
+
+/* —— 横条图（纯 CSS，宽度内联 style="--w: 78%"）—— */
+.bar-chart { margin: 3mm 0; }
+.bar-row { display: flex; align-items: center; gap: 3mm; padding: 1.6mm 0; }
+.bar-row .bar-label { width: 32mm; flex: none; font-size: 9pt; color: var(--jr-neutral-900); text-align: right; }
+.bar-row .bar-track { flex: 1; height: 5mm; background: var(--jr-neutral-100); border-radius: 3px; overflow: hidden; }
+.bar-row .bar-fill { height: 100%; width: var(--w, 50%); background: var(--jr-black); border-radius: 3px; }
+.bar-row.highlight .bar-fill { background: var(--jr-red); }
+.bar-row .bar-value { width: 16mm; flex: none; font-size: 9pt; font-weight: var(--jr-fw-semibold); font-variant-numeric: tabular-nums; }
+
+/* —— 数据表 —— */
+table.data-table { width: 100%; border-collapse: collapse; margin: 3mm 0; }
+.data-table th {
+  text-align: left;
+  font-size: 8.5pt;
+  font-weight: var(--jr-fw-semibold);
+  color: var(--jr-neutral-600);
+  padding: 2mm 3mm;
+  border-bottom: 1.5px solid var(--jr-black);
+}
+.data-table td {
+  font-size: 9.5pt;
+  padding: 2.2mm 3mm;
+  border-bottom: 1px solid var(--jr-divider-warm);
+  vertical-align: top;
+}
+.data-table tr:nth-child(even) td { background: var(--jr-surface-panel-alt); }
+
+/* —— 关键结论 —— */
+.takeaway {
+  border: 1px solid var(--jr-border-warm-strong);
+  border-left: 3.5px solid var(--jr-red);
+  background: var(--jr-surface-panel);
+  border-radius: 0 var(--jr-radius-sm) var(--jr-radius-sm) 0;
+  padding: 3.5mm 5mm;
+  margin: 4mm 0;
+}
+.takeaway .tk-label { font-size: 8pt; font-weight: var(--jr-fw-bold); letter-spacing: 0.08em; color: var(--jr-red-text); margin-bottom: 1.5mm; }
+.takeaway p { font-size: 10pt; font-weight: var(--jr-fw-medium); color: var(--jr-neutral-900); }
+
+/* —— 数据来源（报告版每页必带）—— */
+.source-line { font-size: 7.5pt; color: var(--jr-neutral-600); margin-top: 2mm; }
+.source-line::before { content: '数据来源：'; }

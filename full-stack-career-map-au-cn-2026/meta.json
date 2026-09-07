@@ -36,5 +36,6 @@
     "Stack Overflow Developer Survey 2025 Technology: https://survey.stackoverflow.co/2025/technology/",
     "React / Vue / Node.js / Spring Boot / Docker / GitHub 官方文档"
   ],
-  "note": "真实 JD、薪资、签证与门槛数据核对到 2026-07-15，含硬来源与聚合观察分级（正文已标注）；BOSS/拉勾逐条页反爬，部分中国 JD 为搜索转述与平台聚合。技术栈、JD 信号、薪资与签证规则会随市场变化，投递或申请前请重查；不保证面试、offer、签证、收入或雇主反馈结果。研究原料见 research/market-data-au.md 与 research/market-data-cn.md。"
+  "note": "真实 JD、薪资、签证与门槛数据核对到 2026-07-15，含硬来源与聚合观察分级（正文已标注）；BOSS/拉勾逐条页反爬，部分中国 JD 为搜索转述与平台聚合。技术栈、JD 信号、薪资与签证规则会随市场变化，投递或申请前请重查；不保证面试、offer、签证、收入或雇主反馈结果。研究原料见 research/market-data-au.md 与 research/market-data-cn.md。",
+  "status": "published"
 }

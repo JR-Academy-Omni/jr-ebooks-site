@@ -1,155 +1,71 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<base data-ebook-seo href="https://jiangren.com.au/ebooks/us-top-university-scholarship-guide/" />
 <meta charset="UTF-8" />
-<title>美国 Top 大学奖学金与助学金申请全解析 | JR Academy</title>
-<link rel="stylesheet" href="theme/tokens.css" />
-<link rel="stylesheet" href="theme/web-zine.css" />
+<title>美国 Top 大学奖学金与助学金申请全解析 — JR Academy</title>
+<link rel="stylesheet" href="theme/ebook.css" />
+<link rel="stylesheet" href="theme/flow-a4.css" />
 <style>
-  .scope-note { border: 1px solid var(--jr-border-warm); background: var(--jr-cream); border-radius: 16px; padding: 18px 20px; margin-top: 18px; }
-  .tag-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
-  .mini-tag { border: 1px solid var(--jr-border-warm); border-radius: 999px; padding: 6px 10px; font-size: 13px; font-weight: var(--jr-fw-bold); background: var(--jr-white); }
-  .school-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 18px; }
-  .school-card { border: 1px solid var(--jr-border-warm); border-radius: 18px; padding: 18px; background: var(--jr-white); box-shadow: var(--jr-shadow-sm); }
-  .school-card h3 { margin: 0 0 10px; font-size: 24px; }
-  .school-card .rule { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--jr-border-warm); border-radius: 999px; padding: 5px 9px; margin: 0 8px 10px 0; font-size: 12px; font-weight: var(--jr-fw-bold); background: var(--jr-warm); }
-  .school-card ul { padding-left: 20px; margin: 10px 0 0; }
-  .school-card li { margin: 7px 0; }
-  .source-link { font-size: 12px; color: var(--jr-neutral-600); margin-top: 12px; word-break: break-word; }
-  .source-link a { color: inherit; text-decoration: underline; text-decoration-thickness: 1px; }
-  .rank-table td:first-child { font-weight: var(--jr-fw-bold); }
-  .mistake { display: grid; grid-template-columns: 120px 1fr; gap: 14px; align-items: start; border-top: 1px solid var(--jr-border-warm); padding: 15px 0; }
-  .mistake .bad { font-weight: var(--jr-fw-bold); color: var(--jr-red); }
-  .timeline { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 18px; }
-  .step { border: 1px solid var(--jr-border-warm); border-radius: 16px; padding: 16px; background: var(--jr-white); }
-  .step .m { font-size: 13px; font-weight: var(--jr-fw-bold); color: var(--jr-red); text-transform: uppercase; }
-  .step h4 { margin: 7px 0 8px; font-size: 18px; }
-  .source-list { columns: 2; column-gap: 24px; font-size: 13px; line-height: 1.75; }
-  .source-list a { color: var(--jr-neutral-800); text-decoration: underline; text-decoration-thickness: 1px; }
-  .sales-card-lead { margin-top: 22px; font-size: 17px; font-weight: var(--jr-fw-bold); color: var(--jr-black); }
-  .hero h1 .t-main { font-size: 76px; }
-  @media (max-width: 760px) {
-    .school-grid, .timeline { grid-template-columns: 1fr; }
-    .source-list { columns: 1; }
-    .mistake { grid-template-columns: 1fr; }
-  }
-  @media (max-width: 640px) {
-    .hero h1 .t-main { font-size: 40px; }
-    .hero h1 .t-sticker { top: auto; bottom: -30px; right: 8px; transform: rotate(5deg); }
-    .hero p.sub { margin-top: 48px; }
-  }
+.flow .school-list { display: block; margin-top: 4mm; }
+.flow .school-list .card { margin-top: 4mm; }
+.flow .badge { display: inline-block; margin: 0 1.5mm 1.8mm 0; }
+.flow .source-link { font-size: 7.5pt; color: var(--jr-neutral-600); margin-top: 2mm; line-height: 1.5; word-break: break-word; }
+.flow .source-link a, .flow .source-list a { color: var(--jr-neutral-800); text-decoration: underline; text-decoration-thickness: 0.2mm; }
+.flow .step-list { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; margin-top: 4mm; }
+.flow .step-list .card { margin-top: 0; }
+.flow .mini-kicker { display: inline-block; font-size: 7pt; font-weight: var(--jr-fw-bold); color: var(--jr-red-text); background: var(--jr-wash-red); border-radius: var(--jr-radius-full); padding: 0.8mm 2.5mm; margin-bottom: 1.5mm; }
+.flow .mistake { border-top: 1px solid var(--jr-divider-warm); padding: 3mm 0; }
+.flow .mistake:first-child { border-top: none; padding-top: 0; }
+.flow .mini-bad { font-size: 8pt; font-weight: var(--jr-fw-bold); color: var(--jr-red); margin-bottom: 1mm; }
+.flow .source-list { columns: 2; column-gap: 6mm; font-size: 8pt; line-height: 1.5; }
+.flow .source-list p { break-inside: avoid; margin-top: 0; margin-bottom: 1.2mm; }
+.flow .sales-card-lead { font-size: 9.5pt; font-weight: var(--jr-fw-bold); margin-top: 5mm; }
+.flow .rank-table td:first-child { font-weight: var(--jr-fw-bold); }
+.page.back-cover { break-before: page; page-break-before: always; }
+@media print { html, body { background: var(--jr-surface-canvas); } }
 </style>
-<!-- ebook-seo:start -->
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<meta name="theme-color" content="#fffdf7" />
-<meta name="description" content="给中国学生和家长：Ivy+ 顶尖私校本科 need-based aid、need-blind/need-aware、CSS Profile/IDOC、申请时锁定规则和公立大学误区，逐校核对官网来源" />
-<meta name="author" content="JR Academy AI 教研组" />
-<meta name="keywords" content="study-abroad, usa, scholarship, financial-aid, top-universities" />
-<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
-<link rel="canonical" href="https://jiangren.com.au/ebooks/us-top-university-scholarship-guide" />
-<meta property="og:type" content="book" />
-<meta property="og:site_name" content="匠人学院·JR Academy" />
-<meta property="og:locale" content="zh_CN" />
-<meta property="og:title" content="美国 Top 大学奖学金与助学金申请全解析 | JR Academy" />
-<meta property="og:description" content="给中国学生和家长：Ivy+ 顶尖私校本科 need-based aid、need-blind/need-aware、CSS Profile/IDOC、申请时锁定规则和公立大学误区，逐校核对官网来源" />
-<meta property="og:url" content="https://jiangren.com.au/ebooks/us-top-university-scholarship-guide" />
-<meta property="og:image" content="https://jiangren.com.au/image/free-resources/share-default.png" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="美国 Top 大学奖学金与助学金申请全解析 | JR Academy" />
-<meta name="twitter:description" content="给中国学生和家长：Ivy+ 顶尖私校本科 need-based aid、need-blind/need-aware、CSS Profile/IDOC、申请时锁定规则和公立大学误区，逐校核对官网来源" />
-<meta name="twitter:image" content="https://jiangren.com.au/image/free-resources/share-default.png" />
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://jiangren.com.au/ebooks/us-top-university-scholarship-guide#webpage","url":"https://jiangren.com.au/ebooks/us-top-university-scholarship-guide","name":"美国 Top 大学奖学金与助学金申请全解析 | JR Academy","description":"给中国学生和家长：Ivy+ 顶尖私校本科 need-based aid、need-blind/need-aware、CSS Profile/IDOC、申请时锁定规则和公立大学误区，逐校核对官网来源","inLanguage":"zh-CN","mainEntity":{"@id":"https://jiangren.com.au/ebooks/us-top-university-scholarship-guide#book"},"isPartOf":{"@type":"WebSite","name":"匠人学院·JR Academy","url":"https://jiangren.com.au"}},{"@type":"Book","@id":"https://jiangren.com.au/ebooks/us-top-university-scholarship-guide#book","name":"美国 Top 大学奖学金与助学金申请全解析","abstract":"给中国学生和家长：Ivy+ 顶尖私校本科 need-based aid、need-blind/need-aware、CSS Profile/IDOC、申请时锁定规则和公立大学误区，逐校核对官网来源","inLanguage":"zh-CN","url":"https://jiangren.com.au/ebooks/us-top-university-scholarship-guide","author":{"@type":"Organization","name":"JR Academy AI 教研组"},"publisher":{"@type":"Organization","name":"匠人学院·JR Academy","url":"https://jiangren.com.au"},"encoding":{"@type":"MediaObject","contentUrl":"https://jiangren.com.au/ebooks/us-top-university-scholarship-guide/%E7%BE%8E%E5%9B%BD%20Top%20%E5%A4%A7%E5%AD%A6%E5%A5%96%E5%AD%A6%E9%87%91%E4%B8%8E%E5%8A%A9%E5%AD%A6%E9%87%91%E7%94%B3%E8%AF%B7%E5%85%A8%E8%A7%A3%E6%9E%90%20-%20%E5%8C%A0%E4%BA%BA%E5%AD%A6%E9%99%A2.pdf","encodingFormat":"application/pdf"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"匠人学院","item":"https://jiangren.com.au"},{"@type":"ListItem","position":2,"name":"电子书","item":"https://jiangren.com.au/ebooks"},{"@type":"ListItem","position":3,"name":"美国 Top 大学奖学金与助学金申请全解析","item":"https://jiangren.com.au/ebooks/us-top-university-scholarship-guide"}]}]}</script>
-<style data-ebook-web-layout>
-.ebook-navigation { position:sticky; top:0; z-index:1100; display:flex; align-items:center; justify-content:space-between; gap:12px; box-sizing:border-box; padding:env(safe-area-inset-top) max(16px,env(safe-area-inset-right)) 0 max(16px,env(safe-area-inset-left)); min-height:52px; background:#fffdf7; border-bottom:1px solid #deded5; color:#191b22; font:14px/1.4 sans-serif; }
-.ebook-navigation a { display:flex; min-height:48px; align-items:center; color:#1555aa; text-decoration:none; flex-shrink:0; }
-.ebook-navigation span { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-size:12px; min-width:0; }
-.ebook-navigation a:focus-visible { outline:3px solid #1555aa; outline-offset:2px; }
-body.reader-mode .ebook-navigation { position:fixed; top:0; left:0; right:0; }
-@media print { .ebook-navigation { display:none !important; } }
-@media screen and (max-width: 840px) {
-  body { overflow-wrap: anywhere; }
-  body .ghost { right: 0; max-width: 100%; overflow: hidden; }
-  body .marquee { transform: none; }
-  body table { display: block; max-width: 100%; overflow-x: auto; }
-  body .hero-flex > div, body .ch-head > div { min-width: 0; }
-  body .source-list a { overflow-wrap: anywhere; }
-  body .back-logo { max-width: 100%; height: auto; }
-  body .chart { max-width: 100%; overflow-x: auto; }
-  body:has(main.flow) > .page { zoom: var(--ebook-cover-scale, 1); }
-  body main.flow { box-sizing: border-box; width: calc(100% - 24px); max-width: 760px; padding: 24px 18px 150px; overflow-wrap: anywhere; }
-  main.flow p, main.flow li { font-size: 15px; }
-  main.flow .stat-grid, main.flow .duo-path { grid-template-columns: 1fr; }
-  main.flow img { max-width: 100%; object-fit: contain; }
-  main.flow table { display: block; max-width: 100%; overflow-x: auto; }
-  main.flow pre { max-width: 100%; overflow-x: auto; }
-  body .reader-bar { bottom:calc(8px + env(safe-area-inset-bottom)); max-width:calc(100% - 24px); gap:2px; padding:7px 8px; }
-  body .reader-bar .rd-sep { display:none; }
-  body .reader-bar .rd-toggle { white-space:nowrap; flex-shrink:0; }
-  body .reader-bar button, body .reader-bar .rd-toggle { min-width:44px; min-height:44px; touch-action:manipulation; }
-  body a[download] { bottom:calc(18px + env(safe-area-inset-bottom)) !important; min-height:44px; box-sizing:border-box; }
-  body:has(.reader-bar) a[download] { bottom:calc(80px + env(safe-area-inset-bottom)) !important; right: 16px !important; padding: 10px 16px !important; }
-  body.reader-mode .page { transform:translate(-50%,-50%) scale(calc(var(--reader-scale,1) * .8)); }
-  body:has(.ebook-navigation):not(.reader-mode) { padding-bottom:calc(140px + env(safe-area-inset-bottom)); }
-}
-</style>
-<script>
-(() => {
-  const fitCover = () => document.documentElement.style.setProperty('--ebook-cover-scale', String(Math.min(1, (innerWidth - 32) / (210 * 96 / 25.4))));
-  fitCover();
-  addEventListener('resize', fitCover);
-  addEventListener('DOMContentLoaded', () => {
-    const nav = document.createElement('nav');
-    nav.className = 'ebook-navigation';
-    nav.setAttribute('aria-label', '电子书导航');
-    const back = document.createElement('a');
-    back.href = 'https://jiangren.com.au/ebooks';
-    back.textContent = '‹ 书架';
-    const title = document.createElement('span');
-    title.textContent = "美国 Top 大学奖学金与助学金申请全解析";
-    const home = document.createElement('a');
-    home.href = 'https://jiangren.com.au';
-    home.textContent = '官网 ↗';
-    nav.append(back, title, home);
-    document.body.prepend(nav);
-  });
-})();
-</script>
-<!-- ebook-seo:end -->
 </head>
 <body>
+<img class="jr-wm" src="assets/logo/jr-box.svg" alt="" />
 
-<header class="hero">
-  <div class="wrap">
-    <img class="logo" src="assets/logo/logo-zh-full.svg" alt="匠人学院" />
-    <div class="hero-flex">
-      <div>
-        <div class="bar"></div>
-        <h1><span class="t-top">美国 Top 大学</span><br /><span class="t-main">奖学金与助学金<span class="t-sticker">2026 官网核对版</span></span></h1>
-        <p class="sub">这本不做“奖学金鸡汤”。它只回答四个问题：<span class="hl">哪些学校国际生也能拿 full need，哪些学校 need-aware，哪些必须申请时就申，公立名校为什么不能照搬私校逻辑</span>。</p>
-        <div class="chips"><span class="chip">本科申请为主</span><span class="chip">官方来源逐校列出</span><span class="chip">Need-based / Merit 分清楚</span></div>
-        <div style="margin-top: 26px;"><span class="zine-diecut" style="font-size: 24px;">先不申 aid，录了再说？好几所学校直接不让你补。</span></div>
-      </div>
-      <div class="mascot-wrap"><span class="tape"></span><img class="hero-mascot" src="assets/illustrations/niuxiaojiang-hero.png" alt="牛小匠" /></div>
+<section class="page cover2">
+  <div class="cv2-ghost">USA</div>
+  <div class="cv2-head">
+    <img src="assets/logo/logo-zh-white.png" alt="匠人学院" />
+    <span class="cv2-sticker">2026 官网核对版</span>
+  </div>
+  <div class="cv2-body">
+    <div class="cv2-kicker">Ivy+ · Undergraduate Financial Aid · 中国家庭预算适配</div>
+    <div class="cv2-title"><em>美国 Top 大学</em><br/>奖学金与助学金</div>
+    <div class="cv2-bar"></div>
+    <p class="cv2-sub">不是简单列“奖学金清单”。这本把 need-based aid、need-blind、need-aware、CSS Profile / IDOC、申请时锁定规则和公立大学误区讲清楚。官方来源逐校核对到 2026-06-26。</p>
+    <div class="cv2-chips">
+      <span class="chip">本科申请为主</span>
+      <span class="chip">官方来源逐校列出</span>
+      <span class="chip">Merit / Aid 分清楚</span>
     </div>
+    <div class="cv2-diecut">先不申 aid，录了再说？好几所学校直接不让你补。</div>
   </div>
-</header>
+  <span class="cv2-holo">FA</span>
+  <img class="cv2-mascot" src="assets/illustrations/niuxiaojiang-hero.png" alt="牛小匠" />
+  <div class="cv2-domain">jiangren.com.au · 核对日期 2026-06-26 · 申请前以学校官网最新口径为准</div>
+  <div class="cv2-strip"><span>美国 Top 大学 <i>✦</i> FINANCIAL AID <i>✦</i> NEED-BLIND <i>✦</i> NEED-AWARE <i>✦</i> JIANGREN.COM.AU <i>✦</i></span></div>
+</section>
 
-<div class="marquee"><div class="mq-track"><span>US TOP UNIVERSITY FINANCIAL AID<i>✦</i>NEED-BLIND<i>✦</i>NEED-AWARE<i>✦</i>CSS PROFILE<i>✦</i>JIANGREN.COM.AU<i>✦</i></span><span>US TOP UNIVERSITY FINANCIAL AID<i>✦</i>NEED-BLIND<i>✦</i>NEED-AWARE<i>✦</i>CSS PROFILE<i>✦</i>JIANGREN.COM.AU<i>✦</i></span></div></div>
-
-<nav class="toc">
-  <div class="wrap">
-    <a href="#how"><span class="num">00</span>这本书怎么读</a>
-    <a href="#ch1"><span class="num">01</span>先把四个词讲明白</a>
-    <a href="#ch2"><span class="num">02</span>一张表看学校分层</a>
-    <a href="#ch3"><span class="num">03</span>Need-blind + full need 阵营</a>
-    <a href="#ch4"><span class="num">04</span>Need-aware / 申请时锁定阵营</a>
-    <a href="#ch5"><span class="num">05</span>公立名校别照搬私校规则</a>
-    <a href="#ch6"><span class="num">06</span>材料、截止日和申请动作</a>
-    <a href="#ch7"><span class="num">07</span>高频误区和 FAQ</a>
-    <a href="#sources"><span class="num">08</span>官方来源清单</a>
-  </div>
-</nav>
+<main class="flow">
+<div class="book-toc">
+  <div class="ch-num">CONTENTS</div>
+  <h2>目录（8 章）</h2>
+  <a href="#how"><span class="num">00</span>这本书怎么读</a>
+  <a href="#ch1"><span class="num">01</span>先把四个词讲明白</a>
+  <a href="#ch2"><span class="num">02</span>一张表看学校分层</a>
+  <a href="#ch3"><span class="num">03</span>Need-blind + full need 阵营</a>
+  <a href="#ch4"><span class="num">04</span>Need-aware / 申请时锁定阵营</a>
+  <a href="#ch5"><span class="num">05</span>公立名校别照搬私校规则</a>
+  <a href="#ch6"><span class="num">06</span>材料、截止日和申请动作</a>
+  <a href="#ch7"><span class="num">07</span>高频误区和 FAQ</a>
+  <a href="#sources"><span class="num">08</span>官方来源清单</a>
+</div>
 
 <section class="ch" id="how">
   <div class="wrap">
@@ -158,7 +74,7 @@ body.reader-mode .ebook-navigation { position:fixed; top:0; left:0; right:0; }
       <p>先说边界：这本主要讲<strong>美国顶尖大学本科</strong>的奖学金和助学金规则。美国本科申请里，真正影响家庭预算的词通常不是 scholarship，而是 <strong>financial aid</strong>，尤其是 need-based aid。</p>
       <p>研究生不放进同一张表里。MBA、MS、PhD、LLM、医学、法学，每个学院的钱都不一样。有的靠 fellowship，有的靠 TA/RA，有的项目几乎没钱。把它们和本科 full need 写在一起，读者看完只会更糊涂。</p>
     </div>
-    <div class="scope-note">
+    <div class="callout">
       <strong>核对日期：2026 年 6 月 26 日。</strong>所有学校规则都来自学校官网或学校财务援助官网。本书适合作为方向参考；真正递交前，要打开当年申请页面核对你的入学年份、轮次和材料截止日。
     </div>
     <div class="contact-bar">
@@ -169,7 +85,6 @@ body.reader-mode .ebook-navigation { position:fixed; top:0; left:0; right:0; }
 </section>
 
 <section class="ch" id="ch1">
-  <div class="ghost">01</div>
   <div class="wrap">
     <div class="ch-head">
       <div>
@@ -213,7 +128,6 @@ body.reader-mode .ebook-navigation { position:fixed; top:0; left:0; right:0; }
 </section>
 
 <section class="ch" id="ch2">
-  <div class="ghost">02</div>
   <div class="wrap">
     <div class="ch-head">
       <div>
@@ -238,7 +152,6 @@ body.reader-mode .ebook-navigation { position:fixed; top:0; left:0; right:0; }
 </section>
 
 <section class="ch" id="ch3">
-  <div class="ghost">03</div>
   <div class="wrap">
     <div class="ch-head">
       <div>
@@ -249,10 +162,10 @@ body.reader-mode .ebook-navigation { position:fixed; top:0; left:0; right:0; }
     </div>
     <p class="lead">这几所是很多中国家庭最容易误解、也最值得认真算账的学校。它们不是“看成绩发钱”，而是看家庭支付能力。</p>
 
-    <div class="school-grid">
-      <div class="school-card">
+    <div class="school-list">
+      <div class="card">
         <h3>Harvard</h3>
-        <span class="rule">Need-blind</span><span class="rule">Full need</span><span class="rule">No merit</span>
+        <span class="badge">Need-blind</span><span class="badge">Full need</span><span class="badge">No merit</span>
         <ul>
           <li>国际学生和美国学生适用同一套 aid 规则。</li>
           <li>Financial aid application 不影响录取。</li>
@@ -261,9 +174,9 @@ body.reader-mode .ebook-navigation { position:fixed; top:0; left:0; right:0; }
         <div class="source-link">来源：<a href="https://college.harvard.edu/financial-aid/how-aid-works" target="_blank" rel="noopener">Harvard College Financial Aid</a></div>
       </div>
 
-      <div class="school-card">
+      <div class="card">
         <h3>Yale</h3>
-        <span class="rule">Need-blind</span><span class="rule">Full need</span><span class="rule">Loan-free package</span>
+        <span class="badge">Need-blind</span><span class="badge">Full need</span><span class="badge">Loan-free package</span>
         <ul>
           <li>本科 aid 按 demonstrated need 发。</li>
           <li>官网写明不论 citizenship 或 immigration status，meet 100% demonstrated need。</li>
@@ -272,9 +185,9 @@ body.reader-mode .ebook-navigation { position:fixed; top:0; left:0; right:0; }
         <div class="source-link">来源：<a href="https://finaid.yale.edu/affordability" target="_blank" rel="noopener">Yale Affordability</a> / <a href="https://finaid.yale.edu/typesofaid" target="_blank" rel="noopener">Types of Aid</a></div>
       </div>
 
-      <div class="school-card">
+      <div class="card">
         <h3>Princeton</h3>
-        <span class="rule">Need-blind</span><span class="rule">Same policy for internationals</span><span class="rule">PFAA</span>
+        <span class="badge">Need-blind</span><span class="badge">Same policy for internationals</span><span class="badge">PFAA</span>
         <ul>
           <li>Princeton admission need-blind，申 aid 不在录取中吃亏。</li>
           <li>录取后用 grant aid 覆盖 100% demonstrated need。</li>
@@ -283,9 +196,9 @@ body.reader-mode .ebook-navigation { position:fixed; top:0; left:0; right:0; }
         <div class="source-link">来源：<a href="https://admission.princeton.edu/cost-aid" target="_blank" rel="noopener">Princeton Cost &amp; Aid</a></div>
       </div>
 
-      <div class="school-card">
+      <div class="card">
         <h3>MIT</h3>
-        <span class="rule">Need-blind</span><span class="rule">Full need</span><span class="rule">Need-based only</span>
+        <span class="badge">Need-blind</span><span class="badge">Full need</span><span class="badge">Need-based only</span>
         <ul>
           <li>MIT 官网写明 need blind and full need。</li>
           <li>录取学生只要申请 aid，MIT meets full financial need。</li>
@@ -294,9 +207,9 @@ body.reader-mode .ebook-navigation { position:fixed; top:0; left:0; right:0; }
         <div class="source-link">来源：<a href="https://mitadmissions.org/afford/cost-aid-basics/" target="_blank" rel="noopener">MIT Admissions Cost &amp; Aid Basics</a></div>
       </div>
 
-      <div class="school-card">
+      <div class="card">
         <h3>Brown</h3>
-        <span class="rule">Class of 2029 起国际 first-year need-blind</span><span class="rule">Full need</span>
+        <span class="badge">Class of 2029 起国际 first-year need-blind</span><span class="badge">Full need</span>
         <ul>
           <li>Brown meets 100% demonstrated financial need。</li>
           <li>从 Class of 2029 起，国际 first-year applicants 也纳入 need-blind admission。</li>
@@ -305,9 +218,9 @@ body.reader-mode .ebook-navigation { position:fixed; top:0; left:0; right:0; }
         <div class="source-link">来源：<a href="https://admission.brown.edu/tuition-aid/financial-aid" target="_blank" rel="noopener">Brown Financial Aid</a></div>
       </div>
 
-      <div class="school-card">
+      <div class="card">
         <h3>Dartmouth</h3>
-        <span class="rule">Need-blind</span><span class="rule">Full need</span>
+        <span class="badge">Need-blind</span><span class="badge">Full need</span>
         <ul>
           <li>Dartmouth 官网首页列出 Need-Blind Admission。</li>
           <li>官网写明 meet 100% demonstrated need for all admitted students。</li>
@@ -317,10 +230,18 @@ body.reader-mode .ebook-navigation { position:fixed; top:0; left:0; right:0; }
       </div>
     </div>
   </div>
-</section>
+
+<a class="promo-line" href="https://jiangren.com.au/blog" target="_blank" rel="noopener">📰 跟上行业节奏：匠人每天 5 条经过核源的 AI 日报，每周一份大事盘点 <span>→</span></a></section>
+<aside class="promo">
+  <span class="promo-tag">AD · 自家的</span>
+  <div class="promo-body">
+    <h4>📚 27 本 AI 工具实战手册，免费</h4>
+    <p>Cursor、Claude Code、Dify、n8n、CrewAI…每个工具一本中文实战手册，5-10 章带代码，不用注册不要钱。本书提到的工具基本都有对应深读。</p>
+  </div>
+  <a class="promo-cta" href="https://jiangren.com.au/wiki" target="_blank" rel="noopener">去翻手册 →</a>
+</aside>
 
 <section class="ch" id="ch4">
-  <div class="ghost">04</div>
   <div class="wrap">
     <div class="ch-head">
       <div>
@@ -331,10 +252,10 @@ body.reader-mode .ebook-navigation { position:fixed; top:0; left:0; right:0; }
     </div>
     <p class="lead">这组学校最怕“策略性不申”。有些学校明确写了，国际生申请时不申 aid，之后几年不能再申请。你要不要钱，最好一开始就想清楚。</p>
 
-    <div class="school-grid">
-      <div class="school-card">
+    <div class="school-list">
+      <div class="card">
         <h3>Stanford</h3>
-        <span class="rule">International need-aware</span><span class="rule">CSS Profile / IDOC</span>
+        <span class="badge">International need-aware</span><span class="badge">CSS Profile / IDOC</span>
         <ul>
           <li>国际本科有 need-based aid，但名额有限。</li>
           <li>国际申请者 request for aid 会作为录取评估因素之一。</li>
@@ -343,9 +264,9 @@ body.reader-mode .ebook-navigation { position:fixed; top:0; left:0; right:0; }
         <div class="source-link">来源：<a href="https://financialaid.stanford.edu/undergrad/how/international.html" target="_blank" rel="noopener">Stanford International Students</a></div>
       </div>
 
-      <div class="school-card">
+      <div class="card">
         <h3>Penn</h3>
-        <span class="rule">Need-aware for most internationals</span><span class="rule">Grant-based full need</span>
+        <span class="badge">Need-aware for most internationals</span><span class="badge">Grant-based full need</span>
         <ul>
           <li>除加拿大和墨西哥外，国际申请者 generally need-aware。</li>
           <li>符合资格并录取后，Penn 用 grant-based aid meet 100% demonstrated need。</li>
@@ -354,9 +275,9 @@ body.reader-mode .ebook-navigation { position:fixed; top:0; left:0; right:0; }
         <div class="source-link">来源：<a href="https://srfs.upenn.edu/financial-aid/international" target="_blank" rel="noopener">Penn SRFS International Students</a></div>
       </div>
 
-      <div class="school-card">
+      <div class="card">
         <h3>Cornell</h3>
-        <span class="rule">Need-aware</span><span class="rule">CSS code 2098</span>
+        <span class="badge">Need-aware</span><span class="badge">CSS code 2098</span>
         <ul>
           <li>国际录取流程 need-aware。</li>
           <li>只要你未来任何时候想拿 Cornell grant/scholarship aid，就要申请 admission 时提交 CSS Profile。</li>
@@ -365,9 +286,9 @@ body.reader-mode .ebook-navigation { position:fixed; top:0; left:0; right:0; }
         <div class="source-link">来源：<a href="https://finaid.cornell.edu/first-year-and-transfer-students-international" target="_blank" rel="noopener">Cornell International Aid</a></div>
       </div>
 
-      <div class="school-card">
+      <div class="card">
         <h3>Johns Hopkins</h3>
-        <span class="rule">International need-aware</span><span class="rule">CSS / IDOC</span>
+        <span class="badge">International need-aware</span><span class="badge">CSS / IDOC</span>
         <ul>
           <li>Domestic first-year 和 transfer 是 need-blind；国际申 aid 是 need-aware。</li>
           <li>国际申请者必须在 application 里 indicate financial need。</li>
@@ -376,9 +297,9 @@ body.reader-mode .ebook-navigation { position:fixed; top:0; left:0; right:0; }
         <div class="source-link">来源：<a href="https://apply.jhu.edu/tuition-aid/" target="_blank" rel="noopener">Johns Hopkins Tuition &amp; Aid</a></div>
       </div>
 
-      <div class="school-card">
+      <div class="card">
         <h3>Northwestern</h3>
-        <span class="rule">Need-aware</span><span class="rule">First-year only</span><span class="rule">Loan/work-free</span>
+        <span class="badge">Need-aware</span><span class="badge">First-year only</span><span class="badge">Loan/work-free</span>
         <ul>
           <li>国际学生 request for aid 和申请金额可能影响录取评估。</li>
           <li>只有 first-year applicants eligible；必须第一年申请并收到 aid，之后才可继续申请。</li>
@@ -387,9 +308,9 @@ body.reader-mode .ebook-navigation { position:fixed; top:0; left:0; right:0; }
         <div class="source-link">来源：<a href="https://admissions.northwestern.edu/tuition-aid/international-student-aid/" target="_blank" rel="noopener">Northwestern International Aid</a></div>
       </div>
 
-      <div class="school-card">
+      <div class="card">
         <h3>UChicago</h3>
-        <span class="rule">申请时必须申</span><span class="rule">Loan-free full need</span><span class="rule">有 partial merit</span>
+        <span class="badge">申请时必须申</span><span class="badge">Loan-free full need</span><span class="badge">有 partial merit</span>
         <ul>
           <li>国际学生应在申请 admission 时同时申请 financial aid。</li>
           <li>如果录取且已申请 funding，UChicago meets 100% demonstrated need with a loan-free package。</li>
@@ -399,9 +320,9 @@ body.reader-mode .ebook-navigation { position:fixed; top:0; left:0; right:0; }
         <div class="source-link">来源：<a href="https://collegeadmissions.uchicago.edu/financial-support/international-financial-aid/" target="_blank" rel="noopener">UChicago International Financial Aid</a></div>
       </div>
 
-      <div class="school-card">
+      <div class="card">
         <h3>Caltech</h3>
-        <span class="rule">First-year window</span><span class="rule">No aid for intl transfer</span>
+        <span class="badge">First-year window</span><span class="badge">No aid for intl transfer</span>
         <ul>
           <li>国际学生如需 aid，必须作为 incoming first-year 申请。</li>
           <li>如果 first-year 没申请，或申请但第一年不符合资格，之后不能再申请。</li>
@@ -411,9 +332,9 @@ body.reader-mode .ebook-navigation { position:fixed; top:0; left:0; right:0; }
         <div class="source-link">来源：<a href="https://finaid.caltech.edu/applying/international-students" target="_blank" rel="noopener">Caltech International Students</a></div>
       </div>
 
-      <div class="school-card">
+      <div class="card">
         <h3>Duke</h3>
-        <span class="rule">Financial aid interest checkbox</span><span class="rule">No intl transfer aid</span>
+        <span class="badge">Financial aid interest checkbox</span><span class="badge">No intl transfer aid</span>
         <ul>
           <li>如果 international student 当初没有在 admission application 勾选 financial aid interest，Duke 官网写明本科阶段不能申请 financial aid。</li>
           <li>International transfer students 没有 need-based 或 merit scholarships。</li>
@@ -431,7 +352,6 @@ body.reader-mode .ebook-navigation { position:fixed; top:0; left:0; right:0; }
 </section>
 
 <section class="ch" id="ch5">
-  <div class="ghost">05</div>
   <div class="wrap">
     <div class="ch-head">
       <div>
@@ -451,9 +371,16 @@ body.reader-mode .ebook-navigation { position:fixed; top:0; left:0; right:0; }
     <div class="callout warn"><strong>选校提醒：</strong>如果预算必须靠学校补足，私校 full-need 体系和公立大学不在一个逻辑里。公立 Top 可以申请，但不要把它当成“录了就会自动大额减免”的选项。</div>
   </div>
 </section>
+<aside class="promo">
+  <span class="promo-tag">AD · 自家的</span>
+  <div class="promo-body">
+    <h4>🧪 10 分钟测出你的 AI Engineer 缺口</h4>
+    <p>官网的 77 项能力自测（五大支柱逐项点选），已有 2,300+ 人做过。测完直接看出你该补哪根柱子，免费不用注册。</p>
+  </div>
+  <a class="promo-cta" href="https://jiangren.com.au/learn/ai-engineer" target="_blank" rel="noopener">去做测试 →</a>
+</aside>
 
 <section class="ch" id="ch6">
-  <div class="ghost">06</div>
   <div class="wrap">
     <div class="ch-head">
       <div>
@@ -464,24 +391,24 @@ body.reader-mode .ebook-navigation { position:fixed; top:0; left:0; right:0; }
     </div>
     <p class="lead">美国 financial aid 申请不是最后补一个表。真正麻烦的是家庭财务材料：收入、税、资产、翻译、币种换算、非监护父母材料，有的学校还要 IDOC 上传。</p>
 
-    <div class="timeline">
-      <div class="step">
-        <div class="m">Step 1</div>
+    <div class="step-list">
+      <div class="card">
+        <div class="mini-kicker">Step 1</div>
         <h4>确定是否申 aid</h4>
         <p>先按四年总成本算，不要只看第一年。需要学校补差，就在 admission application 里如实选择。</p>
       </div>
-      <div class="step">
-        <div class="m">Step 2</div>
+      <div class="card">
+        <div class="mini-kicker">Step 2</div>
         <h4>查学校用什么表</h4>
         <p>大多数用 CSS Profile / IDOC；Princeton 用 PFAA；UChicago international aid 用 Student Financial Aid Worksheet，不交 CSS/FAFSA。</p>
       </div>
-      <div class="step">
-        <div class="m">Step 3</div>
+      <div class="card">
+        <div class="mini-kicker">Step 3</div>
         <h4>准备家庭财务材料</h4>
         <p>收入证明、纳税材料或本国等效文件、银行流水、资产证明、英文翻译、美元换算。家庭结构复杂的，提前查 noncustodial parent 要求。</p>
       </div>
-      <div class="step">
-        <div class="m">Step 4</div>
+      <div class="card">
+        <div class="mini-kicker">Step 4</div>
         <h4>按轮次卡 deadline</h4>
         <p>REA/ED/RD/Transfer 的 aid deadline 往往不同。不要等 admission 交完才想起财务材料。</p>
       </div>
@@ -508,7 +435,6 @@ body.reader-mode .ebook-navigation { position:fixed; top:0; left:0; right:0; }
 </section>
 
 <section class="ch" id="ch7">
-  <div class="ghost">07</div>
   <div class="wrap">
     <div class="ch-head">
       <div>
@@ -520,23 +446,23 @@ body.reader-mode .ebook-navigation { position:fixed; top:0; left:0; right:0; }
 
     <div class="card">
       <div class="mistake">
-        <div class="bad">误区 1</div>
+        <div class="mini-bad">误区 1</div>
         <div><strong>“Top 大学奖学金靠成绩。”</strong><br />很多顶尖私校本科不是这么发钱。Harvard、Yale、MIT、Brown 等都把本科资助写成 need-based，甚至明确没有校内 merit awards。</div>
       </div>
       <div class="mistake">
-        <div class="bad">误区 2</div>
+        <div class="mini-bad">误区 2</div>
         <div><strong>“Need-blind 就是我一定不用花钱。”</strong><br />Need-blind 只是录取时不看你要不要 aid。真正给多少钱，要看学校按公式算出的 demonstrated need。</div>
       </div>
       <div class="mistake">
-        <div class="bad">误区 3</div>
+        <div class="mini-bad">误区 3</div>
         <div><strong>“我先不申 aid，录了再补。”</strong><br />Stanford 前两年限制、UChicago 四年限制、Caltech first-year window、Duke checkbox、Northwestern first-year only，都在提醒你：这个想法很危险。</div>
       </div>
       <div class="mistake">
-        <div class="bad">误区 4</div>
+        <div class="mini-bad">误区 4</div>
         <div><strong>“公立 Top 更适合低预算家庭。”</strong><br />州内学生便宜，不等于国际学生便宜。UC Berkeley 官网明确写国际学生不符合 need-based university aid。</div>
       </div>
       <div class="mistake">
-        <div class="bad">误区 5</div>
+        <div class="mini-bad">误区 5</div>
         <div><strong>“研究生照本科 full need 规则。”</strong><br />研究生要按学院和项目查。PhD 常见 funding，授课硕士常常少很多，MBA/LLM 又是另一套。</div>
       </div>
     </div>
@@ -546,7 +472,6 @@ body.reader-mode .ebook-navigation { position:fixed; top:0; left:0; right:0; }
 </section>
 
 <section class="ch" id="sources">
-  <div class="ghost">08</div>
   <div class="wrap">
     <div class="ch-head">
       <div>
@@ -591,24 +516,26 @@ body.reader-mode .ebook-navigation { position:fixed; top:0; left:0; right:0; }
   </div>
 </section>
 
-<footer class="outro">
-  <div class="wrap">
-    <img class="logo" src="assets/logo/logo-zh-white.png" alt="匠人学院" />
-    <h2>别让“奖学金”三个字把预算判断带偏</h2>
-    <p>美国 Top 本科最重要的是把 need-based aid、need-blind、need-aware 和申请时锁定规则分清。需要钱就诚实申，预算不够就早点调整名单。</p>
-    <p class="fine">© JR Academy · jiangren.com.au · 本页为 web 审稿初稿，官方规则核对日期 2026-06-26</p>
-  </div>
-</footer>
+</main>
 
-<script>
-(() => {
-  const io = new IntersectionObserver((es) => {
-    es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-  }, { threshold: 0.12 });
-  document.querySelectorAll('.card, .school-card, .timeline, .step, .yes-no, .callout, .contact-bar, .sales-card, table, .scope-note')
-    .forEach(el => { el.classList.add('reveal'); io.observe(el); });
-})();
-</script>
+<section class="page back-cover">
+  <div class="logo"><img src="assets/logo/logo-zh-white.png" alt="匠人学院" /></div>
+  <h2>奖学金和助学金，先把规则看准</h2>
+  <p style="max-width: 80%;">美国 Top 本科申请里，最贵的错误不是少申一所学校，而是把 need-based aid、need-blind、need-aware 和申请时锁定规则混在一起。需要钱就诚实申，预算不够就早点调整名单。</p>
+
+  <div class="contact-bar" style="width: 80%;">
+    <img class="qr" src="assets/contact/qr-amelia.png" alt="Amelia · 匠人学院顾问微信" />
+    <div class="cb-body">
+      <div class="cb-title">扫码了解更多美本申请资料</div>
+      <div class="cb-desc">后续会整理选校思路、申请时间线、材料准备和奖助学金规则更新，适合正在做美国申请准备的同学与家长。</div>
+    </div>
+    <div class="cb-brand"><img src="assets/logo/jr-box.svg" alt="JR" /><span class="cb-url">jiangren.com.au</span></div>
+  </div>
+
+  <p class="caption" style="color: rgba(255,255,255,0.5);">© JR Academy · 学 AI 来匠人 · 官方规则核对日期 2026-06-26 · 欢迎转发</p>
+</section>
+
+<script defer src="theme/reader.js"></script>
 <a href="%E7%BE%8E%E5%9B%BD%20Top%20%E5%A4%A7%E5%AD%A6%E5%A5%96%E5%AD%A6%E9%87%91%E4%B8%8E%E5%8A%A9%E5%AD%A6%E9%87%91%E7%94%B3%E8%AF%B7%E5%85%A8%E8%A7%A3%E6%9E%90%20-%20%E5%8C%A0%E4%BA%BA%E5%AD%A6%E9%99%A2.pdf" download style="position:fixed;right:22px;bottom:22px;z-index:1200;display:flex;align-items:center;gap:8px;background:#0D0F12;color:#fff;font-weight:700;font-size:14.5px;padding:13px 22px;border-radius:999px;box-shadow:0 12px 28px rgba(13,15,18,.35);text-decoration:none;font-family:Inter,'PingFang SC',sans-serif;">⬇️ 下载 PDF 版</a>
 </body>
 </html>

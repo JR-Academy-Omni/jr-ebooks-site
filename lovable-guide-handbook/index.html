@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<title>Lovable 实战手册：vibe coding 时代的全栈应用构建 — JR Academy</title>
+<link rel="stylesheet" href="theme/ebook.css" />
+<link rel="stylesheet" href="theme/flow-a4.css" />
+</head>
+<body>
+<img class="jr-wm" src="assets/logo/jr-box.svg" alt="" />
+
+<section class="page cover2">
+  <div class="cv2-ghost">Lovable</div>
+  <div class="cv2-head">
+    <img src="assets/logo/logo-zh-white.png" alt="匠人学院" />
+    <span class="cv2-sticker">🚀 vibe coding 实战版</span>
+  </div>
+  <div class="cv2-body">
+    <div class="cv2-kicker">不写代码，也能做出真实产品</div>
+    <div class="cv2-title"><em>Lovable</em> 实战手册</div>
+    <div class="cv2-bar"></div>
+    <p class="cv2-sub">2026 年 8 月官方宣布 C 轮 $400M、估值 $13.3B，Lovable 已经是 vibe coding 赛道里绕不开的平台。从 5 分钟创建第一个应用，到 Supabase 全栈集成、Row Level Security、实时订阅，再到绑定自定义域名、接 GA4 埋点上线。7 章实战内容，含 Prompt 模板、SQL、TypeScript 代码，全程可复制。</p>
+    <div class="cv2-chips">
+      <span class="chip">⚡ 30 秒生成完整 React 全栈应用</span>
+      <span class="chip">🔐 Supabase Auth + RLS 数据安全</span>
+      <span class="chip">🌐 自定义域名 + GA4 埋点上线</span>
+    </div>
+    <div class="cv2-diecut">一个下午，非技术产品经理用 Lovable 搭出了用户反馈系统</div>
+  </div>
+  <span class="cv2-holo">🎯</span>
+  <img class="cv2-mascot" src="assets/illustrations/niuxiaojiang-working-laptop.png" alt="牛小匠" />
+  <div class="cv2-domain">jiangren.com.au · 在线版随官网更新 /wiki/lovable-guide</div>
+  <div class="cv2-strip"><span>学 AI 来匠人 <i>✦</i> Lovable 实战手册 <i>✦</i> JIANGREN.COM.AU <i>✦</i> vibe coding 时代的全栈应用构建 <i>✦</i> 学 AI 来匠人 <i>✦</i></span></div>
+</section>
+
+<main class="flow">
+<div class="book-toc">
+  <div class="ch-num">CONTENTS</div>
+  <h2>目录（7 章）</h2>
+  <a href="#ch1"><span class="num">01</span>🎯 Lovable 是什么：vibe coding 时代的应用构建革命</a>
+  <a href="#ch2"><span class="num">02</span>🚀 快速上手：5 分钟创建你的第一个 AI 应用</a>
+  <a href="#ch3"><span class="num">03</span>⚙️ 核心功能详解：从对话到生产级应用</a>
+  <a href="#ch4"><span class="num">04</span>🔥 进阶技巧：构建真实可用的生产级应用</a>
+  <a href="#ch5"><span class="num">05</span>🤔 常见问题 FAQ：踩坑避坑指南</a>
+  <a href="#ch6"><span class="num">06</span>🗄️ Lovable + Supabase 完整集成：auth / database / storage / realtime</a>
+  <a href="#ch7"><span class="num">07</span>🌐 从 Lovable 到生产：自定义域名、SEO meta 和 Google Analytics</a>
+</div>
+
+<section class="ch" id="how">
+  <div class="wrap">
+    <h2>📖 这本手册怎么读</h2>
+    <div class="card">
+      <p>这本书和官网 wiki《Lovable 实战手册》同源（jiangren.com.au/wiki/lovable-guide，免费、不用注册，官网那份持续更新）。完全没接触过 Lovable 的，第 1、2 章看清楚它能干什么、5 分钟跑通一个应用；想接 Supabase 做有真实用户账号和数据库的产品，第 4 章有完整的 Prompt 序列，第 6 章把 Auth / RLS / Storage / Realtime 四个模块拆开讲——SQL 和 TypeScript 代码直接用；想把应用推上自己的域名、接 GA4 追踪用户，第 7 章一步一步来。书里所有代码可直接复制粘贴到 Lovable 对话框。</p>
+    </div>
+    <div class="contact-bar">
+      <img class="qr" src="assets/contact/qr-amelia.png" alt="Amelia · 匠人学院 IT 顾问微信" />
+      <div><div class="t">💬 vibe coding 新人？扫码进群</div><div class="d">群里每周分享真实的 Lovable 项目案例和 AI 应用搭建经验。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="ch" id="ch1">
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 01</div>
+        <h2>🎯 Lovable 是什么：vibe coding 时代的应用构建革命</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-thinking.png" alt="" />
+    </div>
+<p>Lovable 是一个 AI 驱动的应用构建平台，你只需要用自然语言描述你想要什么，它就能生成完整的、可以直接部署的 Web 应用——包括前端界面、后端逻辑和数据库集成。</p>
+
+<h3>什么是 vibe coding</h3>
+<p>2026 年最热的技术趋势之一就是 <strong>vibe coding</strong>——不是传统意义上"敲代码"，而是用自然语言和 AI 对话，靠"感觉"（vibe）来构建软件。</p>
+<p>《MIT Technology Review》将 vibe coding 列为 2026 年十大突破技术之首。这个概念的核心是：</p>
+<ul><li>你描述你想要什么（"做一个任务管理应用，支持拖拽排序"）</li><li>AI 生成全部代码</li><li>你审查结果、提出调整（"把按钮改成蓝色，加上截止日期字段"）</li><li>反复迭代直到满意</li></ul>
+<p>Lovable 是 vibe coding 这个品类里增长很快的平台。官方博客在 2026 年 8 月写到：公司完成 $400M C 轮融资，估值 $13.3B；平台累计创建超过 1 亿个项目，累计用户超过 1000 万。数字会继续变，所以这本书不追融资八卦，重点讲你怎么把一个应用真的搭出来。</p>
+<h3>Lovable 的技术原理</h3>
+<p>Lovable 在底层做了三件事：</p>
+<ol><li><strong>代码生成</strong>：调用顶级 AI 模型（包括 Claude）理解你的需求，生成 React + TypeScript + Tailwind CSS 代码</li><li><strong>实时预览</strong>：在浏览器里直接运行生成的代码，你立刻看到结果</li><li><strong>持久化部署</strong>：一键将应用部署到生产环境，生成公开可访问的 URL</li></ol>
+<p>生成的代码存储在 GitHub 仓库里（你的账户下），每次对话修改都会自动 commit。这意味着你完全拥有代码，随时可以 clone 下来本地开发。</p>
+<h3>Lovable 能做什么</h3>
+<p><strong>典型用例：</strong></p>
+<ul><li><strong>内部工具</strong>：HR 审批系统、销售仪表盘、库存管理</li><li><strong>SaaS MVP</strong>：在几小时内验证产品想法，而不是几个月</li><li><strong>个人项目</strong>：个人主页、博客、作品集</li><li><strong>数据可视化</strong>：连接数据库，生成图表和报告</li><li><strong>表单和收集</strong>：报名系统、调研问卷、反馈收集</li></ul>
+<p><strong>一个真实案例</strong>：一位非技术背景的产品经理用 Lovable 在一个下午构建了完整的用户反馈收集系统，包括提交表单、管理后台和邮件通知，没有写过任何代码。</p>
+<h3>与主要竞品的对比</h3>
+<table><tr><th>维度</th><th>Lovable</th><th>Bolt.new</th><th>v0.dev</th><th>Cursor</th></tr><tr><td><strong>目标用户</strong></td><td>非技术 + 开发者</td><td>开发者</td><td>开发者</td><td>开发者</td></tr><tr><td><strong>生成内容</strong></td><td>完整全栈应用</td><td>完整全栈应用</td><td>UI 组件</td><td>代码片段/功能</td></tr><tr><td><strong>数据库集成</strong></td><td>Supabase（原生）</td><td>需手动配置</td><td>无</td><td>无</td></tr><tr><td><strong>部署</strong></td><td>一键内置</td><td>需 Netlify/Vercel</td><td>无</td><td>无</td></tr><tr><td><strong>代码所有权</strong></td><td>GitHub 同步</td><td>下载/GitHub</td><td>复制粘贴</td><td>本地</td></tr><tr><td><strong>迭代方式</strong></td><td>对话</td><td>对话</td><td>对话</td><td>编辑器内</td></tr><tr><td><strong>定价（免费额度）</strong></td><td>5个项目/月</td><td>每日额度</td><td>有限组件数</td><td>免费版功能受限</td></tr><tr><td><strong>适合场景</strong></td><td>完整产品</td><td>原型到产品</td><td>组件库</td><td>已有代码库</td></tr></table>
+<p><strong>核心差异</strong>：</p>
+<ul><li><strong>vs Bolt.new</strong>：Lovable 更强调 Supabase 原生集成，对非技术用户更友好；Bolt 在生成复杂后端逻辑上更灵活</li><li><strong>vs v0.dev</strong>：v0 专注 UI 组件生成（基于 shadcn/ui），不生成完整应用，定位不同</li><li><strong>vs Cursor</strong>：Cursor 是给已有代码库的开发者用的 AI IDE，不生成全新应用；两者可以组合使用——Lovable 生成初版，Cursor 做精细修改</li></ul>
+<h3>谁适合用 Lovable</h3>
+<p><strong>非常适合：</strong></p>
+<ul><li>想验证产品想法的创业者</li><li>需要快速做出内部工具的运营/产品人员</li><li>学习编程的初学者（可以看 AI 生成的代码来学习）</li><li>开发者做快速原型验证（比自己从头写快 10 倍）</li></ul>
+<p><strong>不太适合：</strong></p>
+<ul><li>高度定制化的复杂企业级系统</li><li>需要精细性能优化的应用</li><li>对代码规范有严格要求的团队（AI 生成的代码质量参差不齐）</li></ul>
+  </div>
+</section>
+
+
+<section class="ch" id="ch2">
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 02</div>
+        <h2>🚀 Lovable 快速上手：5 分钟创建你的第一个 AI 应用</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-working-laptop.png" alt="" />
+    </div>
+<p>Lovable 的上手门槛极低——你只需要一个 Google 账号，不需要安装任何软件，打开浏览器就能开始构建应用。</p>
+
+<h3>第一步：注册账号</h3>
+<ol><li>打开 <a href="https://lovable.dev">lovable.dev</a></li><li>点击 <strong>Sign up</strong> → 选择 Google 登录（最快）</li><li>完成后进入 Dashboard</li></ol>
+<p><strong>免费计划包含</strong>：</p>
+<ul><li>每月 5 个项目</li><li>无限对话消息（在项目内）</li><li>Lovable 托管的预览 URL</li><li>GitHub 仓库同步（需连接 GitHub 账号）</li></ul>
+<h3>第二步：创建第一个项目</h3>
+<p>点击 Dashboard 上的 <strong>New Project</strong> 按钮，进入一个空白的聊天界面。</p>
+<p>这里有一个关键认知：<strong>Lovable 的入口是一个对话框，不是代码编辑器</strong>。你的第一条消息就是整个应用的"蓝图"。</p>
+<h4>写好第一条 Prompt 的技巧</h4>
+<p>差的 prompt：</p>
+<pre>做一个任务管理应用</pre>
+<p>好的 prompt：</p>
+<pre>创建一个任务管理应用，功能包括：
+- 添加/删除/编辑任务
+- 每个任务有标题、描述、截止日期、优先级（高/中/低）
+- 按优先级或截止日期排序
+- 标记任务为完成（带删除线效果）
+- 深色模式支持
+技术要求：用 React + TypeScript，界面参考 Linear 的风格，简洁现代</pre>
+<p><strong>原则</strong>：越具体越好。列出你要的功能、UI 风格参考、技术偏好（如果你有的话）。</p>
+<h3>第三步：等待生成并预览</h3>
+<p>Lovable 一般在 30-60 秒内生成完整应用。生成完成后：</p>
+<ul><li><strong>左侧</strong>：AI 对话区域</li><li><strong>右侧</strong>：实时预览，可以直接点击交互</li><li><strong>顶部</strong>：代码视图切换按钮、部署按钮</li></ul>
+<p>你可以直接在预览里点击测试，也可以切换到 <strong>Code</strong> 视图查看生成的具体代码。</p>
+<h3>第四步：用对话迭代修改</h3>
+<p>这是 Lovable 最核心的体验。你发一条消息，它修改代码，右侧预览立刻更新。</p>
+<p><strong>几个实用的迭代 prompt 模式</strong>：</p>
+<pre>把主色调改成 #0066FF，按钮圆角改成 8px</pre>
+<pre>任务列表太密集了，每个任务之间加 12px 间距，
+加一个空状态图（当没有任务时显示"暂无任务"和一个图标）</pre>
+<pre>添加一个搜索框，可以实时过滤任务标题</pre>
+<pre>把现在的本地状态改成用 localStorage 持久化，
+这样刷新页面后任务不会消失</pre>
+<p>每次对话都对应一个 Git commit，右上角可以看到版本历史，随时回滚。</p>
+<h3>第五步：分享预览链接</h3>
+<p>右上角 <strong>Share</strong> 按钮会生成一个公开的预览 URL，格式类似：</p>
+<pre>https://your-project-name.lovable.app</pre>
+<p>这个 URL 可以直接发给别人看，无需部署。如果你想绑定自己的域名，需要升级到付费计划。</p>
+<h3>连接 GitHub（推荐）</h3>
+<p>在项目设置里连接你的 GitHub 账号后，Lovable 会自动：</p>
+<ul><li>创建一个新的 GitHub 仓库</li><li>每次对话修改自动 commit + push</li><li>支持你在本地 clone 后用 Cursor/VS Code 继续开发</li></ul>
+<pre># 在 Lovable 项目设置里点击 Connect GitHub
+# 然后 clone 到本地
+git clone https://github.com/your-username/your-lovable-project.git
+cd your-lovable-project
+
+# 安装依赖并本地运行
+npm install
+npm run dev</pre>
+<h3>一个完整的 5 分钟示例</h3>
+<p>以下是创建一个"链接收藏夹"应用的完整流程：</p>
+<p><strong>Prompt 1（创建应用）</strong>：</p>
+<pre>创建一个链接收藏夹应用：
+- 可以添加链接（URL + 标题 + 描述 + 标签）
+- 按标签筛选
+- 搜索功能
+- 网格卡片布局，每张卡片显示网站 favicon
+- 数据暂时存 localStorage</pre>
+<p><strong>Prompt 2（优化 UI）</strong>：</p>
+<pre>加一个深色/浅色模式切换按钮（右上角），
+标签改成彩色徽章，不同标签不同颜色</pre>
+<p><strong>Prompt 3（加功能）</strong>：</p>
+<pre>加一个"一键复制链接"按钮，点击后显示"已复制"提示（2秒后消失）</pre>
+<p>三条 prompt，大约 5 分钟，你就有了一个功能完整、界面美观的应用。</p>
+  </div>
+</section>
+
+
+<section class="ch" id="ch3">
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 03</div>
+        <h2>⚙️ Lovable 核心功能详解：从对话到生产级应用</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-chart.png" alt="" />
+    </div>
+<p>Lovable 不只是一个"帮你写代码"的工具，它构建了一套从想法到上线的完整工作流。理解它的核心功能，才能发挥它的全部潜力。</p>
+
+<h3>功能一：AI 代码生成引擎</h3>
+<p>Lovable 底层使用多个顶级 AI 模型（包括 Claude 系列），生成的代码技术栈固定为：</p>
+<ul><li><strong>前端</strong>：React 18 + TypeScript + Vite</li><li><strong>样式</strong>：Tailwind CSS + shadcn/ui 组件库</li><li><strong>状态管理</strong>：React Query（服务端状态）+ React hooks（本地状态）</li><li><strong>后端</strong>（可选）：Supabase（PostgreSQL 数据库 + Auth + Storage）</li></ul>
+<p>这个技术栈选择是有意为之：React + TypeScript + Tailwind 是 2025-2026 年最主流的 Web 开发组合，生成的代码质量高、可维护性强。</p>
+<p><strong>代码示例</strong>：当你说"添加一个带验证的登录表单"，Lovable 生成的代码大致是：</p>
+<pre>// 使用 shadcn/ui 的 Form 组件 + react-hook-form + zod 验证
+import { useForm } from "react-hook-form"
+import { zodResolver } from "@hookform/resolvers/zod"
+import * as z from "zod"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+
+const loginSchema = z.object({
+  email: z.string().email("请输入有效的邮箱地址"),
+  password: z.string().min(8, "密码至少 8 位"),
+})
+
+export function LoginForm() {
+  const form = useForm({
+    resolver: zodResolver(loginSchema),
+  })
+
+  return (
+    &lt;Form {...form}&gt;
+      &lt;form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4"&gt;
+        &lt;FormField
+          control={form.control}
+          name="email"
+          render={({ field }) =&gt; (
+            &lt;FormItem&gt;
+              &lt;FormLabel&gt;邮箱&lt;/FormLabel&gt;
+              &lt;FormControl&gt;
+                &lt;Input placeholder="you@example.com" {...field} /&gt;
+              &lt;/FormControl&gt;
+              &lt;FormMessage /&gt;
+            &lt;/FormItem&gt;
+          )}
+        /&gt;
+        {/* password field... */}
+        &lt;Button type="submit" className="w-full"&gt;登录&lt;/Button&gt;
+      &lt;/form&gt;
+    &lt;/Form&gt;
+  )
+}</pre>
+<p>这是地道的生产级 React 代码，不是玩具。</p>
+<h3>功能二：实时预览与可视化编辑</h3>
+<p>Lovable 的右侧预览不只是静态截图，它是一个真实运行的应用实例：</p>
+<ul><li>可以点击按钮、填写表单、触发交互</li><li>响应式预览：可以切换手机/平板/桌面视图</li><li><strong>Select mode</strong>：点击预览里的任何元素，AI 会自动定位到对应代码并告诉你可以怎么修改</li></ul>
+<p>这个功能让非技术用户可以用"点击"代替"描述位置"：</p>
+<pre># 与其说
+把右上角第三个按钮的颜色改成红色
+
+# 不如直接点击那个按钮，然后说
+把这个按钮改成红色</pre>
+<h3>功能三：版本历史与回滚</h3>
+<p>每次对话修改都是一个 Git commit，Lovable 提供可视化的版本历史：</p>
+<ul><li>右上角时钟图标 → 打开版本历史</li><li>每个版本显示：时间戳、对应的 prompt 摘要、代码变更文件列表</li><li>一键回滚到任意历史版本</li></ul>
+<p><strong>实际使用场景</strong>：</p>
+<pre>你改了 UI，结果越改越乱 → 回滚到 3 个版本前
+你误删了一个功能 → 查看历史找到删除前的版本 → 回滚</pre>
+<p>这本质上就是 Git，只是 Lovable 给它套了一个对话界面。</p>
+<h3>功能四：Supabase 原生集成</h3>
+<p>这是 Lovable 最强的差异化功能。Supabase 是一个开源的 Firebase 替代品，提供：</p>
+<ul><li><strong>PostgreSQL 数据库</strong>：真实的关系型数据库</li><li><strong>Auth</strong>：用户认证（邮箱/密码、Google OAuth、GitHub OAuth）</li><li><strong>Storage</strong>：文件存储（图片、PDF 等）</li><li><strong>Edge Functions</strong>：服务端逻辑</li></ul>
+<p>在 Lovable 里连接 Supabase 只需要三步：</p>
+<p><strong>Step 1</strong>：在 <a href="https://supabase.com">supabase.com</a> 免费创建项目，获取 API URL 和 anon key</p>
+<p><strong>Step 2</strong>：在 Lovable 项目右上角点击 Supabase 图标，粘贴连接信息</p>
+<p><strong>Step 3</strong>：直接在对话里描述你的数据需求：</p>
+<pre>帮我创建一个 todos 表，字段：
+- id (uuid, primary key)
+- user_id (uuid, 关联 auth.users)
+- title (text, not null)
+- completed (boolean, default false)
+- created_at (timestamp, default now())
+
+然后更新应用，把本地的 todo 存储改成读写这个数据库</pre>
+<p>Lovable 会自动生成 Supabase 的 SQL migration 和前端的数据库操作代码。</p>
+<h3>功能五：一键部署</h3>
+<p>Lovable 自带托管服务，一键部署无需任何配置：</p>
+<ol><li>点击右上角 <strong>Publish</strong> 按钮</li><li>等待 30 秒左右</li><li>得到一个 <code>https://xxx.lovable.app</code> 的 URL</li></ol>
+<p><strong>生产级部署注意事项</strong>：</p>
+<ul><li>免费计划使用 Lovable 子域名（<code>xxx.lovable.app</code>）</li><li>Pro 计划支持绑定自定义域名</li><li>应用运行在全球 CDN，访问速度快</li><li>HTTPS 自动配置</li></ul>
+<p>如果你想部署到自己的服务器，也可以：</p>
+<pre># clone 下来后自行部署
+git clone https://github.com/your-username/your-project.git
+cd your-project
+npm install
+npm run build
+
+# dist/ 目录里就是静态文件，可以部署到任何静态托管
+# 如 Vercel、Netlify、Cloudflare Pages</pre>
+<h3>功能六：GitHub 双向同步</h3>
+<p>连接 GitHub 后，Lovable 和本地开发形成完美互补：</p>
+<pre>Lovable（快速迭代 UI）
+        ↕ GitHub
+本地编辑器（精细代码调整）</pre>
+<p><strong>工作流示例</strong>：</p>
+<pre># 1. 在 Lovable 里用对话生成初版 UI
+# 2. clone 到本地
+git clone https://github.com/your-username/project.git
+
+# 3. 本地做精细调整（比如复杂的业务逻辑）
+# 编辑文件...
+git add . &amp;&amp; git commit -m "add complex sorting logic"
+git push
+
+# 4. 回到 Lovable，继续用对话改 UI
+# Lovable 会自动 pull 你的本地更改</pre>
+<p>注意：本地 push 的更改会同步到 Lovable，但 Lovable 的 AI 不会理解本地代码的语义——它只能基于当前代码状态继续生成，不会"记住"你的本地更改意图。</p>
+      <div class="contact-bar">
+      <img class="qr" src="assets/contact/qr-rain.png" alt="Rain · 匠人学院 IT 顾问微信" />
+      <div><div class="t">💬 产品跑通了，想把它写进简历？扫码聊聊</div><div class="d">Rain 帮你看 Lovable 项目怎么包装成有竞争力的作品集。</div></div>
+    </div>
+  </div>
+</section>
+<aside class="promo">
+  <span class="promo-tag">AD · 自家的</span>
+  <div class="promo-body">
+    <h4>📚 27 本 AI 工具实战手册，免费</h4>
+    <p>Cursor、Claude Code、Dify、n8n、CrewAI…每个工具一本中文实战手册，5-10 章带代码，不用注册不要钱。本书提到的工具基本都有对应深读。</p>
+  </div>
+  <a class="promo-cta" href="https://jiangren.com.au/wiki" target="_blank" rel="noopener">去翻手册 →</a>
+</aside>
+
+
+<section class="ch" id="ch4">
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 04</div>
+        <h2>🔥 Lovable 进阶技巧：构建真实可用的生产级应用</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-coffee-pointing.png" alt="" />
+    </div>
+<p>用了 Lovable 一段时间后，你会发现它真正的威力不在于"生成代码"，而在于如何通过精准的对话，把一个想法变成可以给真实用户使用的产品。</p>
+
+<h3>进阶技巧一：写出精准 Prompt 的框架</h3>
+<h4>WHAT + WHERE + HOW 框架</h4>
+<pre>WHAT（改什么）：添加一个用户头像上传功能
+WHERE（在哪里）：用户设置页面，在"个人信息"表单里
+HOW（怎么做）：
+  - 点击头像区域触发文件选择
+  - 支持 JPG/PNG，最大 2MB
+  - 上传到 Supabase Storage 的 avatars bucket
+  - 上传成功后立即更新页面显示
+  - 上传失败时显示错误 toast</pre>
+<h4>一次改一件事</h4>
+<p><strong>错误做法</strong>（一次改太多）：</p>
+<pre>改一下 UI，加几个功能，修复那个 bug，还有调整数据库结构</pre>
+<p><strong>正确做法</strong>（分步操作）：</p>
+<pre>第1条：修复登录后跳转到 /dashboard 的 bug
+第2条：添加"记住登录状态"复选框
+第3条：登录页面 UI 改成白底深色文字风格</pre>
+<p>分步操作有两个好处：出了问题更容易定位，回滚也更精准。</p>
+<h4>明确说"不要改什么"</h4>
+<pre>只修改 UserProfile 组件里的头像部分，
+不要动其他任何组件，不要修改数据库结构</pre>
+<p>这句话能避免 AI 在"顺手"帮你优化时引入意外变更。</p>
+<h3>进阶技巧二：完整的 Supabase 用户认证</h3>
+<p>实现真实的用户注册/登录系统，需要以下步骤：</p>
+<p><strong>Step 1：在 Supabase 开启 Auth</strong></p>
+<p>在 Supabase Dashboard → Authentication → Settings：</p>
+<ul><li>开启 Email 认证</li><li>可选开启 Google OAuth（需要配置 Google Cloud Console）</li></ul>
+<p><strong>Step 2：在 Lovable 里描述认证需求</strong></p>
+<pre>帮我实现完整的用户认证：
+1. 注册页面（/signup）：邮箱 + 密码 + 确认密码，注册后发验证邮件
+2. 登录页面（/login）：邮箱 + 密码 + 记住我
+3. 忘记密码（/forgot-password）：输入邮箱发重置链接
+4. 所有需要登录的页面加上路由守卫
+5. 顶部导航显示用户头像和退出按钮
+
+用 Supabase Auth，我已经连接了 Supabase</pre>
+<p>Lovable 会生成完整的认证流程代码，包括 Supabase Auth hooks：</p>
+<pre>// Lovable 生成的认证 hook 示例
+import { supabase } from "@/integrations/supabase/client"
+
+export const useAuth = () =&gt; {
+  const [user, setUser] = useState(null)
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() =&gt; {
+    // 检查当前登录状态
+    supabase.auth.getSession().then(({ data: { session } }) =&gt; {
+      setUser(session?.user ?? null)
+      setLoading(false)
+    })
+
+    // 监听认证状态变化
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(
+      (_event, session) =&gt; {
+        setUser(session?.user ?? null)
+      }
+    )
+
+    return () =&gt; subscription.unsubscribe()
+  }, [])
+
+  return { user, loading }
+}</pre>
+<h3>进阶技巧三：Row Level Security 数据安全</h3>
+<p>连接 Supabase 后，<strong>必须</strong>开启 Row Level Security (RLS)，否则所有用户都能看到所有人的数据。</p>
+<p>在对话里说：</p>
+<pre>帮我为 todos 表设置 Row Level Security：
+- 用户只能看到自己的 todos（user_id = auth.uid()）
+- 用户只能创建属于自己的 todos
+- 用户只能更新和删除自己的 todos</pre>
+<p>Lovable 会生成这样的 SQL：</p>
+<pre>-- 开启 RLS
+ALTER TABLE todos ENABLE ROW LEVEL SECURITY;
+
+-- 查询策略：只能看自己的
+CREATE POLICY "Users can view own todos"
+  ON todos FOR SELECT
+  USING (auth.uid() = user_id);
+
+-- 插入策略：只能插入属于自己的
+CREATE POLICY "Users can insert own todos"
+  ON todos FOR INSERT
+  WITH CHECK (auth.uid() = user_id);
+
+-- 更新策略
+CREATE POLICY "Users can update own todos"
+  ON todos FOR UPDATE
+  USING (auth.uid() = user_id);
+
+-- 删除策略
+CREATE POLICY "Users can delete own todos"
+  ON todos FOR DELETE
+  USING (auth.uid() = user_id);</pre>
+<h3>进阶技巧四：文件上传功能</h3>
+<pre>实现图片上传功能：
+- 用户可以上传图片到帖子
+- 图片上传到 Supabase Storage 的 post-images bucket
+- 展示上传进度条
+- 上传成功后返回图片 URL，存到 posts 表的 image_url 字段
+- 图片大小限制 5MB，只接受 image/* 类型</pre>
+<p>Lovable 生成的核心上传逻辑：</p>
+<pre>const uploadImage = async (file: File): Promise&lt;string&gt; =&gt; {
+  const fileExt = file.name.split('.').pop()
+  const fileName = `${Date.now()}.${fileExt}`
+  const filePath = `${user.id}/${fileName}`
+
+  const { error: uploadError } = await supabase.storage
+    .from('post-images')
+    .upload(filePath, file, {
+      onUploadProgress: (progress) =&gt; {
+        setUploadProgress(Math.round((progress.loaded / progress.total) * 100))
+      }
+    })
+
+  if (uploadError) throw uploadError
+
+  const { data } = supabase.storage
+    .from('post-images')
+    .getPublicUrl(filePath)
+
+  return data.publicUrl
+}</pre>
+<h3>实战案例：构建一个简单的 SaaS 产品</h3>
+<p>以下是用 Lovable 构建一个"团队任务管理 SaaS"的完整 prompt 序列：</p>
+<p><strong>Prompt 1 - 初始框架</strong>：</p>
+<pre>构建一个团队任务管理 SaaS，技术栈用 React + Supabase：
+- 工作空间概念（一个账号可以有多个工作空间）
+- 项目和任务的层级结构
+- 团队成员邀请
+- 任务分配给特定成员
+设计风格参考 Linear，深色主题</pre>
+<p><strong>Prompt 2 - 数据库设计</strong>：</p>
+<pre>帮我设计并创建以下 Supabase 数据表：
+- workspaces（工作空间）
+- workspace_members（成员关系表，含权限角色）
+- projects（项目）
+- tasks（任务，含优先级、状态、截止日期、指派人）
+每个表加上 RLS 策略，确保用户只能访问自己所在工作空间的数据</pre>
+<p><strong>Prompt 3 - 邀请功能</strong>：</p>
+<pre>实现团队邀请功能：
+- 工作空间 owner 可以生成邀请链接（有效期 7 天）
+- 通过链接注册的新用户自动加入工作空间
+- 邀请记录存 workspace_invitations 表</pre>
+<p><strong>Prompt 4 - 看板视图</strong>：</p>
+<pre>添加看板视图（Kanban Board）：
+- 状态列：待办、进行中、审核中、已完成
+- 任务卡片可以拖拽到不同状态列
+- 使用 @dnd-kit/core 库实现拖拽</pre>
+<p>四步之后，你有了一个功能完整的 SaaS 雏形，核心功能全部可用。</p>
+  </div>
+</section>
+
+
+<section class="ch" id="ch5">
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 05</div>
+        <h2>🤔 Lovable 常见问题 FAQ：踩坑避坑指南</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-pen-book.png" alt="" />
+    </div>
+<p>使用 Lovable 的过程中会遇到各种问题，这里汇总了最常见的疑问和解决方案。</p>
+<h3>关于生成质量</h3>
+<p><strong>Q：AI 生成的代码不是我想要的，怎么办？</strong></p>
+<p>A：最常见的原因是 prompt 不够具体。尝试以下策略：</p>
+<ol><li><strong>更具体地描述</strong>：不说"美化一下界面"，改成"把背景色改成 #F8F9FA，标题字体改成 24px 加粗，卡片加 1px #E5E7EB 边框和 8px 圆角"</li><li><strong>分解需求</strong>：一次只改一个地方</li><li><strong>提供参考</strong>：说"参考 Stripe Dashboard 的风格"或粘贴一个 UI 截图</li><li><strong>使用 Select 模式</strong>：直接点击预览里的元素，让 AI 定位到具体组件</li></ol>
+<p><strong>Q：AI 修改了我不想改的地方，怎么恢复？</strong></p>
+<p>A：立刻使用版本回滚：</p>
+<ol><li>右上角点击时钟图标（History）</li><li>找到修改前的版本</li><li>点击 Restore</li></ol>
+<p>预防方法：在 prompt 里明确说 "<strong>只修改 [具体组件名]，不要改其他任何文件</strong>"</p>
+<p><strong>Q：生成的代码有 TypeScript 错误，但 AI 说修好了还是报错？</strong></p>
+<p>A：这是 Lovable 的已知问题。解决步骤：</p>
+<ol><li>把完整的错误信息（包括文件名和行号）粘贴到对话框，让 AI 重新修复</li><li>如果多次失败，切换到 Code 视图，把出错的文件内容复制出来，加上错误信息，重新描述让 AI 修</li><li>实在不行，clone 到本地用 VS Code/Cursor 手动修</li></ol>
+<p><strong>Q：我想用 Lovable 生成后端 API，可以吗？</strong></p>
+<p>A：Lovable 主要生成前端代码（React），"后端"逻辑通过 Supabase 实现：</p>
+<ul><li>数据库操作：Supabase 的 JavaScript SDK</li><li>服务端逻辑：Supabase Edge Functions（基于 Deno）</li><li>文件存储：Supabase Storage</li></ul>
+<p>如果你需要独立的后端 API（Node.js/Python/Go），Lovable 不是最佳选择，建议用 Cursor 或直接手写。</p>
+<h3>关于 Supabase 集成</h3>
+<p><strong>Q：连接 Supabase 后，数据库操作报 403 权限错误？</strong></p>
+<p>A：99% 是 Row Level Security (RLS) 配置问题：</p>
+<ol><li>检查表是否开启了 RLS：Supabase Dashboard → Table Editor → 对应表 → 查看 RLS 状态</li><li>如果开启了 RLS，确保有对应的 Policy</li><li>快速调试方法：临时在 Supabase SQL Editor 运行：</li></ol>
+<pre>-- 查看某个表的 Policy
+SELECT * FROM pg_policies WHERE tablename = 'your_table_name';</pre>
+<p><strong>Q：Supabase 免费计划有什么限制？</strong></p>
+<p>A：Supabase 免费计划（2026 年）：</p>
+<table><tr><th>限制</th><th>额度</th></tr><tr><td>数据库容量</td><td>500 MB</td></tr><tr><td>文件存储</td><td>1 GB</td></tr><tr><td>月活跃用户</td><td>50,000</td></tr><tr><td>Edge Functions 调用</td><td>500,000 次/月</td></tr><tr><td><strong>暂停条件</strong></td><td>连续 7 天无活动自动暂停</td></tr></table>
+<p>对于早期验证项目完全够用，正式上线后建议升级到 Pro（$25/月）。</p>
+<p><strong>Q：怎么在 Lovable 里调用外部 API（比如天气 API、支付 API）？</strong></p>
+<p>A：直接描述：</p>
+<pre>集成 OpenWeatherMap API：
+- API key: [你的key，注意：不要把真实 key 写在对话里，
+  让 AI 用环境变量，然后你在 Supabase 或部署设置里配置]
+- 添加一个天气卡片组件，根据用户地理位置显示当前天气</pre>
+<p>涉及敏感 API key，正确做法是：</p>
+<ol><li>让 AI 生成使用 <code>import.meta.env.VITE_API_KEY</code> 读取环境变量的代码</li><li>把 key 配置在 Lovable 项目设置的 Environment Variables 里</li></ol>
+<h3>关于定价和限制</h3>
+<p><strong>Q：Lovable 免费计划够用吗？</strong></p>
+<p>A：免费计划适合：学习、个人项目、验证想法。限制是每月 5 个项目（注意：是项目数量，不是消息数量）。</p>
+<p>付费计划（Pro $25/月）增加：</p>
+<ul><li>无限项目</li><li>自定义域名</li><li>更高的 AI 生成速度</li><li>优先客服</li></ul>
+
+<p><strong>Q：Lovable 生成的代码，我拿去商用有版权问题吗？</strong></p>
+<p>A：根据 Lovable 的服务条款，用户完全拥有生成代码的所有权，可以商用、分发、修改。Lovable 不对生成内容主张任何版权。</p>
+<h3>关于工作流最佳实践</h3>
+<p><strong>Q：Lovable 和 Cursor 怎么配合使用？</strong></p>
+<p>A：推荐工作流：</p>
+<pre>1. 在 Lovable 快速生成初版（1-2小时）
+2. 连接 GitHub，clone 到本地
+3. 用 Cursor 做精细修改：
+   - 复杂业务逻辑
+   - 性能优化
+   - 集成测试
+4. push 后回 Lovable 继续迭代 UI</pre>
+<p>两个工具各有优势：Lovable 快（新功能对话即可），Cursor 精（精细代码控制）。</p>
+<p><strong>Q：Lovable 适合团队协作吗？</strong></p>
+<p>A：目前（2026年）Lovable 的协作功能相对基础：</p>
+<ul><li>可以把项目分享给团队成员查看</li><li>多人同时编辑同一项目可能导致冲突</li><li>推荐做法：一个 Lovable 项目对应一个 GitHub repo，团队通过 GitHub 协作，Lovable 作为"快速修改 UI"的工具</li></ul>
+<p><strong>Q：我的项目越来越大，AI 开始出现奇怪的修改，怎么办？</strong></p>
+<p>A：这是 Lovable（以及所有 AI 编辑器）的通病：上下文窗口限制导致大项目理解能力下降。解决方案：</p>
+<ol><li><strong>保持项目规模合理</strong>：一个 Lovable 项目不要超过 50 个文件</li><li><strong>使用精确指令</strong>：指定具体文件名和组件名，不让 AI 猜</li><li><strong>定期整理代码</strong>：在本地用 Cursor 重构，保持代码清洁后再回 Lovable</li><li><strong>拆分项目</strong>：把复杂系统拆成多个独立的小项目</li></ol>
+  </div>
+</section>
+<aside class="promo">
+  <span class="promo-tag">AD · 自家的</span>
+  <div class="promo-body">
+    <h4>🧪 10 分钟测出你的 AI Engineer 缺口</h4>
+    <p>官网的 77 项能力自测（五大支柱逐项点选），已有 2,300+ 人做过。测完直接看出你该补哪根柱子，免费不用注册。</p>
+  </div>
+  <a class="promo-cta" href="https://jiangren.com.au/learn/ai-engineer" target="_blank" rel="noopener">去做测试 →</a>
+</aside>
+
+
+<section class="ch" id="ch6">
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 06</div>
+        <h2>🗄️ Lovable + Supabase 完整集成：auth / database / storage / realtime</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-data.png" alt="" />
+    </div>
+<p>Lovable 自带前端生成，但真实产品离不开后端：用户账号、持久化数据、文件存储、多端同步。Supabase 是目前和 Lovable 配合最顺的后端选择——两者都走"告诉 AI 你想要什么"的思路，官方也做了原生连接器。</p>
+<p>这一章把四个核心模块拆开讲，每个模块给出真实可用的代码和配置，不绕弯子。</p>
+
+<h3>第一步：连接 Supabase 项目</h3>
+<h4>在 Supabase 创建项目，拿到凭证</h4>
+<p>登录 <a href="https://supabase.com">supabase.com</a>，创建一个新项目（Organization → New project）。创建完成后进入：</p>
+<p><strong>Settings → API</strong></p>
+<p>你需要两个值：</p>
+<ul><li><strong>Project URL</strong>：格式是 <code>https://xxxxxxxxxxxx.supabase.co</code></li><li><strong>anon key</strong>：公开匿名密钥，以 <code>eyJ...</code> 开头，很长</li></ul>
+<div class="callout">只复制 <code>anon</code>（public）key，绝对不要把 <code>service_role</code> key 粘到 Lovable。<code>service_role</code> 可以绕过所有 RLS 权限检查，泄露等于数据库裸奔。</div>
+<h4>在 Lovable 项目里接入</h4>
+<p>打开你的 Lovable 项目，找到右上角设置图标 → <strong>Settings → Connectors → Supabase</strong>，粘贴 Project URL 和 anon key，点 Save。出现绿色 "Connected" 状态即为成功。</p>
+<p>连接后，Lovable 的 AI 会读取你的 Supabase 表结构和 RLS 规则——之后你说"帮我加一个 todos 表，每个用户只能看自己的数据"，AI 会直接生成 SQL migration 和前端查询代码，不用你手动来回切换。</p>
+<h3>模块一：用户认证（Auth）</h3>
+<h4>开启邮箱登录</h4>
+<p>Supabase 默认开启了邮箱/密码认证。开发期间建议先关掉邮件确认，不然每次测试都要去邮箱点链接：</p>
+<p><strong>Supabase Dashboard → Authentication → Providers → Email → 关闭 "Confirm email"</strong></p>
+<p>然后告诉 Lovable：</p>
+<pre>添加用户登录/注册功能：
+- 邮箱 + 密码登录
+- 注册后自动跳转 /dashboard
+- 登录状态持久化（刷新页面不掉登录）
+- 右上角加退出按钮</pre>
+<p>Lovable 会生成完整的认证逻辑，包括 <code>supabase.auth.signUp()</code>、<code>signInWithPassword()</code>、<code>signOut()</code> 和 session 监听。</p>
+<h4>加 OAuth 登录（Google / GitHub）</h4>
+<p>在 Supabase Dashboard 里先启用 OAuth Provider（Authentication → Providers → 选对应平台），填入该平台的 Client ID 和 Secret。</p>
+<p>然后在 Lovable 里：</p>
+<pre>登录页加 "使用 Google 登录" 按钮，
+调用 supabase.auth.signInWithOAuth({ provider: 'google' })，
+回调地址配置到 /auth/callback 路由</pre>
+<h4>读取当前用户</h4>
+<p>Supabase SDK 的 session 通过 <code>supabase.auth.getSession()</code> 获取，或者监听变化：</p>
+<pre>// 在 React 应用顶层监听 auth 状态
+useEffect(() =&gt; {
+  const { data: { subscription } } = supabase.auth.onAuthStateChange(
+    (event, session) =&gt; {
+      setUser(session?.user ?? null)
+    }
+  )
+  return () =&gt; subscription.unsubscribe()
+}, [])</pre>
+<h3>模块二：数据库 + Row Level Security</h3>
+<h4>建表和基本查询</h4>
+<p>Lovable 可以直接帮你生成 SQL migration。告诉它你想要的表结构，它会在 Supabase SQL Editor 里执行：</p>
+<pre>-- Lovable 生成的 todos 表示例
+CREATE TABLE todos (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  user_id UUID REFERENCES auth.users(id) ON DELETE CASCADE,
+  title TEXT NOT NULL,
+  completed BOOLEAN DEFAULT FALSE,
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);</pre>
+<p>前端查询同样由 Lovable 生成，但了解基本写法很有必要：</p>
+<pre>// 查询当前用户的所有 todos（RLS 会自动过滤）
+const { data, error } = await supabase
+  .from('todos')
+  .select('*')
+  .order('created_at', { ascending: false })
+
+// 插入新 todo
+const { error } = await supabase
+  .from('todos')
+  .insert({ title: '买咖啡', user_id: user.id })
+
+// 更新
+const { error } = await supabase
+  .from('todos')
+  .update({ completed: true })
+  .eq('id', todoId)</pre>
+<h4>Row Level Security（RLS）是什么，为什么必须开</h4>
+<p>默认情况下，Supabase 数据库对所有请求都开放——只要有 anon key，任何人都能读写你的表。这在开发时方便，但上线前必须关掉这扇门。</p>
+<p>RLS（Row Level Security）是 PostgreSQL 的原生特性，作用是给每张表加一道"行级过滤器"：每条 SQL 执行时，Postgres 都会检查当前用户是否满足 Policy 定义的条件，不满足的行直接不可见，不是返回空而是根本不存在。</p>
+<p>开启方式：</p>
+<pre>-- 开启 RLS（必须）
+ALTER TABLE todos ENABLE ROW LEVEL SECURITY;
+
+-- 允许用户查看自己的 todos
+CREATE POLICY "用户只能查看自己的 todos"
+ON todos FOR SELECT
+TO authenticated
+USING (auth.uid() = user_id);
+
+-- 允许用户插入自己的数据（WITH CHECK 确保 user_id 只能是自己）
+CREATE POLICY "用户只能插入自己的 todos"
+ON todos FOR INSERT
+TO authenticated
+WITH CHECK (auth.uid() = user_id);
+
+-- 允许用户修改自己的 todos
+CREATE POLICY "用户只能更新自己的 todos"
+ON todos FOR UPDATE
+TO authenticated
+USING (auth.uid() = user_id)
+WITH CHECK (auth.uid() = user_id);
+
+-- 允许用户删除自己的 todos
+CREATE POLICY "用户只能删除自己的 todos"
+ON todos FOR DELETE
+TO authenticated
+USING (auth.uid() = user_id);</pre>
+<p><code>auth.uid()</code> 是 Supabase 提供的函数，返回当前请求的用户 ID。未登录时返回 <code>NULL</code>，<code>NULL = user_id</code> 永远是 false，所以匿名请求拿不到任何数据。</p>
+<h4>Policy 类型速查</h4>
+<table><tr><th>操作</th><th>USING</th><th>WITH CHECK</th></tr><tr><td>SELECT</td><td>✅ 必须</td><td>❌ 不用</td></tr><tr><td>INSERT</td><td>❌ 不用</td><td>✅ 必须</td></tr><tr><td>UPDATE</td><td>✅ 建议</td><td>✅ 建议</td></tr><tr><td>DELETE</td><td>✅ 必须</td><td>❌ 不用</td></tr></table>
+<p><code>USING</code> 是"过滤已有行的条件"，<code>WITH CHECK</code> 是"验证写入新数据的条件"。</p>
+<h4>常见 403 报错排查</h4>
+<p>连接 Supabase 后出现 <code>403 Forbidden</code> 或 <code>new row violates row-level security policy</code>，基本是这几个原因：</p>
+<ol><li><strong>表开了 RLS 但没有 Policy</strong> → 开启 RLS 等于给表加了一把没有钥匙的锁，必须显式创建 Policy 才能让用户进来</li><li><strong>Policy 里的字段名写错</strong> → 比如 <code>author_id</code> 写成了 <code>user_id</code>，检查列名</li><li><strong>前端没传 auth token</strong> → 确保 Supabase client 初始化时设置了 <code>auth.persistSession: true</code>，以及请求时 session 还有效</li></ol>
+<p>在 Supabase SQL Editor 里快速诊断：</p>
+<pre>-- 查看某张表的所有 Policy
+SELECT policyname, cmd, qual, with_check
+FROM pg_policies
+WHERE tablename = 'todos';</pre>
+<h3>模块三：文件存储（Storage）</h3>
+<h4>创建 Bucket</h4>
+<p>在 Supabase Dashboard → Storage → Create a new bucket。</p>
+<p>两种类型：</p>
+<ul><li><strong>Public bucket</strong>：文件可直接通过 URL 访问，适合公开图片（产品图、封面图）</li><li><strong>Private bucket</strong>：需要生成签名 URL 才能访问，适合用户私有文件（合同、隐私照片）</li></ul>
+<p>头像上传一般用 public bucket（<code>avatars</code>），用户上传的文档用 private bucket。</p>
+<h4>上传文件</h4>
+<pre>// 上传用户头像
+async function uploadAvatar(file: File, userId: string) {
+  const fileExt = file.name.split('.').pop()
+  const filePath = `${userId}/avatar.${fileExt}`
+
+  const { data, error } = await supabase.storage
+    .from('avatars')
+    .upload(filePath, file, {
+      upsert: true,          // 覆盖已有文件
+      contentType: file.type
+    })
+
+  if (error) throw error
+
+  // 获取公开 URL
+  const { data: { publicUrl } } = supabase.storage
+    .from('avatars')
+    .getPublicUrl(filePath)
+
+  return publicUrl
+}</pre>
+<h4>私有文件的临时访问</h4>
+<p>Private bucket 里的文件需要生成限时签名 URL：</p>
+<pre>// 生成 60 秒有效的临时访问链接
+const { data, error } = await supabase.storage
+  .from('private-docs')
+  .createSignedUrl('contracts/agreement.pdf', 60)
+
+if (data) {
+  window.open(data.signedUrl)
+}</pre>
+<h4>Storage 的 RLS</h4>
+<p>Storage 同样支持 RLS Policy，通过 SQL 配置。例如，只允许用户访问自己的文件夹：</p>
+<pre>-- 允许已登录用户上传到自己的文件夹
+CREATE POLICY "用户可以上传到自己的文件夹"
+ON storage.objects FOR INSERT
+TO authenticated
+WITH CHECK (bucket_id = 'avatars' AND (storage.foldername(name))[1] = auth.uid()::text);
+
+-- 允许公开读取 avatars bucket
+CREATE POLICY "avatars 公开可读"
+ON storage.objects FOR SELECT
+USING (bucket_id = 'avatars');</pre>
+<p>告诉 Lovable "头像上传到 Supabase Storage 的 avatars bucket，文件路径用 userId/avatar.png，上传后更新 profiles 表的 avatar_url 字段"，它会生成完整的组件代码，包括文件选择、上传进度、错误处理。</p>
+<h3>模块四：实时订阅（Realtime）</h3>
+<p>Supabase Realtime 基于 WebSocket，监听数据库表的变更并实时推送到前端。典型场景：聊天室、协作文档、实时仪表盘、通知系统。</p>
+<h4>监听表变更</h4>
+<pre>// 监听 messages 表的新增消息
+const channel = supabase
+  .channel('messages-channel')
+  .on(
+    'postgres_changes',
+    {
+      event: 'INSERT',
+      schema: 'public',
+      table: 'messages'
+    },
+    (payload) =&gt; {
+      console.log('新消息:', payload.new)
+      setMessages(prev =&gt; [...prev, payload.new])
+    }
+  )
+  .subscribe((status) =&gt; {
+    if (status === 'SUBSCRIBED') {
+      console.log('实时监听已就绪')
+    }
+  })
+
+// 组件卸载时清理
+return () =&gt; {
+  supabase.removeChannel(channel)
+}</pre>
+<p>支持三种事件类型：</p>
+<ul><li><code>INSERT</code> — 新增行</li><li><code>UPDATE</code> — 行被修改</li><li><code>DELETE</code> — 行被删除</li><li><code>*</code> — 以上三种全监听</li></ul>
+<p>也可以加过滤条件，只监听特定行的变更：</p>
+<pre>// 只监听当前用户的通知
+.on('postgres_changes', {
+  event: 'INSERT',
+  schema: 'public',
+  table: 'notifications',
+  filter: `user_id=eq.${userId}`
+}, callback)</pre>
+<h4>Realtime 的前置条件</h4>
+<ol><li><strong>Supabase Dashboard → Replication → 开启对应表的 Realtime</strong>（默认关闭）</li><li>表必须开启 RLS，且有对应的 SELECT Policy——Realtime 推送也受 RLS 过滤</li></ol>
+<h4>用 Lovable 接入 Realtime</h4>
+<pre>在 messages 页面添加实时消息功能：
+- 监听 messages 表的 INSERT 事件
+- 有新消息时立即追加到列表底部，不刷新整页
+- 组件卸载时取消订阅</pre>
+<p>Lovable 会生成对应的 <code>useEffect</code> 钩子和 channel 清理逻辑。</p>
+<h3>完整流程：从零搭一个 Todo 应用</h3>
+<p>把以上四个模块组合起来，按顺序跑通一个完整应用：</p>
+<pre>第1步：
+  在 Supabase 创建 todos 表，开启 RLS，加四条 CRUD Policy
+
+第2步：
+  在 Lovable 连接 Supabase，告诉 AI 表结构
+
+第3步：
+  添加邮箱登录/注册页面，登录后跳转 /todos
+
+第4步：
+  /todos 页面：查询当前用户的 todos，支持新增/完成/删除
+
+第5步：
+  监听 todos 表 INSERT 事件，多个标签页同时打开时实时同步
+
+第6步：
+  加一个头像上传，传到 Supabase Storage avatars bucket</pre>
+<p>每一步都是一条 Lovable prompt，独立可验证，出了问题精准回滚。</p>
+<h3>上线前必查清单</h3>
+<table><tr><th>检查项</th><th>说明</th></tr><tr><td>RLS 已开启</td><td>每张表都要 <code>ALTER TABLE xxx ENABLE ROW LEVEL SECURITY</code></td></tr><tr><td>所有表都有 Policy</td><td>开了 RLS 但没有 Policy = 无法访问任何数据</td></tr><tr><td>anon key 没有泄露为 service_role</td><td>看 Lovable 项目里配置的 key 以 <code>eyJ...</code> 开头且比 service_role 短</td></tr><tr><td>Storage bucket 权限配对</td><td>public bucket 不要放敏感文件；private bucket 记得建 Policy</td></tr><tr><td>Realtime 只在需要时开</td><td>不需要实时更新的表不要开 Replication，减少资源消耗</td></tr><tr><td>Email Confirm 重新开启</td><td>开发时关掉的 "Confirm email" 上线前要打开</td></tr></table>
+      <p class="sales-card-lead">📦 用 Supabase 搭完了数据层，这个项目能进简历吗？Amelia 帮你评估：</p>
+    <div class="sales-card"><img src="assets/contact/sales-cards/amelia.jpg" alt="Amelia · Senior IT Career Consultant · 匠人学院" /></div>
+  </div>
+
+<a class="promo-line" href="https://jiangren.com.au/blog" target="_blank" rel="noopener">📰 跟上行业节奏：匠人每天 5 条经过核源的 AI 日报，每周一份大事盘点 <span>→</span></a>
+<a class="promo-line" href="https://jiangren.com.au/learn/prompt-master" target="_blank" rel="noopener">🧑‍💻 光看不动手没用：Prompt Master / LLM Lab / Vibe Coding 三个浏览器内实验室，边读边跑 <span>→</span></a></section>
+<aside class="promo">
+  <span class="promo-tag">AD · 自家的</span>
+  <div class="promo-body">
+    <h4>🎬 还没准备好 cohort？先上入门自学课</h4>
+    <p>AI Engineer 入门（RAG 方向）：4 周 52 小时视频 + 25 个浏览器内 Lab + AI Tutor 即时答疑，自己掌握节奏，是 Bootcamp 的官方前置课。</p>
+  </div>
+  <a class="promo-cta" href="https://jiangren.com.au/program-course/ai-engineer-rag" target="_blank" rel="noopener">看课程介绍 →</a>
+</aside>
+
+
+<section class="ch" id="ch7">
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-num">CHAPTER 07</div>
+        <h2>🌐 从 Lovable 到生产：自定义域名、SEO meta 和 Google Analytics</h2>
+      </div>
+      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-hero.png" alt="" />
+    </div>
+<p>Lovable 默认给每个项目分配一个 <code>yourapp.lovable.app</code> 子域名，发开发原型够用，但上线产品不行——用户不信任 <code>lovable.app</code> 结尾的域名，SEO 权重也归不到你自己。这一章把三件事拆开讲：把域名换成你的、让搜索引擎读到正确的元数据、接 GA4 追踪用户行为。</p>
+<h3>1. 先发布，再接域名</h3>
+<p>自定义域名必须在项目发布后才能生效。</p>
+<p>打开 Lovable 项目，右上角 → <strong>Share</strong> 按钮 → <strong>Publish</strong>。首次发布会生成 <code>yourapp.lovable.app</code> 的公开访问地址，后续每次发布只更新内容，域名不变。</p>
+<div class="callout"><strong>Plan 限制</strong>：自定义域名是付费功能，Free 计划只有 <code>lovable.app</code> 子域名。Starter 及以上方可绑定自己的域名。</div>
+<h3>2. 绑定自定义域名</h3>
+<h4>2.1 在 Lovable 添加域名</h4>
+<p>项目页面 → <strong>Settings</strong> → <strong>Domains</strong> → <strong>Add custom domain</strong>，输入你的域名（如 <code>app.yourdomain.com</code> 或根域名 <code>yourdomain.com</code>），确认后 Lovable 会展示两条 DNS 记录：</p>
+<table><tr><th>类型</th><th>名称</th><th>值</th></tr><tr><td>A</td><td><code>@</code> 或指定主机名</td><td>Lovable 提供的 IP 地址</td></tr><tr><td>TXT</td><td>验证用子域名</td><td>Lovable 提供的验证字符串</td></tr></table>
+<p>具体的 IP 和验证字符串会在你的 Lovable dashboard 里实时显示，每个项目不同，以 dashboard 为准。</p>
+<h4>2.2 在域名注册商添加 DNS 记录</h4>
+<p>登录你的域名注册商（Cloudflare / Namecheap / GoDaddy / 阿里云解析等），找到对应域名的 DNS 管理，照着 Lovable dashboard 给出的值添加：</p>
+<p><strong>A 记录（根域名）</strong></p>
+<pre>Type:  A
+Name:  @
+Value: &lt;Lovable 提供的 IP&gt;
+TTL:   Auto 或 3600</pre>
+<p><strong>子域名（如 app.yourdomain.com）</strong></p>
+<pre>Type:  CNAME
+Name:  app
+Value: &lt;Lovable 给出的 CNAME 目标&gt;
+TTL:   Auto</pre>
+<p><strong>TXT 验证记录</strong></p>
+<pre>Type:  TXT
+Name:  &lt;Lovable 指定的主机名&gt;
+Value: &lt;Lovable 提供的验证字符串&gt;
+TTL:   Auto</pre>
+<div class="callout"><strong>Cloudflare 用户注意</strong>：A 记录的 Proxy 状态（橙色云）会干扰 Lovable 的 SSL 证书签发，先设为 <strong>DNS only</strong>（灰色云），等证书签发完再按需开启。</div>
+<h4>2.3 等待 DNS 传播和 SSL 颁发</h4>
+<p>保存 DNS 记录后回到 Lovable dashboard，域名状态会显示验证进度。SSL 证书由 Let's Encrypt 自动签发，全程不需要手动操作。</p>
+<ul><li>通常：几分钟到 1 小时</li><li>最长：DNS TTL 较长时可能 72 小时</li></ul>
+<p>可以用 <a href="https://dnschecker.org">dnschecker.org</a> 查全球 DNS 传播情况，看 A 记录是否已经指向 Lovable 的 IP。</p>
+<h4>2.4 验证生效</h4>
+<p>浏览器访问你的域名，看到项目内容 + 地址栏显示 🔒 HTTPS，则绑定成功。</p>
+<h3>3. SEO 元数据配置</h3>
+<h4>3.1 Lovable 的内置 SEO 工具</h4>
+<p>2026 年 5 月 13 日，Lovable 发布了 <strong>Discoverability</strong> 功能，集成了 SEO 审查、SSR/预渲染、Semrush 对接。对新项目来说：</p>
+<ul><li><strong>2026-05-13 之后创建的项目</strong>：默认使用 TanStack Start + SSR，每次请求返回完整 HTML，对搜索引擎和社交预览 bot 完全可见。</li><li><strong>此前的 React + Vite 项目</strong>：对 Google、Bing、社交预览 bot（Twitter、Facebook）、AI 引擎（ChatGPT、Perplexity）等验证过的爬虫启用按需预渲染。</li></ul>
+<p>两种情况下，SEO 元数据的配置方式一致。</p>
+<h4>3.2 基础元数据：标题、描述、Favicon</h4>
+<p>项目页面 → <strong>Settings</strong> → <strong>SEO</strong> （或 <strong>Share</strong> 面板 → <strong>SEO</strong>）：</p>
+<table><tr><th>字段</th><th>对应 HTML</th><th>作用</th></tr><tr><td>Page title</td><td><code>&lt;title&gt;</code></td><td>浏览器标签 + Google 搜索结果标题</td></tr><tr><td>Meta description</td><td><code>&lt;meta name="description"&gt;</code></td><td>搜索结果摘要（建议 120-160 字符）</td></tr><tr><td>Favicon</td><td><code>&lt;link rel="icon"&gt;</code></td><td>浏览器标签图标，默认是 Lovable Logo</td></tr><tr><td>Share image / OG image</td><td><code>&lt;meta property="og:image"&gt;</code></td><td>社交分享时的预览图</td></tr></table>
+<p>修改后立即保存，Lovable 自动更新 <code>index.html</code> 里的对应 <code>&lt;meta&gt;</code> 标签。如果用 Lovable 的 AI 聊天改，直接说：</p>
+<pre>把 meta description 改成"…你的描述…"，并把 OG image 换成 https://…/og.png</pre>
+<p>Lovable 会定位到 <code>index.html</code> 或 <code>vite.config.ts</code> 的对应位置修改。</p>
+<h4>3.3 Open Graph 完整写法（手动编辑 index.html）</h4>
+<p>如果需要精确控制，打开 Lovable 的 <strong>Dev Mode</strong>，找到项目根目录下的 <code>index.html</code>，在 <code>&lt;head&gt;</code> 里加入：</p>
+<pre>&lt;!-- 基础 SEO --&gt;
+&lt;title&gt;你的应用名 | 品牌名&lt;/title&gt;
+&lt;meta name="description" content="120 字以内，说清楚这个应用是干什么的" /&gt;
+
+&lt;!-- Open Graph（Facebook、LinkedIn、微信） --&gt;
+&lt;meta property="og:type" content="website" /&gt;
+&lt;meta property="og:title" content="你的应用名 | 品牌名" /&gt;
+&lt;meta property="og:description" content="120 字以内的描述" /&gt;
+&lt;meta property="og:image" content="https://yourdomain.com/og-image.png" /&gt;
+&lt;meta property="og:url" content="https://yourdomain.com" /&gt;
+
+&lt;!-- Twitter Card --&gt;
+&lt;meta name="twitter:card" content="summary_large_image" /&gt;
+&lt;meta name="twitter:title" content="你的应用名 | 品牌名" /&gt;
+&lt;meta name="twitter:description" content="120 字以内的描述" /&gt;
+&lt;meta name="twitter:image" content="https://yourdomain.com/og-image.png" /&gt;</pre>
+<p><strong>OG image 规格建议</strong>：1200×630px，PNG 或 JPG，文件大小 &lt; 1MB。可以用 Figma / Canva 做，导出后放到 Lovable 项目的 <code>public/</code> 目录下（Dev Mode 里拖进去），URL 就是 <code>https://yourdomain.com/og-image.png</code>。</p>
+<h4>3.4 接入 Google Search Console</h4>
+<p>让 Google 知道你的域名存在，加速首次索引：</p>
+<ol><li>打开 <a href="https://search.google.com/search-console">search.google.com/search-console</a>，添加 <strong>Domain property</strong>（填裸域名，不加 <code>https://</code>）</li><li>Google 会要求在 DNS 添加 TXT 验证记录，格式：</li></ol>
+<pre>Type:  TXT
+Name:  @
+Value: google-site-verification=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</pre>
+<ol><li>在域名注册商添加后点 <strong>Verify</strong>，通常几分钟内验证通过</li><li>验证成功后，到 <strong>URL Inspection</strong> 里输入你的首页 URL，点 <strong>Request Indexing</strong>——告诉 Google 可以爬了</li></ol>
+<p>Search Console 也能看到哪些关键词带来了流量，以及哪些页面有抓取错误，接上去之后定期看一下。</p>
+<h3>4. Google Analytics GA4 埋点</h3>
+<h4>4.1 获取 GA4 Measurement ID</h4>
+<ol><li>登录 <a href="https://analytics.google.com">analytics.google.com</a>，创建账号 → 属性（Property）</li><li>数据流（Data Streams）→ 添加网站 → 填你的域名</li><li>创建完成后，进入该数据流，看到 <strong>Measurement ID</strong>，格式是 <code>G-XXXXXXXXXX</code></li></ol>
+<h4>4.2 在 index.html 里加载 GA4</h4>
+<p>在 Dev Mode 打开 <code>index.html</code>，把下面两段脚本插到 <code>&lt;head&gt;</code> 结尾处，<code>&lt;title&gt;</code> 之后都行：</p>
+<pre>&lt;!-- Google Analytics GA4 --&gt;
+&lt;script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"&gt;&lt;/script&gt;
+&lt;script&gt;
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+&lt;/script&gt;</pre>
+<p>把 <code>G-XXXXXXXXXX</code> 替换成你在 GA4 拿到的 Measurement ID。</p>
+<div class="callout"><strong>为什么放 <code>&lt;head&gt;</code> 而不是 <code>&lt;body&gt;</code>？</strong> GA4 脚本需要在 React 渲染之前完成加载，否则初始页面访问会被漏掉。</div>
+<h4>4.3 SPA 路由追踪（关键！）</h4>
+<p>Lovable 生成的应用是 React SPA，默认 GA4 只记录第一次页面加载，用户在应用内跳转不会触发新的 <code>page_view</code>。要追踪路由变化，在你的主组件（通常是 <code>src/App.tsx</code>）里加一个 hook：</p>
+<pre>import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+
+function usePageTracking() {
+  const location = useLocation();
+
+  useEffect(() =&gt; {
+    if (typeof window.gtag !== 'function') return;
+    window.gtag('event', 'page_view', {
+      page_path: location.pathname + location.search,
+      page_location: window.location.href,
+    });
+  }, [location]);
+}</pre>
+<p>然后在 <code>App</code> 组件的函数体里调用：</p>
+<pre>function App() {
+  usePageTracking(); // 每次路由变化触发 page_view
+
+  return (
+    &lt;Routes&gt;
+      {/* 你的路由 */}
+    &lt;/Routes&gt;
+  );
+}</pre>
+<p>如果用 Lovable 的 AI 来加，直接说：</p>
+<pre>在 App.tsx 里加一个 usePageTracking hook，在每次路由变化时调用 window.gtag('event', 'page_view', ...)，追踪 GA4 SPA 路由。</pre>
+<p>Lovable 会自动处理 TypeScript 类型声明（<code>window.gtag</code>）和导入。</p>
+<h4>4.4 验证埋点是否生效</h4>
+<ol><li>打开 Google Analytics → <strong>Reports</strong> → <strong>Realtime</strong> → <strong>Users in last 30 minutes</strong></li><li>在另一个标签页打开你的应用，来回点几个页面</li><li>Realtime 报表里出现用户活动，并且每次路由跳转都有新的 <code>page_view</code> 事件，说明埋点正常</li></ol>
+<p>也可以在浏览器 DevTools → Network 里过滤 <code>google-analytics</code> 或 <code>gtag</code>，看到有 <code>collect</code> 请求发出去即为正常。</p>
+<h3>5. 上线前检查清单</h3>
+<table><tr><th>项目</th><th>检查方法</th></tr><tr><td>域名 HTTPS 正常</td><td>浏览器地址栏显示 🔒，访问 HTTP 自动跳转 HTTPS</td></tr><tr><td>自定义域名内容正确</td><td>打开域名，内容与 Lovable 项目一致</td></tr><tr><td>页面 <code>&lt;title&gt;</code> 和 description</td><td>浏览器查看源代码，搜索 <code>&lt;title&gt;</code> 和 <code>description</code></td></tr><tr><td>OG 图片预览</td><td>用 <a href="https://www.opengraph.xyz">opengraph.xyz</a> 粘贴你的 URL 看预览效果</td></tr><tr><td>Google Search Console 验证</td><td>状态显示 "Domain verified"</td></tr><tr><td>GA4 实时数据</td><td>Realtime 报表看到自己的访问记录</td></tr><tr><td>SPA 路由追踪</td><td>手动点 3-4 个页面，Realtime 出现对应 <code>page_view</code> 事件</td></tr></table>
+<h3>6. 常见问题</h3>
+<p><strong>域名连接后显示空白页或 ERR_SSL_PROTOCOL_ERROR</strong></p>
+<p>SSL 证书还没签发完，等 10-30 分钟。如果用了 Cloudflare 且 Proxy 是开的，先关掉 Proxy（灰色云）再等证书，签发后再决定是否开 Proxy。</p>
+<p><strong>Google 搜索不到我的网站</strong></p>
+<p>新域名被 Google 索引通常需要几天到几周。先到 Search Console 手动 Request Indexing，再检查 <code>robots.txt</code> 里没有 <code>Disallow: /</code> 把自己屏蔽掉。</p>
+<p><strong>GA4 实时报表看不到数据</strong></p>
+<p>首先排查是否装了 uBlock 或 AdGuard——广告拦截器会屏蔽 <code>googletagmanager.com</code> 请求。用隐身窗口（不带扩展）测试。其次确认 <code>G-XXXXXXXXXX</code> 里的 ID 和 GA4 属性里的 Measurement ID 一致，字母 O 和数字 0 很容易搞混。</p>
+<p><strong>OG 图片在微信里不显示</strong></p>
+<p>微信的图片爬虫对 CORS 和 Content-Type 有要求，图片必须放在自己的域名（不能是跨域的图床），且 Content-Type 必须是 <code>image/png</code> 或 <code>image/jpeg</code>。把 OG 图放到 Lovable 项目 <code>public/</code> 目录，用你的自定义域名 URL 引用。</p>
+      <p class="sales-card-lead">🌐 应用上线了，用户数据怎么追踪、SEO 怎么做，下一步聊什么？Rain 帮你想：</p>
+    <div class="sales-card"><img src="assets/contact/sales-cards/rain.jpg" alt="Rain · Senior IT Career Consultant · 匠人学院" /></div>
+  </div>
+</section>
+
+</main>
+
+<section class="page back-cover">
+  <div class="logo"><img src="assets/logo/logo-zh-white.png" alt="匠人学院" /></div>
+  <h2>用 Lovable 搭出来了，接下来怎么写进简历？</h2>
+  <p style="max-width: 78%;">这本手册的在线版在 jiangren.com.au/wiki/lovable-guide，随官网更新。匠人学院还有 20+ 本同款 AI 工具指南（Claude Code、Cursor、Windsurf、CrewAI、Dify、n8n…）和 AI Engineer 方向的项目制课程——想知道 Lovable + Supabase 项目怎么落到简历里、做成找工作的作品，来聊聊。</p>
+
+  <div class="sales-card" style="width: 88%;"><img src="assets/contact/sales-cards/angela.jpg" alt="Angela · IT Career Consultant · 匠人学院" /></div>
+
+  <div class="contact-bar" style="width: 88%;">
+    <img class="qr" src="assets/contact/qr-amelia.png" alt="Amelia · 匠人学院 IT 顾问微信" />
+    <div class="cb-body">
+      <div class="cb-title">扫码进社群，Lovable 实操答疑</div>
+      <div class="cb-desc">把这本 PDF 转给还在从零手写 React 样板代码的同事。</div>
+    </div>
+    <div class="cb-brand"><img src="assets/logo/jr-box.svg" alt="JR" /><span class="cb-url">jiangren.com.au</span></div>
+  </div>
+
+  <p class="caption" style="color: rgba(255,255,255,0.5);">© JR Academy · 学 AI 来匠人 · 内容源自 jiangren.com.au/wiki《Lovable 实战手册》· 欢迎转发</p>
+</section>
+
+<script defer src="theme/reader.js"></script>
+<a href="Lovable%20%E5%AE%9E%E6%88%98%E6%89%8B%E5%86%8C%EF%BC%9Avibe%20coding%20%E6%97%B6%E4%BB%A3%E7%9A%84%E5%85%A8%E6%A0%88%E5%BA%94%E7%94%A8%E6%9E%84%E5%BB%BA%20-%20%E5%8C%A0%E4%BA%BA%E5%AD%A6%E9%99%A2.pdf" download style="position:fixed;right:22px;bottom:22px;z-index:1200;display:flex;align-items:center;gap:8px;background:#0D0F12;color:#fff;font-weight:700;font-size:14.5px;padding:13px 22px;border-radius:999px;box-shadow:0 12px 28px rgba(13,15,18,.35);text-decoration:none;font-family:Inter,'PingFang SC',sans-serif;">⬇️ 下载 PDF 版</a>
+</body>
+</html>

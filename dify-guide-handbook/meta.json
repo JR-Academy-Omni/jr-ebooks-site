@@ -1,0 +1,26 @@
+{
+  "slug": "dify-guide-handbook",
+  "title": "Dify 实战手册：可视化搭建 AI 应用",
+  "subtitle": "开源 LLMOps 平台完整指南 — Workflow、RAG 知识库、Agent 三板斧 + 自部署全流程",
+  "track": "T1",
+  "style": "handbook",
+  "mode": "flow",
+  "status": "published",
+  "contact": {
+    "how-to-read": "qr-amelia",
+    "mid-book": "qr-rain",
+    "ch06-sales": "amelia.jpg",
+    "ch07-sales": "rain.jpg",
+    "back-cover-card": "angela.jpg",
+    "back-cover-bar": "qr-amelia"
+  },
+  "sources": [
+    "jr-wiki: src/content/wiki/dify-guide/01-what-is-dify.md",
+    "jr-wiki: src/content/wiki/dify-guide/02-getting-started.md",
+    "jr-wiki: src/content/wiki/dify-guide/03-core-features.md",
+    "jr-wiki: src/content/wiki/dify-guide/04-advanced-tips.md",
+    "jr-wiki: src/content/wiki/dify-guide/05-faq.md",
+    "jr-wiki: src/content/wiki/dify-guide/06-rag-knowledge-base.md",
+    "jr-wiki: src/content/wiki/dify-guide/07-self-hosting.md"
+  ]
+}
