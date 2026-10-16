@@ -1,0 +1,34 @@
+{
+  "base_url": "https://jr-academy-omni.github.io/jr-ebooks-site/wechat/ai-engineer-workshop-2026-10/",
+  "article_url": "https://jr-academy-omni.github.io/jr-ebooks-site/wechat/ai-engineer-workshop-2026-10/",
+  "assets": [
+    {
+      "filename": "hero.png",
+      "url": "https://jr-academy-omni.github.io/jr-ebooks-site/wechat/ai-engineer-workshop-2026-10/assets/hero.png"
+    },
+    {
+      "filename": "cover-wide.png",
+      "url": "https://jr-academy-omni.github.io/jr-ebooks-site/wechat/ai-engineer-workshop-2026-10/assets/cover-wide.png"
+    },
+    {
+      "filename": "cover-portrait.png",
+      "url": "https://jr-academy-omni.github.io/jr-ebooks-site/wechat/ai-engineer-workshop-2026-10/assets/cover-portrait.png"
+    },
+    {
+      "filename": "engineering-map.png",
+      "url": "https://jr-academy-omni.github.io/jr-ebooks-site/wechat/ai-engineer-workshop-2026-10/assets/engineering-map.png"
+    },
+    {
+      "filename": "outcomes.png",
+      "url": "https://jr-academy-omni.github.io/jr-ebooks-site/wechat/ai-engineer-workshop-2026-10/assets/outcomes.png"
+    },
+    {
+      "filename": "original-poster.jpg",
+      "url": "https://jr-academy-omni.github.io/jr-ebooks-site/wechat/ai-engineer-workshop-2026-10/assets/original-poster.jpg"
+    },
+    {
+      "filename": "registration-qr.png",
+      "url": "https://jr-academy-omni.github.io/jr-ebooks-site/wechat/ai-engineer-workshop-2026-10/assets/registration-qr.png"
+    }
+  ]
+}
