@@ -1,0 +1,59 @@
+{
+  "slug": "australia-graduate-job-search-guide-2027",
+  "title": "2026-2027 澳洲留学生毕业求职实战指南",
+  "subtitle": "从毕业前积累实习与项目，到工作权、选岗、简历、投递和面试",
+  "audience": "正在澳洲读书、即将毕业或刚毕业，希望寻找第一份专业工作的国际学生",
+  "goal": "lead-magnet",
+  "track": "毕业求职 / IT 与数字岗位重点",
+  "style": "action handbook + verified evidence + checklist",
+  "channel": ["微信群分享", "小红书资料包", "公众号文末", "求职咨询跟进"],
+  "pages": 22,
+  "status": "published",
+  "format": "flow-a4-reader",
+  "checked": "2026-10-28",
+  "tags": ["australia", "international-graduate", "job-search", "work-rights", "resume", "interview", "it-career"],
+  "contact": {
+    "owner": "Amelia",
+    "qr": "qr-amelia.png",
+    "salesCard": "amelia.jpg",
+    "salesCards": ["amelia.jpg"]
+  },
+  "distribution": {
+    "publicRelease": "published",
+    "publishedAt": "2026-10-28",
+    "publicUrl": "https://jr-academy-omni.github.io/jr-ebooks-site/australia-graduate-job-search-guide-2027/",
+    "pdfUrl": "https://jr-academy-omni.github.io/jr-ebooks-site/australia-graduate-job-search-guide-2027/2026-2027%20%E6%BE%B3%E6%B4%B2%E7%95%99%E5%AD%A6%E7%94%9F%E6%AF%95%E4%B8%9A%E6%B1%82%E8%81%8C%E5%AE%9E%E6%88%98%E6%8C%87%E5%8D%97%20-%20%E5%8C%A0%E4%BA%BA%E5%AD%A6%E9%99%A2.pdf"
+  },
+  "contentMix": {
+    "universalGraduateJobSearch": "60%",
+    "itAndDigitalExamples": "40%"
+  },
+  "research": {
+    "cutoff": "2026-10-28",
+    "officialSources": [
+      "Jobs and Skills Australia",
+      "QILT Graduate Outcomes Survey",
+      "Australian Government Department of Home Affairs",
+      "Fair Work Ombudsman",
+      "employer graduate program pages"
+    ],
+    "methodNote": "可变信息标注日期与状态；已关闭岗位只作为近期招聘要求样本；签证个案以签证批准信、VEVO 与官方页面为准。"
+  },
+  "sources": [
+    "https://www.jobsandskills.gov.au/data/recruitment-experiences-and-outlook-survey/spotlight-articles",
+    "https://www.jobsandskills.gov.au/data/internet-vacancy-index",
+    "https://www.qilt.edu.au/docs/default-source/default-document-library/2025-gos-international-report.pdf?sfvrsn=a7656b9a_4",
+    "https://immi.homeaffairs.gov.au/visas/working-in-australia/work-rights-and-exploitation/work-restrictions",
+    "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/temporary-graduate-485",
+    "https://immi.homeaffairs.gov.au/visas/already-have-a-visa/check-visa-details-and-conditions/overview",
+    "https://www.rba.gov.au/careers/careers-at-the-rba/students-and-graduates/information-technology.html",
+    "https://www.qld.gov.au/jobs/graduates/graduate-programs/programs/digital",
+    "https://jobs.lever.co/recordpoint/65811c7e-96fc-4c9f-aca9-05a935f3e971",
+    "https://careers.fdmgroup.com/vacancies/836/data--analytics-graduate-program-australia.html",
+    "https://www.careersatcouncil.com.au/job/graduate-business-analyst-20261019/",
+    "https://jobs.smartrecruiters.com/LuxuryEscapes/6000000001485639-junior-qa-analyst",
+    "https://jobs.atturra.com/job/Melbourne-Hardware-Engineer-Graduate-Vict-3000/1368854066/",
+    "https://jobs.lever.co/macquarietechnologygroup/d2da8d92-a2e2-4702-95b5-02a06d0eb0f3"
+  ],
+  "note": "本书提供求职教育信息，不构成移民或法律意见，不承诺固定时间、面试、Offer、签证或收入结果。"
+}

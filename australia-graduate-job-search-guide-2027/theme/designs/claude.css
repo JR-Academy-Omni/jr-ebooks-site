@@ -1,0 +1,63 @@
+/* =====================================================
+   Design Language: claude — Anthropic / Claude 奶油编辑风
+   权威 spec: 主 repo curriculum/CLAUDE_DESIGN_STYLE.md
+   气质: warm, trustworthy, thoughtfully restrained —
+        奶油底 + 衬线正文 + 赤陶点缀，像深度杂志不像交易终端
+   用法: <body class="design-claude">（或单个 .page 加类做对比页）
+   适用: Claude / Cowork / Anthropic 主题的工作坊、教程、活动书
+   ===================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap');
+
+.design-claude {
+  /* 槽位覆盖：奶油底 + 暖黑 */
+  --jr-black: #141413;            /* 暖黑，非纯黑 */
+  --jr-surface-canvas: #faf9f5;   /* 签名奶油底 */
+  --jr-surface-panel: #ffffff;
+  --jr-surface-panel-alt: #f3f1ea;
+  --jr-border-warm: #e8e6dc;
+  --jr-border-warm-strong: #d9d6c8;
+  --jr-divider-warm: #e8e6dc;
+
+  /* 强调槽：红 → 赤陶；紫 → 雾蓝；绿 → 鼠尾草 */
+  --jr-red: #d97757;
+  --jr-red-aa: #c05f3f;
+  --jr-red-text: #b35430;
+  --jr-purple: #6a9bcc;
+  --jr-green: #788c5d;
+  --jr-yellow: #d4b262;
+
+  --jr-neutral-900: #141413;
+  --jr-neutral-600: #6e6c64;
+  --jr-neutral-300: #b0aea5;
+  --jr-neutral-100: #e8e6dc;
+
+  --jr-wash-red: #f5e3db;
+  --jr-wash-purple: #e4ecf4;
+  --jr-wash-yellow: #f2ead3;
+  --jr-wash-green: #e6eadf;
+  --jr-wash-gray: #efede4;
+
+  --jr-chip-ai-bg: #e4ecf4;
+  --jr-chip-ai-border: #c8d8e8;
+  --jr-chip-ai-text: #3d6285;
+
+  --jr-button-primary-bg: #141413;
+
+  /* 字体：Poppins 标题 + Lora 衬线正文（编辑感的核心） */
+  --jr-font-sans: 'Lora', 'Songti SC', Georgia, 'Source Han Serif SC', serif;
+}
+
+.design-claude h1, .design-claude h2, .design-claude h3,
+.design-claude .chapter-num, .design-claude .theme-head .t-num,
+.design-claude .chip, .design-claude .stat .stat-value,
+.design-claude .page-footer {
+  font-family: 'Poppins', 'Inter', 'PingFang SC', sans-serif;
+}
+
+/* callout 在奶油底下走浅灰纸感而不是色块 */
+.design-claude .callout { background: #efede4; border-left-color: #d97757; }
+.design-claude .callout.warn { background: #f2ead3; border-left-color: #d4b262; }
+
+/* pre 深色块用暖黑 */
+.design-claude pre { background: #141413; color: #faf9f5; }

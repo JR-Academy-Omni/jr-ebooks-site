@@ -1,0 +1,67 @@
+/* =====================================================
+   Style: premium-dark — 黑底高端版
+   适合：高端活动邀请 / 一人创业营类品牌内容 / invite-only 物料
+   特征：全书黑底（--jr-black），白字 + 黄色点缀，红仍只做编号
+   用法：每个 .page 加 class "dark"（封面/封底直接用 .back-cover 同款黑）
+   依赖：ebook.css
+   ===================================================== */
+
+.page.dark { background: var(--jr-black); }
+
+.page.dark h1, .page.dark h2, .page.dark h3 { color: #FFFFFF; }
+.page.dark p, .page.dark li { color: rgba(255, 255, 255, 0.82); }
+.page.dark .muted, .page.dark small, .page.dark .caption { color: rgba(255, 255, 255, 0.55); }
+
+.page.dark .chapter-num { color: var(--jr-red); }
+
+.page.dark .page-footer {
+  color: rgba(255, 255, 255, 0.5);
+  border-top-color: rgba(255, 255, 255, 0.14);
+}
+
+/* —— 暗版卡片 —— */
+.page.dark .card {
+  background: #16181D;
+  border-color: rgba(255, 255, 255, 0.12);
+}
+.page.dark .card-title .num { color: var(--jr-yellow); }
+.page.dark code { background: rgba(255, 255, 255, 0.1); color: #E8EAED; }
+.page.dark pre { background: #000; border: 1px solid rgba(255, 255, 255, 0.12); }
+
+.page.dark .callout {
+  background: rgba(123, 97, 255, 0.14);
+  border-left-color: var(--jr-purple);
+}
+.page.dark .callout, .page.dark .callout strong { color: rgba(255, 255, 255, 0.85); }
+
+.page.dark .chip {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* —— 黄色点睛（稀缺感 / 编号 / 分隔）—— */
+.page.dark .gold { color: var(--jr-yellow); }
+.page.dark .gold-rule { width: 14mm; height: 1.2mm; background: var(--jr-yellow); border-radius: 1px; margin: 3mm 0; }
+
+/* —— 暗版大标语块 —— */
+.page.dark .manifesto {
+  font-size: 19pt;
+  line-height: 1.5;
+  font-weight: var(--jr-fw-semibold);
+  color: #FFFFFF;
+  max-width: 85%;
+}
+.page.dark .manifesto em { font-style: normal; color: var(--jr-yellow); }
+
+/* —— 暗版封面（黑底用白 logo）—— */
+.page.dark.cover .subtitle { color: rgba(255, 255, 255, 0.65); }
+.page.dark.cover .cover-footer { color: rgba(255, 255, 255, 0.5); }
+.page.dark.cover .accent-bar { background: var(--jr-yellow); }
+
+/* —— 暗版目录 —— */
+.page.dark .toc-item { border-bottom-color: rgba(255, 255, 255, 0.12); font-size: 11pt; }
+.page.dark .toc-item .num { color: var(--jr-yellow); }
+.page.dark .toc-item span { color: rgba(255, 255, 255, 0.85); }
+.page.dark .toc-item .dots { border-bottom-color: rgba(255, 255, 255, 0.25); }
+.page.dark .toc-item .pg { color: rgba(255, 255, 255, 0.5); }
