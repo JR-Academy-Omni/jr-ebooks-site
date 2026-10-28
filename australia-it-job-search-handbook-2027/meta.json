@@ -1,0 +1,41 @@
+{
+  "slug": "australia-it-job-search-handbook-2027",
+  "title": "2026-2027 澳洲 IT 求职宝典",
+  "subtitle": "从选岗、真实 JD、项目与简历，到面试和 Offer 的完整行动指南",
+  "audience": "准备在澳洲寻找第一份或下一份 IT 工作的留学生、应届生、转行者与在澳 IT 求职者",
+  "goal": "lead-magnet",
+  "track": "T2 IT 求职 / 转码",
+  "style": "handbook + report + checklist + flow A4",
+  "channel": ["微信群分享", "小红书资料包", "公众号文末", "求职咨询跟进"],
+  "status": "review",
+  "format": "flow-a4-reader",
+  "checked": "2026-10-28",
+  "tags": ["australia", "it-career", "graduate", "resume", "interview", "ai-literacy", "job-search"],
+  "contact": {
+    "owner": "Rain",
+    "role": "Senior IT Career Consultant",
+    "qr": "qr-rain.png",
+    "salesCard": "rain.jpg",
+    "salesCards": ["rain.jpg"]
+  },
+  "research": {
+    "jobBoardSnapshot": "SEEK Australia keyword search result pages, checked 2026-10-28",
+    "officialSources": ["Jobs and Skills Australia", "Australian Bureau of Statistics", "Australian Government Department of Home Affairs", "Australian Government Security Vetting Agency"],
+    "methodNote": "SEEK keyword counts overlap and can contain adjacent roles. They are discovery signals, not a census. Salary examples are advertised examples, not market medians."
+  },
+  "sources": [
+    "https://www.jobsandskills.gov.au/news/changing-recruitment-trends-it-industry",
+    "https://www.jobsandskills.gov.au/data/occupation-and-industry-profiles/occupations/261314-software-testers",
+    "https://www.jobsandskills.gov.au/studies/generative-artificial-intelligence-capacity-study",
+    "https://www.seek.com.au/graduate-software-engineer-jobs",
+    "https://www.seek.com.au/junior-data-analyst-jobs",
+    "https://www.seek.com.au/junior-devops-engineer-jobs",
+    "https://www.seek.com.au/junior-cyber-security-jobs",
+    "https://www.seek.com.au/software-testing-jobs",
+    "https://www.seek.com.au/test-analyst-jobs",
+    "https://www.seek.com.au/automation-tester-jobs",
+    "https://www.seek.com.au/junior-business-analyst-jobs",
+    "https://www.seek.com.au/IT-Junior-System-support-jobs"
+  ],
+  "note": "所有招聘数量、岗位样本和薪资示例均注明核验日期与口径；签证、工作权利和安全许可只提供官方核验入口，不替读者作个案判断；不承诺面试、offer、签证或收入结果。"
+}
