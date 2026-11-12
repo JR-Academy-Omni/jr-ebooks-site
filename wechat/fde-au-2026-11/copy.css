@@ -1,0 +1,40 @@
+.copy-controls {
+  margin: 0 0 28px;
+  padding: 14px 0;
+  border-bottom: 1px solid #d8e2e0;
+}
+.copy-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.copy-controls button {
+  appearance: none;
+  min-height: 40px;
+  padding: 8px 14px;
+  border: 1px solid #c9d8d6;
+  border-radius: 7px;
+  background: #fff;
+  color: #153638;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.copy-controls .primary {
+  background: #153638;
+  border-color: #153638;
+  color: #fff;
+}
+.copy-controls button:hover {
+  filter: brightness(.94);
+}
+.copy-controls button:focus-visible {
+  outline: 2px solid #326361;
+  outline-offset: 3px;
+}
+#copy-status {
+  margin: 8px 0 0;
+  color: #536662;
+  font-size: 13px;
+}
