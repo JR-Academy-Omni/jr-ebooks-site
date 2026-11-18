@@ -114,6 +114,37 @@ def fix_reader_resources(path: Path, html: str) -> str:
 
 
 def add_reading_edition(path: Path, html: str) -> str:
+    html = re.sub(
+        r'<div class="cv2-strip">.*?</div>',
+        lambda match: match.group().replace("JIANGREN.COM.AU", urlsplit(BASE_URL).hostname.upper()),
+        html,
+        flags=re.DOTALL,
+    )
+    cover_start = re.search(
+        r'<section class="page cover2(?: study-guide-cover| ebook-draft-cover(?: course-selection-cover)?)?">',
+        html,
+    )
+    if cover_start:
+        cover_end = html.index("</section>", cover_start.end())
+        content = html[cover_start.end():cover_end]
+        if 'class="cv2-title"' in content and 'class="cv2-body"' in content:
+            classes = "page cover2 ebook-draft-cover"
+            if path.parent.name.endswith("-course-selection-guide"):
+                classes += " course-selection-cover"
+            content = re.sub(
+                r'(<div class="cv2-head">\s*<img\s+src=")[^"]+',
+                lambda match: match.group(1) + f"{BASE_URL}/theme/assets/logo/logo-zh-full.svg",
+                content,
+                count=1,
+            )
+            content = re.sub(
+                r'(<h1 class="cv2-title"[^>]*>.*?<br\s*/?>)([^<]+)(</h1>)',
+                r'\1<span class="cv2-marker">\2</span>\3',
+                content,
+                count=1,
+                flags=re.DOTALL,
+            )
+            html = html[:cover_start.start()] + f'<section class="{classes}">' + content + html[cover_end:]
     metadata = json.loads(path.with_name("meta.json").read_text(encoding="utf-8"))
     info = json.dumps({
         "title": metadata.get("title", path.parent.name),
