@@ -4,17 +4,29 @@
 <meta charset="UTF-8" />
 <title>Claude Code 中文上手手册 — JR Academy</title>
 <link rel="canonical" href="https://jracademy.ai/ebooks/claude-code-handbook" />
-<link rel="stylesheet" href="theme/ebook.css" />
-<link rel="stylesheet" href="theme/flow-a4.css" />
+<link rel="stylesheet" href="https://jracademy.ai/ebooks/claude-code-handbook/theme/ebook.css" />
+<link rel="stylesheet" href="https://jracademy.ai/ebooks/claude-code-handbook/theme/flow-a4.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- ebook-reader-layout -->
+<link rel="stylesheet" href="https://jracademy.ai/ebooks/theme/reader-layout.css" />
+<script defer src="https://jracademy.ai/ebooks/theme/reader-layout.js"></script>
+<link rel="icon" type="image/svg+xml" href="https://jracademy.ai/ebooks/theme/assets/logo/jr-box.svg" />
+<!-- reading-edition:start -->
+<link rel="stylesheet" href="https://jracademy.ai/ebooks/theme/tokens/jr-craft.css" />
+<link rel="stylesheet" href="https://jracademy.ai/ebooks/theme/styles/jr-craft.css" />
+<link rel="stylesheet" href="https://jracademy.ai/ebooks/theme/reading-edition.css" />
+<script type="application/json" id="reading-edition-info">{"title": "Claude Code 中文上手手册", "description": "从安装到多文件重构、Hooks、MCP、Worktree 并行开发 — 8 章全可复制"}</script>
+<script defer src="https://jracademy.ai/ebooks/theme/reading-edition.js"></script>
+<!-- reading-edition:end -->
 </head>
 <body>
-<img class="jr-wm" src="assets/logo/jr-box.svg" alt="" />
+<img class="jr-wm" src="https://jracademy.ai/ebooks/claude-code-handbook/assets/logo/jr-box.svg" alt="" />
 
 <!-- P1 封面 v2 黑底大字报 -->
 <section class="page cover2">
   <div class="cv2-ghost">CC</div>
   <div class="cv2-head">
-    <img src="assets/logo/logo-zh-white.png" alt="匠人学院" />
+    <img src="https://jracademy.ai/ebooks/claude-code-handbook/assets/logo/logo-zh-white.png" alt="匠人学院" />
     <span class="cv2-sticker">⚡ 2026 实操版</span>
   </div>
   <div class="cv2-body">
@@ -30,7 +42,7 @@
     <div class="cv2-diecut">手动半小时的活，它 2 分钟搞定</div>
   </div>
   <span class="cv2-holo">⌨️</span>
-  <img class="cv2-mascot" src="assets/illustrations/niuxiaojiang-working-laptop.png" alt="牛小匠" />
+  <img class="cv2-mascot" src="https://jracademy.ai/ebooks/claude-code-handbook/assets/illustrations/niuxiaojiang-working-laptop.png" alt="牛小匠" />
   <div class="cv2-domain">jracademy.ai · 在线版随官网更新 /wiki/claude-code-guide</div>
   <div class="cv2-strip"><span>学 AI 来匠人 <i>✦</i> CLAUDE CODE <i>✦</i> JIANGREN.COM.AU <i>✦</i> 终端里的 AI 程序员 <i>✦</i> 学 AI 来匠人 <i>✦</i> CLAUDE CODE <i>✦</i></span></div>
 </section>
@@ -56,7 +68,7 @@
       <p>这本书和官网 wiki《Claude Code 完全指南》同源（jiangren.com.au/wiki/claude-code-guide，免费、不用注册，官网那份会持续更新）。还没装的，第 1 章 5 分钟搞定；已经在用但只会"问问题"的，第 2、3 章是它和 ChatGPT 拉开差距的地方；想让它自动守住代码质量，看第 4 章 Hooks；想让它查数据库、开浏览器、操作 GitHub，看第 5 章 MCP；最后第 8 章 Worktree 是进阶玩法 —— 同时开几个 Claude 各干各的活。每章的命令和配置都能直接复制。</p>
     </div>
     <div class="contact-bar">
-      <img class="qr" src="assets/contact/qr-amelia.png" alt="Amelia · 匠人学院 IT 顾问微信" />
+      <img class="qr" src="https://jracademy.ai/ebooks/claude-code-handbook/assets/contact/qr-amelia.png" alt="Amelia · 匠人学院 IT 顾问微信" />
       <div><div class="t">💬 装的时候卡住了？扫码来问</div><div class="d">Amelia 会拉你进群，群里每周还有 AI 工具实操分享。</div></div>
     </div>
   </div>
@@ -69,7 +81,7 @@
         <div class="ch-num">CHAPTER 01</div>
         <h2>🚀 安装与第一个命令</h2>
       </div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-hero.png" alt="" />
+      <img class="ch-illo" src="https://jracademy.ai/ebooks/claude-code-handbook/assets/illustrations/niuxiaojiang-hero.png" alt="" />
     </div>
 <h3>安装</h3>
 <p>三种安装方式，选一个就行：</p>
@@ -137,7 +149,7 @@ code --install-extension anthropic.claude-code
         <div class="ch-num">CHAPTER 02</div>
         <h2>🛠️ 多文件编辑：Claude Code 的杀手锏</h2>
       </div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-working-laptop.png" alt="" />
+      <img class="ch-illo" src="https://jracademy.ai/ebooks/claude-code-handbook/assets/illustrations/niuxiaojiang-working-laptop.png" alt="" />
     </div>
 <h3>为什么多文件编辑重要</h3>
 <p>改一个接口名，可能涉及 controller、service、DTO、测试、前端调用 5+ 个文件。手动改容易漏，Claude Code 一次搞定。</p>
@@ -247,7 +259,7 @@ code --install-extension anthropic.claude-code
         <div class="ch-num">CHAPTER 03</div>
         <h2>🌿 Git 工作流自动化</h2>
       </div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-pen-book.png" alt="" />
+      <img class="ch-illo" src="https://jracademy.ai/ebooks/claude-code-handbook/assets/illustrations/niuxiaojiang-pen-book.png" alt="" />
     </div>
 <h3>自动提交</h3>
 <p>改完代码直接说：</p>
@@ -375,7 +387,7 @@ const [refactorResult, testResult] = await Promise.all([
 <p>这些限制确保你不会因为 AI 的一次操作搞坏远程仓库。如果某个操作确实需要 force push，你需要明确告诉它。</p>
 
     <p class="sales-card-lead">💼 用 Claude Code 改完简历项目，想知道离 AI Engineer 岗位还差几步？Amelia 帮你按真实岗位池对一遍：</p>
-    <div class="sales-card"><img src="assets/contact/sales-cards/amelia.jpg" alt="Amelia · IT Career Consultant · 匠人学院" /></div>
+    <div class="sales-card"><img src="https://jracademy.ai/ebooks/claude-code-handbook/assets/contact/sales-cards/amelia.jpg" alt="Amelia · IT Career Consultant · 匠人学院" /></div>
   </div>
 </section>
 <aside class="promo">
@@ -394,7 +406,7 @@ const [refactorResult, testResult] = await Promise.all([
         <div class="ch-num">CHAPTER 04</div>
         <h2>🪝 Hooks 自动化：让 Claude Code 在对的时机干对的事</h2>
       </div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-chart.png" alt="" />
+      <img class="ch-illo" src="https://jracademy.ai/ebooks/claude-code-handbook/assets/illustrations/niuxiaojiang-teaching-chart.png" alt="" />
     </div>
 <h3>什么是 Hooks</h3>
 <p>Hooks 是 2026 年初发布的功能，让你在 Claude Code 执行特定动作<strong>前后</strong>自动触发自定义脚本。</p>
@@ -533,7 +545,7 @@ print(data.keys())
         <div class="ch-num">CHAPTER 05</div>
         <h2>🔌 MCP 服务器：给 Claude Code 装上超能力插件</h2>
       </div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-data.png" alt="" />
+      <img class="ch-illo" src="https://jracademy.ai/ebooks/claude-code-handbook/assets/illustrations/niuxiaojiang-teaching-data.png" alt="" />
     </div>
 <h3>MCP 是什么</h3>
 <p>Model Context Protocol（MCP）是 Anthropic 在 2024 年 11 月发布的开源标准，让 AI 能连接外部工具和数据源。</p>
@@ -656,7 +668,7 @@ await server.connect(transport);</pre>
         <div class="ch-num">CHAPTER 06</div>
         <h2>🐛 调试技巧：让 Claude Code 帮你定位 Bug</h2>
       </div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-thinking.png" alt="" />
+      <img class="ch-illo" src="https://jracademy.ai/ebooks/claude-code-handbook/assets/illustrations/niuxiaojiang-thinking.png" alt="" />
     </div>
 <h3>给 Claude Code 错误信息</h3>
 <p>最有效的调试方式：把错误日志直接丢进去。</p>
@@ -708,7 +720,7 @@ echo "修复 $MAX_ATTEMPTS 次仍然失败，需要人工介入"</pre>
 <table><tr><th>场景</th><th>推荐方式</th></tr><tr><td>构建报错</td><td>管道输入 build 输出，让 Claude 分析</td></tr><tr><td>运行时错误</td><td>粘贴错误日志 + 堆栈信息</td></tr><tr><td>测试失败</td><td>管道输入测试结果，自动定位修复</td></tr><tr><td>性能问题</td><td>用 thinking mode 分析代码路径</td></tr><tr><td>UI 问题</td><td>截图粘贴（<code>Ctrl+V</code>），让 Claude 看界面</td></tr><tr><td>数据问题</td><td>接 PostgreSQL MCP，直接查数据库</td></tr></table>
 
     <div class="contact-bar">
-      <img class="qr" src="assets/contact/qr-amelia.png" alt="Amelia · 匠人学院 IT 顾问微信" />
+      <img class="qr" src="https://jracademy.ai/ebooks/claude-code-handbook/assets/contact/qr-amelia.png" alt="Amelia · 匠人学院 IT 顾问微信" />
       <div><div class="t">🐛 有个 bug 让 Claude Code 修不动？扫码进群贴出来</div><div class="d">群里每周有人分享自己的调试 prompt，比一个人闷头试快。</div></div>
     </div>
   </div>
@@ -721,7 +733,7 @@ echo "修复 $MAX_ATTEMPTS 次仍然失败，需要人工介入"</pre>
         <div class="ch-num">CHAPTER 07</div>
         <h2>📋 CLAUDE.md：让 AI 理解你的项目规范</h2>
       </div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-pen-book.png" alt="" />
+      <img class="ch-illo" src="https://jracademy.ai/ebooks/claude-code-handbook/assets/illustrations/niuxiaojiang-pen-book.png" alt="" />
     </div>
 <h3>CLAUDE.md 是什么</h3>
 <p><code>CLAUDE.md</code> 是放在项目根目录的 Markdown 文件，Claude Code 每次启动时自动读取。它就像给 AI 的 onboarding 文档——告诉它这个项目的技术栈、编码规范、常用命令、架构约束。</p>
@@ -813,7 +825,7 @@ echo "修复 $MAX_ATTEMPTS 次仍然失败，需要人工介入"</pre>
         <div class="ch-num">CHAPTER 08</div>
         <h2>🧵 并行开发：Worktree 让多个 Claude 同时干活</h2>
       </div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-coffee-pointing.png" alt="" />
+      <img class="ch-illo" src="https://jracademy.ai/ebooks/claude-code-handbook/assets/illustrations/niuxiaojiang-coffee-pointing.png" alt="" />
     </div>
 <h3>为什么需要并行开发</h3>
 <p>一个 Claude Code session 在改文件时会占用当前工作目录。如果你想同时修一个 bug 和做一个新功能，两个 session 操作同一份代码会冲突。</p>
@@ -880,32 +892,32 @@ config/secrets.json</pre>
 <ul><li>给 worktree 起语义化名字（<code>bugfix-login</code>、<code>feature-dark-mode</code>），方便识别</li><li>完成任务后及时清理不需要的 worktree，避免磁盘空间浪费</li><li>长期任务用 <code>claude --resume</code> 恢复 session，不用重新创建 worktree</li><li>团队协作时，每人用自己的 worktree 前缀（<code>alice-feature-xxx</code>）</li></ul>
 
     <p class="sales-card-lead">🎯 能玩到 Worktree 并行开发，说明你已经不是入门玩家了。想把 Claude Code 用进真实工程项目、攒出能写上简历的作品？Rain 聊聊你的方向：</p>
-    <div class="sales-card"><img src="assets/contact/sales-cards/rain.jpg" alt="Rain · Senior IT Career Consultant · 匠人学院" /></div>
+    <div class="sales-card"><img src="https://jracademy.ai/ebooks/claude-code-handbook/assets/contact/sales-cards/rain.jpg" alt="Rain · Senior IT Career Consultant · 匠人学院" /></div>
   </div>
 </section>
 
 </main>
 
 <section class="page back-cover">
-  <div class="logo"><img src="assets/logo/logo-zh-white.png" alt="匠人学院" /></div>
+  <div class="logo"><img src="https://jracademy.ai/ebooks/claude-code-handbook/assets/logo/logo-zh-white.png" alt="匠人学院" /></div>
   <h2>工具会用了，接下来用它做什么？</h2>
   <p style="max-width: 78%;">这本手册的在线版在 jiangren.com.au/wiki/claude-code-guide，随官网每周更新 —— 收藏网页比收藏 PDF 更不容易过期。匠人学院还有 26 本同款工具指南（N8N、Cursor、Prompt Engineering…）和 AI Engineer 方向的项目制课程，想知道 Claude Code 在真实工程里怎么用到极限，来聊聊。</p>
 
-  <div class="sales-card" style="width: 88%;"><img src="assets/contact/sales-cards/angela.jpg" alt="Angela · IT Career Consultant · 匠人学院" /></div>
+  <div class="sales-card" style="width: 88%;"><img src="https://jracademy.ai/ebooks/claude-code-handbook/assets/contact/sales-cards/angela.jpg" alt="Angela · IT Career Consultant · 匠人学院" /></div>
 
   <div class="contact-bar" style="width: 88%;">
-    <img class="qr" src="assets/contact/qr-amelia.png" alt="Amelia · 匠人学院 IT 顾问微信" />
+    <img class="qr" src="https://jracademy.ai/ebooks/claude-code-handbook/assets/contact/qr-amelia.png" alt="Amelia · 匠人学院 IT 顾问微信" />
     <div class="cb-body">
       <div class="cb-title">扫码进社群，AI 工具实操答疑</div>
       <div class="cb-desc">把这本 PDF 转给还在复制粘贴代码进 ChatGPT 的朋友。</div>
     </div>
-    <div class="cb-brand"><img src="assets/logo/jr-box.svg" alt="JR" /><span class="cb-url">jracademy.ai</span></div>
+    <div class="cb-brand"><img src="https://jracademy.ai/ebooks/claude-code-handbook/assets/logo/jr-box.svg" alt="JR" /><span class="cb-url">jracademy.ai</span></div>
   </div>
 
   <p class="caption" style="color: rgba(255,255,255,0.5);">© JR Academy · 学 AI 来匠人 · 内容源自 jiangren.com.au/wiki《Claude Code 完全指南》· 欢迎转发</p>
 </section>
 
-<script defer src="theme/reader.js"></script>
-<a href="Claude%20Code%20%E4%B8%AD%E6%96%87%E4%B8%8A%E6%89%8B%E6%89%8B%E5%86%8C%20-%20%E5%8C%A0%E4%BA%BA%E5%AD%A6%E9%99%A2.pdf" download style="position:fixed;right:22px;bottom:22px;z-index:1200;display:flex;align-items:center;gap:8px;background:#0D0F12;color:#fff;font-weight:700;font-size:14.5px;padding:13px 22px;border-radius:999px;box-shadow:0 12px 28px rgba(13,15,18,.35);text-decoration:none;font-family:Inter,'PingFang SC',sans-serif;">⬇️ 下载 PDF 版</a>
+<script defer src="https://jracademy.ai/ebooks/claude-code-handbook/theme/reader.js"></script>
+<a href="https://jracademy.ai/ebooks/claude-code-handbook/Claude%20Code%20%E4%B8%AD%E6%96%87%E4%B8%8A%E6%89%8B%E6%89%8B%E5%86%8C%20-%20%E5%8C%A0%E4%BA%BA%E5%AD%A6%E9%99%A2.pdf" download style="position:fixed;right:22px;bottom:22px;z-index:1200;display:flex;align-items:center;gap:8px;background:#0D0F12;color:#fff;font-weight:700;font-size:14.5px;padding:13px 22px;border-radius:999px;box-shadow:0 12px 28px rgba(13,15,18,.35);text-decoration:none;font-family:Inter,'PingFang SC',sans-serif;">⬇️ 下载 PDF 版</a>
 </body>
 </html>

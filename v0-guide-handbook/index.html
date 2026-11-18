@@ -4,16 +4,28 @@
 <meta charset="UTF-8" />
 <title>v0 实战手册：AI 全栈应用构建 — JR Academy</title>
 <link rel="canonical" href="https://jracademy.ai/ebooks/v0-guide-handbook" />
-<link rel="stylesheet" href="theme/ebook.css" />
-<link rel="stylesheet" href="theme/flow-a4.css" />
+<link rel="stylesheet" href="https://jracademy.ai/ebooks/v0-guide-handbook/theme/ebook.css" />
+<link rel="stylesheet" href="https://jracademy.ai/ebooks/v0-guide-handbook/theme/flow-a4.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- ebook-reader-layout -->
+<link rel="stylesheet" href="https://jracademy.ai/ebooks/theme/reader-layout.css" />
+<script defer src="https://jracademy.ai/ebooks/theme/reader-layout.js"></script>
+<link rel="icon" type="image/svg+xml" href="https://jracademy.ai/ebooks/theme/assets/logo/jr-box.svg" />
+<!-- reading-edition:start -->
+<link rel="stylesheet" href="https://jracademy.ai/ebooks/theme/tokens/jr-craft.css" />
+<link rel="stylesheet" href="https://jracademy.ai/ebooks/theme/styles/jr-craft.css" />
+<link rel="stylesheet" href="https://jracademy.ai/ebooks/theme/reading-edition.css" />
+<script type="application/json" id="reading-edition-info">{"title": "v0 实战手册：AI 全栈应用构建", "description": "Vercel 出品的 AI 代码生成器完整指南 — Design Mode、Git 工作流、Supabase 全栈、Platform API + 生产上线 checklist"}</script>
+<script defer src="https://jracademy.ai/ebooks/theme/reading-edition.js"></script>
+<!-- reading-edition:end -->
 </head>
 <body>
-<img class="jr-wm" src="assets/logo/jr-box.svg" alt="" />
+<img class="jr-wm" src="https://jracademy.ai/ebooks/v0-guide-handbook/assets/logo/jr-box.svg" alt="" />
 
 <section class="page cover2">
   <div class="cv2-ghost">v0</div>
   <div class="cv2-head">
-    <img src="assets/logo/logo-zh-white.png" alt="匠人学院" />
+    <img src="https://jracademy.ai/ebooks/v0-guide-handbook/assets/logo/logo-zh-white.png" alt="匠人学院" />
     <span class="cv2-sticker">🔷 2026 实操版</span>
   </div>
   <div class="cv2-body">
@@ -29,7 +41,7 @@
     <div class="cv2-diecut">UI 搭建不是瓶颈，v0 替你搞定前端，专注业务逻辑</div>
   </div>
   <span class="cv2-holo">🔷</span>
-  <img class="cv2-mascot" src="assets/illustrations/niuxiaojiang-working-laptop.png" alt="牛小匠" />
+  <img class="cv2-mascot" src="https://jracademy.ai/ebooks/v0-guide-handbook/assets/illustrations/niuxiaojiang-working-laptop.png" alt="牛小匠" />
   <div class="cv2-domain">jracademy.ai · 在线版随官网更新 /wiki/v0-guide</div>
   <div class="cv2-strip"><span>学 AI 来匠人 <i>✦</i> v0 实战手册 <i>✦</i> JIANGREN.COM.AU <i>✦</i> 描述想法直接出代码 <i>✦</i> 学 AI 来匠人 <i>✦</i></span></div>
 </section>
@@ -55,7 +67,7 @@
       <p>这本书和官网 wiki《v0 实战指南》同源（jiangren.com.au/wiki/v0-guide，免费、不用注册，官网那份持续更新）。完全没接触过 v0 的，第 1、2 章看清楚它能干什么、10 分钟跑通第一个应用；想把 UI 做得精的，第 3 章 Design Mode + shadcn/ui 集成；想接真实后端的，第 6 章专门讲 Supabase 全栈（认证 + 数据库 + 实时订阅）；要在自己工具链里批量用 v0 生成代码的，第 7 章 Platform API；准备上线了，第 8 章安全清单逐项过。书里代码全可复制，命令直接能跑。</p>
     </div>
     <div class="contact-bar">
-      <img class="qr" src="assets/contact/qr-amelia.png" alt="Amelia · 匠人学院 IT 顾问微信" />
+      <img class="qr" src="https://jracademy.ai/ebooks/v0-guide-handbook/assets/contact/qr-amelia.png" alt="Amelia · 匠人学院 IT 顾问微信" />
       <div><div class="t">💬 用 v0 卡住了？扫码进群问</div><div class="d">群里每周分享真实的 v0 项目案例和 AI 工具最新玩法。</div></div>
     </div>
   </div>
@@ -68,7 +80,7 @@
         <div class="ch-num">CHAPTER 01</div>
         <h2>🤖 v0 是什么：Vercel 出品的 AI 全栈构建器</h2>
       </div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-thinking.png" alt="" />
+      <img class="ch-illo" src="https://jracademy.ai/ebooks/v0-guide-handbook/assets/illustrations/niuxiaojiang-thinking.png" alt="" />
     </div>
 <h3>一句话说清楚</h3>
 <p>v0（原域名 v0.dev，2026 年 1 月迁移到 v0.app）是 Vercel 做的 AI 应用构建平台。你用中文或英文描述想要什么，它直接生成可运行的 React + Next.js 代码，点一下就部署到线上。</p>
@@ -126,7 +138,7 @@ npx v0 add https://v0.app/chat/xxx</pre>
         <div class="ch-num">CHAPTER 02</div>
         <h2>🚀 注册到第一个项目上线</h2>
       </div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-hero.png" alt="" />
+      <img class="ch-illo" src="https://jracademy.ai/ebooks/v0-guide-handbook/assets/illustrations/niuxiaojiang-hero.png" alt="" />
     </div>
 <h3>注册</h3>
 <p>v0 注册不要钱，不要信用卡。打开 v0.app，用以下任一方式登录：</p>
@@ -215,7 +227,7 @@ export function PriceCard({
         <div class="ch-num">CHAPTER 03</div>
         <h2>⚙️ 核心功能：Design Mode、Git 工作流、数据库连接</h2>
       </div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-working-laptop.png" alt="" />
+      <img class="ch-illo" src="https://jracademy.ai/ebooks/v0-guide-handbook/assets/illustrations/niuxiaojiang-working-laptop.png" alt="" />
     </div>
 <h3>Design Mode：免费的可视化编辑</h3>
 <p>v0 最被低估的功能。切换到 Design Mode 后，你可以直接点击页面上的任何元素，修改颜色（背景、文字、边框）、字体大小和字重、间距（padding、margin）、文本内容、布局方式。</p>
@@ -291,7 +303,7 @@ Show skeleton loaders while fetching.</pre>
         <div class="ch-num">CHAPTER 04</div>
         <h2>🎯 高手进阶：Prompt 技巧与实战案例</h2>
       </div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-chart.png" alt="" />
+      <img class="ch-illo" src="https://jracademy.ai/ebooks/v0-guide-handbook/assets/illustrations/niuxiaojiang-teaching-chart.png" alt="" />
     </div>
 <h3>Prompt 三要素框架</h3>
 <p>v0 的 Prompt 写法直接决定输出质量。Vercel 官方推荐的三要素：</p>
@@ -331,7 +343,7 @@ Show skeleton loaders while fetching.</pre>
 <p>真实场景：某团队用 v0 生成 CRM 仪表盘原型，3 小时从概念到可交互 demo，客户确认后再用 Cursor 做完整实现。v0 负责快速试错，Cursor 负责正式开发。</p>
     <div class="sales-card-lead">读到这章，你大概已经想到几个自己想做的东西——把 v0 真的用起来，第一个原型往往比你想的快。</div>
     <div class="sales-card">
-      <img src="assets/contact/sales-cards/amelia.jpg" alt="Amelia" />
+      <img src="https://jracademy.ai/ebooks/v0-guide-handbook/assets/contact/sales-cards/amelia.jpg" alt="Amelia" />
       <div class="sc-body">
         <div class="sc-title">想用 AI 工具做出真实产品？</div>
         <div class="sc-desc">匠人学院 AI 工程师方向，从 v0、Cursor 到完整项目落地，有人带着做比自己摸索快很多。</div>
@@ -348,7 +360,7 @@ Show skeleton loaders while fetching.</pre>
         <div class="ch-num">CHAPTER 05</div>
         <h2>🤔 常见问题：定价、省钱策略与适用场景</h2>
       </div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-pen-book.png" alt="" />
+      <img class="ch-illo" src="https://jracademy.ai/ebooks/v0-guide-handbook/assets/illustrations/niuxiaojiang-pen-book.png" alt="" />
     </div>
 <h3>定价一览</h3>
 <p>v0 在 2026 年初改成 token 计费制：</p>
@@ -397,7 +409,7 @@ const dbUrl = process.env.DATABASE_URL!
 <table><tr><th>你是...</th><th>推荐度</th><th>理由</th></tr><tr><td>React 前端开发者</td><td>强烈推荐</td><td>提速 3-5 倍，代码质量高</td></tr><tr><td>产品经理</td><td>推荐</td><td>自己做可交互原型</td></tr><tr><td>Vue/Angular 开发者</td><td>不推荐</td><td>只支持 React</td></tr></table>
 <p>v0 是目前 AI 生成前端代码质量最高的工具。$0 注册试一下，10 分钟就能感受到它的威力。</p>
     <div class="contact-bar">
-      <img class="qr" src="assets/contact/qr-rain.png" alt="Rain · 匠人学院顾问" />
+      <img class="qr" src="https://jracademy.ai/ebooks/v0-guide-handbook/assets/contact/qr-rain.png" alt="Rain · 匠人学院顾问" />
       <div><div class="t">🔧 实战遇到问题？扫码加群</div><div class="d">AI 工具实操群，每周有人分享 v0 + Cursor + Next.js 的真实项目踩坑记录。</div></div>
     </div>
   </div>
@@ -418,7 +430,7 @@ const dbUrl = process.env.DATABASE_URL!
         <div class="ch-num">CHAPTER 06</div>
         <h2>🗄️ v0 + Supabase 全栈实战</h2>
       </div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-coffee-pointing.png" alt="" />
+      <img class="ch-illo" src="https://jracademy.ai/ebooks/v0-guide-handbook/assets/illustrations/niuxiaojiang-coffee-pointing.png" alt="" />
     </div>
 <h3>为什么选 Supabase</h3>
 <p>v0 通过 Vercel Marketplace 支持三个数据库，Supabase 是功能最全的——Postgres 数据库 + Auth 认证 + Realtime 订阅 + Storage 文件存储，一个服务全包。免费额度够跑 MVP。</p>
@@ -501,7 +513,7 @@ supabase
 <p>实际用下来，v0 + Supabase 能在 30 分钟内搭出一个带认证、数据库、实时同步的完整应用——以前这套至少要两天。</p>
     <div class="sales-card-lead">能把前端 + 数据库 + 认证在一天内做出来的，是会用工具的人，不是会写代码的人。</div>
     <div class="sales-card">
-      <img src="assets/contact/sales-cards/rain.jpg" alt="Rain" />
+      <img src="https://jracademy.ai/ebooks/v0-guide-handbook/assets/contact/sales-cards/rain.jpg" alt="Rain" />
       <div class="sc-body">
         <div class="sc-title">想系统学 AI 全栈开发？</div>
         <div class="sc-desc">匠人学院 AI 工程师方向，v0 + Supabase + Vercel 实战项目一条线，从会用到能落地。</div>
@@ -518,7 +530,7 @@ supabase
         <div class="ch-num">CHAPTER 07</div>
         <h2>🔌 v0 Platform API 与自动化</h2>
       </div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-data.png" alt="" />
+      <img class="ch-illo" src="https://jracademy.ai/ebooks/v0-guide-handbook/assets/illustrations/niuxiaojiang-teaching-data.png" alt="" />
     </div>
 <h3>Platform API 是什么</h3>
 <p>v0 Platform API 把浏览器里的"对话生成代码"能力开放成了 REST 接口。你可以用代码调 v0，批量生成组件、自动迭代、把 v0 嵌入自己的工具链。需要 Premium 计划（$20/月）才能用 API，免费版不行。</p>
@@ -627,7 +639,7 @@ jobs:
         <div class="ch-num">CHAPTER 08</div>
         <h2>✅ 从 v0 到生产环境</h2>
       </div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-pen-book.png" alt="" />
+      <img class="ch-illo" src="https://jracademy.ai/ebooks/v0-guide-handbook/assets/illustrations/niuxiaojiang-pen-book.png" alt="" />
     </div>
 <h3>v0 生成 ≠ 生产就绪</h3>
 <p>v0 能在 10 分钟生成一个能跑的应用，但"能跑"和"能上线"之间还有几步要走。AI 生成的代码可能有安全漏洞、性能问题、硬编码的测试数据。</p>
@@ -705,25 +717,25 @@ npx vercel ls</pre>
 </main>
 
 <section class="page back-cover">
-  <div class="logo"><img src="assets/logo/logo-zh-white.png" alt="匠人学院" /></div>
+  <div class="logo"><img src="https://jracademy.ai/ebooks/v0-guide-handbook/assets/logo/logo-zh-white.png" alt="匠人学院" /></div>
   <h2>用 v0 做出来的东西，怎么写进简历？</h2>
   <p style="max-width: 78%;">这本手册的在线版在 jiangren.com.au/wiki/v0-guide，随官网更新。匠人学院还有 20+ 本同款 AI 工具指南（Claude Code、Cursor、Dify、CrewAI、n8n…）和 AI Engineer 方向的项目制课程——想知道 v0 生成的前端怎么接真实业务、做成找工作的作品，来聊聊。</p>
 
-  <div class="sales-card" style="width: 88%;"><img src="assets/contact/sales-cards/angela.jpg" alt="Angela · IT Career Consultant · 匠人学院" /></div>
+  <div class="sales-card" style="width: 88%;"><img src="https://jracademy.ai/ebooks/v0-guide-handbook/assets/contact/sales-cards/angela.jpg" alt="Angela · IT Career Consultant · 匠人学院" /></div>
 
   <div class="contact-bar" style="width: 88%;">
-    <img class="qr" src="assets/contact/qr-amelia.png" alt="Amelia · 匠人学院 IT 顾问微信" />
+    <img class="qr" src="https://jracademy.ai/ebooks/v0-guide-handbook/assets/contact/qr-amelia.png" alt="Amelia · 匠人学院 IT 顾问微信" />
     <div class="cb-body">
       <div class="cb-title">扫码进社群，v0 + AI 工具答疑</div>
       <div class="cb-desc">把这本 PDF 转给还在手写前端样板代码的同事。</div>
     </div>
-    <div class="cb-brand"><img src="assets/logo/jr-box.svg" alt="JR" /><span class="cb-url">jracademy.ai</span></div>
+    <div class="cb-brand"><img src="https://jracademy.ai/ebooks/v0-guide-handbook/assets/logo/jr-box.svg" alt="JR" /><span class="cb-url">jracademy.ai</span></div>
   </div>
 
   <p class="caption" style="color: rgba(255,255,255,0.5);">© JR Academy · 学 AI 来匠人 · 内容源自 jiangren.com.au/wiki《v0 实战指南》· 欢迎转发</p>
 </section>
 
-<script defer src="theme/reader.js"></script>
-<a href="v0%20%E5%AE%9E%E6%88%98%E6%89%8B%E5%86%8C%EF%BC%9AAI%20%E5%85%A8%E6%A0%88%E5%BA%94%E7%94%A8%E6%9E%84%E5%BB%BA%20-%20%E5%8C%A0%E4%BA%BA%E5%AD%A6%E9%99%A2.pdf" download style="position:fixed;right:22px;bottom:22px;z-index:1200;display:flex;align-items:center;gap:8px;background:#0D0F12;color:#fff;font-weight:700;font-size:14.5px;padding:13px 22px;border-radius:999px;box-shadow:0 12px 28px rgba(13,15,18,.35);text-decoration:none;font-family:Inter,'PingFang SC',sans-serif;">⬇️ 下载 PDF 版</a>
+<script defer src="https://jracademy.ai/ebooks/v0-guide-handbook/theme/reader.js"></script>
+<a href="https://jracademy.ai/ebooks/v0-guide-handbook/v0%20%E5%AE%9E%E6%88%98%E6%89%8B%E5%86%8C%EF%BC%9AAI%20%E5%85%A8%E6%A0%88%E5%BA%94%E7%94%A8%E6%9E%84%E5%BB%BA%20-%20%E5%8C%A0%E4%BA%BA%E5%AD%A6%E9%99%A2.pdf" download style="position:fixed;right:22px;bottom:22px;z-index:1200;display:flex;align-items:center;gap:8px;background:#0D0F12;color:#fff;font-weight:700;font-size:14.5px;padding:13px 22px;border-radius:999px;box-shadow:0 12px 28px rgba(13,15,18,.35);text-decoration:none;font-family:Inter,'PingFang SC',sans-serif;">⬇️ 下载 PDF 版</a>
 </body>
 </html>

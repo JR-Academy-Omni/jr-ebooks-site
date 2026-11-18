@@ -4,16 +4,28 @@
 <meta charset="UTF-8" />
 <title>Windsurf Agentic IDE 中文上手手册 — JR Academy</title>
 <link rel="canonical" href="https://jracademy.ai/ebooks/windsurf-guide-handbook" />
-<link rel="stylesheet" href="theme/ebook.css" />
-<link rel="stylesheet" href="theme/flow-a4.css" />
+<link rel="stylesheet" href="https://jracademy.ai/ebooks/windsurf-guide-handbook/theme/ebook.css" />
+<link rel="stylesheet" href="https://jracademy.ai/ebooks/windsurf-guide-handbook/theme/flow-a4.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- ebook-reader-layout -->
+<link rel="stylesheet" href="https://jracademy.ai/ebooks/theme/reader-layout.css" />
+<script defer src="https://jracademy.ai/ebooks/theme/reader-layout.js"></script>
+<link rel="icon" type="image/svg+xml" href="https://jracademy.ai/ebooks/theme/assets/logo/jr-box.svg" />
+<!-- reading-edition:start -->
+<link rel="stylesheet" href="https://jracademy.ai/ebooks/theme/tokens/jr-craft.css" />
+<link rel="stylesheet" href="https://jracademy.ai/ebooks/theme/styles/jr-craft.css" />
+<link rel="stylesheet" href="https://jracademy.ai/ebooks/theme/reading-edition.css" />
+<script type="application/json" id="reading-edition-info">{"title": "Windsurf Agentic IDE 中文上手手册", "description": "Cascade 自动跨文件改代码 + Flow State 实时追踪 + 无限 Tab 补全——从安装到全栈实战，.windsurfrules 配置 / MCP 接 Figma + 数据库 / Cascade 调 Bug 五大模板，8 章全有真实代码"}</script>
+<script defer src="https://jracademy.ai/ebooks/theme/reading-edition.js"></script>
+<!-- reading-edition:end -->
 </head>
 <body>
-<img class="jr-wm" src="assets/logo/jr-box.svg" alt="" />
+<img class="jr-wm" src="https://jracademy.ai/ebooks/windsurf-guide-handbook/assets/logo/jr-box.svg" alt="" />
 
 <section class="page cover2">
   <div class="cv2-ghost">Windsurf</div>
   <div class="cv2-head">
-    <img src="assets/logo/logo-zh-white.png" alt="匠人学院" />
+    <img src="https://jracademy.ai/ebooks/windsurf-guide-handbook/assets/logo/logo-zh-white.png" alt="匠人学院" />
     <span class="cv2-sticker">🌊 2026 实战版</span>
   </div>
   <div class="cv2-body">
@@ -29,7 +41,7 @@
     <div class="cv2-diecut">一个人干整个项目，让 Cascade 跑腿</div>
   </div>
   <span class="cv2-holo">🌊</span>
-  <img class="cv2-mascot" src="assets/illustrations/niuxiaojiang-working-laptop.png" alt="牛小匠" />
+  <img class="cv2-mascot" src="https://jracademy.ai/ebooks/windsurf-guide-handbook/assets/illustrations/niuxiaojiang-working-laptop.png" alt="牛小匠" />
   <div class="cv2-domain">jracademy.ai · 在线版随官网更新 /wiki/windsurf-guide</div>
   <div class="cv2-strip"><span>学 AI 来匠人 <i>✦</i> Windsurf Agentic IDE 手册 <i>✦</i> JIANGREN.COM.AU <i>✦</i> Cascade 帮你写代码 <i>✦</i> 学 AI 来匠人 <i>✦</i></span></div>
 </section>
@@ -56,7 +68,7 @@
       <p>完全没碰过 Windsurf 的，第 1、2 章搞清楚概念，跑通第一个 Todo App；用 Cursor 转过来的，第 4 章的 .windsurfrules 是重点，对比 .cursorrules 一分钟就懂；想用 Cascade 调 bug 的，直接跳第 6 章，有五个可直接复制的调试 prompt 模板；想搭全栈项目的，第 8 章有完整从零搭建记录。代码全可复制，配置直接用。</p>
     </div>
     <div class="contact-bar">
-      <img class="qr" src="assets/contact/qr-amelia.png" alt="Amelia · 匠人学院 IT 顾问微信" />
+      <img class="qr" src="https://jracademy.ai/ebooks/windsurf-guide-handbook/assets/contact/qr-amelia.png" alt="Amelia · 匠人学院 IT 顾问微信" />
       <div><div class="t">💬 装好 Windsurf 想进 AI 开发群？扫这里</div><div class="d">群里每周分享 AI IDE 选型、Cascade 配置技巧和真实项目案例。</div></div>
     </div>
   </div>
@@ -68,7 +80,7 @@
         <div class="ch-num">CHAPTER 01</div>
         <h2>🌊 Windsurf 是什么：第一个 Agentic IDE</h2>
       </div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-thinking.png" alt="" />
+      <img class="ch-illo" src="https://jracademy.ai/ebooks/windsurf-guide-handbook/assets/illustrations/niuxiaojiang-thinking.png" alt="" />
     </div>
 <h3>Windsurf 一句话介绍</h3>
 <p>Windsurf 是由 Codeium 团队打造的 AI 原生代码编辑器，2024 年底发布，2025 年 12 月被 Cognition AI（Devin 的母公司）收购。它基于 VS Code 内核，但把 AI 做成了编辑器的底层能力，而不是插件。</p>
@@ -99,7 +111,7 @@
 <ul><li><strong>前端开发者</strong>：Web Preview 功能可以直接在 IDE 里预览网页，点击元素让 Cascade 改样式，比 alt-tab 浏览器高效一个档次</li><li><strong>全栈独立开发者</strong>：一个人干整个项目，Cascade 的多文件编辑 + 终端命令执行能省大量时间</li><li><strong>从 VS Code 迁移的人</strong>：设置、插件、快捷键都能一键导入，零切换成本</li><li><strong>预算有限的开发者</strong>：免费版的 Tab 补全不限量，对学生和个人开发者友好</li><li><strong>设计转开发的人</strong>：Figma MCP 可以读取设计稿直接生成代码，降低实现门槛</li></ul>
 <p>不太适合的场景：纯后端 / 系统编程（Rust、C++、Go），这类场景 Claude Code 的终端模式更顺手；团队已经重度依赖 Cursor 生态（大量 <code>.cursorrules</code> 积累）的情况下迁移成本较高。</p>
     <div class="contact-bar">
-      <img class="qr" src="assets/contact/qr-amelia.png" alt="Amelia · 匠人学院 IT 顾问微信" />
+      <img class="qr" src="https://jracademy.ai/ebooks/windsurf-guide-handbook/assets/contact/qr-amelia.png" alt="Amelia · 匠人学院 IT 顾问微信" />
       <div><div class="t">💬 用 Windsurf 遇到问题？扫码进群问</div><div class="d">群里每周分享真实的 Windsurf / Cascade 配置和 AI IDE 对比实测。</div></div>
     </div>
   </div>
@@ -112,7 +124,7 @@
         <div class="ch-num">CHAPTER 02</div>
         <h2>🚀 安装与第一个项目</h2>
       </div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-working-laptop.png" alt="" />
+      <img class="ch-illo" src="https://jracademy.ai/ebooks/windsurf-guide-handbook/assets/illustrations/niuxiaojiang-working-laptop.png" alt="" />
     </div>
 <h3>下载安装</h3>
 <p>Windsurf 支持 macOS、Windows、Linux 三个平台，去官网下载对应安装包就行：</p>
@@ -176,7 +188,7 @@ coverage/
         <div class="ch-num">CHAPTER 03</div>
         <h2>⚡ 三大核心功能深度解析</h2>
       </div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-chart.png" alt="" />
+      <img class="ch-illo" src="https://jracademy.ai/ebooks/windsurf-guide-handbook/assets/illustrations/niuxiaojiang-teaching-chart.png" alt="" />
     </div>
 <h3>Cascade：你的 AI 编程搭档</h3>
 <p>Windsurf 的灵魂就是 Cascade。它不是一个聊天机器人，而是一个能动手干活的 Agent——读代码、改文件、跑命令、看报错、修 bug，全自动。</p>
@@ -254,14 +266,14 @@ async def get_user(user_id: int):
 <ul><li>写新功能时：用 Cascade Code 模式起步，拿到可跑的骨架</li><li>补细节时：Supercomplete 接管，Tab 键飞速填充重复逻辑</li><li>前端调样式时：Web Preview 点哪改哪，Cascade 精准定位代码</li></ul>
 <p>理解这三个功能的分工，是从"偶尔用 AI 辅助"升级到"以 AI 为主力"的关键一步。</p>
     <div class="sales-card">
-      <img class="sc-photo" src="assets/contact/sales-cards/amelia.jpg" alt="Amelia" />
+      <img class="sc-photo" src="https://jracademy.ai/ebooks/windsurf-guide-handbook/assets/contact/sales-cards/amelia.jpg" alt="Amelia" />
       <div class="sc-body">
         <div class="sc-name">Amelia</div>
         <div class="sc-role">匠人学院 IT 顾问</div>
         <p class="sc-pitch">装好了还不知道怎么用 Cascade？或者想知道哪个 AI IDE 最适合你现在的项目？扫码加我，15 分钟聊清楚。</p>
         <div class="sc-cta"><a href="https://jracademy.ai">jracademy.ai</a></div>
       </div>
-      <img class="sc-qr" src="assets/contact/qr-amelia.png" alt="微信扫码" />
+      <img class="sc-qr" src="https://jracademy.ai/ebooks/windsurf-guide-handbook/assets/contact/qr-amelia.png" alt="微信扫码" />
     </div>
   </div>
 </section>
@@ -281,7 +293,7 @@ async def get_user(user_id: int):
         <div class="ch-num">CHAPTER 04</div>
         <h2>⚙️ 进阶技巧与实战配置</h2>
       </div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-pen-book.png" alt="" />
+      <img class="ch-illo" src="https://jracademy.ai/ebooks/windsurf-guide-handbook/assets/illustrations/niuxiaojiang-pen-book.png" alt="" />
     </div>
 <h3>.windsurfrules：让 AI 按你的规矩写代码</h3>
 <p>Windsurf 最高 ROI 的配置就是 <code>.windsurfrules</code> 文件。在项目根目录创建它，Cascade 每次生成代码都会遵守里面的规则。</p>
@@ -435,7 +447,7 @@ async def get_user(user_id: int):
         <div class="ch-num">CHAPTER 05</div>
         <h2>❓ 常见问题、定价与选型建议</h2>
       </div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-coffee-pointing.png" alt="" />
+      <img class="ch-illo" src="https://jracademy.ai/ebooks/windsurf-guide-handbook/assets/illustrations/niuxiaojiang-coffee-pointing.png" alt="" />
     </div>
 <h3>常见问题</h3>
 <h4>Cascade 转圈不动怎么办？</h4>
@@ -525,7 +537,7 @@ async def get_user(user_id: int):
         <div class="ch-num">CHAPTER 06</div>
         <h2>🐛 用 Cascade 调试和修复 Bug</h2>
       </div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-hero.png" alt="" />
+      <img class="ch-illo" src="https://jracademy.ai/ebooks/windsurf-guide-handbook/assets/illustrations/niuxiaojiang-hero.png" alt="" />
     </div>
 <p>调试是 Cascade 最能体现 Agent 能力的场景。传统调试你得自己看报错 → 猜原因 → 找代码 → 试修复 → 再跑。Cascade 能一条龙把这个循环自动化。</p>
 <h3>报错直接甩给 Cascade</h3>
@@ -656,14 +668,14 @@ ORM 代码在 {文件路径}。
 <p><strong>搭配 <code>console.log</code> 定位</strong>。有时候 Cascade 的推理不够准确，你可以让它先加几个 <code>console.log</code> 跑一遍看输出，然后基于实际输出再修复——这比猜测更可靠。</p>
 <p><strong>让 Cascade 写验证用例</strong>。修完 bug 后，顺手让 Cascade 把刚才的 fix 逻辑写成单测或 E2E 测试步骤，防止回归。这一步很多人省掉，结果同样的 bug 两周后又出现。</p>
     <div class="sales-card">
-      <img class="sc-photo" src="assets/contact/sales-cards/rain.jpg" alt="Rain" />
+      <img class="sc-photo" src="https://jracademy.ai/ebooks/windsurf-guide-handbook/assets/contact/sales-cards/rain.jpg" alt="Rain" />
       <div class="sc-body">
         <div class="sc-name">Rain</div>
         <div class="sc-role">匠人学院课程顾问</div>
         <p class="sc-pitch">调试这关过了，下一步是系统学 AI 开发？我们的 AI 工程师课程从 Vibe Coding 到生产部署都有，扫码了解。</p>
         <div class="sc-cta"><a href="https://jracademy.ai">jracademy.ai</a></div>
       </div>
-      <img class="sc-qr" src="assets/contact/qr-rain.png" alt="微信扫码" />
+      <img class="sc-qr" src="https://jracademy.ai/ebooks/windsurf-guide-handbook/assets/contact/qr-rain.png" alt="微信扫码" />
     </div>
   </div>
 </section>
@@ -675,7 +687,7 @@ ORM 代码在 {文件路径}。
         <div class="ch-num">CHAPTER 07</div>
         <h2>🔀 Git 集成与团队协作</h2>
       </div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-data.png" alt="" />
+      <img class="ch-illo" src="https://jracademy.ai/ebooks/windsurf-guide-handbook/assets/illustrations/niuxiaojiang-teaching-data.png" alt="" />
     </div>
 <p>Windsurf 在 VS Code 的 Git 基础上加了一层 AI 能力。commit message、PR 描述、merge conflict 都可以让 Cascade 代劳。</p>
 <h3>AI 生成 Commit Message</h3>
@@ -755,7 +767,7 @@ git commit -m "chore: add windsurf rules for team coding standards"</pre>
         <div class="ch-num">CHAPTER 08</div>
         <h2>🏗️ 项目实战：用 Cascade 搭全栈 CRUD</h2>
       </div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-working-laptop.png" alt="" />
+      <img class="ch-illo" src="https://jracademy.ai/ebooks/windsurf-guide-handbook/assets/illustrations/niuxiaojiang-working-laptop.png" alt="" />
     </div>
 <p>光看功能介绍不直观，这一章完整演示用 Windsurf 从空目录到可运行的全栈应用的过程。项目是一个带用户认证的 Todo CRUD，技术栈 Next.js + Prisma + SQLite。</p>
 <h3>第一步：初始化项目</h3>
@@ -830,25 +842,25 @@ model Todo {
 </main>
 
 <section class="page back-cover">
-  <div class="logo"><img src="assets/logo/logo-zh-white.png" alt="匠人学院" /></div>
+  <div class="logo"><img src="https://jracademy.ai/ebooks/windsurf-guide-handbook/assets/logo/logo-zh-white.png" alt="匠人学院" /></div>
   <h2>Windsurf 上手了，接下来怎么把 AI 编程变成真正的技能？</h2>
   <p style="max-width: 78%;">这本手册的在线版在 jiangren.com.au/wiki/windsurf-guide，随官网更新。匠人学院还有 20+ 本同款 AI 工具指南（Cursor、Claude Code、n8n、Dify…）和 AI Engineer 方向的项目制课程——想知道怎么把 Windsurf + Cascade 变成简历里的实战经历，来聊聊。</p>
 
-  <div class="sales-card" style="width: 88%;"><img src="assets/contact/sales-cards/angela.jpg" alt="Angela · IT Career Consultant · 匠人学院" /></div>
+  <div class="sales-card" style="width: 88%;"><img src="https://jracademy.ai/ebooks/windsurf-guide-handbook/assets/contact/sales-cards/angela.jpg" alt="Angela · IT Career Consultant · 匠人学院" /></div>
 
   <div class="contact-bar" style="width: 88%;">
-    <img class="qr" src="assets/contact/qr-amelia.png" alt="Amelia · 匠人学院 IT 顾问微信" />
+    <img class="qr" src="https://jracademy.ai/ebooks/windsurf-guide-handbook/assets/contact/qr-amelia.png" alt="Amelia · 匠人学院 IT 顾问微信" />
     <div class="cb-body">
       <div class="cb-title">扫码进社群，Windsurf / AI IDE 实战答疑</div>
       <div class="cb-desc">把这本 PDF 转给还在手写代码、没用上 AI IDE 的同学。</div>
     </div>
-    <div class="cb-brand"><img src="assets/logo/jr-box.svg" alt="JR" /><span class="cb-url">jracademy.ai</span></div>
+    <div class="cb-brand"><img src="https://jracademy.ai/ebooks/windsurf-guide-handbook/assets/logo/jr-box.svg" alt="JR" /><span class="cb-url">jracademy.ai</span></div>
   </div>
 
   <p class="caption" style="color: rgba(255,255,255,0.5);">© JR Academy · 学 AI 来匠人 · 内容源自 jiangren.com.au/wiki《Windsurf AI IDE 实战指南》· 欢迎转发</p>
 </section>
 
-<script defer src="theme/reader.js"></script>
-<a href="Windsurf%20Agentic%20IDE%20%E4%B8%AD%E6%96%87%E4%B8%8A%E6%89%8B%E6%89%8B%E5%86%8C%20-%20%E5%8C%A0%E4%BA%BA%E5%AD%A6%E9%99%A2.pdf" download style="position:fixed;right:22px;bottom:22px;z-index:1200;display:flex;align-items:center;gap:8px;background:#0D0F12;color:#fff;font-weight:700;font-size:14.5px;padding:13px 22px;border-radius:999px;box-shadow:0 12px 28px rgba(13,15,18,.35);text-decoration:none;font-family:Inter,'PingFang SC',sans-serif;">⬇️ 下载 PDF 版</a>
+<script defer src="https://jracademy.ai/ebooks/windsurf-guide-handbook/theme/reader.js"></script>
+<a href="https://jracademy.ai/ebooks/windsurf-guide-handbook/Windsurf%20Agentic%20IDE%20%E4%B8%AD%E6%96%87%E4%B8%8A%E6%89%8B%E6%89%8B%E5%86%8C%20-%20%E5%8C%A0%E4%BA%BA%E5%AD%A6%E9%99%A2.pdf" download style="position:fixed;right:22px;bottom:22px;z-index:1200;display:flex;align-items:center;gap:8px;background:#0D0F12;color:#fff;font-weight:700;font-size:14.5px;padding:13px 22px;border-radius:999px;box-shadow:0 12px 28px rgba(13,15,18,.35);text-decoration:none;font-family:Inter,'PingFang SC',sans-serif;">⬇️ 下载 PDF 版</a>
 </body>
 </html>

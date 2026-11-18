@@ -4,18 +4,30 @@
 <meta charset="UTF-8" />
 <title>怎么变成 AI Engineer — JR Academy</title>
 <link rel="canonical" href="https://jracademy.ai/ebooks/become-ai-engineer" />
-<link rel="stylesheet" href="theme/ebook.css" />
-<link rel="stylesheet" href="theme/styles/checklist.css" />
-<link rel="stylesheet" href="theme/flow-a4.css" />
+<link rel="stylesheet" href="https://jracademy.ai/ebooks/become-ai-engineer/theme/ebook.css" />
+<link rel="stylesheet" href="https://jracademy.ai/ebooks/become-ai-engineer/theme/styles/checklist.css" />
+<link rel="stylesheet" href="https://jracademy.ai/ebooks/become-ai-engineer/theme/flow-a4.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- ebook-reader-layout -->
+<link rel="stylesheet" href="https://jracademy.ai/ebooks/theme/reader-layout.css" />
+<script defer src="https://jracademy.ai/ebooks/theme/reader-layout.js"></script>
+<link rel="icon" type="image/svg+xml" href="https://jracademy.ai/ebooks/theme/assets/logo/jr-box.svg" />
+<!-- reading-edition:start -->
+<link rel="stylesheet" href="https://jracademy.ai/ebooks/theme/tokens/jr-craft.css" />
+<link rel="stylesheet" href="https://jracademy.ai/ebooks/theme/styles/jr-craft.css" />
+<link rel="stylesheet" href="https://jracademy.ai/ebooks/theme/reading-edition.css" />
+<script type="application/json" id="reading-edition-info">{"title": "怎么变成 AI Engineer", "description": "全球行情、技术全栈、AI 工作流、上岸路线 —— 读完这本就通透"}</script>
+<script defer src="https://jracademy.ai/ebooks/theme/reading-edition.js"></script>
+<!-- reading-edition:end -->
 </head>
 <body>
-<img class="jr-wm" src="assets/logo/jr-box.svg" alt="" />
+<img class="jr-wm" src="https://jracademy.ai/ebooks/become-ai-engineer/assets/logo/jr-box.svg" alt="" />
 
 <!-- P1 封面 v2 黑底大字报 -->
 <section class="page cover2">
   <div class="cv2-ghost">AI</div>
   <div class="cv2-head">
-    <img src="assets/logo/logo-zh-white.png" alt="匠人学院" />
+    <img src="https://jracademy.ai/ebooks/become-ai-engineer/assets/logo/logo-zh-white.png" alt="匠人学院" />
     <span class="cv2-sticker">🚀 2026 实操版</span>
   </div>
   <div class="cv2-body">
@@ -31,7 +43,7 @@
     <div class="cv2-diecut">读完这本我就通透了 —— 班主任亲测</div>
   </div>
   <span class="cv2-holo">🎯</span>
-  <img class="cv2-mascot" src="assets/illustrations/niuxiaojiang-hero.png" alt="牛小匠" />
+  <img class="cv2-mascot" src="https://jracademy.ai/ebooks/become-ai-engineer/assets/illustrations/niuxiaojiang-hero.png" alt="牛小匠" />
   <div class="cv2-domain">jracademy.ai · 完整版 8 章指南见 /wiki/ai-engineer</div>
   <div class="cv2-strip"><span>学 AI 来匠人 <i>✦</i> AI ENGINEER <i>✦</i> JIANGREN.COM.AU <i>✦</i> 读完这本就通透 <i>✦</i> 学 AI 来匠人 <i>✦</i> AI ENGINEER <i>✦</i></span></div>
 </section>
@@ -67,11 +79,11 @@
       <p>别收藏了就不看了。先花 10 分钟从头翻一遍，心里有个数（第 3 章那条官方公式是全书的骨架）。然后看你在哪个阶段：还在犹豫要不要转的，看第 1、2 章就够；想知道每样技术到底是什么，第 4 到 12 章一章讲透一样；决定动手了，照第 16 章的路线和第 19 章的清单走；简历快投出去的，打开第 18 章对着改。这本书和我们 wiki 那 8 篇《AI Engineer 完全指南》同源（jiangren.com.au/wiki 免费），书里把主线讲透，更全的代码细节和完整题库去 wiki 翻。</p>
     </div>
     <div class="figure">
-      <img src="wiki-screenshot.png" alt="匠人学院 wiki《AI Engineer 完全指南》页面截图" />
+      <img src="https://jracademy.ai/ebooks/become-ai-engineer/wiki-screenshot.png" alt="匠人学院 wiki《AI Engineer 完全指南》页面截图" />
       <div class="figcap">👆 完整版在 wiki 上长这样：左边 8 章随便点，不用注册不要钱 → jiangren.com.au/wiki</div>
     </div>
     <div class="contact-bar">
-      <img class="qr" src="assets/contact/qr-amelia.png" alt="Amelia · 匠人学院 IT 顾问微信" />
+      <img class="qr" src="https://jracademy.ai/ebooks/become-ai-engineer/assets/contact/qr-amelia.png" alt="Amelia · 匠人学院 IT 顾问微信" />
       <div><div class="t">💬 看着看着有问题，扫码来问</div><div class="d">Amelia 会拉你进群。群里有人答转行问题，每周还发 AI 大事盘点。</div></div>
     </div>
   </div>
@@ -84,7 +96,7 @@
         <div class="ch-num">CHAPTER 01</div>
         <h2>🧭 岗位真相：AI Engineer 是什么、不是什么</h2>
       </div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-thinking.png" alt="" />
+      <img class="ch-illo" src="https://jracademy.ai/ebooks/become-ai-engineer/assets/illustrations/niuxiaojiang-thinking.png" alt="" />
     </div>
     <p class="lead">说白了：<strong>模型不用你训练，你的活儿是<span class="hl">把 Claude、GPT 这些现成的大模型攒成能用的产品</span>。</strong>每天干的事就是写 prompt、搭 RAG、调 API、上线、盯 token 账单，然后被 PM 追问"幻觉怎么办"。不刷 Kaggle，不写 paper。这岗位 2023 年才出现，现在澳洲招聘网站上已经到处都是了。</p>
     <table>
@@ -127,7 +139,7 @@
         <div class="ch-num">CHAPTER 02</div>
         <h2>💰 先说钱：全球行情与四地薪资带</h2>
       </div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-data.png" alt="" />
+      <img class="ch-illo" src="https://jracademy.ai/ebooks/become-ai-engineer/assets/illustrations/niuxiaojiang-teaching-data.png" alt="" />
     </div>
         <p class="lead">大部分人最关心的就是钱，所以放最前面。先把一件事说死：<span class="hl">AI Engineer 的缺口是全球性的</span>，不是哪一国的局部行情 —— 下面四个市场的数据全部来自公开报告，来源都标了。</p>
 
@@ -193,7 +205,7 @@
         <div class="ch-num">CHAPTER 03</div>
         <h2>🗺️ AI Engineer 到底需要会什么：官方能力地图</h2>
       </div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-pen-book.png" alt="" />
+      <img class="ch-illo" src="https://jracademy.ai/ebooks/become-ai-engineer/assets/illustrations/niuxiaojiang-pen-book.png" alt="" />
     </div>
 
     <p class="lead">一条公式先记住（这是匠人学院官网能力测试的框架，基于 AI 行业招聘趋势与 Anthropic、OpenAI 等头部公司工程实践整理，已有 <span class="hl">2,300+ 人完成测试</span>）：</p>
@@ -281,7 +293,7 @@
         <div class="ch-num">CHAPTER 04</div>
         <h2>🔌 LLM 基础：它怎么工作、API 怎么调、账单怎么算</h2>
       </div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-chart.png" alt="" />
+      <img class="ch-illo" src="https://jracademy.ai/ebooks/become-ai-engineer/assets/illustrations/niuxiaojiang-teaching-chart.png" alt="" />
     </div>
 
     <p class="lead">LLM 说穿了就是一个<span class="hl">超大号的"下一个词预测器"</span>。你输入 "The capital of Australia is "，它算出每个可能的下一个词的概率（Canberra 0.85、Sydney 0.08…），按概率抽一个，接上去再算下一个，循环到结束。整个"对话"就是几百到几万次预测串起来的。听起来很笨，但参数堆到万亿级之后，"预测下一个词"突然涌现出推理、写代码、创作的能力 —— 这就是大模型的全部秘密。</p>
@@ -738,7 +750,7 @@ Assistant: [calls lookup_order] 在途，预计 1 月 20 日送达。
         <div class="ch-num">CHAPTER 08</div>
         <h2>📚 RAG：让 AI 懂你公司的数据（面试必考）</h2>
       </div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-working-laptop.png" alt="" />
+      <img class="ch-illo" src="https://jracademy.ai/ebooks/become-ai-engineer/assets/illustrations/niuxiaojiang-working-laptop.png" alt="" />
     </div>
 
     <p class="lead">模型训练数据有截止日期，它不知道你公司的代码库、客户工单、产品文档。要让它知道，两条路：fine-tune（把数据训进权重 —— 贵、慢、改一次重训一次）或者 <strong>RAG</strong>（每次提问时先去外部存储找相关内容，塞进 prompt）。<span class="hl">99% 的场景选 RAG</span>：数据改了立刻生效、答案可追溯、不用 GPU、还能做权限隔离。</p>
@@ -1092,7 +1104,7 @@ result = crew.kickoff()</pre>
         <div class="ch-num">CHAPTER 11</div>
         <h2>🧪 评估：怎么知道你的 AI 产品到底好不好</h2>
       </div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-data.png" alt="" />
+      <img class="ch-illo" src="https://jracademy.ai/ebooks/become-ai-engineer/assets/illustrations/niuxiaojiang-teaching-data.png" alt="" />
     </div>
 
     <p class="lead">先把一个误区掰了：很多人以为 AI 工程师的日常是 fine-tune 模型。<span class="hl">99% 的场景你不需要 fine-tune</span>。它贵（一次几千刀）、慢（改数据就重训）、难回滚，还大概率被下一代基础模型直接反超。正确顺序是：先用 RAG + Prompt 把效果做到 80%，通常这就够用了。</p>
@@ -1360,7 +1372,7 @@ if (SUSPICIOUS.some(k => userMsg.toLowerCase().includes(k))) {
     <div class="callout">💡 <strong>上线节奏（灰度纪律）：</strong>新模型/新 prompt 永远按 内部试用 → canary 1-5% → 20% → 全量 的序列放量，每一步盯 eval 分数和成本再走下一步 —— 第 5 章 gateway 的 canary 配置就是为这个准备的。</div>
 
     <div class="contact-bar">
-      <img class="qr" src="assets/contact/qr-amelia.png" alt="Amelia · 匠人学院 IT 顾问微信" />
+      <img class="qr" src="https://jracademy.ai/ebooks/become-ai-engineer/assets/contact/qr-amelia.png" alt="Amelia · 匠人学院 IT 顾问微信" />
       <div><div class="t">🙋 技术 9 章到这就讲完了，跟着跑到这里的人不多</div><div class="d">RAG 接不通、部署报错、eval 分数看不懂 —— 都是群里每天在聊的。扫码进群把报错贴出来，免费；后面 7 章讲怎么把这些变成工作。</div></div>
     </div>
   </div>
@@ -1373,7 +1385,7 @@ if (SUSPICIOUS.some(k => userMsg.toLowerCase().includes(k))) {
         <div class="ch-num">CHAPTER 13</div>
         <h2>⌨️ AI 编程工作流：这才是你每天 8 小时在干的事</h2>
       </div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-working-laptop.png" alt="" />
+      <img class="ch-illo" src="https://jracademy.ai/ebooks/become-ai-engineer/assets/illustrations/niuxiaojiang-working-laptop.png" alt="" />
     </div>
 
     <p class="lead">前面 9 章讲的是"做 AI 产品"，这章讲"用 AI 干活" —— 2026 年的 AI Engineer 默认用 Claude Code / Cursor 写代码。这章全部是<span class="hl">我们自己团队的实测数据和翻车记录</span>，包括两个真实生产事故。</p>
@@ -1506,7 +1518,7 @@ if (SUSPICIOUS.some(k => userMsg.toLowerCase().includes(k))) {
         <div class="ch-num">CHAPTER 16</div>
         <h2>🏃 路线：4 个月三阶段怎么走</h2>
       </div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-coffee-pointing.png" alt="" />
+      <img class="ch-illo" src="https://jracademy.ai/ebooks/become-ai-engineer/assets/illustrations/niuxiaojiang-coffee-pointing.png" alt="" />
     </div>
     <div class="roadmap">
       <div class="rline"></div>
@@ -1534,7 +1546,7 @@ if (SUSPICIOUS.some(k => userMsg.toLowerCase().includes(k))) {
         <div class="ch-num">CHAPTER 17</div>
         <h2>🛠️ 作品集：3 个项目，一个比一个难</h2>
       </div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-working-laptop.png" alt="" />
+      <img class="ch-illo" src="https://jracademy.ai/ebooks/become-ai-engineer/assets/illustrations/niuxiaojiang-working-laptop.png" alt="" />
     </div>
     <div class="ladder">
       <div class="lstep h1x">
@@ -1671,25 +1683,25 @@ Familiar（了解过、写过 demo 的）：
 </main>
 
 <section class="page back-cover">
-  <div class="logo"><img src="assets/logo/logo-zh-white.png" alt="匠人学院" /></div>
+  <div class="logo"><img src="https://jracademy.ai/ebooks/become-ai-engineer/assets/logo/logo-zh-white.png" alt="匠人学院" /></div>
   <h2>先别一个人硬扛</h2>
   <p style="max-width: 78%;">这本书把 AI Engineer 的主线讲完了。每章细节（API 代码、RAG 架构、面试题库）在 jiangren.com.au/wiki 免费读。想有人帮你看背景、项目和简历，先扫码聊一次，判断这条路适不适合你。</p>
 
-  <div class="sales-card" style="width: 88%;"><img src="assets/contact/sales-cards/amelia.jpg" alt="Amelia · IT Career Consultant · 匠人学院" /></div>
+  <div class="sales-card" style="width: 88%;"><img src="https://jracademy.ai/ebooks/become-ai-engineer/assets/contact/sales-cards/amelia.jpg" alt="Amelia · IT Career Consultant · 匠人学院" /></div>
 
   <div class="contact-bar" style="width: 88%;">
-    <img class="qr" src="assets/contact/qr-amelia.png" alt="Amelia · 匠人学院 IT 顾问微信" />
+    <img class="qr" src="https://jracademy.ai/ebooks/become-ai-engineer/assets/contact/qr-amelia.png" alt="Amelia · 匠人学院 IT 顾问微信" />
     <div class="cb-body">
       <div class="cb-title">不想一个人摸索？扫码进社群</div>
       <div class="cb-desc">转行路线答疑 + 每周 AI 大事盘点。把这本 PDF 转给同样想转行的朋友。</div>
     </div>
-    <div class="cb-brand"><img src="assets/logo/jr-box.svg" alt="JR" /><span class="cb-url">jracademy.ai</span></div>
+    <div class="cb-brand"><img src="https://jracademy.ai/ebooks/become-ai-engineer/assets/logo/jr-box.svg" alt="JR" /><span class="cb-url">jracademy.ai</span></div>
   </div>
 
   <p class="caption" style="color: rgba(255,255,255,0.5);">© JR Academy · 学 AI 来匠人 · 内容源自 jiangren.com.au/wiki《AI Engineer 完全指南》· 欢迎转发</p>
 </section>
 
-<script defer src="theme/reader.js"></script>
-<a href="%E6%80%8E%E4%B9%88%E5%8F%98%E6%88%90%20AI%20Engineer%20-%20%E5%8C%A0%E4%BA%BA%E5%AD%A6%E9%99%A2.pdf" download style="position:fixed;right:22px;bottom:22px;z-index:1200;display:flex;align-items:center;gap:8px;background:#0D0F12;color:#fff;font-weight:700;font-size:14.5px;padding:13px 22px;border-radius:999px;box-shadow:0 12px 28px rgba(13,15,18,.35);text-decoration:none;font-family:Inter,'PingFang SC',sans-serif;">⬇️ 下载 PDF 版</a>
+<script defer src="https://jracademy.ai/ebooks/become-ai-engineer/theme/reader.js"></script>
+<a href="https://jracademy.ai/ebooks/become-ai-engineer/%E6%80%8E%E4%B9%88%E5%8F%98%E6%88%90%20AI%20Engineer%20-%20%E5%8C%A0%E4%BA%BA%E5%AD%A6%E9%99%A2.pdf" download style="position:fixed;right:22px;bottom:22px;z-index:1200;display:flex;align-items:center;gap:8px;background:#0D0F12;color:#fff;font-weight:700;font-size:14.5px;padding:13px 22px;border-radius:999px;box-shadow:0 12px 28px rgba(13,15,18,.35);text-decoration:none;font-family:Inter,'PingFang SC',sans-serif;">⬇️ 下载 PDF 版</a>
 </body>
 </html>

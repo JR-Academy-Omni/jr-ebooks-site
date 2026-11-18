@@ -4,16 +4,28 @@
 <meta charset="UTF-8" />
 <title>Lovable 实战手册：vibe coding 时代的全栈应用构建 — JR Academy</title>
 <link rel="canonical" href="https://jracademy.ai/ebooks/lovable-guide-handbook" />
-<link rel="stylesheet" href="theme/ebook.css" />
-<link rel="stylesheet" href="theme/flow-a4.css" />
+<link rel="stylesheet" href="https://jracademy.ai/ebooks/lovable-guide-handbook/theme/ebook.css" />
+<link rel="stylesheet" href="https://jracademy.ai/ebooks/lovable-guide-handbook/theme/flow-a4.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- ebook-reader-layout -->
+<link rel="stylesheet" href="https://jracademy.ai/ebooks/theme/reader-layout.css" />
+<script defer src="https://jracademy.ai/ebooks/theme/reader-layout.js"></script>
+<link rel="icon" type="image/svg+xml" href="https://jracademy.ai/ebooks/theme/assets/logo/jr-box.svg" />
+<!-- reading-edition:start -->
+<link rel="stylesheet" href="https://jracademy.ai/ebooks/theme/tokens/jr-craft.css" />
+<link rel="stylesheet" href="https://jracademy.ai/ebooks/theme/styles/jr-craft.css" />
+<link rel="stylesheet" href="https://jracademy.ai/ebooks/theme/reading-edition.css" />
+<script type="application/json" id="reading-edition-info">{"title": "Lovable 实战手册：vibe coding 时代的全栈应用构建", "description": "从 5 分钟第一个应用到 Supabase 全栈集成、自定义域名上线 — 7 章原文实战内容，含 Prompt 模板、SQL 与 TypeScript 代码"}</script>
+<script defer src="https://jracademy.ai/ebooks/theme/reading-edition.js"></script>
+<!-- reading-edition:end -->
 </head>
 <body>
-<img class="jr-wm" src="assets/logo/jr-box.svg" alt="" />
+<img class="jr-wm" src="https://jracademy.ai/ebooks/lovable-guide-handbook/assets/logo/jr-box.svg" alt="" />
 
 <section class="page cover2">
   <div class="cv2-ghost">Lovable</div>
   <div class="cv2-head">
-    <img src="assets/logo/logo-zh-white.png" alt="匠人学院" />
+    <img src="https://jracademy.ai/ebooks/lovable-guide-handbook/assets/logo/logo-zh-white.png" alt="匠人学院" />
     <span class="cv2-sticker">🚀 vibe coding 实战版</span>
   </div>
   <div class="cv2-body">
@@ -29,7 +41,7 @@
     <div class="cv2-diecut">一个下午，非技术产品经理用 Lovable 搭出了用户反馈系统</div>
   </div>
   <span class="cv2-holo">🎯</span>
-  <img class="cv2-mascot" src="assets/illustrations/niuxiaojiang-working-laptop.png" alt="牛小匠" />
+  <img class="cv2-mascot" src="https://jracademy.ai/ebooks/lovable-guide-handbook/assets/illustrations/niuxiaojiang-working-laptop.png" alt="牛小匠" />
   <div class="cv2-domain">jracademy.ai · 在线版随官网更新 /wiki/lovable-guide</div>
   <div class="cv2-strip"><span>学 AI 来匠人 <i>✦</i> Lovable 实战手册 <i>✦</i> JIANGREN.COM.AU <i>✦</i> vibe coding 时代的全栈应用构建 <i>✦</i> 学 AI 来匠人 <i>✦</i></span></div>
 </section>
@@ -54,7 +66,7 @@
       <p>这本书和官网 wiki《Lovable 实战手册》同源（jiangren.com.au/wiki/lovable-guide，免费、不用注册，官网那份持续更新）。完全没接触过 Lovable 的，第 1、2 章看清楚它能干什么、5 分钟跑通一个应用；想接 Supabase 做有真实用户账号和数据库的产品，第 4 章有完整的 Prompt 序列，第 6 章把 Auth / RLS / Storage / Realtime 四个模块拆开讲——SQL 和 TypeScript 代码直接用；想把应用推上自己的域名、接 GA4 追踪用户，第 7 章一步一步来。书里所有代码可直接复制粘贴到 Lovable 对话框。</p>
     </div>
     <div class="contact-bar">
-      <img class="qr" src="assets/contact/qr-amelia.png" alt="Amelia · 匠人学院 IT 顾问微信" />
+      <img class="qr" src="https://jracademy.ai/ebooks/lovable-guide-handbook/assets/contact/qr-amelia.png" alt="Amelia · 匠人学院 IT 顾问微信" />
       <div><div class="t">💬 vibe coding 新人？扫码进群</div><div class="d">群里每周分享真实的 Lovable 项目案例和 AI 应用搭建经验。</div></div>
     </div>
   </div>
@@ -67,7 +79,7 @@
         <div class="ch-num">CHAPTER 01</div>
         <h2>🎯 Lovable 是什么：vibe coding 时代的应用构建革命</h2>
       </div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-thinking.png" alt="" />
+      <img class="ch-illo" src="https://jracademy.ai/ebooks/lovable-guide-handbook/assets/illustrations/niuxiaojiang-thinking.png" alt="" />
     </div>
 <p>Lovable 是一个 AI 驱动的应用构建平台，你只需要用自然语言描述你想要什么，它就能生成完整的、可以直接部署的 Web 应用——包括前端界面、后端逻辑和数据库集成。</p>
 
@@ -104,7 +116,7 @@
         <div class="ch-num">CHAPTER 02</div>
         <h2>🚀 Lovable 快速上手：5 分钟创建你的第一个 AI 应用</h2>
       </div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-working-laptop.png" alt="" />
+      <img class="ch-illo" src="https://jracademy.ai/ebooks/lovable-guide-handbook/assets/illustrations/niuxiaojiang-working-laptop.png" alt="" />
     </div>
 <p>Lovable 的上手门槛极低——你只需要一个 Google 账号，不需要安装任何软件，打开浏览器就能开始构建应用。</p>
 
@@ -182,7 +194,7 @@ npm run dev</pre>
         <div class="ch-num">CHAPTER 03</div>
         <h2>⚙️ Lovable 核心功能详解：从对话到生产级应用</h2>
       </div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-chart.png" alt="" />
+      <img class="ch-illo" src="https://jracademy.ai/ebooks/lovable-guide-handbook/assets/illustrations/niuxiaojiang-teaching-chart.png" alt="" />
     </div>
 <p>Lovable 不只是一个"帮你写代码"的工具，它构建了一套从想法到上线的完整工作流。理解它的核心功能，才能发挥它的全部潜力。</p>
 
@@ -296,7 +308,7 @@ git push
 # Lovable 会自动 pull 你的本地更改</pre>
 <p>注意：本地 push 的更改会同步到 Lovable，但 Lovable 的 AI 不会理解本地代码的语义——它只能基于当前代码状态继续生成，不会"记住"你的本地更改意图。</p>
       <div class="contact-bar">
-      <img class="qr" src="assets/contact/qr-rain.png" alt="Rain · 匠人学院 IT 顾问微信" />
+      <img class="qr" src="https://jracademy.ai/ebooks/lovable-guide-handbook/assets/contact/qr-rain.png" alt="Rain · 匠人学院 IT 顾问微信" />
       <div><div class="t">💬 产品跑通了，想把它写进简历？扫码聊聊</div><div class="d">Rain 帮你看 Lovable 项目怎么包装成有竞争力的作品集。</div></div>
     </div>
   </div>
@@ -318,7 +330,7 @@ git push
         <div class="ch-num">CHAPTER 04</div>
         <h2>🔥 Lovable 进阶技巧：构建真实可用的生产级应用</h2>
       </div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-coffee-pointing.png" alt="" />
+      <img class="ch-illo" src="https://jracademy.ai/ebooks/lovable-guide-handbook/assets/illustrations/niuxiaojiang-coffee-pointing.png" alt="" />
     </div>
 <p>用了 Lovable 一段时间后，你会发现它真正的威力不在于"生成代码"，而在于如何通过精准的对话，把一个想法变成可以给真实用户使用的产品。</p>
 
@@ -482,7 +494,7 @@ CREATE POLICY "Users can delete own todos"
         <div class="ch-num">CHAPTER 05</div>
         <h2>🤔 Lovable 常见问题 FAQ：踩坑避坑指南</h2>
       </div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-pen-book.png" alt="" />
+      <img class="ch-illo" src="https://jracademy.ai/ebooks/lovable-guide-handbook/assets/illustrations/niuxiaojiang-pen-book.png" alt="" />
     </div>
 <p>使用 Lovable 的过程中会遇到各种问题，这里汇总了最常见的疑问和解决方案。</p>
 <h3>关于生成质量</h3>
@@ -562,7 +574,7 @@ SELECT * FROM pg_policies WHERE tablename = 'your_table_name';</pre>
         <div class="ch-num">CHAPTER 06</div>
         <h2>🗄️ Lovable + Supabase 完整集成：auth / database / storage / realtime</h2>
       </div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-data.png" alt="" />
+      <img class="ch-illo" src="https://jracademy.ai/ebooks/lovable-guide-handbook/assets/illustrations/niuxiaojiang-teaching-data.png" alt="" />
     </div>
 <p>Lovable 自带前端生成，但真实产品离不开后端：用户账号、持久化数据、文件存储、多端同步。Supabase 是目前和 Lovable 配合最顺的后端选择——两者都走"告诉 AI 你想要什么"的思路，官方也做了原生连接器。</p>
 <p>这一章把四个核心模块拆开讲，每个模块给出真实可用的代码和配置，不绕弯子。</p>
@@ -796,7 +808,7 @@ return () =&gt; {
 <h3>上线前必查清单</h3>
 <table><tr><th>检查项</th><th>说明</th></tr><tr><td>RLS 已开启</td><td>每张表都要 <code>ALTER TABLE xxx ENABLE ROW LEVEL SECURITY</code></td></tr><tr><td>所有表都有 Policy</td><td>开了 RLS 但没有 Policy = 无法访问任何数据</td></tr><tr><td>anon key 没有泄露为 service_role</td><td>看 Lovable 项目里配置的 key 以 <code>eyJ...</code> 开头且比 service_role 短</td></tr><tr><td>Storage bucket 权限配对</td><td>public bucket 不要放敏感文件；private bucket 记得建 Policy</td></tr><tr><td>Realtime 只在需要时开</td><td>不需要实时更新的表不要开 Replication，减少资源消耗</td></tr><tr><td>Email Confirm 重新开启</td><td>开发时关掉的 "Confirm email" 上线前要打开</td></tr></table>
       <p class="sales-card-lead">📦 用 Supabase 搭完了数据层，这个项目能进简历吗？Amelia 帮你评估：</p>
-    <div class="sales-card"><img src="assets/contact/sales-cards/amelia.jpg" alt="Amelia · Senior IT Career Consultant · 匠人学院" /></div>
+    <div class="sales-card"><img src="https://jracademy.ai/ebooks/lovable-guide-handbook/assets/contact/sales-cards/amelia.jpg" alt="Amelia · Senior IT Career Consultant · 匠人学院" /></div>
   </div>
 
 <a class="promo-line" href="https://jracademy.ai/blog" target="_blank" rel="noopener">📰 跟上行业节奏：匠人每天 5 条经过核源的 AI 日报，每周一份大事盘点 <span>→</span></a>
@@ -818,7 +830,7 @@ return () =&gt; {
         <div class="ch-num">CHAPTER 07</div>
         <h2>🌐 从 Lovable 到生产：自定义域名、SEO meta 和 Google Analytics</h2>
       </div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-hero.png" alt="" />
+      <img class="ch-illo" src="https://jracademy.ai/ebooks/lovable-guide-handbook/assets/illustrations/niuxiaojiang-hero.png" alt="" />
     </div>
 <p>Lovable 默认给每个项目分配一个 <code>yourapp.lovable.app</code> 子域名，发开发原型够用，但上线产品不行——用户不信任 <code>lovable.app</code> 结尾的域名，SEO 权重也归不到你自己。这一章把三件事拆开讲：把域名换成你的、让搜索引擎读到正确的元数据、接 GA4 追踪用户行为。</p>
 <h3>1. 先发布，再接域名</h3>
@@ -951,32 +963,32 @@ function usePageTracking() {
 <p><strong>OG 图片在微信里不显示</strong></p>
 <p>微信的图片爬虫对 CORS 和 Content-Type 有要求，图片必须放在自己的域名（不能是跨域的图床），且 Content-Type 必须是 <code>image/png</code> 或 <code>image/jpeg</code>。把 OG 图放到 Lovable 项目 <code>public/</code> 目录，用你的自定义域名 URL 引用。</p>
       <p class="sales-card-lead">🌐 应用上线了，用户数据怎么追踪、SEO 怎么做，下一步聊什么？Rain 帮你想：</p>
-    <div class="sales-card"><img src="assets/contact/sales-cards/rain.jpg" alt="Rain · Senior IT Career Consultant · 匠人学院" /></div>
+    <div class="sales-card"><img src="https://jracademy.ai/ebooks/lovable-guide-handbook/assets/contact/sales-cards/rain.jpg" alt="Rain · Senior IT Career Consultant · 匠人学院" /></div>
   </div>
 </section>
 
 </main>
 
 <section class="page back-cover">
-  <div class="logo"><img src="assets/logo/logo-zh-white.png" alt="匠人学院" /></div>
+  <div class="logo"><img src="https://jracademy.ai/ebooks/lovable-guide-handbook/assets/logo/logo-zh-white.png" alt="匠人学院" /></div>
   <h2>用 Lovable 搭出来了，接下来怎么写进简历？</h2>
   <p style="max-width: 78%;">这本手册的在线版在 jiangren.com.au/wiki/lovable-guide，随官网更新。匠人学院还有 20+ 本同款 AI 工具指南（Claude Code、Cursor、Windsurf、CrewAI、Dify、n8n…）和 AI Engineer 方向的项目制课程——想知道 Lovable + Supabase 项目怎么落到简历里、做成找工作的作品，来聊聊。</p>
 
-  <div class="sales-card" style="width: 88%;"><img src="assets/contact/sales-cards/angela.jpg" alt="Angela · IT Career Consultant · 匠人学院" /></div>
+  <div class="sales-card" style="width: 88%;"><img src="https://jracademy.ai/ebooks/lovable-guide-handbook/assets/contact/sales-cards/angela.jpg" alt="Angela · IT Career Consultant · 匠人学院" /></div>
 
   <div class="contact-bar" style="width: 88%;">
-    <img class="qr" src="assets/contact/qr-amelia.png" alt="Amelia · 匠人学院 IT 顾问微信" />
+    <img class="qr" src="https://jracademy.ai/ebooks/lovable-guide-handbook/assets/contact/qr-amelia.png" alt="Amelia · 匠人学院 IT 顾问微信" />
     <div class="cb-body">
       <div class="cb-title">扫码进社群，Lovable 实操答疑</div>
       <div class="cb-desc">把这本 PDF 转给还在从零手写 React 样板代码的同事。</div>
     </div>
-    <div class="cb-brand"><img src="assets/logo/jr-box.svg" alt="JR" /><span class="cb-url">jracademy.ai</span></div>
+    <div class="cb-brand"><img src="https://jracademy.ai/ebooks/lovable-guide-handbook/assets/logo/jr-box.svg" alt="JR" /><span class="cb-url">jracademy.ai</span></div>
   </div>
 
   <p class="caption" style="color: rgba(255,255,255,0.5);">© JR Academy · 学 AI 来匠人 · 内容源自 jiangren.com.au/wiki《Lovable 实战手册》· 欢迎转发</p>
 </section>
 
-<script defer src="theme/reader.js"></script>
-<a href="Lovable%20%E5%AE%9E%E6%88%98%E6%89%8B%E5%86%8C%EF%BC%9Avibe%20coding%20%E6%97%B6%E4%BB%A3%E7%9A%84%E5%85%A8%E6%A0%88%E5%BA%94%E7%94%A8%E6%9E%84%E5%BB%BA%20-%20%E5%8C%A0%E4%BA%BA%E5%AD%A6%E9%99%A2.pdf" download style="position:fixed;right:22px;bottom:22px;z-index:1200;display:flex;align-items:center;gap:8px;background:#0D0F12;color:#fff;font-weight:700;font-size:14.5px;padding:13px 22px;border-radius:999px;box-shadow:0 12px 28px rgba(13,15,18,.35);text-decoration:none;font-family:Inter,'PingFang SC',sans-serif;">⬇️ 下载 PDF 版</a>
+<script defer src="https://jracademy.ai/ebooks/lovable-guide-handbook/theme/reader.js"></script>
+<a href="https://jracademy.ai/ebooks/lovable-guide-handbook/Lovable%20%E5%AE%9E%E6%88%98%E6%89%8B%E5%86%8C%EF%BC%9Avibe%20coding%20%E6%97%B6%E4%BB%A3%E7%9A%84%E5%85%A8%E6%A0%88%E5%BA%94%E7%94%A8%E6%9E%84%E5%BB%BA%20-%20%E5%8C%A0%E4%BA%BA%E5%AD%A6%E9%99%A2.pdf" download style="position:fixed;right:22px;bottom:22px;z-index:1200;display:flex;align-items:center;gap:8px;background:#0D0F12;color:#fff;font-weight:700;font-size:14.5px;padding:13px 22px;border-radius:999px;box-shadow:0 12px 28px rgba(13,15,18,.35);text-decoration:none;font-family:Inter,'PingFang SC',sans-serif;">⬇️ 下载 PDF 版</a>
 </body>
 </html>

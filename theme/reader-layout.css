@@ -1,0 +1,55 @@
+@media screen and (max-width: 840px) {
+  body:not(.reader-mode) > .page {
+    zoom: var(--ebook-page-scale, 1);
+  }
+
+  body main.flow {
+    width: calc(100% - 24px);
+    max-width: 760px;
+    padding: 24px 18px 150px;
+    overflow-wrap: anywhere;
+  }
+
+  main.flow p, main.flow li {
+    font-size: 15px;
+  }
+
+  main.flow .ch-head > div {
+    min-width: 0;
+  }
+
+  main.flow img {
+    max-width: 100%;
+    object-fit: contain;
+  }
+
+  main.flow table, main.flow pre, main.flow .chart {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  main.flow .stat-grid, main.flow .duo-path {
+    grid-template-columns: 1fr;
+  }
+
+  body .reader-bar {
+    bottom: calc(8px + env(safe-area-inset-bottom));
+    max-width: calc(100% - 24px);
+  }
+
+  body .reader-bar button, body .reader-bar .rd-toggle {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  body .reader-bar .rd-toggle {
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+
+  body:has(.reader-bar) a[download][style*="fixed"] {
+    bottom: calc(80px + env(safe-area-inset-bottom)) !important;
+    right: 16px !important;
+  }
+}

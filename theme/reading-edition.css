@@ -1,0 +1,236 @@
+@media print {
+  .edition-header, .edition-cover { display: none !important; }
+}
+
+@media screen {
+  html:has(.edition-reader) {
+    scroll-padding-top: 80px;
+    background: var(--jc-surface);
+  }
+
+  body.edition-reader {
+    padding-top: 72px;
+    background: var(--jc-surface);
+  }
+
+  body.edition-reader.reader-mode { padding-top: 0; }
+  .edition-reader .ebook-navigation, .edition-reader .edition-original-download,
+  .edition-reader .jr-wm, .edition-reader .ch-illo,
+  .edition-reader .back-mascot, .edition-reader img[alt="牛小匠"] { display: none !important; }
+
+  .edition-header {
+    position: fixed;
+    inset: 0 0 auto;
+    z-index: 1300;
+    border-bottom: 1px solid var(--jc-hairline);
+    background: var(--jc-canvas);
+    color: var(--jc-ink);
+    font: 700 var(--jc-fs-small)/1.35 var(--jc-font-body);
+  }
+
+  .edition-nav {
+    display: flex;
+    min-height: 56px;
+    max-width: var(--jc-container);
+    margin-inline: auto;
+    padding-inline: var(--jc-gutter);
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--jc-s-4);
+  }
+
+  .edition-shelf {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    gap: var(--jc-s-4);
+    min-height: var(--jc-tap-min);
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .edition-logo { width: 98px; height: auto; }
+  .edition-nav-title { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--jc-slate); }
+  .edition-header :focus-visible, .edition-cover :focus-visible, .edition-reader .reader-bar button:focus-visible {
+    outline: 3px solid var(--jc-focus);
+    outline-offset: 3px;
+  }
+
+  body.edition-reader .page.edition-opening {
+    padding: 0 !important;
+    border: 1px solid var(--jc-hairline);
+    border-radius: var(--jc-r-feature);
+    background: var(--jc-canvas-pure);
+    color: var(--jc-ink);
+    text-align: left;
+    overflow: hidden;
+    animation: none;
+  }
+
+  .edition-reader .edition-opening > :not(.edition-cover),
+  .edition-reader .edition-opening::before, .edition-reader .edition-opening::after { display: none !important; }
+
+  body.edition-reader .page.edition-opening {
+    width: min(940px, calc(100% - 32px));
+    min-height: min(550px, 68svh);
+    height: auto !important;
+    margin: 12px auto 0;
+    zoom: 1 !important;
+  }
+
+  body.edition-reader.reader-mode .page.edition-opening.current {
+    position: fixed;
+    inset: 72px auto auto 50%;
+    max-height: calc(100svh - 152px);
+    overflow: auto;
+    margin: 0;
+    transform: translateX(-50%);
+  }
+
+  body.edition-reader .edition-opening .edition-cover {
+    position: relative;
+    display: grid;
+    flex: 1;
+    grid-template-columns: minmax(0, 1fr) minmax(130px, .55fr);
+    align-items: center;
+    gap: var(--jc-s-7);
+    width: 100%;
+    min-height: inherit;
+    height: 100%;
+    padding: clamp(24px, 6vw, 72px);
+    background: linear-gradient(110deg, var(--jc-canvas) 48%, var(--jc-wash-coral));
+    color: var(--jc-ink);
+    text-align: left;
+  }
+
+  .edition-title {
+    max-width: 15ch;
+    color: var(--jc-ink);
+    font: 700 clamp(32px, 5vw, 60px)/1.18 var(--jc-font-heading);
+    text-wrap: balance;
+    overflow-wrap: anywhere;
+  }
+
+  body.edition-reader .edition-opening p.edition-description {
+    margin: var(--jc-s-5) 0 var(--jc-s-5);
+    color: var(--jc-ink-soft);
+    font: 400 var(--jc-fs-body)/1.8 var(--jc-font-body);
+    text-wrap: pretty;
+    overflow-wrap: anywhere;
+  }
+
+  .edition-start { margin-top: var(--jc-s-2); }
+  .edition-reader .edition-opening p.edition-note { margin-top: var(--jc-s-5); font: 400 var(--jc-fs-caption)/1.6 var(--jc-font-body); color: var(--jc-slate); }
+
+  .edition-art {
+    position: relative;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    aspect-ratio: 3 / 4;
+    width: min(100%, 220px);
+    border-radius: 3px var(--jc-r-sm) var(--jc-r-sm) 3px;
+    background: linear-gradient(90deg, var(--jc-night-2) 4%, var(--jc-night) 5%);
+    box-shadow: 5px 4px 0 var(--jc-surface-soft), var(--jc-shadow-pop);
+    transform: rotate(8deg);
+  }
+
+  .edition-art::after {
+    position: absolute;
+    inset: 12% 12%;
+    border: 1px solid var(--jc-night-line);
+    border-radius: var(--jc-r-xs);
+    content: "";
+  }
+
+  .edition-reader .edition-cover img.edition-mark { width: 69%; height: auto; }
+
+  body.edition-reader main.flow {
+    width: min(940px, calc(100% - 32px));
+    max-width: none;
+    padding: clamp(23px, 4.5vw, 66px) clamp(20px, 5vw, 72px) 112px;
+    border-radius: var(--jc-r-feature);
+    background: var(--jc-canvas-pure);
+    color: var(--jc-ink);
+    font-family: var(--jc-font-body);
+    box-shadow: var(--jc-shadow-card);
+    overflow-wrap: anywhere;
+  }
+
+  .edition-reader:not(.reader-flow) main.flow { margin-top: var(--jc-s-5); }
+  .edition-reader main.flow p, .edition-reader main.flow li, .edition-reader main.flow td {
+    font-size: clamp(15px, 1.7vw, 17px);
+    line-height: 1.8;
+  }
+  .edition-reader main.flow h2 { color: var(--jc-ink); font: 700 clamp(24px, 3.5vw, 38px)/1.25 var(--jc-font-heading); }
+  .edition-reader main.flow h3 { color: var(--jc-ink); font-size: 20px; }
+  .edition-reader main.flow .ch-num { transform: none; color: var(--jc-coral-deep); background: var(--jc-wash-coral); font-family: var(--jc-font-body); }
+  .edition-reader main.flow .book-toc a {
+    display: flex;
+    align-items: baseline;
+    gap: var(--jc-s-3);
+    color: var(--jc-ink);
+    background: var(--jc-canvas);
+    padding: var(--jc-s-3);
+    border: 1px solid var(--jc-hairline);
+    border-radius: var(--jc-r-sm);
+    margin-block: var(--jc-s-2);
+    line-height: 1.45;
+  }
+  .edition-reader main.flow .book-toc a:hover { background: var(--jc-wash-coral); }
+  .edition-reader main.flow table, .edition-reader main.flow pre {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+  .edition-reader main.flow th, .edition-reader main.flow .callout {
+    font-size: var(--jc-fs-small);
+    line-height: 1.65;
+  }
+  .edition-reader main.flow img { max-width: 100%; object-fit: contain; }
+  .edition-reader main.flow section.ch { scroll-margin-top: 14px; }
+  .edition-reader:not(.reader-flow) main.flow section.ch { margin-top: var(--jc-s-10); }
+  .edition-reader main.flow .card, .edition-reader main.flow .mini {
+    border-color: var(--jc-hairline);
+    border-radius: var(--jc-r-input);
+  }
+  .edition-reader:not(.edition-fixed) .page.back-cover {
+    max-width: calc(100% - 32px);
+    border-radius: var(--jc-r-feature);
+    box-shadow: var(--jc-shadow-card);
+  }
+
+  body.edition-reader .reader-bar {
+    padding: 4px 8px !important;
+    border: 1px solid var(--jc-hairline);
+    background: var(--jc-canvas-pure) !important;
+    color: var(--jc-ink) !important;
+    box-shadow: var(--jc-shadow-pop);
+  }
+  body.edition-reader .reader-bar button {
+    min-height: var(--jc-tap-min);
+    min-width: var(--jc-tap-min);
+    color: var(--jc-ink) !important;
+    font-family: var(--jc-font-body);
+  }
+  body.edition-reader .reader-bar button:hover { background: var(--jc-surface); }
+  .edition-reader .reader-bar .rd-toggle { white-space: nowrap; flex-shrink: 0; border-color: var(--jc-hairline); }
+  .edition-reader .reader-counter { color: var(--jc-slate); }
+}
+
+@media screen and (max-width: 767px) {
+  body.edition-reader { padding-top: 62px; }
+  .edition-nav { min-height: 54px; padding-inline: var(--jc-s-3); gap: var(--jc-s-2); }
+  .edition-shelf { gap: var(--jc-s-2); }
+  .edition-logo { width: 78px; }
+  .edition-nav-title { display: none; }
+  .edition-download { min-height: var(--jc-tap-min); padding-inline: var(--jc-s-3); }
+  body.edition-reader .page.edition-opening { min-height: 0; border-radius: var(--jc-r-tile); }
+  body.edition-reader.reader-mode .page.edition-opening.current { top: 66px; }
+  body.edition-reader .edition-opening .edition-cover { gap: var(--jc-s-4); grid-template-columns: minmax(0, 1fr); padding: var(--jc-s-6); }
+  .edition-cover .edition-art { display: none; }
+  .edition-reader main.flow .mini-grid, .edition-reader main.flow .qgrid,
+  .edition-reader main.flow .stat-grid, .edition-reader main.flow .duo-path { grid-template-columns: 1fr; }
+  body.edition-reader main.flow { border-radius: var(--jc-r-tile); }
+  .edition-reader.reader-mobile-canvas .reader-viewport { padding-top: 62px; background: var(--jc-surface); }
+}

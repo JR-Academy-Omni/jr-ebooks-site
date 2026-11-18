@@ -4,17 +4,29 @@
 <meta charset="UTF-8" />
 <title>AI 提问速查手册 — JR Academy</title>
 <link rel="canonical" href="https://jracademy.ai/ebooks/ai-prompt-quick-handbook" />
-<link rel="stylesheet" href="theme/ebook.css" />
-<link rel="stylesheet" href="theme/styles/report.css" />
+<link rel="stylesheet" href="https://jracademy.ai/ebooks/ai-prompt-quick-handbook/theme/ebook.css" />
+<link rel="stylesheet" href="https://jracademy.ai/ebooks/ai-prompt-quick-handbook/theme/styles/report.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- ebook-reader-layout -->
+<link rel="stylesheet" href="https://jracademy.ai/ebooks/theme/reader-layout.css" />
+<script defer src="https://jracademy.ai/ebooks/theme/reader-layout.js"></script>
+<link rel="icon" type="image/svg+xml" href="https://jracademy.ai/ebooks/theme/assets/logo/jr-box.svg" />
+<!-- reading-edition:start -->
+<link rel="stylesheet" href="https://jracademy.ai/ebooks/theme/tokens/jr-craft.css" />
+<link rel="stylesheet" href="https://jracademy.ai/ebooks/theme/styles/jr-craft.css" />
+<link rel="stylesheet" href="https://jracademy.ai/ebooks/theme/reading-edition.css" />
+<script type="application/json" id="reading-edition-info">{"title": "AI 提问速查手册", "description": "Prompt Master 公开课精华本：四要素、核心 techniques、风险防护"}</script>
+<script defer src="https://jracademy.ai/ebooks/theme/reading-edition.js"></script>
+<!-- reading-edition:end -->
 </head>
 <body>
-<img class="jr-wm" src="assets/logo/jr-box.svg" alt="" />
+<img class="jr-wm" src="https://jracademy.ai/ebooks/ai-prompt-quick-handbook/assets/logo/jr-box.svg" alt="" />
 
 <!-- P1 封面 v2 黑底大字报 -->
 <section class="page cover2">
   <div class="cv2-ghost">?!</div>
   <div class="cv2-head">
-    <img src="assets/logo/logo-zh-white.png" alt="匠人学院" />
+    <img src="https://jracademy.ai/ebooks/ai-prompt-quick-handbook/assets/logo/logo-zh-white.png" alt="匠人学院" />
     <span class="cv2-sticker">✂️ 复制就能用</span>
   </div>
   <div class="cv2-body">
@@ -29,7 +41,7 @@
     </div>
     <div class="cv2-diecut">公开课精华本，例子全是真的</div>
   </div>
-  <img class="cv2-mascot" src="assets/illustrations/niuxiaojiang-thinking.png" alt="牛小匠" />
+  <img class="cv2-mascot" src="https://jracademy.ai/ebooks/ai-prompt-quick-handbook/assets/illustrations/niuxiaojiang-thinking.png" alt="牛小匠" />
   <div class="cv2-domain">jracademy.ai · 学 AI 来匠人</div>
   <div class="cv2-strip"><span>学 AI 来匠人 <i>✦</i> PROMPT PLAYBOOK <i>✦</i> JIANGREN.COM.AU <i>✦</i> 复制就能用 <i>✦</i> 学 AI 来匠人 <i>✦</i></span></div>
 </section>
@@ -65,7 +77,7 @@
     <div class="callout mt-4"><strong>三种常用组合：</strong>Instruction + Input（翻译/摘要这类最简任务）；Instruction + Context + Input（带角色和规则的业务场景）；Instruction + Context + Output Indicator（无输入的生成任务，比如写文案、定计划）。</div>
   </div>
   <div class="page-footer">
-    <span class="brand"><img src="assets/logo/jr-box.svg" alt="JR" />jracademy.ai</span>
+    <span class="brand"><img src="https://jracademy.ai/ebooks/ai-prompt-quick-handbook/assets/logo/jr-box.svg" alt="JR" />jracademy.ai</span>
     <span class="page-num">2</span>
   </div>
 </section>
@@ -106,7 +118,7 @@ at Lisbon's Champalimaud Centre said: ..."
   </div>
 
   <div class="page-footer">
-    <span class="brand"><img src="assets/logo/jr-box.svg" alt="JR" />jracademy.ai</span>
+    <span class="brand"><img src="https://jracademy.ai/ebooks/ai-prompt-quick-handbook/assets/logo/jr-box.svg" alt="JR" />jracademy.ai</span>
     <span class="page-num">3</span>
   </div>
 </section>
@@ -141,7 +153,7 @@ An example of a sentence that uses the word farduddle is:
   </div>
 
   <div class="page-footer">
-    <span class="brand"><img src="assets/logo/jr-box.svg" alt="JR" />jracademy.ai</span>
+    <span class="brand"><img src="https://jracademy.ai/ebooks/ai-prompt-quick-handbook/assets/logo/jr-box.svg" alt="JR" />jracademy.ai</span>
     <span class="page-num">4</span>
   </div>
 </section>
@@ -177,7 +189,7 @@ ate 1. How many apples do I have left?
   <div class="callout mt-4">💡 中文同理："请一步步推理，再给最终答案。" 注意：GPT-5 reasoning mode、Claude extended thinking 这类推理模型内部已经在做 CoT，不用再画蛇添足。</div>
 
   <div class="page-footer">
-    <span class="brand"><img src="assets/logo/jr-box.svg" alt="JR" />jracademy.ai</span>
+    <span class="brand"><img src="https://jracademy.ai/ebooks/ai-prompt-quick-handbook/assets/logo/jr-box.svg" alt="JR" />jracademy.ai</span>
     <span class="page-num">5</span>
   </div>
 </section>
@@ -202,16 +214,16 @@ was 3. Now I am 70, so she is 70 - 3 = 67.  ✅
   <div class="callout mt-4">💡 <strong>手动版人人可用：</strong>重要的计算/决策，同一个问题开 3 个对话各问一遍（或让它"用三种不同思路各算一次"），答案不一致就要警惕 —— 这招对算术和常识推理类任务提升最明显。</div>
 
   <div class="contact-bar mt-6">
-    <img class="qr" src="assets/contact/qr-amelia.png" alt="Amelia · 匠人学院 IT 顾问微信" />
+    <img class="qr" src="https://jracademy.ai/ebooks/ai-prompt-quick-handbook/assets/contact/qr-amelia.png" alt="Amelia · 匠人学院 IT 顾问微信" />
     <div class="cb-body">
       <div class="cb-title">想在浏览器里直接练这些技巧？</div>
       <div class="cb-desc">扫码进群，领 Prompt Master Lab 入口 —— 每个 technique 都有可交互练习，免费。</div>
     </div>
-    <div class="cb-brand"><img src="assets/logo/jr-box.svg" alt="JR" /><span class="cb-url">jracademy.ai</span></div>
+    <div class="cb-brand"><img src="https://jracademy.ai/ebooks/ai-prompt-quick-handbook/assets/logo/jr-box.svg" alt="JR" /><span class="cb-url">jracademy.ai</span></div>
   </div>
 
   <div class="page-footer">
-    <span class="brand"><img src="assets/logo/jr-box.svg" alt="JR" />jracademy.ai</span>
+    <span class="brand"><img src="https://jracademy.ai/ebooks/ai-prompt-quick-handbook/assets/logo/jr-box.svg" alt="JR" />jracademy.ai</span>
     <span class="page-num">6</span>
   </div>
 </section>
@@ -250,7 +262,7 @@ Q: Who is Neto Beto Roberto?
   </div>
 
   <div class="page-footer">
-    <span class="brand"><img src="assets/logo/jr-box.svg" alt="JR" />jracademy.ai</span>
+    <span class="brand"><img src="https://jracademy.ai/ebooks/ai-prompt-quick-handbook/assets/logo/jr-box.svg" alt="JR" />jracademy.ai</span>
     <span class="page-num">7</span>
   </div>
 </section>
@@ -277,7 +289,7 @@ Q: Who is Neto Beto Roberto?
   <div class="callout mt-4">📚 <strong>继续学（全部免费）：</strong>本书是匠人 Prompt Master 公开课的精华本 —— 完整版还有 17 个 techniques（ToT / ReAct / APE / Self-Consistency 完整算法…）、prompt library 按场景查模板、各家 system prompt 逐家分析、风险防护全集。入口：jiangren.com.au/learn/prompt-master，配套 Prompt Master Lab 可以边学边练。</div>
 
   <div class="page-footer">
-    <span class="brand"><img src="assets/logo/jr-box.svg" alt="JR" />jracademy.ai</span>
+    <span class="brand"><img src="https://jracademy.ai/ebooks/ai-prompt-quick-handbook/assets/logo/jr-box.svg" alt="JR" />jracademy.ai</span>
     <span class="page-num">8</span>
   </div>
 </section>
@@ -285,7 +297,7 @@ Q: Who is Neto Beto Roberto?
 
 <!-- ============ P8 封底 CTA ============ -->
 <section class="page back-cover">
-  <div class="logo"><img src="assets/logo/logo-zh-white.png" alt="匠人学院" /></div>
+  <div class="logo"><img src="https://jracademy.ai/ebooks/ai-prompt-quick-handbook/assets/logo/logo-zh-white.png" alt="匠人学院" /></div>
   <h2>这本精华本只是起点</h2>
   <p style="max-width: 78%;">匠人学院是全球华人学习 AI 的第一站。从 Prompt 写作到 AI 编程、从入门自学到求职陪跑，我们把"会用 AI"变成你简历上拿得出手的能力。</p>
   <p style="max-width: 78%;">网站上有免费的学习路线图、刷题题库和每周更新的 AI 实战内容 —— 不需要注册也能看。</p>
@@ -293,7 +305,7 @@ Q: Who is Neto Beto Roberto?
   <p class="caption" style="color: rgba(255,255,255,0.5);">© JR Academy · 学 AI 来匠人 · 欢迎转发分享本手册</p>
 </section>
 
-<script defer src="theme/reader.js"></script>
-<a href="AI%20%E6%8F%90%E9%97%AE%E9%80%9F%E6%9F%A5%E6%89%8B%E5%86%8C%20-%20%E5%8C%A0%E4%BA%BA%E5%AD%A6%E9%99%A2.pdf" download style="position:fixed;right:22px;bottom:22px;z-index:1200;display:flex;align-items:center;gap:8px;background:#0D0F12;color:#fff;font-weight:700;font-size:14.5px;padding:13px 22px;border-radius:999px;box-shadow:0 12px 28px rgba(13,15,18,.35);text-decoration:none;font-family:Inter,'PingFang SC',sans-serif;">⬇️ 下载 PDF 版</a>
+<script defer src="https://jracademy.ai/ebooks/ai-prompt-quick-handbook/theme/reader.js"></script>
+<a href="https://jracademy.ai/ebooks/ai-prompt-quick-handbook/AI%20%E6%8F%90%E9%97%AE%E9%80%9F%E6%9F%A5%E6%89%8B%E5%86%8C%20-%20%E5%8C%A0%E4%BA%BA%E5%AD%A6%E9%99%A2.pdf" download style="position:fixed;right:22px;bottom:22px;z-index:1200;display:flex;align-items:center;gap:8px;background:#0D0F12;color:#fff;font-weight:700;font-size:14.5px;padding:13px 22px;border-radius:999px;box-shadow:0 12px 28px rgba(13,15,18,.35);text-decoration:none;font-family:Inter,'PingFang SC',sans-serif;">⬇️ 下载 PDF 版</a>
 </body>
 </html>

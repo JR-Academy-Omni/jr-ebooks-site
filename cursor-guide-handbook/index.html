@@ -4,16 +4,28 @@
 <meta charset="UTF-8" />
 <title>Cursor 中文上手手册 — JR Academy</title>
 <link rel="canonical" href="https://jracademy.ai/ebooks/cursor-guide-handbook" />
-<link rel="stylesheet" href="theme/ebook.css" />
-<link rel="stylesheet" href="theme/flow-a4.css" />
+<link rel="stylesheet" href="https://jracademy.ai/ebooks/cursor-guide-handbook/theme/ebook.css" />
+<link rel="stylesheet" href="https://jracademy.ai/ebooks/cursor-guide-handbook/theme/flow-a4.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- ebook-reader-layout -->
+<link rel="stylesheet" href="https://jracademy.ai/ebooks/theme/reader-layout.css" />
+<script defer src="https://jracademy.ai/ebooks/theme/reader-layout.js"></script>
+<link rel="icon" type="image/svg+xml" href="https://jracademy.ai/ebooks/theme/assets/logo/jr-box.svg" />
+<!-- reading-edition:start -->
+<link rel="stylesheet" href="https://jracademy.ai/ebooks/theme/tokens/jr-craft.css" />
+<link rel="stylesheet" href="https://jracademy.ai/ebooks/theme/styles/jr-craft.css" />
+<link rel="stylesheet" href="https://jracademy.ai/ebooks/theme/reading-edition.css" />
+<script type="application/json" id="reading-edition-info">{"title": "Cursor 中文上手手册", "description": "AI 编程 IDE 实战：Agent Mode 自主编程、MCP 集成、.cursor/rules/*.mdc 全解析，7 章配真实命令和配置"}</script>
+<script defer src="https://jracademy.ai/ebooks/theme/reading-edition.js"></script>
+<!-- reading-edition:end -->
 </head>
 <body>
-<img class="jr-wm" src="assets/logo/jr-box.svg" alt="" />
+<img class="jr-wm" src="https://jracademy.ai/ebooks/cursor-guide-handbook/assets/logo/jr-box.svg" alt="" />
 
 <section class="page cover2">
   <div class="cv2-ghost">CURSOR</div>
   <div class="cv2-head">
-    <img src="assets/logo/logo-zh-white.png" alt="匠人学院" />
+    <img src="https://jracademy.ai/ebooks/cursor-guide-handbook/assets/logo/logo-zh-white.png" alt="匠人学院" />
     <span class="cv2-sticker">🤖 2026 实操版</span>
   </div>
   <div class="cv2-body">
@@ -29,7 +41,7 @@
     <div class="cv2-diecut">写代码是 Tab，复杂任务是 Agent</div>
   </div>
   <span class="cv2-holo">⌨️</span>
-  <img class="cv2-mascot" src="assets/illustrations/niuxiaojiang-working-laptop.png" alt="牛小匠" />
+  <img class="cv2-mascot" src="https://jracademy.ai/ebooks/cursor-guide-handbook/assets/illustrations/niuxiaojiang-working-laptop.png" alt="牛小匠" />
   <div class="cv2-domain">jracademy.ai · 在线版随官网更新 /wiki/cursor-guide</div>
   <div class="cv2-strip"><span>学 AI 来匠人 <i>✦</i> Cursor 上手手册 <i>✦</i> JIANGREN.COM.AU <i>✦</i> 写代码是 Tab，复杂任务是 Agent <i>✦</i> 学 AI 来匠人 <i>✦</i></span></div>
 </section>
@@ -54,7 +66,7 @@
       <p>这本书和官网 wiki《Cursor 上手指南》同源（jiangren.com.au/wiki/cursor-guide，免费、不用注册，官网那份持续更新）。刚听说 Cursor 不知道值不值得换的，第 1 章 5 分钟搞清楚；VS Code 用户想零成本切过来的，第 2 章照着做；想把 Agent Mode 真正用起来的，第 3、4 章是重点——有具体的 prompt 写法和 .cursorrules 模板；想把 Cursor 接数据库、文档、GitHub 的，第 6 章的 MCP 配置可以直接抄；第 7 章的 .mdc Rules 是进阶内容，不急着用可以先跳过。</p>
     </div>
     <div class="contact-bar">
-      <img class="qr" src="assets/contact/qr-rain.png" alt="Rain · 匠人学院 IT 顾问微信" />
+      <img class="qr" src="https://jracademy.ai/ebooks/cursor-guide-handbook/assets/contact/qr-rain.png" alt="Rain · 匠人学院 IT 顾问微信" />
       <div><div class="t">💬 装 Cursor 卡住了？扫码进群问</div><div class="d">群里每周分享 Cursor 使用技巧和 AI 编程真实案例，都是干过活总结出来的。</div></div>
     </div>
   </div>
@@ -67,7 +79,7 @@
         <div class="ch-num">CHAPTER 01</div>
         <h2>🤖 Cursor 是什么：AI 编程 IDE 的王者</h2>
       </div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-thinking.png" alt="" />
+      <img class="ch-illo" src="https://jracademy.ai/ebooks/cursor-guide-handbook/assets/illustrations/niuxiaojiang-thinking.png" alt="" />
     </div>
 <h3>Cursor 一句话介绍</h3>
 <p>Cursor 是 Anysphere 团队打造的 AI 编程 IDE，2023 年发布，目前是全球用户量最大的 AI 代码编辑器。它 fork 了 VS Code 内核，在此基础上把 AI 做成了编辑器的一等公民——不是插件，是底层能力。</p>
@@ -109,7 +121,7 @@
         <div class="ch-num">CHAPTER 02</div>
         <h2>🚀 安装与第一个 Agent Mode 项目</h2>
       </div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-working-laptop.png" alt="" />
+      <img class="ch-illo" src="https://jracademy.ai/ebooks/cursor-guide-handbook/assets/illustrations/niuxiaojiang-working-laptop.png" alt="" />
     </div>
 <h3>下载安装</h3>
 <p>Cursor 支持 macOS、Windows、Linux，去官网下载安装包：</p>
@@ -176,7 +188,7 @@ __pycache__/</pre>
 <section class="ch" id="ch2-cta">
   <div class="wrap">
     <div class="contact-bar">
-      <img class="qr" src="assets/contact/qr-rain.png" alt="Rain · 匠人学院 IT 顾问微信" />
+      <img class="qr" src="https://jracademy.ai/ebooks/cursor-guide-handbook/assets/contact/qr-rain.png" alt="Rain · 匠人学院 IT 顾问微信" />
       <div><div class="t">👥 想找一起学 AI 编程的同学？</div><div class="d">加入匠人学院社群，每周有 Cursor 和 Claude Code 的真实案例分享。</div></div>
     </div>
   </div>
@@ -197,7 +209,7 @@ __pycache__/</pre>
         <div class="ch-num">CHAPTER 03</div>
         <h2>🧩 三大核心功能深度解析</h2>
       </div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-chart.png" alt="" />
+      <img class="ch-illo" src="https://jracademy.ai/ebooks/cursor-guide-handbook/assets/illustrations/niuxiaojiang-teaching-chart.png" alt="" />
     </div>
 <h3>Agent Mode：让 AI 自己写代码</h3>
 <p>Cursor Agent Mode 是目前 IDE 里最成熟的自主编程功能。按 <code>Ctrl/Cmd + I</code> 打开 Composer，顶部切到 Agent 模式，它就变成了一个能动手干活的 AI Agent。</p>
@@ -256,7 +268,7 @@ logging.info(f"User {user_id} logged in")  # 原来是 print(...)
         <div class="ch-num">CHAPTER 04</div>
         <h2>⚙️ 进阶配置与高级玩法</h2>
       </div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-coffee-pointing.png" alt="" />
+      <img class="ch-illo" src="https://jracademy.ai/ebooks/cursor-guide-handbook/assets/illustrations/niuxiaojiang-coffee-pointing.png" alt="" />
     </div>
 <h3>.cursorrules：让 Cursor 按你的规矩写代码</h3>
 <p>Cursor 最值得花时间配的东西就是 <code>.cursorrules</code>。在项目根目录创建这个文件，AI 每次生成代码都会遵守里面的规则——相当于给 AI 一份项目编码规范。</p>
@@ -362,7 +374,7 @@ logging.info(f"User {user_id} logged in")  # 原来是 print(...)
 <section class="ch">
   <div class="wrap">
     <p class="sales-card-lead">配好 .cursorrules 和 MCP 之后，想聊聊怎么把 AI 编程能力转化成职业竞争力？</p>
-    <div class="sales-card"><img src="assets/contact/sales-cards/rain.jpg" alt="Rain · Senior IT Career Consultant" /></div>
+    <div class="sales-card"><img src="https://jracademy.ai/ebooks/cursor-guide-handbook/assets/contact/sales-cards/rain.jpg" alt="Rain · Senior IT Career Consultant" /></div>
   </div>
 </section>
 
@@ -373,7 +385,7 @@ logging.info(f"User {user_id} logged in")  # 原来是 print(...)
         <div class="ch-num">CHAPTER 05</div>
         <h2>❓ 常见问题、定价与选型建议</h2>
       </div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-pen-book.png" alt="" />
+      <img class="ch-illo" src="https://jracademy.ai/ebooks/cursor-guide-handbook/assets/illustrations/niuxiaojiang-pen-book.png" alt="" />
     </div>
 <h3>常见问题</h3>
 <h4>Agent Mode 改错了代码怎么办？</h4>
@@ -454,7 +466,7 @@ Windsurf Pro $20/月:
         <div class="ch-num">CHAPTER 06</div>
         <h2>🔌 Cursor MCP 集成实战</h2>
       </div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-data.png" alt="" />
+      <img class="ch-illo" src="https://jracademy.ai/ebooks/cursor-guide-handbook/assets/illustrations/niuxiaojiang-teaching-data.png" alt="" />
     </div>
 <p>MCP（Model Context Protocol）是 Anthropic 提出的一个开放协议，定义了 AI 如何与外部工具和数据源通信。Cursor 从 0.43 版本起内置 MCP 支持，现在你可以把 GitHub、Notion、Postgres 这些工具直接接进 Agent Mode，让 AI 不只是"建议"——而是真的帮你执行操作。</p>
 <p>截至 2026 年初，社区已有超过 5000 个 MCP 服务端，覆盖数据库、文档、监控、支付等几乎所有常见工具。</p>
@@ -652,7 +664,7 @@ ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT ON TABLES TO cursor_mcp;<
 <section class="ch">
   <div class="wrap">
     <div class="contact-bar">
-      <img class="qr" src="assets/contact/qr-amelia.png" alt="Amelia · IT Career Consultant" />
+      <img class="qr" src="https://jracademy.ai/ebooks/cursor-guide-handbook/assets/contact/qr-amelia.png" alt="Amelia · IT Career Consultant" />
       <div><div class="t">🔌 MCP 接了哪些工具最有用？</div><div class="d">群里有人整理了 10 个最常用的 MCP Server 配置，进群发口令"MCP"领取。</div></div>
     </div>
   </div>
@@ -666,7 +678,7 @@ ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT ON TABLES TO cursor_mcp;<
         <div class="ch-num">CHAPTER 07</div>
         <h2>📋 .cursor/rules/*.mdc 深度解析</h2>
       </div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-hero.png" alt="" />
+      <img class="ch-illo" src="https://jracademy.ai/ebooks/cursor-guide-handbook/assets/illustrations/niuxiaojiang-hero.png" alt="" />
     </div>
 <p><code>.cursorrules</code> 是 Cursor 早期的规则方案：一个文件，写啥都往里扔，每次对话都全量注入上下文。规则多了之后这个方案开始露出问题——token 消耗直接拉满，不相关的规则也在占位，Agent 的注意力被稀释。</p>
 <p>从 0.45 版本起，Cursor 正式推出 <code>.cursor/rules/</code> 目录 + <code>.mdc</code> 文件的新方案，核心改变是<strong>按需注入</strong>：一条规则只有在真正需要的时候才出现在上下文里。</p>
@@ -850,19 +862,19 @@ alwaysApply: false
 
 <section class="page back-cover">
   <div class="bc-inner" style="width:100%;max-width:170mm;">
-    <img src="assets/logo/logo-zh-white.png" alt="匠人学院" class="bc-logo" style="height:12mm;width:auto;" />
+    <img src="https://jracademy.ai/ebooks/cursor-guide-handbook/assets/logo/logo-zh-white.png" alt="匠人学院" class="bc-logo" style="height:12mm;width:auto;" />
     <div class="bc-tagline">学 AI 来匠人</div>
     <p class="bc-body">Cursor 的 Agent Mode 配好了之后，真正的问题是：你的项目架构让 AI 看得懂吗？想把 AI 编程能力变成真正的竞争力，看看匠人学院的 IT 求职课程。</p>
     <p class="sales-card-lead" style="color:#ccc;margin-top:0.6em;">在线版随官网持续更新：</p>
     <div class="bc-url">jiangren.com.au/wiki/cursor-guide</div>
-    <div class="sales-card" style="width:56%;"><img src="assets/contact/sales-cards/angela.jpg" alt="Angela · IT Career Consultant" /></div>
+    <div class="sales-card" style="width:56%;"><img src="https://jracademy.ai/ebooks/cursor-guide-handbook/assets/contact/sales-cards/angela.jpg" alt="Angela · IT Career Consultant" /></div>
     <div class="contact-bar" style="margin-top:0.8em;">
-      <img class="qr" src="assets/contact/qr-rain.png" alt="Rain · 匠人学院 IT 顾问微信" />
+      <img class="qr" src="https://jracademy.ai/ebooks/cursor-guide-handbook/assets/contact/qr-rain.png" alt="Rain · 匠人学院 IT 顾问微信" />
       <div><div class="t">💬 扫码关注匠人学院</div><div class="d">jracademy.ai</div></div>
     </div>
   </div>
 </section>
-<script defer src="theme/reader.js"></script>
-<a href="Cursor%20%E4%B8%AD%E6%96%87%E4%B8%8A%E6%89%8B%E6%89%8B%E5%86%8C%20-%20%E5%8C%A0%E4%BA%BA%E5%AD%A6%E9%99%A2.pdf" download style="position:fixed;right:22px;bottom:22px;z-index:1200;display:flex;align-items:center;gap:8px;background:#0D0F12;color:#fff;font-weight:700;font-size:14.5px;padding:13px 22px;border-radius:999px;box-shadow:0 12px 28px rgba(13,15,18,.35);text-decoration:none;font-family:Inter,'PingFang SC',sans-serif;">⬇️ 下载 PDF 版</a>
+<script defer src="https://jracademy.ai/ebooks/cursor-guide-handbook/theme/reader.js"></script>
+<a href="https://jracademy.ai/ebooks/cursor-guide-handbook/Cursor%20%E4%B8%AD%E6%96%87%E4%B8%8A%E6%89%8B%E6%89%8B%E5%86%8C%20-%20%E5%8C%A0%E4%BA%BA%E5%AD%A6%E9%99%A2.pdf" download style="position:fixed;right:22px;bottom:22px;z-index:1200;display:flex;align-items:center;gap:8px;background:#0D0F12;color:#fff;font-weight:700;font-size:14.5px;padding:13px 22px;border-radius:999px;box-shadow:0 12px 28px rgba(13,15,18,.35);text-decoration:none;font-family:Inter,'PingFang SC',sans-serif;">⬇️ 下载 PDF 版</a>
 </body>
 </html>

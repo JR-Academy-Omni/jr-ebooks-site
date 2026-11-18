@@ -4,16 +4,28 @@
 <meta charset="UTF-8" />
 <title>CrewAI 多 Agent 实战手册 — JR Academy</title>
 <link rel="canonical" href="https://jracademy.ai/ebooks/crewai-guide-handbook" />
-<link rel="stylesheet" href="theme/ebook.css" />
-<link rel="stylesheet" href="theme/flow-a4.css" />
+<link rel="stylesheet" href="https://jracademy.ai/ebooks/crewai-guide-handbook/theme/ebook.css" />
+<link rel="stylesheet" href="https://jracademy.ai/ebooks/crewai-guide-handbook/theme/flow-a4.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- ebook-reader-layout -->
+<link rel="stylesheet" href="https://jracademy.ai/ebooks/theme/reader-layout.css" />
+<script defer src="https://jracademy.ai/ebooks/theme/reader-layout.js"></script>
+<link rel="icon" type="image/svg+xml" href="https://jracademy.ai/ebooks/theme/assets/logo/jr-box.svg" />
+<!-- reading-edition:start -->
+<link rel="stylesheet" href="https://jracademy.ai/ebooks/theme/tokens/jr-craft.css" />
+<link rel="stylesheet" href="https://jracademy.ai/ebooks/theme/styles/jr-craft.css" />
+<link rel="stylesheet" href="https://jracademy.ai/ebooks/theme/reading-edition.css" />
+<script type="application/json" id="reading-edition-info">{"title": "CrewAI 多 Agent 实战手册", "description": "50k+ Star 开源框架：从安装到生产——Agent 角色设计、Task 链、Flow 编排、Memory、FastAPI + Docker 部署，8 章全有真实代码可复制"}</script>
+<script defer src="https://jracademy.ai/ebooks/theme/reading-edition.js"></script>
+<!-- reading-edition:end -->
 </head>
 <body>
-<img class="jr-wm" src="assets/logo/jr-box.svg" alt="" />
+<img class="jr-wm" src="https://jracademy.ai/ebooks/crewai-guide-handbook/assets/logo/jr-box.svg" alt="" />
 
 <section class="page cover2">
   <div class="cv2-ghost">CrewAI</div>
   <div class="cv2-head">
-    <img src="assets/logo/logo-zh-white.png" alt="匠人学院" />
+    <img src="https://jracademy.ai/ebooks/crewai-guide-handbook/assets/logo/logo-zh-white.png" alt="匠人学院" />
     <span class="cv2-sticker">🤖 2026 实战版</span>
   </div>
   <div class="cv2-body">
@@ -29,7 +41,7 @@
     <div class="cv2-diecut">一个人干不完的调研分析，让 Crew 来</div>
   </div>
   <span class="cv2-holo">🤖</span>
-  <img class="cv2-mascot" src="assets/illustrations/niuxiaojiang-working-laptop.png" alt="牛小匠" />
+  <img class="cv2-mascot" src="https://jracademy.ai/ebooks/crewai-guide-handbook/assets/illustrations/niuxiaojiang-working-laptop.png" alt="牛小匠" />
   <div class="cv2-domain">jracademy.ai · 在线版随官网更新 /wiki/crewai-guide</div>
   <div class="cv2-strip"><span>学 AI 来匠人 <i>✦</i> CrewAI 多 Agent 手册 <i>✦</i> JIANGREN.COM.AU <i>✦</i> 让多个 AI 组队干活 <i>✦</i> 学 AI 来匠人 <i>✦</i></span></div>
 </section>
@@ -55,7 +67,7 @@
       <p>这本书和官网 wiki《CrewAI 实战手册》同源（jiangren.com.au/wiki/crewai-guide，免费、不用注册，官网那份持续更新）。完全没碰过 CrewAI 的，第 1、2 章搞清楚概念、5 分钟跑通；做过 LLM 应用、想上多 Agent 的，第 3、4 章是核心——Agent 角色设计、Task 链、Flow 编排、Memory 全在这；已经有 Crew 想上生产的，第 6、7 章讲量化测试、FastAPI 封装、Docker 化、断点续跑，第 8 章讲怎么给 Agent 挂私有文档做企业内部知识问答。代码全可复制，配置直接用。</p>
     </div>
     <div class="contact-bar">
-      <img class="qr" src="assets/contact/qr-amelia.png" alt="Amelia · 匠人学院 IT 顾问微信" />
+      <img class="qr" src="https://jracademy.ai/ebooks/crewai-guide-handbook/assets/contact/qr-amelia.png" alt="Amelia · 匠人学院 IT 顾问微信" />
       <div><div class="t">💬 装的时候卡住了？扫码进群问</div><div class="d">群里每周分享真实的 CrewAI 项目模板和 Multi-Agent 实战案例。</div></div>
     </div>
   </div>
@@ -68,11 +80,11 @@
         <div class="ch-num">CHAPTER 01</div>
         <h2>🤖 CrewAI 是什么：让多个 AI Agent 组队干活</h2>
       </div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-thinking.png" alt="" />
+      <img class="ch-illo" src="https://jracademy.ai/ebooks/crewai-guide-handbook/assets/illustrations/niuxiaojiang-thinking.png" alt="" />
     </div>
 <h3>CrewAI 一句话介绍</h3>
 <p>CrewAI 是一个开源 Python 框架，让你把多个 AI Agent 组成一支"团队"，每个 Agent 有自己的角色、目标和工具，协同完成复杂任务。它由 João Moura 在 2024 年初创建，截至 2026 年 4 月已有 <strong>50k+ GitHub Stars</strong>，是目前增长最快的多智能体框架。</p>
-<figure class="figure"><img src="crewai_logo.png" alt="CrewAI 架构示意" /><div class="figcap">CrewAI 架构示意</div></figure>
+<figure class="figure"><img src="https://jracademy.ai/ebooks/crewai-guide-handbook/crewai_logo.png" alt="CrewAI 架构示意" /><div class="figcap">CrewAI 架构示意</div></figure>
 <p>你可以把 CrewAI 理解为"AI 版的项目经理"：你定义好团队成员（Agent）、分配任务（Task）、选择协作模式（Crew），然后一键启动，Agent 们自己协调、自己执行、自己交付结果。</p>
 <h3>核心架构</h3>
 <p>CrewAI 的设计非常直观，三个核心概念就能上手：</p>
@@ -98,7 +110,7 @@
 <ul><li><strong>Python 开发者</strong>：CrewAI 是纯 Python 框架，写几十行代码就能跑起一个多 Agent 系统</li><li><strong>自动化工程师</strong>：内容生产、数据分析、竞品调研这类重复性工作，用 Crew 编排最省事</li><li><strong>AI 应用开发者</strong>：需要在产品里嵌入多 Agent 能力，CrewAI 的 API 设计比较干净</li><li><strong>想学 AI Agent 原理的人</strong>：角色 / 任务 / 协作的模型很容易理解，适合入门多智能体概念</li></ul>
 <p>不太适合的场景：完全不会 Python 的同学建议先看 Dify 或 Coze；只需要单次 LLM 调用的简单任务没必要上多 Agent。</p>
     <div class="contact-bar">
-      <img class="qr" src="assets/contact/qr-amelia.png" alt="Amelia · 匠人学院 IT 顾问微信" />
+      <img class="qr" src="https://jracademy.ai/ebooks/crewai-guide-handbook/assets/contact/qr-amelia.png" alt="Amelia · 匠人学院 IT 顾问微信" />
       <div><div class="t">💬 遇到问题直接进群问</div><div class="d">群里每周分享真实的 CrewAI 项目模板和 Multi-Agent 实战案例。</div></div>
     </div>
   </div>
@@ -110,7 +122,7 @@
         <div class="ch-num">CHAPTER 02</div>
         <h2>🚀 快速上手：安装 CrewAI 并跑通第一个 Crew</h2>
       </div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-working-laptop.png" alt="" />
+      <img class="ch-illo" src="https://jracademy.ai/ebooks/crewai-guide-handbook/assets/illustrations/niuxiaojiang-working-laptop.png" alt="" />
     </div>
 <h3>环境准备</h3>
 <p>CrewAI 要求 <strong>Python 3.10 ~ 3.13</strong>，包管理用的是 <a href="https://github.com/astral-sh/uv">uv</a>（Rust 写的超快 Python 包管理器，CrewAI CLI 内部依赖它）。</p>
@@ -211,7 +223,7 @@ crewai run</pre>
         <div class="ch-num">CHAPTER 03</div>
         <h2>🧩 核心功能：Agent、Task、Crew、Tool 深度拆解</h2>
       </div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-chart.png" alt="" />
+      <img class="ch-illo" src="https://jracademy.ai/ebooks/crewai-guide-handbook/assets/illustrations/niuxiaojiang-teaching-chart.png" alt="" />
     </div>
 <h3>Agent 的全部配置项</h3>
 <p>CrewAI 的 Agent 不只是"一个 prompt"——它有角色设定、工具绑定、委派能力和记忆。除了 YAML 配置，你也可以直接用 Python 定义：</p>
@@ -300,7 +312,7 @@ def calculate_cost(model: str, input_tokens: int, output_tokens: int) -&gt; str:
 <p>CrewAI 的工具系统兼容 LangChain Tools，如果你之前写过 LangChain 工具可以直接复用。</p>
 
     <p class="sales-card-lead">🤖 学多 Agent 系统是 AI Engineer 的核心技能。想知道怎么把 CrewAI 项目写进简历、通过 AI 岗位面试？Amelia 帮你做简历诊断：</p>
-    <div class="sales-card"><img src="assets/contact/sales-cards/amelia.jpg" alt="Amelia · IT Career Consultant · 匠人学院" /></div>
+    <div class="sales-card"><img src="https://jracademy.ai/ebooks/crewai-guide-handbook/assets/contact/sales-cards/amelia.jpg" alt="Amelia · IT Career Consultant · 匠人学院" /></div>
   </div>
 </section>
 <aside class="promo">
@@ -318,7 +330,7 @@ def calculate_cost(model: str, input_tokens: int, output_tokens: int) -&gt; str:
         <div class="ch-num">CHAPTER 04</div>
         <h2>⚡ 进阶技巧：Flow 编排、Memory 记忆、多模型混用</h2>
       </div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-data.png" alt="" />
+      <img class="ch-illo" src="https://jracademy.ai/ebooks/crewai-guide-handbook/assets/illustrations/niuxiaojiang-teaching-data.png" alt="" />
     </div>
 <h3>Flow：编排多个 Crew 的工作流</h3>
 <p>当你的项目复杂到一个 Crew 搞不定时，<strong>Flow</strong> 登场。Flow 用事件驱动的方式把多个 Crew 串起来，支持条件分支、并行执行、状态共享。</p>
@@ -473,7 +485,7 @@ result = crew.kickoff(inputs={"product": "CrewAI"})</pre>
         <div class="ch-num">CHAPTER 05</div>
         <h2>❓ 常见问题：定价、踩坑、选型指南</h2>
       </div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-coffee-pointing.png" alt="" />
+      <img class="ch-illo" src="https://jracademy.ai/ebooks/crewai-guide-handbook/assets/illustrations/niuxiaojiang-coffee-pointing.png" alt="" />
     </div>
 <h3>定价：开源免费 + 企业版付费</h3>
 <p>CrewAI 的核心框架是 <strong>MIT 开源</strong>，本地跑完全免费。你只需要为 LLM API 调用付费（OpenAI、Anthropic 等的费用）。</p>
@@ -550,7 +562,7 @@ result = crew.kickoff(inputs={"product": "CrewAI"})</pre>
         <div class="ch-num">CHAPTER 06</div>
         <h2>🧪 测试与调试：用 crewai test 量化 Crew 表现</h2>
       </div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-pen-book.png" alt="" />
+      <img class="ch-illo" src="https://jracademy.ai/ebooks/crewai-guide-handbook/assets/illustrations/niuxiaojiang-pen-book.png" alt="" />
     </div>
 <h3>为什么多 Agent 比单模型更难测</h3>
 <p>调试单个 LLM 调用，你只需要看输入输出。调试一个 Crew，你面对的是：</p>
@@ -639,7 +651,7 @@ result = crew.kickoff(inputs={"product": "CrewAI"})
 <table><tr><th>症状</th><th>先检查</th><th>解决方向</th></tr><tr><td>Agent 输出与预期方向完全不同</td><td><code>backstory</code> 和 <code>goal</code> 是否清晰</td><td>重写 Agent 定义，加具体约束</td></tr><tr><td>每次结果差异很大</td><td><code>expected_output</code> 是否太模糊</td><td>在 expected_output 里加格式要求</td></tr><tr><td>工具调用失败</td><td>工具 API key / 网络是否正常</td><td>先单独测试工具，加 <code>max_retry_limit=3</code></td></tr><tr><td>任务 N+1 没有用到任务 N 的结果</td><td><code>context=[task_n]</code> 有没有加</td><td>显式声明任务依赖</td></tr><tr><td>Crew 跑了 30 分钟没结果</td><td><code>max_iter</code> 是否太高</td><td>设 <code>max_iter=5</code>，用 replay 调试</td></tr></table>
 
     <p class="sales-card-lead">🧪 会跑 crewai test、能量化 Agent 质量，这就是生产级 AI Engineer 的水准。想把这些搭进真实项目再聊转行路线？</p>
-    <div class="sales-card"><img src="assets/contact/sales-cards/rain.jpg" alt="Rain · Senior IT Career Consultant · 匠人学院" /></div>
+    <div class="sales-card"><img src="https://jracademy.ai/ebooks/crewai-guide-handbook/assets/contact/sales-cards/rain.jpg" alt="Rain · Senior IT Career Consultant · 匠人学院" /></div>
   </div>
 </section>
 <section class="ch" id="ch7">
@@ -649,7 +661,7 @@ result = crew.kickoff(inputs={"product": "CrewAI"})
         <div class="ch-num">CHAPTER 07</div>
         <h2>🚢 生产上线：FastAPI 封装 + Docker 容器化 + 断点续跑</h2>
       </div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-hero.png" alt="" />
+      <img class="ch-illo" src="https://jracademy.ai/ebooks/crewai-guide-handbook/assets/illustrations/niuxiaojiang-hero.png" alt="" />
     </div>
 <h3>从脚本到服务</h3>
 <p>本地 <code>crew.kickoff()</code> 是同步阻塞的，跑完才返回。真实业务里你需要：</p>
@@ -897,7 +909,7 @@ result = crew.kickoff(inputs={"product": "CrewAI"})</pre>
         <div class="ch-num">CHAPTER 08</div>
         <h2>📚 Knowledge 知识库：让 Agent 读懂你的私有文档</h2>
       </div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-pen-book.png" alt="" />
+      <img class="ch-illo" src="https://jracademy.ai/ebooks/crewai-guide-handbook/assets/illustrations/niuxiaojiang-pen-book.png" alt="" />
     </div>
 <h3>为什么需要 Knowledge</h3>
 <p>LLM 只知道训练数据截止日前的公开内容——它不认识你公司的内部政策、产品手册、合同模板、历史决策文档。</p>
@@ -1092,25 +1104,25 @@ print(result.raw)</pre>
 </main>
 
 <section class="page back-cover">
-  <div class="logo"><img src="assets/logo/logo-zh-white.png" alt="匠人学院" /></div>
+  <div class="logo"><img src="https://jracademy.ai/ebooks/crewai-guide-handbook/assets/logo/logo-zh-white.png" alt="匠人学院" /></div>
   <h2>会搭多 Agent 了，接下来怎么用它找工作？</h2>
   <p style="max-width: 78%;">这本手册的在线版在 jiangren.com.au/wiki/crewai-guide，随官网更新。匠人学院还有 20+ 本同款 AI 工具指南（Claude Code、Cursor、n8n、Dify…）和 AI Engineer 方向的项目制课程——想知道 CrewAI 怎么写进简历、搭成能找工作的作品，来聊聊。</p>
 
-  <div class="sales-card" style="width: 88%;"><img src="assets/contact/sales-cards/angela.jpg" alt="Angela · IT Career Consultant · 匠人学院" /></div>
+  <div class="sales-card" style="width: 88%;"><img src="https://jracademy.ai/ebooks/crewai-guide-handbook/assets/contact/sales-cards/angela.jpg" alt="Angela · IT Career Consultant · 匠人学院" /></div>
 
   <div class="contact-bar" style="width: 88%;">
-    <img class="qr" src="assets/contact/qr-amelia.png" alt="Amelia · 匠人学院 IT 顾问微信" />
+    <img class="qr" src="https://jracademy.ai/ebooks/crewai-guide-handbook/assets/contact/qr-amelia.png" alt="Amelia · 匠人学院 IT 顾问微信" />
     <div class="cb-body">
       <div class="cb-title">扫码进社群，多 Agent 实战答疑</div>
       <div class="cb-desc">把这本 PDF 转给还在靠单 Agent 打天下的同学。</div>
     </div>
-    <div class="cb-brand"><img src="assets/logo/jr-box.svg" alt="JR" /><span class="cb-url">jracademy.ai</span></div>
+    <div class="cb-brand"><img src="https://jracademy.ai/ebooks/crewai-guide-handbook/assets/logo/jr-box.svg" alt="JR" /><span class="cb-url">jracademy.ai</span></div>
   </div>
 
   <p class="caption" style="color: rgba(255,255,255,0.5);">© JR Academy · 学 AI 来匠人 · 内容源自 jiangren.com.au/wiki《CrewAI 实战手册》· 欢迎转发</p>
 </section>
 
-<script defer src="theme/reader.js"></script>
-<a href="CrewAI%20%E5%A4%9A%20Agent%20%E5%AE%9E%E6%88%98%E6%89%8B%E5%86%8C%20-%20%E5%8C%A0%E4%BA%BA%E5%AD%A6%E9%99%A2.pdf" download style="position:fixed;right:22px;bottom:22px;z-index:1200;display:flex;align-items:center;gap:8px;background:#0D0F12;color:#fff;font-weight:700;font-size:14.5px;padding:13px 22px;border-radius:999px;box-shadow:0 12px 28px rgba(13,15,18,.35);text-decoration:none;font-family:Inter,'PingFang SC',sans-serif;">⬇️ 下载 PDF 版</a>
+<script defer src="https://jracademy.ai/ebooks/crewai-guide-handbook/theme/reader.js"></script>
+<a href="https://jracademy.ai/ebooks/crewai-guide-handbook/CrewAI%20%E5%A4%9A%20Agent%20%E5%AE%9E%E6%88%98%E6%89%8B%E5%86%8C%20-%20%E5%8C%A0%E4%BA%BA%E5%AD%A6%E9%99%A2.pdf" download style="position:fixed;right:22px;bottom:22px;z-index:1200;display:flex;align-items:center;gap:8px;background:#0D0F12;color:#fff;font-weight:700;font-size:14.5px;padding:13px 22px;border-radius:999px;box-shadow:0 12px 28px rgba(13,15,18,.35);text-decoration:none;font-family:Inter,'PingFang SC',sans-serif;">⬇️ 下载 PDF 版</a>
 </body>
 </html>

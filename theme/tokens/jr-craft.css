@@ -1,0 +1,155 @@
+/*
+ * JR Craft — the only JR Academy design tokens: website, CareerOS web, email, decks, posters, social.
+ * Single source of truth for visual values. Spec: ../WEB_DESIGN.md (decks: ../COURSE_DESIGN.md, posters: ../POSTER_DESIGN.md)
+ * Base: Airbotix design system (airbotix-ai/DESIGN.md), changed only where WEB_DESIGN.md §1 says.
+ * Owner decisions 2026-10-27 and 2026-10-29 (JR Craft is the only style).
+ */
+
+@font-face { font-family: "JR Craft Heading"; src: url("../assets/fonts/jr-craft/jr-craft-heading-700.ttf") format("truetype"); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "JR Craft Body"; src: url("../assets/fonts/jr-craft/jr-craft-body-400.ttf") format("truetype"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "JR Craft Body"; src: url("../assets/fonts/jr-craft/jr-craft-body-700.ttf") format("truetype"); font-weight: 700; font-style: normal; font-display: swap; }
+
+:root {
+	/* ---- Surface ---- */
+	--jc-canvas: #fffef7;          /* page ground; never pure white */
+	--jc-canvas-pure: #ffffff;     /* cards, inputs, modals */
+	--jc-surface: #fff8ee;         /* cream band */
+	--jc-surface-soft: #fff1de;    /* stronger cream; neutral tag ground */
+	--jc-hairline: #efe8da;        /* dividers, card and input borders (decorative) */
+	--jc-hairline-soft: #f5efe3;
+
+	/* ---- Text ---- */
+	--jc-ink: #1f1b2d;             /* headings and body, 16.9:1 on canvas */
+	--jc-ink-soft: #3d3851;        /* long-form body, lead, 10.9:1 */
+	--jc-slate: #6b6478;           /* secondary text, 5.6:1 on canvas */
+	--jc-steel: #9c95ab;           /* metadata on canvas only at 18px+ or non-essential; 2.8:1 */
+	--jc-on-dark: #fffef7;         /* text on ink */
+
+	/* ---- Night: the adult / tech look (AI, CareerOS, flow sections) ---- */
+	--jc-night: #17142a;           /* dark band and AI panels */
+	--jc-night-2: #221e38;         /* raised surface on night */
+	--jc-night-line: #37314f;      /* hairline on night */
+	--jc-on-night: #f4f1fb;        /* text on night, 16:1 */
+	--jc-on-night-muted: #b5aecb;  /* secondary text on night, 8.3:1 */
+	--jc-dot-grid: radial-gradient(rgba(31, 27, 45, 0.10) 1px, transparent 1.2px) 0 0 / 20px 20px;
+	--jc-dot-grid-night: radial-gradient(rgba(244, 241, 251, 0.10) 1px, transparent 1.2px) 0 0 / 20px 20px;
+
+	/* ---- Five brand colours = five gap types (fills only, never text) ---- */
+	--jc-coral: #ff7a66;           /* 技能 skill */
+	--jc-sky: #5daeff;             /* 证据 evidence */
+	--jc-mint: #3dd9a9;            /* 经验 experience */
+	--jc-sunshine: #ffd43b;        /* 表达 expression */
+	--jc-bubblegum: #ff6ba9;       /* 定位 positioning */
+
+	/* ---- Text-safe deep versions (≥4.5:1 on canvas and on the matching wash) ---- */
+	--jc-coral-deep: #c63d29;
+	--jc-sky-deep: #2563d6;
+	--jc-mint-deep: #0f7a57;
+	--jc-sunshine-deep: #8a5f00;
+	--jc-bubblegum-deep: #c2185b;
+
+	/* ---- Washes: section bands, tag grounds, icon plates ---- */
+	--jc-wash-coral: #ffefe9;
+	--jc-wash-sky: #e8f2ff;
+	--jc-wash-mint: #dcf6ec;
+	--jc-wash-sunshine: #fff7d6;
+	--jc-wash-bubblegum: #ffeaf3;
+
+	/* ---- Actions ---- */
+	--jc-primary: #ff7a66;         /* primary button fill = Airbotix coral (owner 2026-10-27) */
+	--jc-primary-hover: #ff5c46;   /* Airbotix pressed coral */
+	--jc-on-primary: #ffffff;      /* white, owner choice 2026-10-27; 2.6:1 on coral (3.0:1 on hover) is an accepted exception to 4.5:1 */
+	--jc-on-gradient: #ffffff;     /* text on coral/sky/mint/bubblegum gradient cards, owner choice 2026-10-28 (Airbotix); sunshine cards keep ink */
+	--jc-focus: #2563d6;           /* focus ring: 3px solid, 3px offset */
+	--jc-danger: #c63d29;          /* error text and border (always with an icon or word) */
+
+	/* ---- Gradients (135deg) — category cards, bridge, promo strips ---- */
+	--jc-grad-coral: linear-gradient(135deg, #ff9a80 0%, #ff5b7e 100%);
+	--jc-grad-sky: linear-gradient(135deg, #7fc2ff 0%, #3d8fff 100%);
+	--jc-grad-mint: linear-gradient(135deg, #6be7bf 0%, #1fc692 100%);
+	--jc-grad-sunshine: linear-gradient(135deg, #ffe26b 0%, #ffb638 100%);
+	--jc-grad-bubblegum: linear-gradient(135deg, #ff8fbe 0%, #ff4f8f 100%);
+
+	/* ---- Shadows ---- */
+	--jc-shadow-coral: 0 16px 40px -8px rgba(255, 122, 102, 0.40);
+	--jc-shadow-sky: 0 16px 40px -8px rgba(93, 174, 255, 0.40);
+	--jc-shadow-mint: 0 16px 40px -8px rgba(61, 217, 169, 0.40);
+	--jc-shadow-sunshine: 0 16px 40px -8px rgba(255, 212, 59, 0.45);
+	--jc-shadow-bubblegum: 0 16px 40px -8px rgba(255, 107, 169, 0.40);
+	--jc-shadow-card: 0 8px 24px -6px rgba(31, 27, 45, 0.10);
+	--jc-shadow-card-hover: 0 14px 32px -8px rgba(31, 27, 45, 0.14);
+	--jc-shadow-pop: 0 20px 48px -12px rgba(31, 27, 45, 0.22);   /* menus, modals */
+	--jc-shadow-sticker: 4px 4px 0 0 rgba(31, 27, 45, 0.95);     /* stickers only */
+
+	/* ---- Radius ---- */
+	--jc-r-xs: 6px;      /* code chips */
+	--jc-r-sm: 10px;     /* compact controls, icon plates (small) */
+	--jc-r-input: 14px;  /* inputs, selects, textareas, icon plates */
+	--jc-r-tile: 20px;   /* small tiles, photos */
+	--jc-r-card: 24px;   /* white content cards */
+	--jc-r-feature: 32px;/* feature panels, stat tiles, bridge */
+	--jc-r-program: 40px;/* gradient category cards, promo strips */
+	--jc-r-app: 20px;    /* cards inside the product UI (workspace, chat, flow nodes) */
+	--jc-r-bubble: 18px; /* chat bubbles */
+	--jc-r-pill: 9999px; /* buttons, tags, chips, stickers, nav items */
+
+	/* ---- Spacing (4px base) ---- */
+	--jc-s-1: 4px;  --jc-s-2: 8px;  --jc-s-3: 12px; --jc-s-4: 16px; --jc-s-5: 20px; --jc-s-6: 24px;
+	--jc-s-7: 28px; --jc-s-8: 32px; --jc-s-10: 40px; --jc-s-12: 48px; --jc-s-14: 56px;
+	--jc-section: 96px;            /* marketing band padding, desktop */
+	--jc-section-sm: 64px;         /* marketing band padding, under 768px */
+	--jc-container: 1440px;
+	--jc-gutter: 24px;             /* side gutter; 16px minimum under 400px */
+	--jc-content-rail: 0px;        /* overridden by page frames that reserve support space */
+
+	/* ---- Controls ---- */
+	--jc-btn-sm: 32px;   /* in-card actions, table rows */
+	--jc-btn-md: 40px;   /* default */
+	--jc-btn-lg: 48px;   /* marketing hero primary only, one per page */
+	--jc-input-h: 48px;
+	--jc-tap-min: 44px;  /* minimum touch target on phones */
+
+	/* ---- Type ---- */
+	--jc-font-heading: "JR Craft Heading", "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+	--jc-font-body: "JR Craft Body", "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+	--jc-font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;  /* tech labels, numbers, code; never Chinese */
+
+	--jc-fs-hero: clamp(40px, 6vw, 64px);     /* H1 on marketing pages */
+	--jc-fs-section: clamp(30px, 4vw, 40px);  /* H2 section heading */
+	--jc-fs-h3: 28px;                         /* category card title, large card */
+	--jc-fs-card: 22px;                       /* content card title */
+	--jc-fs-lead: clamp(17px, 1.8vw, 19px);
+	--jc-fs-body: 17px;                       /* marketing and content body */
+	--jc-fs-body-app: 15px;                   /* logged-in workspace body */
+	--jc-fs-small: 14px;                      /* buttons md, labels, table cells */
+	--jc-fs-caption: 13px;                    /* captions, sources, eyebrow */
+	--jc-fs-tag: 12px;
+
+	/* Fixed-canvas materials, in px at native size (COURSE_DESIGN.md §3, POSTER_DESIGN.md §4) */
+	--jc-fs-slide-title: 72px;     /* 1920×1080 deck title; 56px minimum on dense slides */
+	--jc-fs-slide-body: 28px;      /* deck body minimum */
+	--jc-fs-slide-caption: 22px;   /* deck source / footnote minimum */
+	--jc-fs-poster-title: 88px;    /* 1242×1660 or 1080×1440 poster title, 64–104 */
+	--jc-fs-poster-key: 40px;      /* date, place, price: 32–48 */
+	--jc-fs-poster-body: 24px;     /* poster body minimum */
+	--jc-fs-poster-fine: 20px;     /* poster fine print minimum */
+
+	--jc-lh-tight: 1.06;   /* hero */
+	--jc-lh-heading: 1.15;
+	--jc-lh-body: 1.7;     /* CJK body needs the extra air */
+	--jc-tracking-hero: -0.02em;
+	--jc-tracking-label: 0.10em;   /* Latin uppercase labels only */
+
+	/* ---- Motion ---- */
+	--jc-ease: cubic-bezier(0.22, 1, 0.36, 1);
+	--jc-dur-fast: 150ms;
+	--jc-dur: 250ms;
+	--jc-dur-slow: 500ms;
+	--jc-dash-speed: 1.2s;         /* one dash cycle on an active flow edge */
+
+	/* ---- Status (chat steps, flow nodes) — always paired with an icon or word ---- */
+	--jc-status-running: #2563d6;
+	--jc-status-done: #0f7a57;
+	--jc-status-error: #c63d29;
+	--jc-status-pending: #9c95ab;
+}

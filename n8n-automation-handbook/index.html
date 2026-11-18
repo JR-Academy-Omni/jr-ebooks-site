@@ -4,16 +4,28 @@
 <meta charset="UTF-8" />
 <title>n8n 自动化中文手册 — JR Academy</title>
 <link rel="canonical" href="https://jracademy.ai/ebooks/n8n-automation-handbook" />
-<link rel="stylesheet" href="theme/ebook.css" />
-<link rel="stylesheet" href="theme/flow-a4.css" />
+<link rel="stylesheet" href="https://jracademy.ai/ebooks/n8n-automation-handbook/theme/ebook.css" />
+<link rel="stylesheet" href="https://jracademy.ai/ebooks/n8n-automation-handbook/theme/flow-a4.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- ebook-reader-layout -->
+<link rel="stylesheet" href="https://jracademy.ai/ebooks/theme/reader-layout.css" />
+<script defer src="https://jracademy.ai/ebooks/theme/reader-layout.js"></script>
+<link rel="icon" type="image/svg+xml" href="https://jracademy.ai/ebooks/theme/assets/logo/jr-box.svg" />
+<!-- reading-edition:start -->
+<link rel="stylesheet" href="https://jracademy.ai/ebooks/theme/tokens/jr-craft.css" />
+<link rel="stylesheet" href="https://jracademy.ai/ebooks/theme/styles/jr-craft.css" />
+<link rel="stylesheet" href="https://jracademy.ai/ebooks/theme/reading-edition.css" />
+<script type="application/json" id="reading-edition-info">{"title": "n8n 自动化中文手册", "description": "开源自托管工作流自动化：配官方界面截图，从第一个 workflow 到 AI Agent、API 集成、Git 版控、生产监控 — 8 章全可复制"}</script>
+<script defer src="https://jracademy.ai/ebooks/theme/reading-edition.js"></script>
+<!-- reading-edition:end -->
 </head>
 <body>
-<img class="jr-wm" src="assets/logo/jr-box.svg" alt="" />
+<img class="jr-wm" src="https://jracademy.ai/ebooks/n8n-automation-handbook/assets/logo/jr-box.svg" alt="" />
 
 <section class="page cover2">
   <div class="cv2-ghost">n8n</div>
   <div class="cv2-head">
-    <img src="assets/logo/logo-zh-white.png" alt="匠人学院" />
+    <img src="https://jracademy.ai/ebooks/n8n-automation-handbook/assets/logo/logo-zh-white.png" alt="匠人学院" />
     <span class="cv2-sticker">⚙️ 2026 实操版</span>
   </div>
   <div class="cv2-body">
@@ -29,7 +41,7 @@
     <div class="cv2-diecut">比 Zapier 省钱，比代码省事</div>
   </div>
   <span class="cv2-holo">⚙️</span>
-  <img class="cv2-mascot" src="assets/illustrations/niuxiaojiang-working-laptop.png" alt="牛小匠" />
+  <img class="cv2-mascot" src="https://jracademy.ai/ebooks/n8n-automation-handbook/assets/illustrations/niuxiaojiang-working-laptop.png" alt="牛小匠" />
   <div class="cv2-domain">jracademy.ai · 在线版随官网更新 /wiki/n8n-workflow-automation</div>
   <div class="cv2-strip"><span>学 AI 来匠人 <i>✦</i> n8n 自动化手册 <i>✦</i> JIANGREN.COM.AU <i>✦</i> 能自动化的活别手动干 <i>✦</i> 学 AI 来匠人 <i>✦</i></span></div>
 </section>
@@ -55,7 +67,7 @@
       <p>这本书和官网 wiki《n8n 工作流自动化》同源（jiangren.com.au/wiki/n8n-workflow-automation，免费、不用注册，官网那份持续更新）。完全没碰过 n8n 的，第 1、2 章搞清楚它值不值得用、5 分钟跑通；想做 AI 自动化的，第 4 章是重点——接 OpenAI / Claude 搭 Agent 不用写框架代码；已经在用想上生产的，第 5 到 8 章讲 Code Node、错误处理、Git 版本控制、监控告警，全是踩过坑的配置。书里的界面图来自 n8n 官方文档，命令和 docker-compose 都能直接复制。</p>
     </div>
     <div class="contact-bar">
-      <img class="qr" src="assets/contact/qr-amelia.png" alt="Amelia · 匠人学院 IT 顾问微信" />
+      <img class="qr" src="https://jracademy.ai/ebooks/n8n-automation-handbook/assets/contact/qr-amelia.png" alt="Amelia · 匠人学院 IT 顾问微信" />
       <div><div class="t">💬 装的时候卡住了？扫码进群问</div><div class="d">群里每周分享真实的 n8n 工作流模板和 AI 自动化玩法。</div></div>
     </div>
   </div>
@@ -68,7 +80,7 @@
         <div class="ch-num">CHAPTER 01</div>
         <h2>📊 n8n 是什么：自动化工具的新选择</h2>
       </div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-thinking.png" alt="" />
+      <img class="ch-illo" src="https://jracademy.ai/ebooks/n8n-automation-handbook/assets/illustrations/niuxiaojiang-thinking.png" alt="" />
     </div>
 <p>n8n 是一个开源的工作流自动化平台，让你用可视化节点连接各种应用，自动完成重复性任务——不管是发邮件、同步数据库、还是调用 AI，都能在一个界面里搞定。</p>
 
@@ -164,7 +176,7 @@ volumes:
         <div class="ch-num">CHAPTER 02</div>
         <h2>🚀 安装与快速上手：5 分钟跑起第一个工作流</h2>
       </div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-hero.png" alt="" />
+      <img class="ch-illo" src="https://jracademy.ai/ebooks/n8n-automation-handbook/assets/illustrations/niuxiaojiang-hero.png" alt="" />
     </div>
 <p>n8n 有三种安装方式，选最适合你的场景即可。</p>
 <h3>方式一：npx 快速体验（推荐新手）</h3>
@@ -242,9 +254,9 @@ volumes:
         <div class="ch-num">CHAPTER 03</div>
         <h2>🧩 核心功能详解：节点、触发器与数据流</h2>
       </div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-chart.png" alt="" />
+      <img class="ch-illo" src="https://jracademy.ai/ebooks/n8n-automation-handbook/assets/illustrations/niuxiaojiang-teaching-chart.png" alt="" />
     </div>
-<figure class="figure"><img src="editor_ui.png" alt="n8n 编辑器界面：节点与数据流" /><div class="figcap">n8n 编辑器界面：节点与数据流</div></figure>
+<figure class="figure"><img src="https://jracademy.ai/ebooks/n8n-automation-handbook/editor_ui.png" alt="n8n 编辑器界面：节点与数据流" /><div class="figcap">n8n 编辑器界面：节点与数据流</div></figure>
 <p>n8n 的核心是<strong>节点（Node）之间的数据流动</strong>。每个节点接收上游数据、处理后输出给下游。理解这一点，你就能设计任意复杂的工作流。</p>
 <h3>节点的三大类型</h3>
 <h4>1. Trigger 节点（触发器）</h4>
@@ -360,9 +372,9 @@ return $input.all().filter(item =&gt; item.json.status === 'active');</pre>
         <div class="ch-num">CHAPTER 04</div>
         <h2>🤖 AI Agent 实战：用 n8n 构建智能工作流</h2>
       </div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-teaching-data.png" alt="" />
+      <img class="ch-illo" src="https://jracademy.ai/ebooks/n8n-automation-handbook/assets/illustrations/niuxiaojiang-teaching-data.png" alt="" />
     </div>
-<figure class="figure"><img src="ai-workflow-builder.png" alt="n8n AI Workflow Builder 界面" /><div class="figcap">n8n AI Workflow Builder 界面</div></figure>
+<figure class="figure"><img src="https://jracademy.ai/ebooks/n8n-automation-handbook/ai-workflow-builder.png" alt="n8n AI Workflow Builder 界面" /><div class="figcap">n8n AI Workflow Builder 界面</div></figure>
 <p>n8n 2.0 内置了 LangChain 集成，提供 70+ AI 专属节点。你可以在不写任何框架代码的情况下，构建有记忆、能调用工具、会推理决策的 AI Agent。</p>
 <h3>AI Agent 节点的架构</h3>
 <p>n8n 的 AI Agent 工作流由四个角色组成：</p>
@@ -455,7 +467,7 @@ Session Key: {{ $json.chatId }}  // 用 chatId 区分不同用户的会话</pre>
 - 每次回复不超过 200 字</pre>
 
     <p class="sales-card-lead">🤖 用 n8n 搭出第一个 AI Agent 工作流，想把这套自动化能力变成职场硬通货？Amelia 帮你看看离 AI 工程岗位还差什么：</p>
-    <div class="sales-card"><img src="assets/contact/sales-cards/amelia.jpg" alt="Amelia · IT Career Consultant · 匠人学院" /></div>
+    <div class="sales-card"><img src="https://jracademy.ai/ebooks/n8n-automation-handbook/assets/contact/sales-cards/amelia.jpg" alt="Amelia · IT Career Consultant · 匠人学院" /></div>
   </div>
 </section>
 
@@ -466,9 +478,9 @@ Session Key: {{ $json.chatId }}  // 用 chatId 区分不同用户的会话</pre>
         <div class="ch-num">CHAPTER 05</div>
         <h2>🔧 进阶技巧与常见问题</h2>
       </div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-working-laptop.png" alt="" />
+      <img class="ch-illo" src="https://jracademy.ai/ebooks/n8n-automation-handbook/assets/illustrations/niuxiaojiang-working-laptop.png" alt="" />
     </div>
-<figure class="figure"><img src="admin_panel.png" alt="n8n 管理面板" /><div class="figcap">n8n 管理面板</div></figure>
+<figure class="figure"><img src="https://jracademy.ai/ebooks/n8n-automation-handbook/admin_panel.png" alt="n8n 管理面板" /><div class="figcap">n8n 管理面板</div></figure>
 <p>掌握了基础节点之后，这些技巧能让你的工作流更健壮、更高效。</p>
 <h3>Code Node：写真实代码</h3>
 <p>n8n 的 Code Node 是它区别于 Zapier 最大的武器。支持完整的 JavaScript（Node.js 18）和 Python，能 <code>require</code> npm 包。</p>
@@ -627,9 +639,9 @@ docker cp n8n:/tmp/workflows.json ./backups/</pre>
         <div class="ch-num">CHAPTER 06</div>
         <h2>🔌 HTTP Request 节点与 API 集成实战</h2>
       </div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-pen-book.png" alt="" />
+      <img class="ch-illo" src="https://jracademy.ai/ebooks/n8n-automation-handbook/assets/illustrations/niuxiaojiang-pen-book.png" alt="" />
     </div>
-<figure class="figure"><img src="n8n-screenshot.png" alt="n8n 工作流编辑器" /><div class="figcap">n8n 工作流编辑器</div></figure>
+<figure class="figure"><img src="https://jracademy.ai/ebooks/n8n-automation-handbook/n8n-screenshot.png" alt="n8n 工作流编辑器" /><div class="figcap">n8n 工作流编辑器</div></figure>
 <p>HTTP Request 是 n8n 里最通用的节点——任何提供 REST API 的服务都能接。官方没有内置集成的服务（比如国内的飞书、企业微信），HTTP Request 就是你的万能接口。</p>
 <h3>四种认证方式</h3>
 <table><tr><th>方式</th><th>适用场景</th><th>配置</th></tr><tr><td><strong>Header Auth</strong></td><td>API Key 放 Header</td><td><code>Authorization: Bearer sk-xxx</code></td></tr><tr><td><strong>Query Auth</strong></td><td>API Key 放 URL 参数</td><td><code>?api_key=xxx</code></td></tr><tr><td><strong>OAuth2</strong></td><td>第三方登录授权</td><td>Client ID + Secret + Redirect</td></tr><tr><td><strong>Basic Auth</strong></td><td>用户名密码</td><td><code>username:password</code> Base64</td></tr></table>
@@ -692,9 +704,9 @@ docker cp n8n:/tmp/workflows.json ./backups/</pre>
         <div class="ch-num">CHAPTER 07</div>
         <h2>🌿 版本控制与团队协作</h2>
       </div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-coffee-pointing.png" alt="" />
+      <img class="ch-illo" src="https://jracademy.ai/ebooks/n8n-automation-handbook/assets/illustrations/niuxiaojiang-coffee-pointing.png" alt="" />
     </div>
-<figure class="figure"><img src="vc-multi-multi.png" alt="n8n Source Control 多环境架构" /><div class="figcap">n8n Source Control 多环境架构</div></figure>
+<figure class="figure"><img src="https://jracademy.ai/ebooks/n8n-automation-handbook/vc-multi-multi.png" alt="n8n Source Control 多环境架构" /><div class="figcap">n8n Source Control 多环境架构</div></figure>
 <p>工作流越写越多之后，你会发现几个问题：改坏了没法回滚、测试环境和生产环境混在一起、多人编辑互相覆盖。n8n 内置的 <strong>Source Control</strong> 功能（Git 集成）就是解决这些的。</p>
 <h3>启用 Source Control</h3>
 <p>Settings → Source Control，需要三样东西：</p>
@@ -761,9 +773,9 @@ n8n import:workflow --input=./workflows/
         <div class="ch-num">CHAPTER 08</div>
         <h2>📡 监控告警与生产运维</h2>
       </div>
-      <img class="ch-illo" src="assets/illustrations/niuxiaojiang-thinking.png" alt="" />
+      <img class="ch-illo" src="https://jracademy.ai/ebooks/n8n-automation-handbook/assets/illustrations/niuxiaojiang-thinking.png" alt="" />
     </div>
-<figure class="figure"><img src="ai-intro-logs.png" alt="n8n 执行日志界面" /><div class="figcap">n8n 执行日志界面</div></figure>
+<figure class="figure"><img src="https://jracademy.ai/ebooks/n8n-automation-handbook/ai-intro-logs.png" alt="n8n 执行日志界面" /><div class="figcap">n8n 执行日志界面</div></figure>
 <p>工作流上了生产，最怕的不是报错——是悄悄失败没人知道。这章讲怎么建一套监控体系，让问题第一时间暴露。</p>
 <h3>执行历史与日志</h3>
 <p>n8n 默认保存所有执行记录，包括每个节点的输入输出。但时间长了数据库会膨胀，生产环境要做取舍：</p>
@@ -837,32 +849,32 @@ echo "[$DATE] n8n backup done: $(ls $BACKUP_DIR | wc -l) files"</pre>
 <p>Credential 的导出文件包含加密后的密钥，恢复时需要同一个 <code>N8N_ENCRYPTION_KEY</code>。换机器部署前先把这个 key 备份好。</p>
 
     <p class="sales-card-lead">🎯 能把 n8n 跑到生产监控这一步，你已经具备真实工程能力。想把自动化 + AI 做成能写进简历的项目？Rain 聊聊你的方向：</p>
-    <div class="sales-card"><img src="assets/contact/sales-cards/rain.jpg" alt="Rain · Senior IT Career Consultant · 匠人学院" /></div>
+    <div class="sales-card"><img src="https://jracademy.ai/ebooks/n8n-automation-handbook/assets/contact/sales-cards/rain.jpg" alt="Rain · Senior IT Career Consultant · 匠人学院" /></div>
   </div>
 </section>
 
 </main>
 
 <section class="page back-cover">
-  <div class="logo"><img src="assets/logo/logo-zh-white.png" alt="匠人学院" /></div>
+  <div class="logo"><img src="https://jracademy.ai/ebooks/n8n-automation-handbook/assets/logo/logo-zh-white.png" alt="匠人学院" /></div>
   <h2>会自动化了，接下来用它做什么？</h2>
   <p style="max-width: 78%;">这本手册的在线版在 jiangren.com.au/wiki/n8n-workflow-automation，随官网更新。匠人学院还有 20+ 本同款 AI 工具指南（Claude Code、Cursor、Dify、CrewAI…）和 AI Engineer 方向的项目制课程——想知道 n8n + AI Agent 怎么用进真实业务、做成能找工作的作品，来聊聊。</p>
 
-  <div class="sales-card" style="width: 88%;"><img src="assets/contact/sales-cards/angela.jpg" alt="Angela · IT Career Consultant · 匠人学院" /></div>
+  <div class="sales-card" style="width: 88%;"><img src="https://jracademy.ai/ebooks/n8n-automation-handbook/assets/contact/sales-cards/angela.jpg" alt="Angela · IT Career Consultant · 匠人学院" /></div>
 
   <div class="contact-bar" style="width: 88%;">
-    <img class="qr" src="assets/contact/qr-amelia.png" alt="Amelia · 匠人学院 IT 顾问微信" />
+    <img class="qr" src="https://jracademy.ai/ebooks/n8n-automation-handbook/assets/contact/qr-amelia.png" alt="Amelia · 匠人学院 IT 顾问微信" />
     <div class="cb-body">
       <div class="cb-title">扫码进社群，AI 自动化实操答疑</div>
       <div class="cb-desc">把这本 PDF 转给还在手动复制粘贴干重复活的同事。</div>
     </div>
-    <div class="cb-brand"><img src="assets/logo/jr-box.svg" alt="JR" /><span class="cb-url">jracademy.ai</span></div>
+    <div class="cb-brand"><img src="https://jracademy.ai/ebooks/n8n-automation-handbook/assets/logo/jr-box.svg" alt="JR" /><span class="cb-url">jracademy.ai</span></div>
   </div>
 
   <p class="caption" style="color: rgba(255,255,255,0.5);">© JR Academy · 学 AI 来匠人 · 内容源自 jiangren.com.au/wiki《n8n 工作流自动化》· 界面图来自 n8n 官方文档 · 欢迎转发</p>
 </section>
 
-<script defer src="theme/reader.js"></script>
-<a href="n8n%20%E8%87%AA%E5%8A%A8%E5%8C%96%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C%20-%20%E5%8C%A0%E4%BA%BA%E5%AD%A6%E9%99%A2.pdf" download style="position:fixed;right:22px;bottom:22px;z-index:1200;display:flex;align-items:center;gap:8px;background:#0D0F12;color:#fff;font-weight:700;font-size:14.5px;padding:13px 22px;border-radius:999px;box-shadow:0 12px 28px rgba(13,15,18,.35);text-decoration:none;font-family:Inter,'PingFang SC',sans-serif;">⬇️ 下载 PDF 版</a>
+<script defer src="https://jracademy.ai/ebooks/n8n-automation-handbook/theme/reader.js"></script>
+<a href="https://jracademy.ai/ebooks/n8n-automation-handbook/n8n%20%E8%87%AA%E5%8A%A8%E5%8C%96%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C%20-%20%E5%8C%A0%E4%BA%BA%E5%AD%A6%E9%99%A2.pdf" download style="position:fixed;right:22px;bottom:22px;z-index:1200;display:flex;align-items:center;gap:8px;background:#0D0F12;color:#fff;font-weight:700;font-size:14.5px;padding:13px 22px;border-radius:999px;box-shadow:0 12px 28px rgba(13,15,18,.35);text-decoration:none;font-family:Inter,'PingFang SC',sans-serif;">⬇️ 下载 PDF 版</a>
 </body>
 </html>
