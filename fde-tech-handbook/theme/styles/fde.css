@@ -1,0 +1,45 @@
+/* FDE uses the AI Engineer series: cover2 + shared flow-a4 components. */
+.fde-book .cover2 .cv2-title { font-size:54pt; }
+.fde-book .cover2 .cv2-sub { max-width:114mm; }
+.fde-book .cover2 .cv2-diecut { max-width:110mm; font-size:12pt; }
+.fde-book .cover2 .cv2-mascot { width:61mm; bottom:29mm; }
+.fde-book .toc-item { font-size:11pt; padding:2.3mm 0; text-decoration:none; }
+.fde-book .contact-bar { margin-top:6mm; }
+.fde-book a { color:var(--jr-black); text-decoration-color:var(--jr-red); text-underline-offset:3px; overflow-wrap:anywhere; }
+.fde-book .flow .fde-part + .fde-part { break-before:page; }
+.fde-book .flow .fde-part > p.lead { margin-bottom:4mm; }
+.fde-book .flow p { font-size:11pt; line-height:1.7; }
+.fde-book .flow .card h3 { margin:0 0 2.5mm; }
+.fde-book .flow table { font-size:10pt; line-height:1.65; }
+.fde-book .flow th { font-size:10pt; }
+.fde-book .flow td:first-child { width:28%; }
+.fde-book .flow .callout { font-size:10pt; line-height:1.65; }
+.fde-book .flow pre { font-size:9pt; }
+.fde-book .fde-sources { font-size:7.5pt; line-height:1.55; color:var(--jr-neutral-600); margin-top:4mm; }
+.fde-book .back-cover { gap:5mm; }
+.fde-book .back-cover a { color:var(--jr-surface-canvas); }
+.fde-book .sales-card img { width:100%; height:auto; object-fit:contain; }
+.fde-book .reader-bar .rd-toggle { min-width:50px; white-space:nowrap; }
+@media screen {
+ .fde-book .flow .fde-part + .fde-part { margin-top:10mm; padding-top:8mm; border-top:1px solid var(--jr-border-warm); }
+}
+@media screen and (max-width:600px) {
+ .fde-book.reader-flow > .page.current { width:100%; height:auto; min-height:calc(100dvh - 90px); padding:24px 20px 80px; overflow:hidden; }
+ .fde-book.reader-flow main.flow { width:100%; padding:24px 20px 90px; }
+ .fde-book .flow .ch-illo { display:none; }
+ .fde-book .page.cover2 .cv2-title { font-size:42pt; }
+ .fde-book .page.cover2 .cv2-kicker { font-size:16pt; }
+ .fde-book .page.cover2 .cv2-body { margin-top:24px; padding-bottom:230px; }
+ .fde-book .page.cover2 .cv2-mascot { width:150px; bottom:80px; }
+ .fde-book .page.cover2 .cv2-diecut { font-size:11pt; }
+ .fde-book .page.cover2 .cv2-sticker { font-size:8pt; padding:5px 9px; }
+ .fde-book .page.cover2 .cv2-head img { height:30px; }
+ .fde-book .page.current .page-footer { position:static; margin-top:24px; }
+ .fde-book .contact-bar { flex-wrap:wrap; }
+ .fde-book .contact-bar .cb-body { min-width:160px; }
+ .fde-book .page.back-cover { justify-content:flex-start; }
+}
+.fde-book .cover2 .cv2-diecut { background:var(--jr-white); text-shadow:none; padding:3mm 4mm; border-radius:var(--jr-radius-sm); }
+@media print {
+ html:has(body.fde-book), body.fde-book { background:var(--jr-surface-canvas); }
+}

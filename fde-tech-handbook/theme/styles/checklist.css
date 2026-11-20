@@ -1,0 +1,74 @@
+/* =====================================================
+   Style: checklist — 行动清单版
+   适合：退税清单 / 求职 30 天计划 / 落地行动步骤
+   特征：勾选框、阶段分组、时间线步骤条
+   依赖：ebook.css
+   ===================================================== */
+
+/* —— 阶段分组 —— */
+.check-group {
+  background: var(--jr-surface-panel);
+  border: 1px solid var(--jr-border-warm);
+  border-radius: var(--jr-radius-lg);
+  padding: 4mm 5mm;
+}
+.check-group + .check-group { margin-top: 4mm; }
+.check-group .group-head {
+  display: flex;
+  align-items: baseline;
+  gap: 3mm;
+  padding-bottom: 2.5mm;
+  margin-bottom: 1mm;
+  border-bottom: 1px solid var(--jr-divider-warm);
+}
+.check-group .group-head .stage {
+  font-size: 9pt;
+  font-weight: var(--jr-fw-bold);
+  color: var(--jr-red-text);
+  letter-spacing: 0.06em;
+}
+.check-group .group-head h3 { flex: 1; }
+.check-group .group-head .count { font-size: 9pt; color: var(--jr-neutral-600); }
+
+/* —— 勾选行 —— */
+.check-item {
+  display: flex;
+  gap: 3.5mm;
+  padding: 2.8mm 0;
+  border-bottom: 1px dashed var(--jr-divider-warm);
+}
+.check-item:last-child { border-bottom: none; }
+.check-item .box {
+  width: 4.5mm;
+  height: 4.5mm;
+  flex: none;
+  margin-top: 1mm;
+  border: 1.5px solid var(--jr-neutral-300);
+  border-radius: 2px;
+}
+.check-item .item-body { flex: 1; }
+.check-item .item-title { font-size: 10.5pt; font-weight: var(--jr-fw-medium); color: var(--jr-neutral-900); }
+.check-item .item-note { font-size: 9pt; color: var(--jr-neutral-600); line-height: 1.55; margin-top: 0.8mm; }
+.check-item .badge {
+  flex: none;
+  align-self: flex-start;
+  font-size: 7.5pt;
+  font-weight: var(--jr-fw-medium);
+  padding: 0.8mm 2.5mm;
+  border-radius: var(--jr-radius-full);
+  background: var(--jr-wash-yellow);
+  color: #8a6116;
+}
+.check-item .badge.must { background: var(--jr-wash-red); color: var(--jr-red-text); }
+
+/* —— 时间线步骤条（横向阶段总览）—— */
+.steps-rail { display: flex; gap: 2mm; margin: 4mm 0; }
+.steps-rail .step {
+  flex: 1;
+  border-top: 2.5px solid var(--jr-neutral-300);
+  padding-top: 2mm;
+}
+.steps-rail .step.active { border-top-color: var(--jr-red); }
+.steps-rail .step .s-num { font-size: 9pt; font-weight: var(--jr-fw-bold); color: var(--jr-red-text); }
+.steps-rail .step .s-name { font-size: 9.5pt; font-weight: var(--jr-fw-medium); color: var(--jr-neutral-900); }
+.steps-rail .step .s-time { font-size: 8pt; color: var(--jr-neutral-600); }

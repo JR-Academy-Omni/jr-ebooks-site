@@ -1,0 +1,38 @@
+{
+  "title": "FDE 实战入门：把 AI 做进企业业务",
+  "slug": "fde-tech-handbook",
+  "subtitle": "面向有技术基础的开发者，从岗位认知到第一个企业 AI 交付项目",
+  "audience": "具备代码、API 与基础部署经验的开发者",
+  "track": "T2",
+  "style": "handbook + flow",
+  "design": "jr-brand / AI Engineer series / cover2",
+  "channel": [
+    "微信群",
+    "公众号",
+    "课程咨询"
+  ],
+  "status": "published",
+  "date": "2026-11-18",
+  "pages": 39,
+  "contact": {
+    "qr": "qr-rain.png",
+    "salesCard": "rain.jpg"
+  },
+  "cta": "https://jracademy.ai/program-course/fde-tech",
+  "tags": [
+    "FDE",
+    "AI Engineering",
+    "企业交付"
+  ],
+  "companion": "fde-tech-companion.zip",
+  "version": "2.0",
+  "reader_units": 18,
+  "chapters": 12,
+  "region_order": [
+    "澳洲",
+    "美国",
+    "中国"
+  ],
+  "injectPromos": false,
+  "publishedAt": "2026-11-20"
+}
