@@ -1,0 +1,4 @@
+/* Prevent the first transformed chapter badge from painting onto the contents page. */
+@media print {
+ .fde-business #ch01 .fde-part:first-child .ch-num { transform:none; }
+}

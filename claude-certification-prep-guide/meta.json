@@ -1,0 +1,37 @@
+{
+  "slug": "claude-certification-prep-guide",
+  "title": "Claude 认证备考入门指南",
+  "subtitle": "从官方考纲和课程出发，安排学习、动手练习与错题复盘。",
+  "audience": "已选定Claude认证，准备开始系统学习的读者",
+  "goal": "lead-magnet",
+  "track": "T2",
+  "style": "handbook",
+  "design": "jr-brand",
+  "template": "templates/SKELETON.html + ebooks/style-gallery/index.html (handbook); cover2",
+  "pages": 26,
+  "status": "review",
+  "verifiedAt": "2026-11-23",
+  "examEffectiveFrom": "2026-12-07",
+  "contact": {
+    "salesCard": "amelia.jpg",
+    "placement": "back-cover only; user confirmed"
+  },
+  "sources": {
+    "A": "https://cc.sj-cdn.net/instructor/6nizmqk8tpzpfjvt6qmmav7rh/public/1794946609/Claude_Certified_Associate_-_Foundations_Exam_Guide_Updated_Dec_7.pdf",
+    "DF": "https://cc.sj-cdn.net/instructor/6nizmqk8tpzpfjvt6qmmav7rh/public/1794946771/Claude_Certified_Developer_-_Foundations_Exam_Guide_Updated_Dec_7.pdf",
+    "AF": "https://cc.sj-cdn.net/instructor/6nizmqk8tpzpfjvt6qmmav7rh/public/1794946250/Claude_Certified_Architect_-_Foundations_Exam_Guide.pdf",
+    "AP": "https://cc.sj-cdn.net/instructor/6nizmqk8tpzpfjvt6qmmav7rh/public/1794946420/Claude_Certified_Architect_-_Professional_Exam_Guide_Updated_Dec_7.pdf",
+    "DP": "https://cc.sj-cdn.net/instructor/6nizmqk8tpzpfjvt6qmmav7rh/public/1794947325/Claude_Certified_Developer-Professional_Exam_Guide.pdf",
+    "catalog": "https://anthropic-partners.skilljar.com/page/partner-certifications",
+    "prep": "https://anthropic-partners.skilljar.com/page/claude-certification-exam-prep-courses",
+    "faq": "https://anthropic-partners.skilljar.com/page/faq-certifications",
+    "policies": "https://anthropic-partners.skilljar.com/page/policies-certifications",
+    "sso": "https://cc.sj-cdn.net/instructor/6nizmqk8tpzpfjvt6qmmav7rh/public/1794424056/Claude_certifications-Pearson_SSO_and_checkout.pdf",
+    "module": "https://anthropic-partners.skilljar.com/production-grade-prompting-agents-tool-use",
+    "certmaster": "https://jiangren.com.au/tools/cert-master",
+    "certcatalog": "https://jiangren.com.au/certifications",
+    "jrDF": "https://jiangren.com.au/certifications/exam/ccdv-f",
+    "jrAF": "https://jiangren.com.au/certifications/exam/ccar-f",
+    "jrAP": "https://jiangren.com.au/certifications/exam/ccar-p"
+  }
+}
