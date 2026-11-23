@@ -1,0 +1,31 @@
+{
+  "slug": "claude-certification-selection-guide",
+  "title": "Claude 五大认证怎么选？",
+  "subtitle": "从你的工作背景出发，看懂五项认证，选出适合自己的起点。",
+  "audience": "刚接触Claude认证、尚未确定备考方向的读者",
+  "goal": "lead-magnet",
+  "track": "T2",
+  "style": "handbook",
+  "design": "jr-brand",
+  "template": "templates/SKELETON.html + ebooks/style-gallery/index.html (handbook); cover2",
+  "pages": 16,
+  "status": "published",
+  "verifiedAt": "2026-11-23",
+  "examEffectiveFrom": "2026-12-07",
+  "contact": {
+    "qr": "qr-amelia.png",
+    "salesCard": "amelia.jpg"
+  },
+  "sources": {
+    "A": "https://cc.sj-cdn.net/instructor/6nizmqk8tpzpfjvt6qmmav7rh/public/1794946609/Claude_Certified_Associate_-_Foundations_Exam_Guide_Updated_Dec_7.pdf",
+    "DF": "https://cc.sj-cdn.net/instructor/6nizmqk8tpzpfjvt6qmmav7rh/public/1794946771/Claude_Certified_Developer_-_Foundations_Exam_Guide_Updated_Dec_7.pdf",
+    "AF": "https://cc.sj-cdn.net/instructor/6nizmqk8tpzpfjvt6qmmav7rh/public/1794946250/Claude_Certified_Architect_-_Foundations_Exam_Guide.pdf",
+    "AP": "https://cc.sj-cdn.net/instructor/6nizmqk8tpzpfjvt6qmmav7rh/public/1794946420/Claude_Certified_Architect_-_Professional_Exam_Guide_Updated_Dec_7.pdf",
+    "DP": "https://cc.sj-cdn.net/instructor/6nizmqk8tpzpfjvt6qmmav7rh/public/1794947325/Claude_Certified_Developer-Professional_Exam_Guide.pdf",
+    "catalog": "https://anthropic-partners.skilljar.com/page/partner-certifications",
+    "prep": "https://anthropic-partners.skilljar.com/page/claude-certification-exam-prep-courses",
+    "faq": "https://anthropic-partners.skilljar.com/page/faq-certifications"
+  },
+  "publishedAt": "2026-11-23",
+  "url": "https://jiangren.com.au/ebooks/claude-certification-selection-guide"
+}
