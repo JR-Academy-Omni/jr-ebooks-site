@@ -1,0 +1,51 @@
+[
+  {
+    "name": "evening-learning.png",
+    "bytes": 2021565,
+    "sha256": "a0b28165d04d5c774a0fb159baefb91931db4fa1e1f22f19defa7e1c4da29ee8",
+    "url": "https://jr-academy-omni.github.io/jr-ebooks-site/wechat/jiangshuo-vol11-2026-11/assets/evening-learning.png",
+    "kind": "ai-generated"
+  },
+  {
+    "name": "event-banner.jpg",
+    "bytes": 117906,
+    "sha256": "596bf2f7037930cf90505ea83206eb86dd404176c07cb8b99b60d83535f096ad",
+    "url": "https://jr-academy-omni.github.io/jr-ebooks-site/wechat/jiangshuo-vol11-2026-11/assets/event-banner.jpg",
+    "kind": "event-asset"
+  },
+  {
+    "name": "event-poster.png",
+    "bytes": 2290337,
+    "sha256": "5d93c2dee20f6ee4995e8177b8524c62367360afed45f4ec2ac88cc44ec5a039",
+    "url": "https://jr-academy-omni.github.io/jr-ebooks-site/wechat/jiangshuo-vol11-2026-11/assets/event-poster.png",
+    "kind": "event-asset"
+  },
+  {
+    "name": "job-search-life.png",
+    "bytes": 2426376,
+    "sha256": "d663aad0518b57f0c202ed83f1832916c9bfab408b2cc4733ba096b00118cb49",
+    "url": "https://jr-academy-omni.github.io/jr-ebooks-site/wechat/jiangshuo-vol11-2026-11/assets/job-search-life.png",
+    "kind": "ai-generated"
+  },
+  {
+    "name": "rba-job-ads-official.png",
+    "bytes": 164833,
+    "sha256": "d0f8a4cad3227d3986222cbe3664f08e629b1718e4a6a358a1f8660bd0c40a3a",
+    "url": "https://jr-academy-omni.github.io/jr-ebooks-site/wechat/jiangshuo-vol11-2026-11/assets/rba-job-ads-official.png",
+    "kind": "official-report-excerpt"
+  },
+  {
+    "name": "rba-report-official.png",
+    "bytes": 185788,
+    "sha256": "4d1e350449e79ad999ae46a0fffca2cffb0e1afba48fccebb9835fa2f5525f3a",
+    "url": "https://jr-academy-omni.github.io/jr-ebooks-site/wechat/jiangshuo-vol11-2026-11/assets/rba-report-official.png",
+    "kind": "official-report-excerpt"
+  },
+  {
+    "name": "registration-qr.png",
+    "bytes": 13424,
+    "sha256": "8692b0af663f3b1c13ea5cf4f33c55d7d4e309a8f664900a211c24e116b5da42",
+    "url": "https://jr-academy-omni.github.io/jr-ebooks-site/wechat/jiangshuo-vol11-2026-11/assets/registration-qr.png",
+    "kind": "event-asset"
+  }
+]
