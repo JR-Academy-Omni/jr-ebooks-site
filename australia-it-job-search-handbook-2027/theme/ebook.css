@@ -8,6 +8,32 @@
 @import url('./tokens.css');
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Caveat:wght@600&display=swap');
 
+/* Approved cover title fitting; body pages use the standard handbook components. */
+.cert-book .cv2-title-cn { display:block; font-size:50pt; line-height:1.25; margin-top:3mm; }
+@media screen and (max-width:600px) {
+  .cert-book { padding:0; }
+  .cert-book .page, .cert-book.reader-mode .page { width:100%; height:auto; min-height:100vh; padding:28px 20px 90px; margin:0; position:relative; top:auto; left:auto; transform:none; overflow:visible; box-shadow:none; }
+  .cert-book.reader-mode { overflow-y:auto; }
+  .cert-book .page-footer { position:relative; inset:auto; margin-top:25px; }
+  .cert-book p, .cert-book li { font-size:16px; }
+  .cert-book .two-col { grid-template-columns:1fr; }
+  .cert-book .cover2, .cert-book.reader-mode .page.cover2 { min-height:844px; overflow:hidden; }
+  .cert-book .cv2-body { margin-top:65px; }
+  .cert-book .cv2-title { font-size:64px; }
+  .cert-book .cv2-title-cn { font-size:34px; }
+  .cert-book .cv2-kicker { font-size:18px; }
+  .cert-book .cv2-sub { max-width:100%; }
+  .cert-book .cv2-mascot { width:145px; bottom:95px; right:20px; }
+  .cert-book .cv2-holo { width:50px; height:50px; font-size:28px; right:155px; bottom:185px; }
+  .cert-book .cv2-sticker { font-size:12px; padding:7px 12px; }
+  .cert-book .cv2-diecut { font-size:17px; }
+  .cert-book .cv2-domain { font-size:9px; left:20px; right:20px; }
+  .cert-book .toc-item { font-size:14px; gap:8px; }
+  .cert-book .toc-item small { font-size:12px; }
+  .cert-book .back-cover > div { max-width:100%; }
+  .cert-book .jr-wm { width:60vw; }
+}
+
 /* —— Page geometry —— */
 @page {
   size: A4;
